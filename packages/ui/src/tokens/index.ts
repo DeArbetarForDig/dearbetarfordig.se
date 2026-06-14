@@ -1,8 +1,11 @@
 /**
  * @daf/ui — Design Tokens
  *
- * Alla färger, spacing och typografi som CSS custom properties.
- * Kommun-teman överrider dessa via :root eller data-theme.
+ * Based on EDS foundations:
+ * - 8px spacing grid
+ * - Light/dark themes (no pure white/black)
+ * - Status colors for DV
+ * - Party colors as categorical palette
  */
 
 export const partyColors = {
@@ -14,50 +17,62 @@ export const partyColors = {
   KD: '#005DA6',
   MP: '#83CF39',
   L: '#006AB3',
-  '-': '#94A3B8', // Partilösa
+  '-': '#94A3B8',
 } as const
 
 export const voteColors = {
   ja: '#16A34A',
   nej: '#DC2626',
   avstår: '#EAB308',
-  frånvarande: '#6B7280',
+  frånvarande: '#64748B',
+} as const
+
+export const statusColors = {
+  positive: '#16A34A',
+  negative: '#DC2626',
+  warning: '#EAB308',
+  info: '#2563EB',
+  neutral: '#64748B',
 } as const
 
 export const theme = {
   light: {
-    background: '#FFFFFF',
+    bg: '#F8FAFC',
+    surface: '#FFFFFF',
     text: '#1E293B',
+    textMuted: '#64748B',
+    border: '#E2E8F0',
     primary: '#2563EB',
-    secondary: '#7C3AED',
-    muted: '#64748B',
+    accent: '#7C3AED',
   },
   dark: {
-    background: '#0F172A',
+    bg: '#0F172A',
+    surface: '#1E293B',
     text: '#F1F5F9',
+    textMuted: '#94A3B8',
+    border: '#334155',
     primary: '#60A5FA',
-    secondary: '#A78BFA',
-    muted: '#94A3B8',
+    accent: '#A78BFA',
   },
 } as const
 
+/** 8px spacing grid (EDS) */
 export const spacing = {
-  xs: '0.25rem',
-  sm: '0.5rem',
-  md: '1rem',
-  lg: '1.5rem',
-  xl: '2rem',
-  '2xl': '3rem',
+  xs: '4px',
+  sm: '8px',
+  md: '16px',
+  lg: '24px',
+  xl: '32px',
+  '2xl': '48px',
 } as const
 
 export const fontSize = {
-  xs: '0.75rem',
-  sm: '0.875rem',
-  base: '1rem',
-  lg: '1.125rem',
-  xl: '1.25rem',
-  '2xl': '1.5rem',
-  '3xl': '2rem',
+  small: '0.75rem',
+  label: '0.875rem',
+  body: '1rem',
+  h3: '1.25rem',
+  h2: '1.5rem',
+  h1: '2rem',
   kpi: '2.5rem',
 } as const
 

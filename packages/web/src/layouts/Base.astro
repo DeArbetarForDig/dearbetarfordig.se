@@ -20,21 +20,25 @@ const { title, description = 'Öppen demokratiplattform för svenska kommuner' }
     <title>{title} — De Arbetar För Dig</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 antialiased">
-    <header class="border-b border-slate-200 dark:border-slate-700 px-4 py-3">
+  <body class="bg-bg text-text antialiased min-h-screen flex flex-col">
+    <!-- System layer (EDS layer 1) -->
+    <header class="border-b border-border px-4 py-3">
       <nav class="max-w-6xl mx-auto flex items-center justify-between">
         <a href="/" class="font-bold text-lg">DeArbetarFörDig</a>
         <ul class="flex gap-4 text-sm">
-          <li><a href="/goteborg">Göteborg</a></li>
+          <li><a href="/goteborg" class="hover:text-primary">Göteborg</a></li>
         </ul>
       </nav>
     </header>
-    <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Content layer (EDS layer 3) -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-1 w-full">
       <slot />
     </main>
-    <footer class="border-t border-slate-200 dark:border-slate-700 px-4 py-6 mt-12 text-center text-sm text-slate-500">
+
+    <footer class="border-t border-border px-4 py-6 text-center text-sm text-text-muted">
       <p>Public money, public code. Public decisions, public data.</p>
-      <p class="mt-1">AGPL-3.0 · <a href="https://github.com/YOUR_ORG/dearbetarfordig.se" class="underline">Källkod</a></p>
+      <p class="mt-1">AGPL-3.0 · <a href="https://github.com/YOUR_ORG/dearbetarfordig.se" class="underline hover:text-primary">Källkod</a></p>
     </footer>
   </body>
 </html>

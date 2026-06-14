@@ -43,7 +43,7 @@ const kpis = [
   <!-- Block 1: Salen -->
   <section class="mb-12">
     <h1 class="text-3xl font-bold mb-2">Göteborg</h1>
-    <p class="text-slate-500 dark:text-slate-400 mb-6">Kommunfullmäktige — 81 ledamöter som beslutar för dig</p>
+    <p class="text-text-muted mb-6">Kommunfullmäktige — 81 ledamöter som beslutar för dig</p>
     <div class="w-full max-w-2xl mx-auto" set:html={chamberSVG} />
   </section>
 
@@ -51,9 +51,9 @@ const kpis = [
   <section class="mb-12">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
       {kpis.map(kpi => (
-        <div class="text-center p-4 rounded-lg bg-slate-50 dark:bg-slate-800">
-          <div class="text-3xl font-bold">{kpi.value}</div>
-          <div class="text-sm text-slate-500 dark:text-slate-400">{kpi.label}</div>
+        <div class="text-center p-4 rounded-lg bg-surface border border-border">
+          <div class="text-3xl font-bold font-mono">{kpi.value}</div>
+          <div class="text-sm text-text-muted">{kpi.label}</div>
         </div>
       ))}
     </div>
