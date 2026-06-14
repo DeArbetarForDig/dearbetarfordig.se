@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+.env
+.tmp/
+*.tsbuildinfo
+.DS_Store
+
+# Reference sources (large repos, not tracked)
+docs/reference/*/
+!docs/reference/README.md

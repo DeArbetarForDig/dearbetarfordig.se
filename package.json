@@ -1,0 +1,24 @@
+{
+  "name": "dearbetarfordig",
+  "private": true,
+  "type": "module",
+  "description": "Öppen demokratiplattform för svenska kommuner",
+  "license": "AGPL-3.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @daf/web dev",
+    "dev:all": "pnpm --parallel --filter @daf/web --filter @daf/api dev",
+    "build": "pnpm --filter @daf/web build",
+    "api": "pnpm --filter @daf/api dev",
+    "scrape": "pnpm --filter @daf/pipeline scrape",
+    "transcribe": "pnpm --filter @daf/pipeline transcribe",
+    "lint": "biome check .",
+    "lint:fix": "biome check --fix .",
+    "format": "biome format --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
+  }
+}
