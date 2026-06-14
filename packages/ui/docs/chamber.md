@@ -1,20 +1,45 @@
 # Chamber (Sal)
 
-SVG seating chart for a municipal council. Reusable across all kommuner.
+SVG hemicycle seating chart for Göteborgs kommunfullmäktige.
+Matches the real KF chamber layout: curved rows in a semicircle,
+two sectors separated by a central aisle, presidium at center front.
+
+Reference: Göteborgs KF votering 2019 (tmp/maxresdefault.jpg)
 
 ## When to use
 
-- Hero on `/kommun/` overview page — show all seats colored by party
-- Vote visualization on `/kommun/beslut/[id]` — show ja/nej/avstår per seat
+- Hero on `/kommun/` overview page — show all 81 seats colored by party
+- Vote visualization on `/kommun/beslut/[id]` — seats colored green/red/yellow
 - Compact view in sidebars or cards
 
 ## Variants
 
 ### 1. Overview (default)
-Each seat colored by party. Hover shows politician card.
+Each seat colored by party. Hover shows politician card. Seat numbers visible.
 
 ### 2. Vote
-Same layout, but seat colors reflect vote position (green/red/gray). Icons overlaid.
+Same hemicycle layout, but seat colors reflect vote position:
+- 🟢 Green = Ja
+- 🔴 Red = Nej
+- 🟡 Yellow = Avstår
+- ⚫ Gray = Frånvarande
+
+Includes result panel (top-right): "Votering avslutad — Ja: 60, Nej: 7..."
+
+## Layout
+
+```
+        [1][2][3][4]          ← Presidium (ordförande + vice)
+      ╭─────────────────╮
+    ╭─── Row 1 (10 seats) ───╮
+  ╭───── Row 2 (12 seats) ─────╮
+╭─────── Row 3 (14 seats) ───────╮
+╰─────── Row 4 (16 seats) ───────╯
+  ╰───── Row 5 (18 seats) ─────╯
+    ╰─── Row 6 (11 seats) ───╯
+```
+
+81 seats total. Central aisle splits left/right sectors.
 
 ## Data Structure
 

@@ -1,16 +1,21 @@
 /**
  * @daf/ui — Chamber (Sal-komponent)
  *
- * Renders an SVG seating chart for a municipal council.
- * Two modes: overview (party colors) and vote (ja/nej/avstår icons).
+ * Renders an SVG hemicycle seating chart for Göteborgs kommunfullmäktige.
+ * Layout: two semicircular sectors separated by a central aisle,
+ * matching the real KF chamber (see reference: tmp/maxresdefault.jpg).
+ *
+ * Two modes:
+ * - overview: seats colored by party
+ * - vote: seats colored by vote (green=Ja, red=Nej, yellow=Avstår, gray=Frånvarande)
  */
 
+import { partyColors, voteColors } from '../tokens'
 import type { PartyCode, VotePosition } from '../tokens'
 
 export interface Seat {
-  id: string
-  row: number
-  col: number
+  /** Seat number (1-81 in Göteborg KF) */
+  nummer: number
   politikerId: string
   namn: string
   parti: PartyCode
@@ -25,67 +30,120 @@ export interface VoteResult {
 
 export interface ChamberConfig {
   seats: Seat[]
-  rows: number
-  cols: number
   mode: 'overview' | 'vote'
   votes?: VoteResult[]
-  seatSize?: number
-  gap?: number
+  size?: number
+}
+
+/**
+ * Generates hemicycle seat positions.
+ * Göteborgs KF: 81 seats in curved rows, split into left/right sectors.
+ * Presidium (1-4) at center front, then rows radiating outward.
+ */
+function computeSeatPositions(totalSeats: number, size: number) {
+  const cx = size / 2
+  const cy = size * 0.85
+  const positions: { nummer: number; x: number; y: number }[] = []
+
+  // Presidium row (seats 1-4) — center front
+  const presidiumCount = 4
+  for (let i = 0; i < presidiumCount; i++) {
+    const angle = Math.PI * (0.35 + (i / (presidiumCount - 1)) * 0.3)
+    const r = size * 0.12
+    positions.push({
+      nummer: i + 1,
+      x: cx - r * Math.cos(angle),
+      y: cy - r * Math.sin(angle),
+    })
+  }
+
+  // Remaining seats in hemicycle rows
+  const remaining = totalSeats - presidiumCount
+  const rowCapacities = [10, 12, 14, 16, 18, 11] // ~81 total with presidium
+  let seatNum = presidiumCount + 1
+  let rowIndex = 0
+
+  for (const capacity of rowCapacities) {
+    if (seatNum > totalSeats) break
+    const seatsInRow = Math.min(capacity, totalSeats - seatNum + 1)
+    const radius = size * (0.22 + rowIndex * 0.11)
+
+    for (let i = 0; i < seatsInRow; i++) {
+      const angleStart = 0.15
+      const angleEnd = 0.85
+      const t = seatsInRow === 1 ? 0.5 : i / (seatsInRow - 1)
+      const angle = Math.PI * (angleStart + t * (angleEnd - angleStart))
+
+      positions.push({
+        nummer: seatNum,
+        x: cx - radius * Math.cos(angle),
+        y: cy - radius * Math.sin(angle),
+      })
+      seatNum++
+    }
+    rowIndex++
+  }
+
+  return positions
 }
 
 export function generateChamberSVG(config: ChamberConfig): string {
-  const { seats, rows, cols, mode, votes, seatSize = 32, gap = 6 } = config
-  const width = cols * (seatSize + gap) + gap
-  const height = rows * (seatSize + gap) + gap
-
+  const { seats, mode, votes, size = 500 } = config
   const voteMap = new Map(votes?.map((v) => [v.politikerId, v.röst]))
+  const seatMap = new Map(seats.map((s) => [s.nummer, s]))
+  const positions = computeSeatPositions(seats.length, size)
+  const seatSize = size * 0.028
 
-  const seatElements = seats
-    .map((seat) => {
-      const x = gap + seat.col * (seatSize + gap)
-      const y = gap + seat.row * (seatSize + gap)
-      const fill = getSeatFill(seat, mode, voteMap)
-      const icon = mode === 'vote' ? getVoteIcon(voteMap.get(seat.politikerId)) : ''
+  const seatElements = positions
+    .map(({ nummer, x, y }) => {
+      const seat = seatMap.get(nummer)
+      if (!seat) return ''
 
-      return `<g data-politician-id="${seat.politikerId}" data-party="${seat.parti}" class="seat">
-      <title>${seat.namn} (${seat.parti})${mode === 'vote' ? ` — ${voteMap.get(seat.politikerId) ?? 'frånvarande'}` : ''}</title>
-      <rect x="${x}" y="${y}" width="${seatSize}" height="${seatSize}" rx="4" fill="${fill}" />
-      ${icon ? `<text x="${x + seatSize / 2}" y="${y + seatSize / 2 + 5}" text-anchor="middle" font-size="14">${icon}</text>` : ''}
+      const fill =
+        mode === 'overview'
+          ? (partyColors[seat.parti] ?? partyColors['-'])
+          : voteColors[voteMap.get(seat.politikerId) ?? 'frånvarande']
+
+      const voteLabel =
+        mode === 'vote' ? ` — ${voteMap.get(seat.politikerId) ?? 'frånvarande'}` : ''
+
+      return `<g class="seat" data-nummer="${nummer}" data-party="${seat.parti}">
+      <title>${seat.namn} (${seat.parti})${voteLabel}</title>
+      <rect x="${x - seatSize}" y="${y - seatSize * 0.7}" width="${seatSize * 2}" height="${seatSize * 1.4}" rx="3" fill="${fill}" />
+      <text x="${x}" y="${y + 3}" text-anchor="middle" font-size="${size * 0.018}" fill="white" font-weight="bold">${nummer}</text>
     </g>`
     })
     .join('\n    ')
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Kommunfullmäktiges sal — ${seats.length} ledamöter">
-  <style>.seat rect:hover { stroke: #2563EB; stroke-width: 2; cursor: pointer; }</style>
+  const resultatPanel = mode === 'vote' && votes ? generateResultPanel(votes, size) : ''
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size * 0.9}" role="img" aria-label="Göteborgs kommunfullmäktige — ${seats.length} ledamöter">
+  <style>
+    .seat rect:hover { stroke: #fff; stroke-width: 2; cursor: pointer; }
+    .seat { transition: opacity 0.15s; }
+  </style>
   ${seatElements}
+  ${resultatPanel}
 </svg>`
 }
 
-function getSeatFill(
-  seat: Seat,
-  mode: ChamberConfig['mode'],
-  voteMap: Map<string, VotePosition>,
-): string {
-  if (mode === 'overview') {
-    const { partyColors } = require('../tokens')
-    return partyColors[seat.parti] ?? partyColors['-']
-  }
-  const vote = voteMap.get(seat.politikerId)
-  const { voteColors } = require('../tokens')
-  return voteColors[vote ?? 'frånvarande']
-}
+function generateResultPanel(votes: VoteResult[], size: number): string {
+  const ja = votes.filter((v) => v.röst === 'ja').length
+  const nej = votes.filter((v) => v.röst === 'nej').length
+  const avstår = votes.filter((v) => v.röst === 'avstår').length
+  const frånv = votes.filter((v) => v.röst === 'frånvarande').length
 
-function getVoteIcon(vote?: VotePosition): string {
-  switch (vote) {
-    case 'ja':
-      return '👍'
-    case 'nej':
-      return '👎'
-    case 'avstår':
-      return '✋'
-    default:
-      return ''
-  }
+  const px = size * 0.72
+  const py = size * 0.05
+
+  return `<g class="resultat-panel">
+    <rect x="${px}" y="${py}" width="${size * 0.26}" height="${size * 0.2}" rx="4" fill="#1a1a2e" opacity="0.9" />
+    <text x="${px + 8}" y="${py + 20}" font-size="11" fill="#aaa">Votering avslutad</text>
+    <text x="${px + 8}" y="${py + 38}" font-size="13" fill="${voteColors.ja}" font-weight="bold">Ja: ${ja}</text>
+    <text x="${px + 8}" y="${py + 56}" font-size="13" fill="${voteColors.nej}" font-weight="bold">Nej: ${nej}</text>
+    <text x="${px + 8}" y="${py + 74}" font-size="13" fill="${voteColors.avstår}" font-weight="bold">Avstår: ${avstår}</text>
+    <text x="${px + 8}" y="${py + 92}" font-size="13" fill="#666">Frånv: ${frånv}</text>
+  </g>`
 }
 
 export { generateChamberSVG as default }

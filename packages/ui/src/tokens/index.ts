@@ -20,8 +20,8 @@ export const partyColors = {
 export const voteColors = {
   ja: '#16A34A',
   nej: '#DC2626',
-  avstår: '#94A3B8',
-  frånvarande: '#E2E8F0',
+  avstår: '#EAB308',
+  frånvarande: '#6B7280',
 } as const
 
 export const theme = {
