@@ -7,8 +7,15 @@
   "exports": {
     ".": "./src/index.ts",
     "./tokens": "./src/tokens/index.ts",
-    "./components/*": "./src/components/*/index.ts",
-    "./charts/*": "./src/charts/*/index.ts"
+    "./components/chamber": "./src/components/chamber/index.ts",
+    "./components/kpi": "./src/components/kpi/index.ts",
+    "./components/politician-card": "./src/components/politician-card/index.ts",
+    "./components/decision-card": "./src/components/decision-card/index.ts",
+    "./components/structure-tree": "./src/components/structure-tree/index.ts",
+    "./components/timeline": "./src/components/timeline/index.ts",
+    "./charts/donut": "./src/charts/donut/index.ts",
+    "./charts/bar": "./src/charts/bar/index.ts",
+    "./charts/hierarchy": "./src/charts/hierarchy/index.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

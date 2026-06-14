@@ -9,8 +9,8 @@
  * - custom: any emoji/icon per seat
  */
 
-import { partyColors, voteColors } from '../tokens'
-import type { PartyCode, VotePosition } from '../tokens'
+import { partyColors, voteColors } from '../../tokens/index.ts'
+import type { PartyCode, VotePosition } from '../../tokens/index.ts'
 
 export interface Seat {
   nummer: number

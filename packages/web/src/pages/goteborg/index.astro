@@ -1,0 +1,139 @@
+---
+import Base from '../../layouts/Base.astro'
+import { generateChamberSVG, generateDonutSVG, generateKPIHTML, partyColors } from '@daf/ui'
+import { getMockSeats } from '../../data/mock'
+
+const seats = getMockSeats()
+
+const chamberSVG = generateChamberSVG({
+  seats,
+  mode: 'overview',
+})
+
+const partiMandat: [string, number][] = [
+  ['S', 21],
+  ['M', 16],
+  ['SD', 14],
+  ['V', 9],
+  ['MP', 7],
+  ['C', 5],
+  ['L', 5],
+  ['KD', 4],
+]
+
+const donutSVG = generateDonutSVG({
+  segments: partiMandat.map(([parti, value]) => ({
+    label: parti,
+    value,
+    color: partyColors[parti as keyof typeof partyColors],
+  })),
+  showLegend: true,
+})
+
+const kpis = [
+  { value: 81, label: 'Ledamöter i KF' },
+  { value: 234, label: 'Beslut 2025' },
+  { value: '92%', label: 'Närvaro (snitt)' },
+  { value: '12.4', label: 'mdr kr budget', unit: '' },
+]
+---
+
+<Base title="Göteborg" description="Göteborgs kommunfullmäktige — 81 ledamöter, beslut, voteringar">
+
+  <!-- Block 1: Salen -->
+  <section class="mb-12">
+    <h1 class="text-3xl font-bold mb-2">Göteborg</h1>
+    <p class="text-slate-500 dark:text-slate-400 mb-6">Kommunfullmäktige — 81 ledamöter som beslutar för dig</p>
+    <div class="w-full max-w-2xl mx-auto" set:html={chamberSVG} />
+  </section>
+
+  <!-- Block 2: KPI -->
+  <section class="mb-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {kpis.map(kpi => (
+        <div class="text-center p-4 rounded-lg bg-slate-50 dark:bg-slate-800">
+          <div class="text-3xl font-bold">{kpi.value}</div>
+          <div class="text-sm text-slate-500 dark:text-slate-400">{kpi.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Block 3: Partibalans -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-4">Mandatfördelning</h2>
+    <div class="w-full max-w-md" set:html={donutSVG} />
+  </section>
+
+  <!-- Block 4: Struktur (preview) -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-4">Hur styrs Göteborg?</h2>
+    <div class="space-y-3">
+      <div class="p-4 rounded-lg bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-500">
+        <h3 class="font-bold">Kommunfullmäktige (KF)</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300">"Riksdagen för Göteborg" — 81 ledamöter fattar alla stora beslut</p>
+      </div>
+      <div class="ml-6 p-4 rounded-lg bg-purple-50 dark:bg-purple-900/30 border-l-4 border-purple-500">
+        <h3 class="font-bold">Kommunstyrelsen (KS)</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300">"Regeringen" — 13 ledamöter leder det dagliga arbetet</p>
+      </div>
+      <div class="ml-12 grid grid-cols-2 md:grid-cols-3 gap-2">
+        <div class="p-3 rounded bg-slate-50 dark:bg-slate-800 text-sm">
+          <span class="font-semibold">Grundskolenämnden</span><br/>
+          <span class="text-slate-500">Skolor & lärare</span>
+        </div>
+        <div class="p-3 rounded bg-slate-50 dark:bg-slate-800 text-sm">
+          <span class="font-semibold">Byggnadsnämnden</span><br/>
+          <span class="text-slate-500">Vad som får byggas</span>
+        </div>
+        <div class="p-3 rounded bg-slate-50 dark:bg-slate-800 text-sm">
+          <span class="font-semibold">Trafiknämnden</span><br/>
+          <span class="text-slate-500">Vägar & spårvagnar</span>
+        </div>
+        <div class="p-3 rounded bg-slate-50 dark:bg-slate-800 text-sm">
+          <span class="font-semibold">Socialnämnden</span><br/>
+          <span class="text-slate-500">Stöd & omsorg</span>
+        </div>
+        <div class="p-3 rounded bg-slate-50 dark:bg-slate-800 text-sm">
+          <span class="font-semibold">Miljönämnden</span><br/>
+          <span class="text-slate-500">Klimat & natur</span>
+        </div>
+        <a href="/goteborg/struktur" class="p-3 rounded bg-slate-50 dark:bg-slate-800 text-sm text-blue-600 dark:text-blue-400 font-semibold flex items-center justify-center">
+          Visa alla →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Block 5: Senaste beslut -->
+  <section>
+    <h2 class="text-xl font-bold mb-4">Senaste beslut</h2>
+    <div class="space-y-3">
+      <article class="p-4 rounded-lg border border-slate-200 dark:border-slate-700">
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-green-600 font-semibold text-sm">🟢 Bifall</span>
+          <time class="text-xs text-slate-500">2025-06-12</time>
+        </div>
+        <h3 class="font-semibold">Ny cykelväg Hisingen–centrum</h3>
+        <p class="text-sm text-slate-500">KF § 45 · Ja: 52 · Nej: 21 · Avstår: 8</p>
+      </article>
+      <article class="p-4 rounded-lg border border-slate-200 dark:border-slate-700">
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-red-600 font-semibold text-sm">🔴 Avslag</span>
+          <time class="text-xs text-slate-500">2025-06-10</time>
+        </div>
+        <h3 class="font-semibold">Motion: Gratis kollektivtrafik under 26 år</h3>
+        <p class="text-sm text-slate-500">KF § 43 · Ja: 31 · Nej: 45 · Avstår: 5</p>
+      </article>
+      <article class="p-4 rounded-lg border border-slate-200 dark:border-slate-700">
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-slate-600 font-semibold text-sm">📋 Remitterad</span>
+          <time class="text-xs text-slate-500">2025-06-08</time>
+        </div>
+        <h3 class="font-semibold">Budget 2026 — förslag från KS</h3>
+        <p class="text-sm text-slate-500">Skickat till alla nämnder för yttrande</p>
+      </article>
+    </div>
+  </section>
+
+</Base>
