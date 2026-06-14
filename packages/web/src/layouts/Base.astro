@@ -20,25 +20,25 @@ const { title, description = 'Öppen demokratiplattform för svenska kommuner' }
     <title>{title} — De Arbetar För Dig</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="bg-bg text-text antialiased min-h-screen flex flex-col">
-    <!-- System layer (EDS layer 1) -->
-    <header class="border-b border-border px-4 py-3">
+  <body class="min-h-screen flex flex-col antialiased">
+    <!-- System layer -->
+    <header style="border-bottom: 1px solid var(--color-border); padding: var(--space-sm) var(--space-md);">
       <nav class="max-w-6xl mx-auto flex items-center justify-between">
-        <a href="/" class="font-bold text-lg">DeArbetarFörDig</a>
-        <ul class="flex gap-4 text-sm">
-          <li><a href="/goteborg" class="hover:text-primary">Göteborg</a></li>
+        <a href="/" style="font-weight: 700; font-size: var(--font-size-h3); color: var(--color-text); text-decoration: none;">DeArbetarFörDig</a>
+        <ul class="flex gap-4" style="font-size: var(--font-size-label);">
+          <li><a href="/goteborg">Göteborg</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- Content layer (EDS layer 3) -->
-    <main class="max-w-6xl mx-auto px-4 py-8 flex-1 w-full">
+    <!-- Content layer -->
+    <main class="max-w-6xl mx-auto w-full flex-1" style="padding: var(--space-xl) var(--space-md);">
       <slot />
     </main>
 
-    <footer class="border-t border-border px-4 py-6 text-center text-sm text-text-muted">
+    <footer style="border-top: 1px solid var(--color-border); padding: var(--space-lg) var(--space-md); text-align: center; font-size: var(--font-size-label); color: var(--color-text-muted);">
       <p>Public money, public code. Public decisions, public data.</p>
-      <p class="mt-1">AGPL-3.0 · <a href="https://github.com/YOUR_ORG/dearbetarfordig.se" class="underline hover:text-primary">Källkod</a></p>
+      <p style="margin-top: var(--space-sm);">AGPL-3.0 · <a href="https://github.com/YOUR_ORG/dearbetarfordig.se">Källkod</a></p>
     </footer>
   </body>
 </html>

@@ -1,29 +1,25 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import '../../../ui/src/tokens/css/global.css';
+@import '../../../ui/src/tokens/css/light.css';
+@import '../../../ui/src/tokens/css/dark.css';
 
-@theme {
-  --color-bg: #f8fafc;
-  --color-surface: #ffffff;
-  --color-text: #1e293b;
-  --color-text-muted: #64748b;
-  --color-border: #e2e8f0;
-  --color-primary: #2563eb;
-  --color-accent: #7c3aed;
-  --color-positive: #16a34a;
-  --color-negative: #dc2626;
-  --color-warning: #eab308;
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height);
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
-@media (prefers-color-scheme: dark) {
-  @theme {
-    --color-bg: #0f172a;
-    --color-surface: #1e293b;
-    --color-text: #f1f5f9;
-    --color-text-muted: #94a3b8;
-    --color-border: #334155;
-    --color-primary: #60a5fa;
-    --color-accent: #a78bfa;
-    --color-positive: #4ade80;
-    --color-negative: #f87171;
-    --color-warning: #fde047;
-  }
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
 }
