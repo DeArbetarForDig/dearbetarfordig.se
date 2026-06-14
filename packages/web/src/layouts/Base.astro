@@ -19,16 +19,31 @@ const { title, description = 'Öppen demokratiplattform för svenska kommuner' }
     <meta property="og:locale" content="sv_SE" />
     <title>{title} — De Arbetar För Dig</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      // Theme: restore from localStorage or use system preference
+      const t = localStorage.getItem('theme')
+      if (t) document.documentElement.setAttribute('data-theme', t)
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.setAttribute('data-theme', 'dark')
+      else document.documentElement.setAttribute('data-theme', 'light')
+    </script>
   </head>
   <body class="min-h-screen flex flex-col antialiased">
-    <!-- System layer -->
-    <header style="border-bottom: 1px solid var(--color-border); padding: var(--space-sm) var(--space-md);">
-      <nav class="max-w-6xl mx-auto flex items-center justify-between">
-        <a href="/" style="font-weight: 700; font-size: var(--font-size-h3); color: var(--color-text); text-decoration: none;">DeArbetarFörDig</a>
-        <ul class="flex gap-4" style="font-size: var(--font-size-label);">
-          <li><a href="/goteborg">Göteborg</a></li>
-        </ul>
-      </nav>
+
+    <!-- Sysbar (EDS System Layer) -->
+    <header class="sysbar">
+      <div class="sysbar__left">
+        <a href="/" class="sysbar__brand">
+          <span class="sysbar__product">DeArbetarFörDig</span>
+        </a>
+      </div>
+      <div class="sysbar__right">
+        <a href="/goteborg" class="sysbar__item">Göteborg</a>
+        <button id="theme-toggle" class="sysbar__item sysbar__theme-btn" aria-label="Byt tema">
+          <span class="theme-icon-light">☀️</span>
+          <span class="theme-icon-dark">🌙</span>
+        </button>
+      </div>
     </header>
 
     <!-- Content layer -->
@@ -36,9 +51,18 @@ const { title, description = 'Öppen demokratiplattform för svenska kommuner' }
       <slot />
     </main>
 
-    <footer style="border-top: 1px solid var(--color-border); padding: var(--space-lg) var(--space-md); text-align: center; font-size: var(--font-size-label); color: var(--color-text-muted);">
+    <footer class="site-footer">
       <p>Public money, public code. Public decisions, public data.</p>
       <p style="margin-top: var(--space-sm);">AGPL-3.0 · <a href="https://github.com/YOUR_ORG/dearbetarfordig.se">Källkod</a></p>
     </footer>
+
+    <script is:inline>
+      document.getElementById('theme-toggle').addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme')
+        const next = current === 'dark' ? 'light' : 'dark'
+        document.documentElement.setAttribute('data-theme', next)
+        localStorage.setItem('theme', next)
+      })
+    </script>
   </body>
 </html>
