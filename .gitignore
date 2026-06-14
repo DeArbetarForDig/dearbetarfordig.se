@@ -9,3 +9,4 @@ dist/
 # Reference sources (large repos, not tracked)
 docs/reference/*/
 !docs/reference/README.md
+package-lock.json
