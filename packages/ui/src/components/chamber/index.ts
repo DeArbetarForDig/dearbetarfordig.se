@@ -99,18 +99,16 @@ export function generateChamberSVG(config: ChamberConfig): string {
       const seat = seatMap.get(nummer)
       if (!seat) return ''
 
-      const fill =
-        mode === 'overview'
-          ? (partyColors[seat.parti] ?? partyColors['-'])
-          : voteColors[voteMap.get(seat.politikerId) ?? 'frånvarande']
-
-      const voteLabel =
-        mode === 'vote' ? ` — ${voteMap.get(seat.politikerId) ?? 'frånvarande'}` : ''
+      const fill = partyColors[seat.parti] ?? partyColors['-']
+      const vote = voteMap.get(seat.politikerId)
+      const voteIcon = mode === 'vote' ? getVoteIcon(vote) : ''
+      const voteLabel = mode === 'vote' ? ` — ${vote ?? 'frånvarande'}` : ''
 
       return `<g class="seat" data-nummer="${nummer}" data-party="${seat.parti}">
       <title>${seat.namn} (${seat.parti})${voteLabel}</title>
       <rect x="${x - seatSize}" y="${y - seatSize * 0.7}" width="${seatSize * 2}" height="${seatSize * 1.4}" rx="3" fill="${fill}" />
       <text x="${x}" y="${y + 3}" text-anchor="middle" font-size="${size * 0.018}" fill="white" font-weight="bold">${nummer}</text>
+      ${voteIcon ? `<text x="${x + seatSize * 0.7}" y="${y - seatSize * 0.3}" font-size="${size * 0.024}">${voteIcon}</text>` : ''}
     </g>`
     })
     .join('\n    ')
@@ -125,6 +123,19 @@ export function generateChamberSVG(config: ChamberConfig): string {
   ${seatElements}
   ${resultatPanel}
 </svg>`
+}
+
+function getVoteIcon(vote?: VotePosition): string {
+  switch (vote) {
+    case 'ja':
+      return '👍'
+    case 'nej':
+      return '👎'
+    case 'avstår':
+      return '✋'
+    default:
+      return '·'
+  }
 }
 
 function generateResultPanel(votes: VoteResult[], size: number): string {
