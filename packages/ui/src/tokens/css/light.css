@@ -1,0 +1,39 @@
+/**
+ * @daf/ui — Light Theme
+ *
+ * EDS principle: use light grey, not pure white.
+ * High contrast for readability in bright environments.
+ */
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  /* Surfaces */
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #FFFFFF;
+  --color-surface-sunken: #F1F5F9;
+
+  /* Text */
+  --color-text: #1E293B;
+  --color-text-muted: #64748B;
+  --color-text-subtle: #94A3B8;
+
+  /* Borders */
+  --color-border: #E2E8F0;
+  --color-border-strong: #CBD5E1;
+
+  /* Interactive */
+  --color-primary: #2563EB;
+  --color-primary-hover: #1D4ED8;
+  --color-primary-text: #FFFFFF;
+  --color-accent: #7C3AED;
+
+  /* Focus */
+  --color-focus: #7C3AED;
+  --color-focus-ring: rgba(124, 58, 237, 0.3);
+
+  /* Overlays */
+  --color-overlay: rgba(15, 23, 42, 0.5);
+}

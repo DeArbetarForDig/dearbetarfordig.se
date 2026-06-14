@@ -1,0 +1,73 @@
+/**
+ * @daf/ui — Dark Theme
+ *
+ * EDS principle: use dark grey, not pure black.
+ * Reduces eye strain in low-light environments.
+ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    /* Surfaces */
+    --color-bg: #0F172A;
+    --color-surface: #1E293B;
+    --color-surface-elevated: #334155;
+    --color-surface-sunken: #0B1120;
+
+    /* Text */
+    --color-text: #F1F5F9;
+    --color-text-muted: #94A3B8;
+    --color-text-subtle: #64748B;
+
+    /* Borders */
+    --color-border: #334155;
+    --color-border-strong: #475569;
+
+    /* Interactive */
+    --color-primary: #60A5FA;
+    --color-primary-hover: #93C5FD;
+    --color-primary-text: #0F172A;
+    --color-accent: #A78BFA;
+
+    /* Focus */
+    --color-focus: #A78BFA;
+    --color-focus-ring: rgba(167, 139, 250, 0.3);
+
+    /* Overlays */
+    --color-overlay: rgba(0, 0, 0, 0.6);
+
+    /* Status — slightly brighter for dark bg */
+    --color-positive: #4ADE80;
+    --color-negative: #F87171;
+    --color-warning: #FDE047;
+    --color-info: #60A5FA;
+    --color-neutral: #94A3B8;
+  }
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-bg: #0F172A;
+  --color-surface: #1E293B;
+  --color-surface-elevated: #334155;
+  --color-surface-sunken: #0B1120;
+  --color-text: #F1F5F9;
+  --color-text-muted: #94A3B8;
+  --color-text-subtle: #64748B;
+  --color-border: #334155;
+  --color-border-strong: #475569;
+  --color-primary: #60A5FA;
+  --color-primary-hover: #93C5FD;
+  --color-primary-text: #0F172A;
+  --color-accent: #A78BFA;
+  --color-focus: #A78BFA;
+  --color-focus-ring: rgba(167, 139, 250, 0.3);
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-positive: #4ADE80;
+  --color-negative: #F87171;
+  --color-warning: #FDE047;
+  --color-info: #60A5FA;
+  --color-neutral: #94A3B8;
+}
