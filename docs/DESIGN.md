@@ -30,6 +30,62 @@
 6. **Mobilt först** — responsive, touch-vänligt
 7. **Mörkt/ljust tema** — `prefers-color-scheme`
 
+---
+
+## Foundations (inspirerade av EDS)
+
+### Visuell hierarki — 3 lager
+
+1. **System layer** — header: logotyp (vänster) + navigation (höger)
+2. **Application layer** — sidtitel + kontextspecifika åtgärder
+3. **Content layer** — tiles/kort med data
+
+### Layout
+
+- **12-kolumn grid** (via Tailwind)
+- **Breakpoints:**
+
+| Viewport | Bredd | Tailwind | Användning |
+|----------|-------|----------|------------|
+| Mobil | <640px | `sm:` | Enkel kolumn, vertikal scroll |
+| Tablet | 640–1024px | `md:` | 2-kolumn |
+| Desktop | 1024–1280px | `lg:` | 3-kolumn dashboard |
+| Stor | >1280px | `xl:` | Fullskärm, NOC-liknande |
+
+### Spacing — 8px-grid
+
+| Token | Pixlar | CSS Variable | Användning |
+|-------|--------|-------------|-----------|
+| xs | 4px | `--space-xs` | Delar av samma element |
+| sm | 8px | `--space-sm` | Relaterade element |
+| md | 16px | `--space-md` | Padding i kort/tiles |
+| lg | 24px | `--space-lg` | Sektionsbrytningar |
+| xl | 32px | `--space-xl` | Större separeringar |
+| 2xl | 48px | `--space-2xl` | Mellan huvudblock |
+
+### Typografi
+
+| Element | Storlek | Vikt | Font |
+|---------|---------|------|------|
+| H1 (sidtitel) | 2rem (32px) | 700 | Inter |
+| H2 (sektion) | 1.5rem (24px) | 700 | Inter |
+| H3 (kort-titel) | 1.25rem (20px) | 600 | Inter |
+| Body | 1rem (16px) | 400 | Inter |
+| Label/meta | 0.875rem (14px) | 400 | Inter |
+| Small | 0.75rem (12px) | 400 | Inter |
+| KPI-siffra | 2.5rem (40px) | 700 | JetBrains Mono |
+| Data/nummer | 1.25rem (20px) | 500 | JetBrains Mono |
+
+**Regler (från EDS):**
+- Sentence case, aldrig VERSALER i UI
+- Radhöjd: 1.5× fontstorlek
+- Max radlängd: 70 tecken (brödtext)
+- Vänsterjusterad text
+- Bold för betoning, inte färg
+- Länktext = beskrivande ("Visa votering" inte "Klicka här")
+
+---
+
 ## Typografi
 
 | Element | Font | Storlek |
@@ -39,26 +95,57 @@
 | Data/siffror | JetBrains Mono | 1.25rem |
 | Labels | Inter | 0.75rem, sentence case |
 
-## Färger
+## Färger (inspirerat av EDS themes + DV palette)
 
-### Tema
+### Tema — Ljus & Mörk
 
-| Syfte | Ljus | Mörkt |
-|-------|------|-------|
-| Bakgrund | #FFFFFF | #0F172A |
-| Text | #1E293B | #F1F5F9 |
-| Primary | #2563EB | #60A5FA |
-| Secondary | #7C3AED | #A78BFA |
-| Positiv | #16A34A | #4ADE80 |
-| Negativ | #DC2626 | #F87171 |
-| Neutral | #64748B | #94A3B8 |
+Aldrig ren vit (#FFF) eller ren svart (#000). Använd nyanser av grå.
 
-### Partifärger
+| Syfte | Ljus tema | Mörk tema | CSS Variable |
+|-------|-----------|-----------|-------------|
+| Bakgrund | #F8FAFC (slate-50) | #0F172A (slate-900) | `--bg` |
+| Yta (kort) | #FFFFFF | #1E293B (slate-800) | `--surface` |
+| Text | #1E293B (slate-800) | #F1F5F9 (slate-100) | `--text` |
+| Text muted | #64748B (slate-500) | #94A3B8 (slate-400) | `--text-muted` |
+| Border | #E2E8F0 (slate-200) | #334155 (slate-700) | `--border` |
+| Primary | #2563EB (blue-600) | #60A5FA (blue-400) | `--primary` |
+| Accent | #7C3AED (violet-600) | #A78BFA (violet-400) | `--accent` |
 
+### Status (EDS-principen)
+
+| Status | Färg | Användning |
+|--------|------|-----------|
+| Positiv/Bifall | #16A34A (green-600) | Ja-röster, godkända beslut |
+| Negativ/Avslag | #DC2626 (red-600) | Nej-röster, avslagna motioner |
+| Varning/Avstår | #EAB308 (yellow-500) | Avstår-röster |
+| Info | #2563EB (blue-600) | Länkar, interaktivt |
+| Neutral | #64748B (slate-500) | Frånvaro, inaktivt |
+
+### Partifärger (politisk data)
+
+Partifärger är **kategoriska** — de ska kunna särskiljas. Ordningen följer mandatstorlek.
+
+```css
+:root {
+  --parti-s:   #ED1B34;   /* Socialdemokraterna */
+  --parti-m:   #52BDEC;   /* Moderaterna */
+  --parti-sd:  #DDDD00;   /* Sverigedemokraterna */
+  --parti-c:   #009933;   /* Centerpartiet */
+  --parti-v:   #DA291C;   /* Vänsterpartiet */
+  --parti-kd:  #005DA6;   /* Kristdemokraterna */
+  --parti-mp:  #83CF39;   /* Miljöpartiet */
+  --parti-l:   #006AB3;   /* Liberalerna */
+}
 ```
-S   #ED1B34    M   #52BDEC    SD  #DDDD00    C   #009933
-V   #DA291C    KD  #005DA6    MP  #83CF39    L   #006AB3
-```
+
+### Datavisualisering — regler (från EDS)
+
+- Färg ska **aldrig** vara enda informationsbäraren (+ mönster/text/ikon)
+- Max 8 kategorier i ett diagram (fler → "Övrigt")
+- Sekventiella paletter: ljust = lågt värde, mörkt = högt
+- Divergerande: rött ↔ grönt med neutral mitt (gul/grå)
+- Y-axel börjar alltid vid 0
+- Tick-format: `.1s` för stora tal (42 000 → 42k)
 
 ## Visualiseringar
 
