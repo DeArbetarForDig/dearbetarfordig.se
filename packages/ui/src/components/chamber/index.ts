@@ -1,26 +1,29 @@
 /**
  * @daf/ui — Chamber (Sal-komponent)
  *
- * Renders an SVG hemicycle seating chart for Göteborgs kommunfullmäktige.
- * Layout: two semicircular sectors separated by a central aisle,
- * matching the real KF chamber (see reference: tmp/maxresdefault.jpg).
- *
- * Two modes:
- * - overview: seats colored by party
- * - vote: seats colored by vote (green=Ja, red=Nej, yellow=Avstår, gray=Frånvarande)
+ * SVG hemicycle seating chart for kommunfullmäktige.
+ * Seats ALWAYS show party color. Overlays (icons) show context:
+ * - vote: 👍👎✋ (how they voted)
+ * - debate: 🎤 (who spoke)
+ * - motion: ✍️ (who submitted)
+ * - custom: any emoji/icon per seat
  */
 
 import { partyColors, voteColors } from '../tokens'
 import type { PartyCode, VotePosition } from '../tokens'
 
 export interface Seat {
-  /** Seat number (1-81 in Göteborg KF) */
   nummer: number
   politikerId: string
   namn: string
   parti: PartyCode
   foto?: string
   roll?: string
+}
+
+export interface SeatOverlay {
+  politikerId: string
+  icon: string
 }
 
 export interface VoteResult {
@@ -30,22 +33,24 @@ export interface VoteResult {
 
 export interface ChamberConfig {
   seats: Seat[]
-  mode: 'overview' | 'vote'
+  mode: 'overview' | 'vote' | 'debate' | 'motion' | 'custom'
   votes?: VoteResult[]
+  overlays?: SeatOverlay[]
   size?: number
 }
 
-/**
- * Generates hemicycle seat positions.
- * Göteborgs KF: 81 seats in curved rows, split into left/right sectors.
- * Presidium (1-4) at center front, then rows radiating outward.
- */
+function voteToOverlays(votes: VoteResult[]): SeatOverlay[] {
+  return votes.map((v) => ({
+    politikerId: v.politikerId,
+    icon: v.röst === 'ja' ? '👍' : v.röst === 'nej' ? '👎' : v.röst === 'avstår' ? '✋' : '·',
+  }))
+}
+
 function computeSeatPositions(totalSeats: number, size: number) {
   const cx = size / 2
   const cy = size * 0.85
   const positions: { nummer: number; x: number; y: number }[] = []
 
-  // Presidium row (seats 1-4) — center front
   const presidiumCount = 4
   for (let i = 0; i < presidiumCount; i++) {
     const angle = Math.PI * (0.35 + (i / (presidiumCount - 1)) * 0.3)
@@ -57,9 +62,7 @@ function computeSeatPositions(totalSeats: number, size: number) {
     })
   }
 
-  // Remaining seats in hemicycle rows
-  const remaining = totalSeats - presidiumCount
-  const rowCapacities = [10, 12, 14, 16, 18, 11] // ~81 total with presidium
+  const rowCapacities = [10, 12, 14, 16, 18, 11]
   let seatNum = presidiumCount + 1
   let rowIndex = 0
 
@@ -69,11 +72,8 @@ function computeSeatPositions(totalSeats: number, size: number) {
     const radius = size * (0.22 + rowIndex * 0.11)
 
     for (let i = 0; i < seatsInRow; i++) {
-      const angleStart = 0.15
-      const angleEnd = 0.85
       const t = seatsInRow === 1 ? 0.5 : i / (seatsInRow - 1)
-      const angle = Math.PI * (angleStart + t * (angleEnd - angleStart))
-
+      const angle = Math.PI * (0.15 + t * 0.7)
       positions.push({
         nummer: seatNum,
         x: cx - radius * Math.cos(angle),
@@ -88,8 +88,15 @@ function computeSeatPositions(totalSeats: number, size: number) {
 }
 
 export function generateChamberSVG(config: ChamberConfig): string {
-  const { seats, mode, votes, size = 500 } = config
-  const voteMap = new Map(votes?.map((v) => [v.politikerId, v.röst]))
+  const { seats, mode, votes, overlays: customOverlays, size = 500 } = config
+
+  const overlayMap = new Map<string, string>()
+  if (mode === 'vote' && votes) {
+    for (const o of voteToOverlays(votes)) overlayMap.set(o.politikerId, o.icon)
+  } else if (customOverlays) {
+    for (const o of customOverlays) overlayMap.set(o.politikerId, o.icon)
+  }
+
   const seatMap = new Map(seats.map((s) => [s.nummer, s]))
   const positions = computeSeatPositions(seats.length, size)
   const seatSize = size * 0.028
@@ -100,15 +107,14 @@ export function generateChamberSVG(config: ChamberConfig): string {
       if (!seat) return ''
 
       const fill = partyColors[seat.parti] ?? partyColors['-']
-      const vote = voteMap.get(seat.politikerId)
-      const voteIcon = mode === 'vote' ? getVoteIcon(vote) : ''
-      const voteLabel = mode === 'vote' ? ` — ${vote ?? 'frånvarande'}` : ''
+      const icon = overlayMap.get(seat.politikerId) ?? ''
+      const overlayLabel = icon ? ` — ${icon}` : ''
 
       return `<g class="seat" data-nummer="${nummer}" data-party="${seat.parti}">
-      <title>${seat.namn} (${seat.parti})${voteLabel}</title>
+      <title>${seat.namn} (${seat.parti})${overlayLabel}</title>
       <rect x="${x - seatSize}" y="${y - seatSize * 0.7}" width="${seatSize * 2}" height="${seatSize * 1.4}" rx="3" fill="${fill}" />
       <text x="${x}" y="${y + 3}" text-anchor="middle" font-size="${size * 0.018}" fill="white" font-weight="bold">${nummer}</text>
-      ${voteIcon ? `<text x="${x + seatSize * 0.7}" y="${y - seatSize * 0.3}" font-size="${size * 0.024}">${voteIcon}</text>` : ''}
+      ${icon ? `<text x="${x + seatSize * 0.7}" y="${y - seatSize * 0.3}" font-size="${size * 0.024}">${icon}</text>` : ''}
     </g>`
     })
     .join('\n    ')
@@ -123,19 +129,6 @@ export function generateChamberSVG(config: ChamberConfig): string {
   ${seatElements}
   ${resultatPanel}
 </svg>`
-}
-
-function getVoteIcon(vote?: VotePosition): string {
-  switch (vote) {
-    case 'ja':
-      return '👍'
-    case 'nej':
-      return '👎'
-    case 'avstår':
-      return '✋'
-    default:
-      return '·'
-  }
 }
 
 function generateResultPanel(votes: VoteResult[], size: number): string {
