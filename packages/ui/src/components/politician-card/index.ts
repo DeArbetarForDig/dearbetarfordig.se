@@ -5,7 +5,7 @@
  * Also usable standalone in lists.
  */
 
-import type { PartyCode } from '../tokens'
+import type { PartyCode } from '../../tokens/index.ts'
 
 export interface PoliticianCardConfig {
   id: string
