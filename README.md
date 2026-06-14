@@ -81,6 +81,12 @@ pnpm format           # Formatera
 ```
 dearbetarfordig.se/
 ├── packages/
+│   ├── ui/                 # @daf/ui — Design system (komponenter + charts)
+│   │   ├── src/
+│   │   │   ├── components/ # chamber, kpi, politician-card, decision-card...
+│   │   │   ├── charts/     # donut, bar, hierarchy
+│   │   │   └── tokens/     # färger, spacing, typografi
+│   │   └── docs/           # structured dokumentation per komponent
 │   ├── web/                # Astro frontend (SSG)
 │   │   └── src/
 │   ├── api/                # Hono REST API
@@ -97,6 +103,7 @@ dearbetarfordig.se/
 │   ├── debatter/
 │   └── budget/
 ├── docs/                   # Dokumentation
+│   ├── SPEC.md             # MVP-specifikation
 │   ├── DESIGN.md
 │   ├── SAAS.md
 │   └── DATA_MODEL.md
