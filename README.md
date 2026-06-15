@@ -129,6 +129,9 @@ yttrandeprotokollet — varje anförande (1-8 min) blir ett eget chunk. Resultat
 - Direkt koppling: text ↔ politiker ↔ ärende
 - Accessibility: fulltext för döva, sökbart för alla
 
+Långa anföranden (>5 min) delas automatiskt i sub-chunks men behåller
+speaker-attributionen. Fallback: 30s-chunks om inget yttrandeprotokoll finns.
+
 **Datakällor per anförande:**
 | Data | Källa |
 |------|-------|
