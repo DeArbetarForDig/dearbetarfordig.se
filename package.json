@@ -13,7 +13,11 @@
     "build": "pnpm --filter @daf/web build",
     "api": "pnpm --filter @daf/api dev",
     "scrape": "pnpm --filter @daf/pipeline scrape",
+    "scrape:politiker": "pnpm --filter @daf/pipeline scrape:politiker",
+    "scrape:youtube": "pnpm --filter @daf/pipeline scrape:youtube",
+    "scrape:handlingar": "pnpm --filter @daf/pipeline scrape:handlingar",
     "transcribe": "pnpm --filter @daf/pipeline transcribe",
+    "pipeline": "pnpm scrape:politiker && pnpm scrape:youtube && pnpm scrape:handlingar",
     "lint": "biome check .",
     "lint:fix": "biome check --fix .",
     "format": "biome format --write ."
