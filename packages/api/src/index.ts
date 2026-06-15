@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 
 const app = new Hono()
@@ -96,6 +96,47 @@ app.get('/api/v1/:kommun/debatter', (c) => {
     antal: data.antal,
     videor: data.videor,
   })
+})
+
+// --- Graf (Knowledge Graph) ---
+app.get('/api/v1/:kommun/graf', (c) => {
+  const kommun = c.req.param('kommun')
+  const datum = c.req.query('datum')
+
+  if (datum) {
+    const data = loadJSON(`graf/kf-${datum}.json`)
+    if (!data) return c.json({ error: `Ingen graf för ${datum}` }, 404)
+    return c.json(data)
+  }
+
+  // List available graphs
+  const grafDir = join(DATA_DIR, 'graf')
+  if (!existsSync(grafDir)) return c.json({ nodes: [], edges: [], available: [] })
+  const files = readdirSync(grafDir).filter((f: string) => f.endsWith('.json'))
+  return c.json({
+    available: files.map((f: string) => f.replace('kf-', '').replace('.json', '')),
+    description: 'Use ?datum=YYYY-MM-DD to get the full graph for a specific meeting',
+  })
+})
+
+app.get('/api/v1/:kommun/graf/node/:id', (c) => {
+  const id = c.req.param('id')
+  // Search all graph files for this node and its edges
+  const grafDir = join(DATA_DIR, 'graf')
+  if (!existsSync(grafDir)) return c.json({ error: 'No graph data' }, 404)
+
+  const files = readdirSync(grafDir).filter((f: string) => f.endsWith('.json'))
+  for (const file of files) {
+    const graph = JSON.parse(readFileSync(join(grafDir, file), 'utf-8'))
+    const node = graph.nodes.find((n: any) => n.id === id)
+    if (node) {
+      const edges = graph.edges.filter((e: any) => e.from === id || e.to === id)
+      const relatedIds = new Set(edges.map((e: any) => e.from === id ? e.to : e.from))
+      const related = graph.nodes.filter((n: any) => relatedIds.has(n.id))
+      return c.json({ node, edges, related })
+    }
+  }
+  return c.json({ error: 'Node not found' }, 404)
 })
 
 // --- Stats ---
