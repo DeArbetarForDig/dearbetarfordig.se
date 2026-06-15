@@ -10,3 +10,4 @@ dist/
 docs/reference/*/
 !docs/reference/README.md
 package-lock.json
+/.secrets/

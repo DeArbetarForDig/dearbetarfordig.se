@@ -1,36 +1,127 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
+import { readFileSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
 
 const app = new Hono()
+const DATA_DIR = join(import.meta.dirname, '../../../data')
 
 app.use('/*', cors())
 
+// --- Helpers ---
+function loadJSON(path: string) {
+  const full = join(DATA_DIR, path)
+  if (!existsSync(full)) return null
+  return JSON.parse(readFileSync(full, 'utf-8'))
+}
+
+// --- Root ---
 app.get('/', (c) =>
   c.json({
     name: 'De Arbetar För Dig — API',
     version: '0.1.0',
-    docs: '/docs',
+    licens: 'AGPL-3.0',
+    endpoints: {
+      politiker: '/api/v1/goteborg/politiker',
+      politiker_detail: '/api/v1/goteborg/politiker/:id',
+      beslut: '/api/v1/goteborg/beslut',
+      debatter: '/api/v1/goteborg/debatter',
+    },
   }),
 )
 
-// Tenant-scoped routes
-app.get('/api/v1/:kommun/politiker', async (c) => {
+// --- Politiker ---
+app.get('/api/v1/:kommun/politiker', (c) => {
   const kommun = c.req.param('kommun')
-  // TODO: fetch from DB
-  return c.json({ kommun, politiker: [] })
+  const data = loadJSON(`politiker/${kommun}.json`)
+  if (!data) return c.json({ error: 'Kommun inte hittad' }, 404)
+
+  const parti = c.req.query('parti')
+  let politiker = data.politiker
+  if (parti) {
+    politiker = politiker.filter((p: any) => p.parti.toLowerCase() === parti.toLowerCase())
+  }
+
+  return c.json({
+    kommun,
+    mandatperiod: data.mandatperiod,
+    antal: politiker.length,
+    politiker: politiker.map((p: any) => ({
+      id: p.id,
+      namn: `${p.förnamn} ${p.efternamn}`,
+      parti: p.parti,
+      email: p.email,
+      antalUppdrag: p.uppdrag.length,
+    })),
+  })
 })
 
-app.get('/api/v1/:kommun/beslut', async (c) => {
+app.get('/api/v1/:kommun/politiker/:id', (c) => {
   const kommun = c.req.param('kommun')
-  return c.json({ kommun, beslut: [] })
+  const id = c.req.param('id')
+  const data = loadJSON(`politiker/${kommun}.json`)
+  if (!data) return c.json({ error: 'Kommun inte hittad' }, 404)
+
+  const person = data.politiker.find((p: any) => p.id === id)
+  if (!person) return c.json({ error: 'Politiker inte hittad' }, 404)
+
+  return c.json(person)
 })
 
-app.get('/api/v1/:kommun/debatter', async (c) => {
+// --- Beslut / Handlingar ---
+app.get('/api/v1/:kommun/beslut', (c) => {
   const kommun = c.req.param('kommun')
-  return c.json({ kommun, debatter: [] })
+  const år = c.req.query('år') || new Date().getFullYear().toString()
+  const data = loadJSON(`beslut/kf-handlingar-${år}.json`)
+  if (!data) return c.json({ error: `Inga beslut för ${år}` }, 404)
+
+  return c.json({
+    kommun,
+    organisation: data.organisation,
+    år: data.år,
+    antalSammanträden: data.antalSammanträden || data.sammanträden?.length || 0,
+    sammanträden: data.sammanträden,
+  })
 })
 
-export default {
-  port: 3000,
-  fetch: app.fetch,
-}
+// --- Debatter / YouTube ---
+app.get('/api/v1/:kommun/debatter', (c) => {
+  const kommun = c.req.param('kommun')
+  const data = loadJSON(`debatter/youtube-kf-${kommun}.json`)
+  if (!data) return c.json({ error: 'Inga debatter hittade' }, 404)
+
+  return c.json({
+    kommun,
+    kanal: data.kanal,
+    antal: data.antal,
+    videor: data.videor,
+  })
+})
+
+// --- Stats ---
+app.get('/api/v1/:kommun/stats', (c) => {
+  const kommun = c.req.param('kommun')
+  const pol = loadJSON(`politiker/${kommun}.json`)
+  const deb = loadJSON(`debatter/youtube-kf-${kommun}.json`)
+
+  if (!pol) return c.json({ error: 'Kommun inte hittad' }, 404)
+
+  const parties: Record<string, number> = {}
+  for (const p of pol.politiker) {
+    parties[p.parti] = (parties[p.parti] || 0) + 1
+  }
+
+  return c.json({
+    kommun,
+    politiker: pol.antal,
+    partier: parties,
+    videor: deb?.antal || 0,
+    mandatperiod: pol.mandatperiod,
+  })
+})
+
+import { serve } from '@hono/node-server'
+
+serve({ fetch: app.fetch, port: 3000 }, (info) => {
+  console.log(`🚀 API running at http://localhost:${info.port}`)
+})
