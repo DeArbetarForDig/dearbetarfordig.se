@@ -5,6 +5,9 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+      - DATABASE_URL=postgresql://daf:daf_local@db:5432/daf
+    depends_on:
+      - db
     restart: unless-stopped
 
   db:
@@ -17,6 +20,15 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  whisper:
+    build:
+      context: .
+      dockerfile: docker/whisper.Dockerfile
+    volumes:
+      - ./.tmp:/data
+    profiles:
+      - transcribe
 
 volumes:
   pgdata:

@@ -1,99 +1,116 @@
 /**
- * Transcription pipeline
+ * Transcription pipeline — KF-möten från YouTube → text
  *
- * 1. Download KF meeting video from YouTube (via yt-dlp binary)
- * 2. Extract audio
- * 3. Transcribe with Whisper API (or local whisper.cpp)
- * 4. Output structured JSON with timestamps
+ * Flow:
+ * 1. yt-dlp: download audio (wav 16kHz mono)
+ * 2. whisper-cli: transcribe → JSON with timestamps
+ * 3. Cleanup: delete audio, keep only transcription
+ *
+ * Kör lokalt: npx tsx src/transcription/run.ts <youtube-url> [datum]
+ * Kör via Docker: docker compose run whisper <url>
  */
 
 import { execSync } from 'node:child_process'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import type { Debatt } from '@daf/shared'
 
-const OUTPUT_DIR = join(import.meta.dirname, '../../../data/debatter')
-const TEMP_DIR = join(import.meta.dirname, '../../.tmp')
+const OUTPUT_DIR = join(import.meta.dirname, '../../../../data/debatter')
+const TMP_DIR = join(import.meta.dirname, '../../../../.tmp')
+const MODEL = process.env.WHISPER_MODEL || findModel()
 
-interface TranscriptionSegment {
-  start: number
-  end: number
-  text: string
+function findModel(): string {
+  // Local brew install
+  const brewModel = '/opt/homebrew/Cellar/whisper-cpp/1.8.4/share/whisper-cpp/for-tests-ggml-tiny.bin'
+  const tmpModel = join(TMP_DIR, 'ggml-small.bin')
+  const dockerModel = '/models/ggml-small.bin'
+
+  if (existsSync(tmpModel)) return tmpModel
+  if (existsSync(dockerModel)) return dockerModel
+  if (existsSync(brewModel)) return brewModel
+  return tmpModel // will need to be downloaded
 }
 
-async function downloadAudio(youtubeUrl: string, outputPath: string): Promise<void> {
-  console.log(`⬇️  Laddar ner audio: ${youtubeUrl}`)
-  execSync(`yt-dlp -x --audio-format wav --audio-quality 0 -o "${outputPath}" "${youtubeUrl}"`, {
-    stdio: 'inherit',
-  })
+function downloadAudio(url: string, outPath: string): void {
+  console.log(`⬇️  Laddar ner audio...`)
+  execSync(
+    `yt-dlp --extract-audio --audio-format wav --postprocessor-args "-ar 16000 -ac 1" -o "${outPath}" "${url}"`,
+    { stdio: 'inherit', timeout: 600_000 },
+  )
 }
 
-async function transcribeWhisperApi(audioPath: string): Promise<TranscriptionSegment[]> {
-  // OpenAI Whisper API
-  const OPENAI_API_KEY = process.env.OPENAI_API_KEY
-  if (!OPENAI_API_KEY) throw new Error('OPENAI_API_KEY not set')
-
-  const formData = new FormData()
-  const audioFile = new Blob([readFileSync(audioPath)])
-  formData.append('file', audioFile, 'audio.wav')
-  formData.append('model', 'whisper-1')
-  formData.append('language', 'sv')
-  formData.append('response_format', 'verbose_json')
-  formData.append('timestamp_granularities[]', 'segment')
-
-  const res = await fetch('https://api.openai.com/v1/audio/transcriptions', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${OPENAI_API_KEY}` },
-    body: formData,
-  })
-
-  const data = await res.json()
-  return data.segments.map((s: any) => ({
-    start: s.start,
-    end: s.end,
-    text: s.text,
-  }))
+function transcribe(audioPath: string, outputPath: string): void {
+  console.log(`🎤 Transkriberar (${MODEL.split('/').pop()})...`)
+  execSync(
+    `whisper-cli -m "${MODEL}" -l sv -f "${audioPath}" -oj --output-file "${outputPath}"`,
+    { stdio: 'inherit', timeout: 7200_000 }, // 2h timeout for long meetings
+  )
 }
 
-function formatTime(seconds: number): string {
-  const h = Math.floor(seconds / 3600)
-  const m = Math.floor((seconds % 3600) / 60)
-  const s = Math.floor(seconds % 60)
-  return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`
+function parseWhisperJson(jsonPath: string): Array<{ start: string; end: string; text: string }> {
+  const raw = JSON.parse(readFileSync(jsonPath, 'utf-8'))
+  const segments = raw.transcription || raw.segments || []
+  return segments.map((s: any) => ({
+    start: s.timestamps?.from || s.start || '',
+    end: s.timestamps?.to || s.end || '',
+    text: (s.text || '').trim(),
+  })).filter((s: any) => s.text.length > 0)
 }
 
 async function main() {
-  const youtubeUrl = process.argv[2]
-  if (!youtubeUrl) {
-    console.error('Usage: tsx run.ts <youtube-url>')
+  const url = process.argv[2]
+  const datum = process.argv[3]
+
+  if (!url) {
+    console.error('Usage: npx tsx src/transcription/run.ts <youtube-url> [datum]')
+    console.error('  npx tsx src/transcription/run.ts https://youtube.com/watch?v=BKoNfSHdE7Y 2026-01-29')
     process.exit(1)
   }
 
-  mkdirSync(TEMP_DIR, { recursive: true })
+  mkdirSync(TMP_DIR, { recursive: true })
   mkdirSync(OUTPUT_DIR, { recursive: true })
 
-  const audioPath = join(TEMP_DIR, 'kf-audio.wav')
+  // Extract video ID for filename
+  const videoId = url.match(/[?&]v=([^&]+)/)?.[1] || 'unknown'
+  const audioPath = join(TMP_DIR, `kf-${videoId}.wav`)
+  const whisperOutPath = join(TMP_DIR, `kf-${videoId}`)
 
+  // Step 1: Download audio
   if (!existsSync(audioPath)) {
-    await downloadAudio(youtubeUrl, audioPath)
+    downloadAudio(url, audioPath)
+  } else {
+    console.log(`   Audio finns redan: ${audioPath}`)
   }
 
-  console.log('🎤 Transkriberar...')
-  const segments = await transcribeWhisperApi(audioPath)
+  // Step 2: Transcribe
+  const jsonResult = `${whisperOutPath}.wav.json`
+  if (!existsSync(jsonResult)) {
+    transcribe(audioPath, whisperOutPath)
+  }
+
+  // Step 3: Parse and save
+  const segments = parseWhisperJson(jsonResult)
+  console.log(`\n   ${segments.length} segment transkriberade`)
 
   const output = {
-    source: youtubeUrl,
-    language: 'sv',
-    segments: segments.map((s) => ({
-      startTid: formatTime(s.start),
-      slutTid: formatTime(s.end),
-      text: s.text.trim(),
-    })),
+    källa: url,
+    videoId,
+    datum: datum || null,
+    språk: 'sv',
+    modell: MODEL.split('/').pop(),
+    transkriberad: new Date().toISOString(),
+    antalSegment: segments.length,
+    segment: segments,
   }
 
-  const filename = `kf-${new Date().toISOString().split('T')[0]}.json`
-  writeFileSync(join(OUTPUT_DIR, filename), JSON.stringify(output, null, 2))
-  console.log(`✅ Sparad: data/debatter/${filename}`)
+  const outFile = datum ? `kf-${datum}.json` : `kf-${videoId}.json`
+  const outPath = join(OUTPUT_DIR, outFile)
+  writeFileSync(outPath, JSON.stringify(output, null, 2))
+  console.log(`✅ ${outPath}`)
+
+  // Step 4: Cleanup audio (keep only transcription)
+  unlinkSync(audioPath)
+  unlinkSync(jsonResult)
+  console.log(`🗑️  Audio raderat (sparar bara text)`)
 }
 
 main().catch(console.error)
