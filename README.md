@@ -29,13 +29,15 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 | Knowledge Graph — beslut (PDF → nodes + edges) | ✅ Klar |
 | Knowledge Graph — budget (PDF → nämnder + belopp) | ✅ Klar |
 | Inbox-parser (begäran-dokument → graf) | ✅ Klar |
+| Transkription (whisper.cpp, 30s-chunks) | ✅ Klar |
+| Speaker attribution (yttrandeprotokoll → vem sa vad) | 🔜 Nästa |
 | Docker + docker-compose | ✅ Klar |
 | GitHub Actions CI/CD | ✅ Klar |
-| Transkription (whisper.cpp) | 🔜 Nästa |
+| PostgreSQL + Drizzle + seed | ✅ Klar |
+| OpenAPI 3.1 + Swagger UI | ✅ Klar |
 | Sociala medier-scraping | 🔜 Nästa |
 | Email-automatisering (begäran) | 🔜 Nästa |
 | Frontend (Astro) | 🔜 Nästa |
-| PostgreSQL (prod) | 🔜 Nästa |
 
 ## Principer
 
@@ -107,6 +109,34 @@ curl localhost:3000/api/v1/goteborg/graf?datum=2025-11-27
 # Traversera grafen — enskild nod med alla kopplingar
 curl localhost:3000/api/v1/goteborg/graf/node/kf-2025-11-27-§491
 ```
+
+## Transkription & Speaker Attribution
+
+KF-möten transkriberas automatiskt med whisper.cpp:
+
+```
+YouTube-video (6-7h)
+    → yt-dlp (download audio)
+    → ffmpeg (split per anförande via yttrandeprotokoll)
+    → whisper.cpp (transkribera varje anförande separat)
+    → merge → JSON med talare + timestamps + text
+    → radera audio (sparar bara text)
+```
+
+**Smart chunking:** Istället för naiva 30s-chunks, delar vi audio baserat på
+yttrandeprotokollet — varje anförande (1-8 min) blir ett eget chunk. Resultatet:
+- Bättre whisper-kvalitet (en talare per chunk, inget cut mitt i mening)
+- Direkt koppling: text ↔ politiker ↔ ärende
+- Accessibility: fulltext för döva, sökbart för alla
+
+**Datakällor per anförande:**
+| Data | Källa |
+|------|-------|
+| Vem talar | Yttrandeprotokoll (PDF) |
+| Vilken § | Yttrandeprotokoll (PDF) |
+| Start/slut-tid | Yttrandeprotokoll (PDF) |
+| Vad de sa (text) | whisper.cpp (audio) |
+| Video-länk | YouTube (timestamp) |
 
 ## Knowledge Graph
 
