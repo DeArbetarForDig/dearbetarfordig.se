@@ -71,12 +71,36 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
     const lines = section.split('\n').filter(l => l.trim())
     const rubrik = lines[1]?.trim() || ''
 
+    // Detect beslut type
+    let beslut: string | undefined
+    if (section.match(/har bifallits|bifall till kommunstyrelsens/i)) beslut = 'bifall'
+    else if (section.match(/avslag|avslagits/i)) beslut = 'avslag'
+    else if (section.match(/bordlägg/i)) beslut = 'bordläggning'
+    else if (section.match(/återremiss/i)) beslut = 'återremiss'
+
+    // Extract votering results from main text
+    const voteMatch = section.match(/(\d+)\s*Ja\s*mot\s*(\d+)\s*Nej/)
+    const votering = voteMatch ? { ja: parseInt(voteMatch[1]), nej: parseInt(voteMatch[2]) } : undefined
+
+    // Extract reservationer
+    const reservationer: string[] = []
+    const resMatch = section.match(/Reservation\s*\n\s*\n\s*(.+?)(?:\n\s*\n|\nProtokollsutdrag)/s)
+    if (resMatch) reservationer.push(resMatch[1].trim())
+
+    // Extract yrkanden
+    const yrkanden: Array<{ namn: string; parti: string; typ: string }> = []
+    const yrkRe = /([\wÅÄÖåäö\s-]+?)\s*\((\w+)\)\s*(?:yrkar bifall till|yrkar)\s*(.{10,80})/g
+    let yrkMatch
+    while ((yrkMatch = yrkRe.exec(section)) !== null) {
+      yrkanden.push({ namn: yrkMatch[1].trim(), parti: yrkMatch[2], typ: yrkMatch[3].trim() })
+    }
+
     // Create paragraf node
     nodes.push({
       id: paragrafId,
       typ: 'paragraf',
       label: `§ ${paragrafNr} ${rubrik}`,
-      data: { paragrafNr, ärendeNr, rubrik, datum: möteDatum },
+      data: { paragrafNr, ärendeNr, rubrik, datum: möteDatum, beslut, votering, yrkanden, reservationer },
     })
 
     // Find law references
@@ -121,6 +145,72 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
   return { nodes, edges }
 }
 
+// Parse voting bilagor (appendices with individual votes)
+function parseVoteringar(text: string, möteDatum: string): { nodes: GraphNode[]; edges: GraphEdge[] } {
+  const nodes: GraphNode[] = []
+  const edges: GraphEdge[] = []
+
+  // Split on "Bilaga N" headers
+  const bilagor = text.split(/(?=Bilaga \d+\n)/)
+
+  for (const bilaga of bilagor) {
+    // More flexible matching for header
+    const ärendeMatch = bilaga.match(/Ärende:\s*(\d+)/)
+    const meningMatch = bilaga.match(/Ärendemening:\s*(.+?)(?=\nAntal)/s)
+    const jaMatch = bilaga.match(/Antal Ja:\s*(\d+)/)
+    const nejMatch = bilaga.match(/Antal Nej:\s*(\d+)/)
+    const avståMatch = bilaga.match(/Antal Avstår:\s*(\d+)/)
+    const frånvMatch = bilaga.match(/Antal Frånv:\s*(\d+)/)
+
+    if (!ärendeMatch || !jaMatch) continue
+
+    const ärendeNr = ärendeMatch[1]
+    const ärendemening = meningMatch ? meningMatch[1].replace(/\n/g, ' ').trim() : `Ärende ${ärendeNr}`
+    const ja = parseInt(jaMatch[1])
+    const nej = parseInt(nejMatch?.[1] || '0')
+    const avstår = parseInt(avståMatch?.[1] || '0')
+    const frånv = parseInt(frånvMatch?.[1] || '0')
+
+    // Find matching § for this ärende
+    const paragrafId = `votering-${möteDatum}-ärende-${ärendeNr}`
+
+    // Parse individual votes
+    const voteSection = bilaga.slice(bilaga.indexOf('Resultat') + 8)
+    const lines = voteSection.split('\n').map(l => l.trim()).filter(Boolean)
+
+    const röster: Array<{ namn: string; parti: string; röst: string }> = []
+
+    for (let i = 0; i < lines.length - 4; i++) {
+      const namn = lines[i]
+      const parti = lines[i + 1]
+      const plats = lines[i + 2]
+      const funktion = lines[i + 3]
+      const resultat = lines[i + 4]
+
+      if (parti?.match(/^(S|M|V|SD|L|MP|D|KD|C)$/) && resultat?.match(/^(Ja|Nej|Avstår|Frånvarande)$/)) {
+        röster.push({ namn, parti, röst: resultat.toLowerCase() })
+        i += 4
+      }
+    }
+
+    if (röster.length > 0) {
+      nodes.push({
+        id: paragrafId,
+        typ: 'paragraf',
+        label: ärendemening,
+        data: {
+          ärendeNr,
+          datum: möteDatum,
+          votering: { ja, nej, avstår, frånvarande: frånv },
+          röster,
+        },
+      })
+    }
+  }
+
+  return { nodes, edges }
+}
+
 async function main() {
   const pdfUrl = process.argv[2]
   const datum = process.argv[3] || '2025-01-01'
@@ -152,6 +242,22 @@ async function main() {
 
   const { nodes, edges } = parseParagrafer(text, datum)
 
+  // Parse voteringar from bilagor
+  const voteringar = parseVoteringar(text, datum)
+  const totalRöster = voteringar.nodes.reduce((sum, n) => sum + ((n.data.röster as any[])?.length || 0), 0)
+
+  // Merge votering data into paragraf nodes where possible
+  for (const vNode of voteringar.nodes) {
+    const ärendemening = (vNode.label || '').toLowerCase()
+    const existing = nodes.find(n => n.typ === 'paragraf' && n.label.toLowerCase().includes(ärendemening.slice(0, 20)))
+    if (existing) {
+      existing.data.röster = vNode.data.röster
+      existing.data.votering = vNode.data.votering
+    } else {
+      nodes.push(vNode)
+    }
+  }
+
   // Add meeting node
   const möteId = `möte-kf-${datum}`
   nodes.unshift({ id: möteId, typ: 'möte', label: `KF Sammanträde ${datum}`, data: { datum, organisation: 'Kommunfullmäktige' } })
@@ -167,6 +273,7 @@ async function main() {
 
   console.log(`\n   Nodes: ${nodes.length} (${nodes.filter(n => n.typ === 'paragraf').length} §, ${nodes.filter(n => n.typ === 'lag').length} lagar, ${nodes.filter(n => n.typ === 'organisation').length} org)`)
   console.log(`   Edges: ${edges.length}`)
+  console.log(`   Voteringar: ${voteringar.nodes.length} (${totalRöster} individuella röster)`)
 
   const outPath = join(OUTPUT_DIR, `kf-${datum}.json`)
   writeFileSync(outPath, JSON.stringify(graph, null, 2))
