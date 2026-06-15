@@ -1,0 +1,645 @@
+{
+  "nodes": [
+    {
+      "id": "budget-2026",
+      "typ": "budget",
+      "label": "Göteborgs Stad Kommunbudget 2026",
+      "data": {
+        "år": 2026,
+        "totalMnkr": 43292,
+        "styre": "S+V+MP"
+      }
+    },
+    {
+      "id": "nämnd-grundskola",
+      "typ": "nämnd",
+      "label": "Grundskolenämnden",
+      "data": {
+        "kommunbidragMnkr": 10547,
+        "andelProcent": 24.4
+      }
+    },
+    {
+      "id": "nämnd-aldre-vard",
+      "typ": "nämnd",
+      "label": "Äldre + vård/omsorg",
+      "data": {
+        "kommunbidragMnkr": 7219,
+        "andelProcent": 16.7
+      }
+    },
+    {
+      "id": "nämnd-funktionsstod",
+      "typ": "nämnd",
+      "label": "Nämnden för funktionsstöd",
+      "data": {
+        "kommunbidragMnkr": 5977,
+        "andelProcent": 13.8
+      }
+    },
+    {
+      "id": "nämnd-forskola",
+      "typ": "nämnd",
+      "label": "Förskolenämnden",
+      "data": {
+        "kommunbidragMnkr": 5361,
+        "andelProcent": 12.4
+      }
+    },
+    {
+      "id": "nämnd-utbildning",
+      "typ": "nämnd",
+      "label": "Utbildningsnämnden",
+      "data": {
+        "kommunbidragMnkr": 2928,
+        "andelProcent": 6.8
+      }
+    },
+    {
+      "id": "nämnd-stadsmiljo",
+      "typ": "nämnd",
+      "label": "Stadsmiljönämnden",
+      "data": {
+        "kommunbidragMnkr": 1733,
+        "andelProcent": 4
+      }
+    },
+    {
+      "id": "nämnd-social-nordost",
+      "typ": "nämnd",
+      "label": "Socialnämnden Nordost",
+      "data": {
+        "kommunbidragMnkr": 1931,
+        "andelProcent": 4.5
+      }
+    },
+    {
+      "id": "nämnd-social-centrum",
+      "typ": "nämnd",
+      "label": "Socialnämnden Centrum",
+      "data": {
+        "kommunbidragMnkr": 1470,
+        "andelProcent": 3.4
+      }
+    },
+    {
+      "id": "nämnd-social-hisingen",
+      "typ": "nämnd",
+      "label": "Socialnämnden Hisingen",
+      "data": {
+        "kommunbidragMnkr": 1367,
+        "andelProcent": 3.2
+      }
+    },
+    {
+      "id": "nämnd-social-sydvast",
+      "typ": "nämnd",
+      "label": "Socialnämnden Sydväst",
+      "data": {
+        "kommunbidragMnkr": 899,
+        "andelProcent": 2.1
+      }
+    },
+    {
+      "id": "nämnd-arbetsmarknad",
+      "typ": "nämnd",
+      "label": "Nämnden för arbetsmarknad och vuxenutbildning",
+      "data": {
+        "kommunbidragMnkr": 847,
+        "andelProcent": 2
+      }
+    },
+    {
+      "id": "nämnd-kultur",
+      "typ": "nämnd",
+      "label": "Kulturnämnden",
+      "data": {
+        "kommunbidragMnkr": 772,
+        "andelProcent": 1.8
+      }
+    },
+    {
+      "id": "nämnd-miljo-klimat",
+      "typ": "nämnd",
+      "label": "Miljö- och klimatnämnden",
+      "data": {
+        "kommunbidragMnkr": 644,
+        "andelProcent": 1.5
+      }
+    },
+    {
+      "id": "nämnd-idrott",
+      "typ": "nämnd",
+      "label": "Idrotts- och föreningsnämnden",
+      "data": {
+        "kommunbidragMnkr": 417,
+        "andelProcent": 1
+      }
+    },
+    {
+      "id": "nämnd-stadsbyggnad",
+      "typ": "nämnd",
+      "label": "Stadsbyggnadsnämnden",
+      "data": {
+        "kommunbidragMnkr": 283,
+        "andelProcent": 0.7
+      }
+    },
+    {
+      "id": "nämnd-demokrati",
+      "typ": "nämnd",
+      "label": "Nämnden för demokrati och medborgarservice",
+      "data": {
+        "kommunbidragMnkr": 155,
+        "andelProcent": 0.4
+      }
+    },
+    {
+      "id": "nämnd-kommunledning",
+      "typ": "nämnd",
+      "label": "Kommunledningen",
+      "data": {
+        "kommunbidragMnkr": 145,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-intraservice",
+      "typ": "nämnd",
+      "label": "Nämnden för Intraservice",
+      "data": {
+        "kommunbidragMnkr": 142,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-valnamnden",
+      "typ": "nämnd",
+      "label": "Valnämnden",
+      "data": {
+        "kommunbidragMnkr": 36,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-inkop",
+      "typ": "nämnd",
+      "label": "Inköps- och upphandlingsnämnden",
+      "data": {
+        "kommunbidragMnkr": 10,
+        "andelProcent": 0
+      }
+    },
+    {
+      "id": "it-verklig-kostnad",
+      "typ": "tjänsteområde",
+      "label": "IT verklig kostnad (Intraservice total)",
+      "data": {
+        "totalMnkr": 1493,
+        "kommunbidragMnkr": 142,
+        "internfaktureringMnkr": 1351,
+        "perInvånareKr": 2489
+      }
+    },
+    {
+      "id": "it-it-personal",
+      "typ": "post",
+      "label": "Personal (734 årsarbetare)",
+      "data": {
+        "mnkr": 552,
+        "andelProcent": 37
+      }
+    },
+    {
+      "id": "it-it-licenser",
+      "typ": "post",
+      "label": "IT-program/licenser",
+      "data": {
+        "mnkr": 439,
+        "andelProcent": 29
+      }
+    },
+    {
+      "id": "it-it-leasing",
+      "typ": "post",
+      "label": "Leasing IT-utrustning (77 000 enheter)",
+      "data": {
+        "mnkr": 239,
+        "andelProcent": 16
+      }
+    },
+    {
+      "id": "it-it-ovriga",
+      "typ": "post",
+      "label": "Övriga kostnader",
+      "data": {
+        "mnkr": 146,
+        "andelProcent": 10
+      }
+    },
+    {
+      "id": "it-it-konsulter",
+      "typ": "post",
+      "label": "Konsulter",
+      "data": {
+        "mnkr": 111,
+        "andelProcent": 7
+      }
+    },
+    {
+      "id": "leverantör-cgi",
+      "typ": "leverantör",
+      "label": "CGI Sverige AB",
+      "data": {
+        "mnkr": 7.5,
+        "tjänst": "BankID/Legitimering",
+        "avtalUtgår": "2026-12-31"
+      }
+    },
+    {
+      "id": "leverantör-cloud-networks",
+      "typ": "leverantör",
+      "label": "The Cloud Networks",
+      "data": {
+        "mnkr": 2.5,
+        "tjänst": "Publikt WiFi",
+        "avtalUtgår": "2027-04-30"
+      }
+    },
+    {
+      "id": "leverantör-dataklimat",
+      "typ": "leverantör",
+      "label": "Dataklimat i Sverige",
+      "data": {
+        "mnkr": 2.4,
+        "tjänst": "Serviceavtal datahall"
+      }
+    },
+    {
+      "id": "leverantör-telia",
+      "typ": "leverantör",
+      "label": "Telia Sverige",
+      "data": {
+        "mnkr": 1.8,
+        "tjänst": "Internetförbindelse",
+        "avtalUtgår": "2027-07-06"
+      }
+    },
+    {
+      "id": "leverantör-telia-cygate",
+      "typ": "leverantör",
+      "label": "Telia Cygate",
+      "data": {
+        "mnkr": 1.7,
+        "tjänst": "SSL-certifikat",
+        "avtalUtgår": "2027-05-31"
+      }
+    },
+    {
+      "id": "leverantör-tele2",
+      "typ": "leverantör",
+      "label": "Tele2 Sverige",
+      "data": {
+        "mnkr": 1,
+        "tjänst": "Internetförbindelse",
+        "avtalUtgår": "2027-07-06"
+      }
+    },
+    {
+      "id": "leverantör-excedo",
+      "typ": "leverantör",
+      "label": "Excedo Networks",
+      "data": {
+        "mnkr": 0.7,
+        "tjänst": "Domännamn",
+        "avtalUtgår": "2027-10-14"
+      }
+    },
+    {
+      "id": "leverantör-firesafe",
+      "typ": "leverantör",
+      "label": "Firesafe Sverige",
+      "data": {
+        "mnkr": 0.7,
+        "tjänst": "Brandlarm datahall"
+      }
+    },
+    {
+      "id": "leverantör-microsoft",
+      "typ": "leverantör",
+      "label": "Microsoft",
+      "data": {
+        "mnkr": 200,
+        "tjänst": "M365, Windows, Azure (uppskattning)"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "budget-2026",
+      "to": "nämnd-grundskola",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 10547,
+        "andel": 24.4
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-aldre-vard",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 7219,
+        "andel": 16.7
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-funktionsstod",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 5977,
+        "andel": 13.8
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-forskola",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 5361,
+        "andel": 12.4
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-utbildning",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 2928,
+        "andel": 6.8
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-stadsmiljo",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1733,
+        "andel": 4
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-social-nordost",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1931,
+        "andel": 4.5
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-social-centrum",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1470,
+        "andel": 3.4
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-social-hisingen",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1367,
+        "andel": 3.2
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-social-sydvast",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 899,
+        "andel": 2.1
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-arbetsmarknad",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 847,
+        "andel": 2
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-kultur",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 772,
+        "andel": 1.8
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-miljo-klimat",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 644,
+        "andel": 1.5
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-idrott",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 417,
+        "andel": 1
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-stadsbyggnad",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 283,
+        "andel": 0.7
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-demokrati",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 155,
+        "andel": 0.4
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-kommunledning",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 145,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-intraservice",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 142,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-valnamnden",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 36,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-inkop",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 10,
+        "andel": 0
+      }
+    },
+    {
+      "from": "nämnd-intraservice",
+      "to": "it-verklig-kostnad",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "it-verklig-kostnad",
+      "to": "it-it-personal",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 552
+      }
+    },
+    {
+      "from": "it-verklig-kostnad",
+      "to": "it-it-licenser",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 439
+      }
+    },
+    {
+      "from": "it-verklig-kostnad",
+      "to": "it-it-leasing",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 239
+      }
+    },
+    {
+      "from": "it-verklig-kostnad",
+      "to": "it-it-ovriga",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 146
+      }
+    },
+    {
+      "from": "it-verklig-kostnad",
+      "to": "it-it-konsulter",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 111
+      }
+    },
+    {
+      "from": "nämnd-intraservice",
+      "to": "leverantör-cgi",
+      "typ": "köper_av",
+      "data": {
+        "mnkr": 7.5,
+        "tjänst": "BankID/Legitimering"
+      }
+    },
+    {
+      "from": "nämnd-intraservice",
+      "to": "leverantör-cloud-networks",
+      "typ": "köper_av",
+      "data": {
+        "mnkr": 2.5,
+        "tjänst": "Publikt WiFi"
+      }
+    },
+    {
+      "from": "nämnd-intraservice",
+      "to": "leverantör-dataklimat",
+      "typ": "köper_av",
+      "data": {
+        "mnkr": 2.4,
+        "tjänst": "Serviceavtal datahall"
+      }
+    },
+    {
+      "from": "nämnd-intraservice",
+      "to": "leverantör-telia",
+      "typ": "köper_av",
+      "data": {
+        "mnkr": 1.8,
+        "tjänst": "Internetförbindelse"
+      }
+    },
+    {
+      "from": "nämnd-intraservice",
+      "to": "leverantör-telia-cygate",
+      "typ": "köper_av",
+      "data": {
+        "mnkr": 1.7,
+        "tjänst": "SSL-certifikat"
+      }
+    },
+    {
+      "from": "nämnd-intraservice",
+      "to": "leverantör-tele2",
+      "typ": "köper_av",
+      "data": {
+        "mnkr": 1,
+        "tjänst": "Internetförbindelse"
+      }
+    },
+    {
+      "from": "nämnd-intraservice",
+      "to": "leverantör-excedo",
+      "typ": "köper_av",
+      "data": {
+        "mnkr": 0.7,
+        "tjänst": "Domännamn"
+      }
+    },
+    {
+      "from": "nämnd-intraservice",
+      "to": "leverantör-firesafe",
+      "typ": "köper_av",
+      "data": {
+        "mnkr": 0.7,
+        "tjänst": "Brandlarm datahall"
+      }
+    },
+    {
+      "from": "nämnd-intraservice",
+      "to": "leverantör-microsoft",
+      "typ": "köper_av",
+      "data": {
+        "mnkr": 200,
+        "tjänst": "M365, Windows, Azure (uppskattning)"
+      }
+    }
+  ]
+}
