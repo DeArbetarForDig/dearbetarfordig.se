@@ -1,0 +1,1995 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2025-11-27",
+      "typ": "möte",
+      "label": "KF Sammanträde 2025-11-27",
+      "data": {
+        "datum": "2025-11-27",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§482",
+      "typ": "paragraf",
+      "label": "§ 482 Parentation",
+      "data": {
+        "paragrafNr": "482",
+        "ärendeNr": "SLK-2025-00315",
+        "rubrik": "Parentation",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§483",
+      "typ": "paragraf",
+      "label": "§ 483 Bestämmande av tid för justering",
+      "data": {
+        "paragrafNr": "483",
+        "ärendeNr": "SLK-2025-00041",
+        "rubrik": "Bestämmande av tid för justering",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§484",
+      "typ": "paragraf",
+      "label": "§ 484 Frågestund",
+      "data": {
+        "paragrafNr": "484",
+        "ärendeNr": "SLK-2025-00042",
+        "rubrik": "Frågestund",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§485",
+      "typ": "paragraf",
+      "label": "§ 485 Interpellation av Toni Orsulic (M) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "485",
+        "ärendeNr": "SLK-2025-01018",
+        "rubrik": "Interpellation av Toni Orsulic (M) till kommunstyrelsens",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§486",
+      "typ": "paragraf",
+      "label": "§ 486 Interpellation av Axel Darvik (L) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "486",
+        "ärendeNr": "SLK-2025-01021",
+        "rubrik": "Interpellation av Axel Darvik (L) till kommunstyrelsens",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§487",
+      "typ": "paragraf",
+      "label": "§ 487 Val av ledamot i förbundsfullmäktige i Göteborgsregionens",
+      "data": {
+        "paragrafNr": "487",
+        "ärendeNr": "SLK-2025-00005:34",
+        "rubrik": "Val av ledamot i förbundsfullmäktige i Göteborgsregionens",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§488",
+      "typ": "paragraf",
+      "label": "§ 488 Valberedningens förslag till vid sammanträdet",
+      "data": {
+        "paragrafNr": "488",
+        "ärendeNr": "SLK-2025-00003",
+        "rubrik": "Valberedningens förslag till vid sammanträdet",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§489",
+      "typ": "paragraf",
+      "label": "§ 489 Val av ledamot i förbundsfullmäktige i Göteborgsregionens",
+      "data": {
+        "paragrafNr": "489",
+        "ärendeNr": "SLK-2025-00005",
+        "rubrik": "Val av ledamot i förbundsfullmäktige i Göteborgsregionens",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§490",
+      "typ": "paragraf",
+      "label": "§ 490 Göteborgs Stads delårsrapport per augusti 2025",
+      "data": {
+        "paragrafNr": "490",
+        "ärendeNr": "SLK-2025-00862",
+        "rubrik": "Göteborgs Stads delårsrapport per augusti 2025",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-ges",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen ges",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-g",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§491",
+      "typ": "paragraf",
+      "label": "§ 491 Kompletterande budget oktober 2025",
+      "data": {
+        "paragrafNr": "491",
+        "ärendeNr": "SLK-2025-00636",
+        "rubrik": "Kompletterande budget oktober 2025",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-socialnämnden-sydv",
+      "typ": "organisation",
+      "label": "socialnämnden\nSydv",
+      "data": {}
+    },
+    {
+      "id": "org-inköps--och-upphandlingsnämnden-f",
+      "typ": "organisation",
+      "label": "Inköps- och upphandlingsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-nordost",
+      "typ": "organisation",
+      "label": "Socialnämnden Nordost",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden",
+      "typ": "organisation",
+      "label": "stadsmiljönämnden",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-samt",
+      "typ": "organisation",
+      "label": "idrotts- och föreningsnämnden samt",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-f",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-centrum",
+      "typ": "organisation",
+      "label": "Socialnämnden Centrum",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-hisingen",
+      "typ": "organisation",
+      "label": "socialnämnden Hisingen",
+      "data": {}
+    },
+    {
+      "id": "org-kulturnämnden-hitta",
+      "typ": "organisation",
+      "label": "kulturnämnden hitta",
+      "data": {}
+    },
+    {
+      "id": "org-kulturnämnden",
+      "typ": "organisation",
+      "label": "kulturnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-f",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen f",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-m",
+      "typ": "organisation",
+      "label": "exploateringsnämnden\nm",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-ut",
+      "typ": "organisation",
+      "label": "grundskolenämnden ut",
+      "data": {}
+    },
+    {
+      "id": "org-inköps--och-upphandlingsnämnden-exploateringsn",
+      "typ": "organisation",
+      "label": "Inköps- och upphandlingsnämnden\nExploateringsn",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-idrotts",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden\nIdrotts",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-kulturn",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden\nKulturn",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-socialn",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\nSocialn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§492",
+      "typ": "paragraf",
+      "label": "§ 492 Redovisning av uppdrag att avsluta Göteborgs Stads",
+      "data": {
+        "paragrafNr": "492",
+        "ärendeNr": "SLK-2024-00880",
+        "rubrik": "Redovisning av uppdrag att avsluta Göteborgs Stads",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden-f",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-att",
+      "typ": "organisation",
+      "label": "exploateringsnämnden att",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-att",
+      "typ": "organisation",
+      "label": "kommunstyrelsen att",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-budgetberedningen",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden\nBudgetberedningen",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§493",
+      "typ": "paragraf",
+      "label": "§ 493 Antagande av detaljplan för centrum, bostäder med mera",
+      "data": {
+        "paragrafNr": "493",
+        "ärendeNr": "SLK-2025-01006",
+        "rubrik": "Antagande av detaljplan för centrum, bostäder med mera",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-g",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§494",
+      "typ": "paragraf",
+      "label": "§ 494 Reviderat inhyrningsbeslut avseende Göteborgs",
+      "data": {
+        "paragrafNr": "494",
+        "ärendeNr": "SLK-2025-00621",
+        "rubrik": "Reviderat inhyrningsbeslut avseende Göteborgs",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "lag-kommunallagen",
+      "typ": "lag",
+      "label": "kommunallagen",
+      "data": {
+        "kap": "5",
+        "paragraf": "50"
+      }
+    },
+    {
+      "id": "org-kulturnämnden-med",
+      "typ": "organisation",
+      "label": "kulturnämnden med",
+      "data": {}
+    },
+    {
+      "id": "org-kulturnämnden-n",
+      "typ": "organisation",
+      "label": "kulturnämnden n",
+      "data": {}
+    },
+    {
+      "id": "org-kulturnämnden-om",
+      "typ": "organisation",
+      "label": "kulturnämnden om",
+      "data": {}
+    },
+    {
+      "id": "org-kulturnämnden-enligt",
+      "typ": "organisation",
+      "label": "kulturnämnden enligt",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-och",
+      "typ": "organisation",
+      "label": "kommunstyrelsen och",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-enligt",
+      "typ": "organisation",
+      "label": "kommunstyrelsen enligt",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§495",
+      "typ": "paragraf",
+      "label": "§ 495 Hemställan från Higab AB om utökad investering i om- och",
+      "data": {
+        "paragrafNr": "495",
+        "ärendeNr": "SLK-2025-00718",
+        "rubrik": "Hemställan från Higab AB om utökad investering i om- och",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-kulturnämnden-g",
+      "typ": "organisation",
+      "label": "Kulturnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§496",
+      "typ": "paragraf",
+      "label": "§ 496 Planeringsbeslut för fördjupad planering av högvattenskydd",
+      "data": {
+        "paragrafNr": "496",
+        "ärendeNr": "SLK-2025-00656",
+        "rubrik": "Planeringsbeslut för fördjupad planering av högvattenskydd",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-och",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden och",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-stadsbyggnadsn",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden\nStadsbyggnadsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§497",
+      "typ": "paragraf",
+      "label": "§ 497 Göteborgs Stads deltagande som pilotkommun i",
+      "data": {
+        "paragrafNr": "497",
+        "ärendeNr": "SLK-2024-01120",
+        "rubrik": "Göteborgs Stads deltagande som pilotkommun i",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-f",
+      "typ": "organisation",
+      "label": "Grundskolenämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-g",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§498",
+      "typ": "paragraf",
+      "label": "§ 498 Ny beräkningsgrund för avgifter för upplåtelse av offentlig",
+      "data": {
+        "paragrafNr": "498",
+        "ärendeNr": "SLK-2023-00861",
+        "rubrik": "Ny beräkningsgrund för avgifter för upplåtelse av offentlig",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-stadsmiljönämnden-enligt",
+      "typ": "organisation",
+      "label": "stadsmiljönämnden enligt",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§499",
+      "typ": "paragraf",
+      "label": "§ 499 Kommunövergripande insatser för suicidprevention",
+      "data": {
+        "paragrafNr": "499",
+        "ärendeNr": "SLK-2025-01052",
+        "rubrik": "Kommunövergripande insatser för suicidprevention",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§500",
+      "typ": "paragraf",
+      "label": "§ 500 Revidering av Göteborgs Stads riktlinje för stöd till anhöriga",
+      "data": {
+        "paragrafNr": "500",
+        "ärendeNr": "SLK-2025-00871",
+        "rubrik": "Revidering av Göteborgs Stads riktlinje för stöd till anhöriga",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§501",
+      "typ": "paragraf",
+      "label": "§ 501 Revidering av Göteborgs Stads riktlinje för styrning,",
+      "data": {
+        "paragrafNr": "501",
+        "ärendeNr": "SLK-2024-01188",
+        "rubrik": "Revidering av Göteborgs Stads riktlinje för styrning,",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§502",
+      "typ": "paragraf",
+      "label": "§ 502 Reviderad styrning av stadens internationella arbete samt",
+      "data": {
+        "paragrafNr": "502",
+        "ärendeNr": "SLK-2025-00664",
+        "rubrik": "Reviderad styrning av stadens internationella arbete samt",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§503",
+      "typ": "paragraf",
+      "label": "§ 503 Redovisning av uppdrag kopplade till energiförsörjningen",
+      "data": {
+        "paragrafNr": "503",
+        "ärendeNr": "SLK-2023-01012",
+        "rubrik": "Redovisning av uppdrag kopplade till energiförsörjningen",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-stadsfastighetsnämnden",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden",
+      "typ": "organisation",
+      "label": "idrotts- och föreningsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-idrotts",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden\nIdrotts",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§504",
+      "typ": "paragraf",
+      "label": "§ 504 Redovisning av uppdrag att se över möjligheten för",
+      "data": {
+        "paragrafNr": "504",
+        "ärendeNr": "SLK-2025-00877",
+        "rubrik": "Redovisning av uppdrag att se över möjligheten för",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-med",
+      "typ": "organisation",
+      "label": "kommunstyrelsen med",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§505",
+      "typ": "paragraf",
+      "label": "§ 505 Redovisning av uppdrag att utreda förutsättningar för att",
+      "data": {
+        "paragrafNr": "505",
+        "ärendeNr": "SLK-2025-00794",
+        "rubrik": "Redovisning av uppdrag att utreda förutsättningar för att",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-utreda",
+      "typ": "organisation",
+      "label": "grundskolenämnden utreda",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§506",
+      "typ": "paragraf",
+      "label": "§ 506 Redovisning av uppdrag att ta fram en modell för",
+      "data": {
+        "paragrafNr": "506",
+        "ärendeNr": "SLK-2025-00891",
+        "rubrik": "Redovisning av uppdrag att ta fram en modell för",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-att",
+      "typ": "organisation",
+      "label": "miljö- och klimatnämnden att",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-ska",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden ska",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-besvarad",
+      "typ": "organisation",
+      "label": "miljö- och klimatnämnden besvarad",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-grefab",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden\nGrefab",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§507",
+      "typ": "paragraf",
+      "label": "§ 507 Redovisning av uppdrag att utreda och ge förslag på",
+      "data": {
+        "paragrafNr": "507",
+        "ärendeNr": "SLK-2025-00893",
+        "rubrik": "Redovisning av uppdrag att utreda och ge förslag på",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§508",
+      "typ": "paragraf",
+      "label": "§ 508 Redovisning av uppdrag att utreda möjligheter för",
+      "data": {
+        "paragrafNr": "508",
+        "ärendeNr": "SLK-2025-00780",
+        "rubrik": "Redovisning av uppdrag att utreda möjligheter för",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§509",
+      "typ": "paragraf",
+      "label": "§ 509 Ordningsfråga",
+      "data": {
+        "paragrafNr": "509",
+        "ärendeNr": "SLK-2025-00040",
+        "rubrik": "Ordningsfråga",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§510",
+      "typ": "paragraf",
+      "label": "§ 510 Redovisning av uppdrag om att revidera och uppdatera",
+      "data": {
+        "paragrafNr": "510",
+        "ärendeNr": "SLK-2025-00465",
+        "rubrik": "Redovisning av uppdrag om att revidera och uppdatera",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§511",
+      "typ": "paragraf",
+      "label": "§ 511 Göteborg Energi AB:s slutrapport avseende Fjärrkyla",
+      "data": {
+        "paragrafNr": "511",
+        "ärendeNr": "SLK-2025-00426",
+        "rubrik": "Göteborg Energi AB:s slutrapport avseende Fjärrkyla",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§512",
+      "typ": "paragraf",
+      "label": "§ 512 Klimatomställningsanalys - Så kan Göteborgs klimatmål",
+      "data": {
+        "paragrafNr": "512",
+        "ärendeNr": "SLK-2025-00561",
+        "rubrik": "Klimatomställningsanalys - Så kan Göteborgs klimatmål",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§513",
+      "typ": "paragraf",
+      "label": "§ 513 Uppföljning av Göteborgs Stads avfallsplan 2021-2030 till och",
+      "data": {
+        "paragrafNr": "513",
+        "ärendeNr": "SLK-2025-00720",
+        "rubrik": "Uppföljning av Göteborgs Stads avfallsplan 2021-2030 till och",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§514",
+      "typ": "paragraf",
+      "label": "§ 514 Utbetalning av kommunalt partistöd för år 2026",
+      "data": {
+        "paragrafNr": "514",
+        "ärendeNr": "SLK-2025-00022",
+        "rubrik": "Utbetalning av kommunalt partistöd för år 2026",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§515",
+      "typ": "paragraf",
+      "label": "§ 515 Redovisning av kommunalt partistöd för år 2024",
+      "data": {
+        "paragrafNr": "515",
+        "ärendeNr": "SLK-2025-00021",
+        "rubrik": "Redovisning av kommunalt partistöd för år 2024",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§516",
+      "typ": "paragraf",
+      "label": "§ 516 Motion av Martin Wannholt (D) och Patrik Höstmad (D) om att",
+      "data": {
+        "paragrafNr": "516",
+        "ärendeNr": "SLK-2023-01088",
+        "rubrik": "Motion av Martin Wannholt (D) och Patrik Höstmad (D) om att",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§517",
+      "typ": "paragraf",
+      "label": "§ 517 Motion av Jörgen Fogelklou (SD) och Lena Ferm (SD) om att",
+      "data": {
+        "paragrafNr": "517",
+        "ärendeNr": "SLK-2024-00986",
+        "rubrik": "Motion av Jörgen Fogelklou (SD) och Lena Ferm (SD) om att",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§518",
+      "typ": "paragraf",
+      "label": "§ 518 Motion av Agneta Kjaerbeck (SD) och Jörgen Fogelklou (SD)",
+      "data": {
+        "paragrafNr": "518",
+        "ärendeNr": "SLK-2024-01191",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD) och Jörgen Fogelklou (SD)",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§519",
+      "typ": "paragraf",
+      "label": "§ 519 Motion av Jessica Blixt (D) och Martin Wannholt (D) om",
+      "data": {
+        "paragrafNr": "519",
+        "ärendeNr": "SLK-2024-01204",
+        "rubrik": "Motion av Jessica Blixt (D) och Martin Wannholt (D) om",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§520",
+      "typ": "paragraf",
+      "label": "§ 520 Motion av Rasmus Ragnarsson (SD) om att höja",
+      "data": {
+        "paragrafNr": "520",
+        "ärendeNr": "SLK-2025-00190",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) om att höja",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§521",
+      "typ": "paragraf",
+      "label": "§ 521 Motion av Tony Liljendahl (SD) och Lena Ferm (SD) om att",
+      "data": {
+        "paragrafNr": "521",
+        "ärendeNr": "SLK-2025-00375",
+        "rubrik": "Motion av Tony Liljendahl (SD) och Lena Ferm (SD) om att",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§522",
+      "typ": "paragraf",
+      "label": "§ 522 Motion av Sarah Ullmark (M) och Axel Josefson (M) om",
+      "data": {
+        "paragrafNr": "522",
+        "ärendeNr": "SLK-2025-00191",
+        "rubrik": "Motion av Sarah Ullmark (M) och Axel Josefson (M) om",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§523",
+      "typ": "paragraf",
+      "label": "§ 523 Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou",
+      "data": {
+        "paragrafNr": "523",
+        "ärendeNr": "SLK-2024-01192",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§524",
+      "typ": "paragraf",
+      "label": "§ 524 Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+      "data": {
+        "paragrafNr": "524",
+        "ärendeNr": "SLK-2025-00100",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§525",
+      "typ": "paragraf",
+      "label": "§ 525 Motion av Edwin Friedlaender (M), Mattias Tykesson (M) och",
+      "data": {
+        "paragrafNr": "525",
+        "ärendeNr": "SLK-2025-00486",
+        "rubrik": "Motion av Edwin Friedlaender (M), Mattias Tykesson (M) och",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§526",
+      "typ": "paragraf",
+      "label": "§ 526 Motion av Nina Miskovsky (M), Zagros Hama (M) och Lena",
+      "data": {
+        "paragrafNr": "526",
+        "ärendeNr": "SLK-2025-00485",
+        "rubrik": "Motion av Nina Miskovsky (M), Zagros Hama (M) och Lena",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§527",
+      "typ": "paragraf",
+      "label": "§ 527 Motion av Hans Arby (C) om att anlägga borsttvättar i",
+      "data": {
+        "paragrafNr": "527",
+        "ärendeNr": "SLK-2025-00440",
+        "rubrik": "Motion av Hans Arby (C) om att anlägga borsttvättar i",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§528",
+      "typ": "paragraf",
+      "label": "§ 528 Motion av Emmyly Bönfors (C) och Axel Darvik (L) om att",
+      "data": {
+        "paragrafNr": "528",
+        "ärendeNr": "SLK-2025-00441",
+        "rubrik": "Motion av Emmyly Bönfors (C) och Axel Darvik (L) om att",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§529",
+      "typ": "paragraf",
+      "label": "§ 529 Motion av Patrik Höstmad (D) om ett mer systematiskt och",
+      "data": {
+        "paragrafNr": "529",
+        "ärendeNr": "SLK-2025-00344",
+        "rubrik": "Motion av Patrik Höstmad (D) om ett mer systematiskt och",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§530",
+      "typ": "paragraf",
+      "label": "§ 530 Motion av Anneli Rhedin (M) om att införa en veteranbonus",
+      "data": {
+        "paragrafNr": "530",
+        "ärendeNr": "SLK-2025-00487",
+        "rubrik": "Motion av Anneli Rhedin (M) om att införa en veteranbonus",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§531",
+      "typ": "paragraf",
+      "label": "§ 531 Motion av Axel Darvik (L), Ann Catrine Fogelgren (L) och Eva",
+      "data": {
+        "paragrafNr": "531",
+        "ärendeNr": "SLK-2024-01174",
+        "rubrik": "Motion av Axel Darvik (L), Ann Catrine Fogelgren (L) och Eva",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§532",
+      "typ": "paragraf",
+      "label": "§ 532 Interpellation av Axel Darvik (L) till grundskolenämndens",
+      "data": {
+        "paragrafNr": "532",
+        "ärendeNr": "SLK-2025-01106",
+        "rubrik": "Interpellation av Axel Darvik (L) till grundskolenämndens",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "org-grundskolenämnden",
+      "typ": "organisation",
+      "label": "grundskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-11-27-§533",
+      "typ": "paragraf",
+      "label": "§ 533 Interpellation av Axel Darvik (L) till exploateringsnämndens",
+      "data": {
+        "paragrafNr": "533",
+        "ärendeNr": "SLK-2025-01107",
+        "rubrik": "Interpellation av Axel Darvik (L) till exploateringsnämndens",
+        "datum": "2025-11-27"
+      }
+    },
+    {
+      "id": "kf-2025-11-27-§534",
+      "typ": "paragraf",
+      "label": "§ 534 Förteckning över anmälningsärenden",
+      "data": {
+        "paragrafNr": "534",
+        "ärendeNr": "SLK-2025-00039",
+        "rubrik": "Förteckning över anmälningsärenden",
+        "datum": "2025-11-27"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "kf-2025-11-27-§484",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§484",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§484",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§485",
+      "to": "kf-*-§475",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 475"
+    },
+    {
+      "from": "kf-2025-11-27-§485",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§486",
+      "to": "kf-*-§476",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 476"
+    },
+    {
+      "from": "kf-2025-11-27-§486",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§486",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§487",
+      "to": "kf-*-§443",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 443"
+    },
+    {
+      "from": "kf-2025-11-27-§490",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§490",
+      "to": "org-kommunstyrelsen-ges",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§490",
+      "to": "org-kommunstyrelsen-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-sydv",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-inköps--och-upphandlingsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-nordost",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-stadsmiljönämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-idrotts--och-föreningsnämnden-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-stadsfastighetsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-centrum",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-hisingen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-nordost",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-sydv",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-sydv",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-nordost",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-hisingen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-centrum",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kulturnämnden-hitta",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-socialnämnden-centrum",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kulturnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-exploateringsnämnden-m",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-grundskolenämnden-ut",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-inköps--och-upphandlingsnämnden-exploateringsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-stadsmiljönämnden-idrotts",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-stadsfastighetsnämnden-kulturn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-grundskolenämnden-socialn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§491",
+      "to": "org-kommunstyrelsen-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-exploateringsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-exploateringsnämnden-att",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-kommunstyrelsen-att",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§492",
+      "to": "org-exploateringsnämnden-budgetberedningen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§493",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§493",
+      "to": "org-stadsbyggnadsnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "lag-kommunallagen",
+      "typ": "regleras_av",
+      "label": "5 kap. 50 §"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "org-kulturnämnden-med",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "org-kulturnämnden-n",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "org-kulturnämnden-om",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "org-kulturnämnden-enligt",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "org-kommunstyrelsen-enligt",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "org-kulturnämnden-med",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§494",
+      "to": "org-kulturnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§495",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§495",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§495",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§495",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§495",
+      "to": "org-kulturnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§496",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§496",
+      "to": "org-exploateringsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§496",
+      "to": "org-stadsbyggnadsnämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§496",
+      "to": "org-exploateringsnämnden-stadsbyggnadsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§497",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§497",
+      "to": "org-grundskolenämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§497",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§497",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§497",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§497",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§497",
+      "to": "org-grundskolenämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§498",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§498",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§498",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§498",
+      "to": "org-stadsmiljönämnden-enligt",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§498",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§498",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§498",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§498",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§499",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§499",
+      "to": "org-grundskolenämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§499",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§499",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§499",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§499",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§499",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§499",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§499",
+      "to": "org-grundskolenämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§500",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§500",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§500",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§500",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§501",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§501",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§501",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§501",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§502",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§502",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§502",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§502",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§502",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§502",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§502",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§503",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§503",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§503",
+      "to": "org-idrotts--och-föreningsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§503",
+      "to": "org-stadsfastighetsnämnden-idrotts",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§504",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§504",
+      "to": "org-kommunstyrelsen-med",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§504",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§504",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§504",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§505",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§505",
+      "to": "org-grundskolenämnden-utreda",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§505",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§505",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§505",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§505",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§506",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§506",
+      "to": "org-miljö--och-klimatnämnden-att",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§506",
+      "to": "org-miljö--och-klimatnämnden-ska",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§506",
+      "to": "org-miljö--och-klimatnämnden-besvarad",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§506",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§506",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§506",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§506",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§506",
+      "to": "org-miljö--och-klimatnämnden-grefab",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§507",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§507",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§507",
+      "to": "org-miljö--och-klimatnämnden-besvarad",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§507",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§507",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§507",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§507",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§507",
+      "to": "org-miljö--och-klimatnämnden-grefab",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-27-§508",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§516",
+      "to": "kf-*-§256",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 256"
+    },
+    {
+      "from": "kf-2025-11-27-§517",
+      "to": "kf-*-§325",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 325"
+    },
+    {
+      "from": "kf-2025-11-27-§518",
+      "to": "kf-*-§429",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 429"
+    },
+    {
+      "from": "kf-2025-11-27-§519",
+      "to": "kf-*-§430",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 430"
+    },
+    {
+      "from": "kf-2025-11-27-§520",
+      "to": "kf-*-§470",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 470"
+    },
+    {
+      "from": "kf-2025-11-27-§521",
+      "to": "kf-*-§471",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 471"
+    },
+    {
+      "from": "kf-2025-11-27-§522",
+      "to": "kf-*-§472",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 472"
+    },
+    {
+      "from": "kf-2025-11-27-§523",
+      "to": "kf-*-§473",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 473"
+    },
+    {
+      "from": "kf-2025-11-27-§524",
+      "to": "kf-*-§474",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 474"
+    },
+    {
+      "from": "kf-2025-11-27-§532",
+      "to": "org-grundskolenämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-11-27-§533",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§482",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§483",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§484",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§485",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§486",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§487",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§488",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§489",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§490",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§491",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§492",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§493",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§494",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§495",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§496",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§497",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§498",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§499",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§500",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§501",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§502",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§503",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§504",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§505",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§506",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§507",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§508",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§509",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§510",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§511",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§512",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§513",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§514",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§515",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§516",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§517",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§518",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§519",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§520",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§521",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§522",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§523",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§524",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§525",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§526",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§527",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§528",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§529",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§530",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§531",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§532",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§533",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-27",
+      "to": "kf-2025-11-27-§534",
+      "typ": "beslut_av"
+    }
+  ]
+}
