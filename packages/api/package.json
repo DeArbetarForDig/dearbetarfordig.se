@@ -11,6 +11,8 @@
   "dependencies": {
     "@daf/shared": "workspace:*",
     "@hono/node-server": "1.13.8",
+    "@hono/swagger-ui": "0.5.1",
+    "@hono/zod-openapi": "0.18.4",
     "drizzle-orm": "0.44.2",
     "hono": "4.7.10",
     "postgres": "3.4.5",
