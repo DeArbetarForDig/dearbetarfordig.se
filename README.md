@@ -26,11 +26,14 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 | Handlingar-scraper (664 dokument, 12 möten) | ✅ Klar |
 | YouTube KF-videor (20 möten) | ✅ Klar |
 | REST API (politiker, beslut, debatter, graf) | ✅ Klar |
-| Knowledge Graph (PDF → nodes + edges) | ✅ Klar |
+| Knowledge Graph — beslut (PDF → nodes + edges) | ✅ Klar |
+| Knowledge Graph — budget (PDF → nämnder + belopp) | ✅ Klar |
+| Inbox-parser (begäran-dokument → graf) | ✅ Klar |
 | Docker + docker-compose | ✅ Klar |
 | GitHub Actions CI/CD | ✅ Klar |
 | Transkription (whisper.cpp) | 🔜 Nästa |
 | Sociala medier-scraping | 🔜 Nästa |
+| Email-automatisering (begäran) | 🔜 Nästa |
 | Frontend (Astro) | 🔜 Nästa |
 | PostgreSQL (prod) | 🔜 Nästa |
 
@@ -45,7 +48,7 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 ## Kom igång
 
 ```bash
-# Krav: Node 22+, pnpm 9+
+# Krav: Node 22+, pnpm 9+, pdftotext (poppler)
 git clone https://github.com/DeArbetarForDig/dearbetarfordig.se.git
 cd dearbetarfordig.se
 pnpm install
@@ -54,6 +57,17 @@ pnpm install
 pnpm scrape:politiker     # → 125 politiker → data/politiker/goteborg.json
 pnpm scrape:youtube       # → 20 KF-videor → data/debatter/youtube-kf-goteborg.json
 pnpm scrape:handlingar   # → 664 dokument → data/beslut/kf-handlingar-2025.json
+
+# === Parsers (PDF → Knowledge Graph) ===
+# KF-protokoll → beslut, lagar, organisationer
+npx tsx packages/pipeline/src/parsers/parse-protokoll.ts <pdf> <datum>
+
+# Budget-PDF → nämnder, belopp, uppdrag
+npx tsx packages/pipeline/src/parsers/parse-budget.ts [pdf|url] [år] [styre]
+
+# Inbox (begäran-dokument) → leverantörer, belopp
+# Lägg PDF i data/inbox/, kör:
+npx tsx packages/pipeline/src/parsers/parse-inbox.ts
 
 # === API ===
 pnpm api                  # → localhost:3000
@@ -162,6 +176,8 @@ dearbetarfordig.se/
 | Politiker + uppdrag | politiker.goteborg.se | Cheerio (HTML) |
 | KF-handlingar (PDF) | goteborg.se nämndhandlingar | Playwright |
 | Protokoll → graf | PDF:er från ovan | pdftotext + regex NER |
+| Budget → graf | Budget-PDF från KF | pdftotext + regex (tabeller) |
+| Begäran-dokument | Email (registrator) | data/inbox/ + parse-inbox.ts |
 | KF-videor | YouTube "KF Göteborg" | yt-dlp / fallback |
 | Transkription | YouTube-videor | whisper.cpp (planned) |
 | Sociala medier | Partisidor, X, Facebook | Planned |
