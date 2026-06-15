@@ -5,9 +5,11 @@ dist/
 .tmp/
 *.tsbuildinfo
 .DS_Store
+data/beslut/debug-*.png
 
 # Reference sources (large repos, not tracked)
 docs/reference/*/
 !docs/reference/README.md
+!docs/reference/unstructured/
 package-lock.json
 /.secrets/
