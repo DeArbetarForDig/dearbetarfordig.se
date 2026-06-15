@@ -1,14 +1,11 @@
 /**
  * Seed: loads all JSON data from data/ into PostgreSQL
- *
- * Usage: npx tsx src/db/seed.ts
+ * Creates schema, tables, indexes. Drops unused tables.
  */
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import postgres from 'postgres'
-import { drizzle } from 'drizzle-orm/postgres-js'
-import * as schema from './schema'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../data')
 const connectionString = process.env.DATABASE_URL || 'postgresql://daf:daf_local@localhost:5432/daf'
@@ -20,8 +17,7 @@ function loadJSON(path: string) {
 }
 
 async function main() {
-  const client = postgres(connectionString)
-  const db = drizzle(client, { schema })
+  const client = postgres(connectionString, { max: 5 })
 
   console.log('🌱 Seeding database...\n')
 
@@ -29,7 +25,7 @@ async function main() {
   await client`CREATE SCHEMA IF NOT EXISTS goteborg`
   console.log('   ✓ Schema goteborg')
 
-  // Create tables via raw SQL (simpler than drizzle-kit for initial setup)
+  // Create tables
   await client`
     CREATE TABLE IF NOT EXISTS goteborg.politiker (
       id UUID PRIMARY KEY,
@@ -61,7 +57,22 @@ async function main() {
       data JSONB
     )`
 
-  console.log('   ✓ Tables created')
+  // Drop unused tables (data lives in graph)
+  await client`DROP TABLE IF EXISTS goteborg.arenden CASCADE`
+  await client`DROP TABLE IF EXISTS goteborg.moten CASCADE`
+  await client`DROP TABLE IF EXISTS goteborg.budget CASCADE`
+
+  console.log('   ✓ Tables created (unused dropped)')
+
+  // Create indexes
+  await client`CREATE INDEX IF NOT EXISTS idx_politiker_parti ON goteborg.politiker(parti)`
+  await client`CREATE INDEX IF NOT EXISTS idx_graf_nodes_typ ON goteborg.graf_nodes(typ)`
+  await client`CREATE INDEX IF NOT EXISTS idx_graf_nodes_datum ON goteborg.graf_nodes((data->>'datum')) WHERE typ = 'paragraf'`
+  await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_from ON goteborg.graf_edges(from_id)`
+  await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_to ON goteborg.graf_edges(to_id)`
+  await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_typ ON goteborg.graf_edges(typ)`
+  await client`CREATE INDEX IF NOT EXISTS idx_politiker_fts ON goteborg.politiker USING GIN (to_tsvector('swedish', fornamn || ' ' || efternamn))`
+  console.log('   ✓ Indexes created')
 
   // Seed politiker
   const polData = loadJSON('politiker/goteborg.json')
