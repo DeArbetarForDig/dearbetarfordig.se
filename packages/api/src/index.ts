@@ -176,6 +176,159 @@ app.openapi(statsRoute, async (c) => {
   }, 200)
 })
 
+// --- Möten (sammanträden) ---
+const mötenRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/möten',
+  tags: ['Möten'],
+  summary: 'Lista alla sammanträden',
+  description: 'Alla KF-sammanträden med datum. Startpunkt för att hitta beslut.',
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({ år: z.string().optional().openapi({ example: '2025' }) }),
+  },
+  responses: { 200: { content: { 'application/json': { schema: z.object({ kommun: z.string(), möten: z.array(z.unknown()) }) } }, description: 'Lista sammanträden' } },
+})
+
+app.openapi(mötenRoute, async (c) => {
+  const { år } = c.req.valid('query')
+  let nodes
+  if (år) {
+    nodes = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'möte' AND data->>'datum' LIKE ${år + '%'} ORDER BY data->>'datum' DESC`
+  } else {
+    nodes = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
+  }
+  // Also get paragraf counts per meeting
+  const möten = await Promise.all(nodes.map(async (m) => {
+    const datum = (m.data as any).datum
+    const beslut = await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum}`
+    return { id: m.id, datum, label: m.label, antalBeslut: beslut[0].antal }
+  }))
+  return c.json({ kommun: c.req.valid('param').kommun, antal: möten.length, möten }, 200)
+})
+
+// --- Beslut (paragrafer) ---
+const beslutRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/beslut',
+  tags: ['Beslut'],
+  summary: 'Lista alla beslut',
+  description: 'Alla KF-beslut (paragrafer). Filtrera på datum, sök i rubrik.',
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({
+      datum: z.string().optional().openapi({ example: '2025-11-27', description: 'Specifikt sammanträde' }),
+      sök: z.string().optional().openapi({ example: 'budget', description: 'Sök i rubrik' }),
+      limit: z.string().optional().openapi({ example: '20' }),
+    }),
+  },
+  responses: { 200: { content: { 'application/json': { schema: z.object({ kommun: z.string(), beslut: z.array(z.unknown()) }) } }, description: 'Lista beslut' } },
+})
+
+app.openapi(beslutRoute, async (c) => {
+  const { datum, sök, limit } = c.req.valid('query')
+  const lim = parseInt(limit || '50')
+  let rows
+  if (datum) {
+    rows = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
+  } else if (sök) {
+    rows = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${'%' + sök + '%'} ORDER BY data->>'datum' DESC LIMIT ${lim}`
+  } else {
+    rows = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int LIMIT ${lim}`
+  }
+  return c.json({
+    kommun: c.req.valid('param').kommun,
+    antal: rows.length,
+    beslut: rows.map((r) => ({
+      id: r.id,
+      paragraf: (r.data as any).paragrafNr ? `§ ${(r.data as any).paragrafNr}` : null,
+      rubrik: r.label,
+      datum: (r.data as any).datum,
+      beslut: (r.data as any).beslut,
+      votering: (r.data as any).votering,
+      ärendeNr: (r.data as any).ärendeNr,
+    })),
+  }, 200)
+})
+
+// --- Enskilt beslut ---
+const beslutDetailRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/beslut/{id}',
+  tags: ['Beslut'],
+  summary: 'Enskilt beslut med alla kopplingar',
+  description: 'Fullständig information om ett beslut: votering, individuella röster, yrkanden, reservationer, kopplingar till lagar och nämnder.',
+  request: {
+    params: z.object({ kommun: z.string(), id: z.string().openapi({ example: 'kf-2025-11-27-§491' }) }),
+  },
+  responses: {
+    200: { content: { 'application/json': { schema: z.object({ beslut: z.unknown(), kopplingar: z.array(z.unknown()) }) } }, description: 'Beslut med kopplingar' },
+    404: { content: { 'application/json': { schema: z.object({ error: z.string() }) } }, description: 'Ej hittad' },
+  },
+})
+
+app.openapi(beslutDetailRoute, async (c) => {
+  const id = decodeURIComponent(c.req.valid('param').id)
+  const [node] = await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${id}`
+  if (!node) return c.json({ error: 'Beslut inte hittat' }, 404)
+  const edges = await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ${id} OR to_id = ${id}`
+  const relatedIds = [...new Set(edges.map((e) => e.from_id === id ? e.to_id : e.from_id))]
+  const related = relatedIds.length > 0 ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})` : []
+  return c.json({
+    beslut: { id: node.id, ...node.data, label: node.label },
+    kopplingar: edges.map((e) => {
+      const target = related.find((r) => r.id === (e.from_id === id ? e.to_id : e.from_id))
+      return { typ: e.typ, riktning: e.from_id === id ? 'ut' : 'in', nod: target ? { id: target.id, typ: target.typ, label: target.label } : null }
+    }),
+  }, 200)
+})
+
+// --- Budget ---
+const budgetRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/budget',
+  tags: ['Budget'],
+  summary: 'Kommunbudget per nämnd',
+  description: 'Visar kommunbidraget per nämnd — var skattepengar hamnar.',
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({ år: z.string().optional().openapi({ example: '2026' }) }),
+  },
+  responses: { 200: { content: { 'application/json': { schema: z.object({ kommun: z.string(), nämnder: z.array(z.unknown()) }) } }, description: 'Budget per nämnd' } },
+})
+
+app.openapi(budgetRoute, async (c) => {
+  const rows = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'nämnd' ORDER BY (data->>'kommunbidragMnkr')::float DESC`
+  const totalMnkr = rows.reduce((sum, r) => sum + ((r.data as any).kommunbidragMnkr || 0), 0)
+  return c.json({
+    kommun: c.req.valid('param').kommun,
+    år: 2026,
+    totalMnkr,
+    nämnder: rows.map((r) => ({ id: r.id, namn: r.label, ...(r.data as object) })),
+  }, 200)
+})
+
+// --- Sök ---
+const sökRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/sök',
+  tags: ['Sök'],
+  summary: 'Sök i alla data',
+  description: 'Fritextsökning i politiker, beslut, organisationer.',
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({ q: z.string().openapi({ example: 'cykelväg' }) }),
+  },
+  responses: { 200: { content: { 'application/json': { schema: z.object({ resultat: z.array(z.unknown()) }) } }, description: 'Sökresultat' } },
+})
+
+app.openapi(sökRoute, async (c) => {
+  const q = c.req.valid('query').q
+  const politiker = await sql`SELECT id, fornamn || ' ' || efternamn as namn, parti, 'politiker' as typ FROM goteborg.politiker WHERE fornamn ILIKE ${'%' + q + '%'} OR efternamn ILIKE ${'%' + q + '%'} LIMIT 10`
+  const nodes = await sql`SELECT id, label, typ FROM goteborg.graf_nodes WHERE label ILIKE ${'%' + q + '%'} LIMIT 20`
+  return c.json({ query: q, resultat: [...politiker, ...nodes] }, 200)
+})
+
 // --- OpenAPI spec + Swagger UI ---
 app.doc('/openapi.json', {
   openapi: '3.1.0',
