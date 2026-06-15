@@ -52,17 +52,17 @@ function transcribeChunk(chunkPath: string): Array<{ start: number; end: number;
     return []
   }
 
-  const jsonPath = `${outBase}.wav.json`
+  // whisper-cli outputs to <outBase>.json
+  const jsonPath = `${outBase}.json`
   if (!existsSync(jsonPath)) return []
 
   const raw = JSON.parse(readFileSync(jsonPath, 'utf-8'))
-  const segments = raw.transcription || raw.segments || []
+  const segments = raw.transcription || []
   unlinkSync(jsonPath)
 
   return segments.map((s: any) => {
-    const from = s.timestamps?.from || s.start || '00:00:00,000'
-    const to = s.timestamps?.to || s.end || '00:00:00,000'
-    // Parse timestamp "HH:MM:SS,mmm" to seconds
+    const from = s.timestamps?.from || '00:00:00,000'
+    const to = s.timestamps?.to || '00:00:00,000'
     const parseTs = (ts: string) => {
       const parts = ts.replace(',', '.').split(':')
       return parseFloat(parts[0]) * 3600 + parseFloat(parts[1]) * 60 + parseFloat(parts[2])
