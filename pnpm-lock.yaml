@@ -17,6 +17,9 @@ importers:
       '@daf/shared':
         specifier: workspace:*
         version: link:../shared
+      '@hono/node-server':
+        specifier: 1.13.8
+        version: 1.13.8(hono@4.7.10)
       drizzle-orm:
         specifier: 0.44.2
         version: 0.44.2(gel@2.2.0)(postgres@3.4.5)
@@ -646,6 +649,12 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@hono/node-server@1.13.8':
+    resolution: {integrity: sha512-fsn8ucecsAXUoVxrUil0m13kOEq4mkX4/4QozCqmY+HpGfKl74OYSn8JcMA8GnG0ClfdRI4/ZSeG7zhFaVg+wg==}
+    engines: {node: '>=18.14.1'}
+    peerDependencies:
+      hono: ^4
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2885,6 +2894,10 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.12':
     optional: true
+
+  '@hono/node-server@1.13.8(hono@4.7.10)':
+    dependencies:
+      hono: 4.7.10
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

@@ -23,6 +23,14 @@ export const PARTIER = {
 export type Parti = keyof typeof PARTIER
 
 // --- Politiker ---
+export const SocialMediaSchema = z.object({
+  twitter: z.string().optional(),
+  facebook: z.string().optional(),
+  instagram: z.string().optional(),
+  linkedin: z.string().optional(),
+})
+export type SocialMedia = z.infer<typeof SocialMediaSchema>
+
 export const PolitikerSchema = z.object({
   id: z.string().uuid(),
   kommunId: z.string(),
@@ -31,6 +39,7 @@ export const PolitikerSchema = z.object({
   parti: z.string(),
   fotoUrl: z.string().optional(),
   email: z.string().email().optional(),
+  sociala: SocialMediaSchema.optional(),
   uppdrag: z.array(
     z.object({
       organisationId: z.string().uuid(),
