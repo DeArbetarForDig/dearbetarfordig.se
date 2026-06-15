@@ -1,0 +1,173 @@
+{
+  "nodes": [
+    {
+      "id": "doc-intraservice-arsrapport-2025",
+      "typ": "dokument",
+      "label": "intraservice arsrapport 2025",
+      "data": {
+        "källa": "begäran",
+        "fil": "intraservice_arsrapport_2025.pdf",
+        "rader": 1995,
+        "belopp": [
+          {
+            "belopp": 6.9,
+            "enhet": "miljoner",
+            "kontext": "året 2025 visar på ett slutligt överskott i verksamheten med 6,9           miljoner kronor och då har återregleri"
+          },
+          {
+            "belopp": 29.5,
+            "enhet": "miljoner",
+            "kontext": "miljoner kronor och då har återreglering skett till kund med 29,5 miljoner. Både           förvaltningen"
+          },
+          {
+            "belopp": 29.5,
+            "enhet": "miljoner",
+            "kontext": "ört med budget och därmed           skedde återreglering med 29,5 miljoner kronor till kund i december m"
+          },
+          {
+            "belopp": 6.9,
+            "enhet": "miljoner",
+            "kontext": "året 2025 visar på ett slutligt överskott i verksamheten med 6,9           miljoner kronor och då har återregleri"
+          },
+          {
+            "belopp": 29.5,
+            "enhet": "miljoner",
+            "kontext": "miljoner kronor och då har återreglering skett till kund med 29,5 miljoner. Både           förvaltningen"
+          },
+          {
+            "belopp": 6,
+            "enhet": "mkr",
+            "kontext": "kommande kostnad i form av           hyreskompensation om ca 6 mkr, vilken belastat resultatet 2"
+          },
+          {
+            "belopp": 18.1,
+            "enhet": "miljoner",
+            "kontext": "ber           Prognosen i oktober visade på ett överskott om 18,1 miljoner kronor och skiljer sig"
+          },
+          {
+            "belopp": 13.8,
+            "enhet": "miljoner",
+            "kontext": "sti           Prognosen i augusti visade på ett överskott om 13,8 miljoner kronor. Det är inga"
+          },
+          {
+            "belopp": 52.3,
+            "enhet": "miljoner",
+            "kontext": "a kostnader för utveckling inom befintlig tjänst uppgår till 52,3 miljoner              kronor, vilket ä"
+          },
+          {
+            "belopp": 15.3,
+            "enhet": "miljoner",
+            "kontext": "nst uppgår till 52,3 miljoner              kronor, vilket är 15,3 miljoner kronor lägre än budget. Av de"
+          },
+          {
+            "belopp": 9.5,
+            "enhet": "miljoner",
+            "kontext": "lket är 15,3 miljoner kronor lägre än budget. Av dessa avser 9,5 miljoner              kronor projekt i"
+          },
+          {
+            "belopp": 53.7,
+            "enhet": "miljoner",
+            "kontext": "Tjänstekostnader inom verksamhetsområde ekonomi uppgår till 53,7 miljoner           kronor mot budget o"
+          },
+          {
+            "belopp": 58.1,
+            "enhet": "miljoner",
+            "kontext": "omi uppgår till 53,7 miljoner           kronor mot budget om 58,1 miljoner. Den positiva avvikelsen best"
+          },
+          {
+            "belopp": 129.9,
+            "enhet": "miljoner",
+            "kontext": "Tjänstekostnader inom verksamhetsområde HR uppgår till 129,9 miljoner kronor           mot budget o"
+          },
+          {
+            "belopp": 137.6,
+            "enhet": "miljoner",
+            "kontext": "HR uppgår till 129,9 miljoner kronor           mot budget om 137,6 miljoner. Den positiva avvikelsen bero"
+          },
+          {
+            "belopp": 88.3,
+            "enhet": "miljoner",
+            "kontext": "stnader inom Kommunikation, ledning och styrning uppgår till 88,3           miljoner kronor mot budget om 106,6 mi"
+          },
+          {
+            "belopp": 106.6,
+            "enhet": "miljoner",
+            "kontext": "ing uppgår till 88,3           miljoner kronor mot budget om 106,6 miljoner. Den positiva avvikelsen bero"
+          },
+          {
+            "belopp": 776.9,
+            "enhet": "miljoner",
+            "kontext": "Verksamhetsområdet Digital infrastruktur visar ett utfall om 776,9 miljoner kronor           mot budget o"
+          },
+          {
+            "belopp": 789.3,
+            "enhet": "miljoner",
+            "kontext": "ett utfall om 776,9 miljoner kronor           mot budget om 789,3 miljoner. Inom detta tjänsteområde fin"
+          },
+          {
+            "belopp": 24.5,
+            "enhet": "miljoner",
+            "kontext": "Förändringsinsatserna visar ett kostnadsutfall om 24,5 miljoner kronor för helåret"
+          }
+        ]
+      }
+    },
+    {
+      "id": "leverantör-vatten-och-avloppshantering-i-sverige",
+      "typ": "leverantör",
+      "label": "vatten- och\n          avloppshantering i Sverige",
+      "data": {}
+    },
+    {
+      "id": "leverantör-stadshus-ab",
+      "typ": "leverantör",
+      "label": "Stadshus AB",
+      "data": {}
+    },
+    {
+      "id": "leverantör-hösten-2024-anslöts-parkeringsbolaget-ab",
+      "typ": "leverantör",
+      "label": "Hösten 2024 anslöts Parkeringsbolaget AB",
+      "data": {}
+    },
+    {
+      "id": "leverantör-öteborgs-stads-kollektivtrafik-ab",
+      "typ": "leverantör",
+      "label": "öteborgs Stads\n          kollektivtrafik AB",
+      "data": {}
+    },
+    {
+      "id": "leverantör-gs-trafikantservice-ab-samt-gs-buss-ab",
+      "typ": "leverantör",
+      "label": "GS Trafikantservice AB samt GS Buss AB",
+      "data": {}
+    }
+  ],
+  "edges": [
+    {
+      "from": "doc-intraservice-arsrapport-2025",
+      "to": "leverantör-vatten-och-avloppshantering-i-sverige",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-arsrapport-2025",
+      "to": "leverantör-stadshus-ab",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-arsrapport-2025",
+      "to": "leverantör-hösten-2024-anslöts-parkeringsbolaget-ab",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-arsrapport-2025",
+      "to": "leverantör-öteborgs-stads-kollektivtrafik-ab",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-arsrapport-2025",
+      "to": "leverantör-gs-trafikantservice-ab-samt-gs-buss-ab",
+      "typ": "nämner"
+    }
+  ]
+}

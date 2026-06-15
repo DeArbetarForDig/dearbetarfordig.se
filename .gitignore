@@ -13,3 +13,4 @@ docs/reference/*/
 !docs/reference/unstructured/
 package-lock.json
 /.secrets/
+data/inbox/*.pdf
