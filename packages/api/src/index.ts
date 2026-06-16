@@ -21,6 +21,15 @@ function getSchema(kommun: string): string | null {
 // --- Middleware ---
 app.use('/*', cors({ origin: '*', allowMethods: ['GET', 'OPTIONS'] }))
 
+// Kommun validation
+app.use('/api/v1/:kommun/*', async (c, next) => {
+  const kommun = c.req.param('kommun')
+  if (!ALLOWED_KOMMUNER.includes(kommun)) {
+    return c.json({ error: `Kommun '${kommun}' finns inte. Tillgängliga: ${ALLOWED_KOMMUNER.join(', ')}` }, 404)
+  }
+  await next()
+})
+
 // Rate limiting (simple in-memory, per IP)
 const rateMap = new Map<string, { count: number; reset: number }>()
 app.use('/*', async (c, next) => {
@@ -37,7 +46,7 @@ app.use('/*', async (c, next) => {
 })
 
 // --- Helpers ---
-function capLimit(val: string | undefined, max = 100): number {
+function capLimit(val: string | undefined, max = 200): number {
   return Math.min(Math.max(parseInt(val || '50') || 50, 1), max)
 }
 
@@ -156,7 +165,7 @@ const budgetRoute = createRoute({
   responses: { 200: { content: { 'application/json': { schema: z.object({ kommun: z.string(), nämnder: z.array(z.unknown()) }) } }, description: 'OK' } },
 })
 app.openapi(budgetRoute, async (c) => {
-  const rows = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'nämnd' ORDER BY (data->>'kommunbidragMnkr')::float DESC NULLS LAST`
+  const rows = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'organisation' AND data ? 'kommunbidragMnkr' ORDER BY (data->>'kommunbidragMnkr')::float DESC NULLS LAST`
   const totalMnkr = rows.reduce((sum, r) => sum + ((r.data as any).kommunbidragMnkr || 0), 0)
   return c.json({ kommun: c.req.valid('param').kommun, år: 2026, totalMnkr, nämnder: rows.map(r => ({ id: r.id, namn: r.label, ...(r.data as object) })) }, 200)
 })
