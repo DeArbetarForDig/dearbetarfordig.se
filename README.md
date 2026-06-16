@@ -212,8 +212,40 @@ dearbetarfordig.se/
 | Budget → graf | Budget-PDF från KF | pdftotext + regex (tabeller) |
 | Begäran-dokument | Email (registrator) | data/inbox/ + parse-inbox.ts |
 | KF-videor | YouTube "KF Göteborg" | yt-dlp / fallback |
-| Transkription | YouTube-videor | whisper.cpp (planned) |
+| Transkription | YouTube-videor | whisper.cpp (30s-chunks) |
+| Speaker attribution | Yttrandeprotokoll (PDF) | pdftotext → timestamp matching |
+| Bolagsengagemang | allabolag.se | Planned (scraper) |
+| Inkomst + fastigheter | ratsit.se | Planned (scraper) |
 | Sociala medier | Partisidor, X, Facebook | Planned |
+| Valkampanjfinansiering | Kammarkollegiet | Planned (öppet API) |
+
+## Politiker-portfolio (per person)
+
+Varje politiker får ett komplett portfolio baserat på öppna data:
+
+```
+Anna Svensson (C)
+├── Officiellt (politiker.goteborg.se)
+│   ├── Uppdrag: KF-ledamot, ordförande Grundskolenämnden
+│   ├── Email: anna.svensson@politiker.goteborg.se
+│   └── Mandatperiod: 2022-10-15 – 2026-10-14
+├── Beslut & röstning (KF-protokoll)
+│   ├── Voteringar: 34 st (89% med partiet)
+│   ├── Yrkanden: 5 st
+│   └── Närvaro: 92%
+├── Anföranden (whisper + yttrandeprotokoll)
+│   ├── Total talartid: 2h 15min
+│   └── Ämnen: budget, skola, integration
+├── Ekonomi (ratsit.se)
+│   ├── Inkomst: XXX tkr/år
+│   ├── Fastigheter: [...]
+│   └── Bolagsengagemang: [...]
+├── Sociala medier
+│   ├── X/Twitter: @annasvensson
+│   └── Senaste inlägg: [...]
+└── Budget-ansvar
+    └── Grundskolenämnden: 10 547 mnkr
+```
 
 ## Licens
 
