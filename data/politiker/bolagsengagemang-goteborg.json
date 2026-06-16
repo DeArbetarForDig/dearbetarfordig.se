@@ -1,0 +1,33 @@
+{
+  "hämtad": "2026-06-16T09:07:07.054Z",
+  "antal": 3,
+  "politiker": [
+    {
+      "id": "f829c1ef-42f0-4eaa-8d1c-2b6af1174c3d",
+      "namn": "Adrian Jalali",
+      "parti": "SD",
+      "allabolagUrl": null,
+      "bolagsuppdrag": []
+    },
+    {
+      "id": "0c4ae698-d9c8-44a4-8a2b-49e56c0b2645",
+      "namn": "Agneta Kjaerbeck",
+      "parti": "SD",
+      "allabolagUrl": null,
+      "bolagsuppdrag": []
+    },
+    {
+      "id": "da39c84a-026d-4400-bfaa-cb4167aae5e7",
+      "namn": "Ajsela Bruncevic",
+      "parti": "C",
+      "allabolagUrl": "https://www.allabolag.se/befattning/ajsela-bruncevic/-/10711338",
+      "bolagsuppdrag": [
+        {
+          "bolag": "Försäkrings AB Göta Lejon",
+          "roll": "Ledamot",
+          "url": "https://www.allabolag.se/foretag/f%C3%B6rs%C3%A4krings-ab-g%C3%B6ta-lejon/-/-/5164018185"
+        }
+      ]
+    }
+  ]
+}
