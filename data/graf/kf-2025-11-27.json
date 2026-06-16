@@ -19,7 +19,8 @@
         "rubrik": "Parentation",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -32,7 +33,8 @@
         "rubrik": "Bestämmande av tid för justering",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -45,7 +47,8 @@
         "rubrik": "Frågestund",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -66,7 +69,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tidigare_bordlagd",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -79,7 +83,8 @@
         "rubrik": "Interpellation av Axel Darvik (L) till kommunstyrelsens",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -92,7 +97,8 @@
         "rubrik": "Val av ledamot i förbundsfullmäktige i Göteborgsregionens",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -105,7 +111,8 @@
         "rubrik": "Valberedningens förslag till vid sammanträdet",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -118,7 +125,8 @@
         "rubrik": "Val av ledamot i förbundsfullmäktige i Göteborgsregionens",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -131,7 +139,8 @@
         "rubrik": "Göteborgs Stads delårsrapport per augusti 2025",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -180,6 +189,7 @@
           }
         ],
         "reservationer": [],
+        "jäv": [],
         "röster": [
           {
             "namn": "Aslan Akbas",
@@ -732,6 +742,12 @@
           }
         ],
         "reservationer": [],
+        "jäv": [
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M"
+          }
+        ],
         "röster": [
           {
             "namn": "Aslan Akbas",
@@ -1175,7 +1191,8 @@
         "rubrik": "Antagande av detaljplan för centrum, bostäder med mera",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -1213,6 +1230,7 @@
           }
         ],
         "reservationer": [],
+        "jäv": [],
         "röster": [
           {
             "namn": "Aslan Akbas",
@@ -1689,7 +1707,8 @@
             "typ": "yrkande från SD i kommunstyrelsen."
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -1708,7 +1727,8 @@
         "rubrik": "Planeringsbeslut för fördjupad planering av högvattenskydd",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -1754,6 +1774,7 @@
         "reservationer": [
           "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
         ],
+        "jäv": [],
         "röster": [
           {
             "namn": "Aslan Akbas",
@@ -2204,6 +2225,7 @@
           }
         ],
         "reservationer": [],
+        "jäv": [],
         "röster": [
           {
             "namn": "Aslan Akbas",
@@ -2650,6 +2672,7 @@
         "reservationer": [
           "Ledamöterna från SD reserverar sig mot beslutet."
         ],
+        "jäv": [],
         "röster": [
           {
             "namn": "Aslan Akbas",
@@ -3090,6 +3113,7 @@
         "reservationer": [
           "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
         ],
+        "jäv": [],
         "röster": [
           {
             "namn": "Aslan Akbas",
@@ -3525,7 +3549,8 @@
             "typ": "yrkandet från M, D, L och KD"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -3559,6 +3584,7 @@
         "reservationer": [
           "Ledamöterna från SD reserverar sig mot beslutet."
         ],
+        "jäv": [],
         "röster": [
           {
             "namn": "Aslan Akbas",
@@ -3978,7 +4004,8 @@
         "rubrik": "Redovisning av uppdrag kopplade till energiförsörjningen",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4025,7 +4052,8 @@
             "typ": "stadsledningskontorets förslag och tilläggsyrkande"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4060,7 +4088,8 @@
             "typ": "förslaget från"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4097,7 +4126,8 @@
         ],
         "reservationer": [
           "Protokoll nr 11\nSammanträdesdatum: 2025-11-27"
-        ]
+        ],
+        "jäv": []
       }
     },
     {
@@ -4152,7 +4182,8 @@
         ],
         "reservationer": [
           "Protokoll nr 11\nSammanträdesdatum: 2025-11-27"
-        ]
+        ],
+        "jäv": []
       }
     },
     {
@@ -4171,7 +4202,8 @@
         "rubrik": "Redovisning av uppdrag att utreda möjligheter för",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4186,7 +4218,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4201,7 +4234,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4216,7 +4250,13 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": [
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD"
+          }
+        ]
       }
     },
     {
@@ -4231,7 +4271,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4246,7 +4287,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4261,7 +4303,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4276,7 +4319,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4291,7 +4335,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4306,7 +4351,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4321,7 +4367,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4336,7 +4383,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4351,7 +4399,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4366,7 +4415,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4381,7 +4431,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4396,7 +4447,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4411,7 +4463,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4426,7 +4479,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4441,7 +4495,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4456,7 +4511,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4471,7 +4527,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4486,7 +4543,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4501,7 +4559,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4516,7 +4575,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "tid",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4531,7 +4591,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "interpellation_väntar",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4552,7 +4613,8 @@
         "beslut": "bordläggning",
         "bordläggningsorsak": "interpellation_väntar",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     },
     {
@@ -4565,7 +4627,8 @@
         "rubrik": "Förteckning över anmälningsärenden",
         "datum": "2025-11-27",
         "yrkanden": [],
-        "reservationer": []
+        "reservationer": [],
+        "jäv": []
       }
     }
   ],
