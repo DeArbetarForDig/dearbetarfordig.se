@@ -1,0 +1,2229 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2026-04-23",
+      "typ": "möte",
+      "label": "KF Sammanträde 2026-04-23",
+      "data": {
+        "datum": "2026-04-23",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§117",
+      "typ": "paragraf",
+      "label": "§ 117 Bestämmande av tid för justering",
+      "data": {
+        "paragrafNr": "117",
+        "ärendeNr": "SLK-2026-00015",
+        "rubrik": "Bestämmande av tid för justering",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§118",
+      "typ": "paragraf",
+      "label": "§ 118 Frågestund",
+      "data": {
+        "paragrafNr": "118",
+        "ärendeNr": "SLK-2026-00022",
+        "rubrik": "Frågestund",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden",
+      "typ": "organisation",
+      "label": "exploateringsnämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§119",
+      "typ": "paragraf",
+      "label": "§ 119 Interpellation av Axel Darvik (L) till grundskolenämndens",
+      "data": {
+        "paragrafNr": "119",
+        "ärendeNr": "SLK-2025-01106",
+        "rubrik": "Interpellation av Axel Darvik (L) till grundskolenämndens",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden",
+      "typ": "organisation",
+      "label": "grundskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§120",
+      "typ": "paragraf",
+      "label": "§ 120 Interpellation av Axel Darvik (L) till exploateringsnämndens",
+      "data": {
+        "paragrafNr": "120",
+        "ärendeNr": "SLK-2025-01107",
+        "rubrik": "Interpellation av Axel Darvik (L) till exploateringsnämndens",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§121",
+      "typ": "paragraf",
+      "label": "§ 121 Interpellation av Kristina Bergman Alme (L) till ordföranden i",
+      "data": {
+        "paragrafNr": "121",
+        "ärendeNr": "SLK-2026-00182",
+        "rubrik": "Interpellation av Kristina Bergman Alme (L) till ordföranden i",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§122",
+      "typ": "paragraf",
+      "label": "§ 122 Interpellation av Jörgen Fogelklou (SD) till",
+      "data": {
+        "paragrafNr": "122",
+        "ärendeNr": "SLK-2026-00338",
+        "rubrik": "Interpellation av Jörgen Fogelklou (SD) till",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§123",
+      "typ": "paragraf",
+      "label": "§ 123 Göteborgs Stads årsredovisning för 2025",
+      "data": {
+        "paragrafNr": "123",
+        "ärendeNr": "SLK-2026-00122",
+        "rubrik": "Göteborgs Stads årsredovisning för 2025",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§124",
+      "typ": "paragraf",
+      "label": "§ 124 Stadsrevisionens årsredogörelse och revisorskollegiets",
+      "data": {
+        "paragrafNr": "124",
+        "ärendeNr": "SLK-2026-00356",
+        "rubrik": "Stadsrevisionens årsredogörelse och revisorskollegiets",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§125",
+      "typ": "paragraf",
+      "label": "§ 125 Revisionsberättelse avseende Göteborgs Stads",
+      "data": {
+        "paragrafNr": "125",
+        "ärendeNr": "SLK-2026-00422",
+        "rubrik": "Revisionsberättelse avseende Göteborgs Stads",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-i",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden i",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-stadens",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nStadens",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§126",
+      "typ": "paragraf",
+      "label": "§ 126 Aktualitetsprövning av stadenövergripande styrande",
+      "data": {
+        "paragrafNr": "126",
+        "ärendeNr": "SLK-2025-00888",
+        "rubrik": "Aktualitetsprövning av stadenövergripande styrande",
+        "datum": "2026-04-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nJonas Attenius",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "beslutssatserna i yrkande från D, M, L och KD samt SD i kommunstyrelsen med"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden-beredas",
+      "typ": "organisation",
+      "label": "exploateringsnämnden beredas",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-med",
+      "typ": "organisation",
+      "label": "kommunstyrelsen med",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§127",
+      "typ": "paragraf",
+      "label": "§ 127 Göteborgs Stads plan för arbetet mot hedersrelaterat våld",
+      "data": {
+        "paragrafNr": "127",
+        "ärendeNr": "SLK-2025-01073",
+        "rubrik": "Göteborgs Stads plan för arbetet mot hedersrelaterat våld",
+        "datum": "2026-04-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Klas Forsberg",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Martin Wannholt",
+            "parti": "D",
+            "typ": "stadsledningskontorets förslag och tilläggsyrkande från M, D, L och KD i"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "tilläggsyrkandena från SD samt M, D, L och KD i"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-samt",
+      "typ": "organisation",
+      "label": "kommunstyrelsen samt",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-och",
+      "typ": "organisation",
+      "label": "kommunstyrelsen och",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-grundskolen",
+      "typ": "organisation",
+      "label": "Förskolenämnden\nGrundskolen",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-n",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§128",
+      "typ": "paragraf",
+      "label": "§ 128 Reviderad bolagsordning och ägardirektiv för",
+      "data": {
+        "paragrafNr": "128",
+        "ärendeNr": "SLK-2025-01302",
+        "rubrik": "Reviderad bolagsordning och ägardirektiv för",
+        "datum": "2026-04-23",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Parisa Rezaeivar",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§129",
+      "typ": "paragraf",
+      "label": "§ 129 Revidering av Göteborgs Stads miljö- och klimatprogram",
+      "data": {
+        "paragrafNr": "129",
+        "ärendeNr": "SLK-2025-01328",
+        "rubrik": "Revidering av Göteborgs Stads miljö- och klimatprogram",
+        "datum": "2026-04-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 72,
+          "nej": 9
+        },
+        "yrkanden": [
+          {
+            "namn": "och Grith Fjeldmose",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Samuel Bråse",
+            "parti": "KD",
+            "typ": "förslaget"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "typ": "förslaget från L i kommunstyrelsen."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "att ärendet ska återremitteras till miljö- och klimatnämnden"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-enligt",
+      "typ": "organisation",
+      "label": "miljö- och klimatnämnden\nenligt",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§130",
+      "typ": "paragraf",
+      "label": "§ 130 Redovisning av uppdrag om hur ett barnens val kan",
+      "data": {
+        "paragrafNr": "130",
+        "ärendeNr": "SLK-2025-01112",
+        "rubrik": "Redovisning av uppdrag om hur ett barnens val kan",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§131",
+      "typ": "paragraf",
+      "label": "§ 131 Redovisning av uppdrag om en fördjupad utredning av",
+      "data": {
+        "paragrafNr": "131",
+        "ärendeNr": "SLK-2025-01076",
+        "rubrik": "Redovisning av uppdrag om en fördjupad utredning av",
+        "datum": "2026-04-23",
+        "beslut": "avslag",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Karin Pleijel",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Patrik Höstmad",
+            "parti": "D",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från M, D, L och KD i kommunstyrels"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§132",
+      "typ": "paragraf",
+      "label": "§ 132 Redovisning av uppdrag om att revidera och uppdatera",
+      "data": {
+        "paragrafNr": "132",
+        "ärendeNr": "SLK-2025-00465",
+        "rubrik": "Redovisning av uppdrag om att revidera och uppdatera",
+        "datum": "2026-04-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 29
+        },
+        "yrkanden": [
+          {
+            "namn": "och Klas Forsberg",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Edwin Friedlaender",
+            "parti": "M",
+            "typ": "förslaget från M, D, L och KD i"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "att ärendet ska återremitteras till kommunstyrelsen enligt"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-enligt",
+      "typ": "organisation",
+      "label": "kommunstyrelsen enligt",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§133",
+      "typ": "paragraf",
+      "label": "§ 133 Redovisning av slutrapportering av Göteborgs Stads plan för",
+      "data": {
+        "paragrafNr": "133",
+        "ärendeNr": "SLK-2025-00896",
+        "rubrik": "Redovisning av slutrapportering av Göteborgs Stads plan för",
+        "datum": "2026-04-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Klas Forsberg",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och\nJörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från M, D, L och KD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": [
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D"
+          }
+        ]
+      }
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-och",
+      "typ": "organisation",
+      "label": "exploateringsnämnden och",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-och",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden och",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-och",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden och",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-f",
+      "typ": "organisation",
+      "label": "exploateringsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-exploateringsn",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden\nExploateringsn",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-stadsfastighetsn",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\nStadsfastighetsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§134",
+      "typ": "paragraf",
+      "label": "§ 134 Redovisning av motioner som väckts i kommunfullmäktige",
+      "data": {
+        "paragrafNr": "134",
+        "ärendeNr": "SLK-2026-00034",
+        "rubrik": "Redovisning av motioner som väckts i kommunfullmäktige",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§135",
+      "typ": "paragraf",
+      "label": "§ 135 Valberedningens förslag till vid sammanträdet",
+      "data": {
+        "paragrafNr": "135",
+        "ärendeNr": "SLK-2026-00003",
+        "rubrik": "Valberedningens förslag till vid sammanträdet",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§136",
+      "typ": "paragraf",
+      "label": "§ 136 Avsägelse av Mariah Ben Salem Dynehäll (L) från uppdraget",
+      "data": {
+        "paragrafNr": "136",
+        "ärendeNr": "SLK-2026-00002",
+        "rubrik": "Avsägelse av Mariah Ben Salem Dynehäll (L) från uppdraget",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§137",
+      "typ": "paragraf",
+      "label": "§ 137 Kompletterande uppföljning per december 2025",
+      "data": {
+        "paragrafNr": "137",
+        "ärendeNr": "SLK-2026-00123",
+        "rubrik": "Kompletterande uppföljning per december 2025",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§138",
+      "typ": "paragraf",
+      "label": "§ 138 Nytt hälso- och sjukvårdsavtal med tillhörande",
+      "data": {
+        "paragrafNr": "138",
+        "ärendeNr": "SLK-2025-00983",
+        "rubrik": "Nytt hälso- och sjukvårdsavtal med tillhörande",
+        "datum": "2026-04-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 66,
+          "nej": 14
+        },
+        "yrkanden": [
+          {
+            "namn": "och Mattias Tykesson",
+            "parti": "M",
+            "typ": "kommunstyrelsens"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkandena"
+          },
+          {
+            "namn": "Mariette Höij",
+            "parti": "D",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från D i"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§139",
+      "typ": "paragraf",
+      "label": "§ 139 Förändrade fördelningsnycklar och förändrad kategorisering",
+      "data": {
+        "paragrafNr": "139",
+        "ärendeNr": "SLK-2025-01140",
+        "rubrik": "Förändrade fördelningsnycklar och förändrad kategorisering",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-inköps--och-upphandlingsnämnden-f",
+      "typ": "organisation",
+      "label": "inköps- och upphandlingsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§140",
+      "typ": "paragraf",
+      "label": "§ 140 Äldreombudsmannens rapport 2025",
+      "data": {
+        "paragrafNr": "140",
+        "ärendeNr": "SLK-2025-00548",
+        "rubrik": "Äldreombudsmannens rapport 2025",
+        "datum": "2026-04-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Klas Forsberg",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "typ": "stadsledningskontorets förslag."
+          },
+          {
+            "namn": "och Pär Gustafsson",
+            "parti": "L",
+            "typ": "stadsledningskontorets förslag och tilläggsyrkande från"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kulturnämnden-f",
+      "typ": "organisation",
+      "label": "kulturnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-kulturnämnden-samt",
+      "typ": "organisation",
+      "label": "kulturnämnden samt",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-genomf",
+      "typ": "organisation",
+      "label": "kommunstyrelsen genomf",
+      "data": {}
+    },
+    {
+      "id": "org-kulturnämnden-n",
+      "typ": "organisation",
+      "label": "Kulturnämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-g",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§141",
+      "typ": "paragraf",
+      "label": "§ 141 Verksamhetsområde 2026 för Göteborgs Stads allmänna",
+      "data": {
+        "paragrafNr": "141",
+        "ärendeNr": "SLK-2026-00187",
+        "rubrik": "Verksamhetsområde 2026 för Göteborgs Stads allmänna",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-g",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§142",
+      "typ": "paragraf",
+      "label": "§ 142 Kommunala föreskrifter för användningen av den allmänna",
+      "data": {
+        "paragrafNr": "142",
+        "ärendeNr": "SLK-2026-00179",
+        "rubrik": "Kommunala föreskrifter för användningen av den allmänna",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden",
+      "typ": "organisation",
+      "label": "kretslopp och vattennämnden",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-styrande",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden\nStyrande",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§143",
+      "typ": "paragraf",
+      "label": "§ 143 Översyn av reglementen för Göteborgs Stads nämnder",
+      "data": {
+        "paragrafNr": "143",
+        "ärendeNr": "SLK-2026-00166",
+        "rubrik": "Översyn av reglementen för Göteborgs Stads nämnder",
+        "datum": "2026-04-23",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nStaffan Lindström",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§144",
+      "typ": "paragraf",
+      "label": "§ 144 Revidering av Göteborgs Stads elektrifieringsplan 2022-2030",
+      "data": {
+        "paragrafNr": "144",
+        "ärendeNr": "SLK-2025-01000",
+        "rubrik": "Revidering av Göteborgs Stads elektrifieringsplan 2022-2030",
+        "datum": "2026-04-23",
+        "beslut": "avslag",
+        "votering": {
+          "ja": 43,
+          "nej": 29
+        },
+        "yrkanden": [
+          {
+            "namn": "och Axel Darvik",
+            "parti": "L",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från KD, M, D och L i kommunstyrels"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "att ärendet ska återremitteras till kommunstyrelsen enligt"
+          }
+        ],
+        "reservationer": [
+          "Protokoll nr 4\nSammanträdesdatum: 2026-04-23"
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§145",
+      "typ": "paragraf",
+      "label": "§ 145 Ordningsfråga",
+      "data": {
+        "paragrafNr": "145",
+        "ärendeNr": "SLK-2026-00021",
+        "rubrik": "Ordningsfråga",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§146",
+      "typ": "paragraf",
+      "label": "§ 146 Redovisning av uppdrag om modell för lekvärdesfaktorer",
+      "data": {
+        "paragrafNr": "146",
+        "ärendeNr": "SLK-2025-01278",
+        "rubrik": "Redovisning av uppdrag om modell för lekvärdesfaktorer",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§147",
+      "typ": "paragraf",
+      "label": "§ 147 Redovisning av Förvaltnings AB Framtidens uppdrag om en",
+      "data": {
+        "paragrafNr": "147",
+        "ärendeNr": "SLK-2025-00785",
+        "rubrik": "Redovisning av Förvaltnings AB Framtidens uppdrag om en",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§148",
+      "typ": "paragraf",
+      "label": "§ 148 Redovisning av uppdrag att utreda och redovisa hur, ur en",
+      "data": {
+        "paragrafNr": "148",
+        "ärendeNr": "SLK-2026-00203",
+        "rubrik": "Redovisning av uppdrag att utreda och redovisa hur, ur en",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden-kan",
+      "typ": "organisation",
+      "label": "exploateringsnämnden kan",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-04-23-§149",
+      "typ": "paragraf",
+      "label": "§ 149 Motion av Axel Darvik (L), Ann Catrine Fogelgren (L) och Eva",
+      "data": {
+        "paragrafNr": "149",
+        "ärendeNr": "SLK-2024-01174",
+        "rubrik": "Motion av Axel Darvik (L), Ann Catrine Fogelgren (L) och Eva",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§150",
+      "typ": "paragraf",
+      "label": "§ 150 Motion av Axel Darvik (L), Sofie Gyllenwaldt (M), Jessica Blixt",
+      "data": {
+        "paragrafNr": "150",
+        "ärendeNr": "SLK-2025-00748",
+        "rubrik": "Motion av Axel Darvik (L), Sofie Gyllenwaldt (M), Jessica Blixt",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§151",
+      "typ": "paragraf",
+      "label": "§ 151 Motion av Anders Svensson (M) och Nina Miskovsky (M) om",
+      "data": {
+        "paragrafNr": "151",
+        "ärendeNr": "SLK-2025-00483",
+        "rubrik": "Motion av Anders Svensson (M) och Nina Miskovsky (M) om",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§152",
+      "typ": "paragraf",
+      "label": "§ 152 Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou",
+      "data": {
+        "paragrafNr": "152",
+        "ärendeNr": "SLK-2025-00749",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§153",
+      "typ": "paragraf",
+      "label": "§ 153 Motion av Zagros Hama (M) om att inrätta en enhet",
+      "data": {
+        "paragrafNr": "153",
+        "ärendeNr": "SLK-2025-00942",
+        "rubrik": "Motion av Zagros Hama (M) om att inrätta en enhet",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§154",
+      "typ": "paragraf",
+      "label": "§ 154 Motion av Rasmus Ragnarsson (SD), Agneta Kjaerbeck (SD)",
+      "data": {
+        "paragrafNr": "154",
+        "ärendeNr": "SLK-2025-01087",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD), Agneta Kjaerbeck (SD)",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§155",
+      "typ": "paragraf",
+      "label": "§ 155 Motion av Emmyly Bönfors (C) och Hans Arby (C) om att",
+      "data": {
+        "paragrafNr": "155",
+        "ärendeNr": "SLK-2025-00633",
+        "rubrik": "Motion av Emmyly Bönfors (C) och Hans Arby (C) om att",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§156",
+      "typ": "paragraf",
+      "label": "§ 156 Motion av Sarah Ullmark (M) om snabbare och enklare",
+      "data": {
+        "paragrafNr": "156",
+        "ärendeNr": "SLK-2023-00728",
+        "rubrik": "Motion av Sarah Ullmark (M) om snabbare och enklare",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§157",
+      "typ": "paragraf",
+      "label": "§ 157 Motion av Hampus Magnusson (M) och Toni Orsulic (M) om",
+      "data": {
+        "paragrafNr": "157",
+        "ärendeNr": "SLK-2025-00542",
+        "rubrik": "Motion av Hampus Magnusson (M) och Toni Orsulic (M) om",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§158",
+      "typ": "paragraf",
+      "label": "§ 158 Motion av Hampus Magnusson (M), Margareta Broang (M)",
+      "data": {
+        "paragrafNr": "158",
+        "ärendeNr": "SLK-2025-00541",
+        "rubrik": "Motion av Hampus Magnusson (M), Margareta Broang (M)",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§159",
+      "typ": "paragraf",
+      "label": "§ 159 Motion av Hampus Magnusson (M) och Anneli Rhedin (M) om",
+      "data": {
+        "paragrafNr": "159",
+        "ärendeNr": "SLK-2025-00949",
+        "rubrik": "Motion av Hampus Magnusson (M) och Anneli Rhedin (M) om",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§160",
+      "typ": "paragraf",
+      "label": "§ 160 Motion av Anders Svensson (M) och Cecilia Magnusson (M)",
+      "data": {
+        "paragrafNr": "160",
+        "ärendeNr": "SLK-2025-00484",
+        "rubrik": "Motion av Anders Svensson (M) och Cecilia Magnusson (M)",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§161",
+      "typ": "paragraf",
+      "label": "§ 161 Motion av Lena Ferm (SD) och Jörgen Fogelklou (SD) om en",
+      "data": {
+        "paragrafNr": "161",
+        "ärendeNr": "SLK-2025-00658",
+        "rubrik": "Motion av Lena Ferm (SD) och Jörgen Fogelklou (SD) om en",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§162",
+      "typ": "paragraf",
+      "label": "§ 162 Motion av Axel Josefson (M) och Sofie Gyllenwaldt (M) om att",
+      "data": {
+        "paragrafNr": "162",
+        "ärendeNr": "SLK-2025-01083",
+        "rubrik": "Motion av Axel Josefson (M) och Sofie Gyllenwaldt (M) om att",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§163",
+      "typ": "paragraf",
+      "label": "§ 163 Motion av Hampus Magnusson (M), Sofie Gyllenwaldt (M) och",
+      "data": {
+        "paragrafNr": "163",
+        "ärendeNr": "SLK-2025-00943",
+        "rubrik": "Motion av Hampus Magnusson (M), Sofie Gyllenwaldt (M) och",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§164",
+      "typ": "paragraf",
+      "label": "§ 164 Motion av Mariah ben Salem Dynehäll (L) och Eva Flyborg (L)",
+      "data": {
+        "paragrafNr": "164",
+        "ärendeNr": "SLK-2025-01095",
+        "rubrik": "Motion av Mariah ben Salem Dynehäll (L) och Eva Flyborg (L)",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§165",
+      "typ": "paragraf",
+      "label": "§ 165 Motion av Rasmus Ragnarsson (SD), Agneta Kjaerbeck (SD)",
+      "data": {
+        "paragrafNr": "165",
+        "ärendeNr": "SLK-2025-01086",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD), Agneta Kjaerbeck (SD)",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§166",
+      "typ": "paragraf",
+      "label": "§ 166 Motion av Axel Darvik (L) om att göra Andra Långgatan till en",
+      "data": {
+        "paragrafNr": "166",
+        "ärendeNr": "SLK-2025-00873",
+        "rubrik": "Motion av Axel Darvik (L) om att göra Andra Långgatan till en",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§167",
+      "typ": "paragraf",
+      "label": "§ 167 Interpellation av Mariette Höij (D) till äldre samt vård- och",
+      "data": {
+        "paragrafNr": "167",
+        "ärendeNr": "SLK-2026-00430",
+        "rubrik": "Interpellation av Mariette Höij (D) till äldre samt vård- och",
+        "datum": "2026-04-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "interpellation_väntar",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-04-23-§168",
+      "typ": "paragraf",
+      "label": "§ 168 Förteckning över anmälningsärenden",
+      "data": {
+        "paragrafNr": "168",
+        "ärendeNr": "SLK-2026-00020",
+        "rubrik": "Förteckning över anmälningsärenden",
+        "datum": "2026-04-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "kf-2026-04-23-§118",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§119",
+      "to": "kf-*-§532",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 532"
+    },
+    {
+      "from": "kf-2026-04-23-§119",
+      "to": "org-grundskolenämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§119",
+      "to": "org-grundskolenämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§120",
+      "to": "kf-*-§533",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 533"
+    },
+    {
+      "from": "kf-2026-04-23-§120",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§120",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§121",
+      "to": "kf-*-§69",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 69"
+    },
+    {
+      "from": "kf-2026-04-23-§122",
+      "to": "kf-*-§115",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 115"
+    },
+    {
+      "from": "kf-2026-04-23-§122",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§123",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§125",
+      "to": "org-stadsfastighetsnämnden-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§125",
+      "to": "org-kommunstyrelsen-stadens",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§126",
+      "to": "kf-*-§89",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 89"
+    },
+    {
+      "from": "kf-2026-04-23-§126",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§126",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§126",
+      "to": "org-exploateringsnämnden-beredas",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§126",
+      "to": "org-exploateringsnämnden-beredas",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§126",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§126",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§126",
+      "to": "org-kommunstyrelsen-med",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§126",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§126",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "kf-*-§94",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 94"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-kommunstyrelsen-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-förskolenämnden-grundskolen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§127",
+      "to": "org-utbildningsnämnden-n",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§128",
+      "to": "kf-*-§95",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 95"
+    },
+    {
+      "from": "kf-2026-04-23-§128",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§128",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§128",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§128",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§129",
+      "to": "kf-*-§96",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 96"
+    },
+    {
+      "from": "kf-2026-04-23-§129",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§129",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§129",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§129",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§129",
+      "to": "org-miljö--och-klimatnämnden-enligt",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§129",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§129",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§129",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§129",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§130",
+      "to": "kf-*-§97",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 97"
+    },
+    {
+      "from": "kf-2026-04-23-§130",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§131",
+      "to": "kf-*-§98",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 98"
+    },
+    {
+      "from": "kf-2026-04-23-§131",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§131",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§131",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§131",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§131",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§131",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§131",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§132",
+      "to": "kf-*-§99",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 99"
+    },
+    {
+      "from": "kf-2026-04-23-§132",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§132",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§132",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§132",
+      "to": "org-kommunstyrelsen-enligt",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§132",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§132",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§132",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "kf-*-§100",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 100"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-idrotts--och-föreningsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-exploateringsnämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-stadsfastighetsnämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-idrotts--och-föreningsnämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-exploateringsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-idrotts--och-föreningsnämnden-exploateringsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§133",
+      "to": "org-stadsbyggnadsnämnden-stadsfastighetsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§134",
+      "to": "kf-*-§101",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 101"
+    },
+    {
+      "from": "kf-2026-04-23-§134",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§137",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§138",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§138",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§138",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§138",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§138",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§138",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§138",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§138",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§138",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§138",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§139",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§139",
+      "to": "org-inköps--och-upphandlingsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kulturnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kulturnämnden-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kommunstyrelsen-genomf",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kulturnämnden-n",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§140",
+      "to": "org-kommunstyrelsen-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-04-23-§141",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§141",
+      "to": "org-kretslopp-och-vattennämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§142",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§142",
+      "to": "org-kretslopp-och-vattennämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§142",
+      "to": "org-kretslopp-och-vattennämnden-styrande",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§143",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§143",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§143",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§143",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§143",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§144",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§144",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§144",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§144",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§144",
+      "to": "org-kommunstyrelsen-enligt",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§144",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§144",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§144",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§144",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§148",
+      "to": "org-exploateringsnämnden-kan",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-04-23-§149",
+      "to": "kf-*-§531",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 531"
+    },
+    {
+      "from": "kf-2026-04-23-§150",
+      "to": "kf-*-§33",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 33"
+    },
+    {
+      "from": "kf-2026-04-23-§151",
+      "to": "kf-*-§66",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 66"
+    },
+    {
+      "from": "kf-2026-04-23-§152",
+      "to": "kf-*-§67",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 67"
+    },
+    {
+      "from": "kf-2026-04-23-§153",
+      "to": "kf-*-§68",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 68"
+    },
+    {
+      "from": "kf-2026-04-23-§154",
+      "to": "kf-*-§107",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 107"
+    },
+    {
+      "from": "kf-2026-04-23-§155",
+      "to": "kf-*-§108",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 108"
+    },
+    {
+      "from": "kf-2026-04-23-§156",
+      "to": "kf-*-§109",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 109"
+    },
+    {
+      "from": "kf-2026-04-23-§157",
+      "to": "kf-*-§110",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 110"
+    },
+    {
+      "from": "kf-2026-04-23-§158",
+      "to": "kf-*-§111",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 111"
+    },
+    {
+      "from": "kf-2026-04-23-§159",
+      "to": "kf-*-§112",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 112"
+    },
+    {
+      "from": "kf-2026-04-23-§160",
+      "to": "kf-*-§113",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 113"
+    },
+    {
+      "from": "kf-2026-04-23-§161",
+      "to": "kf-*-§114",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 114"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§117",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§118",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§119",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§120",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§121",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§122",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§123",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§124",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§125",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§126",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§127",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§128",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§129",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§130",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§131",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§132",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§133",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§134",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§135",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§136",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§137",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§138",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§139",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§140",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§141",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§142",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§143",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§144",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§145",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§146",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§147",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§148",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§149",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§150",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§151",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§152",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§153",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§154",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§155",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§156",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§157",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§158",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§159",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§160",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§161",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§162",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§163",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§164",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§165",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§166",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§167",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-04-23",
+      "to": "kf-2026-04-23-§168",
+      "typ": "beslut_av"
+    }
+  ]
+}
