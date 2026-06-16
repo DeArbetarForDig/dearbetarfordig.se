@@ -243,7 +243,9 @@ const metricsRoute = createRoute({
   responses: { 200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('Metrics') } }, description: 'OK' } },
 })
 app.openapi(metricsRoute, async (c) => {
-  // Beslutskraft: bifall+avslag vs bordläggning
+  // All metrics computed from edges — no JSONB scanning
+
+  // Beslutskraft
   const beslutTyper = await sql`SELECT data->>'beslut' as typ, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' IS NOT NULL GROUP BY data->>'beslut'`
   const totalBeslut = beslutTyper.reduce((s, r) => s + r.antal, 0)
   const bifall = beslutTyper.find(r => r.typ === 'bifall')?.antal || 0
@@ -252,66 +254,55 @@ app.openapi(metricsRoute, async (c) => {
   // Bordläggningsorsaker
   const bordOrsaker = await sql`SELECT data->>'bordläggningsorsak' as orsak, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' = 'bordläggning' AND data->>'bordläggningsorsak' IS NOT NULL GROUP BY data->>'bordläggningsorsak'`
 
-  // Konsensus: beslut utan votering vs med
+  // Konsensus (paragraf nodes without any röstade edges = decided without vote)
   const [{ total: totalParagrafer }] = await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'paragraf'`
-  const [{ antal: medVotering }] = await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data ? 'votering'`
+  const [{ antal: medVotering }] = await sql`SELECT COUNT(DISTINCT to_id)::int as antal FROM goteborg.graf_edges WHERE typ LIKE 'röstade_%'`
   const utanVotering = totalParagrafer - medVotering
 
-  // Röster per parti
-  const rösterData = await sql`SELECT data->'röster' as roster FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data ? 'röster'`
-  const partiRöster: Record<string, { ja: number; nej: number; avstår: number; total: number }> = {}
+  // Parti-statistik from edges (SQL aggregation)
+  const partiStats = await sql`
+    SELECT 
+      n.data->>'parti' as parti,
+      e.typ,
+      COUNT(*)::int as antal
+    FROM goteborg.graf_edges e
+    JOIN goteborg.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
+    WHERE e.typ LIKE 'röstade_%'
+    GROUP BY n.data->>'parti', e.typ
+    ORDER BY parti`
 
-  for (const row of rösterData) {
-    const roster = row.roster as Array<{ namn: string; parti: string; röst: string }>
-    if (!Array.isArray(roster)) continue
-    for (const r of roster) {
-      if (!partiRöster[r.parti]) partiRöster[r.parti] = { ja: 0, nej: 0, avstår: 0, total: 0 }
-      partiRöster[r.parti].total++
-      if (r.röst === 'ja') partiRöster[r.parti].ja++
-      else if (r.röst === 'nej') partiRöster[r.parti].nej++
-      else if (r.röst === 'avstår') partiRöster[r.parti].avstår++
-    }
+  // Aggregate per party
+  const partier: Record<string, { ja: number; nej: number; avstår: number; total: number }> = {}
+  for (const row of partiStats) {
+    if (!partier[row.parti]) partier[row.parti] = { ja: 0, nej: 0, avstår: 0, total: 0 }
+    partier[row.parti].total += row.antal
+    if (row.typ === 'röstade_ja') partier[row.parti].ja += row.antal
+    else if (row.typ === 'röstade_nej') partier[row.parti].nej += row.antal
+    else if (row.typ === 'röstade_avstår') partier[row.parti].avstår += row.antal
   }
 
-  // Styrets majoritet (S+V+MP = ja, opposition = nej i genomsnitt)
-  const voteringsResultat = await sql`SELECT data->'votering' as v FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data ? 'votering'`
-  let snittJa = 0, snittNej = 0, antalVoteringar = 0
-  for (const row of voteringsResultat) {
-    const v = row.v as any
-    if (v && v.ja && v.nej) { snittJa += v.ja; snittNej += v.nej; antalVoteringar++ }
-  }
+  // Jäv och reservationer
+  const [{ antal: jävAntal }] = await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'jävsanmälan'`
+  const [{ antal: resAntal }] = await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'reserverade_sig'`
+  const [{ antal: yrkAntal }] = await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'yrkat'`
 
   return c.json({
     kommun: c.req.valid('param').kommun,
     period: '2022-2026',
-    datakälla: 'KF 2025-11-27 (1 sammanträde analyserat)',
     beslutskraft: {
       totalt: totalBeslut,
-      bifall: bifall,
-      bordläggning: bordlagd,
+      bifall, bordläggning: bordlagd,
       beslutskraftProcent: totalBeslut > 0 ? Math.round((bifall / totalBeslut) * 100) : 0,
       bordläggningsorsaker: Object.fromEntries(bordOrsaker.map(r => [r.orsak, r.antal])),
-      analys: bordlagd > bifall ? 'Fler ärenden bordläggs än bifalls — indikerar överbelastad dagordning' : 'Normal beslutskraft',
     },
     konsensus: {
       totaltÄrenden: totalParagrafer,
-      utanVotering: utanVotering,
-      medVotering: medVotering,
+      utanVotering, medVotering,
       konsensusgradProcent: totalParagrafer > 0 ? Math.round((utanVotering / totalParagrafer) * 100) : 0,
     },
-    voteringar: {
-      antal: antalVoteringar,
-      snittJa: antalVoteringar > 0 ? Math.round(snittJa / antalVoteringar) : 0,
-      snittNej: antalVoteringar > 0 ? Math.round(snittNej / antalVoteringar) : 0,
-    },
+    aktivitet: { jävsanmälningar: jävAntal, reservationer: resAntal, yrkanden: yrkAntal },
     partilojalitet: Object.fromEntries(
-      Object.entries(partiRöster).map(([parti, data]) => [parti, {
-        röster: data.total,
-        ja: data.ja,
-        nej: data.nej,
-        avstår: data.avstår,
-        jaProcent: data.total > 0 ? Math.round((data.ja / data.total) * 100) : 0,
-      }])
+      Object.entries(partier).map(([parti, d]) => [parti, { ...d, jaProcent: d.total > 0 ? Math.round((d.ja / d.total) * 100) : 0 }])
     ),
   }, 200)
 })
