@@ -1,0 +1,3032 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2025-01-30",
+      "typ": "möte",
+      "label": "KF Sammanträde 2025-01-30",
+      "data": {
+        "datum": "2025-01-30",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§1",
+      "typ": "paragraf",
+      "label": "§ 1 Bestämmande av tid för justering",
+      "data": {
+        "paragrafNr": "1",
+        "ärendeNr": "SLK-2025-00041",
+        "rubrik": "Bestämmande av tid för justering",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§2",
+      "typ": "paragraf",
+      "label": "§ 2 Anmälan av länsstyrelsens beslut att utse Allan Stutzinsky",
+      "data": {
+        "paragrafNr": "2",
+        "ärendeNr": "SLK-2024-00009:52",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Allan Stutzinsky",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§3",
+      "typ": "paragraf",
+      "label": "§ 3 Anmälan av länsstyrelsens beslut att utse Johan Svensk (S)",
+      "data": {
+        "paragrafNr": "3",
+        "ärendeNr": "SLK-2024-00009",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Johan Svensk (S)",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§4",
+      "typ": "paragraf",
+      "label": "§ 4 Anmälan av länsstyrelsens beslut att utse Yasmine Posio (V)",
+      "data": {
+        "paragrafNr": "4",
+        "ärendeNr": "SLK-2024-00009:50",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Yasmine Posio (V)",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§5",
+      "typ": "paragraf",
+      "label": "§ 5 Frågestund",
+      "data": {
+        "paragrafNr": "5",
+        "ärendeNr": "SLK-2025-00042",
+        "rubrik": "Frågestund",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden",
+      "typ": "organisation",
+      "label": "grundskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§6",
+      "typ": "paragraf",
+      "label": "§ 6 Interpellation av Toni Orsulic (M) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "6",
+        "ärendeNr": "SLK-2024-00789",
+        "rubrik": "Interpellation av Toni Orsulic (M) till kommunstyrelsens",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§7",
+      "typ": "paragraf",
+      "label": "§ 7 Interpellation av Elisabet Lann (KD) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "7",
+        "ärendeNr": "SLK-2024-00907",
+        "rubrik": "Interpellation av Elisabet Lann (KD) till kommunstyrelsens",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§8",
+      "typ": "paragraf",
+      "label": "§ 8 Interpellation av Pär Gustafsson (L) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "8",
+        "ärendeNr": "SLK-2024-00952",
+        "rubrik": "Interpellation av Pär Gustafsson (L) till kommunstyrelsens",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§9",
+      "typ": "paragraf",
+      "label": "§ 9 Interpellation av Rasmus Ragnarsson (SD) till",
+      "data": {
+        "paragrafNr": "9",
+        "ärendeNr": "SLK-2024-01118",
+        "rubrik": "Interpellation av Rasmus Ragnarsson (SD) till",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kulturnämnden",
+      "typ": "organisation",
+      "label": "kulturnämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§10",
+      "typ": "paragraf",
+      "label": "§ 10 Stadsrevisionens rapportsammandrag - Styrning och",
+      "data": {
+        "paragrafNr": "10",
+        "ärendeNr": "SLK-2024-00506",
+        "rubrik": "Stadsrevisionens rapportsammandrag - Styrning och",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§11",
+      "typ": "paragraf",
+      "label": "§ 11 Stadsrevisionens rapportsammandrag - Högt vatten –",
+      "data": {
+        "paragrafNr": "11",
+        "ärendeNr": "SLK-2024-00511",
+        "rubrik": "Stadsrevisionens rapportsammandrag - Högt vatten –",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§12",
+      "typ": "paragraf",
+      "label": "§ 12 Redovisning av uppdrag att ta fram ett alternativt mått till",
+      "data": {
+        "paragrafNr": "12",
+        "ärendeNr": "SLK-2023-01040",
+        "rubrik": "Redovisning av uppdrag att ta fram ett alternativt mått till",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och\nEmmyly Bönfors",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "stadsledningskontorets"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-f",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen f",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-f",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-och",
+      "typ": "organisation",
+      "label": "kommunstyrelsen och",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-stadsbyggnadsn",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nStadsbyggnadsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§13",
+      "typ": "paragraf",
+      "label": "§ 13 Redovisning av uppdrag gällande förändrad samverkan med",
+      "data": {
+        "paragrafNr": "13",
+        "ärendeNr": "SLK-2023-00895",
+        "rubrik": "Redovisning av uppdrag gällande förändrad samverkan med",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Marina Johansson",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och\nRasmus Ragnarsson",
+            "parti": "SD",
+            "typ": "stadsledningskontorets förslag. Vidare yrkar"
+          }
+        ],
+        "reservationer": [
+          "Protokoll nr 1\nSammanträdesdatum: 2025-01-30"
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-socialnämnden-centrum",
+      "typ": "organisation",
+      "label": "Socialnämnden Centrum",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-hisingen",
+      "typ": "organisation",
+      "label": "Socialnämnden Hisingen",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-nordost",
+      "typ": "organisation",
+      "label": "Socialnämnden Nordost",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-sydv",
+      "typ": "organisation",
+      "label": "Socialnämnden Sydv",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§14",
+      "typ": "paragraf",
+      "label": "§ 14 Redovisning av uppdrag om att ta fram förslag på hur",
+      "data": {
+        "paragrafNr": "14",
+        "ärendeNr": "SLK-2024-00440",
+        "rubrik": "Redovisning av uppdrag om att ta fram förslag på hur",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Claes Söderling",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Nina Miskovsky",
+            "parti": "M",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkandena från M, D, L och KD samt SD i"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "stadsledningskontorets förslag och"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§15",
+      "typ": "paragraf",
+      "label": "§ 15 Redovisning av uppdrag att utreda nära samråd med och",
+      "data": {
+        "paragrafNr": "15",
+        "ärendeNr": "SLK-2023-00920",
+        "rubrik": "Redovisning av uppdrag att utreda nära samråd med och",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Håkan Hallengren",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och\nAgneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "stadsledningskontorets förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§16",
+      "typ": "paragraf",
+      "label": "§ 16 Valberedningens förslag till vid sammanträdet",
+      "data": {
+        "paragrafNr": "16",
+        "ärendeNr": "SLK-2025-00003",
+        "rubrik": "Valberedningens förslag till vid sammanträdet",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§17",
+      "typ": "paragraf",
+      "label": "§ 17 Avsägelse av Jens Adamik (L) från uppdraget som ersättare i",
+      "data": {
+        "paragrafNr": "17",
+        "ärendeNr": "SLK-2024-00009:60",
+        "rubrik": "Avsägelse av Jens Adamik (L) från uppdraget som ersättare i",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§18",
+      "typ": "paragraf",
+      "label": "§ 18 Avsägelse av Christer Holmgren (M) från uppdraget som",
+      "data": {
+        "paragrafNr": "18",
+        "ärendeNr": "SLK-2025-00005:1",
+        "rubrik": "Avsägelse av Christer Holmgren (M) från uppdraget som",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§19",
+      "typ": "paragraf",
+      "label": "§ 19 Val av ersättare i förbundsfullmäktige i kommunalförbundet",
+      "data": {
+        "paragrafNr": "19",
+        "ärendeNr": "SLK-2025-00005",
+        "rubrik": "Val av ersättare i förbundsfullmäktige i kommunalförbundet",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§20",
+      "typ": "paragraf",
+      "label": "§ 20 Fastställande av arvode för heltidsarvoderad förtroendevald,",
+      "data": {
+        "paragrafNr": "20",
+        "ärendeNr": "SLK-2024-00816",
+        "rubrik": "Fastställande av arvode för heltidsarvoderad förtroendevald,",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "övrigt",
+        "yrkanden": [
+          {
+            "namn": "Yrkande\n\nAnders Sundberg",
+            "parti": "M",
+            "typ": "att ärendet ska bordläggas till sammanträdet"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-deltar",
+      "typ": "organisation",
+      "label": "kommunstyrelsen\ndeltar",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§21",
+      "typ": "paragraf",
+      "label": "§ 21 Riksnorm ekonomiskt bistånd och riktmärken för",
+      "data": {
+        "paragrafNr": "21",
+        "ärendeNr": "SLK-2024-01088",
+        "rubrik": "Riksnorm ekonomiskt bistånd och riktmärken för",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§22",
+      "typ": "paragraf",
+      "label": "§ 22 Ny taxa för frakttrafiken i Göteborgs södra skärgård",
+      "data": {
+        "paragrafNr": "22",
+        "ärendeNr": "SLK-2024-00689",
+        "rubrik": "Ny taxa för frakttrafiken i Göteborgs södra skärgård",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Karin Pleijel",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "i första hand att ärendet återremitteras till kommunstyrelsen"
+          }
+        ],
+        "reservationer": [
+          "Protokoll nr 1\nSammanträdesdatum: 2025-01-30"
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsmiljönämnden",
+      "typ": "organisation",
+      "label": "stadsmiljönämnden",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-i",
+      "typ": "organisation",
+      "label": "kommunstyrelsen i",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-styrande",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden\nStyrande",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§23",
+      "typ": "paragraf",
+      "label": "§ 23 Planeringsbeslut avseende fortsatt arbete med",
+      "data": {
+        "paragrafNr": "23",
+        "ärendeNr": "SLK-2024-00921",
+        "rubrik": "Planeringsbeslut avseende fortsatt arbete med",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Helena Norin",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och\nHampus Magnusson",
+            "parti": "M",
+            "typ": "i första hand att ärendet återremitteras till"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "i första hand att ärendet återremitteras till"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "lag-kommunallagen",
+      "typ": "lag",
+      "label": "kommunallagen",
+      "data": {
+        "kap": "5",
+        "paragraf": "50"
+      }
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-som",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden som",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-s",
+      "typ": "organisation",
+      "label": "kommunstyrelsen s",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-i",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden i",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-med",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden med",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§24",
+      "typ": "paragraf",
+      "label": "§ 24 Hemställan från Älvstranden Utveckling AB om godkännande",
+      "data": {
+        "paragrafNr": "24",
+        "ärendeNr": "SLK-2024-00971",
+        "rubrik": "Hemställan från Älvstranden Utveckling AB om godkännande",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§25",
+      "typ": "paragraf",
+      "label": "§ 25 Hemställan från Älvstranden Utveckling AB om fusion och",
+      "data": {
+        "paragrafNr": "25",
+        "ärendeNr": "SLK-2024-00972",
+        "rubrik": "Hemställan från Älvstranden Utveckling AB om fusion och",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§26",
+      "typ": "paragraf",
+      "label": "§ 26 Överföring av ansvar för Göteborgs Stads gemensamma",
+      "data": {
+        "paragrafNr": "26",
+        "ärendeNr": "SLK-2024-00931",
+        "rubrik": "Överföring av ansvar för Göteborgs Stads gemensamma",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-till",
+      "typ": "organisation",
+      "label": "kommunstyrelsen till",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-beslut",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden\nBeslut",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-f",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-som",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden som",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-stadsfastighetsn",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nStadsfastighetsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§27",
+      "typ": "paragraf",
+      "label": "§ 27 Årlig översyn av styrande dokument - Staden",
+      "data": {
+        "paragrafNr": "27",
+        "ärendeNr": "SLK-2024-00745",
+        "rubrik": "Årlig översyn av styrande dokument - Staden",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§28",
+      "typ": "paragraf",
+      "label": "§ 28 Göteborgs Stads lokalförsörjningsplan 2025",
+      "data": {
+        "paragrafNr": "28",
+        "ärendeNr": "SLK-2024-00504",
+        "rubrik": "Göteborgs Stads lokalförsörjningsplan 2025",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-forts",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden forts",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-utreda",
+      "typ": "organisation",
+      "label": "förskolenämnden utreda",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-g",
+      "typ": "organisation",
+      "label": "Förskolenämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§29",
+      "typ": "paragraf",
+      "label": "§ 29 Redovisning av uppdrag om utvecklad ekonomistyrning",
+      "data": {
+        "paragrafNr": "29",
+        "ärendeNr": "SLK-2023-00963",
+        "rubrik": "Redovisning av uppdrag om utvecklad ekonomistyrning",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 33
+        },
+        "yrkanden": [
+          {
+            "namn": "och\nThomas Larsson",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Knudtzon",
+            "parti": "KD",
+            "typ": "kommunstyrelsens"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från L i"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-g",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§30",
+      "typ": "paragraf",
+      "label": "§ 30 Redovisning av uppdrag att följa upp Göteborgs Stads",
+      "data": {
+        "paragrafNr": "30",
+        "ärendeNr": "SLK-2024-00890",
+        "rubrik": "Redovisning av uppdrag att följa upp Göteborgs Stads",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 72,
+          "nej": 9
+        },
+        "yrkanden": [
+          {
+            "namn": "och\nEdwin Friedlaender",
+            "parti": "M",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "att ärendet ska återremitteras till miljö- och"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-g",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§31",
+      "typ": "paragraf",
+      "label": "§ 31 Motion av Jessica Blixt (D) och Mariette Höij Risberg (D) om",
+      "data": {
+        "paragrafNr": "31",
+        "ärendeNr": "SLK-2023-00807",
+        "rubrik": "Motion av Jessica Blixt (D) och Mariette Höij Risberg (D) om",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 29
+        },
+        "yrkanden": [
+          {
+            "namn": "n-Olsson",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Nina Miskovsky",
+            "parti": "M",
+            "typ": "förslaget från D, M, L och KD"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-förskolenämnden-grundskolen",
+      "typ": "organisation",
+      "label": "Förskolenämnden\nGrundskolen",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-socialn",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden\nSocialn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§32",
+      "typ": "paragraf",
+      "label": "§ 32 Motion av Simona Mohamsson (L) och Kristina Bergman",
+      "data": {
+        "paragrafNr": "32",
+        "ärendeNr": "SLK-2023-00883",
+        "rubrik": "Motion av Simona Mohamsson (L) och Kristina Bergman",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Ajsela Bruncevic",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag och beslutssatserna i yrkande från"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-utbildningsn",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\nUtbildningsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§33",
+      "typ": "paragraf",
+      "label": "§ 33 Motion av Kristina Bergman Alme (L) om stöd till brottsoffer",
+      "data": {
+        "paragrafNr": "33",
+        "ärendeNr": "SLK-2023-00884",
+        "rubrik": "Motion av Kristina Bergman Alme (L) om stöd till brottsoffer",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 37
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nJenny Broman",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Rasmus Ragnarsson",
+            "parti": "SD",
+            "typ": "bifall till förslaget från M, D, L och KD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§34",
+      "typ": "paragraf",
+      "label": "§ 34 Motion av Elisabet Lann (KD), Kalle Bäck (KD),",
+      "data": {
+        "paragrafNr": "34",
+        "ärendeNr": "SLK-2023-00763",
+        "rubrik": "Motion av Elisabet Lann (KD), Kalle Bäck (KD),",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Johan Zandin",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "typ": "att motionen ska anses besvarad."
+          },
+          {
+            "namn": "Daniel Augustsson",
+            "parti": "C",
+            "typ": "att motionen ska anses besvarad i enlighet med yrkande från"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§35",
+      "typ": "paragraf",
+      "label": "§ 35 Motion av Pär Gustafsson (L) om att införa en fixartjänst för",
+      "data": {
+        "paragrafNr": "35",
+        "ärendeNr": "SLK-2023-00762",
+        "rubrik": "Motion av Pär Gustafsson (L) om att införa en fixartjänst för",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§36",
+      "typ": "paragraf",
+      "label": "§ 36 Motion av AnnaSara Perslow (C) om att möjliggöra för",
+      "data": {
+        "paragrafNr": "36",
+        "ärendeNr": "SLK-2023-00788",
+        "rubrik": "Motion av AnnaSara Perslow (C) om att möjliggöra för",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§37",
+      "typ": "paragraf",
+      "label": "§ 37 Motion av Elisabet Lann (KD) om en hållbar destination med",
+      "data": {
+        "paragrafNr": "37",
+        "ärendeNr": "SLK-2023-00785",
+        "rubrik": "Motion av Elisabet Lann (KD) om en hållbar destination med",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Jenny Broman",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Kristina Bergman Alme",
+            "parti": "L",
+            "typ": "förslaget från KD, M, D och L i kommunstyrelsen."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "yrkande från SD den 10 oktober 2024."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§38",
+      "typ": "paragraf",
+      "label": "§ 38 Motion av Nina Miskovsky (M), Rickard Eriksson (M) och",
+      "data": {
+        "paragrafNr": "38",
+        "ärendeNr": "SLK-2023-01032",
+        "rubrik": "Motion av Nina Miskovsky (M), Rickard Eriksson (M) och",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 39,
+          "nej": 40
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nClaes Söderling",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Rasmus Ragnarsson",
+            "parti": "SD",
+            "typ": "beslutssatserna i yrkande från M, D, L och KD i kommunstyrelsen, yrkande från C"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§39",
+      "typ": "paragraf",
+      "label": "§ 39 Motion av Sabina Music (C) om att ta fram en hyresmodell",
+      "data": {
+        "paragrafNr": "39",
+        "ärendeNr": "SLK-2023-00899",
+        "rubrik": "Motion av Sabina Music (C) om att ta fram en hyresmodell",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Sophia Nilsson",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Edwin Friedlaender",
+            "parti": "M",
+            "typ": "förslaget från M och SD i"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-om",
+      "typ": "organisation",
+      "label": "kommunstyrelsen om",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-g",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§40",
+      "typ": "paragraf",
+      "label": "§ 40 Motion av Martin Wannholt (D), Lisbeth Sundén Andersson",
+      "data": {
+        "paragrafNr": "40",
+        "ärendeNr": "SLK-2023-00808",
+        "rubrik": "Motion av Martin Wannholt (D), Lisbeth Sundén Andersson",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§41",
+      "typ": "paragraf",
+      "label": "§ 41 Motion av Anneli Rhedin (M) och Sofie Gyllenwaldt (M) om att",
+      "data": {
+        "paragrafNr": "41",
+        "ärendeNr": "SLK-2023-01022",
+        "rubrik": "Motion av Anneli Rhedin (M) och Sofie Gyllenwaldt (M) om att",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Karin Pleijel",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "typ": "förslaget från M i kommunstyrelsen."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-milj",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden\nMilj",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-grundskolen",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden\nGrundskolen",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§42",
+      "typ": "paragraf",
+      "label": "§ 42 Motion av Jörgen Fogelklou (SD) och Agneta Kjaerbeck (SD)",
+      "data": {
+        "paragrafNr": "42",
+        "ärendeNr": "SLK-2023-00915",
+        "rubrik": "Motion av Jörgen Fogelklou (SD) och Agneta Kjaerbeck (SD)",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§43",
+      "typ": "paragraf",
+      "label": "§ 43 Motion av Cecilia Magnusson (M) och Henrik Sjöstrand (M)",
+      "data": {
+        "paragrafNr": "43",
+        "ärendeNr": "SLK-2023-00784",
+        "rubrik": "Motion av Cecilia Magnusson (M) och Henrik Sjöstrand (M)",
+        "datum": "2025-01-30",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 34
+        },
+        "yrkanden": [
+          {
+            "namn": "och Jörgen Knudtzon",
+            "parti": "KD",
+            "typ": "motionen."
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": [
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M"
+          }
+        ]
+      }
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-g",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-01-30-§44",
+      "typ": "paragraf",
+      "label": "§ 44 Ordningsfråga",
+      "data": {
+        "paragrafNr": "44",
+        "ärendeNr": "SLK-2025-00040",
+        "rubrik": "Ordningsfråga",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§45",
+      "typ": "paragraf",
+      "label": "§ 45 Motion av Emmyly Bönfors (C) om att utreda möjligheten att",
+      "data": {
+        "paragrafNr": "45",
+        "ärendeNr": "SLK-2023-00787",
+        "rubrik": "Motion av Emmyly Bönfors (C) om att utreda möjligheten att",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§46",
+      "typ": "paragraf",
+      "label": "§ 46 Motion av Mariette Höij Risberg (D) och Jessica Blixt (D) om",
+      "data": {
+        "paragrafNr": "46",
+        "ärendeNr": "SLK-2023-01090",
+        "rubrik": "Motion av Mariette Höij Risberg (D) och Jessica Blixt (D) om",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§47",
+      "typ": "paragraf",
+      "label": "§ 47 Motion av Agneta Kjaerbeck (SD) och Jörgen Fogelklou (SD)",
+      "data": {
+        "paragrafNr": "47",
+        "ärendeNr": "SLK-2024-00299",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD) och Jörgen Fogelklou (SD)",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§48",
+      "typ": "paragraf",
+      "label": "§ 48 Motion av Simona Mohamsson (L) och Elisabet Lann (KD) om",
+      "data": {
+        "paragrafNr": "48",
+        "ärendeNr": "SLK-2024-00190",
+        "rubrik": "Motion av Simona Mohamsson (L) och Elisabet Lann (KD) om",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§49",
+      "typ": "paragraf",
+      "label": "§ 49 Motion av Anneli Rhedin (M) och Sofie Gyllenwaldt (M) om att",
+      "data": {
+        "paragrafNr": "49",
+        "ärendeNr": "SLK-2024-00279",
+        "rubrik": "Motion av Anneli Rhedin (M) och Sofie Gyllenwaldt (M) om att",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§50",
+      "typ": "paragraf",
+      "label": "§ 50 Motion av Axel Darvik (L) och Eva Flyborg (L) om att skydda",
+      "data": {
+        "paragrafNr": "50",
+        "ärendeNr": "SLK-2024-00278",
+        "rubrik": "Motion av Axel Darvik (L) och Eva Flyborg (L) om att skydda",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§51",
+      "typ": "paragraf",
+      "label": "§ 51 Motion av Axel Josefson (M), Nina Miskovsky (M) och Mattias",
+      "data": {
+        "paragrafNr": "51",
+        "ärendeNr": "SLK-2023-01145",
+        "rubrik": "Motion av Axel Josefson (M), Nina Miskovsky (M) och Mattias",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§52",
+      "typ": "paragraf",
+      "label": "§ 52 Motion av Martin Wannholt (D), Axel Josefson (M), Axel",
+      "data": {
+        "paragrafNr": "52",
+        "ärendeNr": "SLK-2023-00390",
+        "rubrik": "Motion av Martin Wannholt (D), Axel Josefson (M), Axel",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§53",
+      "typ": "paragraf",
+      "label": "§ 53 Motion av Elisabet Lann (KD) om ny modell för förmedling av",
+      "data": {
+        "paragrafNr": "53",
+        "ärendeNr": "SLK-2024-00098",
+        "rubrik": "Motion av Elisabet Lann (KD) om ny modell för förmedling av",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§54",
+      "typ": "paragraf",
+      "label": "§ 54 Motion av Elisabet Lann (KD) och Kristina Norén Lallo (KD)",
+      "data": {
+        "paragrafNr": "54",
+        "ärendeNr": "SLK-2024-00191",
+        "rubrik": "Motion av Elisabet Lann (KD) och Kristina Norén Lallo (KD)",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§55",
+      "typ": "paragraf",
+      "label": "§ 55 Motion av Axel Josefson (M), Nina Miskovsky (M), Anneli",
+      "data": {
+        "paragrafNr": "55",
+        "ärendeNr": "SLK-2024-00188",
+        "rubrik": "Motion av Axel Josefson (M), Nina Miskovsky (M), Anneli",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§56",
+      "typ": "paragraf",
+      "label": "§ 56 Motion av Martin Wannholt (D) och Patrik Höstmad (D) om att",
+      "data": {
+        "paragrafNr": "56",
+        "ärendeNr": "SLK-2024-00235",
+        "rubrik": "Motion av Martin Wannholt (D) och Patrik Höstmad (D) om att",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§57",
+      "typ": "paragraf",
+      "label": "§ 57 Motion av Axel Josefson (M), Martin Wannholt (D), Axel",
+      "data": {
+        "paragrafNr": "57",
+        "ärendeNr": "SLK-2024-00189",
+        "rubrik": "Motion av Axel Josefson (M), Martin Wannholt (D), Axel",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§58",
+      "typ": "paragraf",
+      "label": "§ 58 Motion av Daniel Augustsson (C) om att införa och tillämpa",
+      "data": {
+        "paragrafNr": "58",
+        "ärendeNr": "SLK-2023-00898",
+        "rubrik": "Motion av Daniel Augustsson (C) om att införa och tillämpa",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§59",
+      "typ": "paragraf",
+      "label": "§ 59 Motion av Agneta Kjaerbeck (SD), Lena Ferm (SD) och Sanda",
+      "data": {
+        "paragrafNr": "59",
+        "ärendeNr": "SLK-2024-00519",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD), Lena Ferm (SD) och Sanda",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§60",
+      "typ": "paragraf",
+      "label": "§ 60 Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+      "data": {
+        "paragrafNr": "60",
+        "ärendeNr": "SLK-2024-00518",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§61",
+      "typ": "paragraf",
+      "label": "§ 61 Motion av Anneli Rhedin (M), Sofie Gyllenwaldt (M) och",
+      "data": {
+        "paragrafNr": "61",
+        "ärendeNr": "SLK-2024-00580",
+        "rubrik": "Motion av Anneli Rhedin (M), Sofie Gyllenwaldt (M) och",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§62",
+      "typ": "paragraf",
+      "label": "§ 62 Motion av Johanna Holmdahl (KD) om att utfärda",
+      "data": {
+        "paragrafNr": "62",
+        "ärendeNr": "SLK-2024-00293",
+        "rubrik": "Motion av Johanna Holmdahl (KD) om att utfärda",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§63",
+      "typ": "paragraf",
+      "label": "§ 63 Motion av Hans Arby (C) om att inrätta en marin",
+      "data": {
+        "paragrafNr": "63",
+        "ärendeNr": "SLK-2024-00429",
+        "rubrik": "Motion av Hans Arby (C) om att inrätta en marin",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§64",
+      "typ": "paragraf",
+      "label": "§ 64 Motion av Nina Miskovsky (M) och Sofie Gyllenwaldt (M) om",
+      "data": {
+        "paragrafNr": "64",
+        "ärendeNr": "SLK-2024-00535",
+        "rubrik": "Motion av Nina Miskovsky (M) och Sofie Gyllenwaldt (M) om",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§65",
+      "typ": "paragraf",
+      "label": "§ 65 Motion av AnnaSara Perslow (C) och Emmyly Bönfors (C) om",
+      "data": {
+        "paragrafNr": "65",
+        "ärendeNr": "SLK-2024-00522",
+        "rubrik": "Motion av AnnaSara Perslow (C) och Emmyly Bönfors (C) om",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§66",
+      "typ": "paragraf",
+      "label": "§ 66 Motion av Mattias Tykesson (M) och Anneli Rhedin (M) om att",
+      "data": {
+        "paragrafNr": "66",
+        "ärendeNr": "SLK-2024-00603",
+        "rubrik": "Motion av Mattias Tykesson (M) och Anneli Rhedin (M) om att",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§67",
+      "typ": "paragraf",
+      "label": "§ 67 Motion av Kristina Bergman Alme (L) om ökat stöd efter",
+      "data": {
+        "paragrafNr": "67",
+        "ärendeNr": "SLK-2024-00577",
+        "rubrik": "Motion av Kristina Bergman Alme (L) om ökat stöd efter",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§68",
+      "typ": "paragraf",
+      "label": "§ 68 Motion av Simona Mohamsson (L) om införande av",
+      "data": {
+        "paragrafNr": "68",
+        "ärendeNr": "SLK-2024-00704",
+        "rubrik": "Motion av Simona Mohamsson (L) om införande av",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§69",
+      "typ": "paragraf",
+      "label": "§ 69 Motion av Elisabet Lann (KD) om specialiserad och samlad",
+      "data": {
+        "paragrafNr": "69",
+        "ärendeNr": "SLK-2024-00754",
+        "rubrik": "Motion av Elisabet Lann (KD) om specialiserad och samlad",
+        "datum": "2025-01-30",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-01-30-§70",
+      "typ": "paragraf",
+      "label": "§ 70 Förteckning över anmälningsärenden",
+      "data": {
+        "paragrafNr": "70",
+        "ärendeNr": "SLK-2025-00039",
+        "rubrik": "Förteckning över anmälningsärenden",
+        "datum": "2025-01-30",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "kf-2025-01-30-§5",
+      "to": "org-grundskolenämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§6",
+      "to": "kf-*-§384",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 384"
+    },
+    {
+      "from": "kf-2025-01-30-§6",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§6",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§7",
+      "to": "kf-*-§448",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 448"
+    },
+    {
+      "from": "kf-2025-01-30-§7",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§8",
+      "to": "kf-*-§524",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 524"
+    },
+    {
+      "from": "kf-2025-01-30-§8",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§9",
+      "to": "kf-*-§603",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 603"
+    },
+    {
+      "from": "kf-2025-01-30-§9",
+      "to": "org-kulturnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§9",
+      "to": "org-kulturnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§9",
+      "to": "org-kulturnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§12",
+      "to": "kf-*-§489",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 489"
+    },
+    {
+      "from": "kf-2025-01-30-§12",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§12",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§12",
+      "to": "org-stadsbyggnadsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§12",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§12",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§12",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§12",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§12",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§12",
+      "to": "org-kommunstyrelsen-stadsbyggnadsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§13",
+      "to": "kf-*-§490",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 490"
+    },
+    {
+      "from": "kf-2025-01-30-§13",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§13",
+      "to": "org-socialnämnden-centrum",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§13",
+      "to": "org-socialnämnden-hisingen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§13",
+      "to": "org-socialnämnden-nordost",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§13",
+      "to": "org-socialnämnden-sydv",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§13",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§13",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§13",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§13",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "kf-*-§491",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 491"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-socialnämnden-centrum",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-socialnämnden-hisingen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-socialnämnden-nordost",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-socialnämnden-sydv",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-socialnämnden-sydv",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§14",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§15",
+      "to": "kf-*-§492",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 492"
+    },
+    {
+      "from": "kf-2025-01-30-§15",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§15",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§15",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§20",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§20",
+      "to": "org-kommunstyrelsen-deltar",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§21",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-stadsmiljönämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-kommunstyrelsen-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-kommunstyrelsen-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§22",
+      "to": "org-stadsmiljönämnden-styrande",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "lag-kommunallagen",
+      "typ": "regleras_av",
+      "label": "5 kap. 50 §"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-stadsbyggnadsnämnden-som",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-kommunstyrelsen-s",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-stadsbyggnadsnämnden-i",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-stadsbyggnadsnämnden-i",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-stadsbyggnadsnämnden-i",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-stadsbyggnadsnämnden-med",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§23",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§24",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§25",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§26",
+      "to": "org-kommunstyrelsen-till",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§26",
+      "to": "org-stadsfastighetsnämnden-beslut",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§26",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§26",
+      "to": "org-kommunstyrelsen-till",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§26",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§26",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§26",
+      "to": "org-stadsfastighetsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§26",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§26",
+      "to": "org-stadsfastighetsnämnden-som",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§26",
+      "to": "org-kommunstyrelsen-stadsfastighetsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§27",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§28",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§28",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§28",
+      "to": "org-stadsfastighetsnämnden-forts",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§28",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§28",
+      "to": "org-förskolenämnden-utreda",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§28",
+      "to": "org-kommunstyrelsen-stadsfastighetsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§28",
+      "to": "org-förskolenämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§29",
+      "to": "org-stadsfastighetsnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§30",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§30",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§30",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§30",
+      "to": "org-miljö--och-klimatnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§31",
+      "to": "kf-*-§185",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 185"
+    },
+    {
+      "from": "kf-2025-01-30-§31",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§31",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§31",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§31",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§31",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§31",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§31",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§31",
+      "to": "org-förskolenämnden-grundskolen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§31",
+      "to": "org-utbildningsnämnden-socialn",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§32",
+      "to": "kf-*-§186",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 186"
+    },
+    {
+      "from": "kf-2025-01-30-§32",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§32",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§32",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§32",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§32",
+      "to": "org-grundskolenämnden-utbildningsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§33",
+      "to": "kf-*-§187",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 187"
+    },
+    {
+      "from": "kf-2025-01-30-§33",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§33",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§33",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§33",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§33",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§33",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§33",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§34",
+      "to": "kf-*-§188",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 188"
+    },
+    {
+      "from": "kf-2025-01-30-§34",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§34",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§34",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§35",
+      "to": "kf-*-§189",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 189"
+    },
+    {
+      "from": "kf-2025-01-30-§36",
+      "to": "kf-*-§190",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 190"
+    },
+    {
+      "from": "kf-2025-01-30-§37",
+      "to": "kf-*-§243",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 243"
+    },
+    {
+      "from": "kf-2025-01-30-§37",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§37",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§37",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§37",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§38",
+      "to": "kf-*-§293",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 293"
+    },
+    {
+      "from": "kf-2025-01-30-§38",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§38",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§38",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§38",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§38",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§38",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§38",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§39",
+      "to": "kf-*-§294",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 294"
+    },
+    {
+      "from": "kf-2025-01-30-§39",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§39",
+      "to": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§39",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§39",
+      "to": "org-kommunstyrelsen-om",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§39",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§39",
+      "to": "org-idrotts--och-föreningsnämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-01-30-§40",
+      "to": "kf-*-§295",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 295"
+    },
+    {
+      "from": "kf-2025-01-30-§41",
+      "to": "kf-*-§296",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 296"
+    },
+    {
+      "from": "kf-2025-01-30-§41",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§41",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§41",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§41",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§41",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§41",
+      "to": "org-idrotts--och-föreningsnämnden-milj",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§41",
+      "to": "org-utbildningsnämnden-grundskolen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§42",
+      "to": "kf-*-§378",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 378"
+    },
+    {
+      "from": "kf-2025-01-30-§43",
+      "to": "kf-*-§379",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 379"
+    },
+    {
+      "from": "kf-2025-01-30-§43",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§43",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§43",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§43",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§43",
+      "to": "org-stadsbyggnadsnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-01-30-§45",
+      "to": "kf-*-§380",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 380"
+    },
+    {
+      "from": "kf-2025-01-30-§46",
+      "to": "kf-*-§381",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 381"
+    },
+    {
+      "from": "kf-2025-01-30-§47",
+      "to": "kf-*-§382",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 382"
+    },
+    {
+      "from": "kf-2025-01-30-§48",
+      "to": "kf-*-§383",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 383"
+    },
+    {
+      "from": "kf-2025-01-30-§49",
+      "to": "kf-*-§441",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 441"
+    },
+    {
+      "from": "kf-2025-01-30-§50",
+      "to": "kf-*-§442",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 442"
+    },
+    {
+      "from": "kf-2025-01-30-§51",
+      "to": "kf-*-§443",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 443"
+    },
+    {
+      "from": "kf-2025-01-30-§52",
+      "to": "kf-*-§441",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 441"
+    },
+    {
+      "from": "kf-2025-01-30-§53",
+      "to": "kf-*-§445",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 445"
+    },
+    {
+      "from": "kf-2025-01-30-§54",
+      "to": "kf-*-§446",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 446"
+    },
+    {
+      "from": "kf-2025-01-30-§55",
+      "to": "kf-*-§441",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 441"
+    },
+    {
+      "from": "kf-2025-01-30-§56",
+      "to": "kf-*-§517",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 517"
+    },
+    {
+      "from": "kf-2025-01-30-§57",
+      "to": "kf-*-§518",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 518"
+    },
+    {
+      "from": "kf-2025-01-30-§58",
+      "to": "kf-*-§519",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 519"
+    },
+    {
+      "from": "kf-2025-01-30-§59",
+      "to": "kf-*-§520",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 520"
+    },
+    {
+      "from": "kf-2025-01-30-§60",
+      "to": "kf-*-§521",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 521"
+    },
+    {
+      "from": "kf-2025-01-30-§61",
+      "to": "kf-*-§522",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 522"
+    },
+    {
+      "from": "kf-2025-01-30-§62",
+      "to": "kf-*-§523",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 523"
+    },
+    {
+      "from": "kf-2025-01-30-§63",
+      "to": "kf-*-§595",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 595"
+    },
+    {
+      "from": "kf-2025-01-30-§64",
+      "to": "kf-*-§596",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 596"
+    },
+    {
+      "from": "kf-2025-01-30-§65",
+      "to": "kf-*-§597",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 597"
+    },
+    {
+      "from": "kf-2025-01-30-§66",
+      "to": "kf-*-§598",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 598"
+    },
+    {
+      "from": "kf-2025-01-30-§67",
+      "to": "kf-*-§599",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 599"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§1",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§2",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§3",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§4",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§5",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§6",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§7",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§8",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§9",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§10",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§11",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§12",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§13",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§14",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§15",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§16",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§17",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§18",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§19",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§20",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§21",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§22",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§23",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§24",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§25",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§26",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§27",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§28",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§29",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§30",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§31",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§32",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§33",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§34",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§35",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§36",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§37",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§38",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§39",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§40",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§41",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§42",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§43",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§44",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§45",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§46",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§47",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§48",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§49",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§50",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§51",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§52",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§53",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§54",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§55",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§56",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§57",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§58",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§59",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§60",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§61",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§62",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§63",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§64",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§65",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§66",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§67",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§68",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§69",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-01-30",
+      "to": "kf-2025-01-30-§70",
+      "typ": "beslut_av"
+    }
+  ]
+}
