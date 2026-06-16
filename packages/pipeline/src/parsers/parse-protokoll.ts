@@ -100,7 +100,7 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
     const resMatch = section.match(/Reservation\s*\n\s*\n\s*(.+?)(?:\n\s*\n|\nProtokollsutdrag)/s)
     if (resMatch) reservationer.push(resMatch[1].trim())
 
-    // Extract yrkanden
+    // Extract yrkanden (who proposed what)
     const yrkanden: Array<{ namn: string; parti: string; typ: string }> = []
     const yrkRe = /([\wÅÄÖåäö\s-]+?)\s*\((\w+)\)\s*(?:yrkar bifall till|yrkar)\s*(.{10,80})/g
     let yrkMatch
@@ -108,12 +108,20 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
       yrkanden.push({ namn: yrkMatch[1].trim(), parti: yrkMatch[2], typ: yrkMatch[3].trim() })
     }
 
+    // Extract jävsanmälan
+    const jäv: Array<{ namn: string; parti: string }> = []
+    const jävRe = /^([\wÅÄÖåäö][\wÅÄÖåäö -]+?)\s*\((\w+)\)\s*deltar inte/gm
+    let jävMatch
+    while ((jävMatch = jävRe.exec(section)) !== null) {
+      jäv.push({ namn: jävMatch[1].trim(), parti: jävMatch[2] })
+    }
+
     // Create paragraf node
     nodes.push({
       id: paragrafId,
       typ: 'paragraf',
       label: `§ ${paragrafNr} ${rubrik}`,
-      data: { paragrafNr, ärendeNr, rubrik, datum: möteDatum, beslut, bordläggningsorsak, votering, yrkanden, reservationer },
+      data: { paragrafNr, ärendeNr, rubrik, datum: möteDatum, beslut, bordläggningsorsak, votering, yrkanden, reservationer, jäv },
     })
 
     // Find law references
