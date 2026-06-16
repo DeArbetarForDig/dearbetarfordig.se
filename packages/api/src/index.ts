@@ -234,6 +234,83 @@ app.openapi(statsRoute, async (c) => {
   return c.json({ kommun: c.req.valid('param').kommun, politiker: pol[0].total, partier: Object.fromEntries(parties.map(p => [p.parti, p.antal])), graf: { nodes: nodeCount[0].total, edges: edgeCount[0].total } }, 200)
 })
 
+// --- Metrics ---
+const metricsRoute = createRoute({
+  method: 'get', path: '/api/v1/{kommun}/metrics', tags: ['Statistik'],
+  summary: 'Demokratiska nyckeltal',
+  description: 'Automatiskt beräknade KPI:er för kommunfullmäktige: beslutskraft, konsensus, partilojalitet, aktivitet.',
+  request: { params: z.object({ kommun: z.string() }) },
+  responses: { 200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('Metrics') } }, description: 'OK' } },
+})
+app.openapi(metricsRoute, async (c) => {
+  // Beslutskraft: bifall+avslag vs bordläggning
+  const beslutTyper = await sql`SELECT data->>'beslut' as typ, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' IS NOT NULL GROUP BY data->>'beslut'`
+  const totalBeslut = beslutTyper.reduce((s, r) => s + r.antal, 0)
+  const bifall = beslutTyper.find(r => r.typ === 'bifall')?.antal || 0
+  const bordlagd = beslutTyper.find(r => r.typ === 'bordläggning')?.antal || 0
+
+  // Konsensus: beslut utan votering vs med
+  const [{ total: totalParagrafer }] = await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'paragraf'`
+  const [{ antal: medVotering }] = await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data ? 'votering'`
+  const utanVotering = totalParagrafer - medVotering
+
+  // Röster per parti
+  const rösterData = await sql`SELECT data->'röster' as roster FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data ? 'röster'`
+  const partiRöster: Record<string, { ja: number; nej: number; avstår: number; total: number }> = {}
+
+  for (const row of rösterData) {
+    const roster = row.roster as Array<{ namn: string; parti: string; röst: string }>
+    if (!Array.isArray(roster)) continue
+    for (const r of roster) {
+      if (!partiRöster[r.parti]) partiRöster[r.parti] = { ja: 0, nej: 0, avstår: 0, total: 0 }
+      partiRöster[r.parti].total++
+      if (r.röst === 'ja') partiRöster[r.parti].ja++
+      else if (r.röst === 'nej') partiRöster[r.parti].nej++
+      else if (r.röst === 'avstår') partiRöster[r.parti].avstår++
+    }
+  }
+
+  // Styrets majoritet (S+V+MP = ja, opposition = nej i genomsnitt)
+  const voteringsResultat = await sql`SELECT data->'votering' as v FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data ? 'votering'`
+  let snittJa = 0, snittNej = 0, antalVoteringar = 0
+  for (const row of voteringsResultat) {
+    const v = row.v as any
+    if (v && v.ja && v.nej) { snittJa += v.ja; snittNej += v.nej; antalVoteringar++ }
+  }
+
+  return c.json({
+    kommun: c.req.valid('param').kommun,
+    period: '2022-2026',
+    datakälla: 'KF 2025-11-27 (1 sammanträde analyserat)',
+    beslutskraft: {
+      totalt: totalBeslut,
+      bifall: bifall,
+      bordläggning: bordlagd,
+      beslutskraftProcent: totalBeslut > 0 ? Math.round((bifall / totalBeslut) * 100) : 0,
+    },
+    konsensus: {
+      totaltÄrenden: totalParagrafer,
+      utanVotering: utanVotering,
+      medVotering: medVotering,
+      konsensusgradProcent: totalParagrafer > 0 ? Math.round((utanVotering / totalParagrafer) * 100) : 0,
+    },
+    voteringar: {
+      antal: antalVoteringar,
+      snittJa: antalVoteringar > 0 ? Math.round(snittJa / antalVoteringar) : 0,
+      snittNej: antalVoteringar > 0 ? Math.round(snittNej / antalVoteringar) : 0,
+    },
+    partilojalitet: Object.fromEntries(
+      Object.entries(partiRöster).map(([parti, data]) => [parti, {
+        röster: data.total,
+        ja: data.ja,
+        nej: data.nej,
+        avstår: data.avstår,
+        jaProcent: data.total > 0 ? Math.round((data.ja / data.total) * 100) : 0,
+      }])
+    ),
+  }, 200)
+})
+
 // --- OpenAPI + Swagger ---
 app.doc('/openapi.json', {
   openapi: '3.1.0',
