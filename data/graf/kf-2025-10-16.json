@@ -1,0 +1,2068 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2025-10-16",
+      "typ": "möte",
+      "label": "KF Sammanträde 2025-10-16",
+      "data": {
+        "datum": "2025-10-16",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§434",
+      "typ": "paragraf",
+      "label": "§ 434 WIN WIN Gothenburg Sustainability Award",
+      "data": {
+        "paragrafNr": "434",
+        "ärendeNr": "SLK-2025-01001",
+        "rubrik": "WIN WIN Gothenburg Sustainability Award",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§435",
+      "typ": "paragraf",
+      "label": "§ 435 Bestämmande av tid för justering",
+      "data": {
+        "paragrafNr": "435",
+        "ärendeNr": "SLK-2025-00041",
+        "rubrik": "Bestämmande av tid för justering",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§436",
+      "typ": "paragraf",
+      "label": "§ 436 Anmälan av länsstyrelsens beslut att utse Samuel Bråse (KD)",
+      "data": {
+        "paragrafNr": "436",
+        "ärendeNr": "SLK-2025-00005",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Samuel Bråse (KD)",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§437",
+      "typ": "paragraf",
+      "label": "§ 437 Frågestund",
+      "data": {
+        "paragrafNr": "437",
+        "ärendeNr": "SLK-2025-00042",
+        "rubrik": "Frågestund",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§438",
+      "typ": "paragraf",
+      "label": "§ 438 Interpellation av Rasmus Ragnarsson (SD) till",
+      "data": {
+        "paragrafNr": "438",
+        "ärendeNr": "SLK-2025-00866",
+        "rubrik": "Interpellation av Rasmus Ragnarsson (SD) till",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kulturnämnden",
+      "typ": "organisation",
+      "label": "kulturnämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§439",
+      "typ": "paragraf",
+      "label": "§ 439 Valberedningens förslag till vid sammanträdet",
+      "data": {
+        "paragrafNr": "439",
+        "ärendeNr": "SLK-2025-00003",
+        "rubrik": "Valberedningens förslag till vid sammanträdet",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§440",
+      "typ": "paragraf",
+      "label": "§ 440 Val av ledamot i kommunstyrelsen och kommunalråd i stället",
+      "data": {
+        "paragrafNr": "440",
+        "ärendeNr": "SLK-2025-01022",
+        "rubrik": "Val av ledamot i kommunstyrelsen och kommunalråd i stället",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-och",
+      "typ": "organisation",
+      "label": "kommunstyrelsen och",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§441",
+      "typ": "paragraf",
+      "label": "§ 441 Avsägelse av Hillevi Werring (MP) från uppdraget som",
+      "data": {
+        "paragrafNr": "441",
+        "ärendeNr": "SLK-2025-00005",
+        "rubrik": "Avsägelse av Hillevi Werring (MP) från uppdraget som",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§442",
+      "typ": "paragraf",
+      "label": "§ 442 Avsägelse av Martin Kurzwelly (KD) från uppdraget som",
+      "data": {
+        "paragrafNr": "442",
+        "ärendeNr": "SLK-2025-00005:42",
+        "rubrik": "Avsägelse av Martin Kurzwelly (KD) från uppdraget som",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§443",
+      "typ": "paragraf",
+      "label": "§ 443 Val av ledamot i förbundsfullmäktige i Göteborgsregionens",
+      "data": {
+        "paragrafNr": "443",
+        "ärendeNr": "SLK-2025-00005:34",
+        "rubrik": "Val av ledamot i förbundsfullmäktige i Göteborgsregionens",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "övrigt",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§444",
+      "typ": "paragraf",
+      "label": "§ 444 Förslag till sammanträdesdagar för kommunfullmäktige",
+      "data": {
+        "paragrafNr": "444",
+        "ärendeNr": "SLK-2025-00009",
+        "rubrik": "Förslag till sammanträdesdagar för kommunfullmäktige",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§445",
+      "typ": "paragraf",
+      "label": "§ 445 Taxa för brandskyddskontroll",
+      "data": {
+        "paragrafNr": "445",
+        "ärendeNr": "SLK-2025-00733",
+        "rubrik": "Taxa för brandskyddskontroll",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§446",
+      "typ": "paragraf",
+      "label": "§ 446 Hemställan från äldre samt vård- och omsorgsnämnden och",
+      "data": {
+        "paragrafNr": "446",
+        "ärendeNr": "SLK-2025-00432",
+        "rubrik": "Hemställan från äldre samt vård- och omsorgsnämnden och",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "sfs-2025:400",
+      "typ": "lag",
+      "label": "socialtjänstlagen (2025:400)",
+      "data": {
+        "sfs": "2025:400",
+        "kap": "11",
+        "paragraf": "4"
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§447",
+      "typ": "paragraf",
+      "label": "§ 447 Hemställan från stadsbyggnadsnämnden och nämnden för",
+      "data": {
+        "paragrafNr": "447",
+        "ärendeNr": "SLK-2025-00730",
+        "rubrik": "Hemställan från stadsbyggnadsnämnden och nämnden för",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-och",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden och",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-till",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden till",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-ska",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden ska",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-n",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§448",
+      "typ": "paragraf",
+      "label": "§ 448 Hemställan från Älvstranden Utveckling AB om likvidation av",
+      "data": {
+        "paragrafNr": "448",
+        "ärendeNr": "SLK-2025-00769",
+        "rubrik": "Hemställan från Älvstranden Utveckling AB om likvidation av",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§449",
+      "typ": "paragraf",
+      "label": "§ 449 Hemställan från Boplats Göteborg AB om avgiftsfrihet för",
+      "data": {
+        "paragrafNr": "449",
+        "ärendeNr": "SLK-2025-00719",
+        "rubrik": "Hemställan från Boplats Göteborg AB om avgiftsfrihet för",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§450",
+      "typ": "paragraf",
+      "label": "§ 450 Reviderat ägardirektiv för Göteborg Energi AB gällande",
+      "data": {
+        "paragrafNr": "450",
+        "ärendeNr": "SLK-2025-00721",
+        "rubrik": "Reviderat ägardirektiv för Göteborg Energi AB gällande",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 52,
+          "nej": 27
+        },
+        "yrkanden": [
+          {
+            "namn": "och Daniel Bernmar",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från D, M och SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§451",
+      "typ": "paragraf",
+      "label": "§ 451 Reviderat inriktningsbeslut för ny gång- och cykelbro över",
+      "data": {
+        "paragrafNr": "451",
+        "ärendeNr": "SLK-2025-00285",
+        "rubrik": "Reviderat inriktningsbeslut för ny gång- och cykelbro över",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Johan Zandin",
+            "parti": "V",
+            "typ": "bifall till kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och\nJörgen Fogelklou",
+            "parti": "SD",
+            "typ": "yrkande från M, D, L, KD och SD"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-f",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-g",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§452",
+      "typ": "paragraf",
+      "label": "§ 452 Reviderade gemensamma miljökrav för entreprenader",
+      "data": {
+        "paragrafNr": "452",
+        "ärendeNr": "SLK-2025-00555",
+        "rubrik": "Reviderade gemensamma miljökrav för entreprenader",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 72,
+          "nej": 9
+        },
+        "yrkanden": [
+          {
+            "namn": "och\nHans Arby",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§453",
+      "typ": "paragraf",
+      "label": "§ 453 Utvärdering av Göteborgs Stads handlingsplan för",
+      "data": {
+        "paragrafNr": "453",
+        "ärendeNr": "SLK-2024-00873",
+        "rubrik": "Utvärdering av Göteborgs Stads handlingsplan för",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och AnnaSara Perslow",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jonas Stenberg",
+            "parti": "D",
+            "typ": "yrkande från M, D, L och KD den 15 oktober 2025."
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "yrkande från M, D, L och KD"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-f",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen f",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§454",
+      "typ": "paragraf",
+      "label": "§ 454 Rapport Invånarnas möjligheter till demokratisk delaktighet",
+      "data": {
+        "paragrafNr": "454",
+        "ärendeNr": "SLK-2025-00553",
+        "rubrik": "Rapport Invånarnas möjligheter till demokratisk delaktighet",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och AnnaSara Perslow",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från"
+          },
+          {
+            "namn": "och Ann Catrine Fogelgren",
+            "parti": "L",
+            "typ": "förslaget från"
+          },
+          {
+            "namn": "och Kalle Bäck",
+            "parti": "KD",
+            "typ": "förslaget från"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§455",
+      "typ": "paragraf",
+      "label": "§ 455 Redovisning av uppdrag att se över hur välfärdsnämnderna",
+      "data": {
+        "paragrafNr": "455",
+        "ärendeNr": "SLK-2025-00221",
+        "rubrik": "Redovisning av uppdrag att se över hur välfärdsnämnderna",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 58,
+          "nej": 18
+        },
+        "yrkanden": [
+          {
+            "namn": "och Axel Josefson",
+            "parti": "M",
+            "typ": "bifall till kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "typ": "förslaget från L i kommunstyrelsen."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från D och KD i"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden",
+      "typ": "organisation",
+      "label": "exploateringsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-utreda",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden utreda",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-stadsfastighetsn",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden\nStadsfastighetsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§456",
+      "typ": "paragraf",
+      "label": "§ 456 Ökade insatser för att förhindra sexuella övergrepp mot barn",
+      "data": {
+        "paragrafNr": "456",
+        "ärendeNr": "SLK-2025-00903",
+        "rubrik": "Ökade insatser för att förhindra sexuella övergrepp mot barn",
+        "datum": "2025-10-16",
+        "beslut": "avslag",
+        "yrkanden": [
+          {
+            "namn": "och Sophia Nilsson",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-förskolenämnden",
+      "typ": "organisation",
+      "label": "Förskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden",
+      "typ": "organisation",
+      "label": "grundskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-samt",
+      "typ": "organisation",
+      "label": "utbildningsnämnden samt",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "organisation",
+      "label": "idrotts- och föreningsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-n",
+      "typ": "organisation",
+      "label": "Förskolenämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-utbildningsn",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\nUtbildningsn",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-g",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§457",
+      "typ": "paragraf",
+      "label": "§ 457 Överlämnande och införlivande av allmänna handlingar i",
+      "data": {
+        "paragrafNr": "457",
+        "ärendeNr": "SLK-2025-00696",
+        "rubrik": "Överlämnande och införlivande av allmänna handlingar i",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-till",
+      "typ": "organisation",
+      "label": "kommunstyrelsen\ntill",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-beslut",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden\nBeslut",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-hemst",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen hemst",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-stadsfastighetsn",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nStadsfastighetsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§458",
+      "typ": "paragraf",
+      "label": "§ 458 Motion av Johanna Holmdahl (KD) om att utfärda",
+      "data": {
+        "paragrafNr": "458",
+        "ärendeNr": "SLK-2024-00293",
+        "rubrik": "Motion av Johanna Holmdahl (KD) om att utfärda",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 29
+        },
+        "yrkanden": [
+          {
+            "namn": "och Håkan Hallengren",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Kristina Bergman Alme",
+            "parti": "L",
+            "typ": "förslaget från"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-kulturn",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden\nKulturn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§459",
+      "typ": "paragraf",
+      "label": "§ 459 Motion av Martin Wannholt (D) och Patrik Höstmad (D) om att",
+      "data": {
+        "paragrafNr": "459",
+        "ärendeNr": "SLK-2023-01088",
+        "rubrik": "Motion av Martin Wannholt (D) och Patrik Höstmad (D) om att",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§460",
+      "typ": "paragraf",
+      "label": "§ 460 Motion av Rasmus Ragnarsson (SD) om att utreda inrättandet",
+      "data": {
+        "paragrafNr": "460",
+        "ärendeNr": "SLK-2024-01124",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) om att utreda inrättandet",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nRasmus Ragnarsson",
+            "parti": "SD",
+            "typ": "motionen."
+          },
+          {
+            "namn": "och AnnaSara Perslow",
+            "parti": "C",
+            "typ": "kommunstyrelsens"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-ungdomsfullm",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\nUngdomsfullm",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§461",
+      "typ": "paragraf",
+      "label": "§ 461 Motion av Jörgen Fogelklou (SD) och Lena Ferm (SD) om att",
+      "data": {
+        "paragrafNr": "461",
+        "ärendeNr": "SLK-2024-00986",
+        "rubrik": "Motion av Jörgen Fogelklou (SD) och Lena Ferm (SD) om att",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§462",
+      "typ": "paragraf",
+      "label": "§ 462 Motion av Emmyly Bönfors (C) om friluftsbad vid",
+      "data": {
+        "paragrafNr": "462",
+        "ärendeNr": "SLK-2024-00901",
+        "rubrik": "Motion av Emmyly Bönfors (C) om friluftsbad vid",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 78,
+          "nej": 3
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nEmmyly Bönfors",
+            "parti": "C",
+            "typ": "motionen."
+          },
+          {
+            "namn": "och Karin Pleijel",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från C reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsmiljönämnden-kretslopp",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden\nKretslopp",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§463",
+      "typ": "paragraf",
+      "label": "§ 463 Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+      "data": {
+        "paragrafNr": "463",
+        "ärendeNr": "SLK-2024-00958",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och\nClaes Björling",
+            "parti": "M",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-milj",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\nMilj",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-utbildningsn",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden\nUtbildningsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§464",
+      "typ": "paragraf",
+      "label": "§ 464 Motion av Martin Wannholt (D) och Jessica Blixt (D) om att",
+      "data": {
+        "paragrafNr": "464",
+        "ärendeNr": "SLK-2024-01028",
+        "rubrik": "Motion av Martin Wannholt (D) och Jessica Blixt (D) om att",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Helena Norin",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden-f",
+      "typ": "organisation",
+      "label": "exploateringsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-stadsbyggnadsn",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden\nStadsbyggnadsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§465",
+      "typ": "paragraf",
+      "label": "§ 465 Motion av Rasmus Ragnarsson (SD), Agneta Kjaerbeck (SD)",
+      "data": {
+        "paragrafNr": "465",
+        "ärendeNr": "SLK-2025-00189",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD), Agneta Kjaerbeck (SD)",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 72,
+          "nej": 9
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nRasmus Ragnarsson",
+            "parti": "SD",
+            "typ": "motionen."
+          },
+          {
+            "namn": "och\nDaniel Augustsson",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§466",
+      "typ": "paragraf",
+      "label": "§ 466 Motion av Patrik Höstmad (D) och Jonas Stenberg (D) om att",
+      "data": {
+        "paragrafNr": "466",
+        "ärendeNr": "SLK-2025-00345",
+        "rubrik": "Motion av Patrik Höstmad (D) och Jonas Stenberg (D) om att",
+        "datum": "2025-10-16",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41
+        },
+        "yrkanden": [
+          {
+            "namn": "och Rasmus Ragnarsson",
+            "parti": "SD",
+            "typ": "bifall till"
+          },
+          {
+            "namn": "och Helena Norin",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-inköps--och-upphandlingsnämnden-f",
+      "typ": "organisation",
+      "label": "inköps- och upphandlingsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-ink",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nInk",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-10-16-§467",
+      "typ": "paragraf",
+      "label": "§ 467 Ordningsfråga",
+      "data": {
+        "paragrafNr": "467",
+        "ärendeNr": "SLK-2025-00040",
+        "rubrik": "Ordningsfråga",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§468",
+      "typ": "paragraf",
+      "label": "§ 468 Motion av Agneta Kjaerbeck (SD) och Jörgen Fogelklou (SD)",
+      "data": {
+        "paragrafNr": "468",
+        "ärendeNr": "SLK-2024-01191",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD) och Jörgen Fogelklou (SD)",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§469",
+      "typ": "paragraf",
+      "label": "§ 469 Motion av Jessica Blixt (D) och Martin Wannholt (D) om",
+      "data": {
+        "paragrafNr": "469",
+        "ärendeNr": "SLK-2024-01204",
+        "rubrik": "Motion av Jessica Blixt (D) och Martin Wannholt (D) om",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§470",
+      "typ": "paragraf",
+      "label": "§ 470 Motion av Rasmus Ragnarsson (SD) om att höja",
+      "data": {
+        "paragrafNr": "470",
+        "ärendeNr": "SLK-2025-00190",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) om att höja",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§471",
+      "typ": "paragraf",
+      "label": "§ 471 Motion av Tony Liljendahl (SD) och Lena Ferm (SD) om att",
+      "data": {
+        "paragrafNr": "471",
+        "ärendeNr": "SLK-2025-00375",
+        "rubrik": "Motion av Tony Liljendahl (SD) och Lena Ferm (SD) om att",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§472",
+      "typ": "paragraf",
+      "label": "§ 472 Motion av Sarah Ullmark (M) och Axel Josefson (M) om",
+      "data": {
+        "paragrafNr": "472",
+        "ärendeNr": "SLK-2025-00191",
+        "rubrik": "Motion av Sarah Ullmark (M) och Axel Josefson (M) om",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§473",
+      "typ": "paragraf",
+      "label": "§ 473 Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou",
+      "data": {
+        "paragrafNr": "473",
+        "ärendeNr": "SLK-2024-01192",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§474",
+      "typ": "paragraf",
+      "label": "§ 474 Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+      "data": {
+        "paragrafNr": "474",
+        "ärendeNr": "SLK-2025-00100",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§475",
+      "typ": "paragraf",
+      "label": "§ 475 Interpellation av Toni Orsulic (M) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "475",
+        "ärendeNr": "SLK-2025-01018",
+        "rubrik": "Interpellation av Toni Orsulic (M) till kommunstyrelsens",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "interpellation_väntar",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§476",
+      "typ": "paragraf",
+      "label": "§ 476 Interpellation av Axel Darvik (L) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "476",
+        "ärendeNr": "SLK-2025-01021",
+        "rubrik": "Interpellation av Axel Darvik (L) till kommunstyrelsens",
+        "datum": "2025-10-16",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "interpellation_väntar",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-10-16-§477",
+      "typ": "paragraf",
+      "label": "§ 477 Förteckning över anmälningsärenden",
+      "data": {
+        "paragrafNr": "477",
+        "ärendeNr": "SLK-2025-00039",
+        "rubrik": "Förteckning över anmälningsärenden",
+        "datum": "2025-10-16",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "kf-2025-10-16-§437",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§437",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§437",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§437",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§437",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§437",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§437",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§438",
+      "to": "kf-*-§431",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 431"
+    },
+    {
+      "from": "kf-2025-10-16-§438",
+      "to": "org-kulturnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§438",
+      "to": "org-kulturnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§440",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§440",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§445",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§446",
+      "to": "sfs-2025:400",
+      "typ": "regleras_av",
+      "label": "11 kap. 4 §"
+    },
+    {
+      "from": "kf-2025-10-16-§446",
+      "to": "sfs-2025:400",
+      "typ": "regleras_av",
+      "label": "11 kap. 5 §"
+    },
+    {
+      "from": "kf-2025-10-16-§446",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§447",
+      "to": "org-stadsbyggnadsnämnden-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§447",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§447",
+      "to": "org-stadsbyggnadsnämnden-till",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§447",
+      "to": "org-stadsbyggnadsnämnden-ska",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§447",
+      "to": "org-stadsbyggnadsnämnden-n",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§448",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§449",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§450",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§450",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§450",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§450",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§450",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§451",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§451",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§451",
+      "to": "org-stadsbyggnadsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§451",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§451",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§451",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§451",
+      "to": "org-stadsbyggnadsnämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§452",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§452",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§452",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§452",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§452",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§453",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§453",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§453",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§453",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§453",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§453",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§453",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§453",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§454",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§455",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§455",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§455",
+      "to": "org-stadsfastighetsnämnden-utreda",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§455",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§455",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§455",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§455",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§455",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§455",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§455",
+      "to": "org-exploateringsnämnden-stadsfastighetsn",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-förskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-grundskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-utbildningsnämnden-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-grundskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-förskolenämnden-n",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-grundskolenämnden-utbildningsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§456",
+      "to": "org-idrotts--och-föreningsnämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§457",
+      "to": "org-kommunstyrelsen-till",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§457",
+      "to": "org-stadsfastighetsnämnden-beslut",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§457",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§457",
+      "to": "org-kommunstyrelsen-hemst",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§457",
+      "to": "org-kommunstyrelsen-till",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§457",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§457",
+      "to": "org-kommunstyrelsen-stadsfastighetsn",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§458",
+      "to": "kf-*-§523",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 523"
+    },
+    {
+      "from": "kf-2025-10-16-§458",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§458",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§458",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§458",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§458",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§458",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§458",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§458",
+      "to": "org-idrotts--och-föreningsnämnden-kulturn",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§459",
+      "to": "kf-*-§256",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 256"
+    },
+    {
+      "from": "kf-2025-10-16-§460",
+      "to": "kf-*-§324",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 324"
+    },
+    {
+      "from": "kf-2025-10-16-§460",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§460",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§460",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§460",
+      "to": "org-grundskolenämnden-ungdomsfullm",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§461",
+      "to": "kf-*-§325",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 325"
+    },
+    {
+      "from": "kf-2025-10-16-§462",
+      "to": "kf-*-§326",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 326"
+    },
+    {
+      "from": "kf-2025-10-16-§462",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§462",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§462",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§462",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§462",
+      "to": "org-stadsmiljönämnden-kretslopp",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§462",
+      "to": "org-idrotts--och-föreningsnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§463",
+      "to": "kf-*-§327",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 327"
+    },
+    {
+      "from": "kf-2025-10-16-§463",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§463",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§463",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§463",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§463",
+      "to": "org-grundskolenämnden-milj",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§463",
+      "to": "org-stadsmiljönämnden-utbildningsn",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§464",
+      "to": "kf-*-§328",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 328"
+    },
+    {
+      "from": "kf-2025-10-16-§464",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§464",
+      "to": "org-stadsbyggnadsnämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§464",
+      "to": "org-exploateringsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§464",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§464",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§464",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§464",
+      "to": "org-exploateringsnämnden-stadsbyggnadsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§465",
+      "to": "kf-*-§427",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 427"
+    },
+    {
+      "from": "kf-2025-10-16-§465",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§465",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§465",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§465",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§466",
+      "to": "kf-*-§428",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 428"
+    },
+    {
+      "from": "kf-2025-10-16-§466",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§466",
+      "to": "org-inköps--och-upphandlingsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§466",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§466",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§466",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§466",
+      "to": "org-kommunstyrelsen-ink",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-10-16-§468",
+      "to": "kf-*-§429",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 429"
+    },
+    {
+      "from": "kf-2025-10-16-§469",
+      "to": "kf-*-§430",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 430"
+    },
+    {
+      "from": "kf-2025-10-16-§475",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-10-16-§476",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§434",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§435",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§436",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§437",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§438",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§439",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§440",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§441",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§442",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§443",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§444",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§445",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§446",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§447",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§448",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§449",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§450",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§451",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§452",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§453",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§454",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§455",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§456",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§457",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§458",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§459",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§460",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§461",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§462",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§463",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§464",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§465",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§466",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§467",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§468",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§469",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§470",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§471",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§472",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§473",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§474",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§475",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§476",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-10-16",
+      "to": "kf-2025-10-16-§477",
+      "typ": "beslut_av"
+    }
+  ]
+}

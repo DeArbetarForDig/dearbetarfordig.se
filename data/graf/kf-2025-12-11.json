@@ -1,0 +1,2003 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2025-12-11",
+      "typ": "möte",
+      "label": "KF Sammanträde 2025-12-11",
+      "data": {
+        "datum": "2025-12-11",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§535",
+      "typ": "paragraf",
+      "label": "§ 535 Parentation",
+      "data": {
+        "paragrafNr": "535",
+        "ärendeNr": "SLK-2025-00315",
+        "rubrik": "Parentation",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§536",
+      "typ": "paragraf",
+      "label": "§ 536 Bestämmande av tid för justering",
+      "data": {
+        "paragrafNr": "536",
+        "ärendeNr": "SLK-2025-00041",
+        "rubrik": "Bestämmande av tid för justering",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§537",
+      "typ": "paragraf",
+      "label": "§ 537 Frågestund",
+      "data": {
+        "paragrafNr": "537",
+        "ärendeNr": "SLK-2025-00042",
+        "rubrik": "Frågestund",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§538",
+      "typ": "paragraf",
+      "label": "§ 538 Interpellation av Toni Orsulic (M) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "538",
+        "ärendeNr": "SLK-2025-01018",
+        "rubrik": "Interpellation av Toni Orsulic (M) till kommunstyrelsens",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§539",
+      "typ": "paragraf",
+      "label": "§ 539 Interpellation av Axel Darvik (L) till grundskolenämndens",
+      "data": {
+        "paragrafNr": "539",
+        "ärendeNr": "SLK-2025-01106",
+        "rubrik": "Interpellation av Axel Darvik (L) till grundskolenämndens",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden",
+      "typ": "organisation",
+      "label": "grundskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§540",
+      "typ": "paragraf",
+      "label": "§ 540 Interpellation av Axel Darvik (L) till exploateringsnämndens",
+      "data": {
+        "paragrafNr": "540",
+        "ärendeNr": "SLK-2025-01107",
+        "rubrik": "Interpellation av Axel Darvik (L) till exploateringsnämndens",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden",
+      "typ": "organisation",
+      "label": "exploateringsnämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§541",
+      "typ": "paragraf",
+      "label": "§ 541 Redovisning av uppdrag om att revidera och uppdatera",
+      "data": {
+        "paragrafNr": "541",
+        "ärendeNr": "SLK-2025-00465",
+        "rubrik": "Redovisning av uppdrag om att revidera och uppdatera",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 36
+        },
+        "yrkanden": [
+          {
+            "namn": "och Staffan Lindström",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "lag-kommunallagen",
+      "typ": "lag",
+      "label": "kommunallagen",
+      "data": {
+        "kap": "5",
+        "paragraf": "50"
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-samt",
+      "typ": "organisation",
+      "label": "kommunstyrelsen samt",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-enligt",
+      "typ": "organisation",
+      "label": "kommunstyrelsen enligt",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-och",
+      "typ": "organisation",
+      "label": "kommunstyrelsen och",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-med",
+      "typ": "organisation",
+      "label": "kommunstyrelsen med",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§542",
+      "typ": "paragraf",
+      "label": "§ 542 Göteborg Energi AB:s slutrapport avseende Fjärrkyla",
+      "data": {
+        "paragrafNr": "542",
+        "ärendeNr": "SLK-2025-00426",
+        "rubrik": "Göteborg Energi AB:s slutrapport avseende Fjärrkyla",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 36
+        },
+        "yrkanden": [
+          {
+            "namn": "och\nThomas Larsson",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Axel Darvik",
+            "parti": "L",
+            "typ": "förslaget från D, M, L och KD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§543",
+      "typ": "paragraf",
+      "label": "§ 543 Klimatomställningsanalys - Så kan Göteborgs klimatmål",
+      "data": {
+        "paragrafNr": "543",
+        "ärendeNr": "SLK-2025-00561",
+        "rubrik": "Klimatomställningsanalys - Så kan Göteborgs klimatmål",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 28
+        },
+        "yrkanden": [
+          {
+            "namn": "och Grith Fjeldmose",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Axel Darvik",
+            "parti": "L",
+            "typ": "bifall till yrkande"
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Protokoll nr 12\nSammanträdesdatum: 2025-12-11"
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-g",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§544",
+      "typ": "paragraf",
+      "label": "§ 544 Uppföljning av Göteborgs Stads avfallsplan 2021-2030 till och",
+      "data": {
+        "paragrafNr": "544",
+        "ärendeNr": "SLK-2025-00720",
+        "rubrik": "Uppföljning av Göteborgs Stads avfallsplan 2021-2030 till och",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Toni Orsulic",
+            "parti": "M",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-f",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-f",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden f",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§545",
+      "typ": "paragraf",
+      "label": "§ 545 Redovisning av kommunalt partistöd för år 2024",
+      "data": {
+        "paragrafNr": "545",
+        "ärendeNr": "SLK-2025-00021",
+        "rubrik": "Redovisning av kommunalt partistöd för år 2024",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§546",
+      "typ": "paragraf",
+      "label": "§ 546 Utbetalning av kommunalt partistöd för år 2026",
+      "data": {
+        "paragrafNr": "546",
+        "ärendeNr": "SLK-2025-00022",
+        "rubrik": "Utbetalning av kommunalt partistöd för år 2026",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§547",
+      "typ": "paragraf",
+      "label": "§ 547 Valberedningens förslag till val av ledamöter och ersättare i",
+      "data": {
+        "paragrafNr": "547",
+        "ärendeNr": "SLK-2025-00003",
+        "rubrik": "Valberedningens förslag till val av ledamöter och ersättare i",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§548",
+      "typ": "paragraf",
+      "label": "§ 548 Avsägelse av Anders Moberg (S) från uppdraget som ledamot",
+      "data": {
+        "paragrafNr": "548",
+        "ärendeNr": "SLK-2025-00005",
+        "rubrik": "Avsägelse av Anders Moberg (S) från uppdraget som ledamot",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§549",
+      "typ": "paragraf",
+      "label": "§ 549 Val av ersättare i förbundsfullmäktige i Göteborgsregionens",
+      "data": {
+        "paragrafNr": "549",
+        "ärendeNr": "SLK-2025-00005:54",
+        "rubrik": "Val av ersättare i förbundsfullmäktige i Göteborgsregionens",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§550",
+      "typ": "paragraf",
+      "label": "§ 550 Val av ersättare i förbundsfullmäktige i kommunalförbundet",
+      "data": {
+        "paragrafNr": "550",
+        "ärendeNr": "SLK-2025-00005",
+        "rubrik": "Val av ersättare i förbundsfullmäktige i kommunalförbundet",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§551",
+      "typ": "paragraf",
+      "label": "§ 551 Göteborgs Stads barnbokslut 2024",
+      "data": {
+        "paragrafNr": "551",
+        "ärendeNr": "SLK-2025-00914",
+        "rubrik": "Göteborgs Stads barnbokslut 2024",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Emmyly Bönfors",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och\nKristina Bergman Alme",
+            "parti": "L",
+            "typ": "kommunstyrelsens förslag och"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§552",
+      "typ": "paragraf",
+      "label": "§ 552 Överlämnande och införlivande av allmänna handlingar i",
+      "data": {
+        "paragrafNr": "552",
+        "ärendeNr": "SLK-2025-01005",
+        "rubrik": "Överlämnande och införlivande av allmänna handlingar i",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§553",
+      "typ": "paragraf",
+      "label": "§ 553 Halvtidsutvärdering av Göteborgs Stads plan för",
+      "data": {
+        "paragrafNr": "553",
+        "ärendeNr": "SLK-2025-00904",
+        "rubrik": "Halvtidsutvärdering av Göteborgs Stads plan för",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kulturnämnden",
+      "typ": "organisation",
+      "label": "kulturnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-kulturnämnden-g",
+      "typ": "organisation",
+      "label": "Kulturnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§554",
+      "typ": "paragraf",
+      "label": "§ 554 Kommunalförbundet Tolkförmedling Västs delårsrapport",
+      "data": {
+        "paragrafNr": "554",
+        "ärendeNr": "SLK-2025-01055",
+        "rubrik": "Kommunalförbundet Tolkförmedling Västs delårsrapport",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 52,
+          "nej": 29
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nDaniel Bernmar",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "kommunstyrelsens förslag"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§555",
+      "typ": "paragraf",
+      "label": "§ 555 Redovisning av uppdrag att återkomma med förslag på",
+      "data": {
+        "paragrafNr": "555",
+        "ärendeNr": "SLK-2025-00798",
+        "rubrik": "Redovisning av uppdrag att återkomma med förslag på",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-utbildningsnämnden-samt",
+      "typ": "organisation",
+      "label": "utbildningsnämnden samt",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-utifr",
+      "typ": "organisation",
+      "label": "grundskolenämnden utifr",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-antecknas",
+      "typ": "organisation",
+      "label": "grundskolenämnden\nantecknas",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-f",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen f",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-grundskolen",
+      "typ": "organisation",
+      "label": "Förskolenämnden\nGrundskolen",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-n",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-styrande",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nStyrande",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§556",
+      "typ": "paragraf",
+      "label": "§ 556 Redovisning av Göteborgs Stadshus AB:s genomförda",
+      "data": {
+        "paragrafNr": "556",
+        "ärendeNr": "SLK-2025-01007",
+        "rubrik": "Redovisning av Göteborgs Stadshus AB:s genomförda",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§557",
+      "typ": "paragraf",
+      "label": "§ 557 Redovisning av uppdrag att ta fram en plan för hur Göteborgs",
+      "data": {
+        "paragrafNr": "557",
+        "ärendeNr": "SLK-2025-00984",
+        "rubrik": "Redovisning av uppdrag att ta fram en plan för hur Göteborgs",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§558",
+      "typ": "paragraf",
+      "label": "§ 558 Motion av Martin Wannholt (D) och Patrik Höstmad (D) om att",
+      "data": {
+        "paragrafNr": "558",
+        "ärendeNr": "SLK-2023-01088",
+        "rubrik": "Motion av Martin Wannholt (D) och Patrik Höstmad (D) om att",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 38,
+          "nej": 3
+        },
+        "yrkanden": [
+          {
+            "namn": "och Johan Zandin",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "typ": "motionen."
+          },
+          {
+            "namn": "och Ann Catrine Fogelgren",
+            "parti": "L",
+            "typ": "yrkande från D, M, L och KD den 26 november 2025."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden-stadsmilj",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden\nStadsmilj",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-g",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§559",
+      "typ": "paragraf",
+      "label": "§ 559 Motion av Jörgen Fogelklou (SD) och Lena Ferm (SD) om att",
+      "data": {
+        "paragrafNr": "559",
+        "ärendeNr": "SLK-2024-00986",
+        "rubrik": "Motion av Jörgen Fogelklou (SD) och Lena Ferm (SD) om att",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och\nKlas Forsberg",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          },
+          {
+            "namn": "Nina Miskovsky",
+            "parti": "M",
+            "typ": "förslaget från M och D i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§560",
+      "typ": "paragraf",
+      "label": "§ 560 Motion av Agneta Kjaerbeck (SD) och Jörgen Fogelklou (SD)",
+      "data": {
+        "paragrafNr": "560",
+        "ärendeNr": "SLK-2024-01191",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD) och Jörgen Fogelklou (SD)",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nMarie Brynolfsson",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jessica Blixt",
+            "parti": "D",
+            "typ": "förslaget från SD, M, D och KD i"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-n",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§561",
+      "typ": "paragraf",
+      "label": "§ 561 Motion av Jessica Blixt (D) och Martin Wannholt (D) om",
+      "data": {
+        "paragrafNr": "561",
+        "ärendeNr": "SLK-2024-01204",
+        "rubrik": "Motion av Jessica Blixt (D) och Martin Wannholt (D) om",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Kochar Wallad Begi",
+            "parti": "S",
+            "typ": "kommunstyrelsens"
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från D, M, L och KD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-socialn",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden\nSocialn",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-g",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§562",
+      "typ": "paragraf",
+      "label": "§ 562 Motion av Rasmus Ragnarsson (SD) om att höja",
+      "data": {
+        "paragrafNr": "562",
+        "ärendeNr": "SLK-2025-00190",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) om att höja",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nRasmus Ragnarsson",
+            "parti": "SD",
+            "typ": "motionen."
+          },
+          {
+            "namn": "och Kalle Bäck",
+            "parti": "KD",
+            "typ": "kommunstyrelsens förslag."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§563",
+      "typ": "paragraf",
+      "label": "§ 563 Motion av Tony Liljendahl (SD) och Lena Ferm (SD) om att",
+      "data": {
+        "paragrafNr": "563",
+        "ärendeNr": "SLK-2025-00375",
+        "rubrik": "Motion av Tony Liljendahl (SD) och Lena Ferm (SD) om att",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 48,
+          "nej": 24
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nTony Liljendahl",
+            "parti": "SD",
+            "typ": "motionen."
+          },
+          {
+            "namn": "och Ann Catrine Fogelgren",
+            "parti": "L",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Patrik Höstmad",
+            "parti": "D",
+            "typ": "förslaget från M, D och KD i"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsmiljönämnden-g",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-12-11-§564",
+      "typ": "paragraf",
+      "label": "§ 564 Motion av Sarah Ullmark (M) och Axel Josefson (M) om",
+      "data": {
+        "paragrafNr": "564",
+        "ärendeNr": "SLK-2025-00191",
+        "rubrik": "Motion av Sarah Ullmark (M) och Axel Josefson (M) om",
+        "datum": "2025-12-11",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 14,
+          "nej": 24
+        },
+        "yrkanden": [
+          {
+            "namn": "och Hans Arby",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "typ": "förslaget från M i kommunstyrelsen."
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "typ": "förslaget från L, D och KD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§565",
+      "typ": "paragraf",
+      "label": "§ 565 Ordningsfråga",
+      "data": {
+        "paragrafNr": "565",
+        "ärendeNr": "SLK-2025-00040",
+        "rubrik": "Ordningsfråga",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§566",
+      "typ": "paragraf",
+      "label": "§ 566 Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou",
+      "data": {
+        "paragrafNr": "566",
+        "ärendeNr": "SLK-2024-01192",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§567",
+      "typ": "paragraf",
+      "label": "§ 567 Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+      "data": {
+        "paragrafNr": "567",
+        "ärendeNr": "SLK-2025-00100",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§568",
+      "typ": "paragraf",
+      "label": "§ 568 Motion av Edwin Friedlaender (M), Mattias Tykesson (M) och",
+      "data": {
+        "paragrafNr": "568",
+        "ärendeNr": "SLK-2025-00486",
+        "rubrik": "Motion av Edwin Friedlaender (M), Mattias Tykesson (M) och",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§569",
+      "typ": "paragraf",
+      "label": "§ 569 Motion av Nina Miskovsky (M), Zagros Hama (M) och Lena",
+      "data": {
+        "paragrafNr": "569",
+        "ärendeNr": "SLK-2025-00485",
+        "rubrik": "Motion av Nina Miskovsky (M), Zagros Hama (M) och Lena",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§570",
+      "typ": "paragraf",
+      "label": "§ 570 Motion av Hans Arby (C) om att anlägga borsttvättar i",
+      "data": {
+        "paragrafNr": "570",
+        "ärendeNr": "SLK-2025-00440",
+        "rubrik": "Motion av Hans Arby (C) om att anlägga borsttvättar i",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§571",
+      "typ": "paragraf",
+      "label": "§ 571 Motion av Emmyly Bönfors (C) och Axel Darvik (L) om att",
+      "data": {
+        "paragrafNr": "571",
+        "ärendeNr": "SLK-2025-00441",
+        "rubrik": "Motion av Emmyly Bönfors (C) och Axel Darvik (L) om att",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§572",
+      "typ": "paragraf",
+      "label": "§ 572 Motion av Patrik Höstmad (D) om ett mer systematiskt och",
+      "data": {
+        "paragrafNr": "572",
+        "ärendeNr": "SLK-2025-00344",
+        "rubrik": "Motion av Patrik Höstmad (D) om ett mer systematiskt och",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§573",
+      "typ": "paragraf",
+      "label": "§ 573 Motion av Anneli Rhedin (M) om att införa en veteranbonus",
+      "data": {
+        "paragrafNr": "573",
+        "ärendeNr": "SLK-2025-00487",
+        "rubrik": "Motion av Anneli Rhedin (M) om att införa en veteranbonus",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§574",
+      "typ": "paragraf",
+      "label": "§ 574 Motion av Axel Darvik (L), Ann Catrine Fogelgren (L) och Eva",
+      "data": {
+        "paragrafNr": "574",
+        "ärendeNr": "SLK-2024-01174",
+        "rubrik": "Motion av Axel Darvik (L), Ann Catrine Fogelgren (L) och Eva",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§575",
+      "typ": "paragraf",
+      "label": "§ 575 Motion av Sarah Ullmark (M) och Edwin Friedlaender (M) om",
+      "data": {
+        "paragrafNr": "575",
+        "ärendeNr": "SLK-2025-00571",
+        "rubrik": "Motion av Sarah Ullmark (M) och Edwin Friedlaender (M) om",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§576",
+      "typ": "paragraf",
+      "label": "§ 576 Motion av Emma Altenhammar (SD), Jörgen Fogelklou (SD)",
+      "data": {
+        "paragrafNr": "576",
+        "ärendeNr": "SLK-2025-00659",
+        "rubrik": "Motion av Emma Altenhammar (SD), Jörgen Fogelklou (SD)",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§577",
+      "typ": "paragraf",
+      "label": "§ 577 Motion av Mariette Höij (D) och Martin Wannholt (D) om att",
+      "data": {
+        "paragrafNr": "577",
+        "ärendeNr": "SLK-2025-00170",
+        "rubrik": "Motion av Mariette Höij (D) och Martin Wannholt (D) om att",
+        "datum": "2025-12-11",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§578",
+      "typ": "paragraf",
+      "label": "§ 578 Förteckning över anmälningsärenden",
+      "data": {
+        "paragrafNr": "578",
+        "ärendeNr": "SLK-2025-00039",
+        "rubrik": "Förteckning över anmälningsärenden",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-12-11-§579",
+      "typ": "paragraf",
+      "label": "§ 579 Anföranden",
+      "data": {
+        "paragrafNr": "579",
+        "ärendeNr": "SLK-2025-00017",
+        "rubrik": "Anföranden",
+        "datum": "2025-12-11",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "kf-2025-12-11-§538",
+      "to": "kf-*-§475",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 475"
+    },
+    {
+      "from": "kf-2025-12-11-§538",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§538",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§539",
+      "to": "kf-*-§532",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 532"
+    },
+    {
+      "from": "kf-2025-12-11-§539",
+      "to": "org-grundskolenämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§540",
+      "to": "kf-*-§533",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 533"
+    },
+    {
+      "from": "kf-2025-12-11-§540",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "lag-kommunallagen",
+      "typ": "regleras_av",
+      "label": "5 kap. 50 §"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "kf-*-§510",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 510"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "org-kommunstyrelsen-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "org-kommunstyrelsen-enligt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "org-kommunstyrelsen-med",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§541",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§542",
+      "to": "kf-*-§511",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 511"
+    },
+    {
+      "from": "kf-2025-12-11-§542",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§542",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§542",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§542",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§542",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§543",
+      "to": "kf-*-§512",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 512"
+    },
+    {
+      "from": "kf-2025-12-11-§543",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§543",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§543",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§543",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§543",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§543",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§543",
+      "to": "org-miljö--och-klimatnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§544",
+      "to": "kf-*-§513",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 513"
+    },
+    {
+      "from": "kf-2025-12-11-§544",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§544",
+      "to": "org-kretslopp-och-vattennämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§544",
+      "to": "org-kretslopp-och-vattennämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§544",
+      "to": "org-miljö--och-klimatnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§544",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§544",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§544",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§545",
+      "to": "kf-*-§515",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 515"
+    },
+    {
+      "from": "kf-2025-12-11-§545",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§546",
+      "to": "kf-*-§514",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 514"
+    },
+    {
+      "from": "kf-2025-12-11-§546",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§551",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§551",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§551",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§551",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§551",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§551",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§551",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§552",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§553",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§553",
+      "to": "org-kulturnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§553",
+      "to": "org-kulturnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§554",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§554",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§554",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§554",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§554",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§554",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§554",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§554",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§555",
+      "to": "org-utbildningsnämnden-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§555",
+      "to": "org-grundskolenämnden-utifr",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§555",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§555",
+      "to": "org-utbildningsnämnden-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§555",
+      "to": "org-grundskolenämnden-antecknas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§555",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§555",
+      "to": "org-förskolenämnden-grundskolen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§555",
+      "to": "org-utbildningsnämnden-n",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§555",
+      "to": "org-kommunstyrelsen-styrande",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-12-11-§556",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§557",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§558",
+      "to": "kf-*-§256",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 256"
+    },
+    {
+      "from": "kf-2025-12-11-§558",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§558",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§558",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§558",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§558",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§558",
+      "to": "org-exploateringsnämnden-stadsmilj",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§558",
+      "to": "org-stadsbyggnadsnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§559",
+      "to": "kf-*-§325",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 325"
+    },
+    {
+      "from": "kf-2025-12-11-§559",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§559",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§559",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§559",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§559",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§560",
+      "to": "kf-*-§429",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 429"
+    },
+    {
+      "from": "kf-2025-12-11-§560",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§560",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§560",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§560",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§560",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§560",
+      "to": "org-grundskolenämnden-n",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§560",
+      "to": "org-utbildningsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§561",
+      "to": "kf-*-§430",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 430"
+    },
+    {
+      "from": "kf-2025-12-11-§561",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§561",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§561",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§561",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§561",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§561",
+      "to": "org-förskolenämnden-grundskolen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§561",
+      "to": "org-idrotts--och-föreningsnämnden-socialn",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§561",
+      "to": "org-stadsfastighetsnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§562",
+      "to": "kf-*-§470",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 470"
+    },
+    {
+      "from": "kf-2025-12-11-§562",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§562",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§562",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§563",
+      "to": "kf-*-§471",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 471"
+    },
+    {
+      "from": "kf-2025-12-11-§563",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§563",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§563",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§563",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§563",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§563",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§563",
+      "to": "org-stadsmiljönämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§564",
+      "to": "kf-*-§472",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 472"
+    },
+    {
+      "from": "kf-2025-12-11-§564",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§564",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§564",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§564",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§564",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§564",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§564",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§564",
+      "to": "org-förskolenämnden-grundskolen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-12-11-§566",
+      "to": "kf-*-§473",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 473"
+    },
+    {
+      "from": "kf-2025-12-11-§567",
+      "to": "kf-*-§474",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 474"
+    },
+    {
+      "from": "kf-2025-12-11-§568",
+      "to": "kf-*-§525",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 525"
+    },
+    {
+      "from": "kf-2025-12-11-§569",
+      "to": "kf-*-§526",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 526"
+    },
+    {
+      "from": "kf-2025-12-11-§570",
+      "to": "kf-*-§527",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 527"
+    },
+    {
+      "from": "kf-2025-12-11-§571",
+      "to": "kf-*-§528",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 528"
+    },
+    {
+      "from": "kf-2025-12-11-§572",
+      "to": "kf-*-§529",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 529"
+    },
+    {
+      "from": "kf-2025-12-11-§573",
+      "to": "kf-*-§530",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 530"
+    },
+    {
+      "from": "kf-2025-12-11-§574",
+      "to": "kf-*-§531",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 531"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§535",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§536",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§537",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§538",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§539",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§540",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§541",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§542",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§543",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§544",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§545",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§546",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§547",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§548",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§549",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§550",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§551",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§552",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§553",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§554",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§555",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§556",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§557",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§558",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§559",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§560",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§561",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§562",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§563",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§564",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§565",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§566",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§567",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§568",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§569",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§570",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§571",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§572",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§573",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§574",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§575",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§576",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§577",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§578",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-12-11",
+      "to": "kf-2025-12-11-§579",
+      "typ": "beslut_av"
+    }
+  ]
+}

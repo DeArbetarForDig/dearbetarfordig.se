@@ -1,0 +1,2758 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2025-06-18",
+      "typ": "möte",
+      "label": "KF Sammanträde 2025-06-18",
+      "data": {
+        "datum": "2025-06-18",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§368",
+      "typ": "paragraf",
+      "label": "§ 368 Bestämmande av tid för justering",
+      "data": {
+        "paragrafNr": "368",
+        "ärendeNr": "SLK-2025-00041",
+        "rubrik": "Bestämmande av tid för justering",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§369",
+      "typ": "paragraf",
+      "label": "§ 369 Frågestund",
+      "data": {
+        "paragrafNr": "369",
+        "ärendeNr": "SLK-2025-00042",
+        "rubrik": "Frågestund",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§370",
+      "typ": "paragraf",
+      "label": "§ 370 Valberedningens förslag till vid sammanträdet",
+      "data": {
+        "paragrafNr": "370",
+        "ärendeNr": "SLK-2025-00003",
+        "rubrik": "Valberedningens förslag till vid sammanträdet",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§371",
+      "typ": "paragraf",
+      "label": "§ 371 Delårsrapport per mars 2025",
+      "data": {
+        "paragrafNr": "371",
+        "ärendeNr": "SLK-2025-00446",
+        "rubrik": "Delårsrapport per mars 2025",
+        "datum": "2025-06-18",
+        "beslut": "avslag",
+        "votering": {
+          "ja": 40,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Emmyly Bönfors",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Elisabet Lann",
+            "parti": "KD",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkandena från M, D, L och KD samt"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-och",
+      "typ": "organisation",
+      "label": "kommunstyrelsen och",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§372",
+      "typ": "paragraf",
+      "label": "§ 372 Kompletterande budget maj 2025 och miljö- och",
+      "data": {
+        "paragrafNr": "372",
+        "ärendeNr": "SLK-2025-00309",
+        "rubrik": "Kompletterande budget maj 2025 och miljö- och",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 71,
+          "nej": 9,
+          "avstår": 0,
+          "frånvarande": 1
+        },
+        "yrkanden": [
+          {
+            "namn": "och Jonas Attenius",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Elisabeth Lann",
+            "parti": "KD",
+            "typ": "förslaget från M, D, L och KD i kommunstyrelsen."
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "typ": "yrkande från C den 13 juni 2025."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "tilläggsyrkande från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för eget tilläggsyrkande."
+        ],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pierre Alpstranden",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sanda Anton Henriksson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Augustsson",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Bergman Alme",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Björling",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonathan Björnhager",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roland Dahlström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Petra Elf",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Edwin Friedlaender",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Christer Gustafsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sofie Gyllenwaldt",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pernilla Hagman",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Zagros Hama",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Robert Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kerstin Hultman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Åke Hybbinette",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Höstmad",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Thomas Larsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tamara Nesic",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Nilsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Norén Lallo",
+            "parti": "KD",
+            "röst": "frånvarande"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Parisa Rezaeivar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sebastian Rinvall",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Milyon Tekle-Haile",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Frida Tånghag",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Martin Wannholt",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "org-socialnämnden-nordost",
+      "typ": "organisation",
+      "label": "socialnämnden Nordost",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-centrums",
+      "typ": "organisation",
+      "label": "socialnämnden Centrums",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-sydv",
+      "typ": "organisation",
+      "label": "socialnämnden\nSydv",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-hisingens",
+      "typ": "organisation",
+      "label": "socialnämnden Hisingens",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden",
+      "typ": "organisation",
+      "label": "stadsmiljönämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-inköps--och-upphandlingsnämnden",
+      "typ": "organisation",
+      "label": "Inköps- och upphandlingsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-och",
+      "typ": "organisation",
+      "label": "kretslopp och vattennämnden och",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-f",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-under",
+      "typ": "organisation",
+      "label": "idrotts- och föreningsnämnden under",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-f",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen f",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-centrum",
+      "typ": "organisation",
+      "label": "Socialnämnden Centrum",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-hisingen",
+      "typ": "organisation",
+      "label": "Socialnämnden Hisingen",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-och",
+      "typ": "organisation",
+      "label": "stadsmiljönämnden och",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-f",
+      "typ": "organisation",
+      "label": "exploateringsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-stadsmilj",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden\nStadsmilj",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-ink",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden\nInk",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-idrotts",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden\nIdrotts",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-stadsbyggnadsn",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nStadsbyggnadsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§373",
+      "typ": "paragraf",
+      "label": "§ 373 Taxor och frister för sotning och rengöring",
+      "data": {
+        "paragrafNr": "373",
+        "ärendeNr": "SLK-2025-00477",
+        "rubrik": "Taxor och frister för sotning och rengöring",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§374",
+      "typ": "paragraf",
+      "label": "§ 374 Planeringsbeslut avseende fortsatt arbete med",
+      "data": {
+        "paragrafNr": "374",
+        "ärendeNr": "SLK-2024-00921",
+        "rubrik": "Planeringsbeslut avseende fortsatt arbete med",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 72,
+          "nej": 9
+        },
+        "yrkanden": [
+          {
+            "namn": "och Robert Hammarstrand",
+            "parti": "S",
+            "typ": "kommunstyrelsens"
+          },
+          {
+            "namn": "och Eva Flyborg",
+            "parti": "L",
+            "typ": "förslaget från M, D, L och KD i kommunstyrelsen."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "att ärendet ska återremitteras till stadsbyggnadsnämnden i"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-i",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden i",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-stadsbyggnadsn",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden\nStadsbyggnadsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§375",
+      "typ": "paragraf",
+      "label": "§ 375 Bidrag till samt översyn av enskilda vägar i Göteborgs Stad",
+      "data": {
+        "paragrafNr": "375",
+        "ärendeNr": "SLK-2022-01387",
+        "rubrik": "Bidrag till samt översyn av enskilda vägar i Göteborgs Stad",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Robert Hammarstrand",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Ann Catrine Fogelgren",
+            "parti": "L",
+            "typ": "i första hand"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "att ärendet ska återremitteras till stadsmiljönämnden i"
+          }
+        ],
+        "reservationer": [],
+        "jäv": [
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M"
+          }
+        ]
+      }
+    },
+    {
+      "id": "org-stadsmiljönämnden-i",
+      "typ": "organisation",
+      "label": "stadsmiljönämnden i",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-g",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§376",
+      "typ": "paragraf",
+      "label": "§ 376 Förbättrade förutsättningar för Göteborgs nöjes- och kulturliv",
+      "data": {
+        "paragrafNr": "376",
+        "ärendeNr": "SLK-2025-00574",
+        "rubrik": "Förbättrade förutsättningar för Göteborgs nöjes- och kulturliv",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Johan Zandin",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Toni Orsulic",
+            "parti": "M",
+            "typ": "avslag på kommunstyrelsens"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-f",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-f",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-stadsmilj",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden\nStadsmilj",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-g",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§377",
+      "typ": "paragraf",
+      "label": "§ 377 Genomförandebeslut för projekt Nya Gårdstensskolan",
+      "data": {
+        "paragrafNr": "377",
+        "ärendeNr": "SLK-2024-01205",
+        "rubrik": "Genomförandebeslut för projekt Nya Gårdstensskolan",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 61,
+          "nej": 20
+        },
+        "yrkanden": [
+          {
+            "namn": "och Emmyly Bönfors",
+            "parti": "C",
+            "typ": "bifall till kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "typ": "i första hand att ärendet ska återremitteras till"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "typ": "att ärendet ska återremitteras till stadsfastighetsnämnden och"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "typ": "förslaget från L, KD och SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-och",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden och",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-i",
+      "typ": "organisation",
+      "label": "grundskolenämnden i",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-stadsfastighetsn",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\nStadsfastighetsn",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-g",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§378",
+      "typ": "paragraf",
+      "label": "§ 378 Kommunalförbundet Tolkförmedling Västs årsredovisning",
+      "data": {
+        "paragrafNr": "378",
+        "ärendeNr": "SLK-2025-00454",
+        "rubrik": "Kommunalförbundet Tolkförmedling Västs årsredovisning",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 52,
+          "nej": 29
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nJesper Berglund",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Patrik Höstmad",
+            "parti": "D",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§379",
+      "typ": "paragraf",
+      "label": "§ 379 Samordningsförbundet Göteborgs årsredovisning 2024",
+      "data": {
+        "paragrafNr": "379",
+        "ärendeNr": "SLK-2025-00468",
+        "rubrik": "Samordningsförbundet Göteborgs årsredovisning 2024",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§380",
+      "typ": "paragraf",
+      "label": "§ 380 Hemställan från Göteborgs Hamn AB om revidering av",
+      "data": {
+        "paragrafNr": "380",
+        "ärendeNr": "SLK-2025-00296",
+        "rubrik": "Hemställan från Göteborgs Hamn AB om revidering av",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§381",
+      "typ": "paragraf",
+      "label": "§ 381 Hemställan från grundskolenämnden, förskolenämnden samt",
+      "data": {
+        "paragrafNr": "381",
+        "ärendeNr": "SLK-2024-01230",
+        "rubrik": "Hemställan från grundskolenämnden, förskolenämnden samt",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Hillevi Werring",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "typ": "stadsledningskontorets förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden",
+      "typ": "organisation",
+      "label": "grundskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-samt",
+      "typ": "organisation",
+      "label": "förskolenämnden samt",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden",
+      "typ": "organisation",
+      "label": "utbildningsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-f",
+      "typ": "organisation",
+      "label": "Grundskolenämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-ska",
+      "typ": "organisation",
+      "label": "Grundskolenämnden ska",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-avseende",
+      "typ": "organisation",
+      "label": "utbildningsnämnden avseende",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-till",
+      "typ": "organisation",
+      "label": "utbildningsnämnden till",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-tilldelas",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden tilldelas",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-ska",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden ska",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-samt",
+      "typ": "organisation",
+      "label": "utbildningsnämnden samt",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-utifr",
+      "typ": "organisation",
+      "label": "grundskolenämnden utifr",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-grundskolen",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden\nGrundskolen",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "Förskolenämnden\nKommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§382",
+      "typ": "paragraf",
+      "label": "§ 382 Revidering av Göteborgs Stads riktlinje för styrande",
+      "data": {
+        "paragrafNr": "382",
+        "ärendeNr": "SLK-2025-00107",
+        "rubrik": "Revidering av Göteborgs Stads riktlinje för styrande",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§383",
+      "typ": "paragraf",
+      "label": "§ 383 Revidering av reglemente för Göteborgs Stads",
+      "data": {
+        "paragrafNr": "383",
+        "ärendeNr": "SLK-2025-00566",
+        "rubrik": "Revidering av reglemente för Göteborgs Stads",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§384",
+      "typ": "paragraf",
+      "label": "§ 384 Revidering av Göteborgs Stads riktlinje för kommunikation",
+      "data": {
+        "paragrafNr": "384",
+        "ärendeNr": "SLK-2024-01187",
+        "rubrik": "Revidering av Göteborgs Stads riktlinje för kommunikation",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 28
+        },
+        "yrkanden": [
+          {
+            "namn": "och Marie Brynolfsson",
+            "parti": "V",
+            "typ": "kommunstyrelsens"
+          },
+          {
+            "namn": "och Pär Gustafsson",
+            "parti": "L",
+            "typ": "i första hand att ärendet ska"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "tilläggsyrkande från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-i",
+      "typ": "organisation",
+      "label": "kommunstyrelsen i",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§385",
+      "typ": "paragraf",
+      "label": "§ 385 Göteborgs Stads plan mot hemlöshet 2025-2026",
+      "data": {
+        "paragrafNr": "385",
+        "ärendeNr": "SLK-2024-01012",
+        "rubrik": "Göteborgs Stads plan mot hemlöshet 2025-2026",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Claes Söderling",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Zagros Hama",
+            "parti": "M",
+            "typ": "i första hand att ärendet ska"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "i första hand att ärendet ska återremitteras till"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden-att",
+      "typ": "organisation",
+      "label": "exploateringsnämnden att",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-i",
+      "typ": "organisation",
+      "label": "exploateringsnämnden i",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-n",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§386",
+      "typ": "paragraf",
+      "label": "§ 386 Redovisning av 2024 års ägardialoger med regionala bolag",
+      "data": {
+        "paragrafNr": "386",
+        "ärendeNr": "SLK-2025-00428",
+        "rubrik": "Redovisning av 2024 års ägardialoger med regionala bolag",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 67,
+          "nej": 14
+        },
+        "yrkanden": [
+          {
+            "namn": "och Hanan Baalbaki",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Patrik Höstmad",
+            "parti": "D",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från D"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "tilläggsyrkande från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§387",
+      "typ": "paragraf",
+      "label": "§ 387 Delrapport av uppdrag att inrätta och utveckla en",
+      "data": {
+        "paragrafNr": "387",
+        "ärendeNr": "SLK-2025-00084",
+        "rubrik": "Delrapport av uppdrag att inrätta och utveckla en",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nMats Arnsmar",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "tilläggsyrkande från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-g",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§388",
+      "typ": "paragraf",
+      "label": "§ 388 Redovisning av uppdrag att ta fram förslag på",
+      "data": {
+        "paragrafNr": "388",
+        "ärendeNr": "SLK-2025-00357",
+        "rubrik": "Redovisning av uppdrag att ta fram förslag på",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§389",
+      "typ": "paragraf",
+      "label": "§ 389 Redovisning av uppdrag att utreda förutsättningar för",
+      "data": {
+        "paragrafNr": "389",
+        "ärendeNr": "SLK-2024-01005",
+        "rubrik": "Redovisning av uppdrag att utreda förutsättningar för",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och\nEdwin Friedlaender",
+            "parti": "M",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "tilläggsyrkande från SD den 16 juni 2025."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-f",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-business",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden\nBusiness",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§390",
+      "typ": "paragraf",
+      "label": "§ 390 Redovisning av uppdrag att se över möjligheterna att",
+      "data": {
+        "paragrafNr": "390",
+        "ärendeNr": "SLK-2024-00812",
+        "rubrik": "Redovisning av uppdrag att se över möjligheterna att",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-att",
+      "typ": "organisation",
+      "label": "kommunstyrelsen att",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§391",
+      "typ": "paragraf",
+      "label": "§ 391 Redovisning av uppdrag att utreda förutsättningarna för att",
+      "data": {
+        "paragrafNr": "391",
+        "ärendeNr": "SLK-2025-00425",
+        "rubrik": "Redovisning av uppdrag att utreda förutsättningarna för att",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§392",
+      "typ": "paragraf",
+      "label": "§ 392 Motion av Cecilia Magnusson (M) och Claes Björling (M) om",
+      "data": {
+        "paragrafNr": "392",
+        "ärendeNr": "SLK-2024-01072",
+        "rubrik": "Motion av Cecilia Magnusson (M) och Claes Björling (M) om",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 57,
+          "nej": 24
+        },
+        "yrkanden": [
+          {
+            "namn": "och Patrik Höstmad",
+            "parti": "D",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "typ": "förslaget från M i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-kretslopp",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden\nKretslopp",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§393",
+      "typ": "paragraf",
+      "label": "§ 393 Motion av Mariette Höij Risberg (D), Lisbeth SundénAndersson (D) och Jessica Blixt (D) om att initiera en",
+      "data": {
+        "paragrafNr": "393",
+        "ärendeNr": "SLK-2024-01092",
+        "rubrik": "Motion av Mariette Höij Risberg (D), Lisbeth SundénAndersson (D) och Jessica Blixt (D) om att initiera en",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 24
+        },
+        "yrkanden": [
+          {
+            "namn": "och Petra Elf",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "typ": "förslaget från D och SD i kommunstyrelsen."
+          },
+          {
+            "namn": "och Elisabet Lann",
+            "parti": "KD",
+            "typ": "att motionen ska anses"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§394",
+      "typ": "paragraf",
+      "label": "§ 394 Motion av Hampus Magnusson (M) och Toni Orsulic (M) om",
+      "data": {
+        "paragrafNr": "394",
+        "ärendeNr": "SLK-2024-01190",
+        "rubrik": "Motion av Hampus Magnusson (M) och Toni Orsulic (M) om",
+        "datum": "2025-06-18",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 49,
+          "nej": 19
+        },
+        "yrkanden": [
+          {
+            "namn": "och Robert Hammarstrand",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Samuel Bråse",
+            "parti": "KD",
+            "typ": "förslaget från M i"
+          },
+          {
+            "namn": "och Emma Altenhammar",
+            "parti": "SD",
+            "typ": "förslaget från D i kommunstyrelsen och beslutssatsen i yrkande från C den 16 jun"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-om",
+      "typ": "organisation",
+      "label": "kommunstyrelsen om",
+      "data": {}
+    },
+    {
+      "id": "kf-2025-06-18-§395",
+      "typ": "paragraf",
+      "label": "§ 395 Förteckning över anmälningsärenden",
+      "data": {
+        "paragrafNr": "395",
+        "ärendeNr": "SLK-2025-00039",
+        "rubrik": "Förteckning över anmälningsärenden",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-06-18-§396",
+      "typ": "paragraf",
+      "label": "§ 396 Anförande",
+      "data": {
+        "paragrafNr": "396",
+        "ärendeNr": "SLK-2025-00017",
+        "rubrik": "Anförande",
+        "datum": "2025-06-18",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "kf-2025-06-18-§369",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§369",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§369",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§369",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§371",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§371",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§371",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§371",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§371",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§371",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§371",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§371",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§371",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-nordost",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-centrums",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-sydv",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-hisingens",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-stadsmiljönämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-inköps--och-upphandlingsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-stadsmiljönämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kretslopp-och-vattennämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-stadsmiljönämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-stadsmiljönämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-stadsmiljönämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-stadsmiljönämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-idrotts--och-föreningsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-idrotts--och-föreningsnämnden-under",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-centrum",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-hisingen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-nordost",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-sydv",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-centrum",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-hisingen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-nordost",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-socialnämnden-sydv",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-stadsmiljönämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-exploateringsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-exploateringsnämnden-stadsmilj",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-stadsfastighetsnämnden-ink",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kretslopp-och-vattennämnden-idrotts",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§372",
+      "to": "org-kommunstyrelsen-stadsbyggnadsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§373",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-exploateringsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-stadsbyggnadsnämnden-i",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§374",
+      "to": "org-exploateringsnämnden-stadsbyggnadsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-stadsmiljönämnden-f",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-stadsmiljönämnden-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-stadsmiljönämnden-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§375",
+      "to": "org-stadsmiljönämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-stadsfastighetsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-stadsmiljönämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-stadsbyggnadsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-stadsmiljönämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-stadsfastighetsnämnden-stadsmilj",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§376",
+      "to": "org-stadsbyggnadsnämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-stadsfastighetsnämnden-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-grundskolenämnden-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-stadsfastighetsnämnden-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-grundskolenämnden-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-grundskolenämnden-stadsfastighetsn",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§377",
+      "to": "org-idrotts--och-föreningsnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§378",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§378",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§378",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§378",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§378",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§378",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§378",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§379",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§380",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-grundskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-förskolenämnden-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-utbildningsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-utbildningsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-grundskolenämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-grundskolenämnden-ska",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-utbildningsnämnden-avseende",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-utbildningsnämnden-till",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-grundskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-utbildningsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-grundskolenämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-utbildningsnämnden-tilldelas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-utbildningsnämnden-ska",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-utbildningsnämnden-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-grundskolenämnden-utifr",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-grundskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-förskolenämnden-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-utbildningsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-utbildningsnämnden-grundskolen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§381",
+      "to": "org-förskolenämnden-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§382",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§383",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§384",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-exploateringsnämnden-att",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-exploateringsnämnden-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-exploateringsnämnden-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-exploateringsnämnden-stadsmilj",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§385",
+      "to": "org-stadsbyggnadsnämnden-n",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§386",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§386",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§386",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§386",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§386",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§386",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§386",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§386",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§386",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§387",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§387",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§387",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§387",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§387",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§387",
+      "to": "org-miljö--och-klimatnämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§388",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§389",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§389",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§389",
+      "to": "org-socialnämnden-centrum",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§389",
+      "to": "org-socialnämnden-centrum",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§389",
+      "to": "org-miljö--och-klimatnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§389",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§389",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§389",
+      "to": "org-miljö--och-klimatnämnden-business",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-06-18-§390",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§390",
+      "to": "org-kommunstyrelsen-att",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§391",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§391",
+      "to": "org-stadsmiljönämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§392",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§392",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§392",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§392",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§392",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§392",
+      "to": "org-miljö--och-klimatnämnden-kretslopp",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§392",
+      "to": "org-stadsmiljönämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§393",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§393",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§393",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§393",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§393",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§393",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§394",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§394",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§394",
+      "to": "org-kommunstyrelsen-om",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§394",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§394",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§394",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§394",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§394",
+      "to": "org-stadsmiljönämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§396",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2025-06-18-§396",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§368",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§369",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§370",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§371",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§372",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§373",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§374",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§375",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§376",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§377",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§378",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§379",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§380",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§381",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§382",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§383",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§384",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§385",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§386",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§387",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§388",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§389",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§390",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§391",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§392",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§393",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§394",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§395",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-06-18",
+      "to": "kf-2025-06-18-§396",
+      "typ": "beslut_av"
+    }
+  ]
+}

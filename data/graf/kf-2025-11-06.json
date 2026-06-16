@@ -1,0 +1,1073 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2025-11-06",
+      "typ": "möte",
+      "label": "KF Sammanträde 2025-11-06",
+      "data": {
+        "datum": "2025-11-06",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "kf-2025-11-06-§478",
+      "typ": "paragraf",
+      "label": "§ 478 Bestämmande av tid för justering",
+      "data": {
+        "paragrafNr": "478",
+        "ärendeNr": "SLK-2025-00041",
+        "rubrik": "Bestämmande av tid för justering",
+        "datum": "2025-11-06",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-11-06-§479",
+      "typ": "paragraf",
+      "label": "§ 479 Anmälan av länsstyrelsens beslut att utse",
+      "data": {
+        "paragrafNr": "479",
+        "ärendeNr": "SLK-2025-00005",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse",
+        "datum": "2025-11-06",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-11-06-§480",
+      "typ": "paragraf",
+      "label": "§ 480 Anmälan av länsstyrelsens beslut att utse Lina Lindh (KD) till",
+      "data": {
+        "paragrafNr": "480",
+        "ärendeNr": "SLK-2025-00005",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Lina Lindh (KD) till",
+        "datum": "2025-11-06",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2025-11-06-§481",
+      "typ": "paragraf",
+      "label": "§ 481 Förslag till budget 2026 och flerårsplaner 2027-2028",
+      "data": {
+        "paragrafNr": "481",
+        "ärendeNr": "SLK-2025-01040",
+        "rubrik": "Förslag till budget 2026 och flerårsplaner 2027-2028",
+        "datum": "2025-11-06",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 29,
+          "avstår": 12,
+          "frånvarande": 0
+        },
+        "yrkanden": [
+          {
+            "namn": "och Karin Pleijel",
+            "parti": "MP",
+            "typ": "Socialdemokraternas, Vänsterpartiets och Miljöpartiets förslag till budget 2026"
+          },
+          {
+            "namn": "och Kalle Bäck",
+            "parti": "KD",
+            "typ": "bifall till Moderaternas, Demokraternas, Liberalernas och Kristdemokraternas för"
+          },
+          {
+            "namn": "2025-11-06\nJörgen Fogelklou",
+            "parti": "SD",
+            "typ": "Sverigedemokraternas förslag till budget 2026 och"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "typ": "Centerpartiets förslag till budget 2026 och"
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sanda Anton Henriksson",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Augustsson",
+            "parti": "C",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariah Ben Salem Dynehäll",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Björling",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jonathan Björnhager",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Samuel Bråse",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Alfred Ekman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Petra Elf",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Grith Fjeldmose",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Edwin Friedlaender",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Zagros Hama",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Robert Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Blerta Hoti Singh",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Elisabet Linde",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lina Lindh",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lotta Nachemson",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Tamara Nesic",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Nilsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Norén Lallo",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Helena Norin",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Parisa Rezaeivar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Milyon Tekle-Haile",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Tellefsdal",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Frida Tånghag",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Martin Wannholt",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Joel Wickman",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lillemor Williamsson",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Öman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "nej"
+          }
+        ]
+      }
+    },
+    {
+      "id": "lag-kommunallagen",
+      "typ": "lag",
+      "label": "kommunallagen",
+      "data": {
+        "kap": "5",
+        "paragraf": "1"
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden",
+      "typ": "organisation",
+      "label": "exploateringsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-bemyndigas",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden bemyndigas",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-g",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden g",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-fr",
+      "typ": "organisation",
+      "label": "exploateringsnämnden fr",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-bemyndigas",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen bemyndigas",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-ska",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen ska",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-och",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden och",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-centrum",
+      "typ": "organisation",
+      "label": "Socialnämnden Centrum",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-hisingen",
+      "typ": "organisation",
+      "label": "Socialnämnden Hisingen",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-nordost",
+      "typ": "organisation",
+      "label": "Socialnämnden Nordost",
+      "data": {}
+    },
+    {
+      "id": "org-socialnämnden-sydv",
+      "typ": "organisation",
+      "label": "Socialnämnden Sydv",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-7",
+      "typ": "organisation",
+      "label": "Förskolenämnden 7",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-4",
+      "typ": "organisation",
+      "label": "Grundskolenämnden 4",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-protokoll",
+      "typ": "organisation",
+      "label": "kommunstyrelsen\n\nProtokoll",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-har",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden har",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden",
+      "typ": "organisation",
+      "label": "miljö- och klimatnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-f",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-hemst",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden hemst",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden",
+      "typ": "organisation",
+      "label": "Förskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-ska",
+      "typ": "organisation",
+      "label": "Förskolenämnden ska",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-f",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-ska",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden ska",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-f",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen f",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-beviljas",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden beviljas",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-har",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden har",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-f",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-f",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden f",
+      "data": {}
+    }
+  ],
+  "edges": [
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "lag-kommunallagen",
+      "typ": "regleras_av",
+      "label": "5 kap. 1 §"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-idrotts--och-föreningsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-exploateringsnämnden-bemyndigas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-exploateringsnämnden-bemyndigas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-exploateringsnämnden-bemyndigas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-exploateringsnämnden-bemyndigas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsbyggnadsnämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-exploateringsnämnden-bemyndigas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-exploateringsnämnden-fr",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen-bemyndigas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen-bemyndigas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen-bemyndigas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen-bemyndigas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen-ska",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsbyggnadsnämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-socialnämnden-centrum",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-socialnämnden-hisingen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-socialnämnden-nordost",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-socialnämnden-sydv",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-förskolenämnden-7",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-grundskolenämnden-4",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen-protokoll",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kretslopp-och-vattennämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kretslopp-och-vattennämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kretslopp-och-vattennämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kretslopp-och-vattennämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsbyggnadsnämnden-har",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsbyggnadsnämnden-har",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-miljö--och-klimatnämnden-hemst",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-förskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-förskolenämnden-ska",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsmiljönämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsmiljönämnden-ska",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsmiljönämnden-beviljas",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsfastighetsnämnden-har",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsfastighetsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-exploateringsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsbyggnadsnämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-stadsbyggnadsnämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2025-11-06-§481",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "möte-kf-2025-11-06",
+      "to": "kf-2025-11-06-§478",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-06",
+      "to": "kf-2025-11-06-§479",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-06",
+      "to": "kf-2025-11-06-§480",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2025-11-06",
+      "to": "kf-2025-11-06-§481",
+      "typ": "beslut_av"
+    }
+  ]
+}
