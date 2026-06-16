@@ -13,8 +13,8 @@ const app = new OpenAPIHono()
 
 // --- Multi-tenancy allowlist ---
 const ALLOWED_KOMMUNER = ['goteborg'] // expand as we add more
-function getSchema(kommun: string): string {
-  if (!ALLOWED_KOMMUNER.includes(kommun)) throw new Error('Unknown kommun')
+function getSchema(kommun: string): string | null {
+  if (!ALLOWED_KOMMUNER.includes(kommun)) return null
   return kommun
 }
 
