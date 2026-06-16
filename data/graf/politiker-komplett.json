@@ -1998,6 +1998,1342 @@
         "förnamn": "Özlem",
         "efternamn": "Sigirci"
       }
+    },
+    {
+      "id": "bolag-försäkrings-ab-göta-lejon",
+      "typ": "bolag",
+      "label": "Försäkrings AB Göta Lejon",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/f%C3%B6rs%C3%A4krings-ab-g%C3%B6ta-lejon/-/-/5164018185"
+      }
+    },
+    {
+      "id": "bolag-byggnadsföreningen-mården-6-upa",
+      "typ": "bolag",
+      "label": "BYGGNADSFÖRENINGEN MÅRDEN 6 UPA",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/byggnadsf%C3%B6reningen-m%C3%A5rden-6-upa/-/-/7970000282"
+      }
+    },
+    {
+      "id": "bolag-italic-ab",
+      "typ": "bolag",
+      "label": "Italic AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/italic-ab/-/-/5566535166"
+      }
+    },
+    {
+      "id": "bolag-digesgårdsgärde-ekonomisk-förening",
+      "typ": "bolag",
+      "label": "Digesgårdsgärde Ekonomisk förening",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/digesg%C3%A5rdsg%C3%A4rde-ekonomisk-f%C3%B6rening/-/-/7696018865"
+      }
+    },
+    {
+      "id": "bolag-liseberg-aktiebolag",
+      "typ": "bolag",
+      "label": "Liseberg Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/liseberg-aktiebolag/-/-/5560236811"
+      }
+    },
+    {
+      "id": "bolag-lisebergs-gäst-aktiebolag",
+      "typ": "bolag",
+      "label": "Lisebergs Gäst Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/lisebergs-g%C3%A4st-aktiebolag/-/-/5564220845"
+      }
+    },
+    {
+      "id": "bolag-ab-liseberg-skår-40:17",
+      "typ": "bolag",
+      "label": "AB Liseberg Skår 40:17",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/ab-liseberg-sk%C3%A5r-40%3A17/-/-/5569099731"
+      }
+    },
+    {
+      "id": "bolag-advokatfirman-ducere-ab",
+      "typ": "bolag",
+      "label": "Advokatfirman Ducere AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/advokatfirman-ducere-ab/-/-/5590393335"
+      }
+    },
+    {
+      "id": "bolag-sundbergs-byggservice-i-nynäshamn",
+      "typ": "bolag",
+      "label": "Sundbergs Byggservice i Nynäshamn",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/sundbergs-byggservice-i-nyn%C3%A4shamn/-/-/22220001634195"
+      }
+    },
+    {
+      "id": "bolag-lilla-edets-fjärrvärme-aktiebolag",
+      "typ": "bolag",
+      "label": "Lilla Edets Fjärrvärme Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/lilla-edets-fj%C3%A4rrv%C3%A4rme-aktiebolag/-/-/5562178086"
+      }
+    },
+    {
+      "id": "bolag-boplats-göteborg-aktiebolag",
+      "typ": "bolag",
+      "label": "Boplats Göteborg Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/boplats-g%C3%B6teborg-aktiebolag/-/-/5564677390"
+      }
+    },
+    {
+      "id": "bolag-aneanani-ekonomisk-förening",
+      "typ": "bolag",
+      "label": "Aneanani ekonomisk förening",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/aneanani-ekonomisk-f%C3%B6rening/-/-/7696392203"
+      }
+    },
+    {
+      "id": "bolag-goart-ab",
+      "typ": "bolag",
+      "label": "GOART AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/goart-ab/-/-/5591463855"
+      }
+    },
+    {
+      "id": "bolag-förvaltningsaktiebolaget-framtiden",
+      "typ": "bolag",
+      "label": "Förvaltningsaktiebolaget Framtiden",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/f%C3%B6rvaltningsaktiebolaget-framtiden/-/-/5560126012"
+      }
+    },
+    {
+      "id": "bolag-syskrinet-göteborg-aktiebolag",
+      "typ": "bolag",
+      "label": "SYSKRINET Göteborg Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/syskrinet-g%C3%B6teborg-aktiebolag/-/-/5564359189"
+      }
+    },
+    {
+      "id": "bolag-bygga-hem-i-göteborg-ab",
+      "typ": "bolag",
+      "label": "Bygga Hem i Göteborg AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/bygga-hem-i-g%C3%B6teborg-ab/-/-/5566437934"
+      }
+    },
+    {
+      "id": "bolag-göteborgsoperan-aktiebolag",
+      "typ": "bolag",
+      "label": "GöteborgsOperan Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborgsoperan-aktiebolag/-/-/5561217828"
+      }
+    },
+    {
+      "id": "bolag-puck-holding-ab",
+      "typ": "bolag",
+      "label": "Puck Holding AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/puck-holding-ab/-/-/5593606063"
+      }
+    },
+    {
+      "id": "bolag-vital-kids",
+      "typ": "bolag",
+      "label": "Vital Kids",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/vital-kids/-/-/22220001812085"
+      }
+    },
+    {
+      "id": "bolag-attrix-konsulting-ab",
+      "typ": "bolag",
+      "label": "ATtrix Konsulting AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/attrix-konsulting-ab/-/-/5567242762"
+      }
+    },
+    {
+      "id": "bolag-affinity-group-aktiebolag",
+      "typ": "bolag",
+      "label": "Affinity Group Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/affinity-group-aktiebolag/-/-/5590203476"
+      }
+    },
+    {
+      "id": "bolag-sveriges-allmännytta-ab",
+      "typ": "bolag",
+      "label": "Sveriges Allmännytta AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/sveriges-allm%C3%A4nnytta-ab/-/-/5564397361"
+      }
+    },
+    {
+      "id": "bolag-axstax-ab",
+      "typ": "bolag",
+      "label": "Axstax AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/axstax-ab/-/-/5569590531"
+      }
+    },
+    {
+      "id": "bolag-darever-ab",
+      "typ": "bolag",
+      "label": "Darever AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/darever-ab/-/-/5595016634"
+      }
+    },
+    {
+      "id": "bolag-drott-i-marstrand-ab",
+      "typ": "bolag",
+      "label": "Drott i Marstrand AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/drott-i-marstrand-ab/-/-/5595890095"
+      }
+    },
+    {
+      "id": "bolag-bostadsrättsföreningen-lyckan-i-göteborg",
+      "typ": "bolag",
+      "label": "Bostadsrättsföreningen Lyckan i Göteborg",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/bostadsr%C3%A4ttsf%C3%B6reningen-lyckan-i-g%C3%B6teborg/-/-/7696309926"
+      }
+    },
+    {
+      "id": "bolag-göteborgs-stadshus-ab",
+      "typ": "bolag",
+      "label": "Göteborgs Stadshus AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborgs-stadshus-ab/-/-/5565370888"
+      }
+    },
+    {
+      "id": "bolag-got-event-ab",
+      "typ": "bolag",
+      "label": "Got Event AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/got-event-ab/-/-/5560159823"
+      }
+    },
+    {
+      "id": "bolag-bopec-väst-ab",
+      "typ": "bolag",
+      "label": "Bopec Väst AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/bopec-v%C3%A4st-ab/-/-/5591150197"
+      }
+    },
+    {
+      "id": "bolag-orust-hålslagning-&-förvaltning-ab",
+      "typ": "bolag",
+      "label": "Orust Hålslagning & Förvaltning AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/orust-h%C3%A5lslagning-f%C3%B6rvaltning-ab/-/-/5591169700"
+      }
+    },
+    {
+      "id": "bolag-svanesund-2:37-fastighetsförvaltning-ab",
+      "typ": "bolag",
+      "label": "Svanesund 2:37 fastighetsförvaltning AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/svanesund-2%3A37-fastighetsf%C3%B6rvaltning-ab/-/-/5594334095"
+      }
+    },
+    {
+      "id": "bolag-astakile-förvaltning-ab",
+      "typ": "bolag",
+      "label": "Astakile förvaltning AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/astakile-f%C3%B6rvaltning-ab/-/-/5593522948"
+      }
+    },
+    {
+      "id": "bolag-coator-ab",
+      "typ": "bolag",
+      "label": "Coator AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/coator-ab/-/-/5593305880"
+      }
+    },
+    {
+      "id": "bolag-förvaltnings-ab-järntorgskvarteret",
+      "typ": "bolag",
+      "label": "Förvaltnings AB Järntorgskvarteret",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/f%C3%B6rvaltnings-ab-j%C3%A4rntorgskvarteret/-/-/5560685215"
+      }
+    },
+    {
+      "id": "bolag-göteborgs-hamn-aktiebolag",
+      "typ": "bolag",
+      "label": "Göteborgs Hamn Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborgs-hamn-aktiebolag/-/-/5560082553"
+      }
+    },
+    {
+      "id": "bolag-scandinavian-distripoint-aktiebolag",
+      "typ": "bolag",
+      "label": "Scandinavian Distripoint Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/scandinavian-distripoint-aktiebolag/-/-/5562061654"
+      }
+    },
+    {
+      "id": "bolag-cecilia-magnusson-ab",
+      "typ": "bolag",
+      "label": "Cecilia Magnusson AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/cecilia-magnusson-ab/-/-/5591804157"
+      }
+    },
+    {
+      "id": "bolag-ångermanlands-bigårdar-ab",
+      "typ": "bolag",
+      "label": "Ångermanlands Bigårdar AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/%C3%A5ngermanlands-big%C3%A5rdar-ab/-/-/5593892408"
+      }
+    },
+    {
+      "id": "bolag-ångermanlands-bigårdar",
+      "typ": "bolag",
+      "label": "Ångermanlands Bigårdar",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/%C3%A5ngermanlands-big%C3%A5rdar/-/-/22220001335564"
+      }
+    },
+    {
+      "id": "bolag-trädgårdstäppans-tillbehör",
+      "typ": "bolag",
+      "label": "Trädgårdstäppans tillbehör",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/tr%C3%A4dg%C3%A5rdst%C3%A4ppans-tillbeh%C3%B6r/-/-/22220001350160"
+      }
+    },
+    {
+      "id": "bolag-gryaab-ab",
+      "typ": "bolag",
+      "label": "Gryaab AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/gryaab-ab/-/-/5561372177"
+      }
+    },
+    {
+      "id": "bolag-spinnrocken-ab",
+      "typ": "bolag",
+      "label": "Spinnrocken AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/spinnrocken-ab/-/-/5565957205"
+      }
+    },
+    {
+      "id": "bolag-bostadsrättsföreningen-staketet-snödroppen",
+      "typ": "bolag",
+      "label": "Bostadsrättsföreningen Staketet Snödroppen",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/bostadsr%C3%A4ttsf%C3%B6reningen-staketet-sn%C3%B6droppen/-/-/7696345334"
+      }
+    },
+    {
+      "id": "bolag-trophi-fastighets-ab-(publ)",
+      "typ": "bolag",
+      "label": "Trophi Fastighets AB (publ)",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/trophi-fastighets-ab-publ/-/-/5569147647"
+      }
+    },
+    {
+      "id": "bolag-trophi-nockeby-ab",
+      "typ": "bolag",
+      "label": "Trophi Nockeby AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/trophi-nockeby-ab/-/-/5562295609"
+      }
+    },
+    {
+      "id": "bolag-trophi-bäckebol-1-ab",
+      "typ": "bolag",
+      "label": "Trophi Bäckebol 1 AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/trophi-b%C3%A4ckebol-1-ab/-/-/5564056405"
+      }
+    },
+    {
+      "id": "bolag-trophi-länna-2-ab",
+      "typ": "bolag",
+      "label": "Trophi Länna 2 AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/trophi-l%C3%A4nna-2-ab/-/-/5566519772"
+      }
+    },
+    {
+      "id": "bolag-trophi-köping-ab",
+      "typ": "bolag",
+      "label": "Trophi Köping AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/trophi-k%C3%B6ping-ab/-/-/5566647581"
+      }
+    },
+    {
+      "id": "bolag-trophi-i-ljungby-ab",
+      "typ": "bolag",
+      "label": "Trophi i Ljungby AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/trophi-i-ljungby-ab/-/-/5566835228"
+      }
+    },
+    {
+      "id": "bolag-handelsbolaget-kaprifool",
+      "typ": "bolag",
+      "label": "Handelsbolaget Kaprifool",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/handelsbolaget-kaprifool/-/-/9697892256"
+      }
+    },
+    {
+      "id": "bolag-karin-linde-ab",
+      "typ": "bolag",
+      "label": "Karin Linde AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/karin-linde-ab/-/-/5594814583"
+      }
+    },
+    {
+      "id": "bolag-bostadsrättsföreningen-karlagatan-24-26",
+      "typ": "bolag",
+      "label": "Bostadsrättsföreningen Karlagatan 24-26",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/bostadsr%C3%A4ttsf%C3%B6reningen-karlagatan-24-26/-/-/7696091649"
+      }
+    },
+    {
+      "id": "bolag-svea-beredskap-ab",
+      "typ": "bolag",
+      "label": "SVEA BEREDSKAP AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/svea-beredskap-ab/-/-/5595453639"
+      }
+    },
+    {
+      "id": "bolag-göteborgsregionens-internationella-skola-aktiebola",
+      "typ": "bolag",
+      "label": "Göteborgsregionens Internationella Skola Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborgsregionens-internationella-skola-aktiebolag/-/-/5565275657"
+      }
+    },
+    {
+      "id": "bolag-fabrikörerna-ekonomisk-förening",
+      "typ": "bolag",
+      "label": "Fabrikörerna Ekonomisk förening",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/fabrik%C3%B6rerna-ekonomisk-f%C3%B6rening/-/-/7696382972"
+      }
+    },
+    {
+      "id": "bolag-göteborgs-stadsteater-aktiebolag",
+      "typ": "bolag",
+      "label": "Göteborgs Stadsteater Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborgs-stadsteater-aktiebolag/-/-/5560167875"
+      }
+    },
+    {
+      "id": "bolag-perfekt-thaimassage-thitaree-ab",
+      "typ": "bolag",
+      "label": "Perfekt ThaiMassage Thitaree AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/perfekt-thaimassage-thitaree-ab/-/-/5592025018"
+      }
+    },
+    {
+      "id": "bolag-lindholmen-science-park-aktiebolag",
+      "typ": "bolag",
+      "label": "Lindholmen Science Park Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/lindholmen-science-park-aktiebolag/-/-/5565686366"
+      }
+    },
+    {
+      "id": "bolag-gda-sverige-ab",
+      "typ": "bolag",
+      "label": "GDA Sverige AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/gda-sverige-ab/-/-/5566194584"
+      }
+    },
+    {
+      "id": "bolag-contrario-aktiebolag",
+      "typ": "bolag",
+      "label": "Contrario Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/contrario-aktiebolag/-/-/5566483870"
+      }
+    },
+    {
+      "id": "bolag-arby-kommunikation-ab",
+      "typ": "bolag",
+      "label": "Arby Kommunikation AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/arby-kommunikation-ab/-/-/5568866064"
+      }
+    },
+    {
+      "id": "bolag-arby-&-co-ab",
+      "typ": "bolag",
+      "label": "Arby & Co AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/arby-co-ab/-/-/5592522311"
+      }
+    },
+    {
+      "id": "bolag-norra-älvstranden-utveckling-ab",
+      "typ": "bolag",
+      "label": "Norra Älvstranden Utveckling AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/norra-%C3%A4lvstranden-utveckling-ab/-/-/5560013574"
+      }
+    },
+    {
+      "id": "bolag-södra-älvstranden-utveckling-ab",
+      "typ": "bolag",
+      "label": "Södra Älvstranden Utveckling AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/s%C3%B6dra-%C3%A4lvstranden-utveckling-ab/-/-/5566586805"
+      }
+    },
+    {
+      "id": "bolag-älvstranden-utveckling-ab",
+      "typ": "bolag",
+      "label": "Älvstranden Utveckling AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/%C3%A4lvstranden-utveckling-ab/-/-/5566597117"
+      }
+    },
+    {
+      "id": "bolag-farfar(e)-handelsbolag",
+      "typ": "bolag",
+      "label": "FARFAR(e) Handelsbolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/farfare-handelsbolag/-/-/9696682633"
+      }
+    },
+    {
+      "id": "bolag-happy-paragraphs-legal-services-ab",
+      "typ": "bolag",
+      "label": "Happy Paragraphs Legal Services AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/happy-paragraphs-legal-services-ab/-/-/5592748312"
+      }
+    },
+    {
+      "id": "bolag-aix+dps-ab",
+      "typ": "bolag",
+      "label": "AIX+dps AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/aixdps-ab/-/-/5591177778"
+      }
+    },
+    {
+      "id": "bolag-vinga-inland-ab",
+      "typ": "bolag",
+      "label": "Vinga Inland AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/vinga-inland-ab/-/-/5593152647"
+      }
+    },
+    {
+      "id": "bolag-göteborg-energi-aktiebolag",
+      "typ": "bolag",
+      "label": "Göteborg Energi Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborg-energi-aktiebolag/-/-/5563626794"
+      }
+    },
+    {
+      "id": "bolag-henrik-sjöstrands-foto-och-tv-utensilier",
+      "typ": "bolag",
+      "label": "Henrik Sjöstrands foto och tv-utensilier",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/henrik-sj%C3%B6strands-foto-och-tv-utensilier/-/-/22220001550343"
+      }
+    },
+    {
+      "id": "bolag-herik-konsult-ab",
+      "typ": "bolag",
+      "label": "HERIK Konsult AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/herik-konsult-ab/-/-/5592131956"
+      }
+    },
+    {
+      "id": "bolag-hedegårdens-entreprenad-ab",
+      "typ": "bolag",
+      "label": "Hedegårdens Entreprenad AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/hedeg%C3%A5rdens-entreprenad-ab/-/-/5567926448"
+      }
+    },
+    {
+      "id": "bolag-salar-international-ab",
+      "typ": "bolag",
+      "label": "SALAR International AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/salar-international-ab/-/-/5564144201"
+      }
+    },
+    {
+      "id": "bolag-bostadsrättsföreningen-kolumbus",
+      "typ": "bolag",
+      "label": "Bostadsrättsföreningen Kolumbus",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/bostadsr%C3%A4ttsf%C3%B6reningen-kolumbus/-/-/7164095874"
+      }
+    },
+    {
+      "id": "bolag-östhammars-sotningsdistrikt-ab",
+      "typ": "bolag",
+      "label": "Östhammars sotningsdistrikt AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/%C3%B6sthammars-sotningsdistrikt-ab/-/-/5567033765"
+      }
+    },
+    {
+      "id": "bolag-scania-sverige-aktiebolag",
+      "typ": "bolag",
+      "label": "Scania Sverige Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/scania-sverige-aktiebolag/-/-/5560514621"
+      }
+    },
+    {
+      "id": "bolag-lwstr-ab",
+      "typ": "bolag",
+      "label": "LWSTR AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/lwstr-ab/-/-/5595192997"
+      }
+    },
+    {
+      "id": "bolag-bemia-ab",
+      "typ": "bolag",
+      "label": "Bemia AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/bemia-ab/-/-/5568718448"
+      }
+    },
+    {
+      "id": "bolag-vincemus-ab",
+      "typ": "bolag",
+      "label": "Vincemus AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/vincemus-ab/-/-/5567697981"
+      }
+    },
+    {
+      "id": "bolag-iftw-holding-ab",
+      "typ": "bolag",
+      "label": "IFTW Holding AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/iftw-holding-ab/-/-/5590084322"
+      }
+    },
+    {
+      "id": "bolag-stellina-ab",
+      "typ": "bolag",
+      "label": "Stellina AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/stellina-ab/-/-/5591757421"
+      }
+    },
+    {
+      "id": "bolag-deciton-ab",
+      "typ": "bolag",
+      "label": "Deciton AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/deciton-ab/-/-/5569196024"
+      }
+    },
+    {
+      "id": "bolag-its-a-whazy-its-a-woozi-ab",
+      "typ": "bolag",
+      "label": "Its a Whazy its a Woozi AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/its-a-whazy-its-a-woozi-ab/-/-/5593715609"
+      }
+    },
+    {
+      "id": "bolag-bodin-svensk-invest-ab",
+      "typ": "bolag",
+      "label": "Bodin Svensk Invest AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/bodin-svensk-invest-ab/-/-/5569950651"
+      }
+    },
+    {
+      "id": "bolag-bostadsrättsföreningen-kutterberget",
+      "typ": "bolag",
+      "label": "Bostadsrättsföreningen Kutterberget",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/bostadsr%C3%A4ttsf%C3%B6reningen-kutterberget/-/-/7696296610"
+      }
+    },
+    {
+      "id": "bolag-göteborg-&-co-ab",
+      "typ": "bolag",
+      "label": "Göteborg & Co AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborg-co-ab/-/-/5564280369"
+      }
+    },
+    {
+      "id": "bolag-ess-hotel-group-ab",
+      "typ": "bolag",
+      "label": "ESS Hotel Group AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/ess-hotel-group-ab/-/-/5567108047"
+      }
+    },
+    {
+      "id": "bolag-ess-hotell-fastigheter-ab",
+      "typ": "bolag",
+      "label": "Ess Hotell Fastigheter AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/ess-hotell-fastigheter-ab/-/-/5568278401"
+      }
+    },
+    {
+      "id": "bolag-ysb-intressenter-ab",
+      "typ": "bolag",
+      "label": "YSB Intressenter AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/ysb-intressenter-ab/-/-/5569248874"
+      }
+    },
+    {
+      "id": "bolag-tcb-sverige-ab",
+      "typ": "bolag",
+      "label": "TCB Sverige AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/tcb-sverige-ab/-/-/5569611261"
+      }
+    },
+    {
+      "id": "bolag-ess-hotell-intressenter-ab",
+      "typ": "bolag",
+      "label": "Ess Hotell Intressenter AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/ess-hotell-intressenter-ab/-/-/5569984742"
+      }
+    },
+    {
+      "id": "bolag-skönabäck-förvaltnings-aktiebolag",
+      "typ": "bolag",
+      "label": "Skönabäck Förvaltnings Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/sk%C3%B6nab%C3%A4ck-f%C3%B6rvaltnings-aktiebolag/-/-/5564647898"
+      }
+    },
+    {
+      "id": "bolag-ysb-ab",
+      "typ": "bolag",
+      "label": "YSB AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/ysb-ab/-/-/5564662350"
+      }
+    },
+    {
+      "id": "bolag-örenäs-slott-hotell-och-konferens-ab",
+      "typ": "bolag",
+      "label": "Örenäs Slott Hotell och Konferens AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/%C3%B6ren%C3%A4s-slott-hotell-och-konferens-ab/-/-/5567369854"
+      }
+    },
+    {
+      "id": "bolag-örenäs-slott-och-egendom-ab",
+      "typ": "bolag",
+      "label": "Örenäs Slott och Egendom AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/%C3%B6ren%C3%A4s-slott-och-egendom-ab/-/-/5567985857"
+      }
+    },
+    {
+      "id": "bolag-film-i-väst-ab",
+      "typ": "bolag",
+      "label": "Film i Väst AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/film-i-v%C3%A4st-ab/-/-/5565735569"
+      }
+    },
+    {
+      "id": "bolag-higab-ab",
+      "typ": "bolag",
+      "label": "Higab AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/higab-ab/-/-/5561048587"
+      }
+    },
+    {
+      "id": "bolag-e-karlsson-bygg-&-montage-ab",
+      "typ": "bolag",
+      "label": "E Karlsson Bygg & Montage AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/e-karlsson-bygg-montage-ab/-/-/5567932511"
+      }
+    },
+    {
+      "id": "bolag-allergi-&-smärtklinik-i-kalmar",
+      "typ": "bolag",
+      "label": "Allergi & Smärtklinik i Kalmar",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/allergi-sm%C3%A4rtklinik-i-kalmar/-/-/22220001331405"
+      }
+    },
+    {
+      "id": "bolag-fastighetsaktiebolaget-rödingen",
+      "typ": "bolag",
+      "label": "Fastighetsaktiebolaget Rödingen",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/fastighetsaktiebolaget-r%C3%B6dingen/-/-/5560512096"
+      }
+    },
+    {
+      "id": "bolag-renova-aktiebolag",
+      "typ": "bolag",
+      "label": "Renova Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/renova-aktiebolag/-/-/5561083337"
+      }
+    },
+    {
+      "id": "bolag-renova-miljö-ab",
+      "typ": "bolag",
+      "label": "Renova Miljö AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/renova-milj%C3%B6-ab/-/-/5569460321"
+      }
+    },
+    {
+      "id": "bolag-svenska-tillståndsbyrån-ab",
+      "typ": "bolag",
+      "label": "Svenska Tillståndsbyrån AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/svenska-tillst%C3%A5ndsbyr%C3%A5n-ab/-/-/5593931024"
+      }
+    },
+    {
+      "id": "bolag-allt-i-lallo-ab",
+      "typ": "bolag",
+      "label": "Allt i Lallo AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/allt-i-lallo-ab/-/-/5594076217"
+      }
+    },
+    {
+      "id": "bolag-göteborgs-stads-bostadsaktiebolag",
+      "typ": "bolag",
+      "label": "Göteborgs stads bostadsaktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborgs-stads-bostadsaktiebolag/-/-/5560468562"
+      }
+    },
+    {
+      "id": "bolag-stora-holms-trafikövningsplats-ab",
+      "typ": "bolag",
+      "label": "Stora Holms Trafikövningsplats AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/stora-holms-trafik%C3%B6vningsplats-ab/-/-/5566404694"
+      }
+    },
+    {
+      "id": "bolag-spinnerskan-i-mark-ab",
+      "typ": "bolag",
+      "label": "Spinnerskan i Mark AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/spinnerskan-i-mark-ab/-/-/5567171367"
+      }
+    },
+    {
+      "id": "bolag-företagstjänst-olinder-redovisning-ab",
+      "typ": "bolag",
+      "label": "Företagstjänst Olinder Redovisning AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/f%C3%B6retagstj%C3%A4nst-olinder-redovisning-ab/-/-/5564714680"
+      }
+    },
+    {
+      "id": "bolag-gruvan-2-ekonomisk-förening",
+      "typ": "bolag",
+      "label": "Gruvan 2 Ekonomisk förening",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/gruvan-2-ekonomisk-f%C3%B6rening/-/-/7696076863"
+      }
+    },
+    {
+      "id": "bolag-e.m.-ekonomi-och-marknadsföring-aktiebolag",
+      "typ": "bolag",
+      "label": "E.M. Ekonomi och Marknadsföring Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/e.m.-ekonomi-och-marknadsf%C3%B6ring-aktiebolag/-/-/5560423708"
+      }
+    },
+    {
+      "id": "bolag-deskavi-ab",
+      "typ": "bolag",
+      "label": "Deskavi AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/deskavi-ab/-/-/5568878978"
+      }
+    },
+    {
+      "id": "bolag-christopher-lindh-consulting-ab",
+      "typ": "bolag",
+      "label": "Christopher Lindh Consulting AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/christopher-lindh-consulting-ab/-/-/5590874599"
+      }
+    },
+    {
+      "id": "bolag-andersson-recap-ab",
+      "typ": "bolag",
+      "label": "Andersson Recap AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/andersson-recap-ab/-/-/5590286679"
+      }
+    },
+    {
+      "id": "bolag-göteborgs-stads-parkeringsaktiebolag",
+      "typ": "bolag",
+      "label": "Göteborgs stads parkeringsaktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborgs-stads-parkeringsaktiebolag/-/-/5561194878"
+      }
+    },
+    {
+      "id": "bolag-elektro-bengt-ab",
+      "typ": "bolag",
+      "label": "Elektro-Bengt AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/elektro-bengt-ab/-/-/5569360661"
+      }
+    },
+    {
+      "id": "bolag-lysande-affär-ab",
+      "typ": "bolag",
+      "label": "Lysande Affär AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/lysande-aff%C3%A4r-ab/-/-/5591690903"
+      }
+    },
+    {
+      "id": "bolag-fastighetsföreningen-andra-långgatan-20-ekonomisk-",
+      "typ": "bolag",
+      "label": "Fastighetsföreningen Andra Långgatan 20, Ekonomisk förening",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/fastighetsf%C3%B6reningen-andra-l%C3%A5nggatan-20-ekonomisk-f%C3%B6rening/-/-/7572000300"
+      }
+    },
+    {
+      "id": "bolag-firma-arnold-books",
+      "typ": "bolag",
+      "label": "Firma Arnold Books",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/firma-arnold-books/-/-/22220001668595"
+      }
+    },
+    {
+      "id": "bolag-johansson-electro-tech-consulting-ab",
+      "typ": "bolag",
+      "label": "Johansson Electro Tech Consulting AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/johansson-electro-tech-consulting-ab/-/-/5592257322"
+      }
+    },
+    {
+      "id": "bolag-byggnadsföreningen-folkets-hus-i-göteborg-u.p.a.",
+      "typ": "bolag",
+      "label": "BYGGNADSFÖRENINGEN FOLKETS HUS I GÖTEBORG U.P.A.",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/byggnadsf%C3%B6reningen-folkets-hus-i-g%C3%B6teborg-u.p.a./-/-/7572005796"
+      }
+    },
+    {
+      "id": "bolag-rds-montrose-ab",
+      "typ": "bolag",
+      "label": "RDS Montrose AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/rds-montrose-ab/-/-/5560775958"
+      }
+    },
+    {
+      "id": "bolag-rds-parkering-ab",
+      "typ": "bolag",
+      "label": "RDS Parkering AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/rds-parkering-ab/-/-/5591351332"
+      }
+    },
+    {
+      "id": "bolag-keillers-gårdar-ab",
+      "typ": "bolag",
+      "label": "Keillers Gårdar AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/keillers-g%C3%A5rdar-ab/-/-/5591716005"
+      }
+    },
+    {
+      "id": "bolag-riksbyggen-bostadsrättsförening-slottsberget-3",
+      "typ": "bolag",
+      "label": "Riksbyggen Bostadsrättsförening Slottsberget 3",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/riksbyggen-bostadsr%C3%A4ttsf%C3%B6rening-slottsberget-3/-/-/7696335913"
+      }
+    },
+    {
+      "id": "bolag-familjebostäder-i-göteborg-aktiebolag",
+      "typ": "bolag",
+      "label": "Familjebostäder i Göteborg Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/familjebost%C3%A4der-i-g%C3%B6teborg-aktiebolag/-/-/5561143941"
+      }
+    },
+    {
+      "id": "bolag-hsb-bostadsrättsförening-bjurslätt-i-göteborg",
+      "typ": "bolag",
+      "label": "HSB Bostadsrättsförening Bjurslätt i Göteborg",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/hsb-bostadsr%C3%A4ttsf%C3%B6rening-bjursl%C3%A4tt-i-g%C3%B6teborg/-/-/7572009392"
+      }
+    },
+    {
+      "id": "bolag-arti-fact-umeå-ab",
+      "typ": "bolag",
+      "label": "Arti Fact Umeå AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/arti-fact-ume%C3%A5-ab/-/-/5565926473"
+      }
+    },
+    {
+      "id": "bolag-emils-kårhus-ab",
+      "typ": "bolag",
+      "label": "Emils Kårhus AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/emils-k%C3%A5rhus-ab/-/-/5565666046"
+      }
+    },
+    {
+      "id": "bolag-emilias-kårhus-ab",
+      "typ": "bolag",
+      "label": "Emilias Kårhus AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/emilias-k%C3%A5rhus-ab/-/-/5590053293"
+      }
+    },
+    {
+      "id": "bolag-johanneberg-campusbo-ab",
+      "typ": "bolag",
+      "label": "Johanneberg Campusbo AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/johanneberg-campusbo-ab/-/-/5566586730"
+      }
+    },
+    {
+      "id": "bolag-nålskäran-fastighets-ab",
+      "typ": "bolag",
+      "label": "Nålskäran Fastighets AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/n%C3%A5lsk%C3%A4ran-fastighets-ab/-/-/5569734329"
+      }
+    },
+    {
+      "id": "bolag-quercus-ab",
+      "typ": "bolag",
+      "label": "Quercus AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/quercus-ab/-/-/5567761787"
+      }
+    },
+    {
+      "id": "bolag-tyst-entreprenad-ab",
+      "typ": "bolag",
+      "label": "Tyst Entreprenad AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/tyst-entreprenad-ab/-/-/5568080187"
+      }
+    },
+    {
+      "id": "bolag-adler-&-co-aktiebolag",
+      "typ": "bolag",
+      "label": "Adler & Co Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/adler-co-aktiebolag/-/-/5592729395"
+      }
+    },
+    {
+      "id": "bolag-fga-entreprenad-ab",
+      "typ": "bolag",
+      "label": "FGA Entreprenad AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/fga-entreprenad-ab/-/-/5593019580"
+      }
+    },
+    {
+      "id": "bolag-walk-on-wood-ab",
+      "typ": "bolag",
+      "label": "Walk on Wood AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/walk-on-wood-ab/-/-/5594346065"
+      }
+    },
+    {
+      "id": "bolag-elf-arkitektur-ab",
+      "typ": "bolag",
+      "label": "Elf Arkitektur AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/elf-arkitektur-ab/-/-/5594447467"
+      }
+    },
+    {
+      "id": "bolag-stranden-design-och-konsult-ab",
+      "typ": "bolag",
+      "label": "Stranden design och konsult AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/stranden-design-och-konsult-ab/-/-/5592015910"
+      }
+    },
+    {
+      "id": "bolag-göteborgs-stads-leasing-ab",
+      "typ": "bolag",
+      "label": "Göteborgs Stads Leasing AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborgs-stads-leasing-ab/-/-/5564421716"
+      }
+    },
+    {
+      "id": "bolag-kardex-sverige-ab",
+      "typ": "bolag",
+      "label": "Kardex Sverige AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/kardex-sverige-ab/-/-/5566906078"
+      }
+    },
+    {
+      "id": "bolag-husqvarna-business-support-ab",
+      "typ": "bolag",
+      "label": "Husqvarna Business Support AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/husqvarna-business-support-ab/-/-/5560371964"
+      }
+    },
+    {
+      "id": "bolag-ever-edge-trademarks-holding-ab",
+      "typ": "bolag",
+      "label": "Ever Edge Trademarks Holding AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/ever-edge-trademarks-holding-ab/-/-/5595095067"
+      }
+    },
+    {
+      "id": "bolag-aktiebolaget-partner",
+      "typ": "bolag",
+      "label": "Aktiebolaget Partner",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/aktiebolaget-partner/-/-/5565660932"
+      }
+    },
+    {
+      "id": "bolag-corpus-vq-ab",
+      "typ": "bolag",
+      "label": "Corpus VQ AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/corpus-vq-ab/-/-/5567126643"
+      }
+    },
+    {
+      "id": "bolag-gardena-germany-ab",
+      "typ": "bolag",
+      "label": "Gardena Germany AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/gardena-germany-ab/-/-/5567445902"
+      }
+    },
+    {
+      "id": "bolag-husqvarna-ab",
+      "typ": "bolag",
+      "label": "Husqvarna AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/husqvarna-ab/-/-/5560005331"
+      }
+    },
+    {
+      "id": "bolag-husqvarna-commercial-solutions-ab",
+      "typ": "bolag",
+      "label": "Husqvarna Commercial Solutions AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/husqvarna-commercial-solutions-ab/-/-/5567455893"
+      }
+    },
+    {
+      "id": "bolag-husqvarna-direct-ab",
+      "typ": "bolag",
+      "label": "Husqvarna Direct AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/husqvarna-direct-ab/-/-/5591702609"
+      }
+    },
+    {
+      "id": "bolag-haupt-lakrits-ab",
+      "typ": "bolag",
+      "label": "Haupt Lakrits AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/haupt-lakrits-ab/-/-/5569344327"
+      }
+    },
+    {
+      "id": "bolag-anders-bråse-ab",
+      "typ": "bolag",
+      "label": "Anders Bråse AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/anders-br%C3%A5se-ab/-/-/5594063686"
+      }
+    },
+    {
+      "id": "bolag-bråse-&-söner-aktiebolag",
+      "typ": "bolag",
+      "label": "Bråse & Söner Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/br%C3%A5se-s%C3%B6ner-aktiebolag/-/-/5561654574"
+      }
+    },
+    {
+      "id": "bolag-klädesholmen-intressenter-ab",
+      "typ": "bolag",
+      "label": "Klädesholmen Intressenter AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/kl%C3%A4desholmen-intressenter-ab/-/-/5562431683"
+      }
+    },
+    {
+      "id": "bolag-ab-axelssons-brygga",
+      "typ": "bolag",
+      "label": "AB Axelssons Brygga",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/ab-axelssons-brygga/-/-/5566204433"
+      }
+    },
+    {
+      "id": "bolag-pk-rytterholmen-ab",
+      "typ": "bolag",
+      "label": "PK Rytterholmen AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/pk-rytterholmen-ab/-/-/5593095333"
+      }
+    },
+    {
+      "id": "bolag-scg-invest-ii-ab",
+      "typ": "bolag",
+      "label": "SCG Invest II AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/scg-invest-ii-ab/-/-/5593108722"
+      }
+    },
+    {
+      "id": "bolag-scg-invest-ab",
+      "typ": "bolag",
+      "label": "SCG Invest AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/scg-invest-ab/-/-/5568974959"
+      }
+    },
+    {
+      "id": "bolag-säve-solskydd-ab",
+      "typ": "bolag",
+      "label": "Säve Solskydd AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/s%C3%A4ve-solskydd-ab/-/-/5591617286"
+      }
+    },
+    {
+      "id": "bolag-scaneco-waste-ab",
+      "typ": "bolag",
+      "label": "Scaneco Waste AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/scaneco-waste-ab/-/-/5567447890"
+      }
+    },
+    {
+      "id": "bolag-albert-berner-montageteknik-aktiebolag",
+      "typ": "bolag",
+      "label": "Albert Berner Montageteknik Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/albert-berner-montageteknik-aktiebolag/-/-/5560551490"
+      }
+    },
+    {
+      "id": "bolag-artega-entreprenad-ab",
+      "typ": "bolag",
+      "label": "Artega Entreprenad AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/artega-entreprenad-ab/-/-/5568032295"
+      }
+    },
+    {
+      "id": "bolag-artega-entreprenad-holding-ab",
+      "typ": "bolag",
+      "label": "Artega Entreprenad Holding AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/artega-entreprenad-holding-ab/-/-/5593053126"
+      }
+    },
+    {
+      "id": "bolag-artega-holding-ab",
+      "typ": "bolag",
+      "label": "Artega Holding AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/artega-holding-ab/-/-/5568262637"
+      }
+    },
+    {
+      "id": "bolag-göteborgs-egnahems-aktiebolag",
+      "typ": "bolag",
+      "label": "Göteborgs Egnahems Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/g%C3%B6teborgs-egnahems-aktiebolag/-/-/5560953829"
+      }
+    },
+    {
+      "id": "bolag-turistrådet-västsverige-ab",
+      "typ": "bolag",
+      "label": "Turistrådet Västsverige AB",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/turistr%C3%A5det-v%C3%A4stsverige-ab/-/-/5564594538"
+      }
+    },
+    {
+      "id": "bolag-digifront-marketing",
+      "typ": "bolag",
+      "label": "Digifront Marketing",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/digifront-marketing/-/-/22220001895984"
+      }
+    },
+    {
+      "id": "bolag-noak-ekonomikonsult-aktiebolag",
+      "typ": "bolag",
+      "label": "Noak Ekonomikonsult Aktiebolag",
+      "data": {
+        "url": "https://www.allabolag.se/foretag/noak-ekonomikonsult-aktiebolag/-/-/5562354414"
+      }
     }
   ],
   "edges": [
@@ -57194,6 +58530,1404 @@
       "from": "politiker-3066b844-6db8-4cf2-af3e-179956cc07fb",
       "to": "kf-2026-03-26-§91",
       "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-da39c84a-026d-4400-bfaa-cb4167aae5e7",
+      "to": "bolag-försäkrings-ab-göta-lejon",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-7acca744-8ded-487c-99e0-9ec3b6e83e49",
+      "to": "bolag-byggnadsföreningen-mården-6-upa",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-7acca744-8ded-487c-99e0-9ec3b6e83e49",
+      "to": "bolag-italic-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-fbea1ab5-5e32-475a-a6f8-6abe408c0ac4",
+      "to": "bolag-digesgårdsgärde-ekonomisk-förening",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-fbea1ab5-5e32-475a-a6f8-6abe408c0ac4",
+      "to": "bolag-liseberg-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-fbea1ab5-5e32-475a-a6f8-6abe408c0ac4",
+      "to": "bolag-lisebergs-gäst-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-fbea1ab5-5e32-475a-a6f8-6abe408c0ac4",
+      "to": "bolag-ab-liseberg-skår-40:17",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-fbea1ab5-5e32-475a-a6f8-6abe408c0ac4",
+      "to": "bolag-advokatfirman-ducere-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-1e79ebce-61ef-49f0-bbb1-e9de383224ba",
+      "to": "bolag-sundbergs-byggservice-i-nynäshamn",
+      "typ": "bolagsuppdrag",
+      "label": "Innehavare"
+    },
+    {
+      "from": "politiker-f1c53a6f-34fe-4b24-9075-48fd2e73aff1",
+      "to": "bolag-lilla-edets-fjärrvärme-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-529cc992-d514-4336-977c-1f1da1ac9bc2",
+      "to": "bolag-boplats-göteborg-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-529cc992-d514-4336-977c-1f1da1ac9bc2",
+      "to": "bolag-aneanani-ekonomisk-förening",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-bed0053f-81bc-4181-9445-f2ec4ebe5b64",
+      "to": "bolag-goart-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-bed0053f-81bc-4181-9445-f2ec4ebe5b64",
+      "to": "bolag-förvaltningsaktiebolaget-framtiden",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-bed0053f-81bc-4181-9445-f2ec4ebe5b64",
+      "to": "bolag-syskrinet-göteborg-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-bed0053f-81bc-4181-9445-f2ec4ebe5b64",
+      "to": "bolag-bygga-hem-i-göteborg-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-bed0053f-81bc-4181-9445-f2ec4ebe5b64",
+      "to": "bolag-goart-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-39a5d9a6-253b-498b-90be-cee322cf8247",
+      "to": "bolag-göteborgsoperan-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-39a5d9a6-253b-498b-90be-cee322cf8247",
+      "to": "bolag-puck-holding-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-3905e7f1-dcef-4238-b9bf-48a29c83e29b",
+      "to": "bolag-göteborgsoperan-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-3905e7f1-dcef-4238-b9bf-48a29c83e29b",
+      "to": "bolag-vital-kids",
+      "typ": "bolagsuppdrag",
+      "label": "Innehavare"
+    },
+    {
+      "from": "politiker-c9159122-c1ef-4276-9107-9ad74c3386f3",
+      "to": "bolag-attrix-konsulting-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "bolag-affinity-group-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-5c5b5cac-c19f-4e74-8ae4-bb359d2a5348",
+      "to": "bolag-förvaltningsaktiebolaget-framtiden",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-5c5b5cac-c19f-4e74-8ae4-bb359d2a5348",
+      "to": "bolag-bygga-hem-i-göteborg-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-5c5b5cac-c19f-4e74-8ae4-bb359d2a5348",
+      "to": "bolag-förvaltningsaktiebolaget-framtiden",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-5c5b5cac-c19f-4e74-8ae4-bb359d2a5348",
+      "to": "bolag-sveriges-allmännytta-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-5c5b5cac-c19f-4e74-8ae4-bb359d2a5348",
+      "to": "bolag-bygga-hem-i-göteborg-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "bolag-axstax-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "bolag-darever-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "bolag-drott-i-marstrand-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "bolag-axstax-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "bolag-darever-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "bolag-drott-i-marstrand-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "bolag-bostadsrättsföreningen-lyckan-i-göteborg",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "bolag-göteborgs-stadshus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-7111ccc4-a6cb-4900-b35e-d75e5f6ca56d",
+      "to": "bolag-got-event-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-7111ccc4-a6cb-4900-b35e-d75e5f6ca56d",
+      "to": "bolag-got-event-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "bolag-göteborgs-stadshus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-90d78736-6767-4333-9bea-d6b994ad67c9",
+      "to": "bolag-bopec-väst-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-90d78736-6767-4333-9bea-d6b994ad67c9",
+      "to": "bolag-orust-hålslagning-&-förvaltning-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-90d78736-6767-4333-9bea-d6b994ad67c9",
+      "to": "bolag-svanesund-2:37-fastighetsförvaltning-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-90d78736-6767-4333-9bea-d6b994ad67c9",
+      "to": "bolag-bopec-väst-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-90d78736-6767-4333-9bea-d6b994ad67c9",
+      "to": "bolag-orust-hålslagning-&-förvaltning-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-90d78736-6767-4333-9bea-d6b994ad67c9",
+      "to": "bolag-astakile-förvaltning-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-90d78736-6767-4333-9bea-d6b994ad67c9",
+      "to": "bolag-svanesund-2:37-fastighetsförvaltning-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-ed1b711d-9bf8-44a3-89da-4b299d8f234b",
+      "to": "bolag-coator-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-ed1b711d-9bf8-44a3-89da-4b299d8f234b",
+      "to": "bolag-förvaltnings-ab-järntorgskvarteret",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-ed1b711d-9bf8-44a3-89da-4b299d8f234b",
+      "to": "bolag-coator-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-113b455a-4341-48bc-aa54-50c3d44cfaa1",
+      "to": "bolag-göteborgs-hamn-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-113b455a-4341-48bc-aa54-50c3d44cfaa1",
+      "to": "bolag-scandinavian-distripoint-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-113b455a-4341-48bc-aa54-50c3d44cfaa1",
+      "to": "bolag-cecilia-magnusson-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-6f48f56a-5b14-461e-88c7-fb8203c877fd",
+      "to": "bolag-ångermanlands-bigårdar-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Vice verkställande direktör"
+    },
+    {
+      "from": "politiker-6f48f56a-5b14-461e-88c7-fb8203c877fd",
+      "to": "bolag-ångermanlands-bigårdar-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-6f48f56a-5b14-461e-88c7-fb8203c877fd",
+      "to": "bolag-ångermanlands-bigårdar",
+      "typ": "bolagsuppdrag",
+      "label": "Innehavare"
+    },
+    {
+      "from": "politiker-6f48f56a-5b14-461e-88c7-fb8203c877fd",
+      "to": "bolag-trädgårdstäppans-tillbehör",
+      "typ": "bolagsuppdrag",
+      "label": "Prokurist"
+    },
+    {
+      "from": "politiker-e70d7eb1-54d7-4bc8-9dbd-6db97685d473",
+      "to": "bolag-gryaab-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-e70d7eb1-54d7-4bc8-9dbd-6db97685d473",
+      "to": "bolag-spinnrocken-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-1468ed11-9efe-4cba-9b83-33b6cb52bc29",
+      "to": "bolag-bostadsrättsföreningen-staketet-snödroppen",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-df920aa5-76da-444b-9ded-b51b93c47055",
+      "to": "bolag-trophi-fastighets-ab-(publ)",
+      "typ": "bolagsuppdrag",
+      "label": "Extern verkställande direktör"
+    },
+    {
+      "from": "politiker-df920aa5-76da-444b-9ded-b51b93c47055",
+      "to": "bolag-trophi-nockeby-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-df920aa5-76da-444b-9ded-b51b93c47055",
+      "to": "bolag-trophi-bäckebol-1-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-df920aa5-76da-444b-9ded-b51b93c47055",
+      "to": "bolag-trophi-länna-2-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-df920aa5-76da-444b-9ded-b51b93c47055",
+      "to": "bolag-trophi-köping-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-df920aa5-76da-444b-9ded-b51b93c47055",
+      "to": "bolag-trophi-i-ljungby-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-df920aa5-76da-444b-9ded-b51b93c47055",
+      "to": "bolag-handelsbolaget-kaprifool",
+      "typ": "bolagsuppdrag",
+      "label": "Bolagsman"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "bolag-göteborgs-stadshus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-a5779a7b-da03-4eaf-b506-9921a66c6c51",
+      "to": "bolag-karin-linde-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-83b8553e-84f4-49ec-b02e-1f4708471335",
+      "to": "bolag-bostadsrättsföreningen-karlagatan-24-26",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-5b7d8dfa-508b-44ea-abb6-bd23287fa491",
+      "to": "bolag-svea-beredskap-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-5b7d8dfa-508b-44ea-abb6-bd23287fa491",
+      "to": "bolag-svea-beredskap-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-f09d3f1f-2300-4308-afe3-16624e2d27ea",
+      "to": "bolag-göteborgsregionens-internationella-skola-aktiebola",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-f09d3f1f-2300-4308-afe3-16624e2d27ea",
+      "to": "bolag-fabrikörerna-ekonomisk-förening",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-f09d3f1f-2300-4308-afe3-16624e2d27ea",
+      "to": "bolag-göteborgsregionens-internationella-skola-aktiebola",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-f09d3f1f-2300-4308-afe3-16624e2d27ea",
+      "to": "bolag-fabrikörerna-ekonomisk-förening",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-34f2a948-6475-474e-961a-4ddac94f7a48",
+      "to": "bolag-liseberg-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-34f2a948-6475-474e-961a-4ddac94f7a48",
+      "to": "bolag-lisebergs-gäst-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-34f2a948-6475-474e-961a-4ddac94f7a48",
+      "to": "bolag-ab-liseberg-skår-40:17",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-3fa38ad8-5d11-4003-b5f6-c95b2a603e3b",
+      "to": "bolag-göteborgs-stadsteater-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-3fa38ad8-5d11-4003-b5f6-c95b2a603e3b",
+      "to": "bolag-göteborgs-stadsteater-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-a89c72d1-d80b-4254-99b9-0baab0a74614",
+      "to": "bolag-perfekt-thaimassage-thitaree-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-f4c6ccbd-4784-442f-ab30-3bf1593a94e7",
+      "to": "bolag-lindholmen-science-park-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "bolag-gda-sverige-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "bolag-contrario-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-5f8aa345-8425-4366-b63d-67f963e0b502",
+      "to": "bolag-förvaltningsaktiebolaget-framtiden",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-5f8aa345-8425-4366-b63d-67f963e0b502",
+      "to": "bolag-bygga-hem-i-göteborg-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-065d02f2-77bf-4902-83b2-9913ba068926",
+      "to": "bolag-arby-kommunikation-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-065d02f2-77bf-4902-83b2-9913ba068926",
+      "to": "bolag-arby-&-co-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-065d02f2-77bf-4902-83b2-9913ba068926",
+      "to": "bolag-arby-&-co-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-065d02f2-77bf-4902-83b2-9913ba068926",
+      "to": "bolag-norra-älvstranden-utveckling-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-065d02f2-77bf-4902-83b2-9913ba068926",
+      "to": "bolag-södra-älvstranden-utveckling-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-065d02f2-77bf-4902-83b2-9913ba068926",
+      "to": "bolag-älvstranden-utveckling-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-065d02f2-77bf-4902-83b2-9913ba068926",
+      "to": "bolag-arby-kommunikation-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-065d02f2-77bf-4902-83b2-9913ba068926",
+      "to": "bolag-farfar(e)-handelsbolag",
+      "typ": "bolagsuppdrag",
+      "label": "Bolagsman"
+    },
+    {
+      "from": "politiker-902612ce-b7ca-45b5-9b8d-dd233067a728",
+      "to": "bolag-happy-paragraphs-legal-services-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-902612ce-b7ca-45b5-9b8d-dd233067a728",
+      "to": "bolag-happy-paragraphs-legal-services-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-902612ce-b7ca-45b5-9b8d-dd233067a728",
+      "to": "bolag-aix+dps-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Likvidator"
+    },
+    {
+      "from": "politiker-c451ce76-fb96-4448-9492-eb37811f9ec4",
+      "to": "bolag-vinga-inland-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-c451ce76-fb96-4448-9492-eb37811f9ec4",
+      "to": "bolag-göteborg-energi-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-c451ce76-fb96-4448-9492-eb37811f9ec4",
+      "to": "bolag-henrik-sjöstrands-foto-och-tv-utensilier",
+      "typ": "bolagsuppdrag",
+      "label": "Innehavare"
+    },
+    {
+      "from": "politiker-f543ed57-420e-40d4-b6cb-35fc9c7d25c4",
+      "to": "bolag-herik-konsult-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-63e898b8-b7cf-4209-8c56-8c8b6576ff35",
+      "to": "bolag-hedegårdens-entreprenad-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "bolag-salar-international-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "bolag-göteborgs-stadshus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "bolag-bostadsrättsföreningen-kolumbus",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-18fba0c6-e65a-492d-b833-0b38e99e5848",
+      "to": "bolag-östhammars-sotningsdistrikt-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-3e4e841e-b25b-4a0d-89ce-d8423a3d5438",
+      "to": "bolag-scania-sverige-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-8751e394-5416-4ad8-8987-1823e36b1c66",
+      "to": "bolag-lwstr-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-8751e394-5416-4ad8-8987-1823e36b1c66",
+      "to": "bolag-bemia-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-8751e394-5416-4ad8-8987-1823e36b1c66",
+      "to": "bolag-lwstr-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-8751e394-5416-4ad8-8987-1823e36b1c66",
+      "to": "bolag-vincemus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-8751e394-5416-4ad8-8987-1823e36b1c66",
+      "to": "bolag-iftw-holding-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-8751e394-5416-4ad8-8987-1823e36b1c66",
+      "to": "bolag-stellina-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-86914023-874f-43e6-9267-0fd139cf7bfa",
+      "to": "bolag-deciton-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-86914023-874f-43e6-9267-0fd139cf7bfa",
+      "to": "bolag-its-a-whazy-its-a-woozi-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-86914023-874f-43e6-9267-0fd139cf7bfa",
+      "to": "bolag-deciton-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-86914023-874f-43e6-9267-0fd139cf7bfa",
+      "to": "bolag-bodin-svensk-invest-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-86914023-874f-43e6-9267-0fd139cf7bfa",
+      "to": "bolag-its-a-whazy-its-a-woozi-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-86914023-874f-43e6-9267-0fd139cf7bfa",
+      "to": "bolag-bostadsrättsföreningen-kutterberget",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-433e32c1-e565-4270-b6f8-49c2366f30d5",
+      "to": "bolag-göteborg-&-co-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+      "to": "bolag-ess-hotel-group-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+      "to": "bolag-ess-hotell-fastigheter-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+      "to": "bolag-ysb-intressenter-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+      "to": "bolag-tcb-sverige-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+      "to": "bolag-ess-hotell-intressenter-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+      "to": "bolag-skönabäck-förvaltnings-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+      "to": "bolag-ysb-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+      "to": "bolag-ess-hotel-group-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+      "to": "bolag-örenäs-slott-hotell-och-konferens-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+      "to": "bolag-örenäs-slott-och-egendom-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "bolag-göteborgsregionens-internationella-skola-aktiebola",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "bolag-göteborgs-stadshus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "bolag-film-i-väst-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-5079dc21-51b6-42cf-a742-2b51ab285d95",
+      "to": "bolag-got-event-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-5079dc21-51b6-42cf-a742-2b51ab285d95",
+      "to": "bolag-higab-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-8228634a-46e6-4c17-9a65-f965d84d0de3",
+      "to": "bolag-e-karlsson-bygg-&-montage-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "bolag-göteborgs-stadshus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-17c5d03b-d3ce-4224-9afc-76bd6fedc226",
+      "to": "bolag-allergi-&-smärtklinik-i-kalmar",
+      "typ": "bolagsuppdrag",
+      "label": "Innehavare"
+    },
+    {
+      "from": "politiker-fe14a8bc-3a5f-4173-a06c-5a71f799ab41",
+      "to": "bolag-fastighetsaktiebolaget-rödingen",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-fe14a8bc-3a5f-4173-a06c-5a71f799ab41",
+      "to": "bolag-renova-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-fe14a8bc-3a5f-4173-a06c-5a71f799ab41",
+      "to": "bolag-renova-miljö-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-fe14a8bc-3a5f-4173-a06c-5a71f799ab41",
+      "to": "bolag-fastighetsaktiebolaget-rödingen",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-fe14a8bc-3a5f-4173-a06c-5a71f799ab41",
+      "to": "bolag-renova-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-a541c61e-e8aa-4894-9174-9c9b86d05a00",
+      "to": "bolag-svenska-tillståndsbyrån-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-a541c61e-e8aa-4894-9174-9c9b86d05a00",
+      "to": "bolag-allt-i-lallo-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-42157a83-fda0-4ce7-a5cc-ca856d726a46",
+      "to": "bolag-göteborgs-stads-bostadsaktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-42157a83-fda0-4ce7-a5cc-ca856d726a46",
+      "to": "bolag-stora-holms-trafikövningsplats-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-8bc9971e-58ea-442e-868f-bb40e29707d5",
+      "to": "bolag-spinnerskan-i-mark-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-fb7e06b8-1e05-47c2-9572-800b5db0c27c",
+      "to": "bolag-företagstjänst-olinder-redovisning-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-fb7e06b8-1e05-47c2-9572-800b5db0c27c",
+      "to": "bolag-gruvan-2-ekonomisk-förening",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-fb7e06b8-1e05-47c2-9572-800b5db0c27c",
+      "to": "bolag-företagstjänst-olinder-redovisning-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-fb7e06b8-1e05-47c2-9572-800b5db0c27c",
+      "to": "bolag-gruvan-2-ekonomisk-förening",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-fb7e06b8-1e05-47c2-9572-800b5db0c27c",
+      "to": "bolag-e.m.-ekonomi-och-marknadsföring-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-01c39ed5-fba7-4e61-b571-c8a75e29d4e4",
+      "to": "bolag-deskavi-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-15b2e6e0-0f0e-4397-8eaf-21ded7b2e3ca",
+      "to": "bolag-christopher-lindh-consulting-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-d989fa9d-e90f-471b-9c8b-e2a556161bd7",
+      "to": "bolag-göteborgs-stadsteater-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-8a3446fc-84b3-45bf-9205-a7e94c3f98af",
+      "to": "bolag-andersson-recap-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-18d651c0-574f-4793-b1ee-ebf32dd66f76",
+      "to": "bolag-göteborgs-stads-parkeringsaktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-18d651c0-574f-4793-b1ee-ebf32dd66f76",
+      "to": "bolag-elektro-bengt-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-18d651c0-574f-4793-b1ee-ebf32dd66f76",
+      "to": "bolag-lysande-affär-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-18d651c0-574f-4793-b1ee-ebf32dd66f76",
+      "to": "bolag-göteborg-&-co-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-483b5067-fe3f-4a62-9b17-0e926e97dc52",
+      "to": "bolag-boplats-göteborg-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-483b5067-fe3f-4a62-9b17-0e926e97dc52",
+      "to": "bolag-boplats-göteborg-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-483b5067-fe3f-4a62-9b17-0e926e97dc52",
+      "to": "bolag-fastighetsföreningen-andra-långgatan-20-ekonomisk-",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "bolag-göteborgs-stadshus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-0179a237-2131-424f-9de3-973d38be7f68",
+      "to": "bolag-firma-arnold-books",
+      "typ": "bolagsuppdrag",
+      "label": "Innehavare"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "bolag-johansson-electro-tech-consulting-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "bolag-förvaltningsaktiebolaget-framtiden",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "bolag-bygga-hem-i-göteborg-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-8074bc5c-a202-4bfb-9241-76bc603c91ae",
+      "to": "bolag-byggnadsföreningen-folkets-hus-i-göteborg-u.p.a.",
+      "typ": "bolagsuppdrag",
+      "label": "Extern verkställande direktör"
+    },
+    {
+      "from": "politiker-8074bc5c-a202-4bfb-9241-76bc603c91ae",
+      "to": "bolag-rds-montrose-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-8074bc5c-a202-4bfb-9241-76bc603c91ae",
+      "to": "bolag-rds-parkering-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-8074bc5c-a202-4bfb-9241-76bc603c91ae",
+      "to": "bolag-keillers-gårdar-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-8074bc5c-a202-4bfb-9241-76bc603c91ae",
+      "to": "bolag-riksbyggen-bostadsrättsförening-slottsberget-3",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-8074bc5c-a202-4bfb-9241-76bc603c91ae",
+      "to": "bolag-rds-montrose-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-48cab936-9022-4047-a523-80ee2efebc39",
+      "to": "bolag-familjebostäder-i-göteborg-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-d06cf92c-52b1-4e40-88ce-22a7f3928d69",
+      "to": "bolag-göteborgsregionens-internationella-skola-aktiebola",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "bolag-hsb-bostadsrättsförening-bjurslätt-i-göteborg",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "bolag-arti-fact-umeå-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-947ccace-c66b-4e7e-9d4b-472f46440fc2",
+      "to": "bolag-göteborgs-stadshus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-947ccace-c66b-4e7e-9d4b-472f46440fc2",
+      "to": "bolag-emils-kårhus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-947ccace-c66b-4e7e-9d4b-472f46440fc2",
+      "to": "bolag-emilias-kårhus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-947ccace-c66b-4e7e-9d4b-472f46440fc2",
+      "to": "bolag-johanneberg-campusbo-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-947ccace-c66b-4e7e-9d4b-472f46440fc2",
+      "to": "bolag-nålskäran-fastighets-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-f0e04192-a1fd-4318-97eb-6b4e49ee819c",
+      "to": "bolag-quercus-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-f0e04192-a1fd-4318-97eb-6b4e49ee819c",
+      "to": "bolag-tyst-entreprenad-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-f0e04192-a1fd-4318-97eb-6b4e49ee819c",
+      "to": "bolag-adler-&-co-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-f0e04192-a1fd-4318-97eb-6b4e49ee819c",
+      "to": "bolag-fga-entreprenad-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-f0e04192-a1fd-4318-97eb-6b4e49ee819c",
+      "to": "bolag-walk-on-wood-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-6694871a-3926-4303-a8d6-ad1a2117688d",
+      "to": "bolag-göteborg-energi-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-7596fa93-7b07-4097-a98b-a03ab7b74c15",
+      "to": "bolag-förvaltningsaktiebolaget-framtiden",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-7596fa93-7b07-4097-a98b-a03ab7b74c15",
+      "to": "bolag-bygga-hem-i-göteborg-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-7596fa93-7b07-4097-a98b-a03ab7b74c15",
+      "to": "bolag-elf-arkitektur-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-8b3a1642-60b3-44a7-bb66-b25f7ab63a05",
+      "to": "bolag-stranden-design-och-konsult-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-8b3a1642-60b3-44a7-bb66-b25f7ab63a05",
+      "to": "bolag-göteborgs-stads-leasing-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-8b3a1642-60b3-44a7-bb66-b25f7ab63a05",
+      "to": "bolag-stranden-design-och-konsult-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "bolag-kardex-sverige-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "bolag-kardex-sverige-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-510d2c0a-daf8-49cd-87f0-6b06875cb3f3",
+      "to": "bolag-husqvarna-business-support-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-510d2c0a-daf8-49cd-87f0-6b06875cb3f3",
+      "to": "bolag-ever-edge-trademarks-holding-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-510d2c0a-daf8-49cd-87f0-6b06875cb3f3",
+      "to": "bolag-aktiebolaget-partner",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-510d2c0a-daf8-49cd-87f0-6b06875cb3f3",
+      "to": "bolag-corpus-vq-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-510d2c0a-daf8-49cd-87f0-6b06875cb3f3",
+      "to": "bolag-gardena-germany-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-510d2c0a-daf8-49cd-87f0-6b06875cb3f3",
+      "to": "bolag-husqvarna-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Extern firmatecknare"
+    },
+    {
+      "from": "politiker-510d2c0a-daf8-49cd-87f0-6b06875cb3f3",
+      "to": "bolag-husqvarna-commercial-solutions-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Extern firmatecknare"
+    },
+    {
+      "from": "politiker-510d2c0a-daf8-49cd-87f0-6b06875cb3f3",
+      "to": "bolag-husqvarna-direct-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Extern firmatecknare"
+    },
+    {
+      "from": "politiker-a1a4469d-24d5-4e3b-95a2-627fa03b9f7a",
+      "to": "bolag-haupt-lakrits-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Extern verkställande direktör"
+    },
+    {
+      "from": "politiker-d34fce1d-1608-4f23-9fb7-b4d7cfb999dc",
+      "to": "bolag-göteborgs-stads-bostadsaktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-03241b20-7714-43b7-8b13-a93e26a5b157",
+      "to": "bolag-anders-bråse-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Verkställande direktör"
+    },
+    {
+      "from": "politiker-03241b20-7714-43b7-8b13-a93e26a5b157",
+      "to": "bolag-bråse-&-söner-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-03241b20-7714-43b7-8b13-a93e26a5b157",
+      "to": "bolag-klädesholmen-intressenter-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-03241b20-7714-43b7-8b13-a93e26a5b157",
+      "to": "bolag-ab-axelssons-brygga",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-03241b20-7714-43b7-8b13-a93e26a5b157",
+      "to": "bolag-pk-rytterholmen-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-03241b20-7714-43b7-8b13-a93e26a5b157",
+      "to": "bolag-anders-bråse-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-1aafbc3c-79a7-428d-bc26-d4868d271603",
+      "to": "bolag-förvaltningsaktiebolaget-framtiden",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-1aafbc3c-79a7-428d-bc26-d4868d271603",
+      "to": "bolag-bygga-hem-i-göteborg-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-f01780bf-7033-406d-99c0-c3c76b258026",
+      "to": "bolag-scg-invest-ii-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-f01780bf-7033-406d-99c0-c3c76b258026",
+      "to": "bolag-scg-invest-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-c97ef7e1-5f92-4f4b-8b12-2a3a355217e5",
+      "to": "bolag-säve-solskydd-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-c97ef7e1-5f92-4f4b-8b12-2a3a355217e5",
+      "to": "bolag-scaneco-waste-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Extern firmatecknare"
+    },
+    {
+      "from": "politiker-353565b6-c96c-45fc-97e0-55bc27fdf62e",
+      "to": "bolag-albert-berner-montageteknik-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Extern verkställande direktör"
+    },
+    {
+      "from": "politiker-41da29fe-8f66-4579-a78d-608c757fb23f",
+      "to": "bolag-artega-entreprenad-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-41da29fe-8f66-4579-a78d-608c757fb23f",
+      "to": "bolag-artega-entreprenad-holding-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-41da29fe-8f66-4579-a78d-608c757fb23f",
+      "to": "bolag-artega-entreprenad-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-41da29fe-8f66-4579-a78d-608c757fb23f",
+      "to": "bolag-artega-holding-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-41da29fe-8f66-4579-a78d-608c757fb23f",
+      "to": "bolag-artega-entreprenad-holding-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-876e99db-25aa-419a-ae14-daa438b504fb",
+      "to": "bolag-förvaltningsaktiebolaget-framtiden",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-876e99db-25aa-419a-ae14-daa438b504fb",
+      "to": "bolag-bygga-hem-i-göteborg-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-69ef4445-fefc-4e83-9b6c-3054d3ab6d27",
+      "to": "bolag-göteborgs-egnahems-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Suppleant"
+    },
+    {
+      "from": "politiker-e60466db-23ac-4d3e-9043-4ba15ce39d79",
+      "to": "bolag-turistrådet-västsverige-ab",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
+    },
+    {
+      "from": "politiker-5e359e13-a84e-411d-a9c5-b7b542c5c2ec",
+      "to": "bolag-digifront-marketing",
+      "typ": "bolagsuppdrag",
+      "label": "Innehavare"
+    },
+    {
+      "from": "politiker-9a9a0db4-6836-41dd-8a99-c634afaa4522",
+      "to": "bolag-noak-ekonomikonsult-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ordförande"
+    },
+    {
+      "from": "politiker-9a9a0db4-6836-41dd-8a99-c634afaa4522",
+      "to": "bolag-noak-ekonomikonsult-aktiebolag",
+      "typ": "bolagsuppdrag",
+      "label": "Ledamot"
     }
   ]
 }
