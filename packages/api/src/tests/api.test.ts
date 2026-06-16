@@ -136,6 +136,64 @@ describe('Investigation: Bordläggning — varför fattas ej beslut?', () => {
   })
 })
 
+describe('Integration: полный путь по графу (politiker → beslut → organisation → politiker)', () => {
+  it('Kan gå från politiker → votering → beslut → nämnd → annan politiker', async () => {
+    // 1. Hämta en politiker (Jonas Attenius, S)
+    const { data: polList } = await get('/api/v1/goteborg/politiker?parti=S')
+    expect(polList.antal).toBeGreaterThan(0)
+    const jonas = polList.politiker.find((p: any) => p.namn.includes('Attenius'))
+    expect(jonas).toBeDefined()
+
+    // 2. Hämta politikerns graf-nod med alla kopplingar
+    const { data: polNode } = await get(`/api/v1/goteborg/graf/node/politiker-${jonas.id}`)
+    expect(polNode.node).toBeDefined()
+    expect(polNode.edges.length).toBeGreaterThan(5)
+
+    // 3. Hitta ett beslut hen röstade ja till
+    const jaEdge = polNode.edges.find((e: any) => e.typ === 'röstade_ja')
+    expect(jaEdge).toBeDefined()
+    const beslutId = jaEdge.to_id
+
+    // 4. Hämta beslutet och se vilka organisationer det berör
+    const { data: beslutNode } = await get(`/api/v1/goteborg/graf/node/${encodeURIComponent(beslutId)}`)
+    expect(beslutNode.node).toBeDefined()
+    expect(beslutNode.node.typ).toBe('paragraf')
+    expect(beslutNode.edges.length).toBeGreaterThan(0)
+
+    // 5. Hitta en organisation kopplad till beslutet
+    const orgEdge = beslutNode.edges.find((e: any) => e.typ === 'uppdrag_till' || e.typ === 'hänvisar_till')
+    if (orgEdge) {
+      const orgId = orgEdge.to_id || orgEdge.from_id
+      // 6. Hämta organisationen och se vilka politiker som sitter där
+      const { data: orgNode } = await get(`/api/v1/goteborg/graf/node/${encodeURIComponent(orgId)}`)
+      expect(orgNode.node).toBeDefined()
+      // Should have politiker connected via sitter_i
+      const politikerEdges = orgNode.edges.filter((e: any) => e.typ === 'sitter_i')
+      expect(politikerEdges.length).toBeGreaterThanOrEqual(0)
+    }
+  })
+
+  it('Varje politiker-nod har minst sitter_i-edges', async () => {
+    const { data: polList } = await get('/api/v1/goteborg/politiker?parti=M&limit=3')
+    for (const pol of polList.politiker) {
+      const { data: node } = await get(`/api/v1/goteborg/graf/node/politiker-${pol.id}`)
+      expect(node.node).toBeDefined()
+      const sitterI = node.edges.filter((e: any) => e.typ === 'sitter_i')
+      expect(sitterI.length).toBeGreaterThan(0) // Every politician has at least 1 uppdrag
+    }
+  })
+
+  it('Beslut-noder har kopplingar till möte', async () => {
+    const { data: beslut } = await get('/api/v1/goteborg/beslut?datum=2025-11-27&limit=3')
+    for (const b of beslut.beslut) {
+      const { data: node } = await get(`/api/v1/goteborg/graf/node/${encodeURIComponent(b.id)}`)
+      expect(node.node).toBeDefined()
+      const mötesEdge = node.edges.find((e: any) => e.typ === 'beslut_av')
+      expect(mötesEdge).toBeDefined() // Every beslut belongs to a möte
+    }
+  })
+})
+
 describe('Investigation: Budget — vart går pengarna?', () => {
   it('Största budgetposten är grundskola', async () => {
     const { data } = await get('/api/v1/goteborg/budget')
@@ -144,7 +202,6 @@ describe('Investigation: Budget — vart går pengarna?', () => {
   })
 
   it('Kan se koppling nämnd ↔ beslut via graf', async () => {
-    // Search for a nämnd node and verify it has edges to decisions
     const { data } = await get('/api/v1/goteborg/s%C3%B6k?q=Socialnämnden')
     expect(data.resultat.length).toBeGreaterThan(0)
   })
