@@ -249,6 +249,9 @@ app.openapi(metricsRoute, async (c) => {
   const bifall = beslutTyper.find(r => r.typ === 'bifall')?.antal || 0
   const bordlagd = beslutTyper.find(r => r.typ === 'bordläggning')?.antal || 0
 
+  // Bordläggningsorsaker
+  const bordOrsaker = await sql`SELECT data->>'bordläggningsorsak' as orsak, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' = 'bordläggning' AND data->>'bordläggningsorsak' IS NOT NULL GROUP BY data->>'bordläggningsorsak'`
+
   // Konsensus: beslut utan votering vs med
   const [{ total: totalParagrafer }] = await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'paragraf'`
   const [{ antal: medVotering }] = await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data ? 'votering'`
@@ -287,6 +290,8 @@ app.openapi(metricsRoute, async (c) => {
       bifall: bifall,
       bordläggning: bordlagd,
       beslutskraftProcent: totalBeslut > 0 ? Math.round((bifall / totalBeslut) * 100) : 0,
+      bordläggningsorsaker: Object.fromEntries(bordOrsaker.map(r => [r.orsak, r.antal])),
+      analys: bordlagd > bifall ? 'Fler ärenden bordläggs än bifalls — indikerar överbelastad dagordning' : 'Normal beslutskraft',
     },
     konsensus: {
       totaltÄrenden: totalParagrafer,

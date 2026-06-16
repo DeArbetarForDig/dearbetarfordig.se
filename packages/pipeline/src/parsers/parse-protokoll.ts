@@ -71,11 +71,24 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
     const lines = section.split('\n').filter(l => l.trim())
     const rubrik = lines[1]?.trim() || ''
 
-    // Detect beslut type
+    // Detect beslut type and reason
     let beslut: string | undefined
+    let bordläggningsorsak: string | undefined
     if (section.match(/har bifallits|bifall till kommunstyrelsens/i)) beslut = 'bifall'
     else if (section.match(/avslag|avslagits/i)) beslut = 'avslag'
-    else if (section.match(/bordlägg/i)) beslut = 'bordläggning'
+    else if (section.match(/bordlägg/i)) {
+      beslut = 'bordläggning'
+      // Classify reason
+      if (section.match(/klockan\s+är|återstående\s+ärenden\s+ska\s+bordläggas/i)) {
+        bordläggningsorsak = 'tid' // Time ran out
+      } else if (section.match(/[Tt]idigare behandling.*[Bb]ordlagt/s)) {
+        bordläggningsorsak = 'tidigare_bordlagd' // Already postponed before
+      } else if (section.match(/[Ii]nterpellation.*bordlägg/i)) {
+        bordläggningsorsak = 'interpellation_väntar' // Waiting for response
+      } else {
+        bordläggningsorsak = 'övrigt'
+      }
+    }
     else if (section.match(/återremiss/i)) beslut = 'återremiss'
 
     // Extract votering results from main text
@@ -100,7 +113,7 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
       id: paragrafId,
       typ: 'paragraf',
       label: `§ ${paragrafNr} ${rubrik}`,
-      data: { paragrafNr, ärendeNr, rubrik, datum: möteDatum, beslut, votering, yrkanden, reservationer },
+      data: { paragrafNr, ärendeNr, rubrik, datum: möteDatum, beslut, bordläggningsorsak, votering, yrkanden, reservationer },
     })
 
     // Find law references
@@ -241,6 +254,35 @@ async function main() {
   console.log(`   ${text.split('\n').length} rader text`)
 
   const { nodes, edges } = parseParagrafer(text, datum)
+
+  // Post-process: detect bulk bordläggning due to time
+  // Pattern: one § says "klockan är X, §NNN-NNN bordläggs"
+  const tidParagrafer = new Set<string>()
+  for (const node of nodes) {
+    if (node.typ !== 'paragraf') continue
+    const section = text.slice(text.indexOf(`§ ${node.data.paragrafNr} Ärendenummer`) || 0)
+    const bulkMatch = section.match(/klockan\s+är.*?paragraferna\s+(\d+)[–-](\d+)\s+bordläggs/s)
+    if (bulkMatch) {
+      const from = parseInt(bulkMatch[1])
+      const to = parseInt(bulkMatch[2])
+      for (let i = from; i <= to; i++) tidParagrafer.add(String(i))
+    }
+    // Also: "Motionerna under paragraferna NNN–NNN bordläggs"
+    const motionMatch = section.match(/[Mm]otionerna\s+under\s+paragraferna\s+(\d+)[–-](\d+)\s+bordläggs/s)
+    if (motionMatch) {
+      const from = parseInt(motionMatch[1])
+      const to = parseInt(motionMatch[2])
+      for (let i = from; i <= to; i++) tidParagrafer.add(String(i))
+    }
+  }
+  // Apply "tid" to detected paragraphs
+  for (const node of nodes) {
+    if (node.typ === 'paragraf' && tidParagrafer.has(node.data.paragrafNr as string)) {
+      if (node.data.beslut === 'bordläggning' && node.data.bordläggningsorsak !== 'tid') {
+        node.data.bordläggningsorsak = 'tid'
+      }
+    }
+  }
 
   // Parse voteringar from bilagor
   const voteringar = parseVoteringar(text, datum)
