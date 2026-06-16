@@ -247,6 +247,23 @@ Anna Svensson (C)
     └── Grundskolenämnden: 10 547 mnkr
 ```
 
+## Pipeline — schemaläggning
+
+| Scraper | Frekvens | Trigger |
+|---------|----------|---------|
+| `scrape:politiker` | Veckovis | Automatisk (cron) |
+| `scrape:handlingar` | Veckovis | Automatisk (cron) |
+| `scrape:youtube` | Veckovis | Automatisk (cron) |
+| `parse-protokoll` | Vid nytt protokoll | Efter scrape:handlingar |
+| `parse-budget` | Årligen (nov) | Manuell/efter budgetbeslut |
+| `transcribe` | Vid nytt video | On-demand (whisper container) |
+| `allabolag` | Kvartalsvis | Cron (1 jan, apr, jul, okt) |
+| `parse-inbox` | Vid ny begäran | Manuell (lägg PDF i data/inbox/) |
+
+### Trigger-baserad uppdatering
+- Om protokoll-parser hittar `jävsanmälan` → automatisk rescan av den politikern på allabolag.se
+- Om nytt YouTube-video publiceras → automatisk transcription
+
 ## Licens
 
 **AGPL-3.0** — fri att använda, modifiera och distribuera. Modifikationer måste delas under samma licens.
