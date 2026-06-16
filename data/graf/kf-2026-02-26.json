@@ -1,0 +1,1655 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2026-02-26",
+      "typ": "möte",
+      "label": "KF Sammanträde 2026-02-26",
+      "data": {
+        "datum": "2026-02-26",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§37",
+      "typ": "paragraf",
+      "label": "§ 37 Parentation",
+      "data": {
+        "paragrafNr": "37",
+        "ärendeNr": "SLK-2026-00245",
+        "rubrik": "Parentation",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§38",
+      "typ": "paragraf",
+      "label": "§ 38 Bestämmande av tid för justering",
+      "data": {
+        "paragrafNr": "38",
+        "ärendeNr": "SLK-2026-00015",
+        "rubrik": "Bestämmande av tid för justering",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§39",
+      "typ": "paragraf",
+      "label": "§ 39 Frågestund",
+      "data": {
+        "paragrafNr": "39",
+        "ärendeNr": "SLK-2026-00022",
+        "rubrik": "Frågestund",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§40",
+      "typ": "paragraf",
+      "label": "§ 40 Interpellation av Axel Darvik (L) till grundskolenämndens",
+      "data": {
+        "paragrafNr": "40",
+        "ärendeNr": "SLK-2025-01106",
+        "rubrik": "Interpellation av Axel Darvik (L) till grundskolenämndens",
+        "datum": "2026-02-26",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden",
+      "typ": "organisation",
+      "label": "grundskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§41",
+      "typ": "paragraf",
+      "label": "§ 41 Interpellation av Axel Darvik (L) till exploateringsnämndens",
+      "data": {
+        "paragrafNr": "41",
+        "ärendeNr": "SLK-2025-01107",
+        "rubrik": "Interpellation av Axel Darvik (L) till exploateringsnämndens",
+        "datum": "2026-02-26",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden",
+      "typ": "organisation",
+      "label": "exploateringsnämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§42",
+      "typ": "paragraf",
+      "label": "§ 42 Interpellation av Pär Gustafsson (L) till grundskolenämndens",
+      "data": {
+        "paragrafNr": "42",
+        "ärendeNr": "SLK-2026-00101",
+        "rubrik": "Interpellation av Pär Gustafsson (L) till grundskolenämndens",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-viktoria",
+      "typ": "organisation",
+      "label": "grundskolenämnden Viktoria",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§43",
+      "typ": "paragraf",
+      "label": "§ 43 Interpellation av Henrik Sjöstrand (M) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "43",
+        "ärendeNr": "SLK-2026-00111",
+        "rubrik": "Interpellation av Henrik Sjöstrand (M) till kommunstyrelsens",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§44",
+      "typ": "paragraf",
+      "label": "§ 44 Valberedningens förslag till vid sammanträdet",
+      "data": {
+        "paragrafNr": "44",
+        "ärendeNr": "SLK-2026-00003",
+        "rubrik": "Valberedningens förslag till vid sammanträdet",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§45",
+      "typ": "paragraf",
+      "label": "§ 45 Val av ersättare i förbundsfullmäktige i Göteborgsregionens",
+      "data": {
+        "paragrafNr": "45",
+        "ärendeNr": "SLK-2026-00005",
+        "rubrik": "Val av ersättare i förbundsfullmäktige i Göteborgsregionens",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§46",
+      "typ": "paragraf",
+      "label": "§ 46 Antagande av detaljplan för äldreboende med mera vid",
+      "data": {
+        "paragrafNr": "46",
+        "ärendeNr": "SLK-2025-01247",
+        "rubrik": "Antagande av detaljplan för äldreboende med mera vid",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och\nJoel Wickman",
+            "parti": "M",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-g",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§47",
+      "typ": "paragraf",
+      "label": "§ 47 Uppföljning av arbetet med civil beredskap per 2025",
+      "data": {
+        "paragrafNr": "47",
+        "ärendeNr": "SLK-2025-00968",
+        "rubrik": "Uppföljning av arbetet med civil beredskap per 2025",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§48",
+      "typ": "paragraf",
+      "label": "§ 48 Uppföljning av målen för 2025 i Göteborgs Stads miljö- och",
+      "data": {
+        "paragrafNr": "48",
+        "ärendeNr": "SLK-2025-00892",
+        "rubrik": "Uppföljning av målen för 2025 i Göteborgs Stads miljö- och",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 29
+        },
+        "yrkanden": [
+          {
+            "namn": "och Emmyly Bönfors",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Martin Wannholt",
+            "parti": "D",
+            "typ": "förslaget från M, D och KD"
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "typ": "förslaget från L i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-f",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-f",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen f",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-och",
+      "typ": "organisation",
+      "label": "kommunstyrelsen och",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden\nKommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§49",
+      "typ": "paragraf",
+      "label": "§ 49 Revidering av Göteborgs Stads föreskrifter för",
+      "data": {
+        "paragrafNr": "49",
+        "ärendeNr": "SLK-2023-00906",
+        "rubrik": "Revidering av Göteborgs Stads föreskrifter för",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41
+        },
+        "yrkanden": [
+          {
+            "namn": "och Helena Norin",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Patrik Höstmad",
+            "parti": "D",
+            "typ": "förslaget från"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-samt",
+      "typ": "organisation",
+      "label": "kommunstyrelsen samt",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden",
+      "typ": "organisation",
+      "label": "kretslopp och vattennämnden",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-att",
+      "typ": "organisation",
+      "label": "kretslopp och vattennämnden att",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-milj",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden\nMilj",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§50",
+      "typ": "paragraf",
+      "label": "§ 50 Göteborgs Stads lokalförsörjningsplan 2026",
+      "data": {
+        "paragrafNr": "50",
+        "ärendeNr": "SLK-2025-00600",
+        "rubrik": "Göteborgs Stads lokalförsörjningsplan 2026",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Daniel Augustsson",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Ann Catrine Fogelgren",
+            "parti": "L",
+            "typ": "förslaget från"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från M, D, L, KD och SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-f",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden",
+      "typ": "organisation",
+      "label": "förskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-och",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden och",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-exploateringsn",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden\nExploateringsn",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-grundskolen",
+      "typ": "organisation",
+      "label": "Förskolenämnden\nGrundskolen",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§51",
+      "typ": "paragraf",
+      "label": "§ 51 Stadsrevisionens rapportsammandrag – Introduktion och",
+      "data": {
+        "paragrafNr": "51",
+        "ärendeNr": "SLK-2026-00178",
+        "rubrik": "Stadsrevisionens rapportsammandrag – Introduktion och",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§52",
+      "typ": "paragraf",
+      "label": "§ 52 Stadsrevisionens rapportsammandrag - Granskning av",
+      "data": {
+        "paragrafNr": "52",
+        "ärendeNr": "SLK-2026-00193",
+        "rubrik": "Stadsrevisionens rapportsammandrag - Granskning av",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§53",
+      "typ": "paragraf",
+      "label": "§ 53 Fastställande av arvode för heltidsarvoderad förtroendevald,",
+      "data": {
+        "paragrafNr": "53",
+        "ärendeNr": "SLK-2025-00889",
+        "rubrik": "Fastställande av arvode för heltidsarvoderad förtroendevald,",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41
+        },
+        "yrkanden": [
+          {
+            "namn": "och Bosse Parbring",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Hans Arby",
+            "parti": "C",
+            "typ": "bifall till punkt 3 i stadsledningskontorets förslag."
+          }
+        ],
+        "reservationer": [
+          "Protokoll nr 2\nSammanträdesdatum: 2026-02-26"
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-jonas",
+      "typ": "organisation",
+      "label": "kommunstyrelsen Jonas",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§54",
+      "typ": "paragraf",
+      "label": "§ 54 Redovisning av uppdrag att ta fram förslag på hur borgerliga",
+      "data": {
+        "paragrafNr": "54",
+        "ärendeNr": "SLK-2025-00306",
+        "rubrik": "Redovisning av uppdrag att ta fram förslag på hur borgerliga",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 42,
+          "nej": 37
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nJonas Attenius",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§55",
+      "typ": "paragraf",
+      "label": "§ 55 Redovisning av uppdrag att utreda och analysera",
+      "data": {
+        "paragrafNr": "55",
+        "ärendeNr": "SLK-2025-00797",
+        "rubrik": "Redovisning av uppdrag att utreda och analysera",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-att",
+      "typ": "organisation",
+      "label": "kommunstyrelsen att",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§56",
+      "typ": "paragraf",
+      "label": "§ 56 Redovisning av uppdrag att utreda hur utförandet av",
+      "data": {
+        "paragrafNr": "56",
+        "ärendeNr": "SLK-2023-01048",
+        "rubrik": "Redovisning av uppdrag att utreda hur utförandet av",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 56,
+          "nej": 15
+        },
+        "yrkanden": [
+          {
+            "namn": "och Pär Gustafsson",
+            "parti": "L",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "typ": "förslaget från M i kommunstyrelsen."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-givet",
+      "typ": "organisation",
+      "label": "kommunstyrelsen givet",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§57",
+      "typ": "paragraf",
+      "label": "§ 57 Redovisning av uppdrag att samordna och följa upp",
+      "data": {
+        "paragrafNr": "57",
+        "ärendeNr": "SLK-2025-00126",
+        "rubrik": "Redovisning av uppdrag att samordna och följa upp",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "typ": "bifall till kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jessica Blixt",
+            "parti": "D",
+            "typ": "förslaget från M, D, L och KD i kommunstyrelsen."
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "typ": "yrkande från C den 25 februari 2026."
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "stadsledningskontorets förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§58",
+      "typ": "paragraf",
+      "label": "§ 58 Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+      "data": {
+        "paragrafNr": "58",
+        "ärendeNr": "SLK-2025-00100",
+        "rubrik": "Motion av Agneta Kjaerbeck (SD), Jörgen Fogelklou (SD) och",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och\nAnnaSara Perslow",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jonas Stenberg",
+            "parti": "D",
+            "typ": "förslaget från SD i"
+          },
+          {
+            "namn": "och Allan Stutzinsky",
+            "parti": "L",
+            "typ": "yrkande från M, L och KD"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§59",
+      "typ": "paragraf",
+      "label": "§ 59 Motion av Emmyly Bönfors (C) och Axel Darvik (L) om att",
+      "data": {
+        "paragrafNr": "59",
+        "ärendeNr": "SLK-2025-00441",
+        "rubrik": "Motion av Emmyly Bönfors (C) och Axel Darvik (L) om att",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41
+        },
+        "yrkanden": [
+          {
+            "namn": "och Karin Karlsson",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från L i kommunstyrelsen och yrkande från SD"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§60",
+      "typ": "paragraf",
+      "label": "§ 60 Motion av Anneli Rhedin (M) om att införa en veteranbonus",
+      "data": {
+        "paragrafNr": "60",
+        "ärendeNr": "SLK-2025-00487",
+        "rubrik": "Motion av Anneli Rhedin (M) om att införa en veteranbonus",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nAnneli Rhedin",
+            "parti": "M",
+            "typ": "motionen."
+          },
+          {
+            "namn": "och Petra Elf",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§61",
+      "typ": "paragraf",
+      "label": "§ 61 Motion av Axel Darvik (L), Ann Catrine Fogelgren (L) och",
+      "data": {
+        "paragrafNr": "61",
+        "ärendeNr": "SLK-2024-01174",
+        "rubrik": "Motion av Axel Darvik (L), Ann Catrine Fogelgren (L) och",
+        "datum": "2026-02-26",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§62",
+      "typ": "paragraf",
+      "label": "§ 62 Motion av Emma Altenhammar (SD), Jörgen Fogelklou (SD)",
+      "data": {
+        "paragrafNr": "62",
+        "ärendeNr": "SLK-2025-00659",
+        "rubrik": "Motion av Emma Altenhammar (SD), Jörgen Fogelklou (SD)",
+        "datum": "2026-02-26",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 72,
+          "nej": 9
+        },
+        "yrkanden": [
+          {
+            "namn": "och Pär Gustafsson",
+            "parti": "L",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "yrkande från SD den 27 januari 2026."
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-g",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§63",
+      "typ": "paragraf",
+      "label": "§ 63 Motion av Mariette Höij (D) och Martin Wannholt (D) om att",
+      "data": {
+        "paragrafNr": "63",
+        "ärendeNr": "SLK-2025-00170",
+        "rubrik": "Motion av Mariette Höij (D) och Martin Wannholt (D) om att",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsmiljönämnden-i",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden i",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-stadsmilj",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden\nStadsmilj",
+      "data": {}
+    },
+    {
+      "id": "kf-2026-02-26-§64",
+      "typ": "paragraf",
+      "label": "§ 64 Ordningsfråga",
+      "data": {
+        "paragrafNr": "64",
+        "ärendeNr": "SLK-2026-00021",
+        "rubrik": "Ordningsfråga",
+        "datum": "2026-02-26",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§65",
+      "typ": "paragraf",
+      "label": "§ 65 Motion av Axel Darvik (L), Sofie Gyllenwaldt (M), Jessica Blixt",
+      "data": {
+        "paragrafNr": "65",
+        "ärendeNr": "SLK-2025-00748",
+        "rubrik": "Motion av Axel Darvik (L), Sofie Gyllenwaldt (M), Jessica Blixt",
+        "datum": "2026-02-26",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§66",
+      "typ": "paragraf",
+      "label": "§ 66 Motion av Anders Svensson (M) och Nina Miskovsky (M) om",
+      "data": {
+        "paragrafNr": "66",
+        "ärendeNr": "SLK-2025-00483",
+        "rubrik": "Motion av Anders Svensson (M) och Nina Miskovsky (M) om",
+        "datum": "2026-02-26",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§67",
+      "typ": "paragraf",
+      "label": "§ 67 Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou",
+      "data": {
+        "paragrafNr": "67",
+        "ärendeNr": "SLK-2025-00749",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou",
+        "datum": "2026-02-26",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§68",
+      "typ": "paragraf",
+      "label": "§ 68 Motion av Zagros Hama (M) om att inrätta en enhet",
+      "data": {
+        "paragrafNr": "68",
+        "ärendeNr": "SLK-2025-00942",
+        "rubrik": "Motion av Zagros Hama (M) om att inrätta en enhet",
+        "datum": "2026-02-26",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§69",
+      "typ": "paragraf",
+      "label": "§ 69 Interpellation av Kristina Bergman Alme (L) till ordföranden i",
+      "data": {
+        "paragrafNr": "69",
+        "ärendeNr": "SLK-2026-00182",
+        "rubrik": "Interpellation av Kristina Bergman Alme (L) till ordföranden i",
+        "datum": "2026-02-26",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "interpellation_väntar",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§70",
+      "typ": "paragraf",
+      "label": "§ 70 Interpellation av Mattias Tykesson (M) till äldre samt vårdoch omsorgsnämndens ordförande om tystnadskultur och",
+      "data": {
+        "paragrafNr": "70",
+        "ärendeNr": "SLK-2026-00229",
+        "rubrik": "Interpellation av Mattias Tykesson (M) till äldre samt vårdoch omsorgsnämndens ordförande om tystnadskultur och",
+        "datum": "2026-02-26",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "interpellation_väntar",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2026-02-26-§71",
+      "typ": "paragraf",
+      "label": "§ 71 Förteckning över anmälningsärenden",
+      "data": {
+        "paragrafNr": "71",
+        "ärendeNr": "SLK-2026-00020",
+        "rubrik": "Förteckning över anmälningsärenden",
+        "datum": "2026-02-26",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "kf-2026-02-26-§39",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§39",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§39",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§40",
+      "to": "kf-*-§532",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 532"
+    },
+    {
+      "from": "kf-2026-02-26-§40",
+      "to": "org-grundskolenämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§41",
+      "to": "kf-*-§533",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 533"
+    },
+    {
+      "from": "kf-2026-02-26-§41",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§42",
+      "to": "kf-*-§34",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 34"
+    },
+    {
+      "from": "kf-2026-02-26-§42",
+      "to": "org-grundskolenämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§42",
+      "to": "org-grundskolenämnden-viktoria",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§43",
+      "to": "kf-*-§35",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 35"
+    },
+    {
+      "from": "kf-2026-02-26-§43",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§43",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§46",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§46",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§46",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§46",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§46",
+      "to": "org-stadsbyggnadsnämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§47",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-miljö--och-klimatnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§48",
+      "to": "org-miljö--och-klimatnämnden-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§49",
+      "to": "org-kommunstyrelsen-samt",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§49",
+      "to": "org-kretslopp-och-vattennämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§49",
+      "to": "org-kretslopp-och-vattennämnden-att",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§49",
+      "to": "org-kretslopp-och-vattennämnden-att",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§49",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§49",
+      "to": "org-kommunstyrelsen-samt",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§49",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§49",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§49",
+      "to": "org-kretslopp-och-vattennämnden-milj",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-stadsfastighetsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-förskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-grundskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-stadsbyggnadsnämnden-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-stadsfastighetsnämnden-exploateringsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-förskolenämnden-grundskolen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§50",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§53",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§53",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§53",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§53",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§53",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§53",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§53",
+      "to": "org-kommunstyrelsen-jonas",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§54",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§54",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§54",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§54",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§54",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§55",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§55",
+      "to": "org-kommunstyrelsen-att",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§56",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§56",
+      "to": "org-kommunstyrelsen-givet",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§56",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§56",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§56",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§56",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§56",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§56",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§57",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§57",
+      "to": "org-kommunstyrelsen-att",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§57",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§57",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§57",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§57",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§58",
+      "to": "kf-*-§474",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 474"
+    },
+    {
+      "from": "kf-2026-02-26-§58",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§58",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§58",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§58",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§59",
+      "to": "kf-*-§528",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 528"
+    },
+    {
+      "from": "kf-2026-02-26-§59",
+      "to": "org-kommunstyrelsen-samt",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§59",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§59",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§59",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§59",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§60",
+      "to": "kf-*-§530",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 530"
+    },
+    {
+      "from": "kf-2026-02-26-§60",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§60",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§60",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§60",
+      "to": "org-förskolenämnden-grundskolen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§61",
+      "to": "kf-*-§531",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 531"
+    },
+    {
+      "from": "kf-2026-02-26-§62",
+      "to": "kf-*-§576",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 576"
+    },
+    {
+      "from": "kf-2026-02-26-§62",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§62",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§62",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§62",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§62",
+      "to": "org-grundskolenämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2026-02-26-§63",
+      "to": "kf-*-§577",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 577"
+    },
+    {
+      "from": "kf-2026-02-26-§63",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§63",
+      "to": "org-stadsmiljönämnden-i",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§63",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§63",
+      "to": "org-exploateringsnämnden-stadsmilj",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2026-02-26-§65",
+      "to": "kf-*-§33",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 33"
+    },
+    {
+      "from": "kf-2026-02-26-§71",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§37",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§38",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§39",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§40",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§41",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§42",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§43",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§44",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§45",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§46",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§47",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§48",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§49",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§50",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§51",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§52",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§53",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§54",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§55",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§56",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§57",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§58",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§59",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§60",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§61",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§62",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§63",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§64",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§65",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§66",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§67",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§68",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§69",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§70",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2026-02-26",
+      "to": "kf-2026-02-26-§71",
+      "typ": "beslut_av"
+    }
+  ]
+}
