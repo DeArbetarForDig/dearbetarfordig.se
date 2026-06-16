@@ -81,7 +81,7 @@ function parseYttrandeprotokoll(pdfPath: string): Anförande[] {
 function downloadAudio(url: string, outPath: string): void {
   console.log(`⬇️  Laddar ner audio...`)
   execSync(
-    `yt-dlp --extract-audio --audio-format wav --postprocessor-args "-ar 16000 -ac 1" -o "${outPath}" "${url}"`,
+    `yt-dlp --cookies-from-browser chrome --extract-audio --audio-format wav --postprocessor-args "-ar 16000 -ac 1" -o "${outPath}" "${url}"`,
     { stdio: 'inherit', timeout: 1800_000 },
   )
 }
