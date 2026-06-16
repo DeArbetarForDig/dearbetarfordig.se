@@ -123,6 +123,24 @@ describe('Investigation: Jäv och konflikter', () => {
     const partier = new Set(data.related.filter((n: any) => n.typ === 'politiker').map((n: any) => n.data?.parti))
     expect(partier.size).toBeGreaterThan(2)
   })
+
+  it('Politiker har bolagsuppdrag i grafen', async () => {
+    const { data: polList } = await get('/api/v1/goteborg/politiker?parti=L&limit=5')
+    let found = false
+    for (const pol of polList.politiker) {
+      const { data: node } = await get(`/api/v1/goteborg/graf/node/politiker-${pol.id}`)
+      const bolagEdges = node.edges.filter((e: any) => e.typ === 'bolagsuppdrag')
+      if (bolagEdges.length > 0) {
+        found = true
+        const bolagId = bolagEdges[0].to_id
+        const relatedBolag = node.related.find((r: any) => r.id === bolagId)
+        expect(relatedBolag).toBeDefined()
+        expect(relatedBolag.typ).toBe('bolag')
+        break
+      }
+    }
+    expect(found).toBe(true)
+  })
 })
 
 describe('Investigation: Bordläggning — varför fattas ej beslut?', () => {
