@@ -208,6 +208,61 @@ GET /api/v1/{kommun}/stats
 
 ---
 
+## Metrics (demokratiska nyckeltal)
+
+```
+GET /api/v1/{kommun}/metrics
+```
+
+Automatiskt beräknade KPI:er baserat på alla analyserade sammanträden.
+
+**Svar:**
+```json
+{
+  "kommun": "goteborg",
+  "period": "2022-2026",
+  "beslutskraft": {
+    "totalt": 40,
+    "bifall": 14,
+    "bordläggning": 26,
+    "beslutskraftProcent": 35,
+    "bordläggningsorsaker": {
+      "tid": 23,
+      "interpellation_väntar": 2,
+      "tidigare_bordlagd": 1
+    },
+    "analys": "Fler ärenden bordläggs än bifalls — indikerar överbelastad dagordning"
+  },
+  "konsensus": {
+    "totaltÄrenden": 53,
+    "utanVotering": 40,
+    "medVotering": 13,
+    "konsensusgradProcent": 75
+  },
+  "voteringar": {
+    "antal": 13,
+    "snittJa": 45,
+    "snittNej": 35
+  },
+  "partilojalitet": {
+    "S": { "röster": 176, "ja": 176, "nej": 0, "jaProcent": 100 },
+    "M": { "röster": 120, "ja": 15, "nej": 104, "jaProcent": 13 },
+    "C": { "röster": 24, "ja": 21, "nej": 0, "avstår": 3, "jaProcent": 88 }
+  }
+}
+```
+
+### Bordläggningsorsaker
+
+| Orsak | Betydelse |
+|-------|-----------|
+| `tid` | Sammanträdet gick över tid (arbetsordning) — ärenden bordläggs automatiskt |
+| `interpellation_väntar` | Interpellant eller svaranden ej närvarande |
+| `tidigare_bordlagd` | Ärendet var redan bordlagt från förra mötet |
+| `övrigt` | Annan orsak |
+
+---
+
 ## Felhantering
 
 ```json
