@@ -31,8 +31,8 @@ describe('Smoke tests — alla endpoints svarar', () => {
   })
 
   it('GET /api/v1/goteborg/politiker → har politiker', async () => {
-    const { data } = await get('/api/v1/goteborg/politiker')
-    expect(data.antal).toBeGreaterThanOrEqual(100) // capped at 100 by limit
+    const { data } = await get('/api/v1/goteborg/politiker?limit=125')
+    expect(data.antal).toBe(125)
     expect(data.politiker[0]).toHaveProperty('id')
     expect(data.politiker[0]).toHaveProperty('namn')
     expect(data.politiker[0]).toHaveProperty('parti')
@@ -86,7 +86,9 @@ describe('Smoke tests — alla endpoints svarar', () => {
 
   it('404 för okänd kommun', async () => {
     const res = await fetch(`${BASE}/api/v1/stockholm/politiker`)
-    expect(res.status).toBe(500) // Will error since schema doesn't exist
+    expect(res.status).toBe(404)
+    const data = await res.json()
+    expect(data.error).toContain('finns inte')
   })
 })
 
