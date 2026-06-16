@@ -3,7 +3,7 @@
 # Run overnight: ./scripts/transcribe-all.sh
 # Safe to interrupt (Ctrl+C) — will resume from where it stopped
 
-set -e
+set -euo pipefail is removed intentionally — we want to continue on errors
 cd "$(dirname "$0")/.."
 
 PIPELINE="packages/pipeline/src/transcription/run.ts"
@@ -83,6 +83,10 @@ for entry in "${MEETINGS[@]}"; do
   DONE=$((DONE + 1))
   echo ""
   echo "   ✓ Klart: $DONE | Kvar: $((${#MEETINGS[@]} - DONE - SKIPPED))"
+
+  # Paus mellan nedladdningar (undviker YouTube rate limit)
+  echo "   💤 Väntar 60s innan nästa..."
+  sleep 60
 done
 
 echo ""
