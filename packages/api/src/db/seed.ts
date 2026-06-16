@@ -81,7 +81,7 @@ async function main() {
     for (const p of polData.politiker) {
       await client`
         INSERT INTO goteborg.politiker (id, fornamn, efternamn, parti, email, uppdrag)
-        VALUES (${p.id}, ${p.förnamn}, ${p.efternamn}, ${p.parti}, ${p.email}, ${JSON.stringify(p.uppdrag)})
+        VALUES (${p.id}, ${p.förnamn}, ${p.efternamn}, ${p.parti}, ${p.email}, ${client.json(p.uppdrag)})
         ON CONFLICT (id) DO UPDATE SET
           fornamn = EXCLUDED.fornamn, efternamn = EXCLUDED.efternamn,
           parti = EXCLUDED.parti, email = EXCLUDED.email, uppdrag = EXCLUDED.uppdrag`
@@ -105,7 +105,7 @@ async function main() {
       for (const node of graph.nodes) {
         await client`
           INSERT INTO goteborg.graf_nodes (id, typ, label, data)
-          VALUES (${node.id}, ${node.typ}, ${node.label}, ${JSON.stringify(node.data)})
+          VALUES (${node.id}, ${node.typ}, ${node.label}, ${client.json(node.data)})
           ON CONFLICT (id) DO UPDATE SET typ = EXCLUDED.typ, label = EXCLUDED.label, data = EXCLUDED.data`
         totalNodes++
       }
@@ -114,7 +114,7 @@ async function main() {
         try {
           await client`
             INSERT INTO goteborg.graf_edges (from_id, to_id, typ, label, data)
-            VALUES (${edge.from}, ${edge.to}, ${edge.typ}, ${edge.label || null}, ${edge.data ? JSON.stringify(edge.data) : null})`
+            VALUES (${edge.from}, ${edge.to}, ${edge.typ}, ${edge.label || null}, ${edge.data ? client.json(edge.data) : null})`
           totalEdges++
         } catch { /* skip edges with missing nodes */ }
       }
