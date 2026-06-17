@@ -52,7 +52,6 @@ text {
 
 .seat {
   stroke: none;
-  cursor: pointer;
   &.parti-s { 
     fill: var(--parti-s);
   }
