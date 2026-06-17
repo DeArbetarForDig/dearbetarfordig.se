@@ -5,7 +5,7 @@
  * Based on design foundations: 8px grid, categorical/status palettes.
  */
 
-:root {
+:root, svg {
   /* Spacing — 8px grid */
   --space-xs: 4px;
   --space-sm: 8px;
@@ -15,6 +15,18 @@
   --space-2xl: 48px;
 
   /* Typography */
+  /* Partifärger (verifierade från partisajter + riksdagen.se) */
+  --parti-s: #ed1b34;
+  --parti-m: #213a8f;
+  --parti-sd: #fbc700;
+  --parti-v: #da291c;
+  --parti-c: #114838;
+  --parti-kd: #231977;
+  --parti-mp: #4c983e;
+  --parti-l: #0077c8;
+  --parti-d: #1b1b1b;
+  --parti-ovriga: #888888;
+
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --font-size-small: 0.75rem;
@@ -36,7 +48,7 @@
   --transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Status — same in both themes (Design principle) */
-  --color-positive: #16A34A;
+  --color-positive: #4cef87;
   --color-negative: #DC2626;
   --color-warning: #EAB308;
   --color-info: #2563EB;
@@ -57,4 +69,8 @@
   --vote-nej: #DC2626;
   --vote-avstår: #EAB308;
   --vote-frånvarande: #64748B;
+
+  /* Main colors */
+  --system-balck: #1E293B;
+  --system-white: #F1F5F9;
 }

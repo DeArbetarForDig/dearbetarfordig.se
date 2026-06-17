@@ -21,7 +21,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@daf/shared": "workspace:*"
+    "@daf/shared": "workspace:*",
+    "lucide-static": "0.469.0"
   },
   "devDependencies": {
     "typescript": "5.7.3"

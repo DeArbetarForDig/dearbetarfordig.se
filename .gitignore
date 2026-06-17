@@ -14,3 +14,4 @@ docs/reference/*/
 package-lock.json
 /.secrets/
 data/inbox/*.pdf
+.vscode/*
