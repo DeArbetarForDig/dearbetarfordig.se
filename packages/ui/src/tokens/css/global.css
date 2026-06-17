@@ -48,7 +48,7 @@
   --transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Status — same in both themes (Design principle) */
-  --color-positive: #4cef87;
+  --color-positive: #16A34A;
   --color-negative: #DC2626;
   --color-warning: #EAB308;
   --color-info: #2563EB;
@@ -71,6 +71,6 @@
   --vote-frånvarande: #64748B;
 
   /* Main colors */
-  --system-balck: #1E293B;
-  --system-white: #F1F5F9;
+  --system-balck: #242424;
+  --system-white: #fff;
 }
