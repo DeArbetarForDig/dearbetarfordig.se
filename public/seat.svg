@@ -1,0 +1,43 @@
+<svg style="background:#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200" role="img" aria-label="Göteborgs kommunfullmäktige — 81 ledamöter">
+  <defs>
+    <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="lightgray" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#smallGrid)"/>
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="gray" stroke-width="1"/>
+    </pattern>
+      <style>
+      @import url("../packages/ui/src/tokens/css/global.css");
+      @import url("../packages/ui/src/tokens/css/svg.css");
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+  <svg x="10" y="10">
+    <rect x="0" y="0" width="50" height="30" class="vote yes" rx="6"/>
+    <text x="20" y="17" class="h3">78</text>
+    <!-- Vote -->
+    <circle cx="42" cy="22" r="12" class="seat parti-mp" />
+    <text x="42" y="23.5" class="inverse">MP</text>
+  </svg>
+
+
+
+
+  <circle cx="50" cy="100" r="12" class="seat parti-s" />
+  <text x="50" y="102" class="inverse">S</text>
+  <circle cx="50" cy="130" r="12" class="seat parti-m" />
+  <text x="50" y="131.5" class="inverse">M</text>
+  <circle cx="50" cy="160" r="12" class="seat parti-sd" />
+  <text x="50" y="161.5" class="inverse">SD</text>
+  <circle cx="50" cy="190" r="12" class="seat parti-mp" />
+  <text x="50" y="191.5" class="inverse">MP</text>
+  <circle cx="80" cy="100" r="12" class="seat parti-c" />
+  <text x="80" y="101.5" class="inverse">C</text>
+  <circle cx="80" cy="130" r="12" class="seat parti-v" />
+  <text x="80" y="131.5" class="inverse">V</text>
+  <circle cx="80" cy="160" r="12" class="seat parti-kd" />
+  <text x="80" y="161.5" class="inverse">KD</text>
+  <circle cx="80" cy="190" r="12" class="seat parti-l" />
+  <text x="80" y="191.5" class="inverse">L</text>
+</svg>

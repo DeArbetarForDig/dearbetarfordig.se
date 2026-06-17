@@ -1,0 +1,503 @@
+<svg style="background:#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-label="Göteborgs kommunfullmäktige — 81 ledamöter">
+  <defs>
+    <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="lightgray" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#smallGrid)"/>
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="gray" stroke-width="1"/>
+    </pattern>
+      <style>
+      @import url("../packages/ui/src/tokens/css/global.css");
+      @import url("../packages/ui/src/tokens/css/light.css");
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+  <g class="seat" data-nummer="1" data-party="SD">
+      <title>Agneta Kjaerbeck (SD)</title>
+      <rect x="250.51268401875262" y="434.08753025843754" width="33.6" height="23.52" rx="3" fill="#DDDD00" />
+      <text x="267.31268401875263" y="448.84753025843753" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">1</text>
+      
+    </g>
+    <g class="seat" data-nummer="2" data-party="S">
+      <title>Alfred Ekman (S)</title>
+      <rect x="271.9367185171034" y="427.1264394771501" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="288.7367185171034" y="441.8864394771501" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">2</text>
+      
+    </g>
+    <g class="seat" data-nummer="3" data-party="L">
+      <title>Allan Stutzinsky (L)</title>
+      <rect x="294.4632814828966" y="427.1264394771501" width="33.6" height="23.52" rx="3" fill="#006AB3" />
+      <text x="311.2632814828966" y="441.8864394771501" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">3</text>
+      
+    </g>
+    <g class="seat" data-nummer="4" data-party="M">
+      <title>Anders Sundberg (M)</title>
+      <rect x="315.88731598124735" y="434.0875302584375" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="332.68731598124737" y="448.8475302584375" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">4</text>
+      
+    </g>
+    <g class="seat" data-nummer="5" data-party="M">
+      <title>Anders Svensson (M)</title>
+      <rect x="165.58713880713543" y="438.31325403437984" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="182.38713880713544" y="453.07325403437983" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">5</text>
+      
+    </g>
+    <g class="seat" data-nummer="6" data-party="S">
+      <title>Andreas Sjöö (S)</title>
+      <rect x="183.5783354105941" y="411.6402081732531" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="200.3783354105941" y="426.4002081732531" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">6</text>
+      
+    </g>
+    <g class="seat" data-nummer="7" data-party="L">
+      <title>Ann Catrine Fogelgren (L)</title>
+      <rect x="207.4879104016619" y="390.1119301538531" width="33.6" height="23.52" rx="3" fill="#006AB3" />
+      <text x="224.28791040166192" y="404.8719301538531" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">7</text>
+      
+    </g>
+    <g class="seat" data-nummer="8" data-party="C">
+      <title>Anna Sara Hansson Perslow (C)</title>
+      <rect x="235.89543066002034" y="375.0073837023694" width="33.6" height="23.52" rx="3" fill="#009933" />
+      <text x="252.69543066002035" y="389.7673837023694" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">8</text>
+      
+    </g>
+    <g class="seat" data-nummer="9" data-party="S">
+      <title>Anneli Eriksson (S)</title>
+      <rect x="267.1132466705205" y="367.2239079833455" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="283.9132466705205" y="381.9839079833455" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">9</text>
+      
+    </g>
+    <g class="seat" data-nummer="10" data-party="M">
+      <title>Anneli Rhedin (M)</title>
+      <rect x="299.28675332947944" y="367.2239079833455" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="316.08675332947945" y="381.9839079833455" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">10</text>
+      
+    </g>
+    <g class="seat" data-nummer="11" data-party="S">
+      <title>Annelie Schagerström (S)</title>
+      <rect x="330.5045693399796" y="375.00738370236934" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="347.3045693399796" y="389.76738370236933" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">11</text>
+      
+    </g>
+    <g class="seat" data-nummer="12" data-party="S">
+      <title>Aslan Akbas (S)</title>
+      <rect x="358.912089598338" y="390.11193015385305" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="375.712089598338" y="404.87193015385304" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">12</text>
+      
+    </g>
+    <g class="seat" data-nummer="13" data-party="L">
+      <title>Axel Darvik (L)</title>
+      <rect x="382.8216645894059" y="411.640208173253" width="33.6" height="23.52" rx="3" fill="#006AB3" />
+      <text x="399.6216645894059" y="426.40020817325296" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">13</text>
+      
+    </g>
+    <g class="seat" data-nummer="14" data-party="M">
+      <title>Axel Josefson (M)</title>
+      <rect x="400.81286119286455" y="438.31325403437984" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="417.61286119286456" y="453.07325403437983" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">14</text>
+      
+    </g>
+    <g class="seat" data-nummer="15" data-party="V">
+      <title>Bettan Andersson (V)</title>
+      <rect x="106.78070821070317" y="408.34988105156975" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="123.58070821070316" y="423.10988105156974" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">15</text>
+      
+    </g>
+    <g class="seat" data-nummer="16" data-party="S">
+      <title>Blerta Hoti Singh (S)</title>
+      <rect x="128.14584934585002" y="375.10507252237426" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="144.94584934585004" y="389.86507252237425" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">16</text>
+      
+    </g>
+    <g class="seat" data-nummer="17" data-party="MP">
+      <title>Bosse Parbring (MP)</title>
+      <rect x="155.6875536270466" y="346.76532878403503" width="33.6" height="23.52" rx="3" fill="#83CF39" />
+      <text x="172.48755362704662" y="361.525328784035" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">17</text>
+      
+    </g>
+    <g class="seat" data-nummer="18" data-party="S">
+      <title>Camilla Widman (S)</title>
+      <rect x="188.3087006294287" y="324.4595600656834" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="205.1087006294287" y="339.21956006568337" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">18</text>
+      
+    </g>
+    <g class="seat" data-nummer="19" data-party="M">
+      <title>Cecilia Magnusson (M)</title>
+      <rect x="224.70983094796438" y="309.07631393878927" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="241.5098309479644" y="323.83631393878926" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">19</text>
+      
+    </g>
+    <g class="seat" data-nummer="20" data-party="S">
+      <title>Claes Söderling (S)</title>
+      <rect x="263.440910004079" y="301.2283801332188" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="280.240910004079" y="315.9883801332188" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">20</text>
+      
+    </g>
+    <g class="seat" data-nummer="21" data-party="S">
+      <title>Claudia Nistor Pedrini (S)</title>
+      <rect x="302.9590899959209" y="301.2283801332188" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="319.75908999592093" y="315.9883801332188" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">21</text>
+      
+    </g>
+    <g class="seat" data-nummer="22" data-party="V">
+      <title>Daniel Bernmar (V)</title>
+      <rect x="341.69016905203557" y="309.07631393878927" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="358.4901690520356" y="323.83631393878926" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">22</text>
+      
+    </g>
+    <g class="seat" data-nummer="23" data-party="SD">
+      <title>Emma Yllivallo Altenhammar (SD)</title>
+      <rect x="378.09129937057116" y="324.4595600656834" width="33.6" height="23.52" rx="3" fill="#DDDD00" />
+      <text x="394.8912993705712" y="339.21956006568337" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">23</text>
+      
+    </g>
+    <g class="seat" data-nummer="24" data-party="V">
+      <title>Emma Öman (V)</title>
+      <rect x="410.71244637295337" y="346.765328784035" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="427.5124463729534" y="361.52532878403497" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">24</text>
+      
+    </g>
+    <g class="seat" data-nummer="25" data-party="C">
+      <title>Emmyly Bönfors Jansson (C)</title>
+      <rect x="438.25415065414995" y="375.10507252237426" width="33.6" height="23.52" rx="3" fill="#009933" />
+      <text x="455.05415065414996" y="389.86507252237425" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">25</text>
+      
+    </g>
+    <g class="seat" data-nummer="26" data-party="L">
+      <title>Eva Flyborg (L)</title>
+      <rect x="459.6192917892968" y="408.3498810515697" width="33.6" height="23.52" rx="3" fill="#006AB3" />
+      <text x="476.41929178929684" y="423.1098810515697" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">26</text>
+      
+    </g>
+    <g class="seat" data-nummer="27" data-party="MP">
+      <title>Eva Ternegren (MP)</title>
+      <rect x="47.97427761427089" y="378.38650806875967" width="33.6" height="23.52" rx="3" fill="#83CF39" />
+      <text x="64.77427761427089" y="393.14650806875966" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">27</text>
+      
+    </g>
+    <g class="seat" data-nummer="28" data-party="V">
+      <title>Grith Fjeldmose (V)</title>
+      <rect x="71.51004983505355" y="340.495380443064" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="88.31004983505355" y="355.255380443064" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">28</text>
+      
+    </g>
+    <g class="seat" data-nummer="29" data-party="M">
+      <title>Hakan Önal (M)</title>
+      <rect x="101.08911248831076" y="307.1075206834148" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="117.88911248831076" y="321.8675206834148" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">29</text>
+      
+    </g>
+    <g class="seat" data-nummer="30" data-party="M">
+      <title>Hampus Magnusson (M)</title>
+      <rect x="135.86704728118215" y="279.17608000596135" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="152.66704728118216" y="293.93608000596134" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">30</text>
+      
+    </g>
+    <g class="seat" data-nummer="31" data-party="S">
+      <title>Hanan Baalbaki (S)</title>
+      <rect x="174.8510193604722" y="257.4984406580882" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="191.65101936047222" y="272.2584406580882" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">31</text>
+      
+    </g>
+    <g class="seat" data-nummer="32" data-party="V">
+      <title>Hannah Klang (V)</title>
+      <rect x="216.92812060133568" y="242.69345237908436" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="233.7281206013357" y="257.45345237908435" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">32</text>
+      
+    </g>
+    <g class="seat" data-nummer="33" data-party="C">
+      <title>Hans Arby (C)</title>
+      <rect x="260.89714072828707" y="235.1837655779545" width="33.6" height="23.52" rx="3" fill="#009933" />
+      <text x="277.6971407282871" y="249.94376557795448" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">33</text>
+      
+    </g>
+    <g class="seat" data-nummer="34" data-party="MP">
+      <title>Helena Norin (MP)</title>
+      <rect x="305.5028592717128" y="235.1837655779545" width="33.6" height="23.52" rx="3" fill="#83CF39" />
+      <text x="322.3028592717128" y="249.94376557795448" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">34</text>
+      
+    </g>
+    <g class="seat" data-nummer="35" data-party="M">
+      <title>Henrik Sjöstrand (M)</title>
+      <rect x="349.47187939866427" y="242.69345237908436" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="366.2718793986643" y="257.45345237908435" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">35</text>
+      
+    </g>
+    <g class="seat" data-nummer="36" data-party="V">
+      <title>Håkan Eriksson (V)</title>
+      <rect x="391.5489806395277" y="257.4984406580882" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="408.3489806395277" y="272.2584406580882" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">36</text>
+      
+    </g>
+    <g class="seat" data-nummer="37" data-party="S">
+      <title>Håkan Hallengren (S)</title>
+      <rect x="430.5329527188178" y="279.1760800059613" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="447.3329527188178" y="293.9360800059613" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">37</text>
+      
+    </g>
+    <g class="seat" data-nummer="38" data-party="V">
+      <title>Jenny Broman (V)</title>
+      <rect x="465.3108875116892" y="307.1075206834148" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="482.1108875116892" y="321.8675206834148" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">38</text>
+      
+    </g>
+    <g class="seat" data-nummer="39" data-party="V">
+      <title>Jesper Berglund (V)</title>
+      <rect x="494.88995016494647" y="340.49538044306394" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="511.6899501649465" y="355.2553804430639" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">39</text>
+      
+    </g>
+    <g class="seat" data-nummer="40" data-party="D">
+      <title>Jessica Blixt (D)</title>
+      <rect x="518.4257223857292" y="378.38650806875967" width="33.6" height="23.52" rx="3" fill="#94A3B8" />
+      <text x="535.2257223857291" y="393.14650806875966" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">40</text>
+      
+    </g>
+    <g class="seat" data-nummer="41" data-party="V">
+      <title>Johan Zandin (V)</title>
+      <rect x="-10.832152982161393" y="348.4231350859495" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="5.967847017838608" y="363.1831350859495" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">41</text>
+      
+    </g>
+    <g class="seat" data-nummer="42" data-party="KD">
+      <title>Johanna Holmdahl (KD)</title>
+      <rect x="14.207827409577089" y="307.077213126916" width="33.6" height="23.52" rx="3" fill="#005DA6" />
+      <text x="31.00782740957709" y="321.83721312691597" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">42</text>
+      
+    </g>
+    <g class="seat" data-nummer="43" data-party="S">
+      <title>Jonas Attenius (S)</title>
+      <rect x="45.019124727540444" y="269.8327526227657" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="61.81912472754044" y="284.5927526227657" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">43</text>
+      
+    </g>
+    <g class="seat" data-nummer="44" data-party="V">
+      <title>Jonas Nilsson Wirdemo (V)</title>
+      <rect x="80.94067229451774" y="237.48884591602223" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="97.74067229451774" y="252.24884591602222" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">44</text>
+      
+    </g>
+    <g class="seat" data-nummer="45" data-party="SD">
+      <title>Jörgen Fogelklou (SD)</title>
+      <rect x="121.20176130700348" y="210.7394423303375" width="33.6" height="23.52" rx="3" fill="#DDDD00" />
+      <text x="138.00176130700348" y="225.4994423303375" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">45</text>
+      
+    </g>
+    <g class="seat" data-nummer="46" data-party="KD">
+      <title>Kalle Bäck (KD)</title>
+      <rect x="164.93857665005086" y="190.15845925592345" width="33.6" height="23.52" rx="3" fill="#005DA6" />
+      <text x="181.73857665005087" y="204.91845925592344" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">46</text>
+      
+    </g>
+    <g class="seat" data-nummer="47" data-party="V">
+      <title>Karin Karlsson (V)</title>
+      <rect x="211.21273033914088" y="176.1874685602134" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="228.0127303391409" y="190.9474685602134" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">47</text>
+      
+    </g>
+    <g class="seat" data-nummer="48" data-party="MP">
+      <title>Karin Pleijel (MP)</title>
+      <rect x="259.03139494788155" y="169.12622251592882" width="33.6" height="23.52" rx="3" fill="#83CF39" />
+      <text x="275.83139494788156" y="183.8862225159288" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">48</text>
+      
+    </g>
+    <g class="seat" data-nummer="49" data-party="S">
+      <title>Kochar Wallad Begi (S)</title>
+      <rect x="307.36860505211837" y="169.12622251592882" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="324.1686050521184" y="183.8862225159288" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">49</text>
+      
+    </g>
+    <g class="seat" data-nummer="50" data-party="SD">
+      <title>Krista Femrell (SD)</title>
+      <rect x="355.18726966085893" y="176.18746856021335" width="33.6" height="23.52" rx="3" fill="#DDDD00" />
+      <text x="371.98726966085894" y="190.94746856021334" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">50</text>
+      
+    </g>
+    <g class="seat" data-nummer="51" data-party="KD">
+      <title>Kristina Norén Lallo (KD)</title>
+      <rect x="401.46142334994903" y="190.1584592559234" width="33.6" height="23.52" rx="3" fill="#005DA6" />
+      <text x="418.26142334994904" y="204.91845925592338" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">51</text>
+      
+    </g>
+    <g class="seat" data-nummer="52" data-party="SD">
+      <title>Lena Ferm (SD)</title>
+      <rect x="445.1982386929964" y="210.7394423303375" width="33.6" height="23.52" rx="3" fill="#DDDD00" />
+      <text x="461.99823869299644" y="225.4994423303375" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">52</text>
+      
+    </g>
+    <g class="seat" data-nummer="53" data-party="S">
+      <title>Lena Landén-Olsson (S)</title>
+      <rect x="485.45932770548217" y="237.48884591602211" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="502.2593277054822" y="252.2488459160221" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">53</text>
+      
+    </g>
+    <g class="seat" data-nummer="54" data-party="M">
+      <title>Lena Lindström Olinder (M)</title>
+      <rect x="521.3808752724595" y="269.8327526227657" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="538.1808752724595" y="284.5927526227657" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">54</text>
+      
+    </g>
+    <g class="seat" data-nummer="55" data-party="S">
+      <title>Linnea Tellefsdal (S)</title>
+      <rect x="552.192172590423" y="307.07721312691604" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="568.9921725904229" y="321.837213126916" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">55</text>
+      
+    </g>
+    <g class="seat" data-nummer="56" data-party="D">
+      <title>Lisbeth Sundén Andersson (D)</title>
+      <rect x="577.2321529821614" y="348.4231350859495" width="33.6" height="23.52" rx="3" fill="#94A3B8" />
+      <text x="594.0321529821614" y="363.1831350859495" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">56</text>
+      
+    </g>
+    <g class="seat" data-nummer="57" data-party="M">
+      <title>Margareta Andersson Broang (M)</title>
+      <rect x="-69.63858357859367" y="318.4597621031395" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="-52.83858357859367" y="333.2197621031395" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">57</text>
+      
+    </g>
+    <g class="seat" data-nummer="58" data-party="V">
+      <title>Maria Wåhlin (V)</title>
+      <rect x="-43.49899994092776" y="274.4459798886536" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="-26.698999940927763" y="289.2059798886536" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">58</text>
+      
+    </g>
+    <g class="seat" data-nummer="59" data-party="V">
+      <title>Marie Brynolfsson (V)</title>
+      <rect x="-11.900077061577168" y="234.17193203597827" width="33.6" height="23.52" rx="3" fill="#DA291C" />
+      <text x="4.899922938422833" y="248.93193203597826" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">59</text>
+      
+    </g>
+    <g class="seat" data-nummer="60" data-party="D">
+      <title>Mariette Höij (D)</title>
+      <rect x="24.63014781507884" y="198.31062241076148" width="33.6" height="23.52" rx="3" fill="#94A3B8" />
+      <text x="41.43014781507884" y="213.07062241076147" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">60</text>
+      
+    </g>
+    <g class="seat" data-nummer="61" data-party="S">
+      <title>Marina Johansson (S)</title>
+      <rect x="65.48123238522938" y="167.46131533560765" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="82.28123238522937" y="182.22131533560764" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">61</text>
+      
+    </g>
+    <g class="seat" data-nummer="62" data-party="D">
+      <title>Martin Wannholt (D)</title>
+      <rect x="109.97053014827434" y="142.1395215183079" width="33.6" height="23.52" rx="3" fill="#94A3B8" />
+      <text x="126.77053014827433" y="156.8995215183079" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">62</text>
+      
+    </g>
+    <g class="seat" data-nummer="63" data-party="S">
+      <title>Mats Arnsmar (S)</title>
+      <rect x="157.35459784556693" y="122.7683835539775" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="174.15459784556694" y="137.5283835539775" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">63</text>
+      
+    </g>
+    <g class="seat" data-nummer="64" data-party="M">
+      <title>Mattias Tykesson (M)</title>
+      <rect x="206.84161885000609" y="109.67160495460745" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="223.6416188500061" y="124.43160495460745" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">64</text>
+      
+    </g>
+    <g class="seat" data-nummer="65" data-party="M">
+      <title>Nina Miskovsky (M)</title>
+      <rect x="257.6046349040752" y="103.06804086624986" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="274.40463490407524" y="117.82804086624986" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">65</text>
+      
+    </g>
+    <g class="seat" data-nummer="66" data-party="S">
+      <title>Parisa Rezaeivar (S)</title>
+      <rect x="308.79536509592464" y="103.0680408662498" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="325.59536509592465" y="117.82804086624981" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">66</text>
+      
+    </g>
+    <g class="seat" data-nummer="67" data-party="D">
+      <title>Patrik Höstmad (D)</title>
+      <rect x="359.55838114999386" y="109.67160495460739" width="33.6" height="23.52" rx="3" fill="#94A3B8" />
+      <text x="376.3583811499939" y="124.4316049546074" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">67</text>
+      
+    </g>
+    <g class="seat" data-nummer="68" data-party="SD">
+      <title>Per-Eric Trulsson (SD)</title>
+      <rect x="409.045402154433" y="122.7683835539775" width="33.6" height="23.52" rx="3" fill="#DDDD00" />
+      <text x="425.84540215443303" y="137.5283835539775" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">68</text>
+      
+    </g>
+    <g class="seat" data-nummer="69" data-party="MP">
+      <title>Petra Elf (MP)</title>
+      <rect x="456.4294698517256" y="142.13952151830784" width="33.6" height="23.52" rx="3" fill="#83CF39" />
+      <text x="473.22946985172564" y="156.89952151830784" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">69</text>
+      
+    </g>
+    <g class="seat" data-nummer="70" data-party="L">
+      <title>Pär Gustafsson (L)</title>
+      <rect x="500.9187676147705" y="167.4613153356076" width="33.6" height="23.52" rx="3" fill="#006AB3" />
+      <text x="517.7187676147705" y="182.22131533560758" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">70</text>
+      
+    </g>
+    <g class="seat" data-nummer="71" data-party="SD">
+      <title>Rasmus Ragnarsson (SD)</title>
+      <rect x="541.7698521849211" y="198.31062241076143" width="33.6" height="23.52" rx="3" fill="#DDDD00" />
+      <text x="558.569852184921" y="213.07062241076142" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">71</text>
+      
+    </g>
+    <g class="seat" data-nummer="72" data-party="S">
+      <title>Robert Andersson Hammarstrand (S)</title>
+      <rect x="578.3000770615772" y="234.17193203597822" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="595.1000770615772" y="248.9319320359782" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">72</text>
+      
+    </g>
+    <g class="seat" data-nummer="73" data-party="S">
+      <title>Roshan Yigit (S)</title>
+      <rect x="609.8989999409278" y="274.4459798886536" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="626.6989999409277" y="289.2059798886536" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">73</text>
+      
+    </g>
+    <g class="seat" data-nummer="74" data-party="KD">
+      <title>Samuel Bråse (KD)</title>
+      <rect x="636.0385835785937" y="318.45976210313944" width="33.6" height="23.52" rx="3" fill="#005DA6" />
+      <text x="652.8385835785937" y="333.21976210313943" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">74</text>
+      
+    </g>
+    <g class="seat" data-nummer="75" data-party="M">
+      <title>Sarah Ullmark (M)</title>
+      <rect x="-128.44501417502596" y="288.49638912032935" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="-111.64501417502595" y="303.25638912032935" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">75</text>
+      
+    </g>
+    <g class="seat" data-nummer="76" data-party="M">
+      <title>Sofie Gyllenwaldt (M)</title>
+      <rect x="-25.938340137792512" y="154.90709062944387" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="-9.138340137792511" y="169.66709062944386" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">76</text>
+      
+    </g>
+    <g class="seat" data-nummer="77" data-party="S">
+      <title>Staffan Lindström (S)</title>
+      <rect x="117.63400731007123" y="66.92584295829276" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="134.43400731007122" y="81.68584295829277" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">77</text>
+      
+    </g>
+    <g class="seat" data-nummer="78" data-party="M">
+      <title>Toni Orsulic (M)</title>
+      <rect x="283.2" y="36.24" width="33.6" height="23.52" rx="3" fill="#52BDEC" />
+      <text x="300" y="51" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">78</text>
+      
+    </g>
+    <g class="seat" data-nummer="79" data-party="SD">
+      <title>Tony Liljendahl (SD)</title>
+      <rect x="448.7659926899286" y="66.92584295829276" width="33.6" height="23.52" rx="3" fill="#DDDD00" />
+      <text x="465.56599268992863" y="81.68584295829277" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">79</text>
+      
+    </g>
+    <g class="seat" data-nummer="80" data-party="S">
+      <title>Viktoria Tryggvadottir Rolka (S)</title>
+      <rect x="592.3383401377926" y="154.90709062944387" width="33.6" height="23.52" rx="3" fill="#ED1B34" />
+      <text x="609.1383401377925" y="169.66709062944386" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">80</text>
+      
+    </g>
+    <g class="seat" data-nummer="81" data-party="SD">
+      <title>Yvonne Stafrén (SD)</title>
+      <rect x="694.8450141750259" y="288.49638912032935" width="33.6" height="23.52" rx="3" fill="#DDDD00" />
+      <text x="711.6450141750258" y="303.25638912032935" text-anchor="middle" font-size="10.799999999999999" fill="white" font-weight="bold">81</text>
+      
+    </g>
+  
+</svg>
