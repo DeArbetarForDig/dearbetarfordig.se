@@ -14,6 +14,27 @@
   --space-xl: 32px;
   --space-2xl: 48px;
 
+  /* Shades */
+  --gray-05: #0c0c0c;
+  --gray-09: #181818;
+  --gray-14: #242424;
+  --gray-22: #383838;
+  --gray-23: #3a3a3a;
+  --gray-23: #3a3a3a;
+  --gray-31: #4e4e4e;
+  --gray-42: #6a6a6a;
+  --gray-46: #767676;
+  --gray-53: #878787;
+  --gray-55: #8b8b8b;
+  --gray-68: #adadad;
+  --gray-82: #d1d1d1;
+  --gray-82: #d1d1d1;
+  --gray-86: #dcdcdc;
+  --gray-92: #ebebeb;
+  --gray-95: #f2f2f2;
+  --gray-98: #fafafa;
+  --white: #fff;
+
   /* Typography */
   /* Partifärger (verifierade från partisajter + riksdagen.se) */
   --parti-s: #ed1b34;
@@ -71,6 +92,6 @@
   --vote-frånvarande: #64748B;
 
   /* Main colors */
-  --system-balck: #242424;
-  --system-white: #fff;
+  --system-balck: var(--gray-14);
+  --system-white: var(--white);
 }

@@ -13,7 +13,7 @@
     </style>
 
     <clipPath id="seat">
-      <rect x="0" y="0" width="60" height="50" rx="8"/>
+      <rect x="0" y="0" width="60" height="40" rx="8"/>
     </clipPath>
 
     <symbol id="mic">
@@ -32,9 +32,9 @@
       <g clip-path="url(#seat)">
         <rect x="0" y="0" width="100%" height="100%" class="vote ja"/>
         <use href="#motion" x="0" y="1"/>
-        <rect x="25" y="8" width="50" height="34" class="shadow" rx="17" transform="rotate(45, 40, 25)"/>
-        <circle cx="40" cy="25" r="17" class="seat parti-c" />
-        <text x="40" y="27" class="h2 inverse">C</text>
+        <rect x="23" y="3" width="50" height="34" class="shadow" rx="17" transform="rotate(43, 40, 20)"/>
+        <circle cx="40" cy="20" r="17" class="seat parti-c" />
+        <text x="40" y="22" class="h2 inverse">C</text>
       </g>
     </svg>
 
@@ -42,9 +42,9 @@
       <g clip-path="url(#seat)">
         <rect x="0" y="0" width="100%" height="100%" class="vote nej"/>
         <use href="#mic" x="0" y="1"/>
-        <rect x="25" y="8" width="50" height="34" class="shadow" rx="17" transform="rotate(45, 40, 25)"/>
-        <circle cx="40" cy="25" r="17" class="seat parti-s" />
-        <text x="40" y="27" class="h2 inverse">S</text>
+        <rect x="23" y="3" width="50" height="34" class="shadow" rx="17" transform="rotate(45, 40, 20)"/>
+        <circle cx="40" cy="20" r="17" class="seat parti-s" />
+        <text x="40" y="22" class="h2 inverse">S</text>
       </g>
     </svg>
 
@@ -52,18 +52,28 @@
       <g clip-path="url(#seat)">
         <rect x="0" y="0" width="100%" height="100%" class="vote avstår"/>
         <use href="#mic" x="0" y="1"/>
-        <rect x="25" y="8" width="50" height="34" class="shadow" rx="17" transform="rotate(45, 40, 25)"/>
-        <circle cx="40" cy="25" r="17" class="seat parti-sd" />
-        <text x="40" y="27" class="h2 inverse">SD</text>
+        <rect x="23" y="3" width="50" height="34" class="shadow" rx="17" transform="rotate(43, 40, 20)"/>
+        <circle cx="40" cy="20" r="17" class="seat parti-sd" />
+        <text x="40" y="22" class="h2 inverse">SD</text>
       </g>
     </svg>
 
     <svg x="70" y="70">
       <g clip-path="url(#seat)">
         <rect x="0" y="0" width="100%" height="100%" class="vote frånvarande"/>
-        <rect x="25" y="8" width="50" height="34" class="shadow" rx="17" transform="rotate(45, 40, 25)"/>
-        <circle cx="40" cy="25" r="17" class="seat parti-l" />
-        <text x="40" y="27" class="h2 inverse">L</text>
+        <rect x="23" y="3" width="50" height="34" class="shadow" rx="17" transform="rotate(43, 40, 20)"/>
+        <circle cx="40" cy="20" r="17" class="seat parti-l" />
+        <text x="40" y="22" class="h2 inverse">L</text>
+      </g>
+    </svg>
+  </svg>
+
+  <svg x="0" y="140">
+      <g clip-path="url(#seat)">
+        <rect x="0" y="0" width="100%" height="100%" class="vote"/>
+        <rect x="23" y="3" width="50" height="34" class="shadow" rx="17" transform="rotate(43, 40, 20)"/>
+        <circle cx="40" cy="20" r="17" class="seat parti-mp" />
+        <text x="40" y="22" class="h2 inverse">MP</text>
       </g>
     </svg>
   </svg>
