@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    {
+      "id": "namnd-socialnämnden-sydväst-budget-2026",
+      "typ": "budget",
+      "label": "socialnämnden-sydväst Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-sydväst-tkr",
+      "typ": "budgetpost",
+      "label": "Tkr",
+      "data": {
+        "mnkr": 20252026.0
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "namnd-socialnämnden-sydväst-budget-2026",
+      "to": "budgetpost-socialnämnden-sydväst-tkr",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 20252026.0
+      }
+    }
+  ]
+}
