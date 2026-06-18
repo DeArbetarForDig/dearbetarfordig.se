@@ -1,0 +1,1184 @@
+{
+  "nodes": [
+    {
+      "id": "namnd-grundskola-budget-2026",
+      "typ": "budget",
+      "label": "Grundskolenämnden Budget 2026",
+      "data": {
+        "totalMnkr": 10547,
+        "nämnd": "Grundskolenämnden",
+        "år": 2026
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-kommunbidrag-i-miljoner-kronor",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag i miljoner kronor",
+      "data": {
+        "mnkr": 20252026
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-ram",
+      "typ": "budgetpost",
+      "label": "Ram",
+      "data": {
+        "mnkr": 1020910547
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-kompletteringsbudget",
+      "typ": "budgetpost",
+      "label": "Kompletteringsbudget",
+      "data": {
+        "mnkr": 17
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-summa",
+      "typ": "budgetpost",
+      "label": "Summa",
+      "data": {
+        "mnkr": 1022610547
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-fördelning-i-miljoner-kronor",
+      "typ": "budgetpost",
+      "label": "Fördelning i miljoner kronor",
+      "data": {
+        "mnkr": 20252026
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-intäkter",
+      "typ": "budgetpost",
+      "label": "Intäkter",
+      "data": {
+        "mnkr": 11851227
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-kostnader-------------------------------",
+      "typ": "budgetpost",
+      "label": "Kostnader                                 -11 411",
+      "data": {
+        "mnkr": -11774
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-kommunbidrag",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag",
+      "data": {
+        "mnkr": 1022610547
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-kommunbidrag",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag",
+      "data": {
+        "mnkr": 10547
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-förvaltningscentrala-poster-(inklusive-s",
+      "typ": "budgetpost",
+      "label": "Förvaltningscentrala poster (inklusive skolkort)",
+      "data": {
+        "mnkr": -1612
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-ram-att-fördela",
+      "typ": "budgetpost",
+      "label": "Ram att fördela",
+      "data": {
+        "mnkr": 8935
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-kulturskola",
+      "typ": "budgetpost",
+      "label": "Kulturskola",
+      "data": {
+        "mnkr": 120
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-anpassad-grundskola",
+      "typ": "budgetpost",
+      "label": "Anpassad grundskola",
+      "data": {
+        "mnkr": 604
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-grundskola-inklusive-förskoleklass-och-f",
+      "typ": "budgetpost",
+      "label": "Grundskola inklusive förskoleklass och fritidshem",
+      "data": {
+        "mnkr": 8211
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-riktat-särskilt-stöd-och-tilläggsbelopp",
+      "typ": "budgetpost",
+      "label": "Riktat särskilt stöd och tilläggsbelopp",
+      "data": {
+        "mnkr": -277
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-ersättning-till/från-andra-huvudmän",
+      "typ": "budgetpost",
+      "label": "Ersättning till/från andra huvudmän",
+      "data": {
+        "mnkr": -167
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-schablonersättning-nyanlända-elever",
+      "typ": "budgetpost",
+      "label": "Schablonersättning nyanlända elever",
+      "data": {
+        "mnkr": -36
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-statsbidrag",
+      "typ": "budgetpost",
+      "label": "Statsbidrag",
+      "data": {
+        "mnkr": 271
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-summa-grundbelopp-att-fördela-per-elev",
+      "typ": "budgetpost",
+      "label": "Summa grundbelopp att fördela per elev",
+      "data": {
+        "mnkr": 8002
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-bruttokostnad-i-tusentals-kronor",
+      "typ": "budgetpost",
+      "label": "Bruttokostnad i tusentals kronor",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-verksamhetskostnader-(främst-personalkos",
+      "typ": "budgetpost",
+      "label": "Verksamhetskostnader (främst personalkostnader)",
+      "data": {
+        "mnkr": -120000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-lokalkostnader-inkl.-lokalvård,-vaktmäst",
+      "typ": "budgetpost",
+      "label": "Lokalkostnader inkl. lokalvård, vaktmästeri",
+      "data": {
+        "mnkr": -38600
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-inventarier",
+      "typ": "budgetpost",
+      "label": "Inventarier",
+      "data": {
+        "mnkr": -1400
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-ledning--och-administrationskostnader",
+      "typ": "budgetpost",
+      "label": "Ledning- och administrationskostnader",
+      "data": {
+        "mnkr": -6000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-total-bruttokostnad",
+      "typ": "budgetpost",
+      "label": "Total bruttokostnad",
+      "data": {
+        "mnkr": -166000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 6233475000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-förskoleklass",
+      "typ": "budgetpost",
+      "label": "Förskoleklass",
+      "data": {
+        "mnkr": 7438518759
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-åk-1-3",
+      "typ": "budgetpost",
+      "label": "Åk 1-3",
+      "data": {
+        "mnkr": 8440520516
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-åk-4-6",
+      "typ": "budgetpost",
+      "label": "Åk 4-6",
+      "data": {
+        "mnkr": 10166923781
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-åk-7-9",
+      "typ": "budgetpost",
+      "label": "Åk 7-9",
+      "data": {
+        "mnkr": 10711526437
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-fritidshem-6-9-år",
+      "typ": "budgetpost",
+      "label": "Fritidshem 6-9 år",
+      "data": {
+        "mnkr": 374394269
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-fritidshem-10-12-år",
+      "typ": "budgetpost",
+      "label": "Fritidshem 10-12 år",
+      "data": {
+        "mnkr": 127291471
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 1067434000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 77273000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-avgår-centrala-poster",
+      "typ": "budgetpost",
+      "label": "Avgår centrala poster",
+      "data": {
+        "mnkr": -3173565000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-fritidsersättning,",
+      "typ": "budgetpost",
+      "label": "fritidsersättning,",
+      "data": {
+        "mnkr": 545094000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 3605005000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 36000000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 1742901000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-förskoleklass",
+      "typ": "budgetpost",
+      "label": "Förskoleklass",
+      "data": {
+        "mnkr": 7438514533
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-åk-1-3",
+      "typ": "budgetpost",
+      "label": "Åk 1-3",
+      "data": {
+        "mnkr": 8440516426
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-åk-4-6",
+      "typ": "budgetpost",
+      "label": "Åk 4-6",
+      "data": {
+        "mnkr": 10166918326
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-åk-7-9",
+      "typ": "budgetpost",
+      "label": "Åk 7-9",
+      "data": {
+        "mnkr": 10711519649
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-6-9-år",
+      "typ": "budgetpost",
+      "label": "6-9 år",
+      "data": {
+        "mnkr": 374393472
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-10-12-år",
+      "typ": "budgetpost",
+      "label": "10-12 år",
+      "data": {
+        "mnkr": 127291348
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 247308000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 12960000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-(administration,-fria",
+      "typ": "budgetpost",
+      "label": "(administration, fria",
+      "data": {
+        "mnkr": 63927000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-momsersättning",
+      "typ": "budgetpost",
+      "label": "Momsersättning",
+      "data": {
+        "mnkr": 108410000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 1915238000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-grundersättning,-medel-i-resursfördelnin",
+      "typ": "budgetpost",
+      "label": "Grundersättning, medel i resursfördelningsmodellen",
+      "data": {
+        "mnkr": 62526
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-förstärkning-elevpeng-2026",
+      "typ": "budgetpost",
+      "label": "Förstärkning elevpeng 2026",
+      "data": {
+        "mnkr": 35800
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-fritidshemssatsning-6-9-år",
+      "typ": "budgetpost",
+      "label": "Fritidshemssatsning 6-9 år",
+      "data": {
+        "mnkr": 30000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-förstärkt-elevhälsa",
+      "typ": "budgetpost",
+      "label": "Förstärkt elevhälsa",
+      "data": {
+        "mnkr": 17017
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-simundervisning",
+      "typ": "budgetpost",
+      "label": "Simundervisning",
+      "data": {
+        "mnkr": 14200
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-utökad-timplan-på-högindexskolor",
+      "typ": "budgetpost",
+      "label": "Utökad timplan på högindexskolor",
+      "data": {
+        "mnkr": 13500
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-behörighetsgivande-och-kompetenshöjande-",
+      "typ": "budgetpost",
+      "label": "Behörighetsgivande och kompetenshöjande insatser",
+      "data": {
+        "mnkr": 12000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-flerspråksinsatser",
+      "typ": "budgetpost",
+      "label": "Flerspråksinsatser",
+      "data": {
+        "mnkr": 10300
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-akutskola",
+      "typ": "budgetpost",
+      "label": "Akutskola",
+      "data": {
+        "mnkr": 9000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-skolbibliotek,-personalförstärkning",
+      "typ": "budgetpost",
+      "label": "Skolbibliotek, personalförstärkning",
+      "data": {
+        "mnkr": 6000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-inläsningstjänst-och-polylino",
+      "typ": "budgetpost",
+      "label": "Inläsningstjänst och Polylino",
+      "data": {
+        "mnkr": 5758
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-lovskola-läsinsatser",
+      "typ": "budgetpost",
+      "label": "Lovskola läsinsatser",
+      "data": {
+        "mnkr": 5000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-pedagogisk-segregation",
+      "typ": "budgetpost",
+      "label": "Pedagogisk segregation",
+      "data": {
+        "mnkr": 5000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-universeum",
+      "typ": "budgetpost",
+      "label": "Universeum",
+      "data": {
+        "mnkr": 5000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-iop-läxhjäp",
+      "typ": "budgetpost",
+      "label": "IOP läxhjäp",
+      "data": {
+        "mnkr": 4165
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-resursplaneringsverktyget",
+      "typ": "budgetpost",
+      "label": "Resursplaneringsverktyget",
+      "data": {
+        "mnkr": 4000
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-heis-insatser",
+      "typ": "budgetpost",
+      "label": "HEIS-insatser",
+      "data": {
+        "mnkr": 2500
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-hälsoäventyret",
+      "typ": "budgetpost",
+      "label": "Hälsoäventyret",
+      "data": {
+        "mnkr": 2416
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-distansundervisning,-merkostnad-för-egna",
+      "typ": "budgetpost",
+      "label": "Distansundervisning, merkostnad för egna elever",
+      "data": {
+        "mnkr": 2300
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-berättarministeriet",
+      "typ": "budgetpost",
+      "label": "Berättarministeriet",
+      "data": {
+        "mnkr": 2177
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-utvecklingsfond-för-kreativa-idéer",
+      "typ": "budgetpost",
+      "label": "Utvecklingsfond för kreativa idéer",
+      "data": {
+        "mnkr": 2034
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-likvärdig-av-utrustning",
+      "typ": "budgetpost",
+      "label": "Likvärdig AV-utrustning",
+      "data": {
+        "mnkr": 1500
+      }
+    },
+    {
+      "id": "budgetpost-grundskola-summa-insatser-2026",
+      "typ": "budgetpost",
+      "label": "Summa insatser 2026",
+      "data": {
+        "mnkr": 395184
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-kommunbidrag-i-miljoner-kronor",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 20252026
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-ram",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1020910547
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-kompletteringsbudget",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 17
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-summa",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1022610547
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-fördelning-i-miljoner-kronor",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 20252026
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-intäkter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 11851227
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-kostnader-------------------------------",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -11774
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-kommunbidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1022610547
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-kommunbidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 10547
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-förvaltningscentrala-poster-(inklusive-s",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -1612
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-ram-att-fördela",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 8935
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-kulturskola",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 120
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-anpassad-grundskola",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 604
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-grundskola-inklusive-förskoleklass-och-f",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 8211
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-riktat-särskilt-stöd-och-tilläggsbelopp",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -277
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-ersättning-till/från-andra-huvudmän",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -167
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-schablonersättning-nyanlända-elever",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -36
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-statsbidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 271
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-summa-grundbelopp-att-fördela-per-elev",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 8002
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-bruttokostnad-i-tusentals-kronor",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-verksamhetskostnader-(främst-personalkos",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -120000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-lokalkostnader-inkl.-lokalvård,-vaktmäst",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -38600
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-inventarier",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -1400
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-ledning--och-administrationskostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -6000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-total-bruttokostnad",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -166000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 6233475000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-förskoleklass",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 7438518759
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-åk-1-3",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 8440520516
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-åk-4-6",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 10166923781
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-åk-7-9",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 10711526437
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-fritidshem-6-9-år",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 374394269
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-fritidshem-10-12-år",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 127291471
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1067434000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 77273000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-avgår-centrala-poster",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -3173565000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-fritidsersättning,",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 545094000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 3605005000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 36000000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1742901000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-förskoleklass",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 7438514533
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-åk-1-3",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 8440516426
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-åk-4-6",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 10166918326
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-åk-7-9",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 10711519649
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-6-9-år",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 374393472
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-10-12-år",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 127291348
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 247308000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 12960000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-(administration,-fria",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 63927000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-momsersättning",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 108410000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1915238000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-grundersättning,-medel-i-resursfördelnin",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 62526
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-förstärkning-elevpeng-2026",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 35800
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-fritidshemssatsning-6-9-år",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 30000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-förstärkt-elevhälsa",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 17017
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-simundervisning",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 14200
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-utökad-timplan-på-högindexskolor",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 13500
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-behörighetsgivande-och-kompetenshöjande-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 12000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-flerspråksinsatser",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 10300
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-akutskola",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 9000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-skolbibliotek,-personalförstärkning",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 6000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-inläsningstjänst-och-polylino",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 5758
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-lovskola-läsinsatser",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 5000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-pedagogisk-segregation",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 5000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-universeum",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 5000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-iop-läxhjäp",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 4165
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-resursplaneringsverktyget",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 4000
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-heis-insatser",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2500
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-hälsoäventyret",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2416
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-distansundervisning,-merkostnad-för-egna",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2300
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-berättarministeriet",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2177
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-utvecklingsfond-för-kreativa-idéer",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2034
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-likvärdig-av-utrustning",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1500
+      }
+    },
+    {
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-summa-insatser-2026",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 395184
+      }
+    }
+  ]
+}
