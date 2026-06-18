@@ -1,0 +1,46 @@
+{
+  "nodes": [
+    {
+      "id": "namnd-socialnämnden-centrum-budget-2026",
+      "typ": "budget",
+      "label": "socialnämnden-centrum Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-centrum-tkr",
+      "typ": "budgetpost",
+      "label": "Tkr",
+      "data": {
+        "mnkr": 20252026.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-centrum-intäkter",
+      "typ": "budgetpost",
+      "label": "Intäkter",
+      "data": {
+        "mnkr": 139150.0
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-socialnämnden-centrum-tkr",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 20252026.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-socialnämnden-centrum-intäkter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 139150.0
+      }
+    }
+  ]
+}

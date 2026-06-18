@@ -1,0 +1,222 @@
+{
+  "nodes": [
+    {
+      "id": "namnd-utbildningsnämnden-budget-2026",
+      "typ": "budget",
+      "label": "utbildningsnämnden Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 11.0
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-sålda-platser",
+      "typ": "budgetpost",
+      "label": "Sålda platser",
+      "data": {
+        "mnkr": 282828303131.0
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-korttidstillsyn",
+      "typ": "budgetpost",
+      "label": "Korttidstillsyn",
+      "data": {
+        "mnkr": 1.3513413612512611e+17
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 2025.0
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-egen-regi-vux",
+      "typ": "budgetpost",
+      "label": "Egen regi vux",
+      "data": {
+        "mnkr": 2.32700217000217e+22
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-statsbidrag-yh",
+      "typ": "budgetpost",
+      "label": "Statsbidrag Yh",
+      "data": {
+        "mnkr": 1.360001315001333e+21
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-arbetsmarknadsinsatser",
+      "typ": "budgetpost",
+      "label": "Arbetsmarknadsinsatser",
+      "data": {
+        "mnkr": 600060005600400.0
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-uppdragsutbildning",
+      "typ": "budgetpost",
+      "label": "Uppdragsutbildning",
+      "data": {
+        "mnkr": 1.3800120001100027e+18
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-försäljning",
+      "typ": "budgetpost",
+      "label": "Försäljning",
+      "data": {
+        "mnkr": 5500550035002000.0
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-avgifter",
+      "typ": "budgetpost",
+      "label": "Avgifter",
+      "data": {
+        "mnkr": 350035003000500.0
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-övrigt",
+      "typ": "budgetpost",
+      "label": "Övrigt",
+      "data": {
+        "mnkr": 7000700070000.0
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden-summa",
+      "typ": "budgetpost",
+      "label": "Summa",
+      "data": {
+        "mnkr": 4.045003825003804e+22
+      }
+    },
+    {
+      "id": "budgetpost-utbildningsnämnden--35-000--------34-970---------26-000",
+      "typ": "budgetpost",
+      "label": "-35 000       -34 970        -26 000",
+      "data": {
+        "mnkr": -29087.0
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 11.0
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-sålda-platser",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 282828303131.0
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-korttidstillsyn",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1.3513413612512611e+17
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2025.0
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-egen-regi-vux",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2.32700217000217e+22
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-statsbidrag-yh",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1.360001315001333e+21
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-arbetsmarknadsinsatser",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 600060005600400.0
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-uppdragsutbildning",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1.3800120001100027e+18
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-försäljning",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 5500550035002000.0
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-avgifter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 350035003000500.0
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-övrigt",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 7000700070000.0
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden-summa",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 4.045003825003804e+22
+      }
+    },
+    {
+      "from": "namnd-utbildningsnämnden-budget-2026",
+      "to": "budgetpost-utbildningsnämnden--35-000--------34-970---------26-000",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -29087.0
+      }
+    }
+  ]
+}

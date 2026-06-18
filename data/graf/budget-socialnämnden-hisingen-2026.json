@@ -1,0 +1,462 @@
+{
+  "nodes": [
+    {
+      "id": "namnd-socialnämnden-hisingen-budget-2026",
+      "typ": "budget",
+      "label": "socialnämnden-hisingen Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-kommunbidrag---budget-2025-(oktober)",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag - budget 2025 (oktober)",
+      "data": {
+        "mnkr": 1333046.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-arbetstidsinnovationer-(2025)",
+      "typ": "budgetpost",
+      "label": "Arbetstidsinnovationer (2025)",
+      "data": {
+        "mnkr": -2000.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-uppdrag-enligt-finansieringsprincipen",
+      "typ": "budgetpost",
+      "label": "Uppdrag enligt finansieringsprincipen",
+      "data": {
+        "mnkr": -670.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-gränssnittsärenden-(2025)",
+      "typ": "budgetpost",
+      "label": "Gränssnittsärenden (2025)",
+      "data": {
+        "mnkr": -1476.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-insatser-mot-kriminalitet-(2025)",
+      "typ": "budgetpost",
+      "label": "Insatser mot kriminalitet (2025)",
+      "data": {
+        "mnkr": -11500.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-felplacerade-barn-o-unga-ärenden-(2025)",
+      "typ": "budgetpost",
+      "label": "Felplacerade barn o unga ärenden (2025)",
+      "data": {
+        "mnkr": 1380.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-befolkningsförändring",
+      "typ": "budgetpost",
+      "label": "Befolkningsförändring",
+      "data": {
+        "mnkr": -6580.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-uppräkning-pkv-2026-exkl",
+      "typ": "budgetpost",
+      "label": "Uppräkning PKV 2026 exkl",
+      "data": {
+        "mnkr": 30744.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-försörjningsstöd",
+      "typ": "budgetpost",
+      "label": "Försörjningsstöd",
+      "data": {
+        "mnkr": 1794.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-uppdrag-enligt-finansieringsprincipen",
+      "typ": "budgetpost",
+      "label": "Uppdrag enligt finansieringsprincipen",
+      "data": {
+        "mnkr": 5180.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-justering-ny-resursfördelningsmodell",
+      "typ": "budgetpost",
+      "label": "Justering ny resursfördelningsmodell",
+      "data": {
+        "mnkr": -9000.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-utökat-stöd-till-familjehem",
+      "typ": "budgetpost",
+      "label": "Utökat stöd till familjehem",
+      "data": {
+        "mnkr": 2159.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-säkerställa-bemanning-vid-idrottshallar",
+      "typ": "budgetpost",
+      "label": "Säkerställa bemanning vid idrottshallar",
+      "data": {
+        "mnkr": 1606.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-ramhöjning-socialnämnder",
+      "typ": "budgetpost",
+      "label": "Ramhöjning Socialnämnder",
+      "data": {
+        "mnkr": 4049.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-förebygga-och-åtgärda-kriminalitet",
+      "typ": "budgetpost",
+      "label": "Förebygga och åtgärda kriminalitet",
+      "data": {
+        "mnkr": 14846.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-brotts--och-drogförebyggande-arbete",
+      "typ": "budgetpost",
+      "label": "Brotts- och drogförebyggande arbete",
+      "data": {
+        "mnkr": 1274.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-pilot-förstärkt-arbete-med-närvaro-på-nä",
+      "typ": "budgetpost",
+      "label": "Pilot förstärkt arbete med närvaro på nätet",
+      "data": {
+        "mnkr": 675.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-utöka-unga-stadsutvecklare-till-fler",
+      "typ": "budgetpost",
+      "label": "Utöka unga stadsutvecklare till fler",
+      "data": {
+        "mnkr": 250.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-medborgarråd-med-inriktning",
+      "typ": "budgetpost",
+      "label": "Medborgarråd med inriktning",
+      "data": {
+        "mnkr": 250.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-förstärkning-arbete-med-mbu",
+      "typ": "budgetpost",
+      "label": "Förstärkning arbete med MBU",
+      "data": {
+        "mnkr": 500.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-utöka-vräkningsförebyggande-arbetet",
+      "typ": "budgetpost",
+      "label": "Utöka vräkningsförebyggande arbetet",
+      "data": {
+        "mnkr": 800.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-finansiering-fritidsgårdar",
+      "typ": "budgetpost",
+      "label": "Finansiering fritidsgårdar",
+      "data": {
+        "mnkr": 2500.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-riktad-besparing-ledning-administration",
+      "typ": "budgetpost",
+      "label": "Riktad besparing ledning, administration,",
+      "data": {
+        "mnkr": -2500.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-budgetram-kf-2026",
+      "typ": "budgetpost",
+      "label": "Budgetram KF 2026",
+      "data": {
+        "mnkr": 1367360.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-tkr",
+      "typ": "budgetpost",
+      "label": "Tkr",
+      "data": {
+        "mnkr": 20252026.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-intäkter",
+      "typ": "budgetpost",
+      "label": "Intäkter",
+      "data": {
+        "mnkr": 153000180000.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-kostnader",
+      "typ": "budgetpost",
+      "label": "Kostnader",
+      "data": {
+        "mnkr": 14850001547000.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-hisingen-kommunbidrag",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag",
+      "data": {
+        "mnkr": 13320001367000.0
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-kommunbidrag---budget-2025-(oktober)",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1333046.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-arbetstidsinnovationer-(2025)",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -2000.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-uppdrag-enligt-finansieringsprincipen",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -670.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-gränssnittsärenden-(2025)",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -1476.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-insatser-mot-kriminalitet-(2025)",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -11500.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-felplacerade-barn-o-unga-ärenden-(2025)",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1380.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-befolkningsförändring",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -6580.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-uppräkning-pkv-2026-exkl",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 30744.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-försörjningsstöd",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1794.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-uppdrag-enligt-finansieringsprincipen",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 5180.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-justering-ny-resursfördelningsmodell",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -9000.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-utökat-stöd-till-familjehem",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2159.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-säkerställa-bemanning-vid-idrottshallar",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1606.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-ramhöjning-socialnämnder",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 4049.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-förebygga-och-åtgärda-kriminalitet",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 14846.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-brotts--och-drogförebyggande-arbete",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1274.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-pilot-förstärkt-arbete-med-närvaro-på-nä",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 675.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-utöka-unga-stadsutvecklare-till-fler",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 250.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-medborgarråd-med-inriktning",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 250.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-förstärkning-arbete-med-mbu",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 500.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-utöka-vräkningsförebyggande-arbetet",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 800.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-finansiering-fritidsgårdar",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2500.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-riktad-besparing-ledning-administration",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -2500.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-budgetram-kf-2026",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1367360.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-tkr",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 20252026.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-intäkter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 153000180000.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-kostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 14850001547000.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-hisingen-budget-2026",
+      "to": "budgetpost-socialnämnden-hisingen-kommunbidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 13320001367000.0
+      }
+    }
+  ]
+}

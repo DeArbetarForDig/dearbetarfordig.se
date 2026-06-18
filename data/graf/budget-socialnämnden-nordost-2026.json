@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "id": "namnd-socialnämnden-nordost-budget-2026",
+      "typ": "budget",
+      "label": "socialnämnden-nordost Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-nordost-summa",
+      "typ": "budgetpost",
+      "label": "Summa",
+      "data": {
+        "mnkr": 41070.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-nordost-tkr",
+      "typ": "budgetpost",
+      "label": "Tkr",
+      "data": {
+        "mnkr": 20252026.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-nordost-intäkter",
+      "typ": "budgetpost",
+      "label": "Intäkter",
+      "data": {
+        "mnkr": 242150251404.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-nordost-kommunbidrag",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag",
+      "data": {
+        "mnkr": 18301401931460.0
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-socialnämnden-nordost-summa",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 41070.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-socialnämnden-nordost-tkr",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 20252026.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-socialnämnden-nordost-intäkter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 242150251404.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-socialnämnden-nordost-kommunbidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 18301401931460.0
+      }
+    }
+  ]
+}
