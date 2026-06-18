@@ -1,0 +1,142 @@
+{
+  "nodes": [
+    {
+      "id": "namnd-kulturnämnden-budget-2026",
+      "typ": "budget",
+      "label": "kulturnämnden Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "budgetpost-kulturnämnden-göteborgs-bibliotek-och-kulturhus",
+      "typ": "budgetpost",
+      "label": "Göteborgs bibliotek och kulturhus",
+      "data": {
+        "mnkr": 393.9
+      }
+    },
+    {
+      "id": "budgetpost-kulturnämnden-göteborgs-museer-och-konsthall",
+      "typ": "budgetpost",
+      "label": "Göteborgs museer och konsthall",
+      "data": {
+        "mnkr": 107.3
+      }
+    },
+    {
+      "id": "budgetpost-kulturnämnden-kultur--och-samhällsutveckling",
+      "typ": "budgetpost",
+      "label": "Kultur- och samhällsutveckling",
+      "data": {
+        "mnkr": 130.0
+      }
+    },
+    {
+      "id": "budgetpost-kulturnämnden-kultur--och-samhällsutveckling,-varav-ku",
+      "typ": "budgetpost",
+      "label": "Kultur- och samhällsutveckling, varav kulturstöd",
+      "data": {
+        "mnkr": 89.1
+      }
+    },
+    {
+      "id": "budgetpost-kulturnämnden-förvaltningsgemensamt",
+      "typ": "budgetpost",
+      "label": "Förvaltningsgemensamt",
+      "data": {
+        "mnkr": 136.0
+      }
+    },
+    {
+      "id": "budgetpost-kulturnämnden-driftskostnader-för-tillkommande-anläggn",
+      "typ": "budgetpost",
+      "label": "Driftskostnader för tillkommande anläggningar",
+      "data": {
+        "mnkr": 5.4
+      }
+    },
+    {
+      "id": "budgetpost-kulturnämnden-omlokalisering-av-göteborgs-konsthall",
+      "typ": "budgetpost",
+      "label": "Omlokalisering av Göteborgs konsthall",
+      "data": {
+        "mnkr": 7.5
+      }
+    },
+    {
+      "id": "budgetpost-kulturnämnden-reserv",
+      "typ": "budgetpost",
+      "label": "Reserv",
+      "data": {
+        "mnkr": 6.0
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "namnd-kulturnämnden-budget-2026",
+      "to": "budgetpost-kulturnämnden-göteborgs-bibliotek-och-kulturhus",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 393.9
+      }
+    },
+    {
+      "from": "namnd-kulturnämnden-budget-2026",
+      "to": "budgetpost-kulturnämnden-göteborgs-museer-och-konsthall",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 107.3
+      }
+    },
+    {
+      "from": "namnd-kulturnämnden-budget-2026",
+      "to": "budgetpost-kulturnämnden-kultur--och-samhällsutveckling",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 130.0
+      }
+    },
+    {
+      "from": "namnd-kulturnämnden-budget-2026",
+      "to": "budgetpost-kulturnämnden-kultur--och-samhällsutveckling,-varav-ku",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 89.1
+      }
+    },
+    {
+      "from": "namnd-kulturnämnden-budget-2026",
+      "to": "budgetpost-kulturnämnden-förvaltningsgemensamt",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 136.0
+      }
+    },
+    {
+      "from": "namnd-kulturnämnden-budget-2026",
+      "to": "budgetpost-kulturnämnden-driftskostnader-för-tillkommande-anläggn",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 5.4
+      }
+    },
+    {
+      "from": "namnd-kulturnämnden-budget-2026",
+      "to": "budgetpost-kulturnämnden-omlokalisering-av-göteborgs-konsthall",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 7.5
+      }
+    },
+    {
+      "from": "namnd-kulturnämnden-budget-2026",
+      "to": "budgetpost-kulturnämnden-reserv",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 6.0
+      }
+    }
+  ]
+}

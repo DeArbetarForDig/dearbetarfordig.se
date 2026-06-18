@@ -60,7 +60,7 @@
 
     <svg x="70" y="70">
       <g clip-path="url(#seat)">
-        <rect x="0" y="0" width="100%" height="100%" class="vote frånvarande"/>
+        <rect x="0" y="0" width="100%" height="100%" class="vote"/>
         <rect x="23" y="3" width="50" height="34" class="shadow" rx="17" transform="rotate(43, 40, 20)"/>
         <circle cx="40" cy="20" r="17" class="seat parti-l" />
         <text x="40" y="22" class="h2 inverse">L</text>

@@ -98,8 +98,4 @@ text {
   &.avstår {
     fill: var(--vote-avstår);
   }
-
-  &.frånvarande {
-    fill: var(--vote-frånvarande);
-  }
 }
