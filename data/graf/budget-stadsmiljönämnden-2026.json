@@ -1,0 +1,431 @@
+{
+  "nodes": [
+    {
+      "id": "namnd-stadsmiljönämnden-budget-2026",
+      "typ": "budget",
+      "label": "Stadsmiljönämnden Budget 2026",
+      "data": {
+        "nämnd": "Stadsmiljönämnden",
+        "år": 2026
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-",
+      "typ": "budgetpost",
+      "label": "",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-verksamhetens-intäkter",
+      "typ": "budgetpost",
+      "label": "Verksamhetens intäkter",
+      "data": {
+        "mnkr": 1831666
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-kommunbidrag",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag",
+      "data": {
+        "mnkr": 1733010
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-kommuncentrala-medel-kapitaltjänst-",
+      "typ": "budgetpost",
+      "label": "Kommuncentrala medel kapitaltjänst*",
+      "data": {
+        "mnkr": 867900
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-kommuncentrala-medel-för-avropp",
+      "typ": "budgetpost",
+      "label": "Kommuncentrala medel för avropp",
+      "data": {
+        "mnkr": 11008
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-summa-intäkter",
+      "typ": "budgetpost",
+      "label": "Summa intäkter",
+      "data": {
+        "mnkr": 4443584
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-personalkostnader",
+      "typ": "budgetpost",
+      "label": "Personalkostnader",
+      "data": {
+        "mnkr": 754159
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-övriga-verksamhetskostnader",
+      "typ": "budgetpost",
+      "label": "Övriga verksamhetskostnader",
+      "data": {
+        "mnkr": 2581298
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-kapitaltjänst-avskrivningar-ränta-",
+      "typ": "budgetpost",
+      "label": "Kapitaltjänst (avskrivningar + ränta)",
+      "data": {
+        "mnkr": 1108127
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-summa-kostnader",
+      "typ": "budgetpost",
+      "label": "Summa kostnader",
+      "data": {
+        "mnkr": 4443584
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-verksamhetens-intäkter",
+      "typ": "budgetpost",
+      "label": "Verksamhetens intäkter",
+      "data": {
+        "mnkr": 1263096
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-kommubidrag",
+      "typ": "budgetpost",
+      "label": "Kommubidrag",
+      "data": {
+        "mnkr": 1733010
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-kommuncentrala-medel-kapitaltjänst-",
+      "typ": "budgetpost",
+      "label": "Kommuncentrala medel kapitaltjänst*",
+      "data": {
+        "mnkr": 867900
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-kommuncentrala-medel-för-avropp",
+      "typ": "budgetpost",
+      "label": "Kommuncentrala medel för avropp",
+      "data": {
+        "mnkr": 11008
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-summa-intäkter",
+      "typ": "budgetpost",
+      "label": "Summa intäkter",
+      "data": {
+        "mnkr": 3875014
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-personalkostnader",
+      "typ": "budgetpost",
+      "label": "Personalkostnader",
+      "data": {
+        "mnkr": 742181
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-övriga-verksamhetskostnader",
+      "typ": "budgetpost",
+      "label": "Övriga verksamhetskostnader",
+      "data": {
+        "mnkr": 2179251
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-kapitaltjänst-avskrivningar-ränta-",
+      "typ": "budgetpost",
+      "label": "Kapitaltjänst (avskrivningar + ränta)",
+      "data": {
+        "mnkr": 953582
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden-summa-kostnader",
+      "typ": "budgetpost",
+      "label": "Summa kostnader",
+      "data": {
+        "mnkr": 3875014
+      }
+    },
+    {
+      "id": "budgetpost-stadsmiljönämnden--mnkr-",
+      "typ": "budgetpost",
+      "label": "(mnkr)",
+      "data": {
+        "mnkr": 20262027202820293000
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2026
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-verksamhetens-intäkter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1831666
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-kommunbidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1733010
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-kommuncentrala-medel-kapitaltjänst-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 867900
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-kommuncentrala-medel-för-avropp",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 11008
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-summa-intäkter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 4443584
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-personalkostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 754159
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-övriga-verksamhetskostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2581298
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-kapitaltjänst-avskrivningar-ränta-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1108127
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-summa-kostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 4443584
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-verksamhetens-intäkter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1263096
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-kommubidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1733010
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-kommuncentrala-medel-kapitaltjänst-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 867900
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-kommuncentrala-medel-för-avropp",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 11008
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-summa-intäkter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 3875014
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-personalkostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 742181
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-övriga-verksamhetskostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 2179251
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-kapitaltjänst-avskrivningar-ränta-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 953582
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden-summa-kostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 3875014
+      }
+    },
+    {
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljönämnden--mnkr-",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 20262027202820293000
+      }
+    }
+  ]
+}
