@@ -1,0 +1,270 @@
+{
+  "nodes": [
+    {
+      "id": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "typ": "budget",
+      "label": "Idrotts- och föreningsnämnden Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-taxor-och-avgifter",
+      "typ": "budgetpost",
+      "label": "Taxor och avgifter",
+      "data": {
+        "mnkr": 120.3
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-hyror-och-arrenden",
+      "typ": "budgetpost",
+      "label": "Hyror och arrenden",
+      "data": {
+        "mnkr": 76.0
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-bidrag",
+      "typ": "budgetpost",
+      "label": "Bidrag",
+      "data": {
+        "mnkr": 1.3
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-personalkostnader",
+      "typ": "budgetpost",
+      "label": "Personalkostnader",
+      "data": {
+        "mnkr": -283.7
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-lämnade-bidrag",
+      "typ": "budgetpost",
+      "label": "Lämnade bidrag",
+      "data": {
+        "mnkr": -169.5
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-köp-av-huvudverksamhet",
+      "typ": "budgetpost",
+      "label": "Köp av huvudverksamhet",
+      "data": {
+        "mnkr": -15.7
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-lokal--och-markhyror",
+      "typ": "budgetpost",
+      "label": "Lokal- och markhyror",
+      "data": {
+        "mnkr": -124.5
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-fastighetskostnader-och-fastighetsentrep",
+      "typ": "budgetpost",
+      "label": "Fastighetskostnader och fastighetsentreprenader",
+      "data": {
+        "mnkr": -75.6
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-bränsle-energi-och-vatten",
+      "typ": "budgetpost",
+      "label": "Bränsle, energi och vatten",
+      "data": {
+        "mnkr": -46.2
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-kostnader-för-transportmedel",
+      "typ": "budgetpost",
+      "label": "Kostnader för transportmedel",
+      "data": {
+        "mnkr": -8.3
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-köp-av-entreprenad-och-tjänster",
+      "typ": "budgetpost",
+      "label": "Köp av entreprenad och tjänster",
+      "data": {
+        "mnkr": -56.4
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-övriga-verksamhetskostnader-diverse",
+      "typ": "budgetpost",
+      "label": "Övriga verksamhetskostnader diverse",
+      "data": {
+        "mnkr": -75.4
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-avskrivningar",
+      "typ": "budgetpost",
+      "label": "Avskrivningar",
+      "data": {
+        "mnkr": -114.3
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-kommunbidrag",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag",
+      "data": {
+        "mnkr": 644.2
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-kommuninterna-bidrag",
+      "typ": "budgetpost",
+      "label": "Kommuninterna bidrag",
+      "data": {
+        "mnkr": 175.8
+      }
+    },
+    {
+      "id": "budgetpost-idrotts-och-föreningsnämnden-finansiella-kostnader",
+      "typ": "budgetpost",
+      "label": "Finansiella kostnader",
+      "data": {
+        "mnkr": -49.8
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-taxor-och-avgifter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 120.3
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-hyror-och-arrenden",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 76.0
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-bidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 1.3
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-personalkostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -283.7
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-lämnade-bidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -169.5
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-köp-av-huvudverksamhet",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -15.7
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-lokal--och-markhyror",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -124.5
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-fastighetskostnader-och-fastighetsentrep",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -75.6
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-bränsle-energi-och-vatten",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -46.2
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-kostnader-för-transportmedel",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -8.3
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-köp-av-entreprenad-och-tjänster",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -56.4
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-övriga-verksamhetskostnader-diverse",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -75.4
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-avskrivningar",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -114.3
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-kommunbidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 644.2
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-kommuninterna-bidrag",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 175.8
+      }
+    },
+    {
+      "from": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "to": "budgetpost-idrotts-och-föreningsnämnden-finansiella-kostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -49.8
+      }
+    }
+  ]
+}
