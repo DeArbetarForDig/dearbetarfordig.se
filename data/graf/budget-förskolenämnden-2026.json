@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "namnd-förskolenämnden-budget-2026",
+      "typ": "budget",
+      "label": "Förskolenämnden Budget 2026",
+      "data": {
+        "år": 2026,
+        "kommunbidragMnkr": 5368.3
+      }
+    },
+    {
+      "id": "budgetpost-förskolenämnden-kommunbidrag-ram",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag (ram)",
+      "data": {
+        "mnkr": 5368.3
+      }
+    },
+    {
+      "id": "budgetpost-förskolenämnden-intäkter",
+      "typ": "budgetpost",
+      "label": "Intäkter",
+      "data": {
+        "mnkr": 590.5
+      }
+    },
+    {
+      "id": "budgetpost-förskolenämnden-kostnader",
+      "typ": "budgetpost",
+      "label": "Kostnader",
+      "data": {
+        "mnkr": -5958.8
+      }
+    },
+    {
+      "id": "budgetpost-förskolenämnden-lokaler",
+      "typ": "budgetpost",
+      "label": "Lokaler",
+      "data": {
+        "mnkr": -801.4
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "namnd-förskolenämnden-budget-2026",
+      "to": "budgetpost-förskolenämnden-kommunbidrag-ram",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 5368.3
+      }
+    },
+    {
+      "from": "namnd-förskolenämnden-budget-2026",
+      "to": "budgetpost-förskolenämnden-intäkter",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 590.5
+      }
+    },
+    {
+      "from": "namnd-förskolenämnden-budget-2026",
+      "to": "budgetpost-förskolenämnden-kostnader",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -5958.8
+      }
+    },
+    {
+      "from": "namnd-förskolenämnden-budget-2026",
+      "to": "budgetpost-förskolenämnden-lokaler",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": -801.4
+      }
+    }
+  ]
+}

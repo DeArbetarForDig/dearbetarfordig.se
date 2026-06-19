@@ -3,27 +3,107 @@
     {
       "id": "namnd-socialnämnden-sydväst-budget-2026",
       "typ": "budget",
-      "label": "socialnämnden-sydväst Budget 2026",
+      "label": "Socialnämnden Sydväst Budget 2026",
       "data": {
         "år": 2026
       }
     },
     {
-      "id": "budgetpost-socialnämnden-sydväst-tkr",
+      "id": "budgetpost-socialnämnden-sydväst-barn-och-unga-myndighet",
       "typ": "budgetpost",
-      "label": "Tkr",
+      "label": "Barn och unga Myndighet",
       "data": {
-        "mnkr": 20252026.0
+        "mnkr": 257.9
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-sydväst-barn-och-unga-resurs",
+      "typ": "budgetpost",
+      "label": "Barn och unga Resurs",
+      "data": {
+        "mnkr": 63.1
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-sydväst-boende-och-hemlöshet",
+      "typ": "budgetpost",
+      "label": "Boende och hemlöshet",
+      "data": {
+        "mnkr": 76.5
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-sydväst-förvaltningsgemensamt-och-nämnd",
+      "typ": "budgetpost",
+      "label": "Förvaltningsgemensamt och nämnd",
+      "data": {
+        "mnkr": 62.2
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-sydväst-nämndreserv",
+      "typ": "budgetpost",
+      "label": "Nämndreserv",
+      "data": {
+        "mnkr": 9.0
+      }
+    },
+    {
+      "id": "budgetpost-socialnämnden-sydväst-total-ram",
+      "typ": "budgetpost",
+      "label": "Total ram",
+      "data": {
+        "mnkr": 899.0
       }
     }
   ],
   "edges": [
     {
       "from": "namnd-socialnämnden-sydväst-budget-2026",
-      "to": "budgetpost-socialnämnden-sydväst-tkr",
+      "to": "budgetpost-socialnämnden-sydväst-barn-och-unga-myndighet",
       "typ": "fördelat_till",
       "data": {
-        "mnkr": 20252026.0
+        "mnkr": 257.9
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-sydväst-budget-2026",
+      "to": "budgetpost-socialnämnden-sydväst-barn-och-unga-resurs",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 63.1
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-sydväst-budget-2026",
+      "to": "budgetpost-socialnämnden-sydväst-boende-och-hemlöshet",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 76.5
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-sydväst-budget-2026",
+      "to": "budgetpost-socialnämnden-sydväst-förvaltningsgemensamt-och-nämnd",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 62.2
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-sydväst-budget-2026",
+      "to": "budgetpost-socialnämnden-sydväst-nämndreserv",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 9.0
+      }
+    },
+    {
+      "from": "namnd-socialnämnden-sydväst-budget-2026",
+      "to": "budgetpost-socialnämnden-sydväst-total-ram",
+      "typ": "fördelat_till",
+      "data": {
+        "mnkr": 899.0
       }
     }
   ]
