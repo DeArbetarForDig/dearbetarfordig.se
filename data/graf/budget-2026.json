@@ -334,6 +334,90 @@
         "kommunbidragMnkr": 32,
         "andelProcent": 0.1
       }
+    },
+    {
+      "id": "namnd-förskolenämnden-budget-2026",
+      "typ": "budget",
+      "label": "Förskolenämnden Budget 2026",
+      "data": {
+        "år": 2026,
+        "kommunbidragMnkr": 5368.3
+      }
+    },
+    {
+      "id": "namnd-grundskola-budget-2026",
+      "typ": "budget",
+      "label": "Grundskolenämnden Budget 2026",
+      "data": {
+        "totalMnkr": 10547,
+        "nämnd": "Grundskolenämnden",
+        "år": 2026
+      }
+    },
+    {
+      "id": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "typ": "budget",
+      "label": "Idrotts- och föreningsnämnden Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "namnd-kulturnämnden-budget-2026",
+      "typ": "budget",
+      "label": "kulturnämnden Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "namnd-socialnämnden-centrum-budget-2026",
+      "typ": "budget",
+      "label": "socialnämnden-centrum Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "namnd-socialnämnden-hisingen-budget-2026",
+      "typ": "budget",
+      "label": "socialnämnden-hisingen Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "namnd-socialnämnden-nordost-budget-2026",
+      "typ": "budget",
+      "label": "socialnämnden-nordost Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "namnd-socialnämnden-sydväst-budget-2026",
+      "typ": "budget",
+      "label": "Socialnämnden Sydväst Budget 2026",
+      "data": {
+        "år": 2026
+      }
+    },
+    {
+      "id": "namnd-stadsmiljönämnden-budget-2026",
+      "typ": "budget",
+      "label": "Stadsmiljönämnden Budget 2026",
+      "data": {
+        "nämnd": "Stadsmiljönämnden",
+        "år": 2026
+      }
+    },
+    {
+      "id": "namnd-utbildningsnämnden-budget-2026",
+      "typ": "budget",
+      "label": "utbildningsnämnden Budget 2026",
+      "data": {
+        "år": 2026
+      }
     }
   ],
   "edges": [
@@ -660,6 +744,66 @@
         "mnkr": 32,
         "andel": 0.1
       }
+    },
+    {
+      "from": "nämnd-grundskolenämnden",
+      "to": "namnd-grundskola-budget-2026",
+      "typ": "detaljer_i",
+      "label": "Detaljerad budget"
+    },
+    {
+      "from": "nämnd-förskolenämnden",
+      "to": "namnd-förskolenämnden-budget-2026",
+      "typ": "detaljer_i",
+      "label": "Detaljerad budget"
+    },
+    {
+      "from": "nämnd-utbildningsnämnden",
+      "to": "namnd-utbildningsnämnden-budget-2026",
+      "typ": "detaljer_i",
+      "label": "Detaljerad budget"
+    },
+    {
+      "from": "nämnd-socialnämnden-nordost",
+      "to": "namnd-socialnämnden-nordost-budget-2026",
+      "typ": "detaljer_i",
+      "label": "Detaljerad budget"
+    },
+    {
+      "from": "nämnd-socialnämnden-centrum",
+      "to": "namnd-socialnämnden-centrum-budget-2026",
+      "typ": "detaljer_i",
+      "label": "Detaljerad budget"
+    },
+    {
+      "from": "nämnd-socialnämnden-hisingen",
+      "to": "namnd-socialnämnden-hisingen-budget-2026",
+      "typ": "detaljer_i",
+      "label": "Detaljerad budget"
+    },
+    {
+      "from": "nämnd-socialnämnden-sydväst",
+      "to": "namnd-socialnämnden-sydväst-budget-2026",
+      "typ": "detaljer_i",
+      "label": "Detaljerad budget"
+    },
+    {
+      "from": "nämnd-stadsmiljönämnden",
+      "to": "namnd-stadsmiljönämnden-budget-2026",
+      "typ": "detaljer_i",
+      "label": "Detaljerad budget"
+    },
+    {
+      "from": "nämnd-kulturnämnden",
+      "to": "namnd-kulturnämnden-budget-2026",
+      "typ": "detaljer_i",
+      "label": "Detaljerad budget"
+    },
+    {
+      "from": "nämnd-idrotts-och-föreningsnämnden",
+      "to": "namnd-idrotts-och-föreningsnämnden-budget-2026",
+      "typ": "detaljer_i",
+      "label": "Detaljerad budget"
     }
   ]
 }
