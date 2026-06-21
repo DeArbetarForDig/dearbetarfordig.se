@@ -1062,7 +1062,31 @@
           "ålder": 55,
           "adress": "Bruntebacken 22, 425 42 Hisings Kärra",
           "civilstånd": "Gift med Henrik Johansson",
-          "ratsit_url": "https://www.ratsit.se/19710607-Isabell_Marina_Johansson_Hisings_Karra/tLyverQxv2QyDqbHl2p0mhJ-H_QsQNAdDzDR_o7-cVY"
+          "ratsit_url": "https://www.ratsit.se/19710607-Isabell_Marina_Johansson_Hisings_Karra/tLyverQxv2QyDqbHl2p0mhJ-H_QsQNAdDzDR_o7-cVY",
+          "inkomst": [
+            {
+              "år": 2025,
+              "lön": 930800,
+              "kapital": -24413,
+              "betalningsanmärkning": false,
+              "löneranking": 42
+            },
+            {
+              "år": 2024,
+              "lön": 908400,
+              "kapital": 7431,
+              "betalningsanmärkning": false,
+              "löneranking": 42
+            },
+            {
+              "år": 2023,
+              "lön": 901500,
+              "kapital": 7556,
+              "betalningsanmärkning": false,
+              "löneranking": 36
+            }
+          ],
+          "källa": "docs/ratsit/Lönekollen+3+år+(2026)+-+Göteborg+Hisingen,+s.+373.pdf"
         }
       }
     },
