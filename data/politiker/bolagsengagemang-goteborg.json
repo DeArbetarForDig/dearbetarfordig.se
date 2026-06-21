@@ -1787,48 +1787,9 @@
       "namn": "Pär Johansson",
       "parti": "S",
       "allabolagUrl": "https://www.allabolag.se/befattning/p%C3%A4r-henrik-johansson/-/10197728",
-      "bolagsuppdrag": [
-        {
-          "bolag": "Husqvarna Business Support AB",
-          "roll": "Ledamot",
-          "url": "https://www.allabolag.se/foretag/husqvarna-business-support-ab/-/-/5560371964"
-        },
-        {
-          "bolag": "Ever Edge Trademarks Holding AB",
-          "roll": "Ledamot",
-          "url": "https://www.allabolag.se/foretag/ever-edge-trademarks-holding-ab/-/-/5595095067"
-        },
-        {
-          "bolag": "Aktiebolaget Partner",
-          "roll": "Suppleant",
-          "url": "https://www.allabolag.se/foretag/aktiebolaget-partner/-/-/5565660932"
-        },
-        {
-          "bolag": "Corpus VQ AB",
-          "roll": "Suppleant",
-          "url": "https://www.allabolag.se/foretag/corpus-vq-ab/-/-/5567126643"
-        },
-        {
-          "bolag": "Gardena Germany AB",
-          "roll": "Suppleant",
-          "url": "https://www.allabolag.se/foretag/gardena-germany-ab/-/-/5567445902"
-        },
-        {
-          "bolag": "Husqvarna AB",
-          "roll": "Extern firmatecknare",
-          "url": "https://www.allabolag.se/foretag/husqvarna-ab/-/-/5560005331"
-        },
-        {
-          "bolag": "Husqvarna Commercial Solutions AB",
-          "roll": "Extern firmatecknare",
-          "url": "https://www.allabolag.se/foretag/husqvarna-commercial-solutions-ab/-/-/5567455893"
-        },
-        {
-          "bolag": "Husqvarna Direct AB",
-          "roll": "Extern firmatecknare",
-          "url": "https://www.allabolag.se/foretag/husqvarna-direct-ab/-/-/5591702609"
-        }
-      ]
+      "bolagsuppdrag": [],
+      "felaktig_matchning": true,
+      "notering": "Allabolag matchade fel person (Pär Henrik Johansson, Lidingö). Rätt person ej hittad."
     },
     {
       "id": "a1a4469d-24d5-4e3b-95a2-627fa03b9f7a",
