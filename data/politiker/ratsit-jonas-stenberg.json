@@ -1,0 +1,482 @@
+{
+  "politiker": "Jonas Stenberg",
+  "parti": "D",
+  "politiker_id": "a12c8e3c-7607-4658-b57c-fb71fbd6ae7a",
+  "ratsit_data": {
+    "fullständigt_namn": "Bengt Jonas Stenberg",
+    "ålder": 51,
+    "adress": "Askims Urbergsväg 12, 436 40 Askim",
+    "civilstånd": "Gift med Maja Stenberg",
+    "fordon": [
+      "Triumph Rocket 3 R 2022",
+      "Porsche 911 Targa 2025",
+      "CFMOTO Terralander800 2012",
+      "Aixam S9 2022"
+    ]
+  },
+  "bolagsengagemang": [
+    {
+      "namn": "Skönabäck Förvaltnings Aktiebolag",
+      "orgnr": "5564647898",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 8.1,
+      "vinst_msek": -8.2
+    },
+    {
+      "namn": "YSB AB",
+      "orgnr": "5564662350",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 297.9,
+      "vinst_msek": 2.5
+    },
+    {
+      "namn": "Tranquilo Restauranger AB",
+      "orgnr": "5566777743",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot",
+      "kontroll": "0",
+      "omsättning_msek": 21.9,
+      "vinst_msek": 0
+    },
+    {
+      "namn": "ESS Hotel Group AB",
+      "orgnr": "5567108047",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, VD, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 184.9,
+      "vinst_msek": -20.5
+    },
+    {
+      "namn": "Örenäs Slott Hotell och Konferens AB",
+      "orgnr": "5567369854",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 42.2,
+      "vinst_msek": -0.9
+    },
+    {
+      "namn": "JS Holding AB",
+      "orgnr": "5567634489",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot",
+      "kontroll": "100%",
+      "omsättning_msek": 0,
+      "vinst_msek": 0
+    },
+    {
+      "namn": "Örenäs Slott och Egendom AB",
+      "orgnr": "5567985857",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 5.7,
+      "vinst_msek": -8.7
+    },
+    {
+      "namn": "S Studios Sweden Aktiebolag",
+      "orgnr": "5568070410",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 136.8,
+      "vinst_msek": 5.4
+    },
+    {
+      "namn": "Ess Hotell Fastigheter AB",
+      "orgnr": "5568278401",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, VD, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 0,
+      "vinst_msek": -3.2
+    },
+    {
+      "namn": "FSB Sweden AB",
+      "orgnr": "5568278419",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 239.6,
+      "vinst_msek": 1.6
+    },
+    {
+      "namn": "FSB Sweden Holding AB",
+      "orgnr": "5568340086",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 0,
+      "vinst_msek": -0.3
+    },
+    {
+      "namn": "HPG Sverige AB",
+      "orgnr": "5568433220",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 84.5,
+      "vinst_msek": -1.3
+    },
+    {
+      "namn": "RN Härryda Baggatomten 6:1 AB",
+      "orgnr": "5568668122",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 0.1,
+      "vinst_msek": -12.3
+    },
+    {
+      "namn": "Barabicu AB",
+      "orgnr": "5569061616",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot",
+      "kontroll": "0",
+      "omsättning_msek": 27,
+      "vinst_msek": 0.1
+    },
+    {
+      "namn": "Zamenhof AB",
+      "orgnr": "5569075830",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot",
+      "kontroll": "0",
+      "omsättning_msek": 36.8,
+      "vinst_msek": 0.1
+    },
+    {
+      "namn": "YSB Intressenter AB",
+      "orgnr": "5569248874",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, VD, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 3.8,
+      "vinst_msek": 0.4
+    },
+    {
+      "namn": "Ellery Beach House AB",
+      "orgnr": "5569475006",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 241.3,
+      "vinst_msek": 1.3
+    },
+    {
+      "namn": "TCB Sverige AB",
+      "orgnr": "5569611261",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, VD, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 0.6,
+      "vinst_msek": -11.5
+    },
+    {
+      "namn": "Hotel KA6 AB",
+      "orgnr": "5569897779",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 102.3,
+      "vinst_msek": -0.5
+    },
+    {
+      "namn": "ESS Hotel Group Hotelldrift AB",
+      "orgnr": "5569937526",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 34.1,
+      "vinst_msek": -1.4
+    },
+    {
+      "namn": "Slutplattan HOBVI 124133 AB",
+      "orgnr": "5569937534",
+      "status": "Fusion",
+      "befattning": "Verklig Huvudman",
+      "kontroll": "25-50%",
+      "omsättning_msek": 0,
+      "vinst_msek": 2.6
+    },
+    {
+      "namn": "Hotel Bellora Holding AB",
+      "orgnr": "5569942534",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 0.7,
+      "vinst_msek": 0
+    },
+    {
+      "namn": "ESS Hotel Group Fastigheter AB",
+      "orgnr": "5569942542",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 0,
+      "vinst_msek": 1
+    },
+    {
+      "namn": "MJS Hus i Malmö AB",
+      "orgnr": "5569942575",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 12.7,
+      "vinst_msek": -3.9
+    },
+    {
+      "namn": "ESS Hotel Group Restaurangdrift AB",
+      "orgnr": "5569942583",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 0,
+      "vinst_msek": 2.6
+    },
+    {
+      "namn": "Ess Hotell Intressenter AB",
+      "orgnr": "5569984742",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, VD, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 0,
+      "vinst_msek": 10
+    },
+    {
+      "namn": "Mandales AB",
+      "orgnr": "5590075494",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0-25%",
+      "omsättning_msek": 36.6,
+      "vinst_msek": 0
+    },
+    {
+      "namn": "YSB Sandskogen AB",
+      "orgnr": "5590086616",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, VD",
+      "kontroll": "0",
+      "omsättning_msek": 2.2,
+      "vinst_msek": 0
+    },
+    {
+      "namn": "Hotellet vid sjön AB",
+      "orgnr": "5590099700",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 414.6,
+      "vinst_msek": 2.4
+    },
+    {
+      "namn": "Belle Maison AB",
+      "orgnr": "5590140561",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 15.9,
+      "vinst_msek": 5.6
+    },
+    {
+      "namn": "Hotell MJ AB",
+      "orgnr": "5590554134",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 84.7,
+      "vinst_msek": 0.6
+    },
+    {
+      "namn": "Barabicu Holding AB",
+      "orgnr": "5591043772",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot",
+      "kontroll": "0",
+      "omsättning_msek": 0,
+      "vinst_msek": 0.7
+    },
+    {
+      "namn": "Hotellet vid floden AB",
+      "orgnr": "5591116040",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 0.6,
+      "vinst_msek": 0
+    },
+    {
+      "namn": "Hotellet i Höghuset AB",
+      "orgnr": "5591677116",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 382.4,
+      "vinst_msek": -0.8
+    },
+    {
+      "namn": "ESS Hotel Group International AB",
+      "orgnr": "5591901573",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 28.7,
+      "vinst_msek": -1
+    },
+    {
+      "namn": "Actionbadet AB",
+      "orgnr": "5591920722",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 39.9,
+      "vinst_msek": 0
+    },
+    {
+      "namn": "TCB Aktieförvaltning AB",
+      "orgnr": "5592085541",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 0,
+      "vinst_msek": -0.1
+    },
+    {
+      "namn": "ESS Group Fastighetsutveckling AB",
+      "orgnr": "5592354574",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 0,
+      "vinst_msek": 0
+    },
+    {
+      "namn": "Home of ESS AB",
+      "orgnr": "5592853450",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 18.7,
+      "vinst_msek": 0.4
+    },
+    {
+      "namn": "Hotell Hjortviken AB",
+      "orgnr": "5593515710",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 0.1,
+      "vinst_msek": -1
+    },
+    {
+      "namn": "SwipeEazy AB",
+      "orgnr": "5593540163",
+      "status": "Aktiv",
+      "befattning": "Verklig Huvudman",
+      "kontroll": "25-50%",
+      "omsättning_msek": 0.4,
+      "vinst_msek": -5.5
+    },
+    {
+      "namn": "ESSBEV AB",
+      "orgnr": "5593588428",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 0,
+      "vinst_msek": -1.5
+    },
+    {
+      "namn": "ESSOESS Charter AB",
+      "orgnr": "5593625261",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "25-50%",
+      "omsättning_msek": 0,
+      "vinst_msek": 0
+    },
+    {
+      "namn": "ESS Hotel Group Fastigheter Portfölj 1 AB",
+      "orgnr": "5593959967",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 0,
+      "vinst_msek": 6.3
+    },
+    {
+      "namn": "ESS Hotel Group Fastigheter Projekt Holding AB",
+      "orgnr": "5594920067",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0",
+      "omsättning_msek": 0,
+      "vinst_msek": 0
+    },
+    {
+      "namn": "WrkNw AB",
+      "orgnr": "5594977620",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0"
+    },
+    {
+      "namn": "SellAx AB",
+      "orgnr": "5595269423",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0"
+    },
+    {
+      "namn": "TwentyFour Meals AB",
+      "orgnr": "5595424374",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot",
+      "kontroll": "0"
+    },
+    {
+      "namn": "Bergendal Hotell & Konferens AB",
+      "orgnr": "5595474957",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, VD, Ordförande",
+      "kontroll": "25-50%"
+    },
+    {
+      "namn": "Bergendal Fastighets AB",
+      "orgnr": "5595542688",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0"
+    },
+    {
+      "namn": "MdE & Co AB",
+      "orgnr": "5595741793",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0"
+    },
+    {
+      "namn": "BOE Scandinavia AB",
+      "orgnr": "5595766816",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot, Ordförande",
+      "kontroll": "0"
+    },
+    {
+      "namn": "Ekonomiska Föreningen Kobbehall",
+      "orgnr": "7164085586",
+      "status": "Aktiv",
+      "befattning": "Styrelseledamot",
+      "kontroll": "0"
+    }
+  ],
+  "källa": "ratsit.se",
+  "hämtad": "2026-06-21"
+}
