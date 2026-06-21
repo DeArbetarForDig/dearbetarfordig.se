@@ -1173,7 +1173,24 @@
         ],
         "förrättningsarvode_kr": 37720,
         "antal_möten_deltog": 23,
-        "total_ersättning_kr": 39329
+        "total_ersättning_kr": 39329,
+        "ratsit": {
+          "fullständigt_namn": "Per Eric Trulsson",
+          "födelsedatum": "1948-10-05",
+          "ålder": 77,
+          "adress": "Lisa Sass gata 16 lgh 1001, Hisings Backa",
+          "ratsit_url": "https://www.ratsit.se/19481005-Per_Eric_Trulsson_Hisings_Backa/w07TLG2wzKPu2QJfgqrM5Fm6Ey_WjJ4u2O7GlzuoS2w",
+          "bolagsengagemang_ratsit": [
+            {
+              "namn": "Göteborg Energi Aktiebolag",
+              "orgnr": "5563626794",
+              "befattning": "Styrelseledamot",
+              "omsättning_msek": 4183,
+              "typ": "kommunalt"
+            }
+          ],
+          "notering": "7 jävsanmälningar — troligen energifrågor pga styrelseuppdrag i Göteborg Energi"
+        }
       }
     },
     {
