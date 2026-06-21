@@ -97,6 +97,73 @@ app.openapi(politikerDetailRoute, async (c) => {
   return c.json(person as any, 200)
 })
 
+// --- Arvode ---
+// Beräknar och returnerar ersättning för en enskild politiker.
+// Datakällor:
+//   1. Fast arvode (presidieuppdrag): arvoderas_enligt-edge i grafen,
+//      beräknat vid seed-tid från Göteborgs Stads arvodesregler Bilaga 2.
+//   2. Förrättningsarvode (mötesdeltagande): 1 640 kr per KF-möte (heldag),
+//      baserat på registrerade röster (= närvaro vid votering).
+//   3. Total ersättning = fast arvode/mån + ackumulerat förrättningsarvode.
+// Källa: Göteborgs Stads regler för arvoden och ersättningar (KS 2025-12-10 §946)
+const arvodesRoute = createRoute({
+  method: 'get', path: '/api/v1/{kommun}/politiker/{id}/arvode', tags: ['Politiker'],
+  summary: 'Ersättning för förtroendevald — fast arvode + förrättningsarvode',
+  description: `Beräknar total ersättning baserat på:
+- Fast arvode: procent av grundarvodet (80 475 kr/mån 2026) beroende på ordförandeuppdrag
+- Förrättningsarvode: 1 640 kr per KF-sammanträde (heldag) baserat på registrerad närvaro
+- Källa: Göteborgs Stads regler för arvoden (KS 2025-12-10 §946, Bilaga 2)`,
+  request: { params: z.object({ kommun: z.string(), id: z.string().uuid() }) },
+  responses: {
+    200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('Arvode') } }, description: 'OK' },
+    404: { content: { 'application/json': { schema: z.object({ error: z.string() }) } }, description: 'Ej hittad' },
+  },
+})
+app.openapi(arvodesRoute, async (c) => {
+  const { id } = c.req.valid('param')
+
+  // Hämta politikerns grunddata
+  const [person] = await sql`SELECT * FROM goteborg.politiker WHERE id = ${id}`
+  if (!person) return c.json({ error: 'Politiker inte hittad' }, 404)
+
+  // Hämta arvodesedge: politiker-{uuid} → arvode-regler-2026
+  // Denna edge innehåller all beräknad arvodesdata (skapas vid seed)
+  const arvodesEdge = await sql`
+    SELECT data FROM goteborg.graf_edges 
+    WHERE from_id = ${'politiker-' + id} AND typ = 'arvoderas_enligt'
+    LIMIT 1`
+
+  // Grunddata som alltid returneras oavsett om fast arvode finns
+  const grundarvode = 80475  // 2026 (från PDF)
+  const förrättningPerMöte = 1640  // heldag KF
+
+  if (arvodesEdge.length === 0) {
+    // Politiker utan registrerad arvodesdata (ersättare som ej deltagit i votering)
+    return c.json({
+      politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
+      grundarvode_kr: grundarvode,
+      fast_arvode_kr: 0,
+      förrättningsarvode_kr: 0,
+      antal_möten_deltog: 0,
+      total_ersättning_kr: 0,
+      källa: 'Göteborgs Stads regler för arvoden (KS 2025-12-10 §946)',
+      notering: 'Ingen registrerad närvaro vid voteringar under perioden',
+    }, 200)
+  }
+
+  const data = arvodesEdge[0].data as any
+  return c.json({
+    politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
+    grundarvode_kr: grundarvode,
+    fast_arvode_kr: data.fast_arvode_kr || 0,
+    förrättningsarvode_kr: data.förrättningsarvode_kr || 0,
+    antal_möten_deltog: data.antal_möten_deltog || 0,
+    total_ersättning_kr: data.total_ersättning_kr || data.fast_arvode_kr || 0,
+    detaljer: data.detaljer || [],
+    källa: 'Göteborgs Stads regler för arvoden (KS 2025-12-10 §946)',
+  }, 200)
+})
+
 // --- Möten (fixed N+1) ---
 const mötenRoute = createRoute({
   method: 'get', path: '/api/v1/{kommun}/möten', tags: ['Möten'],

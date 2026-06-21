@@ -115,8 +115,8 @@ describe('Investigation: Jäv och konflikter', () => {
   })
 
   it('Kan traversera graf — se vem som sitter var', async () => {
-    // Find Kommunstyrelsens arbetsutskott and check its members
-    const { data } = await get('/api/v1/goteborg/graf/node/org-kommunstyrelsens-arbetsutskott')
+    // Find Kommunledningen (merged canonical node) and check its members
+    const { data } = await get('/api/v1/goteborg/graf/node/nämnd-kommunledningen')
     expect(data.node).toBeDefined()
     expect(data.related.length).toBeGreaterThan(3)
     // Should contain politicians from multiple parties
