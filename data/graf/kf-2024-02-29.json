@@ -1,0 +1,2470 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2024-02-29",
+      "typ": "möte",
+      "label": "KF Sammanträde 2024-02-29",
+      "data": {
+        "datum": "2024-02-29",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§50",
+      "typ": "paragraf",
+      "label": "§ 50 Bestämmande av tid för justering",
+      "data": {
+        "paragrafNr": "50",
+        "ärendeNr": "SLK-2024-00078",
+        "rubrik": "Bestämmande av tid för justering",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§51",
+      "typ": "paragraf",
+      "label": "§ 51 Anmälan av länsstyrelsens beslut att utse Claes Söderling (S)",
+      "data": {
+        "paragrafNr": "51",
+        "ärendeNr": "SLK-2024-00009:3",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Claes Söderling (S)",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§52",
+      "typ": "paragraf",
+      "label": "§ 52 Anmälan av länsstyrelsens beslut att utse Kochar Wallad",
+      "data": {
+        "paragrafNr": "52",
+        "ärendeNr": "SLK-2024-00009:5",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Kochar Wallad",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§53",
+      "typ": "paragraf",
+      "label": "§ 53 Anmälan av länsstyrelsens beslut att utse AnnaSara Perslow",
+      "data": {
+        "paragrafNr": "53",
+        "ärendeNr": "SLK-2024-00009:4",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse AnnaSara Perslow",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§54",
+      "typ": "paragraf",
+      "label": "§ 54 Anmälan av länsstyrelsens beslut att utse Anna Ahlborg (S)",
+      "data": {
+        "paragrafNr": "54",
+        "ärendeNr": "SLK-2024-00009:6",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Anna Ahlborg (S)",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§55",
+      "typ": "paragraf",
+      "label": "§ 55 Frågestund",
+      "data": {
+        "paragrafNr": "55",
+        "ärendeNr": "SLK-2024-00079",
+        "rubrik": "Frågestund",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§56",
+      "typ": "paragraf",
+      "label": "§ 56 Interpellation av Elisabet Lann (KD) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "56",
+        "ärendeNr": "SLK-2023-01065",
+        "rubrik": "Interpellation av Elisabet Lann (KD) till kommunstyrelsens",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§57",
+      "typ": "paragraf",
+      "label": "§ 57 Interpellation av Kristina Bergman Alme (L) till",
+      "data": {
+        "paragrafNr": "57",
+        "ärendeNr": "SLK-2023-01143",
+        "rubrik": "Interpellation av Kristina Bergman Alme (L) till",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§58",
+      "typ": "paragraf",
+      "label": "§ 58 Interpellation av Anneli Rhedin (M) till förskolenämndens",
+      "data": {
+        "paragrafNr": "58",
+        "ärendeNr": "SLK-2024-00125",
+        "rubrik": "Interpellation av Anneli Rhedin (M) till förskolenämndens",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-förskolenämnden",
+      "typ": "organisation",
+      "label": "förskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§59",
+      "typ": "paragraf",
+      "label": "§ 59 Interpellation av Emmyly Bönfors (C) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "59",
+        "ärendeNr": "SLK-2024-00126",
+        "rubrik": "Interpellation av Emmyly Bönfors (C) till kommunstyrelsens",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§60",
+      "typ": "paragraf",
+      "label": "§ 60 Stadsrevisionens rapportsammandrag - Göteborgs Stads",
+      "data": {
+        "paragrafNr": "60",
+        "ärendeNr": "SLK-2023-00067",
+        "rubrik": "Stadsrevisionens rapportsammandrag - Göteborgs Stads",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§61",
+      "typ": "paragraf",
+      "label": "§ 61 Stadsrevisionens rapportsammandrag - Hanteringen av",
+      "data": {
+        "paragrafNr": "61",
+        "ärendeNr": "SLK-2024-00218",
+        "rubrik": "Stadsrevisionens rapportsammandrag - Hanteringen av",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§62",
+      "typ": "paragraf",
+      "label": "§ 62 Valberedningens förslag till vid sammanträdet",
+      "data": {
+        "paragrafNr": "62",
+        "ärendeNr": "SLK-2024-00006:5",
+        "rubrik": "Valberedningens förslag till vid sammanträdet",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§63",
+      "typ": "paragraf",
+      "label": "§ 63 Val av ersättare i förbundsfullmäktige i kommunalförbundet",
+      "data": {
+        "paragrafNr": "63",
+        "ärendeNr": "SLK-2023-00027",
+        "rubrik": "Val av ersättare i förbundsfullmäktige i kommunalförbundet",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§64",
+      "typ": "paragraf",
+      "label": "§ 64 Val av ersättare i förbundsfullmäktige i Göteborgsregionens",
+      "data": {
+        "paragrafNr": "64",
+        "ärendeNr": "SLK-2023-00027",
+        "rubrik": "Val av ersättare i förbundsfullmäktige i Göteborgsregionens",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§65",
+      "typ": "paragraf",
+      "label": "§ 65 Valberedningens förslag till vid sammanträdet",
+      "data": {
+        "paragrafNr": "65",
+        "ärendeNr": "SLK-2024-00006",
+        "rubrik": "Valberedningens förslag till vid sammanträdet",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§66",
+      "typ": "paragraf",
+      "label": "§ 66 Avsägelse av Joakim Berlin (S) från uppdraget som ersättare",
+      "data": {
+        "paragrafNr": "66",
+        "ärendeNr": "SLK-2024-00009",
+        "rubrik": "Avsägelse av Joakim Berlin (S) från uppdraget som ersättare",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§67",
+      "typ": "paragraf",
+      "label": "§ 67 Avsägelse av Anna Ahlborg (S) från uppdraget som ersättare",
+      "data": {
+        "paragrafNr": "67",
+        "ärendeNr": "SLK-2024-00009:9",
+        "rubrik": "Avsägelse av Anna Ahlborg (S) från uppdraget som ersättare",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§68",
+      "typ": "paragraf",
+      "label": "§ 68 Rättelse av beslut den 1 februari 2024 beträffande",
+      "data": {
+        "paragrafNr": "68",
+        "ärendeNr": "SLK-2023-00782",
+        "rubrik": "Rättelse av beslut den 1 februari 2024 beträffande",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "lag-socialtjänstlagen",
+      "typ": "lag",
+      "label": "socialtjänstlagen",
+      "data": {
+        "kap": "4",
+        "paragraf": "2"
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-f",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen f",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-n",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nN",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§69",
+      "typ": "paragraf",
+      "label": "§ 69 Retroaktiv utbetalning och uppräkning av arvoden för",
+      "data": {
+        "paragrafNr": "69",
+        "ärendeNr": "SLK-2023-00050",
+        "rubrik": "Retroaktiv utbetalning och uppräkning av arvoden för",
+        "datum": "2024-02-29",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 68,
+          "nej": 9,
+          "avstår": 3,
+          "frånvarande": 1
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\nRickard Eriksson",
+            "parti": "M",
+            "typ": "stadsledningskontorets förslag."
+          },
+          {
+            "namn": "och Bettan Andersson",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "stadsledningskontorets förslag och tilläggsyrkande"
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Maja Bentzer",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pierre Alpstranden",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sanda Anton Henriksson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Augustsson",
+            "parti": "C",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ajsela Bruncevic",
+            "parti": "C",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roland Dahlström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Petra Elf",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rickard Eriksson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Grith Fjeldmose",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Christer Gustafsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Zagros Hama",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Helgeson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Christer Holmgren",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Höstmad",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Johansson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Simona Mohamsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tamara Nesic",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Nilsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sophia Nilsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claudia Nistor Pedrini",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Norén Lallo",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Helena Norin",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "AnnaSara Perslow",
+            "parti": "C",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "frånvarande"
+          },
+          {
+            "namn": "Parisa Rezaeivar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anna Silvén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Henrik Sjöstrand",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jonas Stenberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Allan Stutzinsky",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Milyon Tekle-Haile",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jim Tellefsdal",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bruno Tiozzo",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Frida Tånghag",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Joel Wickman",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Wikström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Öman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-deltar",
+      "typ": "organisation",
+      "label": "kommunstyrelsen deltar",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§70",
+      "typ": "paragraf",
+      "label": "§ 70 Hemställan från Liseberg AB om att lämna kapitaltillskott till",
+      "data": {
+        "paragrafNr": "70",
+        "ärendeNr": "SLK-2023-01129",
+        "rubrik": "Hemställan från Liseberg AB om att lämna kapitaltillskott till",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§71",
+      "typ": "paragraf",
+      "label": "§ 71 Hemställan från Socialnämnd Hisingen till",
+      "data": {
+        "paragrafNr": "71",
+        "ärendeNr": "SLK-2023-00644",
+        "rubrik": "Hemställan från Socialnämnd Hisingen till",
+        "datum": "2024-02-29",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "kommunstyrelsens"
+          },
+          {
+            "namn": "och Nina Miskovsky",
+            "parti": "M",
+            "typ": "kommunstyrelsens"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-samt",
+      "typ": "organisation",
+      "label": "kommunstyrelsen samt",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-och",
+      "typ": "organisation",
+      "label": "kommunstyrelsen och",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§72",
+      "typ": "paragraf",
+      "label": "§ 72 Exploateringsnämndens ställningstagande avseende",
+      "data": {
+        "paragrafNr": "72",
+        "ärendeNr": "SLK-2023-00869",
+        "rubrik": "Exploateringsnämndens ställningstagande avseende",
+        "datum": "2024-02-29",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 29
+        },
+        "yrkanden": [
+          {
+            "namn": "och Emmyly Bönfors",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Ann Catrine Fogelgren",
+            "parti": "L",
+            "typ": "förslaget från"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-f",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-exploateringsnämnden-g",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§73",
+      "typ": "paragraf",
+      "label": "§ 73 Beräkningsgrund för avgifter för upplåtelse av offentlig plats",
+      "data": {
+        "paragrafNr": "73",
+        "ärendeNr": "SLK-2023-00861",
+        "rubrik": "Beräkningsgrund för avgifter för upplåtelse av offentlig plats",
+        "datum": "2024-02-29",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Karin Karlsson",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Patrik Höstmad",
+            "parti": "D",
+            "typ": "att ärendet ska återremitteras till stadsmiljönämnden i enlighet med yrkande frå"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "i första hand att ärendet ska återremitteras till"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsmiljönämnden",
+      "typ": "organisation",
+      "label": "stadsmiljönämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-i",
+      "typ": "organisation",
+      "label": "stadsmiljönämnden i",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-genom",
+      "typ": "organisation",
+      "label": "stadsmiljönämnden genom",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§74",
+      "typ": "paragraf",
+      "label": "§ 74 Genomförandebeslut avseende byggnation av Eriksboskolan",
+      "data": {
+        "paragrafNr": "74",
+        "ärendeNr": "SLK-2023-01058",
+        "rubrik": "Genomförandebeslut avseende byggnation av Eriksboskolan",
+        "datum": "2024-02-29",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Camilla Widman",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "typ": "att ärendet ska återremitteras i enlighet med yrkande från"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-f",
+      "typ": "organisation",
+      "label": "grundskolenämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-ta",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden ta",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-f",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-genom",
+      "typ": "organisation",
+      "label": "grundskolenämnden genom",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden",
+      "typ": "organisation",
+      "label": "Grundskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§75",
+      "typ": "paragraf",
+      "label": "§ 75 Redovisning av uppdrag avseende struktur, ansvarsområden",
+      "data": {
+        "paragrafNr": "75",
+        "ärendeNr": "SLK-2022-00922",
+        "rubrik": "Redovisning av uppdrag avseende struktur, ansvarsområden",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-att",
+      "typ": "organisation",
+      "label": "kommunstyrelsen att",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden",
+      "typ": "organisation",
+      "label": "stadsbyggnadsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden",
+      "typ": "organisation",
+      "label": "stadsfastighetsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-exploateringsn",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\nExploateringsn",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-styrande",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden\nStyrande",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§76",
+      "typ": "paragraf",
+      "label": "§ 76 Reviderat reglemente för Göteborgs Stads kretslopp och",
+      "data": {
+        "paragrafNr": "76",
+        "ärendeNr": "SLK-2023-00911",
+        "rubrik": "Reviderat reglemente för Göteborgs Stads kretslopp och",
+        "datum": "2024-02-29",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Emmyly Bönfors",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Claes Björling",
+            "parti": "M",
+            "typ": "stadsledningskontorets förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-styrande",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden\nStyrande",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§77",
+      "typ": "paragraf",
+      "label": "§ 77 Göteborgs Stads vattentjänstplan 2024–2027",
+      "data": {
+        "paragrafNr": "77",
+        "ärendeNr": "SLK-2023-00629",
+        "rubrik": "Göteborgs Stads vattentjänstplan 2024–2027",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§78",
+      "typ": "paragraf",
+      "label": "§ 78 Göteborgs Stads plan för arbetet mot våld i nära relationer",
+      "data": {
+        "paragrafNr": "78",
+        "ärendeNr": "SLK-2023-00877",
+        "rubrik": "Göteborgs Stads plan för arbetet mot våld i nära relationer",
+        "datum": "2024-02-29",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 68,
+          "nej": 9
+        },
+        "yrkanden": [
+          {
+            "namn": "och AnnaSara Perslow",
+            "parti": "C",
+            "typ": "bifall till kommunstyrelsens förslag, tilläggsyrkande från M, D, L och KD"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "stadsledningskontorets förslag, tilläggsyrkande"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§79",
+      "typ": "paragraf",
+      "label": "§ 79 Göteborgs Stads plan för arbetet med civil beredskap",
+      "data": {
+        "paragrafNr": "79",
+        "ärendeNr": "SLK-2023-01023",
+        "rubrik": "Göteborgs Stads plan för arbetet med civil beredskap",
+        "datum": "2024-02-29",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Hans Arby",
+            "parti": "C",
+            "typ": "bifall till kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Eva Flyborg",
+            "parti": "L",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från KD, M, D och L i kommunstyrels"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§80",
+      "typ": "paragraf",
+      "label": "§ 80 Avslutande av uppdrag om att utreda förutsättningar för att",
+      "data": {
+        "paragrafNr": "80",
+        "ärendeNr": "SLK-2023-00686",
+        "rubrik": "Avslutande av uppdrag om att utreda förutsättningar för att",
+        "datum": "2024-02-29",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41
+        },
+        "yrkanden": [
+          {
+            "namn": "och Sara Carlsson Hägglund",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Daniel Augustsson",
+            "parti": "C",
+            "typ": "avslag på kommunstyrelsens förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§81",
+      "typ": "paragraf",
+      "label": "§ 81 Motion av Elisabet Lann (KD) och Samuel Bråse (KD) om att",
+      "data": {
+        "paragrafNr": "81",
+        "ärendeNr": "SLK-2022-01364",
+        "rubrik": "Motion av Elisabet Lann (KD) och Samuel Bråse (KD) om att",
+        "datum": "2024-02-29",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Jesper Berglund",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jessica Blixt",
+            "parti": "D",
+            "typ": "förslaget"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "typ": "i första hand bifall till förslaget från L i"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "typ": "yrkande från C den 11 oktober 2023."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-n",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-g",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-02-29-§82",
+      "typ": "paragraf",
+      "label": "§ 82 Ordningsfråga",
+      "data": {
+        "paragrafNr": "82",
+        "ärendeNr": "SLK-2024-00077",
+        "rubrik": "Ordningsfråga",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§83",
+      "typ": "paragraf",
+      "label": "§ 83 Motion av Elisabet Lann (KD) och Johanna Holmdahl (KD) om",
+      "data": {
+        "paragrafNr": "83",
+        "ärendeNr": "SLK-2022-01365",
+        "rubrik": "Motion av Elisabet Lann (KD) och Johanna Holmdahl (KD) om",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§84",
+      "typ": "paragraf",
+      "label": "§ 84 Motion av Simona Mohamsson (L) om att införa nolltolerans",
+      "data": {
+        "paragrafNr": "84",
+        "ärendeNr": "SLK-2023-00262",
+        "rubrik": "Motion av Simona Mohamsson (L) om att införa nolltolerans",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§85",
+      "typ": "paragraf",
+      "label": "§ 85 Motion av Rasmus Ragnarsson (SD) om att stärka arbetet",
+      "data": {
+        "paragrafNr": "85",
+        "ärendeNr": "SLK-2023-00408",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) om att stärka arbetet",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§86",
+      "typ": "paragraf",
+      "label": "§ 86 Motion av Martin Wannholt (D), Axel Josefson (M), Axel",
+      "data": {
+        "paragrafNr": "86",
+        "ärendeNr": "SLK-2023-00390",
+        "rubrik": "Motion av Martin Wannholt (D), Axel Josefson (M), Axel",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§87",
+      "typ": "paragraf",
+      "label": "§ 87 Motion av Axel Darvik (L) och Kristina Bergman Alme (L) om",
+      "data": {
+        "paragrafNr": "87",
+        "ärendeNr": "SLK-2023-00514",
+        "rubrik": "Motion av Axel Darvik (L) och Kristina Bergman Alme (L) om",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§88",
+      "typ": "paragraf",
+      "label": "§ 88 Motion av Ann Catrine Fogelgren (L), Pär Gustafsson (L) och",
+      "data": {
+        "paragrafNr": "88",
+        "ärendeNr": "SLK-2023-00515",
+        "rubrik": "Motion av Ann Catrine Fogelgren (L), Pär Gustafsson (L) och",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§89",
+      "typ": "paragraf",
+      "label": "§ 89 Motion av Rasmus Ragnarsson (SD) om att göra enkätdata",
+      "data": {
+        "paragrafNr": "89",
+        "ärendeNr": "SLK-2023-00407",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) om att göra enkätdata",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§90",
+      "typ": "paragraf",
+      "label": "§ 90 Motion av Anders Svensson (M) och Nina Miskovsky (M) om",
+      "data": {
+        "paragrafNr": "90",
+        "ärendeNr": "SLK-2023-00579",
+        "rubrik": "Motion av Anders Svensson (M) och Nina Miskovsky (M) om",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§91",
+      "typ": "paragraf",
+      "label": "§ 91 Motion av Axel Darvik (L) om att stärka kommunens arbete",
+      "data": {
+        "paragrafNr": "91",
+        "ärendeNr": "SLK-2023-00532",
+        "rubrik": "Motion av Axel Darvik (L) om att stärka kommunens arbete",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§92",
+      "typ": "paragraf",
+      "label": "§ 92 Motion av Anders Svensson (M), Mariah ben Salem Dynehäll",
+      "data": {
+        "paragrafNr": "92",
+        "ärendeNr": "SLK-2023-00513",
+        "rubrik": "Motion av Anders Svensson (M), Mariah ben Salem Dynehäll",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§93",
+      "typ": "paragraf",
+      "label": "§ 93 Motion av Simona Mohamsson (L) och Pär Gustafsson (L) om",
+      "data": {
+        "paragrafNr": "93",
+        "ärendeNr": "SLK-2023-00571",
+        "rubrik": "Motion av Simona Mohamsson (L) och Pär Gustafsson (L) om",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§94",
+      "typ": "paragraf",
+      "label": "§ 94 Motion av Jörgen Fogelklou (SD) om att Göteborgs Stad ska",
+      "data": {
+        "paragrafNr": "94",
+        "ärendeNr": "SLK-2023-00832",
+        "rubrik": "Motion av Jörgen Fogelklou (SD) om att Göteborgs Stad ska",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§95",
+      "typ": "paragraf",
+      "label": "§ 95 Motion av Jörgen Fogelklou (SD) och Agneta Kjaerbeck (SD)",
+      "data": {
+        "paragrafNr": "95",
+        "ärendeNr": "SLK-2023-00643",
+        "rubrik": "Motion av Jörgen Fogelklou (SD) och Agneta Kjaerbeck (SD)",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§96",
+      "typ": "paragraf",
+      "label": "§ 96 Motion av Anders Svensson (M) och Hakan Önal (M) om att",
+      "data": {
+        "paragrafNr": "96",
+        "ärendeNr": "SLK-2023-00616",
+        "rubrik": "Motion av Anders Svensson (M) och Hakan Önal (M) om att",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§97",
+      "typ": "paragraf",
+      "label": "§ 97 Motion av Emmyly Bönfors (C) och AnnaSara Perslow (C) om",
+      "data": {
+        "paragrafNr": "97",
+        "ärendeNr": "SLK-2023-00531",
+        "rubrik": "Motion av Emmyly Bönfors (C) och AnnaSara Perslow (C) om",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§98",
+      "typ": "paragraf",
+      "label": "§ 98 Interpellation av Emma Altenhammar (SD) till",
+      "data": {
+        "paragrafNr": "98",
+        "ärendeNr": "SLK-2024-00255",
+        "rubrik": "Interpellation av Emma Altenhammar (SD) till",
+        "datum": "2024-02-29",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "interpellation_väntar",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-02-29-§99",
+      "typ": "paragraf",
+      "label": "§ 99 Förteckning över anmälningsärenden",
+      "data": {
+        "paragrafNr": "99",
+        "ärendeNr": "SLK-2024-00075",
+        "rubrik": "Förteckning över anmälningsärenden",
+        "datum": "2024-02-29",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "kf-2024-02-29-§55",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§55",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§55",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§55",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§55",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§56",
+      "to": "kf-*-§105",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 105"
+    },
+    {
+      "from": "kf-2024-02-29-§56",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§56",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§57",
+      "to": "kf-*-§45",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 45"
+    },
+    {
+      "from": "kf-2024-02-29-§57",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§57",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§58",
+      "to": "kf-*-§46",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 46"
+    },
+    {
+      "from": "kf-2024-02-29-§58",
+      "to": "org-förskolenämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§59",
+      "to": "kf-*-§47",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 47"
+    },
+    {
+      "from": "kf-2024-02-29-§59",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§62",
+      "to": "kf-*-§7",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 7"
+    },
+    {
+      "from": "kf-2024-02-29-§63",
+      "to": "kf-*-§12",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 12"
+    },
+    {
+      "from": "kf-2024-02-29-§64",
+      "to": "kf-*-§13",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 13"
+    },
+    {
+      "from": "kf-2024-02-29-§68",
+      "to": "lag-socialtjänstlagen",
+      "typ": "regleras_av",
+      "label": "4 kap. 2 §"
+    },
+    {
+      "from": "kf-2024-02-29-§68",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§68",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§68",
+      "to": "org-kommunstyrelsen-n",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§69",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§69",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§69",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§69",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§69",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§69",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§69",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§69",
+      "to": "org-kommunstyrelsen-deltar",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§70",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§71",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§71",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§71",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§71",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§71",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§71",
+      "to": "org-kommunstyrelsen-samt",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§71",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§71",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§71",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§71",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-exploateringsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-exploateringsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§72",
+      "to": "org-exploateringsnämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§73",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§73",
+      "to": "org-stadsmiljönämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§73",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§73",
+      "to": "org-stadsmiljönämnden-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§73",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§73",
+      "to": "org-stadsmiljönämnden-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§73",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§73",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§73",
+      "to": "org-stadsmiljönämnden-genom",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§73",
+      "to": "org-stadsmiljönämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§74",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§74",
+      "to": "org-grundskolenämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§74",
+      "to": "org-stadsfastighetsnämnden-ta",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§74",
+      "to": "org-stadsfastighetsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§74",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§74",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§74",
+      "to": "org-grundskolenämnden-genom",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§74",
+      "to": "org-grundskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§75",
+      "to": "org-kommunstyrelsen-att",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§75",
+      "to": "org-stadsbyggnadsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§75",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§75",
+      "to": "org-stadsfastighetsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§75",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§75",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§75",
+      "to": "org-stadsbyggnadsnämnden-exploateringsn",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§75",
+      "to": "org-stadsfastighetsnämnden-styrande",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§76",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§76",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§76",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§76",
+      "to": "org-kretslopp-och-vattennämnden-styrande",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§77",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§78",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§78",
+      "to": "org-kommunstyrelsen-att",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§78",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§78",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§78",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§78",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§78",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§78",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§79",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§80",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§80",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§80",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§80",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§80",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§80",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "kf-*-§28",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 28"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "org-stadsbyggnadsnämnden-n",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§81",
+      "to": "org-stadsmiljönämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§83",
+      "to": "kf-*-§29",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 29"
+    },
+    {
+      "from": "kf-2024-02-29-§84",
+      "to": "kf-*-§68",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 68"
+    },
+    {
+      "from": "kf-2024-02-29-§85",
+      "to": "kf-*-§69",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 69"
+    },
+    {
+      "from": "kf-2024-02-29-§86",
+      "to": "kf-*-§70",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 70"
+    },
+    {
+      "from": "kf-2024-02-29-§87",
+      "to": "kf-*-§103",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 103"
+    },
+    {
+      "from": "kf-2024-02-29-§88",
+      "to": "kf-*-§104",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 104"
+    },
+    {
+      "from": "kf-2024-02-29-§89",
+      "to": "kf-*-§38",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 38"
+    },
+    {
+      "from": "kf-2024-02-29-§90",
+      "to": "kf-*-§39",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 39"
+    },
+    {
+      "from": "kf-2024-02-29-§91",
+      "to": "kf-*-§40",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 40"
+    },
+    {
+      "from": "kf-2024-02-29-§92",
+      "to": "kf-*-§41",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 41"
+    },
+    {
+      "from": "kf-2024-02-29-§93",
+      "to": "kf-*-§42",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 42"
+    },
+    {
+      "from": "kf-2024-02-29-§94",
+      "to": "kf-*-§43",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 43"
+    },
+    {
+      "from": "kf-2024-02-29-§95",
+      "to": "kf-*-§44",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 44"
+    },
+    {
+      "from": "kf-2024-02-29-§98",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-02-29-§99",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§50",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§51",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§52",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§53",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§54",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§55",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§56",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§57",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§58",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§59",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§60",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§61",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§62",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§63",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§64",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§65",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§66",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§67",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§68",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§69",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§70",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§71",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§72",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§73",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§74",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§75",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§76",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§77",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§78",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§79",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§80",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§81",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§82",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§83",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§84",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§85",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§86",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§87",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§88",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§89",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§90",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§91",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§92",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§93",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§94",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§95",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§96",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§97",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§98",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-02-29",
+      "to": "kf-2024-02-29-§99",
+      "typ": "beslut_av"
+    }
+  ]
+}
