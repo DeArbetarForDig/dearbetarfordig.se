@@ -160,3 +160,29 @@ data/graf/                    # 59 JSON-filer
 - [ ] Närvaro: bara Bilaga 1 parsad (ej frånvarande-lista explicit)
 - [ ] 6% anföranden utan paragraf-koppling (frågestund utan §)
 - [ ] Allabolag: 35/125 politiker ej hittade
+- [ ] Allabolag-matchning kan vara felaktig för vanliga namn (bekräftat: Pär Johansson)
+
+## Instruktioner — datainsamling per politiker
+
+Vid Ratsit-verifiering **samla alltid**:
+1. `fullständigt_namn` — alla förnamn + efternamn (t.ex. "Isabell Marina Johansson")
+2. `tilltalsnamn` — det namn personen kallas (t.ex. "Marina")
+3. `födelsedatum` — YYYY-MM-DD (från Ratsit URL)
+4. `ålder` — nuvarande
+5. `adress` — gatuadress + postnummer + ort
+6. `ratsit_url` — fullständig permalink till personens Ratsit-sida
+7. `inkomst` — 3 år (lön + kapital + BA + löneranking)
+8. `bolagsengagemang` — alla aktiva bolag med orgnr, befattning, omsättning, vinst
+9. `källa` — PDF-filnamn i docs/ratsit/
+
+**Spara i:** `data/graf/arvoden-2026.json` under edge.data.ratsit  
+**Uppdatera:** `data/politiker/goteborg.json` med fullständigt_namn
+
+**Verifiering:**
+- Kommun MÅSTE vara Göteborg (folkbokförd = valbar per KL 4:3§)
+- Ålder ska matcha (±1 år från känd data)
+- Tilltalsnamn ska matcha det namn vi har i politiker.goteborg.se
+- Om allabolag-URL finns: kontrollera att personkod pekar på rätt person
+
+**Kända felaktiga matchningar:**
+- Pär Johansson (S) — allabolag hittade Pär Henrik Johansson, Lidingö (FEL, borttagen)
