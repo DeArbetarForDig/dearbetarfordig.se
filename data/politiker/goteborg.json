@@ -3654,22 +3654,36 @@
         "kommunalråd": "Äldrefrågor, vård och omsorg",
         "stadsdel": "Östra Göteborg"
       },
-      "historik": {
-        "kommunalråd_sedan": 2007,
-        "antal_mandatperioder": 5,
-        "perioder": [
-          "2006-2010",
-          "2010-2014",
-          "2014-2018",
-          "2018-2022",
-          "2022-2026"
-        ],
-        "ansvarsområde": "Äldrefrågor, vård och omsorg (sedan 2007)",
-        "total_år_som_kommunalråd": 19,
-        "citat": "Jonas Attenius: \"mitt ankare\"",
-        "källa": "GP.se: \"Här är de rödgröna som ska styra Göteborg\" (2022)",
-        "källa_url": "https://www.gp.se/nyheter/g%C3%B6teborg/h%C3%A4r-%C3%A4r-de-r%C3%B6dgr%C3%B6na-som-ska-styra-g%C3%B6teborg-1.85065415"
-      }
+      "mandatperioder": [
+        {
+          "period": "2006-2010",
+          "roll": "Kommunalråd",
+          "ansvarsområde": "Äldrefrågor, vård och omsorg",
+          "källa": "GP.se"
+        },
+        {
+          "period": "2010-2014",
+          "roll": "Kommunalråd",
+          "ansvarsområde": "Äldrefrågor, vård och omsorg"
+        },
+        {
+          "period": "2014-2018",
+          "roll": "Kommunalråd",
+          "ansvarsområde": "Äldrefrågor, vård och omsorg"
+        },
+        {
+          "period": "2018-2022",
+          "roll": "Kommunalråd",
+          "ansvarsområde": "Äldrefrågor, vård och omsorg"
+        },
+        {
+          "period": "2022-2026",
+          "roll": "Kommunalråd",
+          "ansvarsområde": "Äldrefrågor, vård och omsorg",
+          "källa": "politiker.goteborg.se"
+        }
+      ],
+      "källa_historik": "https://www.gp.se/nyheter/g%C3%B6teborg/h%C3%A4r-%C3%A4r-de-r%C3%B6dgr%C3%B6na-som-ska-styra-g%C3%B6teborg-1.85065415"
     },
     {
       "id": "a75817be-37e6-474e-a0a8-94ba0aca8339",
