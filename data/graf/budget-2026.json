@@ -98,7 +98,8 @@
       "label": "Förskolenämnden",
       "data": {
         "kommunbidragMnkr": 5361,
-        "andelProcent": 12.2
+        "andelProcent": 12.2,
+        "registratorEmail": "forskoleforvaltningen@forskola.goteborg.se"
       }
     },
     {
@@ -107,7 +108,8 @@
       "label": "Grundskolenämnden",
       "data": {
         "kommunbidragMnkr": 10547,
-        "andelProcent": 23.9
+        "andelProcent": 23.9,
+        "registratorEmail": "grundskola@grundskola.goteborg.se"
       }
     },
     {
@@ -116,7 +118,8 @@
       "label": "Idrotts- och föreningsnämnden",
       "data": {
         "kommunbidragMnkr": 644,
-        "andelProcent": 1.5
+        "andelProcent": 1.5,
+        "registratorEmail": "idrottoforening@ioff.goteborg.se"
       }
     },
     {
@@ -125,7 +128,8 @@
       "label": "Kommunledningen",
       "data": {
         "kommunbidragMnkr": 417,
-        "andelProcent": 0.9
+        "andelProcent": 0.9,
+        "registratorEmail": "stadsledningskontoret@stadshuset.goteborg.se"
       }
     },
     {
@@ -134,7 +138,8 @@
       "label": "Kulturnämnden",
       "data": {
         "kommunbidragMnkr": 772,
-        "andelProcent": 1.8
+        "andelProcent": 1.8,
+        "registratorEmail": "kultur@kultur.goteborg.se"
       }
     },
     {
@@ -143,7 +148,8 @@
       "label": "Miljö- och klimatnämnden",
       "data": {
         "kommunbidragMnkr": 145,
-        "andelProcent": 0.3
+        "andelProcent": 0.3,
+        "registratorEmail": "miljoforvaltningen@miljo.goteborg.se"
       }
     },
     {
@@ -161,7 +167,8 @@
       "label": "Nämnden för funktionsstöd",
       "data": {
         "kommunbidragMnkr": 5977,
-        "andelProcent": 13.6
+        "andelProcent": 13.6,
+        "registratorEmail": "funktionsstod@funktionsstod.goteborg.se"
       }
     },
     {
@@ -170,7 +177,8 @@
       "label": "Inköps- och upphandlingsnämnden",
       "data": {
         "kommunbidragMnkr": 10,
-        "andelProcent": 0
+        "andelProcent": 0,
+        "registratorEmail": "inkopochupphandling@ink.goteborg.se"
       }
     },
     {
@@ -179,7 +187,8 @@
       "label": "Nämnden för intraservice",
       "data": {
         "kommunbidragMnkr": 42,
-        "andelProcent": 0.1
+        "andelProcent": 0.1,
+        "registratorEmail": "intraservice@intraservice.goteborg.se"
       }
     },
     {
@@ -206,7 +215,8 @@
       "label": "Stadsbyggnadsnämnden",
       "data": {
         "kommunbidragMnkr": 283,
-        "andelProcent": 0.6
+        "andelProcent": 0.6,
+        "registratorEmail": "stadsbyggnad@stadsbyggnad.goteborg.se"
       }
     },
     {
@@ -215,7 +225,8 @@
       "label": "Stadsmiljönämnden",
       "data": {
         "kommunbidragMnkr": 1733,
-        "andelProcent": 3.9
+        "andelProcent": 3.9,
+        "registratorEmail": "stadsmiljo@stadsmiljo.goteborg.se"
       }
     },
     {
@@ -224,7 +235,8 @@
       "label": "Socialnämnden Nordost",
       "data": {
         "kommunbidragMnkr": 1931,
-        "andelProcent": 4.4
+        "andelProcent": 4.4,
+        "registratorEmail": "socialnordost@socialnordost.goteborg.se"
       }
     },
     {
@@ -233,7 +245,8 @@
       "label": "Socialnämnden Centrum",
       "data": {
         "kommunbidragMnkr": 1470,
-        "andelProcent": 3.3
+        "andelProcent": 3.3,
+        "registratorEmail": "socialcentrum@socialcentrum.goteborg.se"
       }
     },
     {
@@ -242,7 +255,8 @@
       "label": "Socialnämnden Sydväst",
       "data": {
         "kommunbidragMnkr": 899,
-        "andelProcent": 2
+        "andelProcent": 2,
+        "registratorEmail": "socialsydvast@socialsydvast.goteborg.se"
       }
     },
     {
@@ -251,7 +265,8 @@
       "label": "Socialnämnden Hisingen",
       "data": {
         "kommunbidragMnkr": 1367,
-        "andelProcent": 3.1
+        "andelProcent": 3.1,
+        "registratorEmail": "socialhisingen@socialhisingen.goteborg.se"
       }
     },
     {
@@ -260,7 +275,8 @@
       "label": "Utbildningsnämnden",
       "data": {
         "kommunbidragMnkr": 2928,
-        "andelProcent": 6.6
+        "andelProcent": 6.6,
+        "registratorEmail": "info@educ.goteborg.se"
       }
     },
     {
