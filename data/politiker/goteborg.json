@@ -4301,8 +4301,8 @@
           "födelsedatum": "1969-09-22",
           "ålder": 56,
           "adress": "Bruntebacken 22, Hisings Kärra",
-          "bolagsengagemang": 0,
-          "notering": "Ren — inga privata bolag, bara BRF",
+          "bolagsengagemang": 1,
+          "notering": "Bara BRF-styrelseledamot, inga kommersiella bolag",
           "ratsit_url": "https://www.ratsit.se/19690922-Kjell_Henrik_Johansson_Hisings_Karra/5kxiDcHDbH6TE182HQUA2F3TkWJr8FIftoQCsXDyylE",
           "kontrollerad": "2026-06-21",
           "inkomst": [
@@ -4323,6 +4323,14 @@
               "lön": 815600,
               "kapital": -19508,
               "löneranking": 58
+            }
+          ],
+          "bolag": [
+            {
+              "namn": "Bostadsrättsföreningen Bruntebacken",
+              "befattning": "Styrelseledamot",
+              "status": "Aktiv",
+              "kontroll": "0"
             }
           ]
         }
