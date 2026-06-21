@@ -12,9 +12,24 @@ Ange vilken nämnd begäran gäller i ämnesraden — de vidarebefordrar till r�
 
 | Förvaltning | Email |
 |---|---|
+| Stadsledningskontoret (KS) | `stadsledningskontoret@stadshuset.goteborg.se` |
+| Inköps- och upphandlingsförvaltningen | `inkopochupphandling@ink.goteborg.se` |
 | Intraservice (IT) | `intraservice@intraservice.goteborg.se` |
+| Grundskoleförvaltningen | `grundskola@grundskola.goteborg.se` |
+| Förskoleförvaltningen | `forskoleforvaltningen@forskola.goteborg.se` |
+| Utbildningsförvaltningen | `info@educ.goteborg.se` |
+| Socialförvaltning Nordost | `socialnordost@socialnordost.goteborg.se` |
+| Socialförvaltning Centrum | `socialcentrum@socialcentrum.goteborg.se` |
+| Socialförvaltning Hisingen | `socialhisingen@socialhisingen.goteborg.se` |
+| Socialförvaltning Sydväst | `socialsydvast@socialsydvast.goteborg.se` |
+| Stadsmiljöförvaltningen | `stadsmiljo@stadsmiljo.goteborg.se` |
+| Kulturförvaltningen | `kultur@kultur.goteborg.se` |
+| Idrotts- och föreningsförvaltningen | `idrottoforening@ioff.goteborg.se` |
+| Miljöförvaltningen | `miljoforvaltningen@miljo.goteborg.se` |
+| Förvaltningen för funktionsstöd | `funktionsstod@funktionsstod.goteborg.se` |
+| Stadsbyggnadsförvaltningen | `stadsbyggnad@stadsbyggnad.goteborg.se` |
 
-Alternativ: ring 031-365 00 00 och be om registratorns direktadress för specifik nämnd.
+Alla adresser verifierade från goteborg.se kontaktuppgifter-sidor (2026-06).
 
 ## Vår email
 
