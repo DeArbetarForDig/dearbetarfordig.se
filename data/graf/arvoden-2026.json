@@ -465,7 +465,39 @@
         ],
         "förrättningsarvode_kr": 37720,
         "antal_möten_deltog": 23,
-        "total_ersättning_kr": 46572
+        "total_ersättning_kr": 46572,
+        "ratsit": {
+          "fullständigt_namn": "Carl Johan Hampus Magnusson",
+          "personnummer": "19831125-XXXX",
+          "ålder": 42,
+          "adress": "Hovås Arkitektväg 8, 436 50 Hovås",
+          "civilstånd": null,
+          "ratsit_url": "https://www.ratsit.se/19831125-Carl_Johan_Hampus_Magnusson_Hovas/8U4D6a45JmBfKg9qJkSt7cx6ts7kN-LW74NmC-HlMM4",
+          "inkomst": [
+            {
+              "år": 2025,
+              "lön": 958000,
+              "kapital": 106392,
+              "betalningsanmärkning": false,
+              "löneranking": 224
+            },
+            {
+              "år": 2024,
+              "lön": 924400,
+              "kapital": 10609,
+              "betalningsanmärkning": false,
+              "löneranking": 230
+            },
+            {
+              "år": 2023,
+              "lön": 903200,
+              "kapital": 6787,
+              "betalningsanmärkning": false,
+              "löneranking": 233
+            }
+          ],
+          "källa": "docs/ratsit/Lönekollen+3+år+(2026)+-+Göteborg+Väster,+s.+232+i.pdf"
+        }
       }
     },
     {
