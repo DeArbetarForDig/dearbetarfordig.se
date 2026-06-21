@@ -1,0 +1,1237 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2023-02-23",
+      "typ": "möte",
+      "label": "KF Sammanträde 2023-02-23",
+      "data": {
+        "datum": "2023-02-23",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "votering-2023-02-23-ärende-14",
+      "typ": "paragraf",
+      "label": "Genomförandeavtal avseende detaljplan för bostäder, verksamheter och uppgångar för Västlänken norr om Nordstan",
+      "data": {
+        "ärendeNr": "14",
+        "datum": "2023-02-23",
+        "votering": {
+          "ja": 67,
+          "nej": 9,
+          "avstår": 5,
+          "frånvarande": 0
+        },
+        "röster": [
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann-Christine Andersson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sanda Anton Henriksson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Åke Björk",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Petra Elf",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Grith Fjeldmose",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Hernbo",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Gunnar Holmström",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Patrik Höstmad",
+            "parti": "D",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Johansson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Nina Miskovsky",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Simona Mohamsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sabina Music",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Nilsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claudia Nistor Pedrini",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Norén Lallo",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Parisa Rezaeivar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Martin Wannholt",
+            "parti": "D",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Yllivallo Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Björn Åhlin",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Öman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann-Christine Andersson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sanda Anton Henriksson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Åke Björk",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Petra Elf",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Grith Fjeldmose",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Hernbo",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "frånvarande"
+          },
+          {
+            "namn": "Gunnar Holmström",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "frånvarande"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Patrik Höstmad",
+            "parti": "D",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Johansson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Nina Miskovsky",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Simona Mohamsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sabina Music",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Nilsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claudia Nistor Pedrini",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Norén Lallo",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Parisa Rezaeivar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ann-Mari Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Martin Wannholt",
+            "parti": "D",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Yllivallo Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Öman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann-Christine Andersson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sanda Anton Henriksson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "frånvarande"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Bergman Alme",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Åke Björk",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Petra Elf",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Grith Fjeldmose",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Hernbo",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Gunnar Holmström",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Höstmad",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Johansson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Nina Miskovsky",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Simona Mohamsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sabina Music",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Nilsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Norén Lallo",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Parisa Rezaeivar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ann-Mari Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Martin Wannholt",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Yllivallo Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Öman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "ja"
+          }
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "möte-kf-2023-02-23",
+      "to": "votering-2023-02-23-ärende-14",
+      "typ": "beslut_av"
+    }
+  ]
+}

@@ -1,0 +1,5633 @@
+{
+  "nodes": [
+    {
+      "id": "möte-kf-2024-05-23",
+      "typ": "möte",
+      "label": "KF Sammanträde 2024-05-23",
+      "data": {
+        "datum": "2024-05-23",
+        "organisation": "Kommunfullmäktige"
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§195",
+      "typ": "paragraf",
+      "label": "§ 195 Information från ungdomsfullmäktige",
+      "data": {
+        "paragrafNr": "195",
+        "ärendeNr": "SLK-2024-00310",
+        "rubrik": "Information från ungdomsfullmäktige",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§196",
+      "typ": "paragraf",
+      "label": "§ 196 Bestämmande av tid för justering",
+      "data": {
+        "paragrafNr": "196",
+        "ärendeNr": "SLK-2024-00078",
+        "rubrik": "Bestämmande av tid för justering",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§197",
+      "typ": "paragraf",
+      "label": "§ 197 Anmälan av länsstyrelsens beslut att utse Henrik Sjöstrand (M)",
+      "data": {
+        "paragrafNr": "197",
+        "ärendeNr": "SLK-2024-00009:25",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Henrik Sjöstrand (M)",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§198",
+      "typ": "paragraf",
+      "label": "§ 198 Anmälan av länsstyrelsens beslut att utse Eva Ternegren (MP)",
+      "data": {
+        "paragrafNr": "198",
+        "ärendeNr": "SLK-2024-00009:27",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Eva Ternegren (MP)",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§199",
+      "typ": "paragraf",
+      "label": "§ 199 Anmälan av länsstyrelsens beslut att utse Camilla Harrysson",
+      "data": {
+        "paragrafNr": "199",
+        "ärendeNr": "SLK-2024-00009:26",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Camilla Harrysson",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§200",
+      "typ": "paragraf",
+      "label": "§ 200 Frågestund",
+      "data": {
+        "paragrafNr": "200",
+        "ärendeNr": "SLK-2024-00079",
+        "rubrik": "Frågestund",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden",
+      "typ": "organisation",
+      "label": "förskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-05-23-§201",
+      "typ": "paragraf",
+      "label": "§ 201 Interpellation av Emma Altenhammar (SD) till",
+      "data": {
+        "paragrafNr": "201",
+        "ärendeNr": "SLK-2024-00255",
+        "rubrik": "Interpellation av Emma Altenhammar (SD) till",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§202",
+      "typ": "paragraf",
+      "label": "§ 202 Interpellation av Elisabet Lann (KD) till äldre samt vård- och",
+      "data": {
+        "paragrafNr": "202",
+        "ärendeNr": "SLK-2024-00329",
+        "rubrik": "Interpellation av Elisabet Lann (KD) till äldre samt vård- och",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§203",
+      "typ": "paragraf",
+      "label": "§ 203 Interpellation av Anders Svensson (M) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "203",
+        "ärendeNr": "SLK-2024-00457",
+        "rubrik": "Interpellation av Anders Svensson (M) till kommunstyrelsens",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§204",
+      "typ": "paragraf",
+      "label": "§ 204 Valberedningens förslag till vid sammanträdet",
+      "data": {
+        "paragrafNr": "204",
+        "ärendeNr": "SLK-2024-00006",
+        "rubrik": "Valberedningens förslag till vid sammanträdet",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§205",
+      "typ": "paragraf",
+      "label": "§ 205 Kompletterande uppföljning per december 2023",
+      "data": {
+        "paragrafNr": "205",
+        "ärendeNr": "SLK-2024-00196",
+        "rubrik": "Kompletterande uppföljning per december 2023",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38,
+          "avstår": 0,
+          "frånvarande": 0
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\nJonas Attenius",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från M, D, L och KD den 24 maj 2024"
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariah Ben Salem Dynehäll",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Bergman Alme",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ajsela Bruncevic",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Eriksson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Christer Gustafsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Sofie Gyllenwaldt",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Zagros Hama",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Linnéa Hankins",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Helgeson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Thomas Larsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Tamara Nesic",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sophia Nilsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Henrik Sjöstrand",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jonas Stenberg",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Milyon Tekle-Haile",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hillevi Werring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Wikström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lillemor Williamsson",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "nej"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§206",
+      "typ": "paragraf",
+      "label": "§ 206 Utdelning ur stiftelsen Renströmska fonden 2024",
+      "data": {
+        "paragrafNr": "206",
+        "ärendeNr": "SLK-2024-00181",
+        "rubrik": "Utdelning ur stiftelsen Renströmska fonden 2024",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 29,
+          "avstår": 9,
+          "frånvarande": 0
+        },
+        "yrkanden": [
+          {
+            "namn": "och Maria Wåhlin",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Mariette Höij Risberg",
+            "parti": "D",
+            "typ": "bifall till förslaget från D, M, L och KD i kommunstyrelsen."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Augustsson",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariah Ben Salem Dynehäll",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Bergman Alme",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ajsela Bruncevic",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Eriksson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Christer Gustafsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Sofie Gyllenwaldt",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Zagros Hama",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Linnéa Hankins",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Helgeson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Thomas Larsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Tamara Nesic",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sophia Nilsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Henrik Sjöstrand",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Jonas Stenberg",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Milyon Tekle-Haile",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "avstår"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Wikström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lillemor Williamsson",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "nej"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§207",
+      "typ": "paragraf",
+      "label": "§ 207 Utdelning ur stiftelsen Wilhelm Röhss donationsfond 2024",
+      "data": {
+        "paragrafNr": "207",
+        "ärendeNr": "SLK-2024-00180",
+        "rubrik": "Utdelning ur stiftelsen Wilhelm Röhss donationsfond 2024",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 29
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\nJenny Broman",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Mariette Höij Risberg",
+            "parti": "D",
+            "typ": "bifall till kommunstyrelsens förslag och tilläggsyrkande från M, D, L och KD i"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-och",
+      "typ": "organisation",
+      "label": "kommunstyrelsen och",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-05-23-§208",
+      "typ": "paragraf",
+      "label": "§ 208 Utdelning ur stiftelsen Olof och Caroline Wijks fond 2024",
+      "data": {
+        "paragrafNr": "208",
+        "ärendeNr": "SLK-2024-00130",
+        "rubrik": "Utdelning ur stiftelsen Olof och Caroline Wijks fond 2024",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 29
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\nDaniel Bernmar",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Lillemor Williamsson",
+            "parti": "D",
+            "typ": "bifall till förslaget från D, M, L och KD i kommunstyrelsen."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": [
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§209",
+      "typ": "paragraf",
+      "label": "§ 209 Upprättande av trygghetspunkter i Göteborgs Stad",
+      "data": {
+        "paragrafNr": "209",
+        "ärendeNr": "SLK-2023-01135",
+        "rubrik": "Upprättande av trygghetspunkter i Göteborgs Stad",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 72,
+          "nej": 9,
+          "avstår": 0,
+          "frånvarande": 0
+        },
+        "yrkanden": [
+          {
+            "namn": "och\nHans Arby",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande från"
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Bergman Alme",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ajsela Bruncevic",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Eriksson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Edwin Friedlaender",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Christer Gustafsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Zagros Hama",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnéa Hankins",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Helgeson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Thomas Larsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sophia Nilsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Henrik Sjöstrand",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jonas Stenberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Milyon Tekle-Haile",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Wikström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lillemor Williamsson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-f",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-ansvarar",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden ansvarar",
+      "data": {}
+    },
+    {
+      "id": "org-stadsfastighetsnämnden-g",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-05-23-§210",
+      "typ": "paragraf",
+      "label": "§ 210 Funktionshinderombudsmannens årsrapport 2023",
+      "data": {
+        "paragrafNr": "210",
+        "ärendeNr": "SLK-2024-00185",
+        "rubrik": "Funktionshinderombudsmannens årsrapport 2023",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 71,
+          "nej": 9,
+          "avstår": 0,
+          "frånvarande": 1
+        },
+        "yrkanden": [
+          {
+            "namn": "och Maria Wåhlin",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ajsela Bruncevic",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Eriksson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "frånvarande"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Edwin Friedlaender",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Christer Gustafsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Zagros Hama",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnéa Hankins",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Helgeson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Thomas Larsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Simona Mohamsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sophia Nilsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Henrik Sjöstrand",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jonas Stenberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Wikström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lillemor Williamsson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§211",
+      "typ": "paragraf",
+      "label": "§ 211 Göteborgs Stads klimatanpassningsplan 2024–2026",
+      "data": {
+        "paragrafNr": "211",
+        "ärendeNr": "SLK-2022-00120",
+        "rubrik": "Göteborgs Stads klimatanpassningsplan 2024–2026",
+        "datum": "2024-05-23",
+        "beslut": "återremiss",
+        "votering": {
+          "ja": 72,
+          "nej": 9,
+          "avstår": 0,
+          "frånvarande": 0
+        },
+        "yrkanden": [
+          {
+            "namn": "och Karin Karlsson",
+            "parti": "V",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "att ärendet ska återremitteras till kommunstyrelsen enligt"
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ajsela Bruncevic",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Eriksson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Edwin Friedlaender",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Zagros Hama",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnéa Hankins",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Helgeson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Thomas Larsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Simona Mohamsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Helena Norin",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Henrik Sjöstrand",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jonas Stenberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Wikström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lillemor Williamsson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-att",
+      "typ": "organisation",
+      "label": "kommunstyrelsen att",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-enligt",
+      "typ": "organisation",
+      "label": "kommunstyrelsen enligt",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-05-23-§212",
+      "typ": "paragraf",
+      "label": "§ 212 Göteborgs Stads riktlinje för avyttring och bortskänkning av",
+      "data": {
+        "paragrafNr": "212",
+        "ärendeNr": "SLK-2024-00209",
+        "rubrik": "Göteborgs Stads riktlinje för avyttring och bortskänkning av",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§213",
+      "typ": "paragraf",
+      "label": "§ 213 Delrapport av uppdrag att uppdatera modellen för",
+      "data": {
+        "paragrafNr": "213",
+        "ärendeNr": "SLK-2023-01039",
+        "rubrik": "Delrapport av uppdrag att uppdatera modellen för",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 71,
+          "nej": 9,
+          "avstår": 0,
+          "frånvarande": 1
+        },
+        "yrkanden": [
+          {
+            "namn": "och Bettan Andersson",
+            "parti": "V",
+            "typ": "kommunstyrelsens"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande"
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Augustsson",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Eriksson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Edwin Friedlaender",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Zagros Hama",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnéa Hankins",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Helgeson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Thomas Larsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Simona Mohamsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Helena Norin",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Henrik Sjöstrand",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jonas Stenberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Wikström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lillemor Williamsson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "frånvarande"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§214",
+      "typ": "paragraf",
+      "label": "§ 214 Redovisning av Göteborgs Stadshus AB:s ägardialoger",
+      "data": {
+        "paragrafNr": "214",
+        "ärendeNr": "SLK-2024-00142",
+        "rubrik": "Redovisning av Göteborgs Stadshus AB:s ägardialoger",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41,
+          "avstår": 0,
+          "frånvarande": 0
+        },
+        "yrkanden": [
+          {
+            "namn": "och Jonas Attenius",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "yrkande från M, D, L och KD"
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "nej"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Augustsson",
+            "parti": "C",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "nej"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Eriksson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Ferm",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Edwin Friedlaender",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Zagros Hama",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Linnéa Hankins",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Helgeson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hannah Klang",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Knudtzon",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Thomas Larsson",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Simona Mohamsson",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Helena Norin",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Henrik Sjöstrand",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jonas Stenberg",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Kochar Wallad Begi",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Wikström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lillemor Williamsson",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "nej"
+          }
+        ]
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-f",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen f",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-g",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-05-23-§215",
+      "typ": "paragraf",
+      "label": "§ 215 Redovisning av kretslopp och vattennämndens uppdrag",
+      "data": {
+        "paragrafNr": "215",
+        "ärendeNr": "SLK-2024-00253",
+        "rubrik": "Redovisning av kretslopp och vattennämndens uppdrag",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden",
+      "typ": "organisation",
+      "label": "kretslopp och vattennämnden",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-g",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-05-23-§216",
+      "typ": "paragraf",
+      "label": "§ 216 Redovisning av uppdrag att genomföra uppföljning och",
+      "data": {
+        "paragrafNr": "216",
+        "ärendeNr": "SLK-2023-01164",
+        "rubrik": "Redovisning av uppdrag att genomföra uppföljning och",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41,
+          "avstår": 0,
+          "frånvarande": 0
+        },
+        "yrkanden": [
+          {
+            "namn": "och AnnaSara Perslow",
+            "parti": "C",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Ann Catrine Fogelgren",
+            "parti": "L",
+            "typ": "stadsledningskontorets förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Maja Bentzer",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pierre Alpstranden",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sanda Anton Henriksson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "nej"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariah Ben Salem Dynehäll",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "nej"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roland Dahlström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Petra Elf",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Eriksson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Edwin Friedlaender",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Christer Gustafsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Helgeson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Simona Mohamsson",
+            "parti": "L",
+            "röst": "nej"
+          },
+          {
+            "namn": "Kristina Norén Lallo",
+            "parti": "KD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Helena Norin",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "AnnaSara Perslow",
+            "parti": "C",
+            "röst": "nej"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Henrik Sjöstrand",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jonas Stenberg",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "nej"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Wikström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lillemor Williamsson",
+            "parti": "D",
+            "röst": "nej"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Öman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "nej"
+          }
+        ]
+      }
+    },
+    {
+      "id": "org-kulturnämnden-f",
+      "typ": "organisation",
+      "label": "Kulturnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-kulturnämnden-styrande",
+      "typ": "organisation",
+      "label": "Kulturnämnden\nStyrande",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-05-23-§217",
+      "typ": "paragraf",
+      "label": "§ 217 Redovisning av uppdrag kring organisatorisk tillhörighet för",
+      "data": {
+        "paragrafNr": "217",
+        "ärendeNr": "SLK-2023-00847",
+        "rubrik": "Redovisning av uppdrag kring organisatorisk tillhörighet för",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§218",
+      "typ": "paragraf",
+      "label": "§ 218 Redovisning av uppdrag att ta fram en plan för att uppnå ett",
+      "data": {
+        "paragrafNr": "218",
+        "ärendeNr": "SLK-2021-01137",
+        "rubrik": "Redovisning av uppdrag att ta fram en plan för att uppnå ett",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41
+        },
+        "yrkanden": [
+          {
+            "namn": "och Karin Pleijel",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Tony Liljendahl",
+            "parti": "SD",
+            "typ": "stadsledningskontorets förslag."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§219",
+      "typ": "paragraf",
+      "label": "§ 219 Motion av Elisabet Lann (KD) och Johanna Holmdahl (KD) om",
+      "data": {
+        "paragrafNr": "219",
+        "ärendeNr": "SLK-2022-01365",
+        "rubrik": "Motion av Elisabet Lann (KD) och Johanna Holmdahl (KD) om",
+        "datum": "2024-05-23",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 72,
+          "nej": 9,
+          "avstår": 0,
+          "frånvarande": 0
+        },
+        "yrkanden": [
+          {
+            "namn": "och Robert Hammarstrand",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Anneli Rhedin",
+            "parti": "M",
+            "typ": "motionen."
+          },
+          {
+            "namn": "Sanda Anton Henriksson",
+            "parti": "SD",
+            "typ": "motionen och tilläggsyrkande från SD i"
+          }
+        ],
+        "reservationer": [],
+        "jäv": [],
+        "röster": [
+          {
+            "namn": "Maja Bentzer",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Aslan Akbas",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pierre Alpstranden",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Bettan Andersson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hammarstrand",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sanda Anton Henriksson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Hans Arby",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mats Arnsmar",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hanan Baalbaki",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariah Ben Salem Dynehäll",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jesper Berglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jessica Blixt",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Leif Blomqvist",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Margareta Broang",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kalle Bäck",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sara Carlsson Hägglund",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roland Dahlström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Petra Elf",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anneli Eriksson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Eriksson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Krista Femrell",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Eva Flyborg",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Ann Catrine Fogelgren",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Edwin Friedlaender",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Christer Gustafsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Pär Gustafsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Håkan Hallengren",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Patrik Helgeson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johanna Holmdahl",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mariette Höij Risberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Alfred Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Karlsson",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Lena Landén-Olsson",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Tony Liljendahl",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Staffan Lindström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lena Lindström Olinder",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Cecilia Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Moberg",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Simona Mohamsson",
+            "parti": "L",
+            "röst": "ja"
+          },
+          {
+            "namn": "Kristina Norén Lallo",
+            "parti": "KD",
+            "röst": "ja"
+          },
+          {
+            "namn": "Helena Norin",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Toni Orsulic",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Bosse Parbring",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "AnnaSara Perslow",
+            "parti": "C",
+            "röst": "ja"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Rasmus Ragnarsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Annelie Schagerström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Henrik Sjöstrand",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Andreas Sjöö",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Yvonne Stafrén",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Jonas Stenberg",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Sundberg",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lisbeth Sundén Andersson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Anders Svensson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Claes Söderling",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Eva Ternegren",
+            "parti": "MP",
+            "röst": "ja"
+          },
+          {
+            "namn": "Per-Eric Trulsson",
+            "parti": "SD",
+            "röst": "nej"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Mattias Tykesson",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Sarah Ullmark",
+            "parti": "M",
+            "röst": "ja"
+          },
+          {
+            "namn": "Camilla Widman",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Linnea Wikström",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Lillemor Williamsson",
+            "parti": "D",
+            "röst": "ja"
+          },
+          {
+            "namn": "Maria Wåhlin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Roshan Yigit",
+            "parti": "S",
+            "röst": "ja"
+          },
+          {
+            "namn": "Johan Zandin",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Emma Öman",
+            "parti": "V",
+            "röst": "ja"
+          },
+          {
+            "namn": "Hakan Önal",
+            "parti": "M",
+            "röst": "ja"
+          }
+        ]
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-exploateringsn",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nExploateringsn",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden-grundskolen",
+      "typ": "organisation",
+      "label": "Förskolenämnden\nGrundskolen",
+      "data": {}
+    },
+    {
+      "id": "kf-2024-05-23-§220",
+      "typ": "paragraf",
+      "label": "§ 220 Ordningsfråga",
+      "data": {
+        "paragrafNr": "220",
+        "ärendeNr": "SLK-2024-00077",
+        "rubrik": "Ordningsfråga",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§221",
+      "typ": "paragraf",
+      "label": "§ 221 Motion av Simona Mohamsson (L) om att införa nolltolerans",
+      "data": {
+        "paragrafNr": "221",
+        "ärendeNr": "SLK-2023-00262",
+        "rubrik": "Motion av Simona Mohamsson (L) om att införa nolltolerans",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§222",
+      "typ": "paragraf",
+      "label": "§ 222 Motion av Rasmus Ragnarsson (SD) om att stärka arbetet",
+      "data": {
+        "paragrafNr": "222",
+        "ärendeNr": "SLK-2023-00408",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) om att stärka arbetet",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§223",
+      "typ": "paragraf",
+      "label": "§ 223 Motion av Martin Wannholt (D), Axel Josefson (M), Axel",
+      "data": {
+        "paragrafNr": "223",
+        "ärendeNr": "SLK-2023-00390",
+        "rubrik": "Motion av Martin Wannholt (D), Axel Josefson (M), Axel",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§224",
+      "typ": "paragraf",
+      "label": "§ 224 Motion av Axel Darvik (L) och Kristina Bergman Alme (L) om",
+      "data": {
+        "paragrafNr": "224",
+        "ärendeNr": "SLK-2023-00514",
+        "rubrik": "Motion av Axel Darvik (L) och Kristina Bergman Alme (L) om",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§225",
+      "typ": "paragraf",
+      "label": "§ 225 Motion av Ann Catrine Fogelgren (L), Pär Gustafsson (L) och",
+      "data": {
+        "paragrafNr": "225",
+        "ärendeNr": "SLK-2023-00515",
+        "rubrik": "Motion av Ann Catrine Fogelgren (L), Pär Gustafsson (L) och",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§226",
+      "typ": "paragraf",
+      "label": "§ 226 Motion av Rasmus Ragnarsson (SD) om att göra enkätdata",
+      "data": {
+        "paragrafNr": "226",
+        "ärendeNr": "SLK-2023-00407",
+        "rubrik": "Motion av Rasmus Ragnarsson (SD) om att göra enkätdata",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§227",
+      "typ": "paragraf",
+      "label": "§ 227 Motion av Anders Svensson (M) och Nina Miskovsky (M) om",
+      "data": {
+        "paragrafNr": "227",
+        "ärendeNr": "SLK-2023-00579",
+        "rubrik": "Motion av Anders Svensson (M) och Nina Miskovsky (M) om",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§228",
+      "typ": "paragraf",
+      "label": "§ 228 Motion av Axel Darvik (L) om att stärka kommunens arbete",
+      "data": {
+        "paragrafNr": "228",
+        "ärendeNr": "SLK-2023-00532",
+        "rubrik": "Motion av Axel Darvik (L) om att stärka kommunens arbete",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§229",
+      "typ": "paragraf",
+      "label": "§ 229 Motion av Anders Svensson (M), Mariah ben Salem Dynehäll",
+      "data": {
+        "paragrafNr": "229",
+        "ärendeNr": "SLK-2023-00513",
+        "rubrik": "Motion av Anders Svensson (M), Mariah ben Salem Dynehäll",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§230",
+      "typ": "paragraf",
+      "label": "§ 230 Motion av Simona Mohamsson (L) och Pär Gustafsson (L) om",
+      "data": {
+        "paragrafNr": "230",
+        "ärendeNr": "SLK-2023-00571",
+        "rubrik": "Motion av Simona Mohamsson (L) och Pär Gustafsson (L) om",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§231",
+      "typ": "paragraf",
+      "label": "§ 231 Motion av Jörgen Fogelklou (SD) om att Göteborgs Stad ska",
+      "data": {
+        "paragrafNr": "231",
+        "ärendeNr": "SLK-2023-00832",
+        "rubrik": "Motion av Jörgen Fogelklou (SD) om att Göteborgs Stad ska",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§232",
+      "typ": "paragraf",
+      "label": "§ 232 Motion av Jörgen Fogelklou (SD) och Agneta Kjaerbeck (SD)",
+      "data": {
+        "paragrafNr": "232",
+        "ärendeNr": "SLK-2023-00643",
+        "rubrik": "Motion av Jörgen Fogelklou (SD) och Agneta Kjaerbeck (SD)",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§233",
+      "typ": "paragraf",
+      "label": "§ 233 Motion av Anders Svensson (M) och Hakan Önal (M) om att",
+      "data": {
+        "paragrafNr": "233",
+        "ärendeNr": "SLK-2023-00616",
+        "rubrik": "Motion av Anders Svensson (M) och Hakan Önal (M) om att",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§234",
+      "typ": "paragraf",
+      "label": "§ 234 Motion av Emmyly Bönfors (C) och AnnaSara Perslow (C) om",
+      "data": {
+        "paragrafNr": "234",
+        "ärendeNr": "SLK-2023-00531",
+        "rubrik": "Motion av Emmyly Bönfors (C) och AnnaSara Perslow (C) om",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§235",
+      "typ": "paragraf",
+      "label": "§ 235 Motion av AnnaSara Perslow (C) och Emmyly Bönfors (C) om",
+      "data": {
+        "paragrafNr": "235",
+        "ärendeNr": "SLK-2023-00640",
+        "rubrik": "Motion av AnnaSara Perslow (C) och Emmyly Bönfors (C) om",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§236",
+      "typ": "paragraf",
+      "label": "§ 236 Motion av Jessica Blixt (D) om att utöka verksamheten med",
+      "data": {
+        "paragrafNr": "236",
+        "ärendeNr": "SLK-2023-00716",
+        "rubrik": "Motion av Jessica Blixt (D) om att utöka verksamheten med",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§237",
+      "typ": "paragraf",
+      "label": "§ 237 Motion av Jessica Blixt (D) och Mariette Höij Risberg (D) om",
+      "data": {
+        "paragrafNr": "237",
+        "ärendeNr": "SLK-2023-00807",
+        "rubrik": "Motion av Jessica Blixt (D) och Mariette Höij Risberg (D) om",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§238",
+      "typ": "paragraf",
+      "label": "§ 238 Motion av Simona Mohamsson (L) och Kristina Bergman",
+      "data": {
+        "paragrafNr": "238",
+        "ärendeNr": "SLK-2023-00883",
+        "rubrik": "Motion av Simona Mohamsson (L) och Kristina Bergman",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§239",
+      "typ": "paragraf",
+      "label": "§ 239 Motion av Kristina Bergman Alme (L) om stöd till brottsoffer",
+      "data": {
+        "paragrafNr": "239",
+        "ärendeNr": "SLK-2023-00884",
+        "rubrik": "Motion av Kristina Bergman Alme (L) om stöd till brottsoffer",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§240",
+      "typ": "paragraf",
+      "label": "§ 240 Motion av Elisabet Lann (KD), Kalle Bäck (KD), Johanna",
+      "data": {
+        "paragrafNr": "240",
+        "ärendeNr": "SLK-2023-00763",
+        "rubrik": "Motion av Elisabet Lann (KD), Kalle Bäck (KD), Johanna",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§241",
+      "typ": "paragraf",
+      "label": "§ 241 Motion av Pär Gustafsson (L) om att införa en fixartjänst för",
+      "data": {
+        "paragrafNr": "241",
+        "ärendeNr": "SLK-2023-00762",
+        "rubrik": "Motion av Pär Gustafsson (L) om att införa en fixartjänst för",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§242",
+      "typ": "paragraf",
+      "label": "§ 242 Motion av AnnaSara Perslow (C) om att möjliggöra för",
+      "data": {
+        "paragrafNr": "242",
+        "ärendeNr": "SLK-2023-00788",
+        "rubrik": "Motion av AnnaSara Perslow (C) om att möjliggöra för",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§243",
+      "typ": "paragraf",
+      "label": "§ 243 Motion av Elisabet Lann (KD) om en hållbar destination med",
+      "data": {
+        "paragrafNr": "243",
+        "ärendeNr": "SLK-2023-00785",
+        "rubrik": "Motion av Elisabet Lann (KD) om en hållbar destination med",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§244",
+      "typ": "paragraf",
+      "label": "§ 244 Interpellation av Pär Gustafsson (L) till kommunstyrelsens",
+      "data": {
+        "paragrafNr": "244",
+        "ärendeNr": "SLK-2024-00509",
+        "rubrik": "Interpellation av Pär Gustafsson (L) till kommunstyrelsens",
+        "datum": "2024-05-23",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "interpellation_väntar",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2024-05-23-§245",
+      "typ": "paragraf",
+      "label": "§ 245 Förteckning över anmälningsärenden",
+      "data": {
+        "paragrafNr": "245",
+        "ärendeNr": "SLK-2024-00075",
+        "rubrik": "Förteckning över anmälningsärenden",
+        "datum": "2024-05-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "kf-2024-05-23-§200",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§200",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§200",
+      "to": "org-förskolenämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§200",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§201",
+      "to": "kf-*-§98",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 98"
+    },
+    {
+      "from": "kf-2024-05-23-§201",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§201",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§202",
+      "to": "kf-*-§141",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 141"
+    },
+    {
+      "from": "kf-2024-05-23-§203",
+      "to": "kf-*-§191",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 191"
+    },
+    {
+      "from": "kf-2024-05-23-§203",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§205",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§205",
+      "to": "org-förskolenämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§205",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§205",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§205",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§206",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§206",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§206",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§206",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§206",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§207",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§207",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§207",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§207",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§207",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§207",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§207",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§208",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§208",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§208",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§208",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§208",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§208",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§208",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§209",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§209",
+      "to": "org-stadsfastighetsnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§209",
+      "to": "org-stadsfastighetsnämnden-ansvarar",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§209",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§209",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§209",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§209",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§209",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§209",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§209",
+      "to": "org-stadsfastighetsnämnden-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§210",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§210",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§210",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§210",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§210",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§211",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§211",
+      "to": "org-kommunstyrelsen-att",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§211",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§211",
+      "to": "org-kommunstyrelsen-enligt",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§211",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§211",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§212",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§213",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§213",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§213",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§213",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§213",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§213",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§213",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§214",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§214",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§214",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§214",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§214",
+      "to": "org-kommunstyrelsen-g",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§215",
+      "to": "org-kretslopp-och-vattennämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§215",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§215",
+      "to": "org-kretslopp-och-vattennämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§215",
+      "to": "org-kretslopp-och-vattennämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§216",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§216",
+      "to": "org-kulturnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§216",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§216",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§216",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§216",
+      "to": "org-kulturnämnden-styrande",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§217",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§218",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§218",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§218",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "kf-*-§29",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 29"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "org-kommunstyrelsen-exploateringsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§219",
+      "to": "org-förskolenämnden-grundskolen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2024-05-23-§221",
+      "to": "kf-*-§68",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 68"
+    },
+    {
+      "from": "kf-2024-05-23-§222",
+      "to": "kf-*-§69",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 69"
+    },
+    {
+      "from": "kf-2024-05-23-§223",
+      "to": "kf-*-§70",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 70"
+    },
+    {
+      "from": "kf-2024-05-23-§224",
+      "to": "kf-*-§103",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 103"
+    },
+    {
+      "from": "kf-2024-05-23-§225",
+      "to": "kf-*-§104",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 104"
+    },
+    {
+      "from": "kf-2024-05-23-§226",
+      "to": "kf-*-§38",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 38"
+    },
+    {
+      "from": "kf-2024-05-23-§227",
+      "to": "kf-*-§39",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 39"
+    },
+    {
+      "from": "kf-2024-05-23-§228",
+      "to": "kf-*-§40",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 40"
+    },
+    {
+      "from": "kf-2024-05-23-§229",
+      "to": "kf-*-§41",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 41"
+    },
+    {
+      "from": "kf-2024-05-23-§230",
+      "to": "kf-*-§42",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 42"
+    },
+    {
+      "from": "kf-2024-05-23-§231",
+      "to": "kf-*-§43",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 43"
+    },
+    {
+      "from": "kf-2024-05-23-§232",
+      "to": "kf-*-§44",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 44"
+    },
+    {
+      "from": "kf-2024-05-23-§233",
+      "to": "kf-*-§96",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 96"
+    },
+    {
+      "from": "kf-2024-05-23-§234",
+      "to": "kf-*-§97",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 97"
+    },
+    {
+      "from": "kf-2024-05-23-§235",
+      "to": "kf-*-§139",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 139"
+    },
+    {
+      "from": "kf-2024-05-23-§236",
+      "to": "kf-*-§140",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 140"
+    },
+    {
+      "from": "kf-2024-05-23-§237",
+      "to": "kf-*-§185",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 185"
+    },
+    {
+      "from": "kf-2024-05-23-§238",
+      "to": "kf-*-§186",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 186"
+    },
+    {
+      "from": "kf-2024-05-23-§239",
+      "to": "kf-*-§187",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 187"
+    },
+    {
+      "from": "kf-2024-05-23-§240",
+      "to": "kf-*-§188",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 188"
+    },
+    {
+      "from": "kf-2024-05-23-§241",
+      "to": "kf-*-§189",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 189"
+    },
+    {
+      "from": "kf-2024-05-23-§242",
+      "to": "kf-*-§190",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 190"
+    },
+    {
+      "from": "kf-2024-05-23-§244",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§195",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§196",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§197",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§198",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§199",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§200",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§201",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§202",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§203",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§204",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§205",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§206",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§207",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§208",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§209",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§210",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§211",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§212",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§213",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§214",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§215",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§216",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§217",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§218",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§219",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§220",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§221",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§222",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§223",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§224",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§225",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§226",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§227",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§228",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§229",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§230",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§231",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§232",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§233",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§234",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§235",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§236",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§237",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§238",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§239",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§240",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§241",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§242",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§243",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§244",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-05-23",
+      "to": "kf-2024-05-23-§245",
+      "typ": "beslut_av"
+    }
+  ]
+}
