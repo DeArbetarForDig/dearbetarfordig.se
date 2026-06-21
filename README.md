@@ -23,21 +23,28 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 | Komponent | Status |
 |-----------|--------|
 | Politiker-scraper (125 KF-ledamöter) | ✅ Klar |
-| Handlingar-scraper (664 dokument, 12 möten) | ✅ Klar |
-| YouTube KF-videor (20 möten) | ✅ Klar |
-| REST API (politiker, beslut, debatter, graf) | ✅ Klar |
-| Knowledge Graph — beslut (PDF → nodes + edges) | ✅ Klar |
-| Knowledge Graph — budget (PDF → nämnder + belopp) | ✅ Klar |
-| Inbox-parser (begäran-dokument → graf) | ✅ Klar |
-| Transkription (whisper.cpp, 30s-chunks) | ✅ Klar |
-| Speaker attribution (yttrandeprotokoll → vem sa vad) | 🔜 Nästa |
+| Handlingar-scraper (1835 dokument, 36 möten) | ✅ Klar |
+| YouTube KF-videor (41 möten) | ✅ Klar |
+| REST API (politiker, beslut, budget, graf, arvode) | ✅ Klar |
+| Knowledge Graph — 18 880 noder, 76 096 kanter | ✅ Klar |
+| Protokoll parsade (41 st, 2023-2026) | ✅ Klar |
+| Individuella voteringar (17 210 röster) | ✅ Klar |
+| Närvarodata (3 243 registreringar) | ✅ Klar |
+| Arvoden (125/125 politiker, PDF-verifierat) | ✅ Klar |
+| Budget drill-down (10 nämnder) | ✅ Klar |
+| Anföranden → beslut (94% koppling) | ✅ Klar |
+| Bolagsengagemang (90/125 politiker) | ✅ Klar |
+| Transkription (whisper.cpp, 41 möten) | ✅ Klar |
+| Speaker attribution (39 möten) | ✅ Klar |
+| Conflict detection (framework) | ✅ Klar (väntar leverantörsdata) |
 | Docker + docker-compose | ✅ Klar |
 | GitHub Actions CI/CD | ✅ Klar |
-| PostgreSQL + Drizzle + seed | ✅ Klar |
+| PostgreSQL + seed + merge | ✅ Klar |
 | OpenAPI 3.1 + Swagger UI | ✅ Klar |
+| Begäran om allmän handling (3 skickade) | ⏳ Väntar svar |
 | Sociala medier-scraping | 🔜 Nästa |
-| Email-automatisering (begäran) | 🔜 Nästa |
 | Frontend (Astro) | 🔜 Nästa |
+| Deploy (Hetzner) | 🔜 Nästa |
 
 ## Principer
 
