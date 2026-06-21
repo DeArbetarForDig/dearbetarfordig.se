@@ -246,7 +246,11 @@
       "förnamn": "Anders",
       "efternamn": "Sundberg",
       "parti": "M",
-      "fullständigt_namn": "Anders Sundberg"
+      "fullständigt_namn": "Anders Sundberg",
+      "verifierad_identitet": {
+        "linkedin": "linkedin.com/in/anders-sundberg-5134194",
+        "koppling": "Sahlgrenska Science Park"
+      }
     },
     {
       "id": "f1c53a6f-34fe-4b24-9075-48fd2e73aff1",
@@ -1195,7 +1199,11 @@
       "förnamn": "Daniel",
       "efternamn": "Augustsson",
       "parti": "C",
-      "fullständigt_namn": "Johan Daniel Augustsson"
+      "fullständigt_namn": "Johan Daniel Augustsson",
+      "verifierad_identitet": {
+        "stadsdel": null,
+        "notering": "Ledamot stadsmiljönämnden, suppleant Bygga Hem/Poseidon"
+      }
     },
     {
       "id": "2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
@@ -1936,7 +1944,11 @@
       "förnamn": "Hans",
       "efternamn": "Arby",
       "parti": "C",
-      "fullständigt_namn": "Hans Gunnar Arby"
+      "fullständigt_namn": "Hans Gunnar Arby",
+      "verifierad_identitet": {
+        "stadsdel": "Hisingen",
+        "yrke": "Ingenjör Chalmers, entreprenör (mobilitetstjänst)"
+      }
     },
     {
       "id": "902612ce-b7ca-45b5-9b8d-dd233067a728",
@@ -3635,7 +3647,13 @@
       "förnamn": "Marina",
       "efternamn": "Johansson",
       "parti": "S",
-      "fullständigt_namn": "Marina Johansson"
+      "fullständigt_namn": "Marina Johansson",
+      "verifierad_identitet": {
+        "ålder_2022": 51,
+        "yrke": "Barnskötare",
+        "kommunalråd": "Äldrefrågor, vård och omsorg",
+        "stadsdel": "Östra Göteborg"
+      }
     },
     {
       "id": "a75817be-37e6-474e-a0a8-94ba0aca8339",
@@ -4244,7 +4262,12 @@
       "förnamn": "Pär",
       "efternamn": "Johansson",
       "parti": "S",
-      "fullständigt_namn": "Pär Henrik Johansson"
+      "fullständigt_namn": "Pär Henrik Johansson",
+      "verifierad_identitet": {
+        "stadsdel": "Lundby",
+        "yrke": "Tekn.dr Chalmers, forskarassistent",
+        "ordförande": "Kulturnämnden (2026-)"
+      }
     },
     {
       "id": "a1a4469d-24d5-4e3b-95a2-627fa03b9f7a",
