@@ -1776,7 +1776,37 @@
             "uppdrag": "KF förrättningsarvode (4 möten × 1640 kr)",
             "kr": 6560
           }
-        ]
+        ],
+        "ratsit": {
+          "fullständigt_namn": "Bengt Jonas Stenberg",
+          "personnummer": "19750218-XXXX",
+          "ålder": 51,
+          "adress": "Askims Urbergsväg 12, Askim",
+          "civilstånd": "Gift",
+          "fordon": 4,
+          "bolagsengagemang": 53,
+          "inkomst": [
+            {
+              "år": 2025,
+              "lön": 4778600,
+              "kapital": 443638,
+              "betalningsanmärkning": false
+            },
+            {
+              "år": 2024,
+              "lön": 3539700,
+              "kapital": 606937,
+              "betalningsanmärkning": false
+            },
+            {
+              "år": 2023,
+              "lön": 2983200,
+              "kapital": 3540695,
+              "betalningsanmärkning": false
+            }
+          ],
+          "källa": "docs/ratsit/Lönekollen+3+år+(2026)+-+Göteborg+Väster,+s.+220+i.pdf"
+        }
       }
     },
     {
