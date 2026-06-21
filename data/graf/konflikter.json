@@ -1,0 +1,15 @@
+{
+  "nodes": [],
+  "edges": [],
+  "_metadata": {
+    "beskrivning": "Potentiella intressekonflikter: politiker med privat bolag som nämns i KF-beslut",
+    "metod": "Text-matching av bolagsnamn i paragraf-rubrik, exklusive kommunala bolag",
+    "status": "Inga bekräftade konflikter hittade med nuvarande metod",
+    "begränsningar": [
+      "Simpel text-matching ger false positives (t.ex. politikers namn = bolagsnamn)",
+      "Kommunala dotterbolag kan missas i exkluderingslistan",
+      "Behöver: bransch-matching eller manuell granskning"
+    ],
+    "nästa_steg": "Väntar på avtalslista från Inköp & upphandling — matcha leverantörer mot politikers bolag"
+  }
+}
