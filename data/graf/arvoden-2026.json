@@ -1,0 +1,1192 @@
+{
+  "nodes": [
+    {
+      "id": "arvode-regler-2026",
+      "typ": "dokument",
+      "label": "Göteborgs Stads regler för arvoden och ersättningar 2026",
+      "data": {
+        "grundarvode_kr": 80475,
+        "förrättning_halvdag_kr": 1015,
+        "förrättning_heldag_kr": 1640,
+        "kf_arvode_kr": 1640,
+        "förlorad_inkomst_max_kr_tim": 460,
+        "kommunalråd_kr": 77795,
+        "ks_ordförande_kr": 100720,
+        "ks_vice_kr": 95460,
+        "kf_ordförande_pct": 40,
+        "kf_vice_pct": 20,
+        "gruppledare_utan_ks_pct": 40,
+        "källa_pdf": ".tmp/arvoden-goteborg-2026.pdf",
+        "källa_url": "https://goteborg.se/wps/PA_Pabolagshandlingar/file?id=59080",
+        "beslut": "KS 2025-12-10 §946",
+        "ursprung": "KF 2020-02-20 §6 (Dnr 1014/19)"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "politiker-0c4ae698-d9c8-44a4-8a2b-49e56c0b2645",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads nämnd för funktionsstöd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-da39c84a-026d-4400-bfaa-cb4167aae5e7",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Sydväst ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-7acca744-8ded-487c-99e0-9ec3b6e83e49",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "17 704 kr/mån",
+      "data": {
+        "fast_arvode_kr": 17704,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Sydväst ordförande",
+            "procent": 22,
+            "kr_mån": 17704
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-1e79ebce-61ef-49f0-bbb1-e9de383224ba",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Valberedning vice",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-f1c53a6f-34fe-4b24-9075-48fd2e73aff1",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "7 242 kr/mån",
+      "data": {
+        "fast_arvode_kr": 7242,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads nämnd för arbetsmarknad och vuxenutbildning vice",
+            "procent": 9,
+            "kr_mån": 7242
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-c9159122-c1ef-4276-9107-9ad74c3386f3",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Nordost ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-c085a88e-8464-4b58-b71d-1cc43363d418",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Centrum ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-5c5b5cac-c19f-4e74-8ae4-bb359d2a5348",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "32 190 kr/mån",
+      "data": {
+        "fast_arvode_kr": 32190,
+        "detaljer": [
+          {
+            "uppdrag": "KF ordförande",
+            "procent": 40,
+            "kr_mån": 32190
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 852 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8852,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads grundskolenämnd vice",
+            "procent": 11,
+            "kr_mån": 8852
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "95 460 kr/mån",
+      "data": {
+        "fast_arvode_kr": 95460,
+        "detaljer": [
+          {
+            "uppdrag": "KS 2:e vice ordförande",
+            "procent": 100,
+            "kr_mån": 95460,
+            "fryst": true
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-7111ccc4-a6cb-4900-b35e-d75e5f6ca56d",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 047 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8047,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads idrotts- och föreningsnämnd ordförande",
+            "procent": 10,
+            "kr_mån": 8047
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "14 485 kr/mån",
+      "data": {
+        "fast_arvode_kr": 14485,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads förskolenämnd ordförande",
+            "procent": 18,
+            "kr_mån": 14485
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-e9ab4ecf-35cc-446a-9c95-479b0dbb8f51",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads exploateringsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-ed1b711d-9bf8-44a3-89da-4b299d8f234b",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "17 704 kr/mån",
+      "data": {
+        "fast_arvode_kr": 17704,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsfastighetsnämnd ordförande",
+            "procent": 18,
+            "kr_mån": 14485
+          },
+          {
+            "uppdrag": "Valberedning ordförande",
+            "procent": 4,
+            "kr_mån": 3219
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-6f48f56a-5b14-461e-88c7-fb8203c877fd",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Hisingen ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-e70d7eb1-54d7-4bc8-9dbd-6db97685d473",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "6 438 kr/mån",
+      "data": {
+        "fast_arvode_kr": 6438,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads kretslopp- och vattennämnd vice",
+            "procent": 8,
+            "kr_mån": 6438
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-1468ed11-9efe-4cba-9b83-33b6cb52bc29",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 852 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8852,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Centrum vice",
+            "procent": 11,
+            "kr_mån": 8852
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "95 460 kr/mån",
+      "data": {
+        "fast_arvode_kr": 95460,
+        "detaljer": [
+          {
+            "uppdrag": "KS 1:e vice ordförande",
+            "procent": 100,
+            "kr_mån": 95460,
+            "fryst": true
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-a5779a7b-da03-4eaf-b506-9921a66c6c51",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Hisingen ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsbyggnadsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-5b7d8dfa-508b-44ea-abb6-bd23287fa491",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsbyggnadsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-3fa38ad8-5d11-4003-b5f6-c95b2a603e3b",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "4 023 kr/mån",
+      "data": {
+        "fast_arvode_kr": 4023,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads kulturnämnd vice",
+            "procent": 5,
+            "kr_mån": 4023
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 852 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8852,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsbyggnadsnämnd vice",
+            "procent": 11,
+            "kr_mån": 8852
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-8bd8e45c-98d4-4c9f-8600-f57e7dbeae62",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "4 023 kr/mån",
+      "data": {
+        "fast_arvode_kr": 4023,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads miljö- och klimatnämnd vice",
+            "procent": 5,
+            "kr_mån": 4023
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-5f8aa345-8425-4366-b63d-67f963e0b502",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 852 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8852,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Nordost vice",
+            "procent": 11,
+            "kr_mån": 8852
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-065d02f2-77bf-4902-83b2-9913ba068926",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads exploateringsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-902612ce-b7ca-45b5-9b8d-dd233067a728",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 852 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8852,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads exploateringsnämnd vice",
+            "procent": 11,
+            "kr_mån": 8852
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-c451ce76-fb96-4448-9492-eb37811f9ec4",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "4 023 kr/mån",
+      "data": {
+        "fast_arvode_kr": 4023,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads nämnd för intraservice vice",
+            "procent": 5,
+            "kr_mån": 4023
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-f543ed57-420e-40d4-b6cb-35fc9c7d25c4",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "16 095 kr/mån",
+      "data": {
+        "fast_arvode_kr": 16095,
+        "detaljer": [
+          {
+            "uppdrag": "KF vice ordförande",
+            "procent": 20,
+            "kr_mån": 16095
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "17 704 kr/mån",
+      "data": {
+        "fast_arvode_kr": 17704,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Centrum ordförande",
+            "procent": 22,
+            "kr_mån": 17704
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-810c04af-5426-4167-ba44-89380480edf8",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "11 266 kr/mån",
+      "data": {
+        "fast_arvode_kr": 11266,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads nämnd för demokrati och medborgarservice ordförande",
+            "procent": 10,
+            "kr_mån": 8047
+          },
+          {
+            "uppdrag": "Göteborgs Stads valnämnd ordförande",
+            "procent": 4,
+            "kr_mån": 3219
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-18fba0c6-e65a-492d-b833-0b38e99e5848",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "7 242 kr/mån",
+      "data": {
+        "fast_arvode_kr": 7242,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads förskolenämnd vice",
+            "procent": 9,
+            "kr_mån": 7242
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-3e4e841e-b25b-4a0d-89ce-d8423a3d5438",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "7 242 kr/mån",
+      "data": {
+        "fast_arvode_kr": 7242,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads nämnd för arbetsmarknad och vuxenutbildning vice",
+            "procent": 9,
+            "kr_mån": 7242
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-3dad8ab5-1622-42b4-87ea-417f05337f5d",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 852 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8852,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsbyggnadsnämnd vice",
+            "procent": 11,
+            "kr_mån": 8852
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-433e32c1-e565-4270-b6f8-49c2366f30d5",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Centrum ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "100 720 kr/mån",
+      "data": {
+        "fast_arvode_kr": 100720,
+        "detaljer": [
+          {
+            "uppdrag": "KS ordförande",
+            "procent": 100,
+            "kr_mån": 100720,
+            "fryst": true
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-81efbaa1-e66d-4f3e-af8f-c6403ae9a5b6",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "17 704 kr/mån",
+      "data": {
+        "fast_arvode_kr": 17704,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Hisingen ordförande",
+            "procent": 22,
+            "kr_mån": 17704
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsbyggnadsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-8228634a-46e6-4c17-9a65-f965d84d0de3",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "7 242 kr/mån",
+      "data": {
+        "fast_arvode_kr": 7242,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsmiljönämnd vice",
+            "procent": 9,
+            "kr_mån": 7242
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "14 485 kr/mån",
+      "data": {
+        "fast_arvode_kr": 14485,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsmiljönämnd ordförande",
+            "procent": 18,
+            "kr_mån": 14485
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-fe14a8bc-3a5f-4173-a06c-5a71f799ab41",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads äldre samt vård och omsorgsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-39fdc094-49ae-47fc-a510-e9b3733640f7",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Centrum ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-8bc9971e-58ea-442e-868f-bb40e29707d5",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Sydväst ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-53be3a5b-74d8-4ad6-b3b2-e2f2446c8b0e",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "17 704 kr/mån",
+      "data": {
+        "fast_arvode_kr": 17704,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Nordost ordförande",
+            "procent": 22,
+            "kr_mån": 17704
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-fb7e06b8-1e05-47c2-9572-800b5db0c27c",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 852 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8852,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Sydväst vice",
+            "procent": 11,
+            "kr_mån": 8852
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-01c39ed5-fba7-4e61-b571-c8a75e29d4e4",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Sydväst ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-8a3446fc-84b3-45bf-9205-a7e94c3f98af",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "16 095 kr/mån",
+      "data": {
+        "fast_arvode_kr": 16095,
+        "detaljer": [
+          {
+            "uppdrag": "KF vice ordförande",
+            "procent": 20,
+            "kr_mån": 16095
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-18d651c0-574f-4793-b1ee-ebf32dd66f76",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "16 095 kr/mån",
+      "data": {
+        "fast_arvode_kr": 16095,
+        "detaljer": [
+          {
+            "uppdrag": "KF vice ordförande",
+            "procent": 20,
+            "kr_mån": 16095
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-483b5067-fe3f-4a62-9b17-0e926e97dc52",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads äldre samt vård och omsorgsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "14 485 kr/mån",
+      "data": {
+        "fast_arvode_kr": 14485,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads nämnd för arbetsmarknad och vuxenutbildning ordförande",
+            "procent": 18,
+            "kr_mån": 14485
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-0179a237-2131-424f-9de3-973d38be7f68",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads nämnd för funktionsstöd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "17 704 kr/mån",
+      "data": {
+        "fast_arvode_kr": 17704,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads äldre samt vård och omsorgsnämnd ordförande",
+            "procent": 22,
+            "kr_mån": 17704
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsbyggnadsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-48cab936-9022-4047-a523-80ee2efebc39",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 851 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8851,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsfastighetsnämnd vice",
+            "procent": 9,
+            "kr_mån": 7242
+          },
+          {
+            "uppdrag": "Göteborgs Stads äldre samt vård och omsorgsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 852 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8852,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Centrum vice",
+            "procent": 11,
+            "kr_mån": 8852
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-0518c852-f23b-4678-bb7a-6e835d0d97f5",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "14 485 kr/mån",
+      "data": {
+        "fast_arvode_kr": 14485,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads utbildningsnämnd ordförande",
+            "procent": 18,
+            "kr_mån": 14485
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-947ccace-c66b-4e7e-9d4b-472f46440fc2",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 852 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8852,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads exploateringsnämnd vice",
+            "procent": 11,
+            "kr_mån": 8852
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-6694871a-3926-4303-a8d6-ad1a2117688d",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Nordost ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-7596fa93-7b07-4097-a98b-a03ab7b74c15",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsbyggnadsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "7 242 kr/mån",
+      "data": {
+        "fast_arvode_kr": 7242,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads utbildningsnämnd vice",
+            "procent": 9,
+            "kr_mån": 7242
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-510d2c0a-daf8-49cd-87f0-6b06875cb3f3",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 047 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8047,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads kulturnämnd ordförande",
+            "procent": 10,
+            "kr_mån": 8047
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-fd980c39-0877-43ba-b2d9-6f2ad4cbf9c1",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "17 704 kr/mån",
+      "data": {
+        "fast_arvode_kr": 17704,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads exploateringsnämnd ordförande",
+            "procent": 22,
+            "kr_mån": 17704
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-00a89f21-5b5e-40c6-a6a1-0052fbe71c20",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Centrum ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-1aafbc3c-79a7-428d-bc26-d4868d271603",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads inköps- och upphandlingsnämnd vice",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-c97ef7e1-5f92-4f4b-8b12-2a3a355217e5",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Sydväst ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-353565b6-c96c-45fc-97e0-55bc27fdf62e",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "4 023 kr/mån",
+      "data": {
+        "fast_arvode_kr": 4023,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads idrotts- och föreningsnämnd vice",
+            "procent": 5,
+            "kr_mån": 4023
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-41da29fe-8f66-4579-a78d-608c757fb23f",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "7 242 kr/mån",
+      "data": {
+        "fast_arvode_kr": 7242,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads stadsfastighetsnämnd vice",
+            "procent": 9,
+            "kr_mån": 7242
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-876e99db-25aa-419a-ae14-daa438b504fb",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "8 851 kr/mån",
+      "data": {
+        "fast_arvode_kr": 8851,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads nämnd för funktionsstöd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          },
+          {
+            "uppdrag": "Göteborgs Stads stadsmiljönämnd vice",
+            "procent": 9,
+            "kr_mån": 7242
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "17 704 kr/mån",
+      "data": {
+        "fast_arvode_kr": 17704,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads grundskolenämnd ordförande",
+            "procent": 22,
+            "kr_mån": 17704
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-5e359e13-a84e-411d-a9c5-b7b542c5c2ec",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "3 218 kr/mån",
+      "data": {
+        "fast_arvode_kr": 3218,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Nordost ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          },
+          {
+            "uppdrag": "Göteborgs Stads exploateringsnämnd ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    },
+    {
+      "from": "politiker-3066b844-6db8-4cf2-af3e-179956cc07fb",
+      "to": "arvode-regler-2026",
+      "typ": "arvoderas_enligt",
+      "label": "1 609 kr/mån",
+      "data": {
+        "fast_arvode_kr": 1609,
+        "detaljer": [
+          {
+            "uppdrag": "Göteborgs Stads socialnämnd Hisingen ledamot",
+            "procent": 2,
+            "kr_mån": 1609
+          }
+        ]
+      }
+    }
+  ]
+}
