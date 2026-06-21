@@ -206,8 +206,8 @@ function parseVoteringar(text: string, möteDatum: string): { nodes: GraphNode[]
   const nodes: GraphNode[] = []
   const edges: GraphEdge[] = []
 
-  // Split on "Bilaga N" headers
-  const bilagor = text.split(/(?=Bilaga \d+\n)/)
+  // Split on "Bilaga N" headers (can appear after page break or newline)
+  const bilagor = text.split(/(?=\n?Bilaga \d+\s*\n)/)
 
   for (const bilaga of bilagor) {
     // More flexible matching for header
@@ -230,22 +230,28 @@ function parseVoteringar(text: string, möteDatum: string): { nodes: GraphNode[]
     // Find matching § for this ärende
     const paragrafId = `votering-${möteDatum}-ärende-${ärendeNr}`
 
-    // Parse individual votes
-    const voteSection = bilaga.slice(bilaga.indexOf('Resultat') + 8)
-    const lines = voteSection.split('\n').map(l => l.trim()).filter(Boolean)
+    // Parse individual votes — column layout with spaces:
+    // "Aslan Akbas                       S                1        Ordförande         Ja"
+    // Some names span two lines: "Robert Andersson\nHammarstrand"
+    const resultatIdx = bilaga.indexOf('Resultat')
+    if (resultatIdx === -1) continue
+    const voteSection = bilaga.slice(resultatIdx)
+    const lines = voteSection.split('\n').slice(1) // skip header line
 
     const röster: Array<{ namn: string; parti: string; röst: string }> = []
+    const voteLineRe = /^(.{20,40}?)\s{2,}(S|M|V|SD|L|MP|D|KD|C)\s{2,}\d+\s{2,}\S+\s{2,}(Ja|Nej|Avstår|Frånvarande)\s*$/
 
-    for (let i = 0; i < lines.length - 4; i++) {
-      const namn = lines[i]
-      const parti = lines[i + 1]
-      const plats = lines[i + 2]
-      const funktion = lines[i + 3]
-      const resultat = lines[i + 4]
-
-      if (parti?.match(/^(S|M|V|SD|L|MP|D|KD|C)$/) && resultat?.match(/^(Ja|Nej|Avstår|Frånvarande)$/)) {
-        röster.push({ namn, parti, röst: resultat.toLowerCase() })
-        i += 4
+    let pendingName = ''
+    for (const line of lines) {
+      const m = line.match(voteLineRe)
+      if (m) {
+        let namn = (pendingName + ' ' + m[1]).trim()
+        pendingName = ''
+        röster.push({ namn, parti: m[2], röst: m[3].toLowerCase() })
+      } else if (line.trim() && !line.match(/^\s*(Namn|Bilaga|\f|Göteborgs|Kommunfullmäktige|Protokoll|Sammanträdes)/)) {
+        pendingName += ' ' + line.trim()
+      } else {
+        pendingName = ''
       }
     }
 
