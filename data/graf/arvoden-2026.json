@@ -1189,7 +1189,31 @@
               "typ": "kommunalt"
             }
           ],
-          "notering": "7 jävsanmälningar — troligen energifrågor pga styrelseuppdrag i Göteborg Energi"
+          "notering": "7 jävsanmälningar — troligen energifrågor pga styrelseuppdrag i Göteborg Energi",
+          "inkomst": [
+            {
+              "år": 2025,
+              "lön": 742900,
+              "kapital": 44587,
+              "betalningsanmärkning": false,
+              "löneranking": 2
+            },
+            {
+              "år": 2024,
+              "lön": 735700,
+              "kapital": 72926,
+              "betalningsanmärkning": false,
+              "löneranking": 3
+            },
+            {
+              "år": 2023,
+              "lön": 711000,
+              "kapital": 53457,
+              "betalningsanmärkning": false,
+              "löneranking": 5
+            }
+          ],
+          "källa": "docs/ratsit/Lönekollen+3+år+(2026)+-+Göteborg+Hisingen,+s.+272.pdf"
         }
       }
     },
