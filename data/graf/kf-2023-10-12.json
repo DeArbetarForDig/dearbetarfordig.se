@@ -10,6 +10,19 @@
       }
     },
     {
+      "id": "kf-2023-10-12-§1",
+      "typ": "paragraf",
+      "label": "§ 1 Protokoll nr 9",
+      "data": {
+        "paragrafNr": "1",
+        "rubrik": "Protokoll nr 9",
+        "datum": "2023-10-12",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
       "id": "kf-2023-10-12-§2",
       "typ": "paragraf",
       "label": "§ 2 Frågestund",
@@ -590,6 +603,19 @@
       }
     },
     {
+      "id": "kf-2023-10-12-§24",
+      "typ": "paragraf",
+      "label": "§ 24 Protokoll nr 9",
+      "data": {
+        "paragrafNr": "24",
+        "rubrik": "Protokoll nr 9",
+        "datum": "2023-10-12",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
       "id": "kf-2023-10-12-§25",
       "typ": "paragraf",
       "label": "§ 25 Avsägelse från Alexander Aldäng (V) från uppdraget som",
@@ -1077,6 +1103,11 @@
     },
     {
       "from": "möte-kf-2023-10-12",
+      "to": "kf-2023-10-12-§1",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-10-12",
       "to": "kf-2023-10-12-§2",
       "typ": "beslut_av"
     },
@@ -1183,6 +1214,11 @@
     {
       "from": "möte-kf-2023-10-12",
       "to": "kf-2023-10-12-§23",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-10-12",
+      "to": "kf-2023-10-12-§24",
       "typ": "beslut_av"
     },
     {

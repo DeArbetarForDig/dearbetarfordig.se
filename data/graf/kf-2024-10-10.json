@@ -52,6 +52,19 @@
       }
     },
     {
+      "id": "kf-2024-10-10-§389",
+      "typ": "paragraf",
+      "label": "§ 389 Anmälan av länsstyrelsens beslut att utse Sebastian Rinvall",
+      "data": {
+        "paragrafNr": "389",
+        "rubrik": "Anmälan av länsstyrelsens beslut att utse Sebastian Rinvall",
+        "datum": "2024-10-10",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
       "id": "kf-2024-10-10-§390",
       "typ": "paragraf",
       "label": "§ 390 Frågestund",
@@ -4532,6 +4545,11 @@
     {
       "from": "möte-kf-2024-10-10",
       "to": "kf-2024-10-10-§388",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2024-10-10",
+      "to": "kf-2024-10-10-§389",
       "typ": "beslut_av"
     },
     {
