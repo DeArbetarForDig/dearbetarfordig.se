@@ -4304,7 +4304,27 @@
           "bolagsengagemang": 0,
           "notering": "Ren — inga privata bolag, bara BRF",
           "ratsit_url": "https://www.ratsit.se/19690922-Kjell_Henrik_Johansson_Hisings_Karra/5kxiDcHDbH6TE182HQUA2F3TkWJr8FIftoQCsXDyylE",
-          "kontrollerad": "2026-06-21"
+          "kontrollerad": "2026-06-21",
+          "inkomst": [
+            {
+              "år": 2025,
+              "lön": 891300,
+              "kapital": -25629,
+              "löneranking": 49
+            },
+            {
+              "år": 2024,
+              "lön": 883400,
+              "kapital": -35531,
+              "löneranking": 44
+            },
+            {
+              "år": 2023,
+              "lön": 815600,
+              "kapital": -19508,
+              "löneranking": 58
+            }
+          ]
         }
       ]
     },
