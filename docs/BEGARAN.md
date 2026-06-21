@@ -1,12 +1,14 @@
 # Begäran om allmän handling — instruktioner
 
-## Generell kontakt (fungerar alltid)
+## Generell kontakt (verifierad, fungerar för alla nämnder)
 
 ```
 goteborg@goteborg.se
 ```
 
-De vidarebefordrar till rätt registrator.
+Ange vilken nämnd begäran gäller i ämnesraden — de vidarebefordrar till rätt registrator.
+
+Alternativ: ring 031-365 00 00 och be om registratorns direktadress för specifik nämnd.
 
 ## Vår email
 
