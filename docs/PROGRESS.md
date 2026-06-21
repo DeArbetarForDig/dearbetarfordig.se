@@ -144,6 +144,15 @@ data/graf/                    # 59 JSON-filer
 4. **Frontend** — Astro (politician profile + budget explorer)
 5. **Ratsit** — födelseår + inkomst per politiker
 
+## Future features
+
+- **AgensGraph** (PostgreSQL graph extension) — Cypher queries istället för SQL joins. Relevant vid 290 kommuner / miljontals edges. https://github.com/bitnine-oss/agensgraph
+- **Alla 290 kommuner** — generalisera scrapers + parsers
+- **Kammarkollegiet API** — valkampanjfinansiering (öppet data)
+- **Email-automation** — Proton Mail Plus / Fastmail SMTP → automatiska begäran
+- **AI-sammanfattning** — LLM summary per politician portfolio
+- **Webhooks** — notifikation vid nytt protokoll / nytt beslut
+
 ## Teknisk skuld
 
 - [ ] parse-protokoll.ts: voteringsbilagor-parser broken (workaround: parse-voteringar.ts)
