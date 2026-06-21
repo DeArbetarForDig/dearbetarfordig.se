@@ -8,6 +8,12 @@ goteborg@goteborg.se
 
 Ange vilken nämnd begäran gäller i ämnesraden — de vidarebefordrar till rätt registrator.
 
+## Verifierade direktadresser
+
+| Förvaltning | Email |
+|---|---|
+| Intraservice (IT) | `intraservice@intraservice.goteborg.se` |
+
 Alternativ: ring 031-365 00 00 och be om registratorns direktadress för specifik nämnd.
 
 ## Vår email
