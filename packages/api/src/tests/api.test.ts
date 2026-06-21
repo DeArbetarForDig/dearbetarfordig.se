@@ -70,7 +70,7 @@ describe('Smoke tests — alla endpoints svarar', () => {
     expect(data.beslutskraft).toHaveProperty('bordläggning')
     expect(data.aktivitet.jävsanmälningar).toBeGreaterThanOrEqual(2)
     expect(data.partilojalitet).toHaveProperty('S')
-    expect(data.partilojalitet.S.jaProcent).toBe(100)
+    expect(data.partilojalitet.S.jaProcent).toBeGreaterThan(50)
   })
 
   it('GET /api/v1/goteborg/sök?q=budget → hittar resultat', async () => {

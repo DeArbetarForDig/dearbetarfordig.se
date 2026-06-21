@@ -10,6 +10,19 @@
       }
     },
     {
+      "id": "kf-2023-12-07-§72",
+      "typ": "paragraf",
+      "label": "§ 72 Protokoll nr 12",
+      "data": {
+        "paragrafNr": "72",
+        "rubrik": "Protokoll nr 12",
+        "datum": "2023-12-07",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
       "id": "kf-2023-12-07-§73",
       "typ": "paragraf",
       "label": "§ 73 Frågestund",
@@ -1535,6 +1548,11 @@
       "from": "kf-2023-12-07-§107",
       "to": "org-kommunstyrelsen",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "möte-kf-2023-12-07",
+      "to": "kf-2023-12-07-§72",
+      "typ": "beslut_av"
     },
     {
       "from": "möte-kf-2023-12-07",

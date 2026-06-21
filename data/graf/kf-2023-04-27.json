@@ -8,7 +8,1699 @@
         "datum": "2023-04-27",
         "organisation": "Kommunfullmäktige"
       }
+    },
+    {
+      "id": "kf-2023-04-27-§1",
+      "typ": "paragraf",
+      "label": "§ 1 Protokoll (nr 4)",
+      "data": {
+        "paragrafNr": "1",
+        "rubrik": "Protokoll (nr 4)",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§5",
+      "typ": "paragraf",
+      "label": "§ 5 Hemställan från Förvaltnings AB Framtiden om ombildning",
+      "data": {
+        "paragrafNr": "5",
+        "ärendeNr": "1339/22",
+        "rubrik": "Hemställan från Förvaltnings AB Framtiden om ombildning",
+        "datum": "2023-04-27",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Petra Elf",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och\nAxel Josefson",
+            "parti": "M",
+            "typ": "förslaget från M, D, L och KD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§6",
+      "typ": "paragraf",
+      "label": "§ 6 Hemställan från Förvaltnings AB Framtiden om ombildning",
+      "data": {
+        "paragrafNr": "6",
+        "ärendeNr": "1338/22",
+        "rubrik": "Hemställan från Förvaltnings AB Framtiden om ombildning",
+        "datum": "2023-04-27",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nRoshan Yigit",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§7",
+      "typ": "paragraf",
+      "label": "§ 7 Åtgärdsplan för god vattenstatus i Göteborg",
+      "data": {
+        "paragrafNr": "7",
+        "ärendeNr": "0602/19",
+        "rubrik": "Åtgärdsplan för god vattenstatus i Göteborg",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-f",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden f",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-kretslopp",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden\nKretslopp",
+      "data": {}
+    },
+    {
+      "id": "org-stadsbyggnadsnämnden-exploateringsn",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden\nExploateringsn",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-stadsfastighetsn",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden\nStadsfastighetsn",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§8",
+      "typ": "paragraf",
+      "label": "§ 8 Redovisning av Higab AB:s uppdrag angående hantering av",
+      "data": {
+        "paragrafNr": "8",
+        "ärendeNr": "1115/22",
+        "rubrik": "Redovisning av Higab AB:s uppdrag angående hantering av",
+        "datum": "2023-04-27",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 43,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Karin Pleijel",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och\nJörgen Fogelklou",
+            "parti": "SD",
+            "typ": "kommunstyrelsens förslag och tilläggsyrkande"
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kommunstyrelsen-och",
+      "typ": "organisation",
+      "label": "kommunstyrelsen och",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§8",
+      "typ": "paragraf",
+      "label": "§ 8 Protokollsutdrag skickas till",
+      "data": {
+        "paragrafNr": "8",
+        "ärendeNr": "1115/22",
+        "rubrik": "Protokollsutdrag skickas till",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§9",
+      "typ": "paragraf",
+      "label": "§ 9 Redovisning av uppdrag gällande förutsättningar för ny",
+      "data": {
+        "paragrafNr": "9",
+        "ärendeNr": "1358/22",
+        "rubrik": "Redovisning av uppdrag gällande förutsättningar för ny",
+        "datum": "2023-04-27",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 42,
+          "nej": 38
+        },
+        "yrkanden": [
+          {
+            "namn": "och Sara Carlsson Hägglund",
+            "parti": "V",
+            "typ": "kommunstyrelsens"
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "att ärendet ska återremitteras till"
+          },
+          {
+            "namn": "och Karin Pleijel",
+            "parti": "MP",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "förslaget från M, D, L och KD i kommunstyrelsen"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-inköps--och-upphandlingsnämnden-beslut",
+      "typ": "organisation",
+      "label": "inköps- och upphandlingsnämnden\nBeslut",
+      "data": {}
+    },
+    {
+      "id": "org-inköps--och-upphandlingsnämnden-att",
+      "typ": "organisation",
+      "label": "inköps- och upphandlingsnämnden\natt",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-i",
+      "typ": "organisation",
+      "label": "kommunstyrelsen i",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-f",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen f",
+      "data": {}
+    },
+    {
+      "id": "org-förskolenämnden",
+      "typ": "organisation",
+      "label": "förskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden",
+      "typ": "organisation",
+      "label": "utbildningsnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden",
+      "typ": "organisation",
+      "label": "grundskolenämnden",
+      "data": {}
+    },
+    {
+      "id": "org-utbildningsnämnden-n",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-socialn",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\nSocialn",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§14",
+      "typ": "paragraf",
+      "label": "§ 14 Göteborgs Stads årsredovisning 2022",
+      "data": {
+        "paragrafNr": "14",
+        "ärendeNr": "0071/22",
+        "rubrik": "Göteborgs Stads årsredovisning 2022",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-i",
+      "typ": "organisation",
+      "label": "grundskolenämnden i",
+      "data": {}
+    },
+    {
+      "id": "org-kommunstyrelsen-stadens",
+      "typ": "organisation",
+      "label": "Kommunstyrelsen\nStadens",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§17",
+      "typ": "paragraf",
+      "label": "§ 17 Samlingsärende inom uppföljning mars 2023 återrapportering av kommunfullmäktiges uppdrag till",
+      "data": {
+        "paragrafNr": "17",
+        "ärendeNr": "1408/22",
+        "rubrik": "Samlingsärende inom uppföljning mars 2023 återrapportering av kommunfullmäktiges uppdrag till",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-utreda",
+      "typ": "organisation",
+      "label": "miljö- och klimatnämnden utreda",
+      "data": {}
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden",
+      "typ": "organisation",
+      "label": "miljö- och klimatnämnden",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-2021",
+      "typ": "organisation",
+      "label": "idrotts- och föreningsnämnden 2021",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-att",
+      "typ": "organisation",
+      "label": "kretslopp och vattennämnden att",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§17",
+      "typ": "paragraf",
+      "label": "§ 17 9. Kommunfullmäktiges uppdrag 2020-11-12 § 15 punkt 2 till de nya socialnämnderna",
+      "data": {
+        "paragrafNr": "17",
+        "ärendeNr": "1408/22",
+        "rubrik": "9. Kommunfullmäktiges uppdrag 2020-11-12 § 15 punkt 2 till de nya socialnämnderna",
+        "datum": "2023-04-27",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "och Mats Arnsmar",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "Patrik Höstmad",
+            "parti": "D",
+            "typ": "förslaget från M, D, L och KD i kommunstyrelsen."
+          },
+          {
+            "namn": "Agneta Kjaerbeck",
+            "parti": "SD",
+            "typ": "förslaget från SD i kommunstyrelsen."
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "typ": "yrkande från C den 26 april 2023."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-grundskolenämnden-ta",
+      "typ": "organisation",
+      "label": "grundskolenämnden ta",
+      "data": {}
+    },
+    {
+      "id": "org-stadsmiljönämnden-f",
+      "typ": "organisation",
+      "label": "stadsmiljönämnden f",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§17",
+      "typ": "paragraf",
+      "label": "§ 17 Propositionsordning",
+      "data": {
+        "paragrafNr": "17",
+        "ärendeNr": "1408/22",
+        "rubrik": "Propositionsordning",
+        "datum": "2023-04-27",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 29,
+          "nej": 9
+        },
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-park",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden\nPark",
+      "data": {}
+    },
+    {
+      "id": "org-idrotts--och-föreningsnämnden-n",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-socialn",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden\nSocialn",
+      "data": {}
+    },
+    {
+      "id": "org-grundskolenämnden-n",
+      "typ": "organisation",
+      "label": "Grundskolenämnden\nN",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§18",
+      "typ": "paragraf",
+      "label": "§ 18 Förlängning av överenskommelse om samverkan vid in- och",
+      "data": {
+        "paragrafNr": "18",
+        "ärendeNr": "0253/23",
+        "rubrik": "Förlängning av överenskommelse om samverkan vid in- och",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§19",
+      "typ": "paragraf",
+      "label": "§ 19 Hemställan från nämnden för funktionsstöd om revidering av",
+      "data": {
+        "paragrafNr": "19",
+        "ärendeNr": "1157/22",
+        "rubrik": "Hemställan från nämnden för funktionsstöd om revidering av",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§20",
+      "typ": "paragraf",
+      "label": "§ 20 Reviderat förfrågningsunderlag enligt LOV inom hemtjänst",
+      "data": {
+        "paragrafNr": "20",
+        "ärendeNr": "0161/22",
+        "rubrik": "Reviderat förfrågningsunderlag enligt LOV inom hemtjänst",
+        "datum": "2023-04-27",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nMarina Johansson",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "yrkande och"
+          },
+          {
+            "namn": "Sabina Music",
+            "parti": "C",
+            "typ": "yrkande från C den 26 april 2023."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§20",
+      "typ": "paragraf",
+      "label": "§ 20 Propositionsordning",
+      "data": {
+        "paragrafNr": "20",
+        "ärendeNr": "0161/22",
+        "rubrik": "Propositionsordning",
+        "datum": "2023-04-27",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41
+        },
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§21",
+      "typ": "paragraf",
+      "label": "§ 21 Hemställan från nämnden för funktionsstöd om att fortsätta",
+      "data": {
+        "paragrafNr": "21",
+        "ärendeNr": "0257/23",
+        "rubrik": "Hemställan från nämnden för funktionsstöd om att fortsätta",
+        "datum": "2023-04-27",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 40,
+          "nej": 41
+        },
+        "yrkanden": [
+          {
+            "namn": "Yrkanden\n\nJonas Attenius",
+            "parti": "S",
+            "typ": "kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och\nJörgen Fogelklou",
+            "parti": "SD",
+            "typ": "förslaget från M, D, L och KD i kommunstyrelsen."
+          }
+        ],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§22",
+      "typ": "paragraf",
+      "label": "§ 22 Hemställan från Business Region Göteborg AB om",
+      "data": {
+        "paragrafNr": "22",
+        "ärendeNr": "0293/23",
+        "rubrik": "Hemställan från Business Region Göteborg AB om",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§23",
+      "typ": "paragraf",
+      "label": "§ 23 Delredovisning av uppdrag att genomföra en genomlysning",
+      "data": {
+        "paragrafNr": "23",
+        "ärendeNr": "0156/23",
+        "rubrik": "Delredovisning av uppdrag att genomföra en genomlysning",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§24",
+      "typ": "paragraf",
+      "label": "§ 24 Hanteringsordning av förvärvslån inom Göteborgs Stadshus",
+      "data": {
+        "paragrafNr": "24",
+        "ärendeNr": "0158/23",
+        "rubrik": "Hanteringsordning av förvärvslån inom Göteborgs Stadshus",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§25",
+      "typ": "paragraf",
+      "label": "§ 25 Inriktningsbeslut avseende upprustning av kanalmurar längs",
+      "data": {
+        "paragrafNr": "25",
+        "ärendeNr": "0488/21",
+        "rubrik": "Inriktningsbeslut avseende upprustning av kanalmurar längs",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§25",
+      "typ": "paragraf",
+      "label": "§ 25 Yrkanden",
+      "data": {
+        "paragrafNr": "25",
+        "ärendeNr": "0488/21",
+        "rubrik": "Yrkanden",
+        "datum": "2023-04-27",
+        "beslut": "bifall",
+        "votering": {
+          "ja": 72,
+          "nej": 9
+        },
+        "yrkanden": [
+          {
+            "namn": "och Emma Öman",
+            "parti": "V",
+            "typ": "bifall till kommunstyrelsens förslag."
+          },
+          {
+            "namn": "och Eva Flyborg",
+            "parti": "L",
+            "typ": "bifall till förslaget från M, D, L och KD i kommunstyrelsen."
+          },
+          {
+            "namn": "Emma Altenhammar",
+            "parti": "SD",
+            "typ": "att ärendet ska återremitteras i enlighet med förslaget"
+          }
+        ],
+        "reservationer": [
+          "Ledamöterna från SD reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-stadsmiljönämnden-g",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§26",
+      "typ": "paragraf",
+      "label": "§ 26 Verksamhetsområde 2023 Göteborgs Stads allmänna",
+      "data": {
+        "paragrafNr": "26",
+        "ärendeNr": "0225/23",
+        "rubrik": "Verksamhetsområde 2023 Göteborgs Stads allmänna",
+        "datum": "2023-04-27",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-kretslopp-och-vattennämnden-g",
+      "typ": "organisation",
+      "label": "Kretslopp och vattennämnden\n\nG",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§27",
+      "typ": "paragraf",
+      "label": "§ 27 Begäran om överlåtelse av tillsynsansvar enligt miljöbalken",
+      "data": {
+        "paragrafNr": "27",
+        "ärendeNr": "0139/23",
+        "rubrik": "Begäran om överlåtelse av tillsynsansvar enligt miljöbalken",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tid",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden-l",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden\nL",
+      "data": {}
+    },
+    {
+      "id": "kf-2023-04-27-§29",
+      "typ": "paragraf",
+      "label": "§ 29 Redovisning av uppdrag att inom ramen för befintliga",
+      "data": {
+        "paragrafNr": "29",
+        "ärendeNr": "1173/22",
+        "rubrik": "Redovisning av uppdrag att inom ramen för befintliga",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "övrigt",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§30",
+      "typ": "paragraf",
+      "label": "§ 30 Redovisning av uppdrag att ta fram en handlingsplan för att",
+      "data": {
+        "paragrafNr": "30",
+        "ärendeNr": "0116/22",
+        "rubrik": "Redovisning av uppdrag att ta fram en handlingsplan för att",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "övrigt",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§31",
+      "typ": "paragraf",
+      "label": "§ 31 Redovisning av uppdrag att ta fram kompletterande underlag",
+      "data": {
+        "paragrafNr": "31",
+        "ärendeNr": "1324/20",
+        "rubrik": "Redovisning av uppdrag att ta fram kompletterande underlag",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "övrigt",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": [
+          {
+            "namn": "Andreas Hernbo",
+            "parti": "MP"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§32",
+      "typ": "paragraf",
+      "label": "§ 32 Revidering av Göteborgs Stads riktlinje för",
+      "data": {
+        "paragrafNr": "32",
+        "ärendeNr": "0160/23",
+        "rubrik": "Revidering av Göteborgs Stads riktlinje för",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "övrigt",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§33",
+      "typ": "paragraf",
+      "label": "§ 33 Motion av Jessica Blixt (D) och Martin Wannholt (D) om att",
+      "data": {
+        "paragrafNr": "33",
+        "ärendeNr": "0497/22",
+        "rubrik": "Motion av Jessica Blixt (D) och Martin Wannholt (D) om att",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§34",
+      "typ": "paragraf",
+      "label": "§ 34 Motion av Pernilla Börjesson (SD) om att utveckla Göteborgs",
+      "data": {
+        "paragrafNr": "34",
+        "ärendeNr": "0774/22",
+        "rubrik": "Motion av Pernilla Börjesson (SD) om att utveckla Göteborgs",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§35",
+      "typ": "paragraf",
+      "label": "§ 35 Motion av Stina Svensson (FI) och Teysir Subhi (FI) om att",
+      "data": {
+        "paragrafNr": "35",
+        "ärendeNr": "0773/22",
+        "rubrik": "Motion av Stina Svensson (FI) och Teysir Subhi (FI) om att",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§36",
+      "typ": "paragraf",
+      "label": "§ 36 Motion av Bosse Parbring (MP) och Karin Pleijel (MP) om att",
+      "data": {
+        "paragrafNr": "36",
+        "ärendeNr": "0675/22",
+        "rubrik": "Motion av Bosse Parbring (MP) och Karin Pleijel (MP) om att",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§37",
+      "typ": "paragraf",
+      "label": "§ 37 Motion av Helena Norin (MP), Åse-Lill Törnqvist (MP) och",
+      "data": {
+        "paragrafNr": "37",
+        "ärendeNr": "0796/22",
+        "rubrik": "Motion av Helena Norin (MP), Åse-Lill Törnqvist (MP) och",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§38",
+      "typ": "paragraf",
+      "label": "§ 38 Motion av Gertrud Ingelman (V) och Johan Zandin (V) om att",
+      "data": {
+        "paragrafNr": "38",
+        "ärendeNr": "1050/22",
+        "rubrik": "Motion av Gertrud Ingelman (V) och Johan Zandin (V) om att",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§39",
+      "typ": "paragraf",
+      "label": "§ 39 Motion av Johan Zandin (V) och Gertrud Ingelman (V) om att",
+      "data": {
+        "paragrafNr": "39",
+        "ärendeNr": "1049/22",
+        "rubrik": "Motion av Johan Zandin (V) och Gertrud Ingelman (V) om att",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§40",
+      "typ": "paragraf",
+      "label": "§ 40 Motion av Yvonne Stafrén (SD), Pernilla Börjesson (SD) och",
+      "data": {
+        "paragrafNr": "40",
+        "ärendeNr": "0881/22",
+        "rubrik": "Motion av Yvonne Stafrén (SD), Pernilla Börjesson (SD) och",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "tidigare_bordlagd",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§41",
+      "typ": "paragraf",
+      "label": "§ 41 Motion av Stina Svensson (FI) och Teysir Subhi (FI) om att",
+      "data": {
+        "paragrafNr": "41",
+        "ärendeNr": "0972/22",
+        "rubrik": "Motion av Stina Svensson (FI) och Teysir Subhi (FI) om att",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "övrigt",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
+      "id": "kf-2023-04-27-§42",
+      "typ": "paragraf",
+      "label": "§ 42 Motion av Stina Svensson (FI) om att byta ut statyn \"Sittande",
+      "data": {
+        "paragrafNr": "42",
+        "ärendeNr": "1124/22",
+        "rubrik": "Motion av Stina Svensson (FI) om att byta ut statyn \"Sittande",
+        "datum": "2023-04-27",
+        "beslut": "bordläggning",
+        "bordläggningsorsak": "övrigt",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
     }
   ],
-  "edges": []
+  "edges": [
+    {
+      "from": "kf-2023-04-27-§1",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§1",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§1",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§1",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§1",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§5",
+      "to": "kf-*-§19",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 19"
+    },
+    {
+      "from": "kf-2023-04-27-§5",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§5",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§5",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§5",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§5",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§6",
+      "to": "kf-*-§20",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 20"
+    },
+    {
+      "from": "kf-2023-04-27-§6",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§6",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§6",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§6",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§6",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§7",
+      "to": "kf-*-§27",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 27"
+    },
+    {
+      "from": "kf-2023-04-27-§7",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§7",
+      "to": "org-miljö--och-klimatnämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§7",
+      "to": "org-miljö--och-klimatnämnden-kretslopp",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§7",
+      "to": "org-stadsbyggnadsnämnden-exploateringsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§7",
+      "to": "org-stadsmiljönämnden-stadsfastighetsn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§8",
+      "to": "kf-*-§28",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 28"
+    },
+    {
+      "from": "kf-2023-04-27-§8",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§8",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§8",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§8",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§8",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§8",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§8",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "kf-*-§29",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 29"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "kf-*-§30",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 30"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "kf-*-§31",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 31"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-inköps--och-upphandlingsnämnden-beslut",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-inköps--och-upphandlingsnämnden-att",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen-i",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-förskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-utbildningsnämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-grundskolenämnden",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-kommunstyrelsen-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-utbildningsnämnden-n",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§9",
+      "to": "org-grundskolenämnden-socialn",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§14",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§14",
+      "to": "org-grundskolenämnden-i",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§14",
+      "to": "org-kommunstyrelsen-stadens",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-miljö--och-klimatnämnden-utreda",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-idrotts--och-föreningsnämnden-2021",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-kretslopp-och-vattennämnden-att",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-grundskolenämnden-ta",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-stadsmiljönämnden-f",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-miljö--och-klimatnämnden-park",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-idrotts--och-föreningsnämnden-n",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-kretslopp-och-vattennämnden-socialn",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§17",
+      "to": "org-grundskolenämnden-n",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§18",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§19",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§20",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§20",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§20",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§20",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§20",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§20",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§20",
+      "to": "org-kommunstyrelsen-och",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§20",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§21",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§21",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§21",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§21",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§21",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§22",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§23",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§24",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-kommunstyrelsen",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-stadsmiljönämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-stadsmiljönämnden-f",
+      "typ": "uppdrag_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§25",
+      "to": "org-stadsmiljönämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§26",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§26",
+      "to": "org-kretslopp-och-vattennämnden-g",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§27",
+      "to": "org-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§27",
+      "to": "org-miljö--och-klimatnämnden-f",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§27",
+      "to": "org-miljö--och-klimatnämnden-l",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "kf-2023-04-27-§33",
+      "to": "kf-*-§37",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 37"
+    },
+    {
+      "from": "kf-2023-04-27-§34",
+      "to": "kf-*-§33",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 33"
+    },
+    {
+      "from": "kf-2023-04-27-§35",
+      "to": "kf-*-§34",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 34"
+    },
+    {
+      "from": "kf-2023-04-27-§36",
+      "to": "kf-*-§35",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 35"
+    },
+    {
+      "from": "kf-2023-04-27-§37",
+      "to": "kf-*-§36",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 36"
+    },
+    {
+      "from": "kf-2023-04-27-§38",
+      "to": "kf-*-§37",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 37"
+    },
+    {
+      "from": "kf-2023-04-27-§39",
+      "to": "kf-*-§38",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 38"
+    },
+    {
+      "from": "kf-2023-04-27-§40",
+      "to": "kf-*-§39",
+      "typ": "bordlagd_från",
+      "label": "Bordlagd från § 39"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§1",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§5",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§6",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§7",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§8",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§8",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§9",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§14",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§17",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§17",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§17",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§18",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§19",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§20",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§20",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§21",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§22",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§23",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§24",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§25",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§25",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§26",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§27",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§29",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§30",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§31",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§32",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§33",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§34",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§35",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§36",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§37",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§38",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§39",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§40",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§41",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-04-27",
+      "to": "kf-2023-04-27-§42",
+      "typ": "beslut_av"
+    }
+  ]
 }

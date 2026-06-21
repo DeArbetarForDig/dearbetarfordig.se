@@ -40,8 +40,12 @@ export interface KnowledgeGraph {
 }
 
 // --- Regex patterns ---
-
-const PARAGRAF_RE = /§\s*(\d+)\s*Ärendenummer\s*(SLK-\d{4}-\d+(?::\d+)?)/g
+// Two protocol formats:
+// 2025+: "§ 491 Ärendenummer SLK-2025-00364"
+// 2023-2024: "§ 5 1339/22" or "§5" (without ärendenummer)
+const PARAGRAF_RE_NEW = /§\s*(\d+)\s*Ärendenummer\s*(SLK-\d{4}-\d+(?::\d+)?)/g
+const PARAGRAF_RE_OLD = /§\s*(\d+)\s+(\d{3,4}\/\d{2})/g
+const PARAGRAF_RE_BARE = /^§\s*(\d+)\s*$/gm  // Just "§1" on its own line
 const LAG_REF_RE = /(\d+)\s*kap\.?\s*(\d+)\s*§\s*([\wäöåÅÄÖ-]+lagen|miljöbalken|[\wäöåÅÄÖ-]+förordningen)(?:\s*\((\d{4}:\d+)\))?/gi
 const SFS_RE = /\((\d{4}:\d+)\)/g
 const NÄMND_RE = /((?:socialnämnden|grundskolenämnden|exploateringsnämnden|kulturnämnden|stadsmiljönämnden|idrotts- och föreningsnämnden|inköps- och upphandlingsnämnden|kommunstyrelsen|stadsfastighetsnämnden|kretslopp och vattennämnden|miljö- och klimatnämnden|förskolenämnden|utbildningsnämnden|stadsbyggnadsnämnden)(?:\s+\w+)?)/gi
@@ -56,15 +60,46 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
   const nodes: GraphNode[] = []
   const edges: GraphEdge[] = []
 
-  // Split text into paragraphs
-  const sections = text.split(/(?=§\s*\d+\s*Ärendenummer)/)
+  // Detect protocol format by checking which pattern matches more
+  const newFormatCount = (text.match(/§\s*\d+\s*Ärendenummer\s*SLK-/g) || []).length
+  const oldFormatCount = (text.match(/^§\s*\d+\s+\d{3,4}\/\d{2}/gm) || []).length
+  const bareFormatCount = (text.match(/^§\s*\d+\s*$/gm) || []).length
+
+  // Choose splitting strategy based on format
+  let sections: string[]
+  if (newFormatCount > 0) {
+    // 2025+ format: "§ 491 Ärendenummer SLK-2025-00364"
+    sections = text.split(/(?=§\s*\d+\s*Ärendenummer)/)
+  } else if (oldFormatCount > 0) {
+    // 2023-2024 format: "§ 5 1339/22"
+    sections = text.split(/(?=§\s*\d+\s+\d{3,4}\/\d{2})/)
+  } else {
+    // Bare format: "§1" or "§ 5" on own line — split on § at start of line
+    sections = text.split(/(?=^§\s*\d+)/m)
+  }
 
   for (const section of sections) {
-    const headerMatch = section.match(/§\s*(\d+)\s*Ärendenummer\s*(SLK-\d{4}-\d+(?::\d+)?)/)
-    if (!headerMatch) continue
+    // Try all header formats
+    let paragrafNr: string | undefined
+    let ärendeNr: string | undefined
 
-    const paragrafNr = headerMatch[1]
-    const ärendeNr = headerMatch[2]
+    const newMatch = section.match(/§\s*(\d+)\s*Ärendenummer\s*(SLK-\d{4}-\d+(?::\d+)?)/)
+    const oldMatch = section.match(/§\s*(\d+)\s+(\d{3,4}\/\d{2})/)
+    const bareMatch = section.match(/^§\s*(\d+)/m)
+
+    if (newMatch) {
+      paragrafNr = newMatch[1]
+      ärendeNr = newMatch[2]
+    } else if (oldMatch) {
+      paragrafNr = oldMatch[1]
+      ärendeNr = oldMatch[2]
+    } else if (bareMatch) {
+      paragrafNr = bareMatch[1]
+      ärendeNr = undefined
+    } else {
+      continue
+    }
+
     const paragrafId = `kf-${möteDatum}-§${paragrafNr}`
 
     // Extract rubrik (first line after ärendenummer)

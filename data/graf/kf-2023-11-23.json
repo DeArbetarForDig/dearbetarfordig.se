@@ -10,6 +10,19 @@
       }
     },
     {
+      "id": "kf-2023-11-23-§34",
+      "typ": "paragraf",
+      "label": "§ 34 Protokoll nr 11",
+      "data": {
+        "paragrafNr": "34",
+        "rubrik": "Protokoll nr 11",
+        "datum": "2023-11-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
       "id": "kf-2023-11-23-§35",
       "typ": "paragraf",
       "label": "§ 35 Frågestund",
@@ -2880,6 +2893,19 @@
         "reservationer": [],
         "jäv": []
       }
+    },
+    {
+      "id": "kf-2023-11-23-§71",
+      "typ": "paragraf",
+      "label": "§ 71 Protokoll nr 11",
+      "data": {
+        "paragrafNr": "71",
+        "rubrik": "Protokoll nr 11",
+        "datum": "2023-11-23",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
     }
   ],
   "edges": [
@@ -3416,6 +3442,11 @@
     },
     {
       "from": "möte-kf-2023-11-23",
+      "to": "kf-2023-11-23-§34",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-11-23",
       "to": "kf-2023-11-23-§35",
       "typ": "beslut_av"
     },
@@ -3592,6 +3623,11 @@
     {
       "from": "möte-kf-2023-11-23",
       "to": "kf-2023-11-23-§70",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-kf-2023-11-23",
+      "to": "kf-2023-11-23-§71",
       "typ": "beslut_av"
     }
   ]

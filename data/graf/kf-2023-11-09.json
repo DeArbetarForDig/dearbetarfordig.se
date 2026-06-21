@@ -10,6 +10,19 @@
       }
     },
     {
+      "id": "kf-2023-11-09-§1",
+      "typ": "paragraf",
+      "label": "§ 1 Protokoll nr 10",
+      "data": {
+        "paragrafNr": "1",
+        "rubrik": "Protokoll nr 10",
+        "datum": "2023-11-09",
+        "yrkanden": [],
+        "reservationer": [],
+        "jäv": []
+      }
+    },
+    {
       "id": "kf-2023-11-09-§2",
       "typ": "paragraf",
       "label": "§ 2 Anmälan av länsstyrelsens beslut att utse Maja Bentzer (V)",
@@ -693,6 +706,11 @@
       "from": "kf-2023-11-09-§4",
       "to": "org-stadsbyggnadsnämnden-och",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "möte-kf-2023-11-09",
+      "to": "kf-2023-11-09-§1",
+      "typ": "beslut_av"
     },
     {
       "from": "möte-kf-2023-11-09",
