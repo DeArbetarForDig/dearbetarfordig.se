@@ -89,36 +89,64 @@ async function main() {
     console.log(`   ✓ ${polData.politiker.length} politiker`)
   }
 
-  // Seed graph nodes + edges
+  // Seed graph nodes + edges (with organisation merge)
   const grafDir = join(DATA_DIR, 'graf')
   if (existsSync(grafDir)) {
     await client`DELETE FROM goteborg.graf_edges`
     await client`DELETE FROM goteborg.graf_nodes`
 
+    const { mergeOrganisations } = await import('./merge-organisations.js')
     const files = readdirSync(grafDir).filter(f => f.endsWith('.json'))
-    let totalNodes = 0
-    let totalEdges = 0
-
+    let allNodes: any[] = []
+    let allEdges: any[] = []
     for (const file of files) {
       const graph = JSON.parse(readFileSync(join(grafDir, file), 'utf-8'))
-
-      for (const node of graph.nodes) {
-        await client`
-          INSERT INTO goteborg.graf_nodes (id, typ, label, data)
-          VALUES (${node.id}, ${node.typ}, ${node.label}, ${client.json(node.data)})
-          ON CONFLICT (id) DO UPDATE SET typ = EXCLUDED.typ, label = EXCLUDED.label, data = EXCLUDED.data`
-        totalNodes++
-      }
-
-      for (const edge of graph.edges) {
-        try {
-          await client`
-            INSERT INTO goteborg.graf_edges (from_id, to_id, typ, label, data)
-            VALUES (${edge.from}, ${edge.to}, ${edge.typ}, ${edge.label || null}, ${edge.data ? client.json(edge.data) : null})`
-          totalEdges++
-        } catch { /* skip edges with missing nodes */ }
-      }
+      allNodes.push(...graph.nodes)
+      allEdges.push(...graph.edges)
     }
+    const { nodes, edges, mergeCount } = mergeOrganisations(allNodes, allEdges)
+    console.log(`   ✓ Merged ${mergeCount} duplicate org nodes`)
+    const nodeMap = new Map<string, any>()
+    for (const node of nodes) nodeMap.set(node.id, node)
+    let totalNodes = 0
+    let totalEdges = 0
+    for (const node of nodeMap.values()) {
+      await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data) VALUES (${node.id}, ${node.typ}, ${node.label}, ${client.json(node.data)}) ON CONFLICT (id) DO UPDATE SET typ = EXCLUDED.typ, label = EXCLUDED.label, data = EXCLUDED.data`
+      totalNodes++
+    }
+    for (const edge of edges) {
+      try { await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, label, data) VALUES (${edge.from}, ${edge.to}, ${edge.typ}, ${edge.label || null}, ${edge.data ? client.json(edge.data) : null})` ; totalEdges++ } catch {}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     console.log(`   ✓ ${totalNodes} graf nodes, ${totalEdges} edges (from ${files.length} files)`)
   }
 
