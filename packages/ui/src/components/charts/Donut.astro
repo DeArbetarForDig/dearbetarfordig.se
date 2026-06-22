@@ -1,13 +1,12 @@
 ---
 /**
- * Donut — EDS-compliant circular chart showing proportional data as segments.
+ * Donut — EDS-style circular chart.
  *
- * Behavior (from EDS docs/reference/eds/library/data-visualization/donut.md):
- * - Show parts of a whole (2–8 segments ideal)
- * - Variants: default (% on hover), with total (center value + unit), absolute values
- * - Legend with color swatch + label + value
- * - Hover: segment expands slightly, tooltip shows name + value/percentage
- * - Click: optional onSelect (client-side)
+ * Behavior (from @eds/vanilla Donut.js):
+ * - Hover: active segment full opacity, others dim to 0.2; center shows value + label
+ * - No hover: center shows total + unit (if showValue)
+ * - showAbsoluteValue: numbers instead of percentages on hover
+ * - Segments expand on hover (stroke-width change)
  */
 interface Segment {
   label: string
@@ -51,10 +50,19 @@ const arcs = segments.map((seg) => {
   offset += dash
   return arc
 })
+
+const dataJson = JSON.stringify(arcs.map(a => ({ label: a.label, value: a.value, pct: Math.round(a.frac * 100) })))
 ---
-<div class:list={['daf-donut flex items-center gap-6', className]}>
+<div
+  class:list={['daf-donut flex items-center gap-6', className]}
+  data-segments={dataJson}
+  data-total={total}
+  data-unit={unit}
+  data-show-value={showValue ? 'true' : ''}
+  data-show-absolute={showAbsoluteValue ? 'true' : ''}
+>
   <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label="Fördelning" class="shrink-0">
-    <g transform={`rotate(-90 ${cx} ${cy})`}>
+    <g class="daf-donut__ring" transform={`rotate(-90 ${cx} ${cy})`}>
       {arcs.map((a, i) => (
         <circle
           class="daf-donut__segment"
@@ -63,28 +71,27 @@ const arcs = segments.map((seg) => {
           stroke={a.color} stroke-width={thickness}
           stroke-dasharray={`${a.dash} ${circ - a.dash}`}
           stroke-dashoffset={-a.offset}
-        >
-          <title>{a.label}: {showAbsoluteValue ? a.value : `${Math.round(a.frac * 100)}%`}</title>
-        </circle>
+        />
       ))}
     </g>
-    {showValue && (
-      <text x={cx} y={cy - (unit ? 4 : 0)} text-anchor="middle" dominant-baseline="central"
+    <g class="daf-donut__center">
+      <text class="daf-donut__value" x={cx} y={cy - (unit ? 4 : 0)} text-anchor="middle" dominant-baseline="central"
         style={`font-family:var(--font-mono);font-weight:700;font-size:${size * 0.16}px;fill:var(--color-text)`}>
-        {total}
+        {showValue ? total : ''}
       </text>
-    )}
-    {showValue && unit && (
-      <text x={cx} y={cy + size * 0.12} text-anchor="middle" dominant-baseline="central"
+      <text class="daf-donut__unit" x={cx} y={cy + size * 0.12} text-anchor="middle" dominant-baseline="central"
         style={`font-family:var(--font-sans);font-size:${size * 0.07}px;fill:var(--color-text-muted)`}>
-        {unit}
+        {showValue ? unit : ''}
       </text>
-    )}
+      <text class="daf-donut__label" x={cx} y={cy + size * 0.22} text-anchor="middle" dominant-baseline="central"
+        style={`font-family:var(--font-sans);font-size:${size * 0.06}px;fill:var(--color-text-muted)`}>
+      </text>
+    </g>
   </svg>
   {legend && (
-    <ul class="list-none m-0 p-0 grid gap-1.5">
-      {arcs.map(a => (
-        <li class="flex items-center gap-2 text-sm">
+    <ul class="daf-donut__legend list-none m-0 p-0 grid gap-1.5">
+      {arcs.map((a, i) => (
+        <li class="flex items-center gap-2 text-sm" data-index={i}>
           <span class="w-3 h-3 rounded-sm shrink-0" style={`background:${a.color}`} />
           <span class="text-(--color-text)">{a.label}</span>
           <span class="font-mono text-(--color-text-muted) ml-auto pl-3">
@@ -98,10 +105,68 @@ const arcs = segments.map((seg) => {
 
 <style>
   .daf-donut__segment {
-    transition: stroke-width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.3s, stroke-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
   }
-  .daf-donut__segment:hover {
-    stroke-width: calc(var(--thickness, 34px) + 4px);
+  .daf-donut__segment.dimmed {
+    opacity: 0.2;
+  }
+  .daf-donut__segment.active {
+    stroke-width: calc(attr(stroke-width) + 6);
+  }
+  .daf-donut__legend li {
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .daf-donut__legend li.dimmed {
+    opacity: 0.3;
   }
 </style>
+
+<script is:inline>
+  document.querySelectorAll('.daf-donut').forEach(donut => {
+    const segments = JSON.parse(donut.dataset.segments || '[]')
+    const total = donut.dataset.total
+    const unit = donut.dataset.unit || ''
+    const showValue = donut.dataset.showValue === 'true'
+    const showAbsolute = donut.dataset.showAbsolute === 'true'
+    const circles = donut.querySelectorAll('.daf-donut__segment')
+    const legendItems = donut.querySelectorAll('.daf-donut__legend li')
+    const valueEl = donut.querySelector('.daf-donut__value')
+    const unitEl = donut.querySelector('.daf-donut__unit')
+    const labelEl = donut.querySelector('.daf-donut__label')
+    const baseWidth = circles[0] ? parseFloat(circles[0].getAttribute('stroke-width')) : 34
+
+    function highlight(index) {
+      circles.forEach((c, i) => {
+        c.classList.toggle('dimmed', i !== index)
+        c.style.strokeWidth = i === index ? (baseWidth + 6) + 'px' : (baseWidth - 2) + 'px'
+      })
+      legendItems.forEach((li, i) => li.classList.toggle('dimmed', i !== index))
+      const seg = segments[index]
+      if (valueEl) valueEl.textContent = showAbsolute ? seg.value : seg.pct + '%'
+      if (unitEl) unitEl.textContent = showAbsolute ? unit : ''
+      if (labelEl) labelEl.textContent = seg.label
+    }
+
+    function reset() {
+      circles.forEach(c => {
+        c.classList.remove('dimmed')
+        c.style.strokeWidth = baseWidth + 'px'
+      })
+      legendItems.forEach(li => li.classList.remove('dimmed'))
+      if (valueEl) valueEl.textContent = showValue ? total : ''
+      if (unitEl) unitEl.textContent = showValue ? unit : ''
+      if (labelEl) labelEl.textContent = ''
+    }
+
+    circles.forEach((c, i) => {
+      c.addEventListener('mouseenter', () => highlight(i))
+      c.addEventListener('mouseleave', reset)
+    })
+    legendItems.forEach((li, i) => {
+      li.addEventListener('mouseenter', () => highlight(i))
+      li.addEventListener('mouseleave', reset)
+    })
+  })
+</script>
