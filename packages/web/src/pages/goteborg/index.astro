@@ -65,7 +65,7 @@ const senasteBeslut = beslutList
 
   <!-- Chamber -->
   <section class="mb-12">
-    <div class="max-w-3xl mx-auto p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+    <div class="mx-auto p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
       <Chamber seats={seats} mode="overview" />
     </div>
   </section>
@@ -84,7 +84,7 @@ const senasteBeslut = beslutList
     <!-- Mandatfördelning -->
     <div>
       <h2 class="text-2xl font-bold mb-4">Mandatfördelning</h2>
-      <Donut segments={partiMandat} showLegend />
+      <Donut segments={partiMandat} showValue unit="mandat" />
     </div>
 
     <!-- Struktur -->
