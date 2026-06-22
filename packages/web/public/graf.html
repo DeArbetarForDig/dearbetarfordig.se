@@ -25,6 +25,9 @@ body { font-family: system-ui, -apple-system, sans-serif; background: #0a0a0f; c
   <input id="search" type="text" placeholder="Sök nod..." />
   <select id="filter"><option value="">Alla typer</option></select>
   <button id="reset">Reset</button>
+  <button id="zoomin">+</button>
+  <button id="zoomout">−</button>
+  <button id="center">⊙</button>
   <span id="count" style="font-size:12px;color:#888"></span>
 </div>
 <div id="legend"></div>
@@ -149,7 +152,11 @@ document.getElementById('reset').addEventListener('click', () => {
   document.getElementById('search').value = '';
   filterEl.value = '';
   Graph.graphData(graphData).nodeColor(Graph.nodeColor()).linkColor(Graph.linkColor());
+  Graph.zoomToFit(400, 40);
 });
+document.getElementById('zoomin').addEventListener('click', () => { Graph.zoom(Graph.zoom() * 1.5, 300); });
+document.getElementById('zoomout').addEventListener('click', () => { Graph.zoom(Graph.zoom() / 1.5, 300); });
+document.getElementById('center').addEventListener('click', () => { Graph.zoomToFit(400, 40); });
 </script>
 </body>
 </html>
