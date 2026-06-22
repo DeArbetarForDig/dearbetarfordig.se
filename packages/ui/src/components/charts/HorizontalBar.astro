@@ -1,0 +1,71 @@
+---
+/**
+ * HorizontalBar — horizontal bar chart for comparing categories.
+ *
+ * Features:
+ * - Color thresholds (moreThan/lessThan → red/green)
+ * - Custom bar height
+ * - Labels on left, values on right
+ * - Optional unit label
+ * - Hover highlight (dims others)
+ */
+interface Bar {
+  label: string
+  value: number
+  color?: string
+}
+
+interface Threshold {
+  moreThan?: number
+  lessThan?: number
+  color: string
+}
+
+interface Props {
+  bars: Bar[]
+  unit?: string
+  barHeight?: number
+  max?: number
+  thresholds?: Threshold[]
+  class?: string
+}
+
+const { bars = [], unit = '', barHeight = 16, max: maxProp, thresholds = [], class: className } = Astro.props
+const max = maxProp ?? Math.max(...bars.map(b => b.value), 1)
+
+function getBarColor(bar: Bar, value: number): string {
+  if (bar.color) return bar.color
+  for (const t of thresholds) {
+    if (t.moreThan != null && value > t.moreThan) return `var(--color-${t.color === 'red' ? 'negative' : t.color === 'green' ? 'positive' : 'primary'})`
+    if (t.lessThan != null && value < t.lessThan) return `var(--color-${t.color === 'red' ? 'negative' : t.color === 'green' ? 'positive' : 'primary'})`
+  }
+  return 'var(--color-primary)'
+}
+---
+<div class:list={['daf-hbar grid gap-2', className]}>
+  {bars.map(bar => {
+    const pct = max > 0 ? (bar.value / max) * 100 : 0
+    const color = getBarColor(bar, bar.value)
+    return (
+      <div class="daf-hbar__row flex items-center gap-3">
+        <span class="text-sm font-semibold w-12 shrink-0 text-right">{bar.label}</span>
+        <div class="flex-1 h-[var(--bar-h)] rounded-full overflow-hidden bg-[var(--color-surface-sunken)]" style={`--bar-h:${barHeight}px`}>
+          <div class="daf-hbar__fill h-full rounded-full transition-all duration-300" style={`width:${pct}%;background:${color}`} />
+        </div>
+        <span class="font-mono text-sm w-12 shrink-0">{bar.value}{unit && <span class="text-xs text-[var(--color-text-muted)] ml-0.5">{unit}</span>}</span>
+      </div>
+    )
+  })}
+</div>
+
+<style>
+  .daf-hbar__row {
+    transition: opacity 0.2s;
+  }
+  .daf-hbar:hover .daf-hbar__row {
+    opacity: 0.4;
+  }
+  .daf-hbar:hover .daf-hbar__row:hover {
+    opacity: 1;
+  }
+</style>
