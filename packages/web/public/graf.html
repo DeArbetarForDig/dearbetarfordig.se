@@ -33,6 +33,34 @@ body { font-family: system-ui, -apple-system, sans-serif; background: #0a0a0f; c
 
 <script type="module">
 import ForceGraph from 'https://cdn.jsdelivr.net/npm/force-graph@1/+esm';
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3-force@3/+esm';
+
+// Custom cluster force — nodes of same type attract each other
+function forceCluster() {
+  let nodes;
+  const strength = 0.15;
+  const centroids = {};
+  function force(alpha) {
+    // Compute centroids per type
+    for (const k in centroids) delete centroids[k];
+    for (const n of nodes) {
+      if (!centroids[n.typ]) centroids[n.typ] = { x: 0, y: 0, count: 0 };
+      centroids[n.typ].x += n.x || 0;
+      centroids[n.typ].y += n.y || 0;
+      centroids[n.typ].count++;
+    }
+    for (const k in centroids) { centroids[k].x /= centroids[k].count; centroids[k].y /= centroids[k].count; }
+    // Pull toward centroid
+    for (const n of nodes) {
+      const c = centroids[n.typ];
+      if (!c) continue;
+      n.vx += (c.x - n.x) * strength * alpha;
+      n.vy += (c.y - n.y) * strength * alpha;
+    }
+  }
+  force.initialize = (n) => { nodes = n; };
+  return force;
+}
 
 const colors = {
   paragraf: '#f59e0b', organisation: '#10b981', politiker: '#3b82f6', lag: '#ef4444',
@@ -93,6 +121,10 @@ const Graph = ForceGraph()(document.getElementById('graph'))
   .linkDirectionalParticles(l => highlightLinks.has(l) ? 2 : 0)
   .linkDirectionalParticleWidth(2)
   .backgroundColor('#0a0a0f')
+  .d3Force('charge', d3.forceManyBody().strength(-15).distanceMax(150))
+  .d3Force('link', d3.forceLink().distance(20).strength(0.7))
+  .d3Force('center', d3.forceCenter())
+  .d3Force('cluster', forceCluster())
   .onNodeClick(node => {
     highlightNodes.clear();
     highlightLinks.clear();
