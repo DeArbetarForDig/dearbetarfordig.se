@@ -25,6 +25,20 @@ export const grafNodes = goteborg.table('graf_nodes', {
   index('idx_graf_nodes_typ').on(t.typ),
 ])
 
+export const dokument = goteborg.table('dokument', {
+  id: text('id').primaryKey(),
+  titel: text('titel').notNull(),
+  typ: text('typ').notNull(),
+  nämnd: text('namnd').notNull(),
+  datum: text('datum').notNull(),
+  källa: text('kalla').notNull(),
+  innehåll: text('innehall').notNull(),
+  grafNod: text('graf_nod'),
+}, (t) => [
+  index('idx_dokument_typ').on(t.typ),
+  index('idx_dokument_fts').using('gin', t.innehåll),
+])
+
 export const grafEdges = goteborg.table('graf_edges', {
   id: uuid('id').primaryKey().defaultRandom(),
   fromId: text('from_id').notNull().references(() => grafNodes.id, { onDelete: 'cascade' }),

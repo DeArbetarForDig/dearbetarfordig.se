@@ -1,0 +1,58 @@
+[
+  {
+    "id": "intraservice-arsrapport-2025",
+    "titel": "Intraservice årsrapport 2025",
+    "källa": "begäran om allmän handling",
+    "typ": "årsrapport",
+    "nämnd": "Nämnden för intraservice",
+    "datum": "2025-12-31",
+    "mottaget": "2026-06-15",
+    "fil": "intraservice_arsrapport_2025.txt",
+    "pdf": "intraservice_arsrapport_2025.pdf",
+    "graf_nod": "doc-intraservice-arsrapport-2025",
+    "taggar": ["budget", "utfall", "digitalisering", "personal"],
+    "nämner_leverantörer": ["CGI Sverige AB", "Microsoft"]
+  },
+  {
+    "id": "intraservice-delarsrapport-q1-2026",
+    "titel": "Intraservice delårsrapport januari–mars 2026",
+    "källa": "begäran om allmän handling",
+    "typ": "delårsrapport",
+    "nämnd": "Nämnden för intraservice",
+    "datum": "2026-03-31",
+    "mottaget": "2026-06-16",
+    "fil": "intraservice_delarsrapport_mars_2026.txt",
+    "pdf": "intraservice_delarsrapport_mars_2026.pdf",
+    "graf_nod": "doc-intraservice-delarsrapport-q1-2026",
+    "taggar": ["budget", "utfall", "cybersäkerhet", "digitalisering", "personal", "NIS2"],
+    "nämner_leverantörer": ["Microsoft", "Miljödata"]
+  },
+  {
+    "id": "intraservice-ramavtal-svar",
+    "titel": "Intraservice IT-ramavtal — avtalslista",
+    "källa": "begäran om allmän handling",
+    "typ": "avtalslista",
+    "nämnd": "Nämnden för intraservice",
+    "datum": "2026-06-15",
+    "mottaget": "2026-06-15",
+    "fil": "intraservice_ramavtal_svar.txt",
+    "pdf": "intraservice_ramavtal_svar.pdf",
+    "graf_nod": "doc-intraservice-direktupphandlingar-2026",
+    "taggar": ["upphandling", "avtal", "direktupphandling", "leverantörer"],
+    "nämner_leverantörer": ["CGI Sverige AB", "Telia Cygate AB", "Tele2 Sverige AB", "Telia Sverige AB", "Excedo Networks AB", "Dataklimat i Sverige AB", "Firesafe Sverige AB", "The Cloud Networks Nordic AB"]
+  },
+  {
+    "id": "slk-digitaliseringsplan-2026-2028",
+    "titel": "Stadsledningskontorets digitaliseringsplan 2026–2028",
+    "källa": "begäran om allmän handling",
+    "typ": "policy",
+    "nämnd": "Kommunstyrelsen",
+    "datum": "2025-10-17",
+    "mottaget": "2026-06-12",
+    "fil": "stadsledningskontoret_punkt3.txt",
+    "pdf": "stadsledningskontoret_punkt3.pdf",
+    "graf_nod": "doc-slk-digitaliseringsplan-2026-2028",
+    "taggar": ["digitalisering", "AI", "cybersäkerhet", "NIS2", "strategi", "Microsoft"],
+    "nämner_leverantörer": []
+  }
+]

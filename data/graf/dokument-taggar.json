@@ -1,0 +1,184 @@
+{
+  "nodes": [
+    {
+      "id": "tag-budget",
+      "typ": "tag",
+      "label": "budget",
+      "data": {}
+    },
+    {
+      "id": "tag-utfall",
+      "typ": "tag",
+      "label": "utfall",
+      "data": {}
+    },
+    {
+      "id": "tag-digitalisering",
+      "typ": "tag",
+      "label": "digitalisering",
+      "data": {}
+    },
+    {
+      "id": "tag-personal",
+      "typ": "tag",
+      "label": "personal",
+      "data": {}
+    },
+    {
+      "id": "tag-cybersäkerhet",
+      "typ": "tag",
+      "label": "cybersäkerhet",
+      "data": {}
+    },
+    {
+      "id": "tag-nis2",
+      "typ": "tag",
+      "label": "NIS2",
+      "data": {}
+    },
+    {
+      "id": "tag-upphandling",
+      "typ": "tag",
+      "label": "upphandling",
+      "data": {}
+    },
+    {
+      "id": "tag-avtal",
+      "typ": "tag",
+      "label": "avtal",
+      "data": {}
+    },
+    {
+      "id": "tag-direktupphandling",
+      "typ": "tag",
+      "label": "direktupphandling",
+      "data": {}
+    },
+    {
+      "id": "tag-leverantörer",
+      "typ": "tag",
+      "label": "leverantörer",
+      "data": {}
+    },
+    {
+      "id": "tag-ai",
+      "typ": "tag",
+      "label": "AI",
+      "data": {}
+    },
+    {
+      "id": "tag-strategi",
+      "typ": "tag",
+      "label": "strategi",
+      "data": {}
+    },
+    {
+      "id": "tag-microsoft",
+      "typ": "tag",
+      "label": "Microsoft",
+      "data": {}
+    }
+  ],
+  "edges": [
+    {
+      "from": "doc-intraservice-arsrapport-2025",
+      "to": "tag-budget",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-arsrapport-2025",
+      "to": "tag-utfall",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-arsrapport-2025",
+      "to": "tag-digitalisering",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-arsrapport-2025",
+      "to": "tag-personal",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-delarsrapport-q1-2026",
+      "to": "tag-budget",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-delarsrapport-q1-2026",
+      "to": "tag-utfall",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-delarsrapport-q1-2026",
+      "to": "tag-cybersäkerhet",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-delarsrapport-q1-2026",
+      "to": "tag-digitalisering",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-delarsrapport-q1-2026",
+      "to": "tag-personal",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-delarsrapport-q1-2026",
+      "to": "tag-nis2",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "tag-upphandling",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "tag-avtal",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "tag-direktupphandling",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "tag-leverantörer",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-slk-digitaliseringsplan-2026-2028",
+      "to": "tag-digitalisering",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-slk-digitaliseringsplan-2026-2028",
+      "to": "tag-ai",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-slk-digitaliseringsplan-2026-2028",
+      "to": "tag-cybersäkerhet",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-slk-digitaliseringsplan-2026-2028",
+      "to": "tag-nis2",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-slk-digitaliseringsplan-2026-2028",
+      "to": "tag-strategi",
+      "typ": "taggad_med"
+    },
+    {
+      "from": "doc-slk-digitaliseringsplan-2026-2028",
+      "to": "tag-microsoft",
+      "typ": "taggad_med"
+    }
+  ]
+}
