@@ -1,7 +1,7 @@
 /**
  * @daf/ui — Dark Theme
  *
- * Design principle: use dark grey, not pure black.
+ * Use dark grey, not pure black.
  * Applied via [data-theme='dark'] attribute (set by JS theme switcher).
  * Falls back to prefers-color-scheme if no attribute set.
  */
