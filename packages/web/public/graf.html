@@ -98,11 +98,11 @@ const Graph = ForceGraph()(document.getElementById('graph'))
   .linkDirectionalParticles(l => highlightLinks.has(l) ? 2 : 0)
   .linkDirectionalParticleWidth(2)
   .backgroundColor('#0a0a0f')
-  .d3Force('charge', d3.forceManyBody().strength(-30).distanceMax(250))
-  .d3Force('link', d3.forceLink().distance(18).strength(0.8))
+  .d3Force('charge', d3.forceManyBody().strength(-20).distanceMax(200))
+  .d3Force('link', d3.forceLink().distance(15).strength(0.8))
   .d3Force('center', d3.forceCenter())
-  .d3Force('x', d3.forceX(0).strength(0.01))
-  .d3Force('y', d3.forceY(0).strength(0.01))
+  .d3Force('x', d3.forceX(0).strength(0.03))
+  .d3Force('y', d3.forceY(0).strength(0.03))
   .onNodeClick(node => {
     highlightNodes.clear();
     highlightLinks.clear();
@@ -123,8 +123,8 @@ const Graph = ForceGraph()(document.getElementById('graph'))
     highlightLinks.clear();
     Graph.nodeColor(Graph.nodeColor()).linkColor(Graph.linkColor()).linkWidth(Graph.linkWidth()).linkDirectionalParticles(Graph.linkDirectionalParticles());
   })
-  .warmupTicks(80)
-  .cooldownTicks(40)
+  .warmupTicks(150)
+  .cooldownTicks(0)
   .onEngineStop(() => Graph.zoomToFit(400, 60));
 
 // Search
