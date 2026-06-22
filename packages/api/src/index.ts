@@ -644,6 +644,74 @@ app.openapi(metricsRoute, async (c) => {
   const [{ antal: yrkAntal }] =
     await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'yrkat'`
 
+  // --- Rice Index per parti (avg across all voteringar) ---
+  // For each votering, Rice = abs(ja - nej) / (ja + nej) per party
+  const riceData = await sql`
+    SELECT
+      n.data->>'parti' as parti,
+      e.to_id as paragraf_id,
+      SUM(CASE WHEN e.typ = 'röstade_ja' THEN 1 ELSE 0 END)::int as ja,
+      SUM(CASE WHEN e.typ = 'röstade_nej' THEN 1 ELSE 0 END)::int as nej
+    FROM goteborg.graf_edges e
+    JOIN goteborg.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
+    WHERE e.typ LIKE 'röstade_%' AND e.typ != 'röstade_avstår'
+    GROUP BY n.data->>'parti', e.to_id
+    HAVING SUM(CASE WHEN e.typ IN ('röstade_ja','röstade_nej') THEN 1 ELSE 0 END) > 0`
+
+  const ricePerParti: Record<string, { sum: number; count: number }> = {}
+  for (const row of riceData) {
+    const rice = (row.ja + row.nej) > 0 ? Math.abs(row.ja - row.nej) / (row.ja + row.nej) : 1
+    if (!ricePerParti[row.parti]) ricePerParti[row.parti] = { sum: 0, count: 0 }
+    ricePerParti[row.parti].sum += rice
+    ricePerParti[row.parti].count++
+  }
+  const riceIndex = Object.fromEntries(
+    Object.entries(ricePerParti).map(([p, d]) => [p, Math.round((d.sum / d.count) * 100) / 100])
+  )
+
+  // --- Attendance Rate (närvarade edges: politiker → möte) ---
+  const [{ total: totalNärvaro }] =
+    await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_edges WHERE typ = 'närvarade'`
+  const [{ total: totalMöten }] =
+    await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'möte'`
+  const expectedAttendance = totalMöten * 81
+  const attendanceRate = expectedAttendance > 0 ? Math.round((totalNärvaro / expectedAttendance) * 100) : 0
+
+  // --- Debate Participation Gini (from anförande nodes, grouped by politician name) ---
+  const speechCounts = await sql`
+    SELECT label, COUNT(*)::int as speeches
+    FROM goteborg.graf_nodes
+    WHERE typ = 'anförande'
+    GROUP BY label
+    ORDER BY speeches DESC`
+
+  // Extract politician name from label "Name (Party) — ..."
+  const speakerCounts: Record<string, number> = {}
+  for (const row of speechCounts) {
+    const match = (row.label as string).match(/^(.+?)\s*\(/)
+    const name = match ? match[1].trim() : row.label
+    speakerCounts[name] = (speakerCounts[name] || 0) + row.speeches
+  }
+
+  let debateGini = 0
+  const speakerValues = Object.values(speakerCounts).sort((a, b) => a - b)
+  if (speakerValues.length > 1) {
+    const n = speakerValues.length
+    const mean = speakerValues.reduce((s, v) => s + v, 0) / n
+    let sumDiff = 0
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        sumDiff += Math.abs(speakerValues[i] - speakerValues[j])
+      }
+    }
+    debateGini = Math.round((sumDiff / (2 * n * n * mean)) * 100) / 100
+  }
+
+  // --- Debate Depth (anföranden per ärende med votering) ---
+  const [{ total: totalAnföranden }] =
+    await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'anförande'`
+  const debateDepth = medVotering > 0 ? Math.round((totalAnföranden / medVotering) * 10) / 10 : 0
+
   return c.json(
     {
       kommun: c.req.valid('param').kommun,
@@ -663,6 +731,9 @@ app.openapi(metricsRoute, async (c) => {
           totalParagrafer > 0 ? Math.round((utanVotering / totalParagrafer) * 100) : 0,
       },
       aktivitet: { jävsanmälningar: jävAntal, reservationer: resAntal, yrkanden: yrkAntal },
+      riceIndex,
+      närvaro: { registreringar: totalNärvaro, möten: totalMöten, förväntad: expectedAttendance, närvaroProcent: attendanceRate },
+      debatt: { giniKoefficient: debateGini, anföranden: totalAnföranden, djupPerÄrende: debateDepth },
       partilojalitet: Object.fromEntries(
         Object.entries(partier).map(([parti, d]) => [
           parti,
