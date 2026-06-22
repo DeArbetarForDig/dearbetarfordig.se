@@ -33,8 +33,8 @@ const SEAT_POS: [number, number, number][] = [
   [74,670,660],[75,740,650],[76,810,640],[77,880,620],[78,950,600],[79,1020,580],[80,1090,550],[81,1160,510],
 ]
 
-const voteMap = new Map(votes.map(v => [v.politikerId, v.rost]))
-const seatMap = new Map(seats.map(s => [s.nummer, s]))
+const voteMap = new Map<string, string>(votes.map((v: Vote) => [v.politikerId, v.rost]))
+const seatMap = new Map<number, Seat>(seats.map((s: Seat) => [s.nummer, s]))
 ---
 <svg
   xmlns="http://www.w3.org/2000/svg"
