@@ -103,10 +103,9 @@ const senasteBeslut = beslutList
         breakdown={`${metrics.debatt.djupPerÄrende} per voteringsärende`}
       />
       <KpiCard
-        value={String(metrics.närvaro.närvaroProcent)}
-        unit="%"
-        label="Närvaro"
-        breakdown={`${metrics.närvaro.registreringar} registreringar / ${metrics.närvaro.möten} möten`}
+        value={String(metrics.närvaro.snittPerMöte)}
+        label="Snitt närvarande per möte"
+        breakdown={`${metrics.närvaro.registreringar} totalt / ${metrics.närvaro.möten} möten (inkl. ersättare)`}
       />
     </div>
 

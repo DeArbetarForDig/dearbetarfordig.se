@@ -674,8 +674,7 @@ app.openapi(metricsRoute, async (c) => {
     await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_edges WHERE typ = 'närvarade'`
   const [{ total: totalMöten }] =
     await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'möte'`
-  const expectedAttendance = totalMöten * 81
-  const attendanceRate = expectedAttendance > 0 ? Math.round((totalNärvaro / expectedAttendance) * 100) : 0
+  const snittNärvarande = totalMöten > 0 ? Math.round(totalNärvaro / totalMöten) : 0
 
   // --- Debate Participation Gini (from anförande nodes, grouped by politician name) ---
   const speechCounts = await sql`
@@ -732,7 +731,7 @@ app.openapi(metricsRoute, async (c) => {
       },
       aktivitet: { jävsanmälningar: jävAntal, reservationer: resAntal, yrkanden: yrkAntal },
       riceIndex,
-      närvaro: { registreringar: totalNärvaro, möten: totalMöten, förväntad: expectedAttendance, närvaroProcent: attendanceRate },
+      närvaro: { registreringar: totalNärvaro, möten: totalMöten, snittPerMöte: snittNärvarande },
       debatt: { giniKoefficient: debateGini, anföranden: totalAnföranden, djupPerÄrende: debateDepth },
       partilojalitet: Object.fromEntries(
         Object.entries(partier).map(([parti, d]) => [
