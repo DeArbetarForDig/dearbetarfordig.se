@@ -18,65 +18,49 @@
       "id": "leverantör-cgi-sverige-ab",
       "typ": "leverantör",
       "label": "CGI Sverige AB",
-      "data": {
-        "org_typ": "IT-konsult"
-      }
+      "data": { "org_typ": "IT-konsult" }
     },
     {
       "id": "leverantör-excedo-networks-ab",
       "typ": "leverantör",
       "label": "Excedo Networks AB",
-      "data": {
-        "org_typ": "domänregistrar"
-      }
+      "data": { "org_typ": "domänregistrar" }
     },
     {
       "id": "leverantör-tele2-sverige-ab",
       "typ": "leverantör",
       "label": "Tele2 Sverige AB",
-      "data": {
-        "org_typ": "telekom"
-      }
+      "data": { "org_typ": "telekom" }
     },
     {
       "id": "leverantör-telia-cygate-ab",
       "typ": "leverantör",
       "label": "Telia Cygate AB",
-      "data": {
-        "org_typ": "IT-säkerhet"
-      }
+      "data": { "org_typ": "IT-säkerhet" }
     },
     {
       "id": "leverantör-dataklimat-i-sverige-ab",
       "typ": "leverantör",
       "label": "Dataklimat i Sverige AB",
-      "data": {
-        "org_typ": "datahall"
-      }
+      "data": { "org_typ": "datahall" }
     },
     {
       "id": "leverantör-firesafe-sverige-ab",
       "typ": "leverantör",
       "label": "Firesafe Sverige AB",
-      "data": {
-        "org_typ": "brandskydd"
-      }
+      "data": { "org_typ": "brandskydd" }
     },
     {
       "id": "leverantör-telia-sverige-ab",
       "typ": "leverantör",
       "label": "Telia Sverige AB",
-      "data": {
-        "org_typ": "telekom"
-      }
+      "data": { "org_typ": "telekom" }
     },
     {
       "id": "leverantör-the-cloud-networks-nordic-ab",
       "typ": "leverantör",
       "label": "The Cloud Networks Nordic AB",
-      "data": {
-        "org_typ": "WiFi/nätverk"
-      }
+      "data": { "org_typ": "WiFi/nätverk" }
     },
     {
       "id": "avtal-cgi-legitimering-underskrift",
@@ -87,8 +71,23 @@
         "värde_sek": 7500000,
         "start": "2024-12-03",
         "slut": "2028-12-02",
-        "typ": "direktupphandling",
-        "annonserad": false
+        "avtalstid_mån": 48,
+        "annonserad": false,
+        "periodiseringsmodell": "linjär",
+        "periodisering": [
+          { "år": 2024, "belopp": 148907, "dagar": 29 },
+          { "år": 2025, "belopp": 1874572, "dagar": 365 },
+          { "år": 2026, "belopp": 1874572, "dagar": 365 },
+          { "år": 2027, "belopp": 1874572, "dagar": 365 },
+          { "år": 2028, "belopp": 1727377, "dagar": 337 }
+        ],
+        "budget": [
+          { "år": 2024, "budgeterat": null, "utfall": null },
+          { "år": 2025, "budgeterat": null, "utfall": null },
+          { "år": 2026, "budgeterat": null, "utfall": null },
+          { "år": 2027, "budgeterat": null, "utfall": null },
+          { "år": 2028, "budgeterat": null, "utfall": null }
+        ]
       }
     },
     {
@@ -100,8 +99,19 @@
         "värde_sek": 700000,
         "start": "2025-10-15",
         "slut": "2027-10-14",
-        "typ": "direktupphandling",
-        "annonserad": false
+        "avtalstid_mån": 24,
+        "annonserad": false,
+        "periodiseringsmodell": "linjär",
+        "periodisering": [
+          { "år": 2025, "belopp": 75342, "dagar": 78 },
+          { "år": 2026, "belopp": 350685, "dagar": 365 },
+          { "år": 2027, "belopp": 273973, "dagar": 287 }
+        ],
+        "budget": [
+          { "år": 2025, "budgeterat": null, "utfall": null },
+          { "år": 2026, "budgeterat": null, "utfall": null },
+          { "år": 2027, "budgeterat": null, "utfall": null }
+        ]
       }
     },
     {
@@ -113,8 +123,23 @@
         "värde_sek": 974400,
         "start": "2023-07-07",
         "slut": "2027-07-06",
-        "typ": "direktupphandling",
-        "annonserad": false
+        "avtalstid_mån": 48,
+        "annonserad": false,
+        "periodiseringsmodell": "linjär",
+        "periodisering": [
+          { "år": 2023, "belopp": 121110, "dagar": 178 },
+          { "år": 2024, "belopp": 248712, "dagar": 366 },
+          { "år": 2025, "belopp": 248032, "dagar": 365 },
+          { "år": 2026, "belopp": 248032, "dagar": 365 },
+          { "år": 2027, "belopp": 108514, "dagar": 187 }
+        ],
+        "budget": [
+          { "år": 2023, "budgeterat": null, "utfall": null },
+          { "år": 2024, "budgeterat": null, "utfall": null },
+          { "år": 2025, "budgeterat": null, "utfall": null },
+          { "år": 2026, "budgeterat": null, "utfall": null },
+          { "år": 2027, "budgeterat": null, "utfall": null }
+        ]
       }
     },
     {
@@ -126,8 +151,23 @@
         "värde_sek": 1743700,
         "start": "2023-06-01",
         "slut": "2027-05-31",
-        "typ": "direktupphandling",
-        "annonserad": true
+        "avtalstid_mån": 48,
+        "annonserad": true,
+        "periodiseringsmodell": "linjär",
+        "periodisering": [
+          { "år": 2023, "belopp": 252636, "dagar": 214 },
+          { "år": 2024, "belopp": 432108, "dagar": 366 },
+          { "år": 2025, "belopp": 430927, "dagar": 365 },
+          { "år": 2026, "belopp": 430927, "dagar": 365 },
+          { "år": 2027, "belopp": 197102, "dagar": 151 }
+        ],
+        "budget": [
+          { "år": 2023, "budgeterat": null, "utfall": null },
+          { "år": 2024, "budgeterat": null, "utfall": null },
+          { "år": 2025, "budgeterat": null, "utfall": null },
+          { "år": 2026, "budgeterat": null, "utfall": null },
+          { "år": 2027, "budgeterat": null, "utfall": null }
+        ]
       }
     },
     {
@@ -139,8 +179,21 @@
         "värde_sek": 2389585,
         "start": "2026-01-01",
         "slut": "2029-12-31",
-        "typ": "direktupphandling",
-        "annonserad": true
+        "avtalstid_mån": 48,
+        "annonserad": true,
+        "periodiseringsmodell": "linjär",
+        "periodisering": [
+          { "år": 2026, "belopp": 597396, "dagar": 365 },
+          { "år": 2027, "belopp": 597396, "dagar": 365 },
+          { "år": 2028, "belopp": 599032, "dagar": 366 },
+          { "år": 2029, "belopp": 595761, "dagar": 365 }
+        ],
+        "budget": [
+          { "år": 2026, "budgeterat": null, "utfall": null },
+          { "år": 2027, "budgeterat": null, "utfall": null },
+          { "år": 2028, "budgeterat": null, "utfall": null },
+          { "år": 2029, "budgeterat": null, "utfall": null }
+        ]
       }
     },
     {
@@ -151,8 +204,23 @@
         "värde_sek": 700000,
         "start": "2026-07-01",
         "slut": "2030-06-30",
-        "typ": "direktupphandling",
-        "annonserad": true
+        "avtalstid_mån": 48,
+        "annonserad": true,
+        "periodiseringsmodell": "linjär",
+        "periodisering": [
+          { "år": 2026, "belopp": 88219, "dagar": 184 },
+          { "år": 2027, "belopp": 175000, "dagar": 365 },
+          { "år": 2028, "belopp": 175479, "dagar": 366 },
+          { "år": 2029, "belopp": 175000, "dagar": 365 },
+          { "år": 2030, "belopp": 86302, "dagar": 181 }
+        ],
+        "budget": [
+          { "år": 2026, "budgeterat": null, "utfall": null },
+          { "år": 2027, "budgeterat": null, "utfall": null },
+          { "år": 2028, "budgeterat": null, "utfall": null },
+          { "år": 2029, "budgeterat": null, "utfall": null },
+          { "år": 2030, "budgeterat": null, "utfall": null }
+        ]
       }
     },
     {
@@ -164,8 +232,23 @@
         "värde_sek": 1763780,
         "start": "2023-07-07",
         "slut": "2027-07-06",
-        "typ": "direktupphandling",
-        "annonserad": true
+        "avtalstid_mån": 48,
+        "annonserad": true,
+        "periodiseringsmodell": "linjär",
+        "periodisering": [
+          { "år": 2023, "belopp": 219287, "dagar": 178 },
+          { "år": 2024, "belopp": 450409, "dagar": 366 },
+          { "år": 2025, "belopp": 449177, "dagar": 365 },
+          { "år": 2026, "belopp": 449177, "dagar": 365 },
+          { "år": 2027, "belopp": 195730, "dagar": 187 }
+        ],
+        "budget": [
+          { "år": 2023, "budgeterat": null, "utfall": null },
+          { "år": 2024, "budgeterat": null, "utfall": null },
+          { "år": 2025, "budgeterat": null, "utfall": null },
+          { "år": 2026, "budgeterat": null, "utfall": null },
+          { "år": 2027, "budgeterat": null, "utfall": null }
+        ]
       }
     },
     {
@@ -176,136 +259,51 @@
         "värde_sek": 2529150,
         "start": "2023-05-01",
         "slut": "2027-04-30",
-        "typ": "direktupphandling",
-        "annonserad": true
+        "avtalstid_mån": 48,
+        "annonserad": true,
+        "periodiseringsmodell": "linjär",
+        "periodisering": [
+          { "år": 2023, "belopp": 425466, "dagar": 245 },
+          { "år": 2024, "belopp": 636066, "dagar": 366 },
+          { "år": 2025, "belopp": 634328, "dagar": 365 },
+          { "år": 2026, "belopp": 634328, "dagar": 365 },
+          { "år": 2027, "belopp": 198962, "dagar": 120 }
+        ],
+        "budget": [
+          { "år": 2023, "budgeterat": null, "utfall": null },
+          { "år": 2024, "budgeterat": null, "utfall": null },
+          { "år": 2025, "budgeterat": null, "utfall": null },
+          { "år": 2026, "budgeterat": null, "utfall": null },
+          { "år": 2027, "budgeterat": null, "utfall": null }
+        ]
       }
     }
   ],
   "edges": [
-    {
-      "from": "doc-intraservice-direktupphandlingar-2026",
-      "to": "org-göteborgs-stads-nämnd-för-intraservice",
-      "typ": "tillhör"
-    },
-    {
-      "from": "avtal-cgi-legitimering-underskrift",
-      "to": "leverantör-cgi-sverige-ab",
-      "typ": "levererar_till"
-    },
-    {
-      "from": "avtal-cgi-legitimering-underskrift",
-      "to": "org-göteborgs-stads-nämnd-för-intraservice",
-      "typ": "upphandlat_av"
-    },
-    {
-      "from": "avtal-excedo-domännamn-2025",
-      "to": "leverantör-excedo-networks-ab",
-      "typ": "levererar_till"
-    },
-    {
-      "from": "avtal-excedo-domännamn-2025",
-      "to": "org-göteborgs-stads-nämnd-för-intraservice",
-      "typ": "upphandlat_av"
-    },
-    {
-      "from": "avtal-tele2-internetförbindelse",
-      "to": "leverantör-tele2-sverige-ab",
-      "typ": "levererar_till"
-    },
-    {
-      "from": "avtal-tele2-internetförbindelse",
-      "to": "org-göteborgs-stads-nämnd-för-intraservice",
-      "typ": "upphandlat_av"
-    },
-    {
-      "from": "avtal-telia-cygate-ssl-certifikat",
-      "to": "leverantör-telia-cygate-ab",
-      "typ": "levererar_till"
-    },
-    {
-      "from": "avtal-telia-cygate-ssl-certifikat",
-      "to": "org-göteborgs-stads-nämnd-för-intraservice",
-      "typ": "upphandlat_av"
-    },
-    {
-      "from": "avtal-dataklimat-datahall-2026",
-      "to": "leverantör-dataklimat-i-sverige-ab",
-      "typ": "levererar_till"
-    },
-    {
-      "from": "avtal-dataklimat-datahall-2026",
-      "to": "org-göteborgs-stads-nämnd-för-intraservice",
-      "typ": "upphandlat_av"
-    },
-    {
-      "from": "avtal-firesafe-brandlarm",
-      "to": "leverantör-firesafe-sverige-ab",
-      "typ": "levererar_till"
-    },
-    {
-      "from": "avtal-firesafe-brandlarm",
-      "to": "org-göteborgs-stads-nämnd-för-intraservice",
-      "typ": "upphandlat_av"
-    },
-    {
-      "from": "avtal-telia-internetförbindelse",
-      "to": "leverantör-telia-sverige-ab",
-      "typ": "levererar_till"
-    },
-    {
-      "from": "avtal-telia-internetförbindelse",
-      "to": "org-göteborgs-stads-nämnd-för-intraservice",
-      "typ": "upphandlat_av"
-    },
-    {
-      "from": "avtal-cloud-networks-wifi-utomhus",
-      "to": "leverantör-the-cloud-networks-nordic-ab",
-      "typ": "levererar_till"
-    },
-    {
-      "from": "avtal-cloud-networks-wifi-utomhus",
-      "to": "org-göteborgs-stads-nämnd-för-intraservice",
-      "typ": "upphandlat_av"
-    },
-    {
-      "from": "doc-intraservice-direktupphandlingar-2026",
-      "to": "avtal-cgi-legitimering-underskrift",
-      "typ": "nämner"
-    },
-    {
-      "from": "doc-intraservice-direktupphandlingar-2026",
-      "to": "avtal-excedo-domännamn-2025",
-      "typ": "nämner"
-    },
-    {
-      "from": "doc-intraservice-direktupphandlingar-2026",
-      "to": "avtal-tele2-internetförbindelse",
-      "typ": "nämner"
-    },
-    {
-      "from": "doc-intraservice-direktupphandlingar-2026",
-      "to": "avtal-telia-cygate-ssl-certifikat",
-      "typ": "nämner"
-    },
-    {
-      "from": "doc-intraservice-direktupphandlingar-2026",
-      "to": "avtal-dataklimat-datahall-2026",
-      "typ": "nämner"
-    },
-    {
-      "from": "doc-intraservice-direktupphandlingar-2026",
-      "to": "avtal-firesafe-brandlarm",
-      "typ": "nämner"
-    },
-    {
-      "from": "doc-intraservice-direktupphandlingar-2026",
-      "to": "avtal-telia-internetförbindelse",
-      "typ": "nämner"
-    },
-    {
-      "from": "doc-intraservice-direktupphandlingar-2026",
-      "to": "avtal-cloud-networks-wifi-utomhus",
-      "typ": "nämner"
-    }
+    { "from": "doc-intraservice-direktupphandlingar-2026", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "tillhör" },
+    { "from": "avtal-cgi-legitimering-underskrift", "to": "leverantör-cgi-sverige-ab", "typ": "levererar_till" },
+    { "from": "avtal-cgi-legitimering-underskrift", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" },
+    { "from": "avtal-excedo-domännamn-2025", "to": "leverantör-excedo-networks-ab", "typ": "levererar_till" },
+    { "from": "avtal-excedo-domännamn-2025", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" },
+    { "from": "avtal-tele2-internetförbindelse", "to": "leverantör-tele2-sverige-ab", "typ": "levererar_till" },
+    { "from": "avtal-tele2-internetförbindelse", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" },
+    { "from": "avtal-telia-cygate-ssl-certifikat", "to": "leverantör-telia-cygate-ab", "typ": "levererar_till" },
+    { "from": "avtal-telia-cygate-ssl-certifikat", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" },
+    { "from": "avtal-dataklimat-datahall-2026", "to": "leverantör-dataklimat-i-sverige-ab", "typ": "levererar_till" },
+    { "from": "avtal-dataklimat-datahall-2026", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" },
+    { "from": "avtal-firesafe-brandlarm", "to": "leverantör-firesafe-sverige-ab", "typ": "levererar_till" },
+    { "from": "avtal-firesafe-brandlarm", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" },
+    { "from": "avtal-telia-internetförbindelse", "to": "leverantör-telia-sverige-ab", "typ": "levererar_till" },
+    { "from": "avtal-telia-internetförbindelse", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" },
+    { "from": "avtal-cloud-networks-wifi-utomhus", "to": "leverantör-the-cloud-networks-nordic-ab", "typ": "levererar_till" },
+    { "from": "avtal-cloud-networks-wifi-utomhus", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" },
+    { "from": "doc-intraservice-direktupphandlingar-2026", "to": "avtal-cgi-legitimering-underskrift", "typ": "nämner" },
+    { "from": "doc-intraservice-direktupphandlingar-2026", "to": "avtal-excedo-domännamn-2025", "typ": "nämner" },
+    { "from": "doc-intraservice-direktupphandlingar-2026", "to": "avtal-tele2-internetförbindelse", "typ": "nämner" },
+    { "from": "doc-intraservice-direktupphandlingar-2026", "to": "avtal-telia-cygate-ssl-certifikat", "typ": "nämner" },
+    { "from": "doc-intraservice-direktupphandlingar-2026", "to": "avtal-dataklimat-datahall-2026", "typ": "nämner" },
+    { "from": "doc-intraservice-direktupphandlingar-2026", "to": "avtal-firesafe-brandlarm", "typ": "nämner" },
+    { "from": "doc-intraservice-direktupphandlingar-2026", "to": "avtal-telia-internetförbindelse", "typ": "nämner" },
+    { "from": "doc-intraservice-direktupphandlingar-2026", "to": "avtal-cloud-networks-wifi-utomhus", "typ": "nämner" }
   ]
 }
