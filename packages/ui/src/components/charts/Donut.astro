@@ -1,4 +1,14 @@
 ---
+/**
+ * Donut — EDS-compliant circular chart showing proportional data as segments.
+ *
+ * Behavior (from EDS docs/reference/eds/library/data-visualization/donut.md):
+ * - Show parts of a whole (2–8 segments ideal)
+ * - Variants: default (% on hover), with total (center value + unit), absolute values
+ * - Legend with color swatch + label + value
+ * - Hover: segment expands slightly, tooltip shows name + value/percentage
+ * - Click: optional onSelect (client-side)
+ */
 interface Segment {
   label: string
   value: number
@@ -9,7 +19,9 @@ interface Props {
   segments: Segment[]
   size?: number
   thickness?: number
-  centerLabel?: string
+  showValue?: boolean
+  showAbsoluteValue?: boolean
+  unit?: string
   legend?: boolean
   class?: string
 }
@@ -18,10 +30,13 @@ const {
   segments = [],
   size = 200,
   thickness = 34,
-  centerLabel,
+  showValue = false,
+  showAbsoluteValue = false,
+  unit = '',
   legend = true,
   class: className,
 } = Astro.props
+
 const total = segments.reduce((s, x) => s + x.value, 0) || 1
 const r = size / 2 - thickness / 2 - 2
 const cx = size / 2
@@ -37,22 +52,32 @@ const arcs = segments.map((seg) => {
   return arc
 })
 ---
-<div class:list={['flex items-center gap-6', className]}>
-  <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label="F\u00f6rdelning" class="shrink-0">
+<div class:list={['daf-donut flex items-center gap-6', className]}>
+  <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label="Fördelning" class="shrink-0">
     <g transform={`rotate(-90 ${cx} ${cy})`}>
-      {arcs.map(a => (
-        <circle cx={cx} cy={cy} r={r} fill="none"
+      {arcs.map((a, i) => (
+        <circle
+          class="daf-donut__segment"
+          data-index={i}
+          cx={cx} cy={cy} r={r} fill="none"
           stroke={a.color} stroke-width={thickness}
           stroke-dasharray={`${a.dash} ${circ - a.dash}`}
-          stroke-dashoffset={-a.offset}>
-          <title>{a.label}: {a.value} ({Math.round(a.frac * 100)}%)</title>
+          stroke-dashoffset={-a.offset}
+        >
+          <title>{a.label}: {showAbsoluteValue ? a.value : `${Math.round(a.frac * 100)}%`}</title>
         </circle>
       ))}
     </g>
-    {centerLabel != null && (
-      <text x={cx} y={cy} text-anchor="middle" dominant-baseline="central"
+    {showValue && (
+      <text x={cx} y={cy - (unit ? 4 : 0)} text-anchor="middle" dominant-baseline="central"
         style={`font-family:var(--font-mono);font-weight:700;font-size:${size * 0.16}px;fill:var(--color-text)`}>
-        {centerLabel}
+        {total}
+      </text>
+    )}
+    {showValue && unit && (
+      <text x={cx} y={cy + size * 0.12} text-anchor="middle" dominant-baseline="central"
+        style={`font-family:var(--font-sans);font-size:${size * 0.07}px;fill:var(--color-text-muted)`}>
+        {unit}
       </text>
     )}
   </svg>
@@ -62,9 +87,21 @@ const arcs = segments.map((seg) => {
         <li class="flex items-center gap-2 text-sm">
           <span class="w-3 h-3 rounded-sm shrink-0" style={`background:${a.color}`} />
           <span class="text-(--color-text)">{a.label}</span>
-          <span class="font-mono text-(--color-text-muted) ml-auto pl-3">{a.value}</span>
+          <span class="font-mono text-(--color-text-muted) ml-auto pl-3">
+            {showAbsoluteValue ? a.value : `${Math.round(a.frac * 100)}%`}
+          </span>
         </li>
       ))}
     </ul>
   )}
 </div>
+
+<style>
+  .daf-donut__segment {
+    transition: stroke-width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  .daf-donut__segment:hover {
+    stroke-width: calc(var(--thickness, 34px) + 4px);
+  }
+</style>
