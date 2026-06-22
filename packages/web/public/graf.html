@@ -113,18 +113,19 @@ function render(data) {
   svg.call(d3.zoom().scaleExtent([0.1, 8]).on('zoom', (e) => g.attr('transform', e.transform)));
 
   simulation = d3.forceSimulation(nodes)
-    .force('link', d3.forceLink(edges).id(d => d.id).distance(80))
-    .force('charge', d3.forceManyBody().strength(-200))
+    .force('link', d3.forceLink(edges).id(d => d.id).distance(30))
+    .force('charge', d3.forceManyBody().strength(-40).distanceMax(200))
     .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('collision', d3.forceCollide(20));
+    .force('collision', d3.forceCollide(8))
+    .alphaDecay(0.03);
 
   link = g.append('g').attr('stroke', '#333').attr('stroke-opacity', 0.6)
     .selectAll('line').data(edges).join('line').attr('stroke-width', 1);
 
   node = g.append('g').selectAll('circle').data(nodes).join('circle')
-    .attr('r', d => d.typ === 'dokument' ? 10 : d.typ === 'avtal' ? 8 : d.typ === 'tag' ? 5 : 6)
+    .attr('r', d => d.typ === 'politiker' ? 5 : d.typ === 'paragraf' ? 3 : d.typ === 'organisation' ? 6 : d.typ === 'avtal' ? 7 : d.typ === 'möte' ? 8 : 4)
     .attr('fill', d => colors[d.typ] || colors.default)
-    .attr('stroke', '#000').attr('stroke-width', 0.5)
+    .attr('stroke', '#000').attr('stroke-width', 0.3)
     .call(d3.drag().on('start', dragstart).on('drag', dragged).on('end', dragend));
 
   node.on('mouseover', (e, d) => {
@@ -145,14 +146,15 @@ function render(data) {
       if (edge.target.id === d.id) connected.add(edge.source.id);
     });
     connected.add(d.id);
-    node.attr('opacity', n => connected.has(n.id) ? 1 : 0.15);
-    link.attr('opacity', l => connected.has(l.source.id) && connected.has(l.target.id) ? 1 : 0.05);
-    label.attr('opacity', n => connected.has(n.id) ? 1 : 0);
+    node.attr('opacity', n => connected.has(n.id) ? 1 : 0.08);
+    link.attr('opacity', l => (l.source.id === d.id || l.target.id === d.id) ? 0.8 : 0.02);
+    label.attr('display', n => connected.has(n.id) ? null : 'none');
   });
 
   label = g.append('g').selectAll('text').data(nodes).join('text')
     .text(d => d.label?.slice(0, 25))
-    .attr('font-size', 9).attr('fill', '#aaa').attr('dx', 10).attr('dy', 3);
+    .attr('font-size', 8).attr('fill', '#aaa').attr('dx', 8).attr('dy', 3)
+    .attr('display', 'none');
 
   simulation.on('tick', () => {
     link.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
@@ -169,14 +171,14 @@ function render(data) {
 // Search highlight
 searchEl.addEventListener('input', (e) => {
   const q = e.target.value.toLowerCase();
-  if (!q) { node?.attr('opacity', 1); link?.attr('opacity', 0.6); label?.attr('opacity', 1); return; }
-  node?.attr('opacity', d => d.label?.toLowerCase().includes(q) ? 1 : 0.15);
-  label?.attr('opacity', d => d.label?.toLowerCase().includes(q) ? 1 : 0);
+  if (!q) { node?.attr('opacity', 1); link?.attr('opacity', 0.6); label?.attr('display', 'none'); return; }
+  node?.attr('opacity', d => d.label?.toLowerCase().includes(q) ? 1 : 0.08);
+  label?.attr('display', d => d.label?.toLowerCase().includes(q) ? null : 'none');
 });
 
 // Reset
 document.getElementById('reset').addEventListener('click', () => {
-  node?.attr('opacity', 1); link?.attr('opacity', 0.6); label?.attr('opacity', 1);
+  node?.attr('opacity', 1); link?.attr('opacity', 0.6); label?.attr('display', 'none');
   searchEl.value = '';
 });
 
