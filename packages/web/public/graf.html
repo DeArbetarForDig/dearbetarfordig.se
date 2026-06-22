@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Knowledge Graph — De Arbetar För Dig</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; overflow: hidden; }
+#controls { position: fixed; top: 16px; left: 16px; z-index: 10; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+#controls select, #controls input, #controls button {
+  padding: 6px 12px; border-radius: 6px; border: 1px solid #333; background: #1a1a24; color: #e0e0e0; font-size: 13px;
+}
+#controls button { cursor: pointer; background: #2563eb; border-color: #2563eb; }
+#controls button:hover { background: #1d4ed8; }
+#info { position: fixed; bottom: 16px; left: 16px; z-index: 10; font-size: 12px; color: #888; }
+#tooltip {
+  position: fixed; display: none; padding: 8px 12px; background: #1e1e2e; border: 1px solid #444;
+  border-radius: 6px; font-size: 12px; max-width: 320px; pointer-events: none; z-index: 20;
+}
+#tooltip h3 { margin-bottom: 4px; color: #60a5fa; }
+#tooltip .typ { color: #888; font-size: 11px; text-transform: uppercase; }
+svg { width: 100vw; height: 100vh; }
+</style>
+</head>
+<body>
+<div id="controls">
+  <select id="filter">
+    <option value="">Alla typer</option>
+  </select>
+  <input id="search" type="text" placeholder="Sök nod..." />
+  <button id="reset">Reset</button>
+  <span id="count" style="font-size:12px;color:#888"></span>
+</div>
+<div id="tooltip"><span class="typ"></span><h3></h3><p></p></div>
+<div id="info">Dra noder. Scroll = zoom. Klicka nod = fokusera.</div>
+<svg></svg>
+
+<script type="module">
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
+
+const API = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+  ? `http://localhost:3000/api/v1/goteborg`
+  : `/api/v1/goteborg`;
+
+const colors = {
+  paragraf: '#f59e0b', organisation: '#10b981', politiker: '#3b82f6', lag: '#ef4444',
+  möte: '#8b5cf6', dokument: '#06b6d4', leverantör: '#f97316', avtal: '#ec4899',
+  tag: '#a3e635', utfall: '#14b8a6', default: '#6b7280'
+};
+
+const tooltip = document.getElementById('tooltip');
+const filterEl = document.getElementById('filter');
+const searchEl = document.getElementById('search');
+const countEl = document.getElementById('count');
+
+// Load graph subset (latest meeting + dokument + avtal for demo)
+async function loadGraph(filter) {
+  const url = filter ? `${API}/graf?typ=${filter}` : `${API}/graf?typ=avtal`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    return data;
+  } catch {
+    // Fallback: load from static file
+    return loadStatic();
+  }
+}
+
+async function loadStatic() {
+  const res = await fetch('/data/graf/demo.json');
+  return await res.json();
+}
+
+// Fetch node types for filter
+async function loadTypes() {
+  try {
+    const res = await fetch(`${API}/graf`);
+    const data = await res.json();
+    if (data.nodes && Array.isArray(data.nodes)) {
+      for (const { typ } of data.nodes) {
+        const opt = document.createElement('option');
+        opt.value = typ; opt.textContent = `${typ} (${data.nodes.find(n=>n.typ===typ)?.antal||''})`;
+        filterEl.appendChild(opt);
+      }
+    }
+  } catch {}
+}
+
+let simulation, svg, g, link, node, label;
+
+function render(data) {
+  const nodeMap = new Map();
+  const nodes = data.nodes || [];
+  const rawEdges = data.edges || [];
+
+  nodes.forEach(n => nodeMap.set(n.id, n));
+  // Only edges where both nodes exist
+  const edges = rawEdges.filter(e => {
+    const from = e.from || e.from_id;
+    const to = e.to || e.to_id;
+    return nodeMap.has(from) && nodeMap.has(to);
+  }).map(e => ({ source: e.from || e.from_id, target: e.to || e.to_id, typ: e.typ }));
+
+  countEl.textContent = `${nodes.length} noder, ${edges.length} kanter`;
+
+  d3.select('svg').selectAll('*').remove();
+  svg = d3.select('svg');
+  const width = window.innerWidth, height = window.innerHeight;
+
+  g = svg.append('g');
+  svg.call(d3.zoom().scaleExtent([0.1, 8]).on('zoom', (e) => g.attr('transform', e.transform)));
+
+  simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(edges).id(d => d.id).distance(80))
+    .force('charge', d3.forceManyBody().strength(-200))
+    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('collision', d3.forceCollide(20));
+
+  link = g.append('g').attr('stroke', '#333').attr('stroke-opacity', 0.6)
+    .selectAll('line').data(edges).join('line').attr('stroke-width', 1);
+
+  node = g.append('g').selectAll('circle').data(nodes).join('circle')
+    .attr('r', d => d.typ === 'dokument' ? 10 : d.typ === 'avtal' ? 8 : d.typ === 'tag' ? 5 : 6)
+    .attr('fill', d => colors[d.typ] || colors.default)
+    .attr('stroke', '#000').attr('stroke-width', 0.5)
+    .call(d3.drag().on('start', dragstart).on('drag', dragged).on('end', dragend));
+
+  node.on('mouseover', (e, d) => {
+    tooltip.style.display = 'block';
+    tooltip.querySelector('.typ').textContent = d.typ;
+    tooltip.querySelector('h3').textContent = d.label;
+    const extra = d.data?.värde_sek ? `${(d.data.värde_sek/1e6).toFixed(1)} MSEK` : '';
+    tooltip.querySelector('p').textContent = extra;
+  }).on('mousemove', (e) => {
+    tooltip.style.left = (e.clientX + 12) + 'px';
+    tooltip.style.top = (e.clientY - 20) + 'px';
+  }).on('mouseout', () => { tooltip.style.display = 'none'; })
+  .on('click', (e, d) => {
+    // Highlight connected
+    const connected = new Set();
+    edges.forEach(edge => {
+      if (edge.source.id === d.id) connected.add(edge.target.id);
+      if (edge.target.id === d.id) connected.add(edge.source.id);
+    });
+    connected.add(d.id);
+    node.attr('opacity', n => connected.has(n.id) ? 1 : 0.15);
+    link.attr('opacity', l => connected.has(l.source.id) && connected.has(l.target.id) ? 1 : 0.05);
+    label.attr('opacity', n => connected.has(n.id) ? 1 : 0);
+  });
+
+  label = g.append('g').selectAll('text').data(nodes).join('text')
+    .text(d => d.label?.slice(0, 25))
+    .attr('font-size', 9).attr('fill', '#aaa').attr('dx', 10).attr('dy', 3);
+
+  simulation.on('tick', () => {
+    link.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    node.attr('cx', d => d.x).attr('cy', d => d.y);
+    label.attr('x', d => d.x).attr('y', d => d.y);
+  });
+
+  function dragstart(e, d) { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; }
+  function dragged(e, d) { d.fx = e.x; d.fy = e.y; }
+  function dragend(e, d) { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; }
+}
+
+// Search highlight
+searchEl.addEventListener('input', (e) => {
+  const q = e.target.value.toLowerCase();
+  if (!q) { node?.attr('opacity', 1); link?.attr('opacity', 0.6); label?.attr('opacity', 1); return; }
+  node?.attr('opacity', d => d.label?.toLowerCase().includes(q) ? 1 : 0.15);
+  label?.attr('opacity', d => d.label?.toLowerCase().includes(q) ? 1 : 0);
+});
+
+// Reset
+document.getElementById('reset').addEventListener('click', () => {
+  node?.attr('opacity', 1); link?.attr('opacity', 0.6); label?.attr('opacity', 1);
+  searchEl.value = '';
+});
+
+// Filter change
+filterEl.addEventListener('change', async () => {
+  const data = await loadGraph(filterEl.value);
+  render(data);
+});
+
+// Init
+loadTypes();
+const data = await loadGraph();
+render(data);
+</script>
+</body>
+</html>
