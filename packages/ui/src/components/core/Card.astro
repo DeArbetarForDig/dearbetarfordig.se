@@ -1,0 +1,28 @@
+---
+/**
+ * Card — container for short related information.
+ * Structure: header (title + subtitle) + content (slot).
+ */
+interface Props {
+  title?: string
+  subtitle?: string
+  titleSize?: 'sm' | 'base' | 'lg'
+  class?: string
+}
+
+const { title, subtitle, titleSize = 'base', class: className } = Astro.props
+const titleClasses = {
+  sm: 'text-sm text-[var(--color-text-muted)]',
+  base: 'font-bold text-[var(--color-text)]',
+  lg: 'text-lg font-bold text-[var(--color-text)]',
+}
+---
+<div class:list={['card bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]', className]}>
+  {(title || subtitle) && (
+    <div class="card__header mb-3">
+      {title && <div class={titleClasses[titleSize]}>{title}</div>}
+      {subtitle && <div class="text-xs text-[var(--color-text-subtle)] mt-0.5">{subtitle}</div>}
+    </div>
+  )}
+  <slot />
+</div>
