@@ -138,6 +138,7 @@ const senasteBeslut = beslutList
       <p class="text-xs text-[var(--color-text-muted)] mb-3">1.0 = alla röstar lika, 0.5 = splittrat. Källa: Rice (1924)</p>
       <HorizontalBar
         bars={riceEntries.map(([parti, rice]) => ({ label: parti, value: rice, color: `var(--parti-${parti.toLowerCase()})` }))}
+        min={0.85}
         max={1}
       />
     </div>
