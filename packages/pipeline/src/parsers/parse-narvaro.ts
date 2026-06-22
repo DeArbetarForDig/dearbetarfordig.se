@@ -1,30 +1,40 @@
 /**
  * parse-narvaro.ts — Extracts attendance (närvaro) from KF protocols.
- * 
+ *
  * Sources:
  * - Bilaga 1: Full attendance list with arrival/departure times (2025+ format)
  * - Header text: "Tjänstgörande ersättare" list (2023+ format)
- * 
+ *
  * Output: data/graf/narvaro.json with edges: politiker → närvarade → möte
  */
 
-import { execSync } from 'child_process'
-import { readFileSync, writeFileSync, readdirSync } from 'fs'
-import { join } from 'path'
+import { execSync } from 'node:child_process'
+import { readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../data')
 
 // Parse Bilaga 1 format: "Plats  Ledamot  Ersättare  Parti  Ankom  Utgick"
 // Lines: "1          Akbas, Aslan                                S        14:41   22:01"
-const BILAGA1_RE = /^\s*\d+\s+([\wÅÄÖåäöé -]+?,\s*[\wÅÄÖåäöé -]+?)\s{2,}(?:([\wÅÄÖåäöé -]+?,\s*[\wÅÄÖåäöé -]+?)\s{2,})?(S|M|V|SD|L|MP|D|KD|C)\s{2,}(\d{2}:\d{2})\s+(\d{2}:\d{2})/
+const BILAGA1_RE =
+  /^\s*\d+\s+([\wÅÄÖåäöé -]+?,\s*[\wÅÄÖåäöé -]+?)\s{2,}(?:([\wÅÄÖåäöé -]+?,\s*[\wÅÄÖåäöé -]+?)\s{2,})?(S|M|V|SD|L|MP|D|KD|C)\s{2,}(\d{2}:\d{2})\s+(\d{2}:\d{2})/
 
 // Parse names from text blocks like "Henrik Sjöstrand (M), Joel Wickman (M)"
 const NAMN_PARTI_RE = /([\wÅÄÖåäöé][\wÅÄÖåäöé -]+?)\s*\((\w+)\)/g
 
-interface Närvarande { namn: string; parti: string; ankom?: string; utgick?: string; roll: 'ledamot' | 'ersättare' }
+interface Närvarande {
+  namn: string
+  parti: string
+  ankom?: string
+  utgick?: string
+  roll: 'ledamot' | 'ersättare'
+}
 
 function parseNärvaroPdf(pdfPath: string): Närvarande[] {
-  const text = execSync(`pdftotext -layout "${pdfPath}" -`, { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 })
+  const text = execSync(`pdftotext -layout "${pdfPath}" -`, {
+    encoding: 'utf-8',
+    maxBuffer: 50 * 1024 * 1024,
+  })
   const result: Närvarande[] = []
 
   // Strategy 1: Parse Bilaga 1 (column format with times)
@@ -35,24 +45,40 @@ function parseNärvaroPdf(pdfPath: string): Närvarande[] {
       const m = line.match(BILAGA1_RE)
       if (m) {
         // "Efternamn, Förnamn" → "Förnamn Efternamn"
-        const [efter, för] = m[1].split(',').map(s => s.trim())
-        result.push({ namn: `${för} ${efter}`, parti: m[3], ankom: m[4], utgick: m[5], roll: 'ledamot' })
+        const [efter, för] = m[1].split(',').map((s) => s.trim())
+        result.push({
+          namn: `${för} ${efter}`,
+          parti: m[3],
+          ankom: m[4],
+          utgick: m[5],
+          roll: 'ledamot',
+        })
         // Ersättare column
         if (m[2]) {
-          const [eEfter, eFör] = m[2].split(',').map(s => s.trim())
-          if (eFör) result.push({ namn: `${eFör} ${eEfter}`, parti: m[3], ankom: m[4], utgick: m[5], roll: 'ersättare' })
+          const [eEfter, eFör] = m[2].split(',').map((s) => s.trim())
+          if (eFör)
+            result.push({
+              namn: `${eFör} ${eEfter}`,
+              parti: m[3],
+              ankom: m[4],
+              utgick: m[5],
+              roll: 'ersättare',
+            })
         }
       }
     }
   }
 
   // Strategy 2: Parse header text (always present in both formats)
-  const tjänstSection = text.match(/Tjänstgörande ersättare\n([\s\S]*?)(?=\nÖvriga ersättare|\nÖvriga närvarande|\n\n\n)/)?.[1] || ''
+  const tjänstSection =
+    text.match(
+      /Tjänstgörande ersättare\n([\s\S]*?)(?=\nÖvriga ersättare|\nÖvriga närvarande|\n\n\n)/,
+    )?.[1] || ''
   let m: RegExpExecArray | null
   const re = new RegExp(NAMN_PARTI_RE.source, 'g')
   while ((m = re.exec(tjänstSection)) !== null) {
     const namn = m[1].trim()
-    if (!result.find(r => r.namn.toLowerCase() === namn.toLowerCase())) {
+    if (!result.find((r) => r.namn.toLowerCase() === namn.toLowerCase())) {
       result.push({ namn, parti: m[2], roll: 'ersättare' })
     }
   }
@@ -61,7 +87,10 @@ function parseNärvaroPdf(pdfPath: string): Närvarande[] {
 }
 
 async function main() {
-  const pdfs = readdirSync('.tmp').filter(f => f.match(/^kf-protokoll-\d+\.pdf$/)).map(f => `.tmp/${f}`).sort()
+  const pdfs = readdirSync('.tmp')
+    .filter((f) => f.match(/^kf-protokoll-\d+\.pdf$/))
+    .map((f) => `.tmp/${f}`)
+    .sort()
 
   const nodes: any[] = []
   const edges: any[] = []
@@ -81,7 +110,12 @@ async function main() {
 
     // Store per-meeting attendance data in the möte node
     for (const n of närvarande) {
-      edges.push({ from: `namn:${n.namn.toLowerCase()}`, to: möteId, typ: 'närvarade', data: { roll: n.roll, ankom: n.ankom, utgick: n.utgick } })
+      edges.push({
+        from: `namn:${n.namn.toLowerCase()}`,
+        to: möteId,
+        typ: 'närvarade',
+        data: { roll: n.roll, ankom: n.ankom, utgick: n.utgick },
+      })
     }
   }
 

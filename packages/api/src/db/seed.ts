@@ -3,7 +3,7 @@
  * Creates schema, tables, indexes. Drops unused tables.
  */
 
-import { readFileSync, existsSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import postgres from 'postgres'
 
@@ -108,9 +108,9 @@ async function main() {
     await client`DELETE FROM goteborg.graf_nodes`
 
     const { mergeOrganisations } = await import('./merge-organisations.js')
-    const files = readdirSync(grafDir).filter(f => f.endsWith('.json'))
-    let allNodes: any[] = []
-    let allEdges: any[] = []
+    const files = readdirSync(grafDir).filter((f) => f.endsWith('.json'))
+    const allNodes: any[] = []
+    const allEdges: any[] = []
     for (const file of files) {
       const graph = JSON.parse(readFileSync(join(grafDir, file), 'utf-8'))
       allNodes.push(...graph.nodes)
@@ -127,37 +127,11 @@ async function main() {
       totalNodes++
     }
     for (const edge of edges) {
-      try { await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, label, data) VALUES (${edge.from}, ${edge.to}, ${edge.typ}, ${edge.label || null}, ${edge.data ? client.json(edge.data) : null})` ; totalEdges++ } catch {}
+      try {
+        await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, label, data) VALUES (${edge.from}, ${edge.to}, ${edge.typ}, ${edge.label || null}, ${edge.data ? client.json(edge.data) : null})`
+        totalEdges++
+      } catch {}
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     console.log(`   ✓ ${totalNodes} graf nodes, ${totalEdges} edges (from ${files.length} files)`)
   }

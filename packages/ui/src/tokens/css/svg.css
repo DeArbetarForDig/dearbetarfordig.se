@@ -8,7 +8,7 @@ text {
   dominant-baseline: middle;
 
   &.inverse {
-    fill: var(--system-white)
+    fill: var(--system-white);
   }
 
   &.h3 {
@@ -36,50 +36,47 @@ text {
   &.auto {
     dominant-baseline: auto;
   }
-
 }
 
 .black {
   fill: var(--system-balck);
 }
 
-
 .shadow {
   fill: var(--system-balck);
   opacity: 0.25;
 }
 
-
 .seat {
   stroke: none;
-  &.parti-s { 
+  &.parti-s {
     fill: var(--parti-s);
   }
-  &.parti-m { 
+  &.parti-m {
     fill: var(--parti-m);
   }
-  &.parti-sd { 
+  &.parti-sd {
     fill: var(--parti-sd);
   }
-  &.parti-v { 
+  &.parti-v {
     fill: var(--parti-v);
   }
-  &.parti-c { 
+  &.parti-c {
     fill: var(--parti-c);
   }
-  &.parti-kd { 
+  &.parti-kd {
     fill: var(--parti-kd);
   }
-  &.parti-mp { 
+  &.parti-mp {
     fill: var(--parti-mp);
   }
-  &.parti-l { 
+  &.parti-l {
     fill: var(--parti-l);
   }
-  &.parti-d { 
+  &.parti-d {
     fill: var(--parti-d);
   }
-  &.parti-ovriga { 
+  &.parti-ovriga {
     fill: var(--parti-ovriga);
   }
 }

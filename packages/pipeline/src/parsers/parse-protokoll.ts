@@ -30,7 +30,14 @@ export interface GraphNode {
 export interface GraphEdge {
   from: string
   to: string
-  typ: 'beslut_av' | 'hänvisar_till' | 'bordlagd_från' | 'uppdrag_till' | 'regleras_av' | 'inlämnad_av' | 'votering'
+  typ:
+    | 'beslut_av'
+    | 'hänvisar_till'
+    | 'bordlagd_från'
+    | 'uppdrag_till'
+    | 'regleras_av'
+    | 'inlämnad_av'
+    | 'votering'
   label?: string
 }
 
@@ -45,10 +52,12 @@ export interface KnowledgeGraph {
 // 2023-2024: "§ 5 1339/22" or "§5" (without ärendenummer)
 const PARAGRAF_RE_NEW = /§\s*(\d+)\s*Ärendenummer\s*(SLK-\d{4}-\d+(?::\d+)?)/g
 const PARAGRAF_RE_OLD = /§\s*(\d+)\s+(\d{3,4}\/\d{2})/g
-const PARAGRAF_RE_BARE = /^§\s*(\d+)\s*$/gm  // Just "§1" on its own line
-const LAG_REF_RE = /(\d+)\s*kap\.?\s*(\d+)\s*§\s*([\wäöåÅÄÖ-]+lagen|miljöbalken|[\wäöåÅÄÖ-]+förordningen)(?:\s*\((\d{4}:\d+)\))?/gi
+const PARAGRAF_RE_BARE = /^§\s*(\d+)\s*$/gm // Just "§1" on its own line
+const LAG_REF_RE =
+  /(\d+)\s*kap\.?\s*(\d+)\s*§\s*([\wäöåÅÄÖ-]+lagen|miljöbalken|[\wäöåÅÄÖ-]+förordningen)(?:\s*\((\d{4}:\d+)\))?/gi
 const SFS_RE = /\((\d{4}:\d+)\)/g
-const NÄMND_RE = /((?:socialnämnden|grundskolenämnden|exploateringsnämnden|kulturnämnden|stadsmiljönämnden|idrotts- och föreningsnämnden|inköps- och upphandlingsnämnden|kommunstyrelsen|stadsfastighetsnämnden|kretslopp och vattennämnden|miljö- och klimatnämnden|förskolenämnden|utbildningsnämnden|stadsbyggnadsnämnden)(?:\s+\w+)?)/gi
+const NÄMND_RE =
+  /((?:socialnämnden|grundskolenämnden|exploateringsnämnden|kulturnämnden|stadsmiljönämnden|idrotts- och föreningsnämnden|inköps- och upphandlingsnämnden|kommunstyrelsen|stadsfastighetsnämnden|kretslopp och vattennämnden|miljö- och klimatnämnden|förskolenämnden|utbildningsnämnden|stadsbyggnadsnämnden)(?:\s+\w+)?)/gi
 const BORDLAGD_RE = /[Bb]ordlag[dt]\s+(?:den\s+)?\d+\s+\w+\s+\d{4},?\s*§\s*(\d+)/g
 const UPPDRAG_RE = /(?:får i uppdrag|uppdrag\s+\d{4}-\d{2}-\d{2}\s*§\s*(\d+))/gi
 
@@ -56,7 +65,10 @@ function pdfToText(pdfPath: string): string {
   return execSync(`pdftotext "${pdfPath}" -`, { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 })
 }
 
-function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]; edges: GraphEdge[] } {
+function parseParagrafer(
+  text: string,
+  möteDatum: string,
+): { nodes: GraphNode[]; edges: GraphEdge[] } {
   const nodes: GraphNode[] = []
   const edges: GraphEdge[] = []
 
@@ -103,7 +115,7 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
     const paragrafId = `kf-${möteDatum}-§${paragrafNr}`
 
     // Extract rubrik (first line after ärendenummer)
-    const lines = section.split('\n').filter(l => l.trim())
+    const lines = section.split('\n').filter((l) => l.trim())
     const rubrik = lines[1]?.trim() || ''
 
     // Detect beslut type and reason
@@ -123,12 +135,13 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
       } else {
         bordläggningsorsak = 'övrigt'
       }
-    }
-    else if (section.match(/återremiss/i)) beslut = 'återremiss'
+    } else if (section.match(/återremiss/i)) beslut = 'återremiss'
 
     // Extract votering results from main text
     const voteMatch = section.match(/(\d+)\s*Ja\s*mot\s*(\d+)\s*Nej/)
-    const votering = voteMatch ? { ja: parseInt(voteMatch[1]), nej: parseInt(voteMatch[2]) } : undefined
+    const votering = voteMatch
+      ? { ja: Number.parseInt(voteMatch[1]), nej: Number.parseInt(voteMatch[2]) }
+      : undefined
 
     // Extract reservationer
     const reservationer: string[] = []
@@ -156,7 +169,18 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
       id: paragrafId,
       typ: 'paragraf',
       label: `§ ${paragrafNr} ${rubrik}`,
-      data: { paragrafNr, ärendeNr, rubrik, datum: möteDatum, beslut, bordläggningsorsak, votering, yrkanden, reservationer, jäv },
+      data: {
+        paragrafNr,
+        ärendeNr,
+        rubrik,
+        datum: möteDatum,
+        beslut,
+        bordläggningsorsak,
+        votering,
+        yrkanden,
+        reservationer,
+        jäv,
+      },
     })
 
     // Find law references
@@ -167,17 +191,27 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
       const lagId = sfs ? `sfs-${sfs}` : `lag-${lagNamn.toLowerCase()}`
       const lagLabel = sfs ? `${lagNamn} (${sfs})` : lagNamn
 
-      if (!nodes.find(n => n.id === lagId)) {
+      if (!nodes.find((n) => n.id === lagId)) {
         nodes.push({ id: lagId, typ: 'lag', label: lagLabel, data: { sfs, kap, paragraf } })
       }
-      edges.push({ from: paragrafId, to: lagId, typ: 'regleras_av', label: `${kap} kap. ${paragraf} §` })
+      edges.push({
+        from: paragrafId,
+        to: lagId,
+        typ: 'regleras_av',
+        label: `${kap} kap. ${paragraf} §`,
+      })
     }
 
     // Find references to other paragraphs (bordlagd)
     const bordRe = new RegExp(BORDLAGD_RE.source, 'g')
     while ((match = bordRe.exec(section)) !== null) {
       const refParagraf = match[1]
-      edges.push({ from: paragrafId, to: `kf-*-§${refParagraf}`, typ: 'bordlagd_från', label: `Bordlagd från § ${refParagraf}` })
+      edges.push({
+        from: paragrafId,
+        to: `kf-*-§${refParagraf}`,
+        typ: 'bordlagd_från',
+        label: `Bordlagd från § ${refParagraf}`,
+      })
     }
 
     // Find nämnd references (uppdrag)
@@ -186,7 +220,7 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
       const nämndNamn = match[1].trim()
       const nämndId = `org-${nämndNamn.toLowerCase().replace(/\s+/g, '-')}`
 
-      if (!nodes.find(n => n.id === nämndId)) {
+      if (!nodes.find((n) => n.id === nämndId)) {
         nodes.push({ id: nämndId, typ: 'organisation', label: nämndNamn, data: {} })
       }
 
@@ -202,7 +236,10 @@ function parseParagrafer(text: string, möteDatum: string): { nodes: GraphNode[]
 }
 
 // Parse voting bilagor (appendices with individual votes)
-function parseVoteringar(text: string, möteDatum: string): { nodes: GraphNode[]; edges: GraphEdge[] } {
+function parseVoteringar(
+  text: string,
+  möteDatum: string,
+): { nodes: GraphNode[]; edges: GraphEdge[] } {
   const nodes: GraphNode[] = []
   const edges: GraphEdge[] = []
 
@@ -221,11 +258,13 @@ function parseVoteringar(text: string, möteDatum: string): { nodes: GraphNode[]
     if (!ärendeMatch || !jaMatch) continue
 
     const ärendeNr = ärendeMatch[1]
-    const ärendemening = meningMatch ? meningMatch[1].replace(/\n/g, ' ').trim() : `Ärende ${ärendeNr}`
-    const ja = parseInt(jaMatch[1])
-    const nej = parseInt(nejMatch?.[1] || '0')
-    const avstår = parseInt(avståMatch?.[1] || '0')
-    const frånv = parseInt(frånvMatch?.[1] || '0')
+    const ärendemening = meningMatch
+      ? meningMatch[1].replace(/\n/g, ' ').trim()
+      : `Ärende ${ärendeNr}`
+    const ja = Number.parseInt(jaMatch[1])
+    const nej = Number.parseInt(nejMatch?.[1] || '0')
+    const avstår = Number.parseInt(avståMatch?.[1] || '0')
+    const frånv = Number.parseInt(frånvMatch?.[1] || '0')
 
     // Find matching § for this ärende
     const paragrafId = `votering-${möteDatum}-ärende-${ärendeNr}`
@@ -239,17 +278,21 @@ function parseVoteringar(text: string, möteDatum: string): { nodes: GraphNode[]
     const lines = voteSection.split('\n').slice(1) // skip header line
 
     const röster: Array<{ namn: string; parti: string; röst: string }> = []
-    const voteLineRe = /^(.{20,40}?)\s{2,}(S|M|V|SD|L|MP|D|KD|C)\s{2,}\d+\s{2,}\S+\s{2,}(Ja|Nej|Avstår|Frånvarande)\s*$/
+    const voteLineRe =
+      /^(.{20,40}?)\s{2,}(S|M|V|SD|L|MP|D|KD|C)\s{2,}\d+\s{2,}\S+\s{2,}(Ja|Nej|Avstår|Frånvarande)\s*$/
 
     let pendingName = ''
     for (const line of lines) {
       const m = line.match(voteLineRe)
       if (m) {
-        let namn = (pendingName + ' ' + m[1]).trim()
+        const namn = `${pendingName} ${m[1]}`.trim()
         pendingName = ''
         röster.push({ namn, parti: m[2], röst: m[3].toLowerCase() })
-      } else if (line.trim() && !line.match(/^\s*(Namn|Bilaga|\f|Göteborgs|Kommunfullmäktige|Protokoll|Sammanträdes)/)) {
-        pendingName += ' ' + line.trim()
+      } else if (
+        line.trim() &&
+        !line.match(/^\s*(Namn|Bilaga|\f|Göteborgs|Kommunfullmäktige|Protokoll|Sammanträdes)/)
+      ) {
+        pendingName += ` ${line.trim()}`
       } else {
         pendingName = ''
       }
@@ -312,15 +355,17 @@ async function main() {
     const section = text.slice(text.indexOf(`§ ${node.data.paragrafNr} Ärendenummer`) || 0)
     const bulkMatch = section.match(/klockan\s+är.*?paragraferna\s+(\d+)[–-](\d+)\s+bordläggs/s)
     if (bulkMatch) {
-      const from = parseInt(bulkMatch[1])
-      const to = parseInt(bulkMatch[2])
+      const from = Number.parseInt(bulkMatch[1])
+      const to = Number.parseInt(bulkMatch[2])
       for (let i = from; i <= to; i++) tidParagrafer.add(String(i))
     }
     // Also: "Motionerna under paragraferna NNN–NNN bordläggs"
-    const motionMatch = section.match(/[Mm]otionerna\s+under\s+paragraferna\s+(\d+)[–-](\d+)\s+bordläggs/s)
+    const motionMatch = section.match(
+      /[Mm]otionerna\s+under\s+paragraferna\s+(\d+)[–-](\d+)\s+bordläggs/s,
+    )
     if (motionMatch) {
-      const from = parseInt(motionMatch[1])
-      const to = parseInt(motionMatch[2])
+      const from = Number.parseInt(motionMatch[1])
+      const to = Number.parseInt(motionMatch[2])
       for (let i = from; i <= to; i++) tidParagrafer.add(String(i))
     }
   }
@@ -335,12 +380,17 @@ async function main() {
 
   // Parse voteringar from bilagor
   const voteringar = parseVoteringar(text, datum)
-  const totalRöster = voteringar.nodes.reduce((sum, n) => sum + ((n.data.röster as any[])?.length || 0), 0)
+  const totalRöster = voteringar.nodes.reduce(
+    (sum, n) => sum + ((n.data.röster as any[])?.length || 0),
+    0,
+  )
 
   // Merge votering data into paragraf nodes where possible
   for (const vNode of voteringar.nodes) {
     const ärendemening = (vNode.label || '').toLowerCase()
-    const existing = nodes.find(n => n.typ === 'paragraf' && n.label.toLowerCase().includes(ärendemening.slice(0, 20)))
+    const existing = nodes.find(
+      (n) => n.typ === 'paragraf' && n.label.toLowerCase().includes(ärendemening.slice(0, 20)),
+    )
     if (existing) {
       existing.data.röster = vNode.data.röster
       existing.data.votering = vNode.data.votering
@@ -351,7 +401,12 @@ async function main() {
 
   // Add meeting node
   const möteId = `möte-kf-${datum}`
-  nodes.unshift({ id: möteId, typ: 'möte', label: `KF Sammanträde ${datum}`, data: { datum, organisation: 'Kommunfullmäktige' } })
+  nodes.unshift({
+    id: möteId,
+    typ: 'möte',
+    label: `KF Sammanträde ${datum}`,
+    data: { datum, organisation: 'Kommunfullmäktige' },
+  })
 
   // Connect all paragrafer to the meeting
   for (const node of nodes) {
@@ -362,7 +417,9 @@ async function main() {
 
   const graph: KnowledgeGraph = { nodes, edges }
 
-  console.log(`\n   Nodes: ${nodes.length} (${nodes.filter(n => n.typ === 'paragraf').length} §, ${nodes.filter(n => n.typ === 'lag').length} lagar, ${nodes.filter(n => n.typ === 'organisation').length} org)`)
+  console.log(
+    `\n   Nodes: ${nodes.length} (${nodes.filter((n) => n.typ === 'paragraf').length} §, ${nodes.filter((n) => n.typ === 'lag').length} lagar, ${nodes.filter((n) => n.typ === 'organisation').length} org)`,
+  )
   console.log(`   Edges: ${edges.length}`)
   console.log(`   Voteringar: ${voteringar.nodes.length} (${totalRöster} individuella röster)`)
 

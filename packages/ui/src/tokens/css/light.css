@@ -6,32 +6,32 @@
  */
 
 :root,
-[data-theme='light'] {
+[data-theme="light"] {
   color-scheme: light;
 
   /* Surfaces */
-  --color-bg: #F8FAFC;
-  --color-surface: #FFFFFF;
-  --color-surface-elevated: #FFFFFF;
-  --color-surface-sunken: #F1F5F9;
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-surface-sunken: #f1f5f9;
 
   /* Text */
   --color-text: var(--system-balck);
-  --color-text-muted: #64748B;
-  --color-text-subtle: #94A3B8;
+  --color-text-muted: #64748b;
+  --color-text-subtle: #94a3b8;
 
   /* Borders */
-  --color-border: #E2E8F0;
-  --color-border-strong: #CBD5E1;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
 
   /* Interactive */
-  --color-primary: #2563EB;
-  --color-primary-hover: #1D4ED8;
-  --color-primary-text: #FFFFFF;
-  --color-accent: #7C3AED;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-text: #ffffff;
+  --color-accent: #7c3aed;
 
   /* Focus */
-  --color-focus: #7C3AED;
+  --color-focus: #7c3aed;
   --color-focus-ring: rgba(124, 58, 237, 0.3);
 
   /* Overlays */

@@ -76,7 +76,9 @@ async function scrapeKFList(): Promise<RawPerson[]> {
   return people
 }
 
-async function scrapePersonDetail(personId: string): Promise<Omit<PersonDetail, 'förnamn' | 'efternamn' | 'parti'>> {
+async function scrapePersonDetail(
+  personId: string,
+): Promise<Omit<PersonDetail, 'förnamn' | 'efternamn' | 'parti'>> {
   const html = await fetchPage(`/person/${personId}`)
   const $ = cheerio.load(html)
 

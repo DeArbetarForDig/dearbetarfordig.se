@@ -1,0 +1,55 @@
+---
+import StatusBadge from '../core/StatusBadge.astro'
+
+interface Props {
+  titel: string
+  datum: string
+  status?: string
+  paragraf?: string
+  ja?: number
+  nej?: number
+  avstar?: number
+  url?: string
+  class?: string
+}
+
+const {
+  titel,
+  datum,
+  status = 'bifall',
+  paragraf,
+  ja,
+  nej,
+  avstar = 0,
+  url = '#',
+  class: className,
+} = Astro.props
+const hasVotes = ja != null && nej != null
+const total = hasVotes ? ja + nej + avstar : 0
+const jaPct = total ? Math.round((ja! / total) * 100) : 0
+const nejPct = total ? Math.round((nej! / total) * 100) : 0
+---
+<article class:list={['bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-4 shadow-[--shadow-sm]', className]}>
+  <div class="flex justify-between items-center mb-2">
+    <StatusBadge status={status} />
+    <time datetime={datum} class="text-xs text-(--color-text-muted) font-mono">{datum}</time>
+  </div>
+  <h3 class="text-lg font-semibold m-0 mb-1 leading-snug">
+    <a href={url} class="text-(--color-text) no-underline hover:underline">{titel}</a>
+  </h3>
+  {paragraf && <p class="m-0 mb-2 text-sm text-(--color-text-muted)">{paragraf}</p>}
+  {hasVotes && (
+    <div class="mt-2">
+      <div class="flex gap-4 text-sm text-(--color-text-muted) mb-1.5">
+        <span>Ja: <strong class="font-mono" style="color:var(--vote-ja)">{ja}</strong></span>
+        <span>Nej: <strong class="font-mono" style="color:var(--vote-nej)">{nej}</strong></span>
+        <span>Avstår: <strong class="font-mono" style="color:var(--vote-avstar)">{avstar}</strong></span>
+      </div>
+      <div class="flex h-2 rounded-full overflow-hidden bg-(--color-surface-sunken)" title={`${jaPct}% ja`}>
+        <span style={`width:${jaPct}%;background:var(--vote-ja)`}></span>
+        <span style={`width:${nejPct}%;background:var(--vote-nej)`}></span>
+        <span class="flex-1" style="background:var(--vote-avstar)"></span>
+      </div>
+    </div>
+  )}
+</article>

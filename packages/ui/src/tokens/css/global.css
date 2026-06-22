@@ -5,7 +5,8 @@
  * Based on design foundations: 8px grid, categorical/status palettes.
  */
 
-:root, svg {
+:root,
+svg {
   /* Spacing — 8px grid */
   --space-xs: 4px;
   --space-sm: 8px;
@@ -48,8 +49,8 @@
   --parti-d: #1b1b1b;
   --parti-ovriga: #888888;
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --font-size-small: 0.75rem;
   --font-size-label: 0.875rem;
   --font-size-body: 1rem;
@@ -69,29 +70,25 @@
   --transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Status — same in both themes (Design principle) */
-  --color-positive: #16A34A;
-  --color-negative: #DC2626;
-  --color-warning: #EAB308;
-  --color-info: #2563EB;
-  --color-neutral: #64748B;
-
-  /* Party colors — categorical (always same) */
-  --parti-s: #ED1B34;
-  --parti-m: #52BDEC;
-  --parti-sd: #DDDD00;
-  --parti-c: #009933;
-  --parti-v: #DA291C;
-  --parti-kd: #005DA6;
-  --parti-mp: #83CF39;
-  --parti-l: #006AB3;
+  --color-positive: #16a34a;
+  --color-negative: #dc2626;
+  --color-warning: #eab308;
+  --color-info: #2563eb;
+  --color-neutral: #64748b;
 
   /* Vote colors */
-  --vote-ja: #16A34A;
-  --vote-nej: #DC2626;
-  --vote-avstår: #EAB308;
-  --vote-frånvarande: #64748B;
+  --vote-ja: #16a34a;
+  --vote-nej: #dc2626;
+  --vote-avstår: #eab308;
+  --vote-frånvarande: #64748b;
 
   /* Main colors */
-  --system-balck: var(--gray-14);
+  --system-balck: var(--gray-14); /* typo kept for backwards compat */
+  --system-black: var(--gray-14);
   --system-white: var(--white);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 4px 12px rgba(15, 23, 42, 0.1);
 }

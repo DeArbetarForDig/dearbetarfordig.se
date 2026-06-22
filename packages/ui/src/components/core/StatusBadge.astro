@@ -1,0 +1,34 @@
+---
+interface Props {
+  status?: string
+  label?: string
+  solid?: boolean
+  class?: string
+}
+
+const META: Record<string, { color: string; label: string; dot: string }> = {
+  bifall: { color: 'var(--color-positive)', label: 'Bifall', dot: '●' },
+  avslag: { color: 'var(--color-negative)', label: 'Avslag', dot: '●' },
+  remitterad: { color: 'var(--color-neutral)', label: 'Remitterad', dot: '◐' },
+  bordlagd: { color: 'var(--color-warning)', label: 'Bordlagd', dot: '◑' },
+  ja: { color: 'var(--vote-ja)', label: 'Ja', dot: '●' },
+  nej: { color: 'var(--vote-nej)', label: 'Nej', dot: '●' },
+  avstar: { color: 'var(--vote-avstar)', label: 'Avstår', dot: '●' },
+  franvarande: { color: 'var(--vote-franvarande)', label: 'Frånvarande', dot: '○' },
+  info: { color: 'var(--color-info)', label: 'Info', dot: '●' },
+}
+
+const { status = 'info', label, solid = false, class: className } = Astro.props
+const meta = META[status] || META.info
+const text = label ?? meta.label
+---
+<span
+  class:list={['inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-sm font-semibold leading-tight', className]}
+  style={solid
+    ? `background:${meta.color};color:#fff;border:1px solid transparent`
+    : `background:color-mix(in srgb, ${meta.color} 12%, transparent);color:${meta.color};border:1px solid color-mix(in srgb, ${meta.color} 30%, transparent)`
+  }
+>
+  <span aria-hidden="true" class="text-[0.7em]">{meta.dot}</span>
+  {text}
+</span>

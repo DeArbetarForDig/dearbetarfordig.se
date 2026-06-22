@@ -3,7 +3,16 @@
   "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,
-    "rules": { "recommended": true }
+    "rules": {
+      "recommended": true,
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noImplicitAnyLet": "off",
+        "noAssignInExpressions": "off"
+      },
+      "complexity": { "noForEach": "off" },
+      "style": { "noNonNullAssertion": "off" }
+    }
   },
   "formatter": {
     "enabled": true,
@@ -18,6 +27,6 @@
     }
   },
   "files": {
-    "ignore": ["node_modules", "dist", ".astro", "docs/reference"]
+    "ignore": ["node_modules", "dist", ".astro", "docs/reference", ".tmp", "data"]
   }
 }

@@ -24,7 +24,10 @@ interface Anförande {
 }
 
 function parseYttrandeprotokoll(pdfPath: string): Anförande[] {
-  const text = execSync(`pdftotext "${pdfPath}" -`, { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 })
+  const text = execSync(`pdftotext "${pdfPath}" -`, {
+    encoding: 'utf-8',
+    maxBuffer: 50 * 1024 * 1024,
+  })
   const lines = text.split('\n')
   const anföranden: Anförande[] = []
 
@@ -44,9 +47,15 @@ function parseYttrandeprotokoll(pdfPath: string): Anförande[] {
     if (ärendeMatch) {
       // Save previous anförande
       if (currentTalare && currentText.length > 0) {
-        anföranden.push({ talare: currentTalare, parti: currentParti, ärende: currentÄrende, ärendeNr: currentÄrendeNr, text: currentText.join(' ').trim() })
+        anföranden.push({
+          talare: currentTalare,
+          parti: currentParti,
+          ärende: currentÄrende,
+          ärendeNr: currentÄrendeNr,
+          text: currentText.join(' ').trim(),
+        })
       }
-      currentÄrendeNr = parseInt(ärendeMatch[1])
+      currentÄrendeNr = Number.parseInt(ärendeMatch[1])
       currentÄrende = ärendeMatch[2].trim()
       currentTalare = ''
       currentParti = ''
@@ -54,7 +63,13 @@ function parseYttrandeprotokoll(pdfPath: string): Anförande[] {
     } else if (speakerMatch) {
       // Save previous anförande
       if (currentTalare && currentText.length > 0) {
-        anföranden.push({ talare: currentTalare, parti: currentParti, ärende: currentÄrende, ärendeNr: currentÄrendeNr, text: currentText.join(' ').trim() })
+        anföranden.push({
+          talare: currentTalare,
+          parti: currentParti,
+          ärende: currentÄrende,
+          ärendeNr: currentÄrendeNr,
+          text: currentText.join(' ').trim(),
+        })
       }
       currentTalare = speakerMatch[1].trim()
       currentParti = speakerMatch[2]
@@ -66,7 +81,13 @@ function parseYttrandeprotokoll(pdfPath: string): Anförande[] {
 
   // Last one
   if (currentTalare && currentText.length > 0) {
-    anföranden.push({ talare: currentTalare, parti: currentParti, ärende: currentÄrende, ärendeNr: currentÄrendeNr, text: currentText.join(' ').trim() })
+    anföranden.push({
+      talare: currentTalare,
+      parti: currentParti,
+      ärende: currentÄrende,
+      ärendeNr: currentÄrendeNr,
+      text: currentText.join(' ').trim(),
+    })
   }
 
   return anföranden
@@ -79,7 +100,10 @@ async function main() {
   // Find yttrandeprotokoll URL from handlingar
   const år = datum.slice(0, 4)
   const handlingarFile = join(DATA_DIR, `beslut/kf-handlingar-${år}.json`)
-  if (!existsSync(handlingarFile)) { console.error(`Inga handlingar för ${år}`); process.exit(1) }
+  if (!existsSync(handlingarFile)) {
+    console.error(`Inga handlingar för ${år}`)
+    process.exit(1)
+  }
 
   const handlingar = JSON.parse(readFileSync(handlingarFile, 'utf-8'))
   let yttrandeUrl = ''
@@ -93,18 +117,21 @@ async function main() {
     }
   }
 
-  if (!yttrandeUrl) { console.error(`Inget yttrandeprotokoll för ${datum}`); process.exit(1) }
+  if (!yttrandeUrl) {
+    console.error(`Inget yttrandeprotokoll för ${datum}`)
+    process.exit(1)
+  }
 
   // Download PDF
   mkdirSync(TMP_DIR, { recursive: true })
   const pdfPath = join(TMP_DIR, `yttrandeprotokoll-${datum.replace(/-/g, '')}.pdf`)
   if (!existsSync(pdfPath)) {
-    console.log(`⬇️  Laddar ner yttrandeprotokoll...`)
+    console.log('⬇️  Laddar ner yttrandeprotokoll...')
     execSync(`curl -sL -H 'User-Agent: Mozilla/5.0' '${yttrandeUrl}' -o '${pdfPath}'`)
   }
 
   // Parse
-  console.log(`📄 Parsear yttrandeprotokoll...`)
+  console.log('📄 Parsear yttrandeprotokoll...')
   const anföranden = parseYttrandeprotokoll(pdfPath)
   console.log(`   ${anföranden.length} anföranden`)
 

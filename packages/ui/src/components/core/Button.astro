@@ -1,0 +1,46 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost' | 'danger'
+  size?: 'sm' | 'md' | 'lg'
+  href?: string
+  disabled?: boolean
+  class?: string
+}
+
+const { variant = 'primary', size = 'md', href, disabled = false, class: className } = Astro.props
+
+const sizeClasses = {
+  sm: 'px-3 py-1.5 text-sm',
+  md: 'px-4 py-2 text-base',
+  lg: 'px-5 py-3 text-lg',
+}
+
+const variantClasses = {
+  primary:
+    'bg-(--color-primary) text-(--color-primary-text) border border-(--color-primary) hover:bg-(--color-primary-hover)',
+  secondary:
+    'bg-(--color-surface) text-(--color-text) border border-(--color-border-strong) hover:bg-(--color-surface-sunken)',
+  ghost:
+    'bg-transparent text-(--color-primary) border border-transparent hover:bg-(--color-surface-sunken)',
+  danger: 'bg-(--color-negative) text-white border border-(--color-negative) hover:opacity-90',
+}
+
+const base =
+  'inline-flex items-center justify-center gap-2 font-semibold leading-none rounded-sm no-underline whitespace-nowrap transition-colors duration-150 cursor-pointer'
+const disabledClass = disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''
+---
+{href ? (
+  <a
+    href={disabled ? undefined : href}
+    class:list={[base, sizeClasses[size], variantClasses[variant], disabledClass, className]}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    disabled={disabled}
+    class:list={[base, sizeClasses[size], variantClasses[variant], disabledClass, className]}
+  >
+    <slot />
+  </button>
+)}

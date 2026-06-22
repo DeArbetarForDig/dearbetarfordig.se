@@ -1,0 +1,38 @@
+---
+interface Props {
+  parti: string
+  full?: boolean
+  size?: 'sm' | 'md'
+  class?: string
+}
+
+const PARTY: Record<string, { color: string; name: string }> = {
+  S: { color: 'var(--parti-s)', name: 'Socialdemokraterna' },
+  M: { color: 'var(--parti-m)', name: 'Moderaterna' },
+  SD: { color: 'var(--parti-sd)', name: 'Sverigedemokraterna' },
+  C: { color: 'var(--parti-c)', name: 'Centerpartiet' },
+  V: { color: 'var(--parti-v)', name: 'Vänsterpartiet' },
+  KD: { color: 'var(--parti-kd)', name: 'Kristdemokraterna' },
+  MP: { color: 'var(--parti-mp)', name: 'Miljöpartiet' },
+  L: { color: 'var(--parti-l)', name: 'Liberalerna' },
+  D: { color: 'var(--parti-d)', name: 'Demokraterna' },
+}
+
+const { parti, full = false, size = 'md', class: className } = Astro.props
+const p = PARTY[parti] || { color: 'var(--parti-ovriga)', name: parti }
+const boxSize = size === 'sm' ? '18px' : '22px'
+const fontSize = size === 'sm' ? '11px' : '13px'
+---
+<span
+  class:list={['inline-flex items-center gap-1.5', full && 'bg-(--color-surface-sunken) rounded-sm pr-2', className]}
+  title={p.name}
+>
+  <span
+    aria-hidden="true"
+    class="inline-flex items-center justify-center rounded-sm text-white font-bold tracking-tight shrink-0"
+    style={`background:${p.color};width:${boxSize};height:${boxSize};font-size:${fontSize}`}
+  >
+    {parti}
+  </span>
+  {full && <span class="text-sm text-(--color-text)">{p.name}</span>}
+</span>

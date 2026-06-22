@@ -5,7 +5,7 @@
  * Investigation: realistiska frågor en journalist/AI-agent ställer
  */
 
-import { describe, it, expect, beforeAll } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
 
 const BASE = 'http://localhost:3000'
 
@@ -120,7 +120,9 @@ describe('Investigation: Jäv och konflikter', () => {
     expect(data.node).toBeDefined()
     expect(data.related.length).toBeGreaterThan(3)
     // Should contain politicians from multiple parties
-    const partier = new Set(data.related.filter((n: any) => n.typ === 'politiker').map((n: any) => n.data?.parti))
+    const partier = new Set(
+      data.related.filter((n: any) => n.typ === 'politiker').map((n: any) => n.data?.parti),
+    )
     expect(partier.size).toBeGreaterThan(2)
   })
 
@@ -173,13 +175,17 @@ describe('Integration: полный путь по графу (politiker → besl
     const beslutId = jaEdge.to_id
 
     // 4. Hämta beslutet och se vilka organisationer det berör
-    const { data: beslutNode } = await get(`/api/v1/goteborg/graf/node/${encodeURIComponent(beslutId)}`)
+    const { data: beslutNode } = await get(
+      `/api/v1/goteborg/graf/node/${encodeURIComponent(beslutId)}`,
+    )
     expect(beslutNode.node).toBeDefined()
     expect(beslutNode.node.typ).toBe('paragraf')
     expect(beslutNode.edges.length).toBeGreaterThan(0)
 
     // 5. Hitta en organisation kopplad till beslutet
-    const orgEdge = beslutNode.edges.find((e: any) => e.typ === 'uppdrag_till' || e.typ === 'hänvisar_till')
+    const orgEdge = beslutNode.edges.find(
+      (e: any) => e.typ === 'uppdrag_till' || e.typ === 'hänvisar_till',
+    )
     if (orgEdge) {
       const orgId = orgEdge.to_id || orgEdge.from_id
       // 6. Hämta organisationen och se vilka politiker som sitter där
@@ -215,7 +221,9 @@ describe('Integration: полный путь по графу (politiker → besl
 describe('Investigation: Budget — vart går pengarna?', () => {
   it('Största budgetposten är grundskola', async () => {
     const { data } = await get('/api/v1/goteborg/budget')
-    const sorted = data.nämnder.sort((a: any, b: any) => (b.kommunbidragMnkr || 0) - (a.kommunbidragMnkr || 0))
+    const sorted = data.nämnder.sort(
+      (a: any, b: any) => (b.kommunbidragMnkr || 0) - (a.kommunbidragMnkr || 0),
+    )
     expect(sorted[0].namn).toContain('Grundskole')
   })
 
