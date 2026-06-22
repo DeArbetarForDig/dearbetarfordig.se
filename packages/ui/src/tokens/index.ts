@@ -1,7 +1,7 @@
 /**
  * @daf/ui — Design Tokens
  *
- * Based on EDS foundations:
+ * Design foundations:
  * - 8px spacing grid
  * - Light/dark themes (no pure white/black)
  * - Status colors for DV
@@ -57,7 +57,7 @@ export const theme = {
   },
 } as const
 
-/** 8px spacing grid (EDS) */
+/** 8px spacing grid */
 export const spacing = {
   xs: '4px',
   sm: '8px',
