@@ -46,7 +46,6 @@ const seatMap = new Map<number, Seat>(seats.map((s: Seat) => [s.nummer, s]))
   <defs>
     <clipPath id="seat"><rect x="0" y="0" width="60" height="40" rx="8" /></clipPath>
     <style>
-      @import url("/packages/ui/src/tokens/css/global.css");
       .seat { stroke: none; }
       .seat.parti-s { fill: var(--parti-s); }
       .seat.parti-m { fill: var(--parti-m); }
