@@ -94,7 +94,8 @@ const senasteBeslut = beslutList
         <div class="text-xs text-[var(--color-text-subtle)] mt-1">Ärenden utan votering</div>
         {metrics.konsensus.konsensusgradProcent > 85 && (
           <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-warning)">
-            ⚠ Hög — kan dölja brist på debatt
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            Hög — kan dölja brist på debatt
           </div>
         )}
       </div>
@@ -107,7 +108,8 @@ const senasteBeslut = beslutList
         <div class="text-xs text-[var(--color-text-subtle)] mt-1">0 = jämnt, 1 = få dominerar</div>
         {metrics.debatt.giniKoefficient > 0.7 && (
           <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-negative)">
-            ⛔ Få politiker dominerar debatten
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+            Få politiker dominerar debatten
           </div>
         )}
       </div>
@@ -123,7 +125,8 @@ const senasteBeslut = beslutList
         <div class="font-mono text-[2.5rem] font-bold leading-none" style="color:var(--color-positive)">{metrics.närvaro.snittPerMöte}</div>
         <div class="text-xs text-[var(--color-text-subtle)] mt-1">{metrics.närvaro.möten} möten (inkl. ersättare)</div>
         <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-positive)">
-          ✓ Bra uppslutning
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          Bra uppslutning
         </div>
       </div>
     </div>
