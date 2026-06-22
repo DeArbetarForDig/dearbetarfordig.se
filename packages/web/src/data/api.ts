@@ -79,3 +79,7 @@ export async function getMöten(): Promise<Möte[]> {
 export async function getMetrics() {
   return fetchApi<any>('/api/v1/goteborg/metrics')
 }
+
+export async function getBudget() {
+  return fetchApi<{ kommun: string; år: number; totalMnkr: number; nämnder: any[] }>('/api/v1/goteborg/budget')
+}

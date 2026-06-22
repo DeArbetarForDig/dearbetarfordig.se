@@ -1,45 +1,34 @@
 ---
+import Card from '../../../../ui/src/components/core/Card.astro'
 import DecisionCard from '../../../../ui/src/components/cards/DecisionCard.astro'
-import KpiCard from '../../../../ui/src/components/cards/KpiCard.astro'
 import Chamber from '../../../../ui/src/components/charts/Chamber.astro'
 import Donut from '../../../../ui/src/components/charts/Donut.astro'
 import Button from '../../../../ui/src/components/core/Button.astro'
 import Icon from '../../../../ui/src/components/core/Icon.astro'
 import HorizontalBar from '../../../../ui/src/components/charts/HorizontalBar.astro'
-import { getBeslut, getMetrics, getPolitiker, getStats } from '../../data/api'
+import { getBeslut, getBudget, getMetrics, getPolitiker, getStats } from '../../data/api'
 import Base from '../../layouts/Base.astro'
 
 const stats = await getStats()
 const metrics = await getMetrics()
 const politiker = await getPolitiker()
 const beslutList = await getBeslut(200)
+const budget = await getBudget()
+const topNämnder = budget.nämnder
+  .filter((n: any) => n.kommunbidragMnkr > 200 && !n.namn.includes('Reavinster'))
+  .slice(0, 12)
 
 const seats = politiker
   .slice(0, 81)
   .map((p, i) => ({ nummer: i + 1, politikerId: p.id, namn: p.namn, parti: p.parti }))
-
-const kpis = [
-  { value: String(stats.politiker), label: 'Politiker' },
-  { value: String(metrics.beslutskraft.totalt), label: 'Beslut' },
-  {
-    value: String(metrics.konsensus.konsensusgradProcent),
-    unit: '%',
-    label: 'Utan votering',
-    trend: 'up' as const,
-    trendValue: 'konsensus',
-  },
-  {
-    value: String(Math.round((metrics.beslutskraft.bifall / metrics.beslutskraft.totalt) * 100)),
-    unit: '%',
-    label: 'Bifallsgrad',
-  },
-]
 
 const partiMandat = Object.entries(stats.partier).map(([label, value]) => ({
   label,
   value,
   color: `var(--parti-${label.toLowerCase()})`,
 }))
+
+const partiNamn: Record<string, string> = { S: 'Socialdemokraterna', M: 'Moderaterna', SD: 'Sverigedemokraterna', V: 'Vänsterpartiet', MP: 'Miljöpartiet', C: 'Centerpartiet', L: 'Liberalerna', KD: 'Kristdemokraterna', D: 'Demokraterna' }
 
 const riceEntries = Object.entries(metrics.riceIndex || {}).sort(([,a]: any, [,b]: any) => b - a) as [string, number][]
 
@@ -76,10 +65,49 @@ const senasteBeslut = beslutList
   <!-- KPI row -->
   <section class="mb-12">
     <div class="grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-      {kpis.map(kpi => (
-        <KpiCard value={kpi.value} unit={kpi.unit} label={kpi.label} trend={kpi.trend} trendValue={kpi.trendValue} />
-      ))}
+      <Card title="Politiker" titleSize="sm">
+        <div class="font-mono text-[2.5rem] font-bold leading-none text-[var(--color-text)]">{stats.politiker}</div>
+      </Card>
+      <Card title="Beslut (med status)" titleSize="sm">
+        <div class="font-mono text-[2.5rem] font-bold leading-none text-[var(--color-text)]">{metrics.beslutskraft.totalt}</div>
+      </Card>
+      <Card title="Möten" titleSize="sm">
+        <div class="font-mono text-[2.5rem] font-bold leading-none text-[var(--color-text)]">{metrics.närvaro.möten}</div>
+      </Card>
+      <Card title="Voteringar" titleSize="sm">
+        <div class="font-mono text-[2.5rem] font-bold leading-none text-[var(--color-text)]">{metrics.konsensus.medVotering}</div>
+      </Card>
     </div>
+  </section>
+
+  <!-- Two-column: Donut + Struktur -->
+  <section class="mb-12 grid gap-8" style="grid-template-columns: 1fr 2fr;">
+    <!-- Mandatfördelning -->
+    <Card title="Mandatfördelning" titleSize="lg">
+      <Donut segments={partiMandat} showValue unit="mandat" />
+    </Card>
+
+    <!-- Struktur -->
+    <Card title="Hur styrs Göteborg?" titleSize="lg">
+      <div class="flex flex-col gap-3">
+        <div class="p-4 rounded-lg bg-[var(--color-surface-sunken)] border-l-4 border-l-[var(--color-primary)]">
+          <h3 class="font-bold">Kommunfullmäktige (KF)</h3>
+          <p class="text-sm text-[var(--color-text-muted)]">"Riksdagen för Göteborg" — 81 ledamöter fattar alla stora beslut</p>
+        </div>
+        <div class="ml-6 p-4 rounded-lg bg-[var(--color-surface-sunken)] border-l-4 border-l-violet-500">
+          <h3 class="font-bold">Kommunstyrelsen (KS)</h3>
+          <p class="text-sm text-[var(--color-text-muted)]">"Regeringen" — 13 ledamöter leder det dagliga arbetet</p>
+        </div>
+        <div class="ml-12 grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          {topNämnder.map((n: any) => (
+            <div class="p-3 rounded bg-[var(--color-surface-sunken)] text-sm">
+              <span class="font-semibold">{n.namn}</span><br/>
+              <span class="text-xs font-mono text-[var(--color-text-muted)]">{n.kommunbidragMnkr} mnkr</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Card>
   </section>
 
   <!-- Democracy Scorecard -->
@@ -87,49 +115,41 @@ const senasteBeslut = beslutList
     <h2 class="text-2xl font-bold mb-4">Demokratisk hälsa</h2>
     <p class="text-sm text-[var(--color-text-muted)] mb-4">Vetenskapliga nyckeltal baserade på Legislative Studies-forskning</p>
     <div class="grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-      <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]">
-        <div class="text-sm text-[var(--color-text-muted)] mb-1">Konsensus</div>
+      <Card title="Konsensus" subtitle="Ärenden utan votering">
         <div class="font-mono text-[2.5rem] font-bold leading-none"
           style={metrics.konsensus.konsensusgradProcent > 85 ? 'color:var(--color-warning)' : 'color:var(--color-text)'}
         >{metrics.konsensus.konsensusgradProcent}<span class="text-base ml-1 text-[var(--color-text-muted)]">%</span></div>
-        <div class="text-xs text-[var(--color-text-subtle)] mt-1">Ärenden utan votering</div>
         {metrics.konsensus.konsensusgradProcent > 85 && (
           <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-warning)">
             <Icon name="triangle-alert" size={14} />
             Hög — kan dölja brist på debatt
           </div>
         )}
-      </div>
+      </Card>
 
-      <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]">
-        <div class="text-sm text-[var(--color-text-muted)] mb-1">Debatt-Gini</div>
+      <Card title="Debatt-Gini" subtitle="0 = jämnt, 1 = få dominerar">
         <div class="font-mono text-[2.5rem] font-bold leading-none"
           style={metrics.debatt.giniKoefficient > 0.7 ? 'color:var(--color-negative)' : metrics.debatt.giniKoefficient > 0.5 ? 'color:var(--color-warning)' : 'color:var(--color-positive)'}
         >{metrics.debatt.giniKoefficient}</div>
-        <div class="text-xs text-[var(--color-text-subtle)] mt-1">0 = jämnt, 1 = få dominerar</div>
         {metrics.debatt.giniKoefficient > 0.7 && (
           <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-negative)">
             <Icon name="shield-alert" size={14} />
             Få politiker dominerar debatten
           </div>
         )}
-      </div>
+      </Card>
 
-      <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]">
-        <div class="text-sm text-[var(--color-text-muted)] mb-1">Anföranden</div>
+      <Card title="Anföranden" subtitle={`${metrics.debatt.djupPerÄrende} per voteringsärende`}>
         <div class="font-mono text-[2.5rem] font-bold leading-none text-[var(--color-text)]">{metrics.debatt.anföranden.toLocaleString('sv-SE')}</div>
-        <div class="text-xs text-[var(--color-text-subtle)] mt-1">{metrics.debatt.djupPerÄrende} per voteringsärende</div>
-      </div>
+      </Card>
 
-      <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]">
-        <div class="text-sm text-[var(--color-text-muted)] mb-1">Snitt närvarande</div>
+      <Card title="Snitt närvarande" subtitle={`${metrics.närvaro.möten} möten (inkl. ersättare)`}>
         <div class="font-mono text-[2.5rem] font-bold leading-none" style="color:var(--color-positive)">{metrics.närvaro.snittPerMöte}</div>
-        <div class="text-xs text-[var(--color-text-subtle)] mt-1">{metrics.närvaro.möten} möten (inkl. ersättare)</div>
         <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-positive)">
           <Icon name="circle-check" size={14} />
           Bra uppslutning
         </div>
-      </div>
+      </Card>
     </div>
 
     <!-- Rice Index per parti -->
@@ -137,56 +157,9 @@ const senasteBeslut = beslutList
       <h3 class="font-bold mb-3">Parti-sammanhållning (Rice Index)</h3>
       <p class="text-xs text-[var(--color-text-muted)] mb-3">1.0 = alla röstar lika, 0.5 = splittrat. Källa: Rice (1924)</p>
       <HorizontalBar
-        bars={riceEntries.map(([parti, rice]) => ({ label: parti, value: rice, color: `var(--parti-${parti.toLowerCase()})` }))}
-        min={0.85}
+        bars={riceEntries.map(([parti, rice]) => ({ label: partiNamn[parti] || parti, subtitle: String(stats.partier[parti] || ''), value: rice, color: `var(--parti-${parti.toLowerCase()})` }))}
         max={1}
       />
-    </div>
-  </section>
-
-  <!-- Two-column: Donut + Struktur -->
-  <section class="mb-12 grid gap-8 md:grid-cols-2">
-    <!-- Mandatfördelning -->
-    <div>
-      <h2 class="text-2xl font-bold mb-4">Mandatfördelning</h2>
-      <Donut segments={partiMandat} showValue unit="mandat" />
-    </div>
-
-    <!-- Struktur -->
-    <div>
-      <h2 class="text-2xl font-bold mb-4">Hur styrs Göteborg?</h2>
-      <div class="flex flex-col gap-3">
-        <div class="p-4 rounded-lg bg-[var(--color-surface)] border-l-4 border-l-[var(--color-primary)]">
-          <h3 class="font-bold">Kommunfullmäktige (KF)</h3>
-          <p class="text-sm text-[var(--color-text-muted)]">"Riksdagen för Göteborg" — 81 ledamöter fattar alla stora beslut</p>
-        </div>
-        <div class="ml-6 p-4 rounded-lg bg-[var(--color-surface)] border-l-4 border-l-violet-500">
-          <h3 class="font-bold">Kommunstyrelsen (KS)</h3>
-          <p class="text-sm text-[var(--color-text-muted)]">"Regeringen" — 13 ledamöter leder det dagliga arbetet</p>
-        </div>
-        <div class="ml-12 grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
-          <div class="p-2 px-3 rounded bg-[var(--color-surface-sunken)] text-sm">
-            <span class="font-semibold">Grundskolenämnden</span><br/>
-            <span class="text-xs text-[var(--color-text-muted)]">Skolor & lärare</span>
-          </div>
-          <div class="p-2 px-3 rounded bg-[var(--color-surface-sunken)] text-sm">
-            <span class="font-semibold">Byggnadsnämnden</span><br/>
-            <span class="text-xs text-[var(--color-text-muted)]">Vad som får byggas</span>
-          </div>
-          <div class="p-2 px-3 rounded bg-[var(--color-surface-sunken)] text-sm">
-            <span class="font-semibold">Trafiknämnden</span><br/>
-            <span class="text-xs text-[var(--color-text-muted)]">Vägar & spårvagnar</span>
-          </div>
-          <div class="p-2 px-3 rounded bg-[var(--color-surface-sunken)] text-sm">
-            <span class="font-semibold">Socialnämnden</span><br/>
-            <span class="text-xs text-[var(--color-text-muted)]">Stöd & omsorg</span>
-          </div>
-          <div class="p-2 px-3 rounded bg-[var(--color-surface-sunken)] text-sm">
-            <span class="font-semibold">Miljönämnden</span><br/>
-            <span class="text-xs text-[var(--color-text-muted)]">Klimat & natur</span>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 

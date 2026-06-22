@@ -13,6 +13,7 @@ interface Bar {
   label: string
   value: number
   color?: string
+  subtitle?: string
 }
 
 interface Threshold {
@@ -25,13 +26,14 @@ interface Props {
   bars: Bar[]
   unit?: string
   barHeight?: number
+  labelWidth?: string
   min?: number
   max?: number
   thresholds?: Threshold[]
   class?: string
 }
 
-const { bars = [], unit = '', barHeight = 16, min: minProp = 0, max: maxProp, thresholds = [], class: className } = Astro.props
+const { bars = [], unit = '', barHeight = 16, labelWidth = '10rem', min: minProp = 0, max: maxProp, thresholds = [], class: className } = Astro.props
 const max = maxProp ?? Math.max(...bars.map(b => b.value), 1)
 const min = minProp
 
@@ -50,11 +52,12 @@ function getBarColor(bar: Bar, value: number): string {
     const color = getBarColor(bar, bar.value)
     return (
       <div class="daf-hbar__row flex items-center gap-3">
-        <span class="text-sm font-semibold w-12 shrink-0 text-right">{bar.label}</span>
-        <div class="flex-1 h-[var(--bar-h)] rounded-full overflow-hidden bg-[var(--color-surface-sunken)]" style={`--bar-h:${barHeight}px`}>
-          <div class="daf-hbar__fill h-full rounded-full transition-all duration-300" style={`width:${pct}%;background:${color}`} />
+        <span class="text-sm font-semibold shrink-0 text-left" style={`width:${labelWidth}`}>{bar.label}</span>
+        {bar.subtitle && <span class="text-xs font-mono text-[var(--color-text-muted)] shrink-0 text-right" style="width:2rem">{bar.subtitle}</span>}
+        <div class="flex-1 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]" style={`height:${barHeight}px`}>
+          <div class="daf-hbar__fill rounded-full transition-all duration-300" style={`width:${pct}%;height:${barHeight}px;background:${color}`} />
         </div>
-        <span class="font-mono text-sm w-12 shrink-0">{bar.value}{unit && <span class="text-xs text-[var(--color-text-muted)] ml-0.5">{unit}</span>}</span>
+        <span class="font-mono text-sm shrink-0 text-right" style="width:3.5rem">{bar.value}{unit && <span class="text-xs text-[var(--color-text-muted)] ml-0.5">{unit}</span>}</span>
       </div>
     )
   })}
