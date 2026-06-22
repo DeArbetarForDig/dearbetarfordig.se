@@ -25,13 +25,15 @@ interface Props {
   bars: Bar[]
   unit?: string
   barHeight?: number
+  min?: number
   max?: number
   thresholds?: Threshold[]
   class?: string
 }
 
-const { bars = [], unit = '', barHeight = 16, max: maxProp, thresholds = [], class: className } = Astro.props
+const { bars = [], unit = '', barHeight = 16, min: minProp = 0, max: maxProp, thresholds = [], class: className } = Astro.props
 const max = maxProp ?? Math.max(...bars.map(b => b.value), 1)
+const min = minProp
 
 function getBarColor(bar: Bar, value: number): string {
   if (bar.color) return bar.color
@@ -44,7 +46,7 @@ function getBarColor(bar: Bar, value: number): string {
 ---
 <div class:list={['daf-hbar grid gap-2', className]}>
   {bars.map(bar => {
-    const pct = max > 0 ? (bar.value / max) * 100 : 0
+    const pct = (max - min) > 0 ? ((bar.value - min) / (max - min)) * 100 : 0
     const color = getBarColor(bar, bar.value)
     return (
       <div class="daf-hbar__row flex items-center gap-3">
