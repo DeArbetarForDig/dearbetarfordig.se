@@ -5,6 +5,7 @@ import Chamber from '../../../../ui/src/components/charts/Chamber.astro'
 import Donut from '../../../../ui/src/components/charts/Donut.astro'
 import Button from '../../../../ui/src/components/core/Button.astro'
 import Icon from '../../../../ui/src/components/core/Icon.astro'
+import HorizontalBar from '../../../../ui/src/components/charts/HorizontalBar.astro'
 import { getBeslut, getMetrics, getPolitiker, getStats } from '../../data/api'
 import Base from '../../layouts/Base.astro'
 
@@ -135,21 +136,10 @@ const senasteBeslut = beslutList
     <div class="mt-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4">
       <h3 class="font-bold mb-3">Parti-sammanhållning (Rice Index)</h3>
       <p class="text-xs text-[var(--color-text-muted)] mb-3">1.0 = alla röstar lika, 0.5 = splittrat. Källa: Rice (1924)</p>
-      <div class="grid gap-2">
-        {riceEntries.map(([parti, rice]) => (
-            <div class="flex items-center gap-3">
-              <span class="w-8 text-sm font-semibold">{parti}</span>
-              <div class="flex-1 h-4 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
-                <div
-                  class="h-full rounded-full"
-                  style={`width:${rice * 100}%;background:var(--parti-${parti.toLowerCase()})`}
-                />
-              </div>
-              <span class="font-mono text-sm w-10 text-right">{rice}</span>
-            </div>
-          ))
-        }
-      </div>
+      <HorizontalBar
+        bars={riceEntries.map(([parti, rice]) => ({ label: parti, value: rice, color: `var(--parti-${parti.toLowerCase()})` }))}
+        max={1}
+      />
     </div>
   </section>
 
