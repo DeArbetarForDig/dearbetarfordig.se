@@ -2,6 +2,7 @@
 @import "../../../ui/src/tokens/css/global.css";
 @import "../../../ui/src/tokens/css/light.css";
 @import "../../../ui/src/tokens/css/dark.css";
+@import "../../../ui/src/tokens/css/svg.css";
 
 body {
   font-family: var(--font-sans);
