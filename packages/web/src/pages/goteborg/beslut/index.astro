@@ -1,0 +1,26 @@
+---
+import DecisionCard from '../../../../../ui/src/components/cards/DecisionCard.astro'
+import { getBeslut } from '../../../data/api'
+import Base from '../../../layouts/Base.astro'
+
+const allBeslut = await getBeslut(200)
+const beslut = allBeslut
+  .filter((b) => b.beslut)
+  .map((b) => ({
+    titel: b.rubrik.replace(/^§ \d+ /, ''),
+    datum: b.datum,
+    status: b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut,
+    paragraf: b.paragraf ? `KF ${b.paragraf}` : undefined,
+    ja: b.votering?.ja,
+    nej: b.votering?.nej,
+    avstar: b.votering?.avstår,
+    url: `/goteborg/beslut/${encodeURIComponent(b.id)}`,
+  }))
+---
+
+<Base title="Beslut — Göteborg">
+  <h1 class="text-[2rem] font-bold mb-6">Beslut</h1>
+  <div class="grid grid-cols-[repeat(auto-fill,minmax(340px,1fr))] gap-4">
+    {beslut.map(b => <DecisionCard {...b} />)}
+  </div>
+</Base>

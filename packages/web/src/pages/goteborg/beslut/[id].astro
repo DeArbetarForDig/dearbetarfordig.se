@@ -1,0 +1,107 @@
+---
+import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
+import Chamber from '../../../../../ui/src/components/charts/Chamber.astro'
+import Button from '../../../../../ui/src/components/core/Button.astro'
+import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
+import { getBeslut, getBeslutDetail, getPolitiker } from '../../../data/api'
+import Base from '../../../layouts/Base.astro'
+
+export async function getStaticPaths() {
+  const allBeslut = await getBeslut(200)
+  const withStatus = allBeslut.filter((b) => b.beslut)
+  return withStatus.map((b) => ({ params: { id: b.id }, props: { summary: b } }))
+}
+
+const { summary } = Astro.props
+const id = Astro.params.id
+const detail = await getBeslutDetail(id)
+const politiker = await getPolitiker()
+
+const hasVotes = detail.beslut.röster && detail.beslut.röster.length > 0
+const seats = politiker
+  .slice(0, 81)
+  .map((p, i) => ({ nummer: i + 1, politikerId: p.id, namn: p.namn, parti: p.parti }))
+const votes = hasVotes
+  ? detail.beslut.röster?.map((r) => {
+      const pol = politiker.find((p) => p.namn === r.namn)
+      return {
+        politikerId: pol?.id || r.namn,
+        rost:
+          r.röst === 'avstår'
+            ? 'avstar'
+            : r.röst === 'frånvarande'
+              ? 'franvarande'
+              : (r.röst as 'ja' | 'nej'),
+      }
+    })
+  : []
+
+const jaCount = votes.filter((v) => v.rost === 'ja').length
+const nejCount = votes.filter((v) => v.rost === 'nej').length
+const avstarCount = votes.filter((v) => v.rost === 'avstar').length
+
+const status = detail.beslut.beslut === 'bordläggning' ? 'bordlagd' : detail.beslut.beslut || 'info'
+const rubrik = detail.beslut.rubrik.replace(/^§ \d+ /, '')
+
+const timeline = [
+  ...detail.kopplingar
+    .filter((k) => k.nod && k.typ !== 'beslut_av')
+    .map((k) => ({
+      datum: detail.beslut.datum,
+      titel: `${k.typ.replace(/_/g, ' ')} → ${k.nod?.label}`,
+      status: 'completed' as const,
+    }))
+    .slice(0, 5),
+  {
+    datum: detail.beslut.datum,
+    titel: `KF beslut — ${status === 'bifall' ? 'Bifall' : status === 'avslag' ? 'Avslag' : status === 'bordlagd' ? 'Bordlagd' : 'Behandling'}`,
+    status: 'active' as const,
+  },
+]
+---
+
+<Base title={`${rubrik} — Göteborg`}>
+  <div class="max-w-[880px] mx-auto">
+    <Button variant="ghost" size="sm" href="/goteborg/beslut">
+      ← Tillbaka
+    </Button>
+
+    <div class="flex items-center gap-4 mt-4 mb-2">
+      <StatusBadge status={status} />
+      <time class="font-mono text-sm text-(--color-text-muted)">{detail.beslut.datum}</time>
+      {summary.paragraf && <span class="font-mono text-sm text-(--color-text-subtle)">KF {summary.paragraf}</span>}
+    </div>
+
+    <h1 class="text-[2rem] font-bold mb-6 max-w-[30ch]">{rubrik}</h1>
+
+    {hasVotes && (
+      <section class="bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-6 shadow-[--shadow-sm] mb-8">
+        <h2 class="text-lg font-bold mb-4">Votering i salen</h2>
+        <Chamber seats={seats} mode="vote" votes={votes} />
+        <div class="flex gap-6 justify-center mt-4 flex-wrap">
+          <span class="flex items-center gap-2 text-sm">
+            <span class="w-3 h-3 rounded-sm" style="background:var(--vote-ja)" />
+            Ja: <strong class="font-mono" style="color:var(--vote-ja)">{jaCount}</strong>
+          </span>
+          <span class="flex items-center gap-2 text-sm">
+            <span class="w-3 h-3 rounded-sm" style="background:var(--vote-nej)" />
+            Nej: <strong class="font-mono" style="color:var(--vote-nej)">{nejCount}</strong>
+          </span>
+          <span class="flex items-center gap-2 text-sm">
+            <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstar)" />
+            Avstår: <strong class="font-mono" style="color:var(--vote-avstar)">{avstarCount}</strong>
+          </span>
+        </div>
+      </section>
+    )}
+
+    {detail.kopplingar.length > 0 && (
+      <section>
+        <h2 class="text-lg font-bold mb-4">Kopplingar</h2>
+        <div class="bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-6 shadow-[--shadow-sm]">
+          <Timeline events={timeline} />
+        </div>
+      </section>
+    )}
+  </div>
+</Base>

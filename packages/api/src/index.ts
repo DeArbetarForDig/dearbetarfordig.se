@@ -1,12 +1,17 @@
-import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
-import { swaggerUI } from '@hono/swagger-ui'
-import { cors } from 'hono/cors'
 import { serve } from '@hono/node-server'
+import { swaggerUI } from '@hono/swagger-ui'
+import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
+import { cors } from 'hono/cors'
 import postgres from 'postgres'
 
 // --- Config ---
-const DATABASE_URL = process.env.DATABASE_URL || (process.env.NODE_ENV === 'production' ? '' : 'postgresql://daf:daf_local@localhost:5432/daf')
-if (!DATABASE_URL) { console.error('❌ DATABASE_URL required in production'); process.exit(1) }
+const DATABASE_URL =
+  process.env.DATABASE_URL ||
+  (process.env.NODE_ENV === 'production' ? '' : 'postgresql://daf:daf_local@localhost:5432/daf')
+if (!DATABASE_URL) {
+  console.error('❌ DATABASE_URL required in production')
+  process.exit(1)
+}
 
 const sql = postgres(DATABASE_URL, { max: 20, idle_timeout: 30, connect_timeout: 10 })
 const app = new OpenAPIHono()
@@ -25,7 +30,10 @@ app.use('/*', cors({ origin: '*', allowMethods: ['GET', 'OPTIONS'] }))
 app.use('/api/v1/:kommun/*', async (c, next) => {
   const kommun = c.req.param('kommun')
   if (!ALLOWED_KOMMUNER.includes(kommun)) {
-    return c.json({ error: `Kommun '${kommun}' finns inte. Tillgängliga: ${ALLOWED_KOMMUNER.join(', ')}` }, 404)
+    return c.json(
+      { error: `Kommun '${kommun}' finns inte. Tillgängliga: ${ALLOWED_KOMMUNER.join(', ')}` },
+      404,
+    )
   }
   await next()
 })
@@ -47,14 +55,35 @@ app.use('/*', async (c, next) => {
 
 // --- Helpers ---
 function capLimit(val: string | undefined, max = 200): number {
-  return Math.min(Math.max(parseInt(val || '50') || 50, 1), max)
+  return Math.min(Math.max(Number.parseInt(val || '50') || 50, 1), max)
 }
 
 // --- Schemas ---
-const PolitikerSummary = z.object({ id: z.string().uuid(), namn: z.string(), parti: z.string(), email: z.string().nullable(), antalUppdrag: z.number() }).openapi('PolitikerSummary')
-const PolitikerList = z.object({ kommun: z.string(), antal: z.number(), politiker: z.array(PolitikerSummary) }).openapi('PolitikerList')
-const GraphNode = z.object({ id: z.string(), typ: z.string(), label: z.string(), data: z.record(z.unknown()) }).openapi('GraphNode')
-const GraphEdge = z.object({ id: z.string().optional(), from_id: z.string(), to_id: z.string(), typ: z.string(), label: z.string().nullable().optional(), data: z.record(z.unknown()).nullable().optional() }).openapi('GraphEdge')
+const PolitikerSummary = z
+  .object({
+    id: z.string().uuid(),
+    namn: z.string(),
+    parti: z.string(),
+    email: z.string().nullable(),
+    antalUppdrag: z.number(),
+  })
+  .openapi('PolitikerSummary')
+const PolitikerList = z
+  .object({ kommun: z.string(), antal: z.number(), politiker: z.array(PolitikerSummary) })
+  .openapi('PolitikerList')
+const GraphNode = z
+  .object({ id: z.string(), typ: z.string(), label: z.string(), data: z.record(z.unknown()) })
+  .openapi('GraphNode')
+const GraphEdge = z
+  .object({
+    id: z.string().optional(),
+    from_id: z.string(),
+    to_id: z.string(),
+    typ: z.string(),
+    label: z.string().nullable().optional(),
+    data: z.record(z.unknown()).nullable().optional(),
+  })
+  .openapi('GraphEdge')
 
 // --- Health ---
 app.get('/healthz', async (c) => {
@@ -68,10 +97,17 @@ app.get('/healthz', async (c) => {
 
 // --- Routes ---
 const politikerRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/politiker', tags: ['Politiker'],
+  method: 'get',
+  path: '/api/v1/{kommun}/politiker',
+  tags: ['Politiker'],
   summary: 'Lista alla politiker',
-  request: { params: z.object({ kommun: z.string() }), query: z.object({ parti: z.string().optional(), limit: z.string().optional() }) },
-  responses: { 200: { content: { 'application/json': { schema: PolitikerList } }, description: 'OK' } },
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({ parti: z.string().optional(), limit: z.string().optional() }),
+  },
+  responses: {
+    200: { content: { 'application/json': { schema: PolitikerList } }, description: 'OK' },
+  },
 })
 app.openapi(politikerRoute, async (c) => {
   const { kommun } = c.req.valid('param')
@@ -81,14 +117,40 @@ app.openapi(politikerRoute, async (c) => {
   const rows = parti
     ? await sql`SELECT * FROM goteborg.politiker WHERE parti = ${parti.toUpperCase()} ORDER BY efternamn LIMIT ${lim}`
     : await sql`SELECT * FROM goteborg.politiker ORDER BY efternamn LIMIT ${lim}`
-  return c.json({ kommun, antal: rows.length, politiker: rows.map((p) => ({ id: p.id, namn: `${p.fornamn} ${p.efternamn}`, parti: p.parti, email: p.email, antalUppdrag: (p.uppdrag as any[]).length })) }, 200)
+  return c.json(
+    {
+      kommun,
+      antal: rows.length,
+      politiker: rows.map((p) => ({
+        id: p.id,
+        namn: `${p.fornamn} ${p.efternamn}`,
+        parti: p.parti,
+        email: p.email,
+        antalUppdrag: (p.uppdrag as any[]).length,
+      })),
+    },
+    200,
+  )
 })
 
 const politikerDetailRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/politiker/{id}', tags: ['Politiker'],
+  method: 'get',
+  path: '/api/v1/{kommun}/politiker/{id}',
+  tags: ['Politiker'],
   summary: 'Enskild politiker med alla uppdrag',
   request: { params: z.object({ kommun: z.string(), id: z.string().uuid() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('PolitikerDetail') } }, description: 'OK' }, 404: { content: { 'application/json': { schema: z.object({ error: z.string() }) } }, description: 'Ej hittad' } },
+  responses: {
+    200: {
+      content: {
+        'application/json': { schema: z.object({}).passthrough().openapi('PolitikerDetail') },
+      },
+      description: 'OK',
+    },
+    404: {
+      content: { 'application/json': { schema: z.object({ error: z.string() }) } },
+      description: 'Ej hittad',
+    },
+  },
 })
 app.openapi(politikerDetailRoute, async (c) => {
   const { id } = c.req.valid('param')
@@ -107,7 +169,9 @@ app.openapi(politikerDetailRoute, async (c) => {
 //   3. Total ersättning = fast arvode/mån + ackumulerat förrättningsarvode.
 // Källa: Göteborgs Stads regler för arvoden och ersättningar (KS 2025-12-10 §946)
 const arvodesRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/politiker/{id}/arvode', tags: ['Politiker'],
+  method: 'get',
+  path: '/api/v1/{kommun}/politiker/{id}/arvode',
+  tags: ['Politiker'],
   summary: 'Ersättning för förtroendevald — fast arvode + förrättningsarvode',
   description: `Beräknar total ersättning baserat på:
 - Fast arvode: procent av grundarvodet (80 475 kr/mån 2026) beroende på ordförandeuppdrag
@@ -115,8 +179,14 @@ const arvodesRoute = createRoute({
 - Källa: Göteborgs Stads regler för arvoden (KS 2025-12-10 §946, Bilaga 2)`,
   request: { params: z.object({ kommun: z.string(), id: z.string().uuid() }) },
   responses: {
-    200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('Arvode') } }, description: 'OK' },
-    404: { content: { 'application/json': { schema: z.object({ error: z.string() }) } }, description: 'Ej hittad' },
+    200: {
+      content: { 'application/json': { schema: z.object({}).passthrough().openapi('Arvode') } },
+      description: 'OK',
+    },
+    404: {
+      content: { 'application/json': { schema: z.object({ error: z.string() }) } },
+      description: 'Ej hittad',
+    },
   },
 })
 app.openapi(arvodesRoute, async (c) => {
@@ -130,68 +200,112 @@ app.openapi(arvodesRoute, async (c) => {
   // Denna edge innehåller all beräknad arvodesdata (skapas vid seed)
   const arvodesEdge = await sql`
     SELECT data FROM goteborg.graf_edges 
-    WHERE from_id = ${'politiker-' + id} AND typ = 'arvoderas_enligt'
+    WHERE from_id = ${`politiker-${id}`} AND typ = 'arvoderas_enligt'
     LIMIT 1`
 
   // Grunddata som alltid returneras oavsett om fast arvode finns
-  const grundarvode = 80475  // 2026 (från PDF)
-  const förrättningPerMöte = 1640  // heldag KF
+  const grundarvode = 80475 // 2026 (från PDF)
+  const förrättningPerMöte = 1640 // heldag KF
 
   if (arvodesEdge.length === 0) {
     // Politiker utan registrerad arvodesdata (ersättare som ej deltagit i votering)
-    return c.json({
-      politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
-      grundarvode_kr: grundarvode,
-      fast_arvode_kr: 0,
-      förrättningsarvode_kr: 0,
-      antal_möten_deltog: 0,
-      total_ersättning_kr: 0,
-      källa: 'Göteborgs Stads regler för arvoden (KS 2025-12-10 §946)',
-      notering: 'Ingen registrerad närvaro vid voteringar under perioden',
-    }, 200)
+    return c.json(
+      {
+        politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
+        grundarvode_kr: grundarvode,
+        fast_arvode_kr: 0,
+        förrättningsarvode_kr: 0,
+        antal_möten_deltog: 0,
+        total_ersättning_kr: 0,
+        källa: 'Göteborgs Stads regler för arvoden (KS 2025-12-10 §946)',
+        notering: 'Ingen registrerad närvaro vid voteringar under perioden',
+      },
+      200,
+    )
   }
 
   const data = arvodesEdge[0].data as any
-  return c.json({
-    politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
-    grundarvode_kr: grundarvode,
-    fast_arvode_kr: data.fast_arvode_kr || 0,
-    förrättningsarvode_kr: data.förrättningsarvode_kr || 0,
-    antal_möten_deltog: data.antal_möten_deltog || 0,
-    total_ersättning_kr: data.total_ersättning_kr || data.fast_arvode_kr || 0,
-    detaljer: data.detaljer || [],
-    källa: 'Göteborgs Stads regler för arvoden (KS 2025-12-10 §946)',
-  }, 200)
+  return c.json(
+    {
+      politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
+      grundarvode_kr: grundarvode,
+      fast_arvode_kr: data.fast_arvode_kr || 0,
+      förrättningsarvode_kr: data.förrättningsarvode_kr || 0,
+      antal_möten_deltog: data.antal_möten_deltog || 0,
+      total_ersättning_kr: data.total_ersättning_kr || data.fast_arvode_kr || 0,
+      detaljer: data.detaljer || [],
+      källa: 'Göteborgs Stads regler för arvoden (KS 2025-12-10 §946)',
+    },
+    200,
+  )
 })
 
 // --- Möten (fixed N+1) ---
 const mötenRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/möten', tags: ['Möten'],
+  method: 'get',
+  path: '/api/v1/{kommun}/möten',
+  tags: ['Möten'],
   summary: 'Lista alla sammanträden',
-  request: { params: z.object({ kommun: z.string() }), query: z.object({ år: z.string().optional() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ kommun: z.string(), möten: z.array(z.unknown()) }) } }, description: 'OK' } },
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({ år: z.string().optional() }),
+  },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({ kommun: z.string(), möten: z.array(z.unknown()) }),
+        },
+      },
+      description: 'OK',
+    },
+  },
 })
 app.openapi(mötenRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const { år } = c.req.valid('query')
 
   // Single query — no N+1
-  const meetings = await sql`SELECT data->>'datum' as datum, label FROM goteborg.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
-  const counts = await sql`SELECT data->>'datum' as datum, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' GROUP BY data->>'datum'`
-  const countMap = Object.fromEntries(counts.map(c => [c.datum, c.antal]))
+  const meetings =
+    await sql`SELECT data->>'datum' as datum, label FROM goteborg.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
+  const counts =
+    await sql`SELECT data->>'datum' as datum, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' GROUP BY data->>'datum'`
+  const countMap = Object.fromEntries(counts.map((c) => [c.datum, c.antal]))
 
-  let möten = meetings.map(m => ({ datum: m.datum, label: m.label, antalBeslut: countMap[m.datum] || 0 }))
-  if (år) möten = möten.filter(m => m.datum?.startsWith(år))
+  let möten = meetings.map((m) => ({
+    datum: m.datum,
+    label: m.label,
+    antalBeslut: countMap[m.datum] || 0,
+  }))
+  if (år) möten = möten.filter((m) => m.datum?.startsWith(år))
 
   return c.json({ kommun, antal: möten.length, möten }, 200)
 })
 
 // --- Beslut ---
 const beslutRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/beslut', tags: ['Beslut'],
+  method: 'get',
+  path: '/api/v1/{kommun}/beslut',
+  tags: ['Beslut'],
   summary: 'Lista/sök beslut',
-  request: { params: z.object({ kommun: z.string() }), query: z.object({ datum: z.string().optional(), sök: z.string().optional(), limit: z.string().optional() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ kommun: z.string(), beslut: z.array(z.unknown()) }) } }, description: 'OK' } },
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({
+      datum: z.string().optional(),
+      sök: z.string().optional(),
+      limit: z.string().optional(),
+    }),
+  },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({ kommun: z.string(), beslut: z.array(z.unknown()) }),
+        },
+      },
+      description: 'OK',
+    },
+  },
 })
 app.openapi(beslutRoute, async (c) => {
   const { kommun } = c.req.valid('param')
@@ -199,106 +313,250 @@ app.openapi(beslutRoute, async (c) => {
   const lim = capLimit(limit)
   let rows
   if (datum) {
-    rows = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
+    rows =
+      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
   } else if (sök) {
-    rows = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${'%' + sök + '%'} ORDER BY data->>'datum' DESC LIMIT ${lim}`
+    rows =
+      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ORDER BY data->>'datum' DESC LIMIT ${lim}`
   } else {
-    rows = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' ORDER BY data->>'datum' DESC LIMIT ${lim}`
+    rows =
+      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' ORDER BY data->>'datum' DESC LIMIT ${lim}`
   }
-  return c.json({ kommun, antal: rows.length, beslut: rows.map(r => ({ id: r.id, paragraf: (r.data as any).paragrafNr ? `§ ${(r.data as any).paragrafNr}` : null, rubrik: r.label, datum: (r.data as any).datum, beslut: (r.data as any).beslut, votering: (r.data as any).votering, ärendeNr: (r.data as any).ärendeNr })) }, 200)
+  return c.json(
+    {
+      kommun,
+      antal: rows.length,
+      beslut: rows.map((r) => ({
+        id: r.id,
+        paragraf: (r.data as any).paragrafNr ? `§ ${(r.data as any).paragrafNr}` : null,
+        rubrik: r.label,
+        datum: (r.data as any).datum,
+        beslut: (r.data as any).beslut,
+        votering: (r.data as any).votering,
+        ärendeNr: (r.data as any).ärendeNr,
+      })),
+    },
+    200,
+  )
 })
 
 const beslutDetailRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/beslut/{id}', tags: ['Beslut'],
+  method: 'get',
+  path: '/api/v1/{kommun}/beslut/{id}',
+  tags: ['Beslut'],
   summary: 'Enskilt beslut med kopplingar',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ beslut: z.unknown(), kopplingar: z.array(z.unknown()) }) } }, description: 'OK' }, 404: { content: { 'application/json': { schema: z.object({ error: z.string() }) } }, description: 'Ej hittad' } },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({ beslut: z.unknown(), kopplingar: z.array(z.unknown()) }),
+        },
+      },
+      description: 'OK',
+    },
+    404: {
+      content: { 'application/json': { schema: z.object({ error: z.string() }) } },
+      description: 'Ej hittad',
+    },
+  },
 })
 app.openapi(beslutDetailRoute, async (c) => {
   const id = decodeURIComponent(c.req.valid('param').id)
   const [node] = await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${id}`
   if (!node) return c.json({ error: 'Beslut inte hittat' }, 404)
   const edges = await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ${id} OR to_id = ${id}`
-  const relatedIds = [...new Set(edges.map(e => e.from_id === id ? e.to_id : e.from_id))]
-  const related = relatedIds.length > 0 ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})` : []
-  return c.json({ beslut: { id: node.id, ...node.data, label: node.label }, kopplingar: edges.map(e => { const target = related.find(r => r.id === (e.from_id === id ? e.to_id : e.from_id)); return { typ: e.typ, riktning: e.from_id === id ? 'ut' : 'in', nod: target ? { id: target.id, typ: target.typ, label: target.label } : null } }) }, 200)
+  const relatedIds = [...new Set(edges.map((e) => (e.from_id === id ? e.to_id : e.from_id)))]
+  const related =
+    relatedIds.length > 0
+      ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})`
+      : []
+  return c.json(
+    {
+      beslut: { id: node.id, ...node.data, label: node.label },
+      kopplingar: edges.map((e) => {
+        const target = related.find((r) => r.id === (e.from_id === id ? e.to_id : e.from_id))
+        return {
+          typ: e.typ,
+          riktning: e.from_id === id ? 'ut' : 'in',
+          nod: target ? { id: target.id, typ: target.typ, label: target.label } : null,
+        }
+      }),
+    },
+    200,
+  )
 })
 
 // --- Budget ---
 const budgetRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/budget', tags: ['Budget'],
+  method: 'get',
+  path: '/api/v1/{kommun}/budget',
+  tags: ['Budget'],
   summary: 'Kommunbudget per nämnd',
   request: { params: z.object({ kommun: z.string() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ kommun: z.string(), nämnder: z.array(z.unknown()) }) } }, description: 'OK' } },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({ kommun: z.string(), nämnder: z.array(z.unknown()) }),
+        },
+      },
+      description: 'OK',
+    },
+  },
 })
 app.openapi(budgetRoute, async (c) => {
-  const rows = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'organisation' AND data ? 'kommunbidragMnkr' ORDER BY (data->>'kommunbidragMnkr')::float DESC NULLS LAST`
+  const rows =
+    await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'organisation' AND data ? 'kommunbidragMnkr' ORDER BY (data->>'kommunbidragMnkr')::float DESC NULLS LAST`
   const totalMnkr = rows.reduce((sum, r) => sum + ((r.data as any).kommunbidragMnkr || 0), 0)
-  return c.json({ kommun: c.req.valid('param').kommun, år: 2026, totalMnkr, nämnder: rows.map(r => ({ id: r.id, namn: r.label, ...(r.data as object) })) }, 200)
+  return c.json(
+    {
+      kommun: c.req.valid('param').kommun,
+      år: 2026,
+      totalMnkr,
+      nämnder: rows.map((r) => ({ id: r.id, namn: r.label, ...(r.data as object) })),
+    },
+    200,
+  )
 })
 
 // --- Graf ---
 const grafRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/graf', tags: ['Knowledge Graph'],
+  method: 'get',
+  path: '/api/v1/{kommun}/graf',
+  tags: ['Knowledge Graph'],
   summary: 'Graf översikt eller filtrering',
-  request: { params: z.object({ kommun: z.string() }), query: z.object({ datum: z.string().optional(), typ: z.string().optional() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ nodes: z.unknown(), edges: z.unknown() }) } }, description: 'OK' } },
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({ datum: z.string().optional(), typ: z.string().optional() }),
+  },
+  responses: {
+    200: {
+      content: {
+        'application/json': { schema: z.object({ nodes: z.unknown(), edges: z.unknown() }) },
+      },
+      description: 'OK',
+    },
+  },
 })
 app.openapi(grafRoute, async (c) => {
   const { datum, typ } = c.req.valid('query')
   if (datum) {
-    const nodes = await sql`SELECT * FROM goteborg.graf_nodes WHERE data->>'datum' = ${datum} OR id = ${'möte-kf-' + datum}`
-    const allIds = nodes.map(n => n.id)
-    const edges = allIds.length > 0 ? await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ANY(${allIds}) OR to_id = ANY(${allIds})` : []
-    const relatedIds = [...new Set(edges.flatMap(e => [e.from_id, e.to_id]).filter(id => !allIds.includes(id)))]
-    const relatedNodes = relatedIds.length > 0 ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})` : []
+    const nodes =
+      await sql`SELECT * FROM goteborg.graf_nodes WHERE data->>'datum' = ${datum} OR id = ${`möte-kf-${datum}`}`
+    const allIds = nodes.map((n) => n.id)
+    const edges =
+      allIds.length > 0
+        ? await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ANY(${allIds}) OR to_id = ANY(${allIds})`
+        : []
+    const relatedIds = [
+      ...new Set(edges.flatMap((e) => [e.from_id, e.to_id]).filter((id) => !allIds.includes(id))),
+    ]
+    const relatedNodes =
+      relatedIds.length > 0
+        ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})`
+        : []
     return c.json({ nodes: [...nodes, ...relatedNodes], edges }, 200)
   }
   if (typ) {
     const nodes = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = ${typ}`
     return c.json({ antal: nodes.length, nodes }, 200)
   }
-  const counts = await sql`SELECT typ, COUNT(*)::int as antal FROM goteborg.graf_nodes GROUP BY typ ORDER BY antal DESC`
+  const counts =
+    await sql`SELECT typ, COUNT(*)::int as antal FROM goteborg.graf_nodes GROUP BY typ ORDER BY antal DESC`
   const edgeCount = await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_edges`
   return c.json({ nodes: counts, edges: edgeCount[0].total }, 200)
 })
 
 const grafNodeRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/graf/node/{id}', tags: ['Knowledge Graph'],
+  method: 'get',
+  path: '/api/v1/{kommun}/graf/node/{id}',
+  tags: ['Knowledge Graph'],
   summary: 'Traversera graf — enskild nod med alla kopplingar',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ node: GraphNode, edges: z.array(GraphEdge), related: z.array(GraphNode) }) } }, description: 'OK' }, 404: { content: { 'application/json': { schema: z.object({ error: z.string() }) } }, description: 'Ej hittad' } },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({
+            node: GraphNode,
+            edges: z.array(GraphEdge),
+            related: z.array(GraphNode),
+          }),
+        },
+      },
+      description: 'OK',
+    },
+    404: {
+      content: { 'application/json': { schema: z.object({ error: z.string() }) } },
+      description: 'Ej hittad',
+    },
+  },
 })
 app.openapi(grafNodeRoute, async (c) => {
   const id = decodeURIComponent(c.req.valid('param').id)
   const [node] = await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${id}`
   if (!node) return c.json({ error: 'Node not found' }, 404)
   const edges = await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ${id} OR to_id = ${id}`
-  const relatedIds = [...new Set(edges.map(e => e.from_id === id ? e.to_id : e.from_id))]
-  const related = relatedIds.length > 0 ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})` : []
+  const relatedIds = [...new Set(edges.map((e) => (e.from_id === id ? e.to_id : e.from_id)))]
+  const related =
+    relatedIds.length > 0
+      ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})`
+      : []
   return c.json({ node, edges, related } as any, 200)
 })
 
 // --- Sök ---
 const sökRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/sök', tags: ['Sök'],
+  method: 'get',
+  path: '/api/v1/{kommun}/sök',
+  tags: ['Sök'],
   summary: 'Fritextsökning',
   request: { params: z.object({ kommun: z.string() }), query: z.object({ q: z.string() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ query: z.string(), resultat: z.array(z.unknown()) }) } }, description: 'OK' } },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({ query: z.string(), resultat: z.array(z.unknown()) }),
+        },
+      },
+      description: 'OK',
+    },
+  },
 })
 app.openapi(sökRoute, async (c) => {
   const q = c.req.valid('query').q
-  const politiker = await sql`SELECT id, fornamn || ' ' || efternamn as namn, parti, 'politiker' as typ FROM goteborg.politiker WHERE fornamn ILIKE ${'%' + q + '%'} OR efternamn ILIKE ${'%' + q + '%'} LIMIT 10`
-  const nodes = await sql`SELECT id, label, typ FROM goteborg.graf_nodes WHERE label ILIKE ${'%' + q + '%'} LIMIT 20`
+  const politiker =
+    await sql`SELECT id, fornamn || ' ' || efternamn as namn, parti, 'politiker' as typ FROM goteborg.politiker WHERE fornamn ILIKE ${`%${q}%`} OR efternamn ILIKE ${`%${q}%`} LIMIT 10`
+  const nodes =
+    await sql`SELECT id, label, typ FROM goteborg.graf_nodes WHERE label ILIKE ${`%${q}%`} LIMIT 20`
   return c.json({ query: q, resultat: [...politiker, ...nodes] }, 200)
 })
 
 // --- Stats ---
 const statsRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/stats', tags: ['Statistik'],
+  method: 'get',
+  path: '/api/v1/{kommun}/stats',
+  tags: ['Statistik'],
   summary: 'Övergripande statistik',
   request: { params: z.object({ kommun: z.string() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ kommun: z.string(), politiker: z.number(), partier: z.record(z.number()), graf: z.object({ nodes: z.number(), edges: z.number() }) }).openapi('Stats') } }, description: 'OK' } },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z
+            .object({
+              kommun: z.string(),
+              politiker: z.number(),
+              partier: z.record(z.number()),
+              graf: z.object({ nodes: z.number(), edges: z.number() }),
+            })
+            .openapi('Stats'),
+        },
+      },
+      description: 'OK',
+    },
+  },
 })
 app.openapi(statsRoute, async (c) => {
   const [pol, parties, nodeCount, edgeCount] = await Promise.all([
@@ -307,32 +565,52 @@ app.openapi(statsRoute, async (c) => {
     sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes`,
     sql`SELECT COUNT(*)::int as total FROM goteborg.graf_edges`,
   ])
-  return c.json({ kommun: c.req.valid('param').kommun, politiker: pol[0].total, partier: Object.fromEntries(parties.map(p => [p.parti, p.antal])), graf: { nodes: nodeCount[0].total, edges: edgeCount[0].total } }, 200)
+  return c.json(
+    {
+      kommun: c.req.valid('param').kommun,
+      politiker: pol[0].total,
+      partier: Object.fromEntries(parties.map((p) => [p.parti, p.antal])),
+      graf: { nodes: nodeCount[0].total, edges: edgeCount[0].total },
+    },
+    200,
+  )
 })
 
 // --- Metrics ---
 const metricsRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/metrics', tags: ['Statistik'],
+  method: 'get',
+  path: '/api/v1/{kommun}/metrics',
+  tags: ['Statistik'],
   summary: 'Demokratiska nyckeltal',
-  description: 'Automatiskt beräknade KPI:er för kommunfullmäktige: beslutskraft, konsensus, partilojalitet, aktivitet.',
+  description:
+    'Automatiskt beräknade KPI:er för kommunfullmäktige: beslutskraft, konsensus, partilojalitet, aktivitet.',
   request: { params: z.object({ kommun: z.string() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('Metrics') } }, description: 'OK' } },
+  responses: {
+    200: {
+      content: { 'application/json': { schema: z.object({}).passthrough().openapi('Metrics') } },
+      description: 'OK',
+    },
+  },
 })
 app.openapi(metricsRoute, async (c) => {
   // All metrics computed from edges — no JSONB scanning
 
   // Beslutskraft
-  const beslutTyper = await sql`SELECT data->>'beslut' as typ, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' IS NOT NULL GROUP BY data->>'beslut'`
+  const beslutTyper =
+    await sql`SELECT data->>'beslut' as typ, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' IS NOT NULL GROUP BY data->>'beslut'`
   const totalBeslut = beslutTyper.reduce((s, r) => s + r.antal, 0)
-  const bifall = beslutTyper.find(r => r.typ === 'bifall')?.antal || 0
-  const bordlagd = beslutTyper.find(r => r.typ === 'bordläggning')?.antal || 0
+  const bifall = beslutTyper.find((r) => r.typ === 'bifall')?.antal || 0
+  const bordlagd = beslutTyper.find((r) => r.typ === 'bordläggning')?.antal || 0
 
   // Bordläggningsorsaker
-  const bordOrsaker = await sql`SELECT data->>'bordläggningsorsak' as orsak, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' = 'bordläggning' AND data->>'bordläggningsorsak' IS NOT NULL GROUP BY data->>'bordläggningsorsak'`
+  const bordOrsaker =
+    await sql`SELECT data->>'bordläggningsorsak' as orsak, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' = 'bordläggning' AND data->>'bordläggningsorsak' IS NOT NULL GROUP BY data->>'bordläggningsorsak'`
 
   // Konsensus (paragraf nodes without any röstade edges = decided without vote)
-  const [{ total: totalParagrafer }] = await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'paragraf'`
-  const [{ antal: medVotering }] = await sql`SELECT COUNT(DISTINCT to_id)::int as antal FROM goteborg.graf_edges WHERE typ LIKE 'röstade_%'`
+  const [{ total: totalParagrafer }] =
+    await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'paragraf'`
+  const [{ antal: medVotering }] =
+    await sql`SELECT COUNT(DISTINCT to_id)::int as antal FROM goteborg.graf_edges WHERE typ LIKE 'röstade_%'`
   const utanVotering = totalParagrafer - medVotering
 
   // Parti-statistik from edges (SQL aggregation)
@@ -358,75 +636,187 @@ app.openapi(metricsRoute, async (c) => {
   }
 
   // Jäv och reservationer
-  const [{ antal: jävAntal }] = await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'jävsanmälan'`
-  const [{ antal: resAntal }] = await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'reserverade_sig'`
-  const [{ antal: yrkAntal }] = await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'yrkat'`
+  const [{ antal: jävAntal }] =
+    await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'jävsanmälan'`
+  const [{ antal: resAntal }] =
+    await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'reserverade_sig'`
+  const [{ antal: yrkAntal }] =
+    await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'yrkat'`
 
-  return c.json({
-    kommun: c.req.valid('param').kommun,
-    period: '2022-2026',
-    beslutskraft: {
-      totalt: totalBeslut,
-      bifall, bordläggning: bordlagd,
-      beslutskraftProcent: totalBeslut > 0 ? Math.round((bifall / totalBeslut) * 100) : 0,
-      bordläggningsorsaker: Object.fromEntries(bordOrsaker.map(r => [r.orsak, r.antal])),
+  return c.json(
+    {
+      kommun: c.req.valid('param').kommun,
+      period: '2022-2026',
+      beslutskraft: {
+        totalt: totalBeslut,
+        bifall,
+        bordläggning: bordlagd,
+        beslutskraftProcent: totalBeslut > 0 ? Math.round((bifall / totalBeslut) * 100) : 0,
+        bordläggningsorsaker: Object.fromEntries(bordOrsaker.map((r) => [r.orsak, r.antal])),
+      },
+      konsensus: {
+        totaltÄrenden: totalParagrafer,
+        utanVotering,
+        medVotering,
+        konsensusgradProcent:
+          totalParagrafer > 0 ? Math.round((utanVotering / totalParagrafer) * 100) : 0,
+      },
+      aktivitet: { jävsanmälningar: jävAntal, reservationer: resAntal, yrkanden: yrkAntal },
+      partilojalitet: Object.fromEntries(
+        Object.entries(partier).map(([parti, d]) => [
+          parti,
+          { ...d, jaProcent: d.total > 0 ? Math.round((d.ja / d.total) * 100) : 0 },
+        ]),
+      ),
     },
-    konsensus: {
-      totaltÄrenden: totalParagrafer,
-      utanVotering, medVotering,
-      konsensusgradProcent: totalParagrafer > 0 ? Math.round((utanVotering / totalParagrafer) * 100) : 0,
-    },
-    aktivitet: { jävsanmälningar: jävAntal, reservationer: resAntal, yrkanden: yrkAntal },
-    partilojalitet: Object.fromEntries(
-      Object.entries(partier).map(([parti, d]) => [parti, { ...d, jaProcent: d.total > 0 ? Math.round((d.ja / d.total) * 100) : 0 }])
-    ),
-  }, 200)
+    200,
+  )
 })
 
 // --- Dokument (full-text parsed documents for AI/research) ---
 const dokumentListRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/dokument', tags: ['Dokument'],
+  method: 'get',
+  path: '/api/v1/{kommun}/dokument',
+  tags: ['Dokument'],
   summary: 'Lista alla dokument med metadata',
-  request: { params: z.object({ kommun: z.string() }), query: z.object({ typ: z.string().optional() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ antal: z.number(), dokument: z.array(z.object({ id: z.string(), titel: z.string(), typ: z.string(), nämnd: z.string(), datum: z.string(), källa: z.string(), graf_nod: z.string().nullable(), chars: z.number() })) }) } }, description: 'OK' } },
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({ typ: z.string().optional() }),
+  },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({
+            antal: z.number(),
+            dokument: z.array(
+              z.object({
+                id: z.string(),
+                titel: z.string(),
+                typ: z.string(),
+                nämnd: z.string(),
+                datum: z.string(),
+                källa: z.string(),
+                graf_nod: z.string().nullable(),
+                chars: z.number(),
+              }),
+            ),
+          }),
+        },
+      },
+      description: 'OK',
+    },
+  },
 })
 app.openapi(dokumentListRoute, async (c) => {
   const { typ } = c.req.valid('query')
   const docs = typ
     ? await sql`SELECT id, titel, typ, namnd, datum, kalla, graf_nod, LENGTH(innehall)::int as chars FROM goteborg.dokument WHERE typ = ${typ} ORDER BY datum DESC`
     : await sql`SELECT id, titel, typ, namnd, datum, kalla, graf_nod, LENGTH(innehall)::int as chars FROM goteborg.dokument ORDER BY datum DESC`
-  return c.json({ antal: docs.length, dokument: docs.map(d => ({ id: d.id, titel: d.titel, typ: d.typ, nämnd: d.namnd, datum: d.datum, källa: d.kalla, graf_nod: d.graf_nod, chars: d.chars })) }, 200)
+  return c.json(
+    {
+      antal: docs.length,
+      dokument: docs.map((d) => ({
+        id: d.id,
+        titel: d.titel,
+        typ: d.typ,
+        nämnd: d.namnd,
+        datum: d.datum,
+        källa: d.kalla,
+        graf_nod: d.graf_nod,
+        chars: d.chars,
+      })),
+    },
+    200,
+  )
 })
 
 const dokumentDetailRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/dokument/{id}', tags: ['Dokument'],
+  method: 'get',
+  path: '/api/v1/{kommun}/dokument/{id}',
+  tags: ['Dokument'],
   summary: 'Hämta dokument med full text',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ id: z.string(), titel: z.string(), typ: z.string(), nämnd: z.string(), datum: z.string(), källa: z.string(), graf_nod: z.string().nullable(), innehåll: z.string() }) } }, description: 'OK' }, 404: { content: { 'application/json': { schema: z.object({ error: z.string() }) } }, description: 'Ej hittad' } },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({
+            id: z.string(),
+            titel: z.string(),
+            typ: z.string(),
+            nämnd: z.string(),
+            datum: z.string(),
+            källa: z.string(),
+            graf_nod: z.string().nullable(),
+            innehåll: z.string(),
+          }),
+        },
+      },
+      description: 'OK',
+    },
+    404: {
+      content: { 'application/json': { schema: z.object({ error: z.string() }) } },
+      description: 'Ej hittad',
+    },
+  },
 })
 app.openapi(dokumentDetailRoute, async (c) => {
   const id = c.req.valid('param').id
   const [doc] = await sql`SELECT * FROM goteborg.dokument WHERE id = ${id}`
   if (!doc) return c.json({ error: 'Dokument ej hittat' }, 404)
-  return c.json({ id: doc.id, titel: doc.titel, typ: doc.typ, nämnd: doc.namnd, datum: doc.datum, källa: doc.kalla, graf_nod: doc.graf_nod, innehåll: doc.innehall } as any, 200)
+  return c.json(
+    {
+      id: doc.id,
+      titel: doc.titel,
+      typ: doc.typ,
+      nämnd: doc.namnd,
+      datum: doc.datum,
+      källa: doc.kalla,
+      graf_nod: doc.graf_nod,
+      innehåll: doc.innehall,
+    } as any,
+    200,
+  )
 })
 
 const dokumentSökRoute = createRoute({
-  method: 'get', path: '/api/v1/{kommun}/dokument/sök', tags: ['Dokument'],
+  method: 'get',
+  path: '/api/v1/{kommun}/dokument/sök',
+  tags: ['Dokument'],
   summary: 'Sök i dokumentinnehåll (fulltext)',
   request: { params: z.object({ kommun: z.string() }), query: z.object({ q: z.string() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({ query: z.string(), resultat: z.array(z.unknown()) }) } }, description: 'OK' } },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({ query: z.string(), resultat: z.array(z.unknown()) }),
+        },
+      },
+      description: 'OK',
+    },
+  },
 })
 app.openapi(dokumentSökRoute, async (c) => {
   const q = c.req.valid('query').q
-  const results = await sql`SELECT id, titel, typ, datum, ts_headline('swedish', innehall, plainto_tsquery('swedish', ${q}), 'MaxWords=60,MinWords=20') as utdrag FROM goteborg.dokument WHERE to_tsvector('swedish', innehall) @@ plainto_tsquery('swedish', ${q})`
+  const results =
+    await sql`SELECT id, titel, typ, datum, ts_headline('swedish', innehall, plainto_tsquery('swedish', ${q}), 'MaxWords=60,MinWords=20') as utdrag FROM goteborg.dokument WHERE to_tsvector('swedish', innehall) @@ plainto_tsquery('swedish', ${q})`
   return c.json({ query: q, resultat: results }, 200)
 })
 
 // --- OpenAPI + Swagger ---
 app.doc('/openapi.json', {
   openapi: '3.1.0',
-  info: { title: 'De Arbetar För Dig — API', version: '0.2.0', description: 'Öppen demokrati-API. Knowledge graph med politiker, beslut, budget och lagar.', license: { name: 'AGPL-3.0', url: 'https://www.gnu.org/licenses/agpl-3.0.html' }, contact: { name: 'DeArbetarForDig', url: 'https://github.com/DeArbetarForDig/dearbetarfordig.se' } },
+  info: {
+    title: 'De Arbetar För Dig — API',
+    version: '0.2.0',
+    description: 'Öppen demokrati-API. Knowledge graph med politiker, beslut, budget och lagar.',
+    license: { name: 'AGPL-3.0', url: 'https://www.gnu.org/licenses/agpl-3.0.html' },
+    contact: {
+      name: 'DeArbetarForDig',
+      url: 'https://github.com/DeArbetarForDig/dearbetarfordig.se',
+    },
+  },
   servers: [{ url: 'http://localhost:3000', description: 'Local' }],
 })
 app.get('/docs', swaggerUI({ url: '/openapi.json' }))

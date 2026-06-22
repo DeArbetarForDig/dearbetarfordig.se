@@ -45,7 +45,7 @@ function parseBudgetTable(text: string): Array<{ namn: string; belopp: number }>
 
     const namn = match[1].trim()
     const beloppStr = match[2].replace(/\s/g, '')
-    const beloppTkr = parseInt(beloppStr)
+    const beloppTkr = Number.parseInt(beloppStr)
 
     if (!beloppTkr || beloppTkr < 1000) continue // Skip tiny/invalid
 
@@ -53,8 +53,17 @@ function parseBudgetTable(text: string): Array<{ namn: string; belopp: number }>
     const beloppMnkr = Math.round(beloppTkr / 1000)
 
     // Only include known nämnd-like names (exclude summa/total rows and table headers)
-    if (namn.match(/^(Summa|Totalt|Kommunalskatt|Exploateringsvo|Exploateringsinkomst|Exploateringarnetto|Kommuncentrala|Kommunbidrag nämnder|Finansiering via)/i)) continue
-    if (namn.match(/nämnden|Förskole|Grundskole|Social|Stadsmiljö|Kommun|Kultur|Utbildnings|Valnämnd|Äldre|Exploaterings(?!vo)|Stadsbygg|Stadsfastig|Intraservice|Inköps|Idrotts|Kretslopp|Arkiv|Business|Göteborg|Överförmyndar/i)) {
+    if (
+      namn.match(
+        /^(Summa|Totalt|Kommunalskatt|Exploateringsvo|Exploateringsinkomst|Exploateringarnetto|Kommuncentrala|Kommunbidrag nämnder|Finansiering via)/i,
+      )
+    )
+      continue
+    if (
+      namn.match(
+        /nämnden|Förskole|Grundskole|Social|Stadsmiljö|Kommun|Kultur|Utbildnings|Valnämnd|Äldre|Exploaterings(?!vo)|Stadsbygg|Stadsfastig|Intraservice|Inköps|Idrotts|Kretslopp|Arkiv|Business|Göteborg|Överförmyndar/i,
+      )
+    ) {
       results.push({ namn, belopp: beloppMnkr })
     }
   }
@@ -65,7 +74,8 @@ function parseBudgetTable(text: string): Array<{ namn: string; belopp: number }>
 // Find and extract uppdrag from budget text
 function parseUppdrag(text: string): Array<{ nämnd: string; uppdrag: string }> {
   const results: Array<{ nämnd: string; uppdrag: string }> = []
-  const re = /(?:»\s*)([\wäöåÅÄÖ\s,-]+?(?:nämnden|nämnderna|styrelsen|AB))\s+(?:får i uppdrag att|ska)\s+([^»\n]{20,200})/g
+  const re =
+    /(?:»\s*)([\wäöåÅÄÖ\s,-]+?(?:nämnden|nämnderna|styrelsen|AB))\s+(?:får i uppdrag att|ska)\s+([^»\n]{20,200})/g
   let match
   while ((match = re.exec(text)) !== null) {
     results.push({ nämnd: match[1].trim(), uppdrag: match[2].trim() })
@@ -73,7 +83,11 @@ function parseUppdrag(text: string): Array<{ nämnd: string; uppdrag: string }> 
   return results
 }
 
-function buildGraph(nämnder: Array<{ namn: string; belopp: number }>, år: string, styre: string): { nodes: GraphNode[]; edges: GraphEdge[] } {
+function buildGraph(
+  nämnder: Array<{ namn: string; belopp: number }>,
+  år: string,
+  styre: string,
+): { nodes: GraphNode[]; edges: GraphEdge[] } {
   const nodes: GraphNode[] = []
   const edges: GraphEdge[] = []
 
@@ -84,12 +98,15 @@ function buildGraph(nämnder: Array<{ namn: string; belopp: number }>, år: stri
     id: `budget-${år}`,
     typ: 'budget',
     label: `Göteborgs Stad Kommunbudget ${år}`,
-    data: { år: parseInt(år), totalMnkr, styre, källa: 'PDF' },
+    data: { år: Number.parseInt(år), totalMnkr, styre, källa: 'PDF' },
   })
 
   // Nämnder
   for (const n of nämnder) {
-    const id = `nämnd-${n.namn.toLowerCase().replace(/[^a-zåäö0-9]+/g, '-').replace(/-+$/, '')}`
+    const id = `nämnd-${n.namn
+      .toLowerCase()
+      .replace(/[^a-zåäö0-9]+/g, '-')
+      .replace(/-+$/, '')}`
     const andel = Math.round((n.belopp / totalMnkr) * 1000) / 10
 
     nodes.push({
@@ -137,11 +154,14 @@ async function main() {
       }
       if (budgetUrl) break
     }
-    if (!budgetUrl) { console.error('Hittade ingen budget-PDF i handlingar'); process.exit(1) }
+    if (!budgetUrl) {
+      console.error('Hittade ingen budget-PDF i handlingar')
+      process.exit(1)
+    }
 
     pdfPath = join(TMP_DIR, `budget-${år}.pdf`)
     if (!existsSync(pdfPath)) {
-      console.log(`⬇️  Laddar ner budget-PDF...`)
+      console.log('⬇️  Laddar ner budget-PDF...')
       execSync(`curl -sL -H 'User-Agent: Mozilla/5.0' "${budgetUrl}" -o "${pdfPath}"`)
     }
   } else if (pdfUrlOrPath.startsWith('http')) {
@@ -157,7 +177,10 @@ async function main() {
   console.log(`💰 Parsear budget ${år} (${styre})...\n`)
 
   // Extract text with layout preservation (important for tables)
-  const text = execSync(`pdftotext -layout "${pdfPath}" -`, { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 })
+  const text = execSync(`pdftotext -layout "${pdfPath}" -`, {
+    encoding: 'utf-8',
+    maxBuffer: 50 * 1024 * 1024,
+  })
   console.log(`   ${text.split('\n').length} rader text`)
 
   // Parse budget table

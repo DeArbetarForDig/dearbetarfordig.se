@@ -1,0 +1,20 @@
+---
+interface Props {
+  name: string
+  size?: number
+  class?: string
+}
+
+const { name, size = 20, class: className } = Astro.props
+const icons = await import('lucide-static')
+// lucide-static exports PascalCase names (e.g., 'ArrowRight', 'MapPin')
+const key = name
+  .split('-')
+  .map((s) => s[0].toUpperCase() + s.slice(1))
+  .join('')
+const svg = ((icons as any)[key] || '') as string
+const sized = svg
+  .replace(/width="24"/, `width="${size}"`)
+  .replace(/height="24"/, `height="${size}"`)
+---
+<span class:list={['inline-flex items-center justify-center shrink-0', className]} set:html={sized} />

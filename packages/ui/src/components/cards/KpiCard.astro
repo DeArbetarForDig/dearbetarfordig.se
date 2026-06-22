@@ -1,0 +1,22 @@
+---
+interface Props {
+  value: string
+  label: string
+  unit?: string
+  trend?: 'up' | 'down'
+  trendValue?: string
+  class?: string
+}
+
+const { value, label, unit, trend, trendValue, class: className } = Astro.props
+const trendColor =
+  trend === 'up' ? 'var(--color-positive)' : trend === 'down' ? 'var(--color-negative)' : ''
+const trendIcon = trend === 'up' ? '↑' : trend === 'down' ? '↓' : ''
+---
+<div class:list={['bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-4 shadow-[--shadow-sm]', className]}>
+  <div class="font-mono text-[2.5rem] font-bold leading-none tracking-tight text-(--color-text)">
+    {value}{unit && <span class="text-[0.45em] text-(--color-text-muted) ml-1">{unit}</span>}
+  </div>
+  <div class="text-sm text-(--color-text-muted) mt-2">{label}</div>
+  {trend && <div class="text-xs font-semibold mt-1" style={`color:${trendColor}`}>{trendIcon} {trendValue}</div>}
+</div>

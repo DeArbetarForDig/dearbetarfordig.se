@@ -7,9 +7,10 @@
 
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { chromium, type Page } from 'playwright'
+import { type Page, chromium } from 'playwright'
 
-const START_URL = 'https://goteborg.se/wps/portal/start/kommun-och-politik/handlingar-och-protokoll/namndhandlingar/valj-namnd-och-ar'
+const START_URL =
+  'https://goteborg.se/wps/portal/start/kommun-och-politik/handlingar-och-protokoll/namndhandlingar/valj-namnd-och-ar'
 const OUTPUT_DIR = join(import.meta.dirname, '../../../../data/beslut')
 
 interface Handling {
@@ -27,7 +28,8 @@ function classifyDoc(titel: string): Handling['typ'] {
   const t = titel.toLowerCase()
   if (t.includes('protokoll')) return 'protokoll'
   if (t.includes('kallelse') || t.includes('dagordning')) return 'kallelse'
-  if (t.includes('bilaga') || t.includes('tjänsteutlåtande') || t.includes('yttrande')) return 'bilaga'
+  if (t.includes('bilaga') || t.includes('tjänsteutlåtande') || t.includes('yttrande'))
+    return 'bilaga'
   return 'övrigt'
 }
 
@@ -38,7 +40,10 @@ async function submitForm(page: Page, year: string) {
     for (const sel of selects) {
       if (sel.name === 'snNamnd' || sel.id === 'snNamnd') {
         for (const opt of sel.options) {
-          if (opt.text === 'Kommunfullmäktige') { sel.value = opt.value; break }
+          if (opt.text === 'Kommunfullmäktige') {
+            sel.value = opt.value
+            break
+          }
         }
         sel.dispatchEvent(new Event('change', { bubbles: true }))
       }
@@ -50,7 +55,9 @@ async function submitForm(page: Page, year: string) {
   }, year)
   await Promise.all([
     page.waitForNavigation({ waitUntil: 'networkidle', timeout: 20_000 }),
-    page.evaluate(() => { (document.querySelector('form.c-form') as HTMLFormElement)?.submit() }),
+    page.evaluate(() => {
+      ;(document.querySelector('form.c-form') as HTMLFormElement)?.submit()
+    }),
   ])
 }
 
@@ -65,7 +72,9 @@ async function main() {
     // First pass: get list of meeting dates
     await submitForm(page, year)
     const pageText = await page.evaluate(() => document.body.innerText)
-    const meetingDates = [...pageText.matchAll(/Sammanträde\s+(\d{4}-\d{2}-\d{2})/g)].map(m => m[1])
+    const meetingDates = [...pageText.matchAll(/Sammanträde\s+(\d{4}-\d{2}-\d{2})/g)].map(
+      (m) => m[1],
+    )
     console.log(`   ${meetingDates.length} sammanträden\n`)
 
     const sammanträden: Sammanträde[] = []
@@ -81,21 +90,25 @@ async function main() {
           const els = document.querySelectorAll('a, button, [role="button"]')
           for (const el of els) {
             if (el.textContent?.includes(`Sammanträde ${d}`)) {
-              (el as HTMLElement).click()
+              ;(el as HTMLElement).click()
               return true
             }
           }
           return false
         }, datum)
 
-        if (!clicked) { console.log(' ✗ not found'); sammanträden.push({ datum, handlingar: [] }); continue }
+        if (!clicked) {
+          console.log(' ✗ not found')
+          sammanträden.push({ datum, handlingar: [] })
+          continue
+        }
 
         await page.waitForTimeout(2000)
 
         // Grab PDFs from expanded content or new page
         const docs = await page.evaluate(() => {
           const results: Array<{ titel: string; url: string }> = []
-          document.querySelectorAll('a[href*=".pdf"]').forEach(a => {
+          document.querySelectorAll('a[href*=".pdf"]').forEach((a) => {
             const href = (a as HTMLAnchorElement).href
             const titel = a.textContent?.trim() || ''
             if (titel && href) results.push({ titel, url: href })
@@ -103,10 +116,13 @@ async function main() {
           return results
         })
 
-        sammanträden.push({ datum, handlingar: docs.map(d => ({ ...d, typ: classifyDoc(d.titel) })) })
+        sammanträden.push({
+          datum,
+          handlingar: docs.map((d) => ({ ...d, typ: classifyDoc(d.titel) })),
+        })
         console.log(` ✓ ${docs.length} dok`)
       } catch (err) {
-        console.log(` ✗ error`)
+        console.log(' ✗ error')
         sammanträden.push({ datum, handlingar: [] })
       }
     }

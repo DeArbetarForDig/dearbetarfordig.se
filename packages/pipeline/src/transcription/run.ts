@@ -13,7 +13,15 @@
  */
 
 import { execSync } from 'node:child_process'
-import { existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, rmSync, writeFileSync } from 'node:fs'
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  rmSync,
+  unlinkSync,
+  writeFileSync,
+} from 'node:fs'
 import { join } from 'node:path'
 
 const OUTPUT_DIR = join(import.meta.dirname, '../../../../data/debatter')
@@ -51,7 +59,10 @@ function timeToSeconds(ts: string): number {
 
 // Parse yttrandeprotokoll PDF → list of speakers with timestamps
 function parseYttrandeprotokoll(pdfPath: string): Anförande[] {
-  const text = execSync(`pdftotext "${pdfPath}" -`, { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 })
+  const text = execSync(`pdftotext "${pdfPath}" -`, {
+    encoding: 'utf-8',
+    maxBuffer: 50 * 1024 * 1024,
+  })
   const anföranden: Anförande[] = []
 
   // Pattern: "Namn (Parti)" + time range, grouped under § headers
@@ -64,7 +75,9 @@ function parseYttrandeprotokoll(pdfPath: string): Anförande[] {
     if (ärendeMatch) currentÄrende = `§${ärendeMatch[1]}`
 
     // Detect speaker: "Namn Efternamn (X)   HH:MM - HH:MM" or "HH:MM:SS - HH:MM:SS"
-    const speakerMatch = line.match(/^(.+?)\s*\((\w+)\)\s+(\d{1,2}[:.]\d{2}(?:[:.]\d{2})?)\s*[-–]\s*(\d{1,2}[:.]\d{2}(?:[:.]\d{2})?)/)
+    const speakerMatch = line.match(
+      /^(.+?)\s*\((\w+)\)\s+(\d{1,2}[:.]\d{2}(?:[:.]\d{2})?)\s*[-–]\s*(\d{1,2}[:.]\d{2}(?:[:.]\d{2})?)/,
+    )
     if (speakerMatch) {
       const [, talare, parti, startStr, slutStr] = speakerMatch
       const start = timeToSeconds(startStr.replace(/\./g, ':'))
@@ -79,22 +92,34 @@ function parseYttrandeprotokoll(pdfPath: string): Anförande[] {
 }
 
 function downloadAudio(url: string, outPath: string): void {
-  console.log(`⬇️  Laddar ner audio...`)
+  console.log('⬇️  Laddar ner audio...')
   execSync(
     `yt-dlp --cookies-from-browser chrome --extract-audio --audio-format wav --postprocessor-args "-ar 16000 -ac 1" -o "${outPath}" "${url}"`,
     { stdio: 'inherit', timeout: 1800_000 },
   )
 }
 
-function cutAudioSegment(inputPath: string, outPath: string, startSec: number, durationSec: number): void {
-  execSync(`ffmpeg -y -ss ${startSec} -t ${durationSec} -i "${inputPath}" -c copy "${outPath}"`, { stdio: 'pipe' })
+function cutAudioSegment(
+  inputPath: string,
+  outPath: string,
+  startSec: number,
+  durationSec: number,
+): void {
+  execSync(`ffmpeg -y -ss ${startSec} -t ${durationSec} -i "${inputPath}" -c copy "${outPath}"`, {
+    stdio: 'pipe',
+  })
 }
 
 function transcribeChunk(chunkPath: string): Array<{ start: number; end: number; text: string }> {
   const outBase = chunkPath.replace('.wav', '')
   try {
-    execSync(`whisper-cli -m "${MODEL}" -l sv -f "${chunkPath}" -oj --output-file "${outBase}"`, { stdio: 'pipe', timeout: 300_000 })
-  } catch { return [] }
+    execSync(`whisper-cli -m "${MODEL}" -l sv -f "${chunkPath}" -oj --output-file "${outBase}"`, {
+      stdio: 'pipe',
+      timeout: 300_000,
+    })
+  } catch {
+    return []
+  }
 
   const jsonPath = `${outBase}.json`
   if (!existsSync(jsonPath)) return []
@@ -103,15 +128,21 @@ function transcribeChunk(chunkPath: string): Array<{ start: number; end: number;
   const segments = raw.transcription || []
   unlinkSync(jsonPath)
 
-  return segments.map((s: any) => {
-    const from = s.timestamps?.from || '00:00:00,000'
-    const to = s.timestamps?.to || '00:00:00,000'
-    const parseTs = (ts: string) => {
-      const parts = ts.replace(',', '.').split(':')
-      return parseFloat(parts[0]) * 3600 + parseFloat(parts[1]) * 60 + parseFloat(parts[2])
-    }
-    return { start: parseTs(from), end: parseTs(to), text: (s.text || '').trim() }
-  }).filter((s: any) => s.text.length > 0)
+  return segments
+    .map((s: any) => {
+      const from = s.timestamps?.from || '00:00:00,000'
+      const to = s.timestamps?.to || '00:00:00,000'
+      const parseTs = (ts: string) => {
+        const parts = ts.replace(',', '.').split(':')
+        return (
+          Number.parseFloat(parts[0]) * 3600 +
+          Number.parseFloat(parts[1]) * 60 +
+          Number.parseFloat(parts[2])
+        )
+      }
+      return { start: parseTs(from), end: parseTs(to), text: (s.text || '').trim() }
+    })
+    .filter((s: any) => s.text.length > 0)
 }
 
 async function main() {
@@ -120,12 +151,16 @@ async function main() {
   const yttrandePdf = process.argv[4] // optional: path to yttrandeprotokoll PDF
 
   if (!url) {
-    console.error('Usage: npx tsx src/transcription/run.ts <youtube-url> [datum] [yttrandeprotokoll.pdf]')
+    console.error(
+      'Usage: npx tsx src/transcription/run.ts <youtube-url> [datum] [yttrandeprotokoll.pdf]',
+    )
     process.exit(1)
   }
 
   if (!existsSync(MODEL)) {
-    console.error(`Model saknas: ${MODEL}\nKör: curl -sL https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin -o .tmp/ggml-small.bin`)
+    console.error(
+      `Model saknas: ${MODEL}\nKör: curl -sL https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin -o .tmp/ggml-small.bin`,
+    )
     process.exit(1)
   }
 
@@ -140,7 +175,7 @@ async function main() {
   // Step 1: Parse yttrandeprotokoll if available
   let anföranden: Anförande[] = []
   if (yttrandePdf && existsSync(yttrandePdf)) {
-    console.log(`📋 Parsear yttrandeprotokoll...`)
+    console.log('📋 Parsear yttrandeprotokoll...')
     anföranden = parseYttrandeprotokoll(yttrandePdf)
     console.log(`   ${anföranden.length} anföranden hittade\n`)
   }
@@ -160,7 +195,9 @@ async function main() {
     for (let i = 0; i < anföranden.length; i++) {
       const a = anföranden[i]
       const duration = a.slut - a.start
-      process.stdout.write(`   [${i + 1}/${anföranden.length}] ${a.talare} (${a.parti}) ${a.ärende}...`)
+      process.stdout.write(
+        `   [${i + 1}/${anföranden.length}] ${a.talare} (${a.parti}) ${a.ärende}...`,
+      )
 
       // Split long speeches into sub-chunks
       const subChunks: Array<{ offset: number; path: string }> = []
@@ -185,15 +222,20 @@ async function main() {
         unlinkSync(path)
       }
 
-      const fullText = allSegments.map(s => s.text).join(' ')
+      const fullText = allSegments.map((s) => s.text).join(' ')
       results.push({ ...a, text: fullText, segments: allSegments })
       console.log(` ${allSegments.length} seg (${Math.round(duration)}s)`)
     }
   } else {
     // Fallback: naive 30s chunks
     console.log(`⚠️  Inget yttrandeprotokoll — använder ${FALLBACK_CHUNK_SECONDS}s-chunks\n`)
-    execSync(`ffmpeg -y -i "${audioPath}" -f segment -segment_time ${FALLBACK_CHUNK_SECONDS} -c copy "${chunksDir}/chunk_%04d.wav"`, { stdio: 'pipe' })
-    const chunkFiles = readdirSync(chunksDir).filter(f => f.endsWith('.wav')).sort()
+    execSync(
+      `ffmpeg -y -i "${audioPath}" -f segment -segment_time ${FALLBACK_CHUNK_SECONDS} -c copy "${chunksDir}/chunk_%04d.wav"`,
+      { stdio: 'pipe' },
+    )
+    const chunkFiles = readdirSync(chunksDir)
+      .filter((f) => f.endsWith('.wav'))
+      .sort()
 
     for (let i = 0; i < chunkFiles.length; i++) {
       const chunkPath = join(chunksDir, chunkFiles[i])
@@ -201,10 +243,17 @@ async function main() {
       const segs = transcribeChunk(chunkPath)
       if (segs.length > 0) {
         results.push({
-          talare: 'okänd', parti: '', ärende: '',
-          start: offsetSeconds, slut: offsetSeconds + FALLBACK_CHUNK_SECONDS,
-          text: segs.map(s => s.text).join(' '),
-          segments: segs.map(s => ({ start: formatTime(s.start + offsetSeconds), end: formatTime(s.end + offsetSeconds), text: s.text })),
+          talare: 'okänd',
+          parti: '',
+          ärende: '',
+          start: offsetSeconds,
+          slut: offsetSeconds + FALLBACK_CHUNK_SECONDS,
+          text: segs.map((s) => s.text).join(' '),
+          segments: segs.map((s) => ({
+            start: formatTime(s.start + offsetSeconds),
+            end: formatTime(s.end + offsetSeconds),
+            text: s.text,
+          })),
         })
       }
       unlinkSync(chunkPath)
@@ -232,7 +281,7 @@ async function main() {
   // Step 5: Cleanup
   unlinkSync(audioPath)
   rmSync(chunksDir, { recursive: true, force: true })
-  console.log(`🗑️  Audio raderat`)
+  console.log('🗑️  Audio raderat')
 }
 
 main().catch(console.error)

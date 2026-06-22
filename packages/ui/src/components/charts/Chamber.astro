@@ -1,0 +1,149 @@
+---
+interface Seat {
+  nummer: number
+  politikerId: string
+  namn: string
+  parti: string
+}
+
+interface Vote {
+  politikerId: string
+  rost: 'ja' | 'nej' | 'avstar' | 'franvarande'
+}
+
+interface Props {
+  seats: Seat[]
+  mode?: 'overview' | 'vote'
+  votes?: Vote[]
+  class?: string
+}
+
+const { seats = [], mode = 'overview', votes = [], class: className } = Astro.props
+
+const SEAT_POS: [number, number, number][] = [
+  [1, 600, 0],
+  [2, 520, 20],
+  [3, 450, 20],
+  [4, 380, 20],
+  [5, 390, 190],
+  [6, 460, 230],
+  [7, 530, 260],
+  [8, 670, 260],
+  [9, 740, 230],
+  [10, 810, 190],
+  [11, 160, 90],
+  [12, 190, 140],
+  [13, 230, 190],
+  [14, 270, 240],
+  [15, 320, 290],
+  [16, 390, 320],
+  [17, 460, 340],
+  [18, 530, 360],
+  [19, 670, 360],
+  [20, 740, 340],
+  [21, 810, 320],
+  [22, 880, 290],
+  [23, 930, 240],
+  [24, 970, 190],
+  [25, 1010, 140],
+  [26, 20, 80],
+  [27, 40, 130],
+  [28, 70, 180],
+  [29, 100, 230],
+  [30, 140, 280],
+  [31, 190, 330],
+  [32, 250, 380],
+  [33, 320, 400],
+  [34, 390, 430],
+  [35, 460, 450],
+  [36, 530, 460],
+  [37, 670, 460],
+  [38, 740, 450],
+  [39, 810, 430],
+  [40, 880, 400],
+  [41, 950, 380],
+  [42, 1010, 330],
+  [43, 1060, 280],
+  [44, 1100, 230],
+  [45, 1130, 180],
+  [46, 1160, 130],
+  [47, 20, 310],
+  [48, 50, 360],
+  [49, 110, 410],
+  [50, 180, 450],
+  [51, 250, 480],
+  [52, 320, 510],
+  [53, 390, 530],
+  [54, 460, 550],
+  [55, 530, 560],
+  [56, 670, 560],
+  [57, 740, 550],
+  [58, 810, 530],
+  [59, 880, 510],
+  [60, 950, 480],
+  [61, 1020, 450],
+  [62, 1090, 410],
+  [63, 1150, 360],
+  [64, 1180, 310],
+  [65, 0, 460],
+  [66, 40, 510],
+  [67, 110, 550],
+  [68, 180, 580],
+  [69, 250, 600],
+  [70, 320, 620],
+  [71, 390, 640],
+  [72, 460, 650],
+  [73, 530, 660],
+  [74, 670, 660],
+  [75, 740, 650],
+  [76, 810, 640],
+  [77, 880, 620],
+  [78, 950, 600],
+  [79, 1020, 580],
+  [80, 1090, 550],
+  [81, 1160, 510],
+]
+
+const VOTE_FILL: Record<string, string> = {
+  ja: 'var(--vote-ja)',
+  nej: 'var(--vote-nej)',
+  avstar: 'var(--vote-avstar)',
+  franvarande: 'var(--vote-franvarande)',
+}
+
+function partiVar(parti: string): string {
+  return `var(--parti-${parti.toLowerCase()}, var(--parti-ovriga))`
+}
+
+const voteMap = new Map(votes.map((v) => [v.politikerId, v.rost]))
+const seatMap = new Map(seats.map((s) => [s.nummer, s]))
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="-10 -8 1290 718"
+  role="img"
+  aria-label={`G\u00f6teborgs kommunfullm\u00e4ktige \u2014 ${seats.length} ledam\u00f6ter`}
+  class:list={['w-full h-auto block', className]}
+>
+  <defs>
+    <clipPath id="daf-seat-clip"><rect x="0" y="0" width="60" height="40" rx="8" /></clipPath>
+  </defs>
+  {SEAT_POS.map(([num, x, y]) => {
+    const seat = seatMap.get(num)
+    if (!seat) return null
+    const rost = voteMap.get(seat.politikerId)
+    const cardFill = mode === 'vote' && rost ? (VOTE_FILL[rost] || 'var(--vote-franvarande)') : partiVar(seat.parti)
+    return (
+      <g class="daf-seat" transform={`translate(${x} ${y})`}>
+        <title>{`${num}. ${seat.namn} (${seat.parti})${rost ? ` \u2014 ${rost}` : ''}`}</title>
+        <g clip-path="url(#daf-seat-clip)">
+          <rect x="0" y="0" width="60" height="40" fill={cardFill} />
+          <text x="12" y="17" font-size="13" font-weight="600" fill="#fff" text-anchor="middle" font-family="var(--font-mono)">{num}</text>
+          <circle cx="40" cy="20" r="17" fill={partiVar(seat.parti)} />
+          <text x="40" y="21" font-size="14" font-weight="700" fill="#fff" text-anchor="middle" dominant-baseline="middle" font-family="var(--font-sans)">{seat.parti}</text>
+        </g>
+      </g>
+    )
+  })}
+  <style>.daf-seat{transition:opacity .12s}.daf-seat:hover{cursor:pointer}.daf-seat:hover circle{stroke:var(--color-text);stroke-width:2}</style>
+</svg>

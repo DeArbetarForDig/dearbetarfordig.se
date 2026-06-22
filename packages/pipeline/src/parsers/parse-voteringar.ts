@@ -1,30 +1,40 @@
 /**
  * parse-voteringar.ts — Dedicated parser for voteringsbilagor (individual votes).
- * 
+ *
  * Extracts individual votes (namn + parti + ja/nej/avstår) from KF protocol appendices.
  * Supports both 2023 and 2025+ formats (same column layout).
- * 
+ *
  * Input: KF protocol PDF with voteringsbilagor (Bilaga 2, 3, etc.)
  * Output: Updates data/graf/politiker-komplett.json with röstade_ja/nej/avstår edges
- * 
+ *
  * Usage: npx tsx parse-voteringar.ts [path-to-pdf] [datum]
  *        npx tsx parse-voteringar.ts --all  (parse all .tmp/kf-protokoll-*.pdf)
  */
 
-import { execSync } from 'child_process'
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs'
-import { join } from 'path'
+import { execSync } from 'node:child_process'
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../data')
 const KOMPLETT_PATH = join(DATA_DIR, 'graf/politiker-komplett.json')
 
 // Column-based vote line: "Aslan Akbas                  S               1    Ordförande   Ja"
-const VOTE_RE = /^(.{15,42}?)\s{2,}(S|M|V|SD|L|MP|D|KD|C)\s{2,}\d+\s{2,}\S+\s{2,}(Ja|Nej|Avstår|Frånvarande)\s*$/
+const VOTE_RE =
+  /^(.{15,42}?)\s{2,}(S|M|V|SD|L|MP|D|KD|C)\s{2,}\d+\s{2,}\S+\s{2,}(Ja|Nej|Avstår|Frånvarande)\s*$/
 
-interface Röst { namn: string; parti: string; röst: string; ärende: string; datum: string }
+interface Röst {
+  namn: string
+  parti: string
+  röst: string
+  ärende: string
+  datum: string
+}
 
 function parseVotesPdf(pdfPath: string, datum: string): Röst[] {
-  const text = execSync(`pdftotext -layout "${pdfPath}" -`, { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 })
+  const text = execSync(`pdftotext -layout "${pdfPath}" -`, {
+    encoding: 'utf-8',
+    maxBuffer: 50 * 1024 * 1024,
+  })
   const röster: Röst[] = []
 
   // Split on Bilaga headers
@@ -45,11 +55,14 @@ function parseVotesPdf(pdfPath: string, datum: string): Röst[] {
     for (const line of lines) {
       const m = line.match(VOTE_RE)
       if (m) {
-        const namn = (pendingName + ' ' + m[1]).trim()
+        const namn = `${pendingName} ${m[1]}`.trim()
         pendingName = ''
         röster.push({ namn, parti: m[2], röst: m[3].toLowerCase(), ärende, datum })
-      } else if (line.trim() && !line.match(/^\s*(Namn|Bilaga|\f|Göteborgs|Kommunfullmäktige|Protokoll|Sammanträdes)/)) {
-        pendingName += ' ' + line.trim()
+      } else if (
+        line.trim() &&
+        !line.match(/^\s*(Namn|Bilaga|\f|Göteborgs|Kommunfullmäktige|Protokoll|Sammanträdes)/)
+      ) {
+        pendingName += ` ${line.trim()}`
       } else {
         pendingName = ''
       }
@@ -71,7 +84,10 @@ async function main() {
 
   if (arg === '--all') {
     // Parse all protocol PDFs
-    const pdfs = readdirSync('.tmp').filter(f => f.match(/^kf-protokoll-\d+\.pdf$/)).map(f => `.tmp/${f}`).sort()
+    const pdfs = readdirSync('.tmp')
+      .filter((f) => f.match(/^kf-protokoll-\d+\.pdf$/))
+      .map((f) => `.tmp/${f}`)
+      .sort()
     for (const pdf of pdfs) {
       const datumMatch = pdf.match(/(\d{4})(\d{2})(\d{2})/)
       if (!datumMatch) continue
@@ -95,7 +111,12 @@ async function main() {
 
   // Load politiker for name matching
   const polData = JSON.parse(readFileSync(join(DATA_DIR, 'politiker/goteborg.json'), 'utf-8'))
-  const politiker = polData.politiker as Array<{ id: string; förnamn: string; efternamn: string; parti: string }>
+  const politiker = polData.politiker as Array<{
+    id: string
+    förnamn: string
+    efternamn: string
+    parti: string
+  }>
 
   // Build name→id
   const nameToId: Record<string, string> = {}
@@ -120,7 +141,14 @@ async function main() {
     matched++
 
     const paragrafId = `kf-${r.datum}-§${r.ärende}`
-    const typ = r.röst === 'ja' ? 'röstade_ja' : r.röst === 'nej' ? 'röstade_nej' : r.röst === 'avstår' ? 'röstade_avstår' : 'röstade_frånvarande'
+    const typ =
+      r.röst === 'ja'
+        ? 'röstade_ja'
+        : r.röst === 'nej'
+          ? 'röstade_nej'
+          : r.röst === 'avstår'
+            ? 'röstade_avstår'
+            : 'röstade_frånvarande'
     newEdges.add(JSON.stringify({ from: pid, to: paragrafId, typ }))
   }
 
@@ -129,8 +157,10 @@ async function main() {
 
   // Update politiker-komplett.json
   const komplett = JSON.parse(readFileSync(KOMPLETT_PATH, 'utf-8'))
-  const existingSet = new Set(komplett.edges.map((e: any) => JSON.stringify({ from: e.from, to: e.to, typ: e.typ })))
-  
+  const existingSet = new Set(
+    komplett.edges.map((e: any) => JSON.stringify({ from: e.from, to: e.to, typ: e.typ })),
+  )
+
   let added = 0
   for (const edgeStr of newEdges) {
     if (!existingSet.has(edgeStr)) {

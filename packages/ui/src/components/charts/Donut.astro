@@ -1,0 +1,70 @@
+---
+interface Segment {
+  label: string
+  value: number
+  color: string
+}
+
+interface Props {
+  segments: Segment[]
+  size?: number
+  thickness?: number
+  centerLabel?: string
+  legend?: boolean
+  class?: string
+}
+
+const {
+  segments = [],
+  size = 200,
+  thickness = 34,
+  centerLabel,
+  legend = true,
+  class: className,
+} = Astro.props
+const total = segments.reduce((s, x) => s + x.value, 0) || 1
+const r = size / 2 - thickness / 2 - 2
+const cx = size / 2
+const cy = size / 2
+const circ = 2 * Math.PI * r
+
+let offset = 0
+const arcs = segments.map((seg) => {
+  const frac = seg.value / total
+  const dash = frac * circ
+  const arc = { ...seg, frac, dash, offset }
+  offset += dash
+  return arc
+})
+---
+<div class:list={['flex items-center gap-6', className]}>
+  <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label="F\u00f6rdelning" class="shrink-0">
+    <g transform={`rotate(-90 ${cx} ${cy})`}>
+      {arcs.map(a => (
+        <circle cx={cx} cy={cy} r={r} fill="none"
+          stroke={a.color} stroke-width={thickness}
+          stroke-dasharray={`${a.dash} ${circ - a.dash}`}
+          stroke-dashoffset={-a.offset}>
+          <title>{a.label}: {a.value} ({Math.round(a.frac * 100)}%)</title>
+        </circle>
+      ))}
+    </g>
+    {centerLabel != null && (
+      <text x={cx} y={cy} text-anchor="middle" dominant-baseline="central"
+        style={`font-family:var(--font-mono);font-weight:700;font-size:${size * 0.16}px;fill:var(--color-text)`}>
+        {centerLabel}
+      </text>
+    )}
+  </svg>
+  {legend && (
+    <ul class="list-none m-0 p-0 grid gap-1.5">
+      {arcs.map(a => (
+        <li class="flex items-center gap-2 text-sm">
+          <span class="w-3 h-3 rounded-sm shrink-0" style={`background:${a.color}`} />
+          <span class="text-(--color-text)">{a.label}</span>
+          <span class="font-mono text-(--color-text-muted) ml-auto pl-3">{a.value}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+</div>

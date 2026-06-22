@@ -10,14 +10,15 @@
 
 export const partyColors = {
   S: '#ED1B34',
-  M: '#52BDEC',
-  SD: '#DDDD00',
-  C: '#009933',
+  M: '#213A8F',
+  SD: '#FBC700',
+  C: '#114838',
   V: '#DA291C',
-  KD: '#005DA6',
-  MP: '#83CF39',
-  L: '#006AB3',
-  '-': '#94A3B8',
+  KD: '#231977',
+  MP: '#4C983E',
+  L: '#0077C8',
+  D: '#1B1B1B',
+  '-': '#888888',
 } as const
 
 export const voteColors = {

@@ -1,7 +1,7 @@
-@import 'tailwindcss';
-@import '../../../ui/src/tokens/css/global.css';
-@import '../../../ui/src/tokens/css/light.css';
-@import '../../../ui/src/tokens/css/dark.css';
+@import "tailwindcss";
+@import "../../../ui/src/tokens/css/global.css";
+@import "../../../ui/src/tokens/css/light.css";
+@import "../../../ui/src/tokens/css/dark.css";
 
 body {
   font-family: var(--font-sans);
@@ -20,7 +20,9 @@ a:hover {
   text-decoration: underline;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   line-height: 1.2;
 }
 
@@ -62,6 +64,17 @@ h1, h2, h3 {
   gap: var(--space-md);
 }
 
+.sysbar__location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+}
+
 .sysbar__item {
   font-size: var(--font-size-label);
   color: var(--color-text-muted);
@@ -86,8 +99,12 @@ h1, h2, h3 {
 }
 
 /* Theme toggle icons */
-[data-theme='light'] .theme-icon-dark { display: none; }
-[data-theme='dark'] .theme-icon-light { display: none; }
+[data-theme="light"] .theme-icon-dark {
+  display: none;
+}
+[data-theme="dark"] .theme-icon-light {
+  display: none;
+}
 
 /* Footer */
 .site-footer {

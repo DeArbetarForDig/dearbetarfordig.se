@@ -57,10 +57,13 @@ function scrapeWithYtDlp(): KFVideo[] {
 
 function scrapeWithCurl(): KFVideo[] {
   console.log('   yt-dlp inte hittad, använder YouTube search fallback...')
-  const searchUrl = `https://www.youtube.com/results?search_query=%22G%C3%B6teborg+kommunfullm%C3%A4ktige%22&sp=CAI%3D`
+  const searchUrl =
+    'https://www.youtube.com/results?search_query=%22G%C3%B6teborg+kommunfullm%C3%A4ktige%22&sp=CAI%3D'
   const html = execSync(`curl -sL "${searchUrl}"`, { encoding: 'utf-8', timeout: 30_000 })
 
-  const videoIds = [...new Set(html.match(/"videoId":"([^"]+)"/g)?.map((m) => m.slice(11, -1)) || [])]
+  const videoIds = [
+    ...new Set(html.match(/"videoId":"([^"]+)"/g)?.map((m) => m.slice(11, -1)) || []),
+  ]
 
   return videoIds.map((videoId) => ({
     videoId,

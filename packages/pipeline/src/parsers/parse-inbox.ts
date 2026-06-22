@@ -14,7 +14,7 @@
 
 import { execSync } from 'node:child_process'
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs'
-import { join, basename } from 'node:path'
+import { basename, join } from 'node:path'
 
 const INBOX_DIR = join(import.meta.dirname, '../../../../data/inbox')
 const OUTPUT_DIR = join(import.meta.dirname, '../../../../data/graf')
@@ -40,11 +40,14 @@ function extractBelopp(text: string): Array<{ belopp: number; enhet: string; kon
   let match
   while ((match = re.exec(text)) !== null) {
     const raw = match[1].replace(/\s/g, '').replace(',', '.')
-    const belopp = parseFloat(raw)
-    if (isNaN(belopp)) continue
+    const belopp = Number.parseFloat(raw)
+    if (Number.isNaN(belopp)) continue
     const enhet = match[2].toLowerCase()
     const start = Math.max(0, match.index - 60)
-    const kontext = text.slice(start, match.index + match[0].length + 30).replace(/\n/g, ' ').trim()
+    const kontext = text
+      .slice(start, match.index + match[0].length + 30)
+      .replace(/\n/g, ' ')
+      .trim()
     results.push({ belopp, enhet, kontext })
   }
   return results
@@ -54,7 +57,8 @@ function extractBelopp(text: string): Array<{ belopp: number; enhet: string; kon
 function extractLeverantörer(text: string): Array<{ namn: string; belopp?: number }> {
   const results: Array<{ namn: string; belopp?: number }> = []
   // Pattern: "Company AB/AS" followed by amount
-  const re = /([\wÅÄÖåäö][\w\sÅÄÖåäö&-]{2,40}(?:AB|AS|Ltd|GmbH|Sverige|Group|Networks|Consulting))\b/g
+  const re =
+    /([\wÅÄÖåäö][\w\sÅÄÖåäö&-]{2,40}(?:AB|AS|Ltd|GmbH|Sverige|Group|Networks|Consulting))\b/g
   const seen = new Set<string>()
   let match
   while ((match = re.exec(text)) !== null) {
@@ -73,7 +77,10 @@ function parseDocument(pdfPath: string): { nodes: GraphNode[]; edges: GraphEdge[
   const docId = `doc-${fileName.toLowerCase().replace(/[^a-zåäö0-9]+/g, '-')}`
 
   // Extract text
-  const text = execSync(`pdftotext -layout "${pdfPath}" -`, { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 })
+  const text = execSync(`pdftotext -layout "${pdfPath}" -`, {
+    encoding: 'utf-8',
+    maxBuffer: 50 * 1024 * 1024,
+  })
 
   // Document node
   nodes.push({
@@ -87,7 +94,7 @@ function parseDocument(pdfPath: string): { nodes: GraphNode[]; edges: GraphEdge[
   const leverantörer = extractLeverantörer(text)
   for (const l of leverantörer) {
     const levId = `leverantör-${l.namn.toLowerCase().replace(/[^a-zåäö0-9]+/g, '-')}`
-    if (!nodes.find(n => n.id === levId)) {
+    if (!nodes.find((n) => n.id === levId)) {
       nodes.push({ id: levId, typ: 'leverantör', label: l.namn, data: {} })
     }
     edges.push({ from: docId, to: levId, typ: 'nämner' })
@@ -110,7 +117,7 @@ function main() {
     return
   }
 
-  const pdfs = readdirSync(INBOX_DIR).filter(f => f.endsWith('.pdf'))
+  const pdfs = readdirSync(INBOX_DIR).filter((f) => f.endsWith('.pdf'))
   if (pdfs.length === 0) {
     console.log('   Inga PDF:er i data/inbox/')
     console.log('   Lägg dit dokument från begäran om allmän handling.')
@@ -130,7 +137,7 @@ function main() {
       const { nodes, edges } = parseDocument(path)
       allNodes.push(...nodes)
       allEdges.push(...edges)
-      const levCount = nodes.filter(n => n.typ === 'leverantör').length
+      const levCount = nodes.filter((n) => n.typ === 'leverantör').length
       console.log(` ✓ (${levCount} leverantörer)`)
     } catch (err) {
       console.log(` ✗ ${err}`)

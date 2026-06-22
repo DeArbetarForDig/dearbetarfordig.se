@@ -3,8 +3,8 @@
  * Replace with real scraped data later.
  */
 
-import type { PartyCode } from '@daf/ui/tokens'
 import type { Seat } from '@daf/ui/components/chamber'
+import type { PartyCode } from '@daf/ui/tokens'
 
 const partifördelning: [PartyCode, number][] = [
   ['S', 21],

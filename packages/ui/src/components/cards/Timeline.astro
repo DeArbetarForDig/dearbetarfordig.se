@@ -1,0 +1,45 @@
+---
+interface TimelineEvent {
+  datum: string
+  titel: string
+  aktor?: string
+  beskrivning?: string
+  status?: 'active' | 'completed' | 'pending'
+}
+
+interface Props {
+  events: TimelineEvent[]
+  class?: string
+}
+
+const { events = [], class: className } = Astro.props
+
+const statusColor: Record<string, string> = {
+  active: 'var(--color-primary)',
+  completed: 'var(--color-positive)',
+  pending: 'var(--color-text-subtle)',
+}
+---
+<ol aria-label="Beslutshistorik" class:list={['list-none m-0 p-0 relative', className]}>
+  {events.map((e, i) => {
+    const color = statusColor[e.status || 'completed']
+    const last = i === events.length - 1
+    return (
+      <li class="flex gap-4">
+        <div class="flex flex-col items-center">
+          <span
+            class="w-3.5 h-3.5 rounded-full shrink-0 mt-0.5"
+            style={`background:${e.status === 'pending' ? 'var(--color-surface)' : color};border:2px solid ${color};${e.status === 'active' ? 'box-shadow:0 0 0 4px var(--color-focus-ring)' : ''}`}
+          />
+          {!last && <span class="w-0.5 flex-1 bg-(--color-border) mt-0.5" />}
+        </div>
+        <div class:list={[!last && 'pb-6']}>
+          <time class="text-xs text-(--color-text-muted) font-mono">{e.datum}</time>
+          <h4 class="m-0 mt-0.5 text-base font-semibold">{e.titel}</h4>
+          {e.aktor && <p class="m-0 mt-0.5 text-sm text-(--color-text-muted)">{e.aktor}</p>}
+          {e.beskrivning && <p class="m-0 mt-1 text-sm text-(--color-text-muted) max-w-[60ch]">{e.beskrivning}</p>}
+        </div>
+      </li>
+    )
+  })}
+</ol>

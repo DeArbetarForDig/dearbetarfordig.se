@@ -1,0 +1,39 @@
+---
+import PartyTag from '../core/PartyTag.astro'
+
+interface Props {
+  namn: string
+  parti: string
+  foto?: string
+  roll?: string
+  narvaro?: number
+  url?: string
+  class?: string
+}
+
+const { namn, parti, foto, roll, narvaro, url = '#', class: className } = Astro.props
+---
+<a
+  href={url}
+  class:list={['flex gap-4 items-start bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-4 no-underline text-(--color-text) shadow-[--shadow-sm] hover:shadow-[--shadow-md] hover:-translate-y-px transition-all duration-150', className]}
+>
+  {foto ? (
+    <img src={foto} alt="" width="56" height="56" class="w-14 h-14 rounded-[--radius-sm] object-cover shrink-0" loading="lazy" />
+  ) : (
+    <span class="w-14 h-14 shrink-0 rounded-[--radius-sm] bg-(--color-surface-sunken) flex items-center justify-center text-(--color-text-subtle)">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </span>
+  )}
+  <div class="min-w-0 flex-1">
+    <div class="flex items-center gap-2 mb-0.5">
+      <h3 class="text-lg font-semibold m-0 leading-tight">{namn}</h3>
+      <PartyTag parti={parti} size="sm" />
+    </div>
+    {roll && <p class="m-0 text-sm text-(--color-text-muted)">{roll}</p>}
+    {narvaro != null && (
+      <p class="m-0 mt-1.5 text-sm text-(--color-text-muted)">
+        Närvaro: <span class="font-mono font-semibold text-(--color-text)">{narvaro}%</span>
+      </p>
+    )}
+  </div>
+</a>

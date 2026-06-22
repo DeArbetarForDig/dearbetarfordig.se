@@ -1,0 +1,92 @@
+---
+import PoliticianCard from '../../../../ui/src/components/cards/PoliticianCard.astro'
+import { getPolitiker } from '../../data/api'
+import Base from '../../layouts/Base.astro'
+
+const politiker = await getPolitiker()
+const parties = [...new Set(politiker.map((p) => p.parti))].sort()
+---
+
+<Base title="Politiker — Göteborg">
+  <h1 class="text-[2rem] font-bold mb-6">Politiker</h1>
+
+  <div id="filter-bar" class="flex flex-wrap gap-4 mb-6 items-center">
+    <div class="flex items-center gap-2 bg-(--color-surface) border border-(--color-border) rounded-[--radius-sm] px-3 py-1.5 flex-1 min-w-[220px]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-(--color-text-muted) shrink-0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search-input" type="text" placeholder="Sök ledamot…" class="border-none outline-none bg-transparent text-(--color-text) font-sans text-base w-full" />
+    </div>
+    <div class="flex gap-1.5 flex-wrap">
+      <button data-parti="alla" class="chip active">Alla</button>
+      {parties.map(p => (
+        <button data-parti={p} class="chip">
+          <span class="w-2.5 h-2.5 rounded-sm shrink-0" style={`background:var(--parti-${p.toLowerCase()})`} />
+          {p}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <p id="count" class="text-sm text-(--color-text-muted) mb-4">{politiker.length} ledamöter</p>
+
+  <div id="grid" class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+    {politiker.map(p => (
+      <div class="politician-item" data-parti={p.parti} data-namn={p.namn.toLowerCase()}>
+        <PoliticianCard namn={p.namn} parti={p.parti} roll={`${p.antalUppdrag} uppdrag`} url={`/goteborg/politiker/${p.id}`} />
+      </div>
+    ))}
+  </div>
+
+  <style>
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--color-border-strong);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: var(--font-size-label);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+    }
+    .chip.active {
+      background: var(--color-text);
+      color: var(--color-bg);
+      border-color: var(--color-text);
+    }
+  </style>
+
+  <script is:inline>
+    const input = document.getElementById('search-input')
+    const chips = document.querySelectorAll('.chip')
+    const items = document.querySelectorAll('.politician-item')
+    const countEl = document.getElementById('count')
+    let activeParti = 'alla'
+
+    function filter() {
+      const q = input.value.toLowerCase()
+      let visible = 0
+      items.forEach(el => {
+        const parti = el.dataset.parti
+        const namn = el.dataset.namn
+        const show = (activeParti === 'alla' || parti === activeParti) && namn.includes(q)
+        el.classList.toggle('hidden', !show)
+        if (show) visible++
+      })
+      countEl.textContent = visible + ' ledam\u00f6ter'
+    }
+
+    input.addEventListener('input', filter)
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'))
+        chip.classList.add('active')
+        activeParti = chip.dataset.parti
+        filter()
+      })
+    })
+  </script>
+</Base>

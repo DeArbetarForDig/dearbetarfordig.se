@@ -1,129 +1,149 @@
 ---
+import DecisionCard from '../../../../ui/src/components/cards/DecisionCard.astro'
+import KpiCard from '../../../../ui/src/components/cards/KpiCard.astro'
+import Chamber from '../../../../ui/src/components/charts/Chamber.astro'
+import Donut from '../../../../ui/src/components/charts/Donut.astro'
+import Button from '../../../../ui/src/components/core/Button.astro'
+import Icon from '../../../../ui/src/components/core/Icon.astro'
+import { getBeslut, getMetrics, getPolitiker, getStats } from '../../data/api'
 import Base from '../../layouts/Base.astro'
-import { generateChamberSVG, generateDonutSVG, partyColors } from '@daf/ui'
-import { getMockSeats } from '../../data/mock'
 
-const seats = getMockSeats()
+const stats = await getStats()
+const metrics = await getMetrics()
+const politiker = await getPolitiker()
+const beslutList = await getBeslut(200)
 
-const chamberSVG = generateChamberSVG({ seats, mode: 'overview' })
-
-const partiMandat: [string, number][] = [
-  ['S', 21], ['M', 16], ['SD', 14], ['V', 9],
-  ['MP', 7], ['C', 5], ['L', 5], ['KD', 4],
-]
-
-const donutSVG = generateDonutSVG({
-  segments: partiMandat.map(([parti, value]) => ({
-    label: parti,
-    value,
-    color: partyColors[parti as keyof typeof partyColors],
-  })),
-  showLegend: true,
-})
+const seats = politiker
+  .slice(0, 81)
+  .map((p, i) => ({ nummer: i + 1, politikerId: p.id, namn: p.namn, parti: p.parti }))
 
 const kpis = [
-  { value: '81', label: 'Ledamöter i KF' },
-  { value: '234', label: 'Beslut 2025' },
-  { value: '92%', label: 'Närvaro (snitt)' },
-  { value: '12.4 mdr', label: 'Budget (kr)' },
+  { value: String(stats.politiker), label: 'Politiker' },
+  { value: String(metrics.beslutskraft.totalt), label: 'Beslut' },
+  {
+    value: String(metrics.konsensus.konsensusgradProcent),
+    unit: '%',
+    label: 'Utan votering',
+    trend: 'up' as const,
+    trendValue: 'konsensus',
+  },
+  {
+    value: String(Math.round((metrics.beslutskraft.bifall / metrics.beslutskraft.totalt) * 100)),
+    unit: '%',
+    label: 'Bifallsgrad',
+  },
 ]
+
+const partiMandat = Object.entries(stats.partier).map(([label, value]) => ({
+  label,
+  value,
+  color: `var(--parti-${label.toLowerCase()})`,
+}))
+
+const senasteBeslut = beslutList
+  .filter((b) => b.beslut)
+  .slice(0, 6)
+  .map((b) => ({
+    titel: b.rubrik.replace(/^§ \d+ /, ''),
+    datum: b.datum,
+    status: b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut,
+    paragraf: b.paragraf ? `KF ${b.paragraf}` : undefined,
+    ja: b.votering?.ja,
+    nej: b.votering?.nej,
+    avstar: b.votering?.avstår,
+    url: `/goteborg/beslut/${encodeURIComponent(b.id)}`,
+  }))
 ---
 
-<Base title="Göteborg" description="Göteborgs kommunfullmäktige — 81 ledamöter, beslut, voteringar">
+<Base title="Göteborg">
 
-  <!-- Block 1: Salen -->
-  <section style="margin-bottom: var(--space-2xl);">
-    <h1 style="font-size: var(--font-size-h1); font-weight: 700; margin-bottom: var(--space-sm);">Göteborg</h1>
-    <p style="color: var(--color-text-muted); margin-bottom: var(--space-lg);">Kommunfullmäktige — 81 ledamöter som beslutar för dig</p>
-    <div class="w-full max-w-2xl mx-auto" set:html={chamberSVG} />
+  <!-- Header -->
+  <section class="mb-12">
+    <h1 class="text-4xl font-bold mb-2">Göteborg</h1>
+    <p class="text-[var(--color-text-muted)]">Kommunfullmäktige — 81 ledamöter som beslutar för dig</p>
   </section>
 
-  <!-- Block 2: KPI -->
-  <section style="margin-bottom: var(--space-2xl);">
-    <div class="grid grid-cols-2 md:grid-cols-4" style="gap: var(--space-md);">
+  <!-- Chamber -->
+  <section class="mb-12">
+    <div class="max-w-3xl mx-auto p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+      <Chamber seats={seats} mode="overview" />
+    </div>
+  </section>
+
+  <!-- KPI row -->
+  <section class="mb-12">
+    <div class="grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
       {kpis.map(kpi => (
-        <div style="text-align: center; padding: var(--space-md); border-radius: var(--radius-md); background: var(--color-surface); border: 1px solid var(--color-border);">
-          <div style="font-size: var(--font-size-kpi); font-weight: 700; font-family: var(--font-mono);">{kpi.value}</div>
-          <div style="font-size: var(--font-size-label); color: var(--color-text-muted);">{kpi.label}</div>
-        </div>
+        <KpiCard value={kpi.value} unit={kpi.unit} label={kpi.label} trend={kpi.trend} trendValue={kpi.trendValue} />
       ))}
     </div>
   </section>
 
-  <!-- Block 3: Partibalans -->
-  <section style="margin-bottom: var(--space-2xl);">
-    <h2 style="font-size: var(--font-size-h2); font-weight: 700; margin-bottom: var(--space-md);">Mandatfördelning</h2>
-    <div class="w-full max-w-md" set:html={donutSVG} />
-  </section>
+  <!-- Two-column: Donut + Struktur -->
+  <section class="mb-12 grid gap-8 md:grid-cols-2">
+    <!-- Mandatfördelning -->
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Mandatfördelning</h2>
+      <Donut segments={partiMandat} showLegend />
+    </div>
 
-  <!-- Block 4: Struktur -->
-  <section style="margin-bottom: var(--space-2xl);">
-    <h2 style="font-size: var(--font-size-h2); font-weight: 700; margin-bottom: var(--space-md);">Hur styrs Göteborg?</h2>
-    <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
-      <div style="padding: var(--space-md); border-radius: var(--radius-md); background: var(--color-surface); border-left: 4px solid var(--color-primary);">
-        <h3 style="font-size: var(--font-size-h3); font-weight: 700;">Kommunfullmäktige (KF)</h3>
-        <p style="font-size: var(--font-size-label); color: var(--color-text-muted);">"Riksdagen för Göteborg" — 81 ledamöter fattar alla stora beslut</p>
-      </div>
-      <div style="margin-left: var(--space-lg); padding: var(--space-md); border-radius: var(--radius-md); background: var(--color-surface); border-left: 4px solid var(--color-accent);">
-        <h3 style="font-size: var(--font-size-h3); font-weight: 700;">Kommunstyrelsen (KS)</h3>
-        <p style="font-size: var(--font-size-label); color: var(--color-text-muted);">"Regeringen" — 13 ledamöter leder det dagliga arbetet</p>
-      </div>
-      <div style="margin-left: var(--space-2xl); display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-sm);">
-        <div style="padding: var(--space-sm) var(--space-md); border-radius: var(--radius-sm); background: var(--color-surface-sunken);">
-          <span style="font-weight: 600; font-size: var(--font-size-label);">Grundskolenämnden</span><br/>
-          <span style="font-size: var(--font-size-small); color: var(--color-text-muted);">Skolor & lärare</span>
+    <!-- Struktur -->
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Hur styrs Göteborg?</h2>
+      <div class="flex flex-col gap-3">
+        <div class="p-4 rounded-lg bg-[var(--color-surface)] border-l-4 border-l-[var(--color-primary)]">
+          <h3 class="font-bold">Kommunfullmäktige (KF)</h3>
+          <p class="text-sm text-[var(--color-text-muted)]">"Riksdagen för Göteborg" — 81 ledamöter fattar alla stora beslut</p>
         </div>
-        <div style="padding: var(--space-sm) var(--space-md); border-radius: var(--radius-sm); background: var(--color-surface-sunken);">
-          <span style="font-weight: 600; font-size: var(--font-size-label);">Byggnadsnämnden</span><br/>
-          <span style="font-size: var(--font-size-small); color: var(--color-text-muted);">Vad som får byggas</span>
+        <div class="ml-6 p-4 rounded-lg bg-[var(--color-surface)] border-l-4 border-l-violet-500">
+          <h3 class="font-bold">Kommunstyrelsen (KS)</h3>
+          <p class="text-sm text-[var(--color-text-muted)]">"Regeringen" — 13 ledamöter leder det dagliga arbetet</p>
         </div>
-        <div style="padding: var(--space-sm) var(--space-md); border-radius: var(--radius-sm); background: var(--color-surface-sunken);">
-          <span style="font-weight: 600; font-size: var(--font-size-label);">Trafiknämnden</span><br/>
-          <span style="font-size: var(--font-size-small); color: var(--color-text-muted);">Vägar & spårvagnar</span>
+        <div class="ml-12 grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
+          <div class="p-2 px-3 rounded bg-[var(--color-surface-sunken)] text-sm">
+            <span class="font-semibold">Grundskolenämnden</span><br/>
+            <span class="text-xs text-[var(--color-text-muted)]">Skolor & lärare</span>
+          </div>
+          <div class="p-2 px-3 rounded bg-[var(--color-surface-sunken)] text-sm">
+            <span class="font-semibold">Byggnadsnämnden</span><br/>
+            <span class="text-xs text-[var(--color-text-muted)]">Vad som får byggas</span>
+          </div>
+          <div class="p-2 px-3 rounded bg-[var(--color-surface-sunken)] text-sm">
+            <span class="font-semibold">Trafiknämnden</span><br/>
+            <span class="text-xs text-[var(--color-text-muted)]">Vägar & spårvagnar</span>
+          </div>
+          <div class="p-2 px-3 rounded bg-[var(--color-surface-sunken)] text-sm">
+            <span class="font-semibold">Socialnämnden</span><br/>
+            <span class="text-xs text-[var(--color-text-muted)]">Stöd & omsorg</span>
+          </div>
+          <div class="p-2 px-3 rounded bg-[var(--color-surface-sunken)] text-sm">
+            <span class="font-semibold">Miljönämnden</span><br/>
+            <span class="text-xs text-[var(--color-text-muted)]">Klimat & natur</span>
+          </div>
         </div>
-        <div style="padding: var(--space-sm) var(--space-md); border-radius: var(--radius-sm); background: var(--color-surface-sunken);">
-          <span style="font-weight: 600; font-size: var(--font-size-label);">Socialnämnden</span><br/>
-          <span style="font-size: var(--font-size-small); color: var(--color-text-muted);">Stöd & omsorg</span>
-        </div>
-        <div style="padding: var(--space-sm) var(--space-md); border-radius: var(--radius-sm); background: var(--color-surface-sunken);">
-          <span style="font-weight: 600; font-size: var(--font-size-label);">Miljönämnden</span><br/>
-          <span style="font-size: var(--font-size-small); color: var(--color-text-muted);">Klimat & natur</span>
-        </div>
-        <a href="/goteborg/struktur" style="padding: var(--space-sm) var(--space-md); border-radius: var(--radius-sm); background: var(--color-surface-sunken); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: var(--font-size-label);">
-          Visa alla →
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- Block 5: Senaste beslut -->
+  <!-- Decision feed -->
   <section>
-    <h2 style="font-size: var(--font-size-h2); font-weight: 700; margin-bottom: var(--space-md);">Senaste beslut</h2>
-    <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
-      <article style="padding: var(--space-md); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
-        <div class="flex justify-between items-center" style="margin-bottom: var(--space-xs);">
-          <span style="color: var(--color-positive); font-weight: 600; font-size: var(--font-size-label);">🟢 Bifall</span>
-          <time style="font-size: var(--font-size-small); color: var(--color-text-muted);">2025-06-12</time>
-        </div>
-        <h3 style="font-size: var(--font-size-body); font-weight: 600;">Ny cykelväg Hisingen–centrum</h3>
-        <p style="font-size: var(--font-size-label); color: var(--color-text-muted);">KF § 45 · Ja: 52 · Nej: 21 · Avstår: 8</p>
-      </article>
-      <article style="padding: var(--space-md); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
-        <div class="flex justify-between items-center" style="margin-bottom: var(--space-xs);">
-          <span style="color: var(--color-negative); font-weight: 600; font-size: var(--font-size-label);">🔴 Avslag</span>
-          <time style="font-size: var(--font-size-small); color: var(--color-text-muted);">2025-06-10</time>
-        </div>
-        <h3 style="font-size: var(--font-size-body); font-weight: 600;">Motion: Gratis kollektivtrafik under 26 år</h3>
-        <p style="font-size: var(--font-size-label); color: var(--color-text-muted);">KF § 43 · Ja: 31 · Nej: 45 · Avstår: 5</p>
-      </article>
-      <article style="padding: var(--space-md); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
-        <div class="flex justify-between items-center" style="margin-bottom: var(--space-xs);">
-          <span style="color: var(--color-neutral); font-weight: 600; font-size: var(--font-size-label);">📋 Remitterad</span>
-          <time style="font-size: var(--font-size-small); color: var(--color-text-muted);">2025-06-08</time>
-        </div>
-        <h3 style="font-size: var(--font-size-body); font-weight: 600;">Budget 2026 — förslag från KS</h3>
-        <p style="font-size: var(--font-size-label); color: var(--color-text-muted);">Skickat till alla nämnder för yttrande</p>
-      </article>
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-2xl font-bold">Senaste beslut</h2>
+      <Button variant="ghost" href="/goteborg/beslut">Alla beslut →</Button>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {senasteBeslut.map(b => (
+        <DecisionCard
+          titel={b.titel}
+          datum={b.datum}
+          status={b.status}
+          paragraf={b.paragraf}
+          ja={b.ja}
+          nej={b.nej}
+          avstar={b.avstar}
+          url={b.url}
+        />
+      ))}
     </div>
   </section>
 
