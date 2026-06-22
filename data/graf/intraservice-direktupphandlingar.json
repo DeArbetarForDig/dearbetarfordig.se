@@ -1,0 +1,311 @@
+{
+  "nodes": [
+    {
+      "id": "doc-intraservice-direktupphandlingar-2026",
+      "typ": "dokument",
+      "label": "Intraservice direktupphandlingar — svar 2026-06-22",
+      "data": {
+        "källa": "begäran",
+        "mottaget": "2026-06-22",
+        "från": "Anna Thunes, Registrator, Intraservice / Kanslienheten",
+        "totalt_antal": 8,
+        "totalt_värde_sek": 18300615,
+        "direktupphandlingar_utan_annons": 3,
+        "publicerade_enl_lou": 5
+      }
+    },
+    {
+      "id": "leverantör-cgi-sverige-ab",
+      "typ": "leverantör",
+      "label": "CGI Sverige AB",
+      "data": {
+        "org_typ": "IT-konsult"
+      }
+    },
+    {
+      "id": "leverantör-excedo-networks-ab",
+      "typ": "leverantör",
+      "label": "Excedo Networks AB",
+      "data": {
+        "org_typ": "domänregistrar"
+      }
+    },
+    {
+      "id": "leverantör-tele2-sverige-ab",
+      "typ": "leverantör",
+      "label": "Tele2 Sverige AB",
+      "data": {
+        "org_typ": "telekom"
+      }
+    },
+    {
+      "id": "leverantör-telia-cygate-ab",
+      "typ": "leverantör",
+      "label": "Telia Cygate AB",
+      "data": {
+        "org_typ": "IT-säkerhet"
+      }
+    },
+    {
+      "id": "leverantör-dataklimat-i-sverige-ab",
+      "typ": "leverantör",
+      "label": "Dataklimat i Sverige AB",
+      "data": {
+        "org_typ": "datahall"
+      }
+    },
+    {
+      "id": "leverantör-firesafe-sverige-ab",
+      "typ": "leverantör",
+      "label": "Firesafe Sverige AB",
+      "data": {
+        "org_typ": "brandskydd"
+      }
+    },
+    {
+      "id": "leverantör-telia-sverige-ab",
+      "typ": "leverantör",
+      "label": "Telia Sverige AB",
+      "data": {
+        "org_typ": "telekom"
+      }
+    },
+    {
+      "id": "leverantör-the-cloud-networks-nordic-ab",
+      "typ": "leverantör",
+      "label": "The Cloud Networks Nordic AB",
+      "data": {
+        "org_typ": "WiFi/nätverk"
+      }
+    },
+    {
+      "id": "avtal-cgi-legitimering-underskrift",
+      "typ": "avtal",
+      "label": "Ramavtal — Funktionstjänst Legitimering och Underskrift",
+      "data": {
+        "dnr": "0065/24",
+        "värde_sek": 7500000,
+        "start": "2024-12-03",
+        "slut": "2028-12-02",
+        "typ": "direktupphandling",
+        "annonserad": false
+      }
+    },
+    {
+      "id": "avtal-excedo-domännamn-2025",
+      "typ": "avtal",
+      "label": "Registrator domännamn 2025",
+      "data": {
+        "dnr": "0226/25",
+        "värde_sek": 700000,
+        "start": "2025-10-15",
+        "slut": "2027-10-14",
+        "typ": "direktupphandling",
+        "annonserad": false
+      }
+    },
+    {
+      "id": "avtal-tele2-internetförbindelse",
+      "typ": "avtal",
+      "label": "Ramavtal Internetförbindelse (Tele2)",
+      "data": {
+        "dnr": "0100/23",
+        "värde_sek": 974400,
+        "start": "2023-07-07",
+        "slut": "2027-07-06",
+        "typ": "direktupphandling",
+        "annonserad": false
+      }
+    },
+    {
+      "id": "avtal-telia-cygate-ssl-certifikat",
+      "typ": "avtal",
+      "label": "Ramavtal — SSL-certifikat med registreringsfunktion",
+      "data": {
+        "dnr": "0172/23",
+        "värde_sek": 1743700,
+        "start": "2023-06-01",
+        "slut": "2027-05-31",
+        "typ": "direktupphandling",
+        "annonserad": true
+      }
+    },
+    {
+      "id": "avtal-dataklimat-datahall-2026",
+      "typ": "avtal",
+      "label": "Ramavtal Serviceavtal datahall 2026–2029",
+      "data": {
+        "dnr": "0133/25",
+        "värde_sek": 2389585,
+        "start": "2026-01-01",
+        "slut": "2029-12-31",
+        "typ": "direktupphandling",
+        "annonserad": true
+      }
+    },
+    {
+      "id": "avtal-firesafe-brandlarm",
+      "typ": "avtal",
+      "label": "Serviceavtal Brandlarm & släcksystem",
+      "data": {
+        "värde_sek": 700000,
+        "start": "2026-07-01",
+        "slut": "2030-06-30",
+        "typ": "direktupphandling",
+        "annonserad": true
+      }
+    },
+    {
+      "id": "avtal-telia-internetförbindelse",
+      "typ": "avtal",
+      "label": "Ramavtal Internetförbindelse (Telia)",
+      "data": {
+        "dnr": "0100/23",
+        "värde_sek": 1763780,
+        "start": "2023-07-07",
+        "slut": "2027-07-06",
+        "typ": "direktupphandling",
+        "annonserad": true
+      }
+    },
+    {
+      "id": "avtal-cloud-networks-wifi-utomhus",
+      "typ": "avtal",
+      "label": "Ramavtal — Fritt publikt WiFi utomhus 2023–2027",
+      "data": {
+        "värde_sek": 2529150,
+        "start": "2023-05-01",
+        "slut": "2027-04-30",
+        "typ": "direktupphandling",
+        "annonserad": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "tillhör"
+    },
+    {
+      "from": "avtal-cgi-legitimering-underskrift",
+      "to": "leverantör-cgi-sverige-ab",
+      "typ": "levererar_till"
+    },
+    {
+      "from": "avtal-cgi-legitimering-underskrift",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "upphandlat_av"
+    },
+    {
+      "from": "avtal-excedo-domännamn-2025",
+      "to": "leverantör-excedo-networks-ab",
+      "typ": "levererar_till"
+    },
+    {
+      "from": "avtal-excedo-domännamn-2025",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "upphandlat_av"
+    },
+    {
+      "from": "avtal-tele2-internetförbindelse",
+      "to": "leverantör-tele2-sverige-ab",
+      "typ": "levererar_till"
+    },
+    {
+      "from": "avtal-tele2-internetförbindelse",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "upphandlat_av"
+    },
+    {
+      "from": "avtal-telia-cygate-ssl-certifikat",
+      "to": "leverantör-telia-cygate-ab",
+      "typ": "levererar_till"
+    },
+    {
+      "from": "avtal-telia-cygate-ssl-certifikat",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "upphandlat_av"
+    },
+    {
+      "from": "avtal-dataklimat-datahall-2026",
+      "to": "leverantör-dataklimat-i-sverige-ab",
+      "typ": "levererar_till"
+    },
+    {
+      "from": "avtal-dataklimat-datahall-2026",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "upphandlat_av"
+    },
+    {
+      "from": "avtal-firesafe-brandlarm",
+      "to": "leverantör-firesafe-sverige-ab",
+      "typ": "levererar_till"
+    },
+    {
+      "from": "avtal-firesafe-brandlarm",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "upphandlat_av"
+    },
+    {
+      "from": "avtal-telia-internetförbindelse",
+      "to": "leverantör-telia-sverige-ab",
+      "typ": "levererar_till"
+    },
+    {
+      "from": "avtal-telia-internetförbindelse",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "upphandlat_av"
+    },
+    {
+      "from": "avtal-cloud-networks-wifi-utomhus",
+      "to": "leverantör-the-cloud-networks-nordic-ab",
+      "typ": "levererar_till"
+    },
+    {
+      "from": "avtal-cloud-networks-wifi-utomhus",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "upphandlat_av"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "avtal-cgi-legitimering-underskrift",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "avtal-excedo-domännamn-2025",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "avtal-tele2-internetförbindelse",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "avtal-telia-cygate-ssl-certifikat",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "avtal-dataklimat-datahall-2026",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "avtal-firesafe-brandlarm",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "avtal-telia-internetförbindelse",
+      "typ": "nämner"
+    },
+    {
+      "from": "doc-intraservice-direktupphandlingar-2026",
+      "to": "avtal-cloud-networks-wifi-utomhus",
+      "typ": "nämner"
+    }
+  ]
+}
