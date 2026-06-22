@@ -46,7 +46,7 @@ const colors = {
   budget: '#a78bfa', närstående: '#f472b6', default: '#6b7280'
 };
 const sizes = {
-  möte: 4, avtal: 3, dokument: 3, politiker: 2, organisation: 1.5, budgetpost: 1, paragraf: 1, bolag: 1.5, tag: 1.5, default: 1
+  möte: 5, avtal: 4, dokument: 4, politiker: 3, organisation: 2, budgetpost: 1.5, paragraf: 1.5, bolag: 2, tag: 2, default: 1.5
 };
 
 // Load data
@@ -98,11 +98,11 @@ const Graph = ForceGraph()(document.getElementById('graph'))
   .linkDirectionalParticles(l => highlightLinks.has(l) ? 2 : 0)
   .linkDirectionalParticleWidth(2)
   .backgroundColor('#0a0a0f')
-  .d3Force('charge', d3.forceManyBody().strength(-8).distanceMax(100))
-  .d3Force('link', d3.forceLink().distance(12).strength(1))
+  .d3Force('charge', d3.forceManyBody().strength(-30).distanceMax(250))
+  .d3Force('link', d3.forceLink().distance(18).strength(0.8))
   .d3Force('center', d3.forceCenter())
-  .d3Force('x', d3.forceX(0).strength(0.05))
-  .d3Force('y', d3.forceY(0).strength(0.05))
+  .d3Force('x', d3.forceX(0).strength(0.01))
+  .d3Force('y', d3.forceY(0).strength(0.01))
   .onNodeClick(node => {
     highlightNodes.clear();
     highlightLinks.clear();
@@ -124,7 +124,8 @@ const Graph = ForceGraph()(document.getElementById('graph'))
     Graph.nodeColor(Graph.nodeColor()).linkColor(Graph.linkColor()).linkWidth(Graph.linkWidth()).linkDirectionalParticles(Graph.linkDirectionalParticles());
   })
   .warmupTicks(80)
-  .cooldownTicks(40);
+  .cooldownTicks(40)
+  .onEngineStop(() => Graph.zoomToFit(400, 60));
 
 // Search
 document.getElementById('search').addEventListener('input', (e) => {
