@@ -45,31 +45,6 @@ const seatMap = new Map<number, Seat>(seats.map((s: Seat) => [s.nummer, s]))
 >
   <defs>
     <clipPath id="seat"><rect x="0" y="0" width="60" height="40" rx="8" /></clipPath>
-    <style>
-      .seat { stroke: none; }
-      .seat.parti-s { fill: var(--parti-s); }
-      .seat.parti-m { fill: var(--parti-m); }
-      .seat.parti-sd { fill: var(--parti-sd); }
-      .seat.parti-v { fill: var(--parti-v); }
-      .seat.parti-c { fill: var(--parti-c); }
-      .seat.parti-kd { fill: var(--parti-kd); }
-      .seat.parti-mp { fill: var(--parti-mp); }
-      .seat.parti-l { fill: var(--parti-l); }
-      .seat.parti-d { fill: var(--parti-d); }
-      .seat.parti-ovriga { fill: var(--parti-ovriga); }
-      .vote { fill: var(--parti-ovriga); }
-      .vote.ja { fill: var(--vote-ja); }
-      .vote.nej { fill: var(--vote-nej); }
-      .vote.avstar { fill: var(--vote-avstår); }
-      .vote.franvarande { fill: var(--vote-frånvarande); }
-      .shadow { fill: var(--system-black, #242424); opacity: 0.25; }
-      .inverse { fill: #fff; }
-      .daf-seat { transition: opacity .12s; }
-      .daf-seat:hover { cursor: pointer; }
-      .daf-seat:hover circle { stroke: var(--color-text); stroke-width: 2; }
-      text { font-family: var(--font-sans); }
-      text.mono { font-family: var(--font-mono); }
-    </style>
   </defs>
   {SEAT_POS.map(([num, x, y]) => {
     const seat = seatMap.get(num)
