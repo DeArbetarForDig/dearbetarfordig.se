@@ -14,184 +14,135 @@ body { font-family: system-ui, -apple-system, sans-serif; background: #0a0a0f; c
 #controls button { cursor: pointer; background: #2563eb; border-color: #2563eb; }
 #controls button:hover { background: #1d4ed8; }
 #info { position: fixed; bottom: 16px; left: 16px; z-index: 10; font-size: 12px; color: #888; }
-#tooltip {
-  position: fixed; display: none; padding: 8px 12px; background: #1e1e2e; border: 1px solid #444;
-  border-radius: 6px; font-size: 12px; max-width: 320px; pointer-events: none; z-index: 20;
-}
-#tooltip h3 { margin-bottom: 4px; color: #60a5fa; }
-#tooltip .typ { color: #888; font-size: 11px; text-transform: uppercase; }
-svg { width: 100vw; height: 100vh; }
+#legend { position: fixed; top: 16px; right: 16px; z-index: 10; font-size: 11px; background: #1a1a24; border: 1px solid #333; border-radius: 8px; padding: 12px; }
+#legend div { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+#legend span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+#graph { width: 100vw; height: 100vh; }
 </style>
 </head>
 <body>
 <div id="controls">
-  <select id="filter">
-    <option value="">Alla typer</option>
-  </select>
   <input id="search" type="text" placeholder="Sök nod..." />
+  <select id="filter"><option value="">Alla typer</option></select>
   <button id="reset">Reset</button>
   <span id="count" style="font-size:12px;color:#888"></span>
 </div>
-<div id="tooltip"><span class="typ"></span><h3></h3><p></p></div>
-<div id="info">Dra noder. Scroll = zoom. Klicka nod = fokusera.</div>
-<svg></svg>
+<div id="legend"></div>
+<div id="info">Klicka nod = fokusera kopplingar. Scroll = zoom. Drag = panorera.</div>
+<div id="graph"></div>
 
 <script type="module">
-import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
-
-const API = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-  ? `http://localhost:3000/api/v1/goteborg`
-  : `/api/v1/goteborg`;
+import ForceGraph from 'https://cdn.jsdelivr.net/npm/force-graph@1/+esm';
 
 const colors = {
   paragraf: '#f59e0b', organisation: '#10b981', politiker: '#3b82f6', lag: '#ef4444',
   möte: '#8b5cf6', dokument: '#06b6d4', leverantör: '#f97316', avtal: '#ec4899',
-  tag: '#a3e635', utfall: '#14b8a6', default: '#6b7280'
+  tag: '#a3e635', utfall: '#14b8a6', bolag: '#fb923c', budgetpost: '#fbbf24',
+  budget: '#a78bfa', närstående: '#f472b6', default: '#6b7280'
+};
+const sizes = {
+  möte: 8, avtal: 6, dokument: 6, politiker: 4, organisation: 3, budgetpost: 2, paragraf: 2, bolag: 3, tag: 3, default: 2
 };
 
-const tooltip = document.getElementById('tooltip');
-const filterEl = document.getElementById('filter');
-const searchEl = document.getElementById('search');
-const countEl = document.getElementById('count');
-
-// Load graph subset (latest meeting + dokument + avtal for demo)
-async function loadGraph(filter) {
-  const url = filter ? `${API}/graf?typ=${filter}` : `${API}/graf?typ=avtal`;
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(res.status);
-    const data = await res.json();
-    return data;
-  } catch {
-    // Fallback: load from static file
-    return loadStatic();
-  }
-}
-
-async function loadStatic() {
+// Load data
+let allData;
+try {
   const res = await fetch('/data/graf/demo.json');
-  return await res.json();
+  allData = await res.json();
+} catch {
+  allData = { nodes: [], edges: [] };
 }
 
-// Fetch node types for filter
-async function loadTypes() {
-  try {
-    const res = await fetch(`${API}/graf`);
-    const data = await res.json();
-    if (data.nodes && Array.isArray(data.nodes)) {
-      for (const { typ } of data.nodes) {
-        const opt = document.createElement('option');
-        opt.value = typ; opt.textContent = `${typ} (${data.nodes.find(n=>n.typ===typ)?.antal||''})`;
-        filterEl.appendChild(opt);
-      }
+// Normalize edges to {source, target}
+const links = allData.edges.map(e => ({ source: e.from || e.from_id, target: e.to || e.to_id, typ: e.typ }));
+const nodeIds = new Set(allData.nodes.map(n => n.id));
+const validLinks = links.filter(l => nodeIds.has(l.source) && nodeIds.has(l.target));
+
+const graphData = { nodes: allData.nodes, links: validLinks };
+
+// Populate filter
+const typCounts = {};
+allData.nodes.forEach(n => { typCounts[n.typ] = (typCounts[n.typ] || 0) + 1; });
+const filterEl = document.getElementById('filter');
+Object.entries(typCounts).sort((a,b) => b[1]-a[1]).forEach(([typ, count]) => {
+  const opt = document.createElement('option');
+  opt.value = typ; opt.textContent = `${typ} (${count})`;
+  filterEl.appendChild(opt);
+});
+
+// Legend
+const legendEl = document.getElementById('legend');
+Object.entries(typCounts).sort((a,b) => b[1]-a[1]).forEach(([typ, count]) => {
+  legendEl.innerHTML += `<div><span style="background:${colors[typ]||colors.default}"></span>${typ} (${count})</div>`;
+});
+
+document.getElementById('count').textContent = `${allData.nodes.length} noder, ${validLinks.length} kanter`;
+
+// Render
+let highlightNodes = new Set();
+let highlightLinks = new Set();
+let hoverNode = null;
+
+const Graph = ForceGraph()(document.getElementById('graph'))
+  .graphData(graphData)
+  .nodeColor(n => highlightNodes.size ? (highlightNodes.has(n) ? colors[n.typ] || colors.default : '#1a1a24') : colors[n.typ] || colors.default)
+  .nodeVal(n => sizes[n.typ] || sizes.default)
+  .nodeLabel(n => `[${n.typ}] ${n.label}`)
+  .linkColor(l => highlightLinks.has(l) ? '#888' : '#222')
+  .linkWidth(l => highlightLinks.has(l) ? 1.5 : 0.3)
+  .linkDirectionalParticles(l => highlightLinks.has(l) ? 2 : 0)
+  .linkDirectionalParticleWidth(2)
+  .backgroundColor('#0a0a0f')
+  .onNodeClick(node => {
+    highlightNodes.clear();
+    highlightLinks.clear();
+    if (node) {
+      highlightNodes.add(node);
+      validLinks.forEach(l => {
+        if (l.source === node || l.target === node) {
+          highlightLinks.add(l);
+          highlightNodes.add(l.source);
+          highlightNodes.add(l.target);
+        }
+      });
     }
-  } catch {}
-}
+    Graph.nodeColor(Graph.nodeColor()).linkColor(Graph.linkColor()).linkWidth(Graph.linkWidth()).linkDirectionalParticles(Graph.linkDirectionalParticles());
+  })
+  .onBackgroundClick(() => {
+    highlightNodes.clear();
+    highlightLinks.clear();
+    Graph.nodeColor(Graph.nodeColor()).linkColor(Graph.linkColor()).linkWidth(Graph.linkWidth()).linkDirectionalParticles(Graph.linkDirectionalParticles());
+  })
+  .warmupTicks(80)
+  .cooldownTicks(40);
 
-let simulation, svg, g, link, node, label;
-
-function render(data) {
-  const nodeMap = new Map();
-  const nodes = data.nodes || [];
-  const rawEdges = data.edges || [];
-
-  nodes.forEach(n => nodeMap.set(n.id, n));
-  // Only edges where both nodes exist
-  const edges = rawEdges.filter(e => {
-    const from = e.from || e.from_id;
-    const to = e.to || e.to_id;
-    return nodeMap.has(from) && nodeMap.has(to);
-  }).map(e => ({ source: e.from || e.from_id, target: e.to || e.to_id, typ: e.typ }));
-
-  countEl.textContent = `${nodes.length} noder, ${edges.length} kanter`;
-
-  d3.select('svg').selectAll('*').remove();
-  svg = d3.select('svg');
-  const width = window.innerWidth, height = window.innerHeight;
-
-  g = svg.append('g');
-  svg.call(d3.zoom().scaleExtent([0.1, 8]).on('zoom', (e) => g.attr('transform', e.transform)));
-
-  simulation = d3.forceSimulation(nodes)
-    .force('link', d3.forceLink(edges).id(d => d.id).distance(30))
-    .force('charge', d3.forceManyBody().strength(-40).distanceMax(200))
-    .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('collision', d3.forceCollide(8))
-    .alphaDecay(0.03);
-
-  link = g.append('g').attr('stroke', '#333').attr('stroke-opacity', 0.6)
-    .selectAll('line').data(edges).join('line').attr('stroke-width', 1);
-
-  node = g.append('g').selectAll('circle').data(nodes).join('circle')
-    .attr('r', d => d.typ === 'politiker' ? 5 : d.typ === 'paragraf' ? 3 : d.typ === 'organisation' ? 6 : d.typ === 'avtal' ? 7 : d.typ === 'möte' ? 8 : 4)
-    .attr('fill', d => colors[d.typ] || colors.default)
-    .attr('stroke', '#000').attr('stroke-width', 0.3)
-    .call(d3.drag().on('start', dragstart).on('drag', dragged).on('end', dragend));
-
-  node.on('mouseover', (e, d) => {
-    tooltip.style.display = 'block';
-    tooltip.querySelector('.typ').textContent = d.typ;
-    tooltip.querySelector('h3').textContent = d.label;
-    const extra = d.data?.värde_sek ? `${(d.data.värde_sek/1e6).toFixed(1)} MSEK` : '';
-    tooltip.querySelector('p').textContent = extra;
-  }).on('mousemove', (e) => {
-    tooltip.style.left = (e.clientX + 12) + 'px';
-    tooltip.style.top = (e.clientY - 20) + 'px';
-  }).on('mouseout', () => { tooltip.style.display = 'none'; })
-  .on('click', (e, d) => {
-    // Highlight connected
-    const connected = new Set();
-    edges.forEach(edge => {
-      if (edge.source.id === d.id) connected.add(edge.target.id);
-      if (edge.target.id === d.id) connected.add(edge.source.id);
-    });
-    connected.add(d.id);
-    node.attr('opacity', n => connected.has(n.id) ? 1 : 0.08);
-    link.attr('opacity', l => (l.source.id === d.id || l.target.id === d.id) ? 0.8 : 0.02);
-    label.attr('display', n => connected.has(n.id) ? null : 'none');
-  });
-
-  label = g.append('g').selectAll('text').data(nodes).join('text')
-    .text(d => d.label?.slice(0, 25))
-    .attr('font-size', 8).attr('fill', '#aaa').attr('dx', 8).attr('dy', 3)
-    .attr('display', 'none');
-
-  simulation.on('tick', () => {
-    link.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
-        .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
-    node.attr('cx', d => d.x).attr('cy', d => d.y);
-    label.attr('x', d => d.x).attr('y', d => d.y);
-  });
-
-  function dragstart(e, d) { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; }
-  function dragged(e, d) { d.fx = e.x; d.fy = e.y; }
-  function dragend(e, d) { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; }
-}
-
-// Search highlight
-searchEl.addEventListener('input', (e) => {
+// Search
+document.getElementById('search').addEventListener('input', (e) => {
   const q = e.target.value.toLowerCase();
-  if (!q) { node?.attr('opacity', 1); link?.attr('opacity', 0.6); label?.attr('display', 'none'); return; }
-  node?.attr('opacity', d => d.label?.toLowerCase().includes(q) ? 1 : 0.08);
-  label?.attr('display', d => d.label?.toLowerCase().includes(q) ? null : 'none');
+  highlightNodes.clear(); highlightLinks.clear();
+  if (q) {
+    allData.nodes.filter(n => n.label?.toLowerCase().includes(q)).forEach(n => highlightNodes.add(n));
+  }
+  Graph.nodeColor(Graph.nodeColor());
+});
+
+// Filter
+filterEl.addEventListener('change', () => {
+  const typ = filterEl.value;
+  if (!typ) { Graph.graphData(graphData); return; }
+  const filtered = allData.nodes.filter(n => n.typ === typ);
+  const filteredIds = new Set(filtered.map(n => n.id));
+  const filteredLinks = validLinks.filter(l => filteredIds.has(l.source?.id || l.source) && filteredIds.has(l.target?.id || l.target));
+  Graph.graphData({ nodes: filtered, links: filteredLinks });
 });
 
 // Reset
 document.getElementById('reset').addEventListener('click', () => {
-  node?.attr('opacity', 1); link?.attr('opacity', 0.6); label?.attr('display', 'none');
-  searchEl.value = '';
+  highlightNodes.clear(); highlightLinks.clear();
+  document.getElementById('search').value = '';
+  filterEl.value = '';
+  Graph.graphData(graphData).nodeColor(Graph.nodeColor()).linkColor(Graph.linkColor());
 });
-
-// Filter change
-filterEl.addEventListener('change', async () => {
-  const data = await loadGraph(filterEl.value);
-  render(data);
-});
-
-// Init
-loadTypes();
-const data = await loadGraph();
-render(data);
 </script>
 </body>
 </html>
