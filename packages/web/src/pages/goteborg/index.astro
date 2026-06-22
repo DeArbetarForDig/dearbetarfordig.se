@@ -86,27 +86,46 @@ const senasteBeslut = beslutList
     <h2 class="text-2xl font-bold mb-4">Demokratisk hälsa</h2>
     <p class="text-sm text-[var(--color-text-muted)] mb-4">Vetenskapliga nyckeltal baserade på Legislative Studies-forskning</p>
     <div class="grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-      <KpiCard
-        value={String(metrics.konsensus.konsensusgradProcent)}
-        unit="%"
-        label="Konsensus"
-        breakdown="Ärenden avgjorda utan votering"
-      />
-      <KpiCard
-        value={String(metrics.debatt.giniKoefficient)}
-        label="Debatt-Gini"
-        breakdown="0 = alla talar lika, 1 = få dominerar"
-      />
-      <KpiCard
-        value={String(metrics.debatt.anföranden.toLocaleString('sv-SE'))}
-        label="Anföranden"
-        breakdown={`${metrics.debatt.djupPerÄrende} per voteringsärende`}
-      />
-      <KpiCard
-        value={String(metrics.närvaro.snittPerMöte)}
-        label="Snitt närvarande per möte"
-        breakdown={`${metrics.närvaro.registreringar} totalt / ${metrics.närvaro.möten} möten (inkl. ersättare)`}
-      />
+      <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]">
+        <div class="text-sm text-[var(--color-text-muted)] mb-1">Konsensus</div>
+        <div class="font-mono text-[2.5rem] font-bold leading-none"
+          style={metrics.konsensus.konsensusgradProcent > 85 ? 'color:var(--color-warning)' : 'color:var(--color-text)'}
+        >{metrics.konsensus.konsensusgradProcent}<span class="text-base ml-1 text-[var(--color-text-muted)]">%</span></div>
+        <div class="text-xs text-[var(--color-text-subtle)] mt-1">Ärenden utan votering</div>
+        {metrics.konsensus.konsensusgradProcent > 85 && (
+          <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-warning)">
+            ⚠ Hög — kan dölja brist på debatt
+          </div>
+        )}
+      </div>
+
+      <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]">
+        <div class="text-sm text-[var(--color-text-muted)] mb-1">Debatt-Gini</div>
+        <div class="font-mono text-[2.5rem] font-bold leading-none"
+          style={metrics.debatt.giniKoefficient > 0.7 ? 'color:var(--color-negative)' : metrics.debatt.giniKoefficient > 0.5 ? 'color:var(--color-warning)' : 'color:var(--color-positive)'}
+        >{metrics.debatt.giniKoefficient}</div>
+        <div class="text-xs text-[var(--color-text-subtle)] mt-1">0 = jämnt, 1 = få dominerar</div>
+        {metrics.debatt.giniKoefficient > 0.7 && (
+          <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-negative)">
+            ⛔ Få politiker dominerar debatten
+          </div>
+        )}
+      </div>
+
+      <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]">
+        <div class="text-sm text-[var(--color-text-muted)] mb-1">Anföranden</div>
+        <div class="font-mono text-[2.5rem] font-bold leading-none text-[var(--color-text)]">{metrics.debatt.anföranden.toLocaleString('sv-SE')}</div>
+        <div class="text-xs text-[var(--color-text-subtle)] mt-1">{metrics.debatt.djupPerÄrende} per voteringsärende</div>
+      </div>
+
+      <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]">
+        <div class="text-sm text-[var(--color-text-muted)] mb-1">Snitt närvarande</div>
+        <div class="font-mono text-[2.5rem] font-bold leading-none" style="color:var(--color-positive)">{metrics.närvaro.snittPerMöte}</div>
+        <div class="text-xs text-[var(--color-text-subtle)] mt-1">{metrics.närvaro.möten} möten (inkl. ersättare)</div>
+        <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-positive)">
+          ✓ Bra uppslutning
+        </div>
+      </div>
     </div>
 
     <!-- Rice Index per parti -->
