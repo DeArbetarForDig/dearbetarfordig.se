@@ -1,0 +1,153 @@
+{
+  "nodes": [
+    {
+      "id": "doc-intraservice-delarsrapport-q1-2026",
+      "typ": "dokument",
+      "label": "Intraservice delårsrapport januari–mars 2026",
+      "data": {
+        "källa": "begäran",
+        "period": "2026-Q1",
+        "typ": "delårsrapport"
+      }
+    },
+    {
+      "id": "utfall-intraservice-2026-q1",
+      "typ": "utfall",
+      "label": "Intraservice ekonomiskt utfall Q1 2026",
+      "data": {
+        "period": "2026-Q1",
+        "enhet": "mnkr",
+        "totalt": {
+          "intäkter_period": 373.6,
+          "kostnader_period": -360.5,
+          "budget_kostnader_period": -382.1,
+          "budgetavvikelse_period": 21.6,
+          "resultat_period": 22.5,
+          "intäkter_fg_år_period": 346.2,
+          "prognos_intäkter_helår": 1513.3,
+          "prognos_kostnader_helår": -1550.7,
+          "budget_kostnader_helår": -1633.7,
+          "prognos_resultat_helår": 37.4,
+          "bokslut_fg_år_intäkter": 1413.5,
+          "bokslut_fg_år_kostnader": -1444.8
+        },
+        "per_tjänsteområde": {
+          "gemensamma_ekonomi": {
+            "utfall_intäkter_period": 20.5,
+            "utfall_kostnader_period": -13.7,
+            "budget_kostnader_period": -20.7,
+            "budgetavvikelse": 7.0,
+            "prognos_kostnader_helår": -69.5,
+            "budget_kostnader_helår": -82.5,
+            "kommentar": "Ekonomisystemprojektet pausat → 13.5M sparas"
+          },
+          "gemensamma_hr": {
+            "utfall_intäkter_period": 35.8,
+            "utfall_kostnader_period": -34.3,
+            "budget_kostnader_period": -36.2,
+            "budgetavvikelse": 1.9,
+            "prognos_kostnader_helår": -145.4,
+            "budget_kostnader_helår": -143.8
+          },
+          "gemensamma_kls": {
+            "utfall_intäkter_period": 24.5,
+            "utfall_kostnader_period": -22.1,
+            "budget_kostnader_period": -24.6,
+            "budgetavvikelse": 2.5,
+            "prognos_kostnader_helår": -98.1,
+            "budget_kostnader_helår": -98.6,
+            "kommentar": "Tillgångsregister cybersäkerhet +5.5M"
+          },
+          "digital_infrastruktur": {
+            "utfall_intäkter_period": 210.1,
+            "utfall_kostnader_period": -194.4,
+            "budget_kostnader_period": -205.5,
+            "budgetavvikelse": 11.1,
+            "prognos_intäkter_helår": 840.9,
+            "prognos_kostnader_helår": -848.5,
+            "budget_kostnader_helår": -848.7,
+            "kommentar": "Cybersäkerhet +14M varav 9M från projektmedel"
+          },
+          "förändringsinitiativ": {
+            "utfall_intäkter_period": 9.1,
+            "utfall_kostnader_period": -7.6,
+            "budget_kostnader_period": -9.5,
+            "budgetavvikelse": 2.4,
+            "prognos_kostnader_helår": -38.0,
+            "budget_kostnader_helår": -38.1,
+            "kommentar": "9M av 38M budgeterade nyttjas för cybersäkerhet"
+          }
+        },
+        "nyckeltal": {
+          "antal_årsarbetare_period": 197.7,
+          "antal_årsarbetare_fg_år_period": 188.7,
+          "prognos_årsarbetare_helår": 750,
+          "sla_lösta_inom_avtal": 0.875,
+          "major_incidents_period": 7,
+          "major_incidents_helår_fg": 55
+        },
+        "väsentliga_händelser": [
+          {
+            "händelse": "Cybersäkerhetslagen — tillkommande kostnad 24M för 2026",
+            "effekt_mnkr": -24,
+            "finansiering": "9M projektmedel + överskott andra tjänster"
+          },
+          {
+            "händelse": "Upphandling ekonomisystem pausad",
+            "effekt_mnkr": 13.5,
+            "finansiering": "Sparade budgetmedel"
+          },
+          {
+            "händelse": "Microsoft365 avtalsförhandling avslutad, kontrakt ej skrivet",
+            "effekt_mnkr": null,
+            "finansiering": "Bedöms ej ge ekonomisk effekt 2026"
+          },
+          {
+            "händelse": "Cyberattack Miljödata — Adato/Stella nere sedan aug 2025",
+            "effekt_mnkr": null,
+            "finansiering": "Övertidskostnader + informeringskostnader"
+          }
+        ]
+      }
+    },
+    {
+      "id": "doc-slk-digitaliseringsplan-2026-2028",
+      "typ": "dokument",
+      "label": "Stadsledningskontorets digitaliseringsplan 2026–2028",
+      "data": {
+        "källa": "begäran",
+        "dnr": "0451/23",
+        "beslutad_av": "Stadsdirektör",
+        "datum": "2023-02-22",
+        "reviderad": "2025-10-17",
+        "giltig": "revideras årligen",
+        "fokusområden": ["Effektiva arbetssätt", "Ökad säkerhet"],
+        "nämner_ai": true,
+        "nämner_nis2": true,
+        "nämner_microsoft": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "doc-intraservice-delarsrapport-q1-2026",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "tillhör"
+    },
+    {
+      "from": "doc-intraservice-delarsrapport-q1-2026",
+      "to": "utfall-intraservice-2026-q1",
+      "typ": "innehåller"
+    },
+    {
+      "from": "utfall-intraservice-2026-q1",
+      "to": "org-göteborgs-stads-nämnd-för-intraservice",
+      "typ": "utfall_för"
+    },
+    {
+      "from": "doc-slk-digitaliseringsplan-2026-2028",
+      "to": "org-kommunstyrelsen",
+      "typ": "tillhör"
+    }
+  ]
+}
