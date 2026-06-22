@@ -62,6 +62,18 @@ async function main() {
   await client`DROP TABLE IF EXISTS goteborg.moten CASCADE`
   await client`DROP TABLE IF EXISTS goteborg.budget CASCADE`
 
+  await client`
+    CREATE TABLE IF NOT EXISTS goteborg.dokument (
+      id TEXT PRIMARY KEY,
+      titel TEXT NOT NULL,
+      typ TEXT NOT NULL,
+      namnd TEXT NOT NULL,
+      datum TEXT NOT NULL,
+      kalla TEXT NOT NULL,
+      innehall TEXT NOT NULL,
+      graf_nod TEXT
+    )`
+
   console.log('   ✓ Tables created (unused dropped)')
 
   // Create indexes
@@ -148,6 +160,21 @@ async function main() {
 
 
     console.log(`   ✓ ${totalNodes} graf nodes, ${totalEdges} edges (from ${files.length} files)`)
+  }
+
+  // Seed dokument (full-text parsed documents)
+  const dokDir = join(DATA_DIR, 'dokument')
+  if (existsSync(dokDir) && existsSync(join(dokDir, 'index.json'))) {
+    await client`DELETE FROM goteborg.dokument`
+    const docs = JSON.parse(readFileSync(join(dokDir, 'index.json'), 'utf-8'))
+    for (const doc of docs) {
+      const textPath = join(dokDir, doc.fil)
+      if (!existsSync(textPath)) continue
+      const innehall = readFileSync(textPath, 'utf-8')
+      await client`INSERT INTO goteborg.dokument (id, titel, typ, namnd, datum, kalla, innehall, graf_nod)
+        VALUES (${doc.id}, ${doc.titel}, ${doc.typ}, ${doc.nämnd}, ${doc.datum}, ${doc.källa}, ${innehall}, ${doc.graf_nod || null})`
+    }
+    console.log(`   ✓ ${docs.length} dokument (full-text)`)
   }
 
   console.log('\n✅ Database seeded')
