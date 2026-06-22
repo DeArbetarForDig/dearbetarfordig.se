@@ -44,8 +44,9 @@ app.use('/*', async (c, next) => {
   const ip = c.req.header('x-forwarded-for') || 'unknown'
   const now = Date.now()
   const entry = rateMap.get(ip)
+  const limit = process.env.NODE_ENV === 'production' ? 200 : 5000
   if (entry && entry.reset > now) {
-    if (entry.count >= 200) return c.json({ error: 'Rate limit exceeded (200/min)' }, 429)
+    if (entry.count >= limit) return c.json({ error: 'Rate limit exceeded (200/min)' }, 429)
     entry.count++
   } else {
     rateMap.set(ip, { count: 1, reset: now + 60_000 })
