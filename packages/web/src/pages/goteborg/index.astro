@@ -40,6 +40,8 @@ const partiMandat = Object.entries(stats.partier).map(([label, value]) => ({
   color: `var(--parti-${label.toLowerCase()})`,
 }))
 
+const riceEntries = Object.entries(metrics.riceIndex || {}).sort(([,a]: any, [,b]: any) => b - a) as [string, number][]
+
 const senasteBeslut = beslutList
   .filter((b) => b.beslut)
   .slice(0, 6)
@@ -76,6 +78,57 @@ const senasteBeslut = beslutList
       {kpis.map(kpi => (
         <KpiCard value={kpi.value} unit={kpi.unit} label={kpi.label} trend={kpi.trend} trendValue={kpi.trendValue} />
       ))}
+    </div>
+  </section>
+
+  <!-- Democracy Scorecard -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold mb-4">Demokratisk hälsa</h2>
+    <p class="text-sm text-[var(--color-text-muted)] mb-4">Vetenskapliga nyckeltal baserade på Legislative Studies-forskning</p>
+    <div class="grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+      <KpiCard
+        value={String(metrics.konsensus.konsensusgradProcent)}
+        unit="%"
+        label="Konsensus"
+        breakdown="Ärenden avgjorda utan votering"
+      />
+      <KpiCard
+        value={String(metrics.debatt.giniKoefficient)}
+        label="Debatt-Gini"
+        breakdown="0 = alla talar lika, 1 = få dominerar"
+      />
+      <KpiCard
+        value={String(metrics.debatt.anföranden.toLocaleString('sv-SE'))}
+        label="Anföranden"
+        breakdown={`${metrics.debatt.djupPerÄrende} per voteringsärende`}
+      />
+      <KpiCard
+        value={String(metrics.närvaro.närvaroProcent)}
+        unit="%"
+        label="Närvaro"
+        breakdown={`${metrics.närvaro.registreringar} registreringar / ${metrics.närvaro.möten} möten`}
+      />
+    </div>
+
+    <!-- Rice Index per parti -->
+    <div class="mt-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4">
+      <h3 class="font-bold mb-3">Parti-sammanhållning (Rice Index)</h3>
+      <p class="text-xs text-[var(--color-text-muted)] mb-3">1.0 = alla röstar lika, 0.5 = splittrat. Källa: Rice (1924)</p>
+      <div class="grid gap-2">
+        {riceEntries.map(([parti, rice]) => (
+            <div class="flex items-center gap-3">
+              <span class="w-8 text-sm font-semibold">{parti}</span>
+              <div class="flex-1 h-4 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
+                <div
+                  class="h-full rounded-full"
+                  style={`width:${rice * 100}%;background:var(--parti-${parti.toLowerCase()})`}
+                />
+              </div>
+              <span class="font-mono text-sm w-10 text-right">{rice}</span>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </section>
 
