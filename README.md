@@ -43,7 +43,8 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 | OpenAPI 3.1 + Swagger UI | ✅ Klar |
 | Begäran om allmän handling (3 skickade) | ⏳ Väntar svar |
 | Sociala medier-scraping | 🔜 Nästa |
-| Frontend (Astro) | 🔜 Nästa |
+| PixelRAG (visual PDF parsing) | 🔜 Nästa |
+| Frontend (Astro) | ✅ Klar |
 | Deploy (Hetzner) | 🔜 Nästa |
 
 ## Principer
