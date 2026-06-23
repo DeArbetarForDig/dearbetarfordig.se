@@ -143,7 +143,7 @@ const senasteBeslut = beslutList
         <div class="font-mono text-[2.5rem] font-bold leading-none text-[var(--color-text)]">{metrics.debatt.anföranden.toLocaleString('sv-SE')}</div>
       </Card>
 
-      <Card title="Snitt närvarande" subtitle={`${metrics.närvaro.möten} möten (inkl. ersättare)`} tooltip="Genomsnittligt antal politiker som registrerats som närvarande per KF-sammanträde. Inkluderar både ordinarie ledamöter (81 st) och tjänstgörande ersättare.">
+      <Card title="Snitt närvarande" subtitle={`${metrics.närvaro.möten} möten (inkl. ersättare)`} tooltip="Genomsnittligt antal politiker som registrerats som närvarande per KF-sammanträde. Inkluderar både ordinarie ledamöter (81 st) och tjänstgörande ersättare." tooltipPosition="top">
         <div class="font-mono text-[2.5rem] font-bold leading-none" style="color:var(--color-positive)">{metrics.närvaro.snittPerMöte}</div>
         <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-positive)">
           <Icon name="circle-check" size={14} />

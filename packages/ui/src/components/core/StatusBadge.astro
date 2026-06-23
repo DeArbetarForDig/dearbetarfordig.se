@@ -1,4 +1,20 @@
 ---
+/**
+ * StatusBadge — accessible status indicator with color + glyph + text.
+ *
+ * Usage:
+ *   <StatusBadge status="bifall" />
+ *   <StatusBadge status="avslag" solid />
+ *   <StatusBadge status="ja" label="Custom text" />
+ *
+ * Props:
+ * - status: bifall | avslag | remitterad | bordlagd | ja | nej | avstar | franvarande | info
+ * - label: override the default Swedish label
+ * - solid: filled background instead of tinted
+ *
+ * Accessibility: color is never the only signal — each status has a unique
+ * glyph (● ◐ ◑ ○) plus text label, meeting WCAG contrast requirements.
+ */
 interface Props {
   status?: string
   label?: string

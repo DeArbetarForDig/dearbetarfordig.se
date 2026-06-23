@@ -1,4 +1,21 @@
 ---
+/**
+ * PoliticianCard — compact card for a politician in list views.
+ *
+ * Usage:
+ *   <PoliticianCard namn="Anna Svensson" parti="C" roll="Ledamot" narvaro={92} />
+ *
+ * Props:
+ * - namn: full name
+ * - parti: party code (renders PartyTag)
+ * - foto: optional photo URL
+ * - roll: role/position text
+ * - narvaro: attendance percentage (optional)
+ * - url: link to politician detail page
+ *
+ * Renders as a clickable link card with hover lift effect.
+ * Shows placeholder icon if no photo provided.
+ */
 import PartyTag from '../core/PartyTag.astro'
 
 interface Props {

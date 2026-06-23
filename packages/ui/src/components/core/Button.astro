@@ -1,4 +1,20 @@
 ---
+/**
+ * Button — primary action element.
+ *
+ * Usage:
+ *   <Button variant="primary" href="/link">Click me</Button>
+ *   <Button variant="ghost" size="sm" disabled>Disabled</Button>
+ *
+ * Props:
+ * - variant: primary | secondary | ghost | danger
+ * - size: sm | md | lg
+ * - href: if provided, renders as <a> instead of <button>
+ * - disabled: grays out and prevents interaction
+ *
+ * Renders as <a> when href is set (for navigation), <button> otherwise (for actions).
+ * Uses CSS custom properties for theming (--color-primary, --color-surface, etc).
+ */
 interface Props {
   variant?: 'primary' | 'secondary' | 'ghost' | 'danger'
   size?: 'sm' | 'md' | 'lg'

@@ -1,4 +1,20 @@
 ---
+/**
+ * Icon — renders Lucide icons from the lucide-static package.
+ *
+ * Usage:
+ *   <Icon name="triangle-alert" size={20} />
+ *   <Icon name="circle-check" size={14} class="text-green-500" />
+ *
+ * Props:
+ * - name: Lucide icon name in kebab-case (e.g., "shield-alert", "arrow-right")
+ * - size: pixel size (default 20)
+ * - class: additional CSS classes
+ *
+ * Icons are inlined as SVG at build time (no client-side JS or network requests).
+ * Color inherits from parent via currentColor.
+ * Full icon list: https://lucide.dev/icons
+ */
 interface Props {
   name: string
   size?: number

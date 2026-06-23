@@ -1,4 +1,19 @@
 ---
+/**
+ * PartyTag — Swedish political party identifier chip.
+ *
+ * Usage:
+ *   <PartyTag parti="S" />         → small colored box with "S"
+ *   <PartyTag parti="MP" full />   → box + "Miljöpartiet" text
+ *
+ * Props:
+ * - parti: party code (S, M, SD, V, MP, C, L, KD, D)
+ * - full: show full party name alongside the code
+ * - size: sm | md
+ *
+ * Colors are defined in CSS custom properties (--parti-s, --parti-m, etc.)
+ * Renders party code in white text on the party's brand color.
+ */
 interface Props {
   parti: string
   full?: boolean
