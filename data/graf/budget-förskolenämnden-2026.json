@@ -10,7 +10,7 @@
       }
     },
     {
-      "id": "budgetpost-förskolenämnden-kommunbidrag-ram",
+      "id": "budgetpost-forskola-kommunbidrag-ram",
       "typ": "budgetpost",
       "label": "Kommunbidrag (ram)",
       "data": {
@@ -18,7 +18,7 @@
       }
     },
     {
-      "id": "budgetpost-förskolenämnden-intäkter",
+      "id": "budgetpost-forskola-intäkter",
       "typ": "budgetpost",
       "label": "Intäkter",
       "data": {
@@ -26,7 +26,7 @@
       }
     },
     {
-      "id": "budgetpost-förskolenämnden-kostnader",
+      "id": "budgetpost-forskola-kostnader",
       "typ": "budgetpost",
       "label": "Kostnader",
       "data": {
@@ -34,11 +34,123 @@
       }
     },
     {
-      "id": "budgetpost-förskolenämnden-lokaler",
+      "id": "budgetpost-forskola-administration-löneavtal-lokala-mötescen",
       "typ": "budgetpost",
-      "label": "Lokaler",
+      "label": "Administration, löneavtal, lokala mötescentrum",
       "data": {
-        "mnkr": -801.4
+        "mnkr": -359.9
+      }
+    },
+    {
+      "id": "budgetpost-forskola-risk-befolkningsförändringar-och-resulta",
+      "typ": "budgetpost",
+      "label": "Risk, befolkningsförändringar och resultatreglering",
+      "data": {
+        "mnkr": -10
+      }
+    },
+    {
+      "id": "budgetpost-forskola-kommungemensamma-tjänster",
+      "typ": "budgetpost",
+      "label": "Kommungemensamma tjänster",
+      "data": {
+        "mnkr": -136.2
+      }
+    },
+    {
+      "id": "budgetpost-forskola-överkapacitet-lokaler",
+      "typ": "budgetpost",
+      "label": "Överkapacitet lokaler",
+      "data": {
+        "mnkr": -48.5
+      }
+    },
+    {
+      "id": "budgetpost-forskola-7-timmars-arbetsdag",
+      "typ": "budgetpost",
+      "label": "7 timmars-arbetsdag",
+      "data": {
+        "mnkr": -8
+      }
+    },
+    {
+      "id": "budgetpost-forskola-30h-förskola-för-föräldralediga",
+      "typ": "budgetpost",
+      "label": "30h förskola för föräldralediga",
+      "data": {
+        "mnkr": -40
+      }
+    },
+    {
+      "id": "budgetpost-forskola-lönesatsning",
+      "typ": "budgetpost",
+      "label": "Lönesatsning",
+      "data": {
+        "mnkr": -7
+      }
+    },
+    {
+      "id": "budgetpost-forskola-avfallssnål-förskola",
+      "typ": "budgetpost",
+      "label": "Avfallssnål förskola",
+      "data": {
+        "mnkr": -6
+      }
+    },
+    {
+      "id": "budgetpost-forskola-pedagogisk-omsorg-egen-verksamhet",
+      "typ": "budgetpost",
+      "label": "Pedagogisk omsorg (egen verksamhet)",
+      "data": {
+        "mnkr": -21.3
+      }
+    },
+    {
+      "id": "budgetpost-forskola-pedagogisk-omsorg-och-omsorg-på-obekväm-",
+      "typ": "budgetpost",
+      "label": "Pedagogisk omsorg och omsorg på obekväm arbetstid (fristående)",
+      "data": {
+        "mnkr": -15.3
+      }
+    },
+    {
+      "id": "budgetpost-forskola-omsorg-på-obekväm-arbetstid",
+      "typ": "budgetpost",
+      "label": "Omsorg på obekväm arbetstid",
+      "data": {
+        "mnkr": -21
+      }
+    },
+    {
+      "id": "budgetpost-forskola-öppen-förskola-inkl-utökade-öppettider",
+      "typ": "budgetpost",
+      "label": "Öppen förskola (inkl utökade öppettider)",
+      "data": {
+        "mnkr": -31.7
+      }
+    },
+    {
+      "id": "budgetpost-forskola-rektorer-öppna-förskolan-och-pedagogisk-",
+      "typ": "budgetpost",
+      "label": "Rektorer öppna förskolan och pedagogisk omsorg",
+      "data": {
+        "mnkr": -5.2
+      }
+    },
+    {
+      "id": "budgetpost-forskola-lokalhyror-öppen-förskola-och-dagbarnvår",
+      "typ": "budgetpost",
+      "label": "Lokalhyror öppen förskola och dagbarnvårdarlokaler",
+      "data": {
+        "mnkr": -15.2
+      }
+    },
+    {
+      "id": "budgetpost-forskola-fca-jämlik-stad",
+      "typ": "budgetpost",
+      "label": "FCA (jämlik stad)",
+      "data": {
+        "mnkr": -2.7
       }
     }
   ],
@@ -74,6 +186,96 @@
       "data": {
         "mnkr": -801.4
       }
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-kommunbidrag-ram",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-intäkter",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-kostnader",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-administration-löneavtal-lokala-mötescen",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-risk-befolkningsförändringar-och-resulta",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-kommungemensamma-tjänster",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-överkapacitet-lokaler",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-7-timmars-arbetsdag",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-30h-förskola-för-föräldralediga",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-lönesatsning",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-avfallssnål-förskola",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-pedagogisk-omsorg-egen-verksamhet",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-pedagogisk-omsorg-och-omsorg-på-obekväm-",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-omsorg-på-obekväm-arbetstid",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-öppen-förskola-inkl-utökade-öppettider",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-rektorer-öppna-förskolan-och-pedagogisk-",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-lokalhyror-öppen-förskola-och-dagbarnvår",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-förskolenämnden-budget-2026",
+      "to_id": "budgetpost-forskola-fca-jämlik-stad",
+      "typ": "innehåller"
     }
   ]
 }
