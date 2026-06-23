@@ -1,4 +1,22 @@
 ---
+/**
+ * Chamber — SVG hemicycle visualization of Kommunfullmäktige seating.
+ *
+ * Usage:
+ *   <Chamber seats={seats} mode="overview" />
+ *   <Chamber seats={seats} mode="vote" votes={votes} />
+ *
+ * Props:
+ * - seats: array of { nummer, politikerId, namn, parti }
+ * - mode: "overview" (party colors) | "vote" (ja/nej/avstår coloring)
+ * - votes: array of { politikerId, rost } (required for vote mode)
+ *
+ * Seat positions are fixed coordinates from the official Göteborg KF layout.
+ * Styling uses CSS classes from svg.css (.seat.parti-s, .vote.ja, etc.)
+ * so colors respond to theme changes automatically.
+ *
+ * The SVG is fully static (no JS) and accessible via <title> per seat.
+ */
 interface Seat {
   nummer: number
   politikerId: string

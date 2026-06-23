@@ -1,4 +1,21 @@
 ---
+/**
+ * DecisionCard — displays a single KF decision in a feed.
+ *
+ * Usage:
+ *   <DecisionCard titel="Ny cykelväg" datum="2025-06-12" status="bifall" ja={52} nej={21} avstar={8} />
+ *
+ * Props:
+ * - titel: decision title
+ * - datum: ISO date string
+ * - status: bifall | avslag | remitterad | bordlagd
+ * - paragraf: e.g. "KF § 45"
+ * - ja/nej/avstar: vote counts (optional, shows progress bar if present)
+ * - url: link to detail page
+ *
+ * Shows StatusBadge, date, title, and (if votes exist) a color-coded
+ * progress bar showing ja/nej/avstår proportions.
+ */
 import StatusBadge from '../core/StatusBadge.astro'
 
 interface Props {

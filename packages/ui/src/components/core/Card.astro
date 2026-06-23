@@ -9,11 +9,12 @@ interface Props {
   title?: string
   subtitle?: string
   tooltip?: string
+  tooltipPosition?: 'top' | 'top-end' | 'bottom' | 'bottom-end' | 'left' | 'right'
   titleSize?: 'sm' | 'base' | 'lg'
   class?: string
 }
 
-const { title, subtitle, tooltip, titleSize = 'base', class: className } = Astro.props
+const { title, subtitle, tooltip, tooltipPosition = 'top-end', titleSize = 'base', class: className } = Astro.props
 const titleClasses = {
   sm: 'text-sm text-[var(--color-text-muted)]',
   base: 'font-bold text-[var(--color-text)]',
@@ -25,8 +26,8 @@ const titleClasses = {
     <div class="card__header mb-3">
       {title && !tooltip && <div class={titleClasses[titleSize]}>{title}</div>}
       {title && tooltip && (
-        <Tooltip text={tooltip} position="top">
-          <div class:list={[titleClasses[titleSize], 'border-b border-dotted border-[var(--color-text-subtle)] cursor-help inline-block']}>{title}</div>
+        <Tooltip text={tooltip} position={tooltipPosition}>
+          <div class:list={[titleClasses[titleSize], 'cursor-help inline-block']} style="text-decoration: underline dotted var(--color-text-subtle); text-underline-offset: 3px">{title}</div>
         </Tooltip>
       )}
       {subtitle && <div class="text-xs text-[var(--color-text-subtle)] mt-0.5">{subtitle}</div>}

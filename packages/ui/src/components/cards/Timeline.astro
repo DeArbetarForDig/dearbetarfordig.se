@@ -1,4 +1,20 @@
 ---
+/**
+ * Timeline — vertical chronology for a decision's lifecycle.
+ *
+ * Usage:
+ *   <Timeline events={[
+ *     { datum: '2025-01-15', titel: 'Motion inlämnad', aktor: 'Anna (C)', status: 'completed' },
+ *     { datum: '2025-06-12', titel: 'KF beslut', status: 'active' },
+ *   ]} />
+ *
+ * Props:
+ * - events: array of { datum, titel, aktor?, beskrivning?, status }
+ * - status: 'completed' (green dot) | 'active' (blue + focus ring) | 'pending' (outline)
+ *
+ * Renders a vertical line with colored dots, connecting completed
+ * steps to the current active step. Accessible via aria-label.
+ */
 interface TimelineEvent {
   datum: string
   titel: string

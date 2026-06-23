@@ -1,0 +1,146 @@
+/**
+ * Chart Tooltip — standalone CSS for data visualization tooltips.
+ * Fixed-position, follows cursor, shows title + key/value table.
+ */
+
+.chart-tooltip {
+  position: fixed;
+  background-color: rgba(15, 23, 42, 0.92);
+  border: 1px solid var(--color-border-strong, #475569);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: var(--space-sm) var(--space-md);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 100;
+  line-height: normal;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-small);
+  color: #f1f5f9;
+  max-width: 320px;
+  transition: opacity 0.12s;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+/* Table layout for multi-row data */
+.chart-tooltip .content {
+  width: 100%;
+
+  table {
+    width: 100%;
+    border-spacing: 0;
+  }
+
+  td,
+  th {
+    text-align: left;
+    padding: 2px 0;
+
+    &.right-align {
+      text-align: right;
+      padding-left: var(--space-lg);
+    }
+  }
+
+  th {
+    border-bottom: 1px solid var(--color-border-strong, #475569);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    padding-bottom: var(--space-xs);
+  }
+
+  tr td {
+    padding: var(--space-xs) 0;
+
+    &.bold {
+      font-weight: 700;
+    }
+  }
+
+  tr.line td {
+    border-bottom: 1px solid var(--color-border-strong, #475569);
+    padding-bottom: var(--space-sm);
+    padding-top: var(--space-sm);
+  }
+
+  tr.line + tr td {
+    padding-top: var(--space-md);
+  }
+}
+
+/* Title row */
+.chart-tooltip .title {
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+
+  .unit-title {
+    font-family: var(--font-mono);
+  }
+
+  .unit-value {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--font-size-small);
+  }
+}
+
+/* Data items */
+.chart-tooltip .item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 2px 0;
+
+  &.empty {
+    display: none;
+  }
+
+  .key {
+    opacity: 0.8;
+  }
+
+  .value {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-weight: 600;
+  }
+}
+
+/* Color indicators (small dots) */
+.chart-tooltip .item i,
+.chart-tooltip .item .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Summary section (optional totals row) */
+.chart-tooltip .summary {
+  border-top: 1px solid var(--color-border-strong, #475569);
+  margin-top: var(--space-xs);
+  padding-top: var(--space-xs);
+}
+
+.chart-tooltip .summary-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 2px 0;
+  font-weight: 600;
+
+  .key {
+    opacity: 0.7;
+  }
+
+  .value {
+    margin-left: auto;
+    font-family: var(--font-mono);
+  }
+}
