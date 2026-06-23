@@ -15,30 +15,6 @@
       "data": {
         "mnkr": 41070.0
       }
-    },
-    {
-      "id": "budgetpost-socialnämnden-nordost-tkr",
-      "typ": "budgetpost",
-      "label": "Tkr",
-      "data": {
-        "mnkr": 20252026.0
-      }
-    },
-    {
-      "id": "budgetpost-socialnämnden-nordost-intäkter",
-      "typ": "budgetpost",
-      "label": "Intäkter",
-      "data": {
-        "mnkr": 242150251404.0
-      }
-    },
-    {
-      "id": "budgetpost-socialnämnden-nordost-kommunbidrag",
-      "typ": "budgetpost",
-      "label": "Kommunbidrag",
-      "data": {
-        "mnkr": 18301401931460.0
-      }
     }
   ],
   "edges": [

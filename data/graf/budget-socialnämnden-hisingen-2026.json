@@ -9,14 +9,6 @@
       }
     },
     {
-      "id": "budgetpost-socialnämnden-hisingen-kommunbidrag---budget-2025-(oktober)",
-      "typ": "budgetpost",
-      "label": "Kommunbidrag - budget 2025 (oktober)",
-      "data": {
-        "mnkr": 1333046.0
-      }
-    },
-    {
       "id": "budgetpost-socialnämnden-hisingen-arbetstidsinnovationer-(2025)",
       "typ": "budgetpost",
       "label": "Arbetstidsinnovationer (2025)",
@@ -190,46 +182,6 @@
       "label": "Riktad besparing ledning, administration,",
       "data": {
         "mnkr": -2500.0
-      }
-    },
-    {
-      "id": "budgetpost-socialnämnden-hisingen-budgetram-kf-2026",
-      "typ": "budgetpost",
-      "label": "Budgetram KF 2026",
-      "data": {
-        "mnkr": 1367360.0
-      }
-    },
-    {
-      "id": "budgetpost-socialnämnden-hisingen-tkr",
-      "typ": "budgetpost",
-      "label": "Tkr",
-      "data": {
-        "mnkr": 20252026.0
-      }
-    },
-    {
-      "id": "budgetpost-socialnämnden-hisingen-intäkter",
-      "typ": "budgetpost",
-      "label": "Intäkter",
-      "data": {
-        "mnkr": 153000180000.0
-      }
-    },
-    {
-      "id": "budgetpost-socialnämnden-hisingen-kostnader",
-      "typ": "budgetpost",
-      "label": "Kostnader",
-      "data": {
-        "mnkr": 14850001547000.0
-      }
-    },
-    {
-      "id": "budgetpost-socialnämnden-hisingen-kommunbidrag",
-      "typ": "budgetpost",
-      "label": "Kommunbidrag",
-      "data": {
-        "mnkr": 13320001367000.0
       }
     }
   ],

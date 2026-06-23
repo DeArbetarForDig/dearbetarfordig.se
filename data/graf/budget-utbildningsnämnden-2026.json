@@ -9,107 +9,102 @@
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-",
+      "id": "budgetpost-utbildning-utgående-kommunbidrag-2025",
       "typ": "budgetpost",
-      "label": "",
+      "label": "Utgående kommunbidrag 2025",
       "data": {
-        "mnkr": 11.0
+        "mnkr": 2775.1,
+        "tkr": 2775110
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-sålda-platser",
+      "id": "budgetpost-utbildning-förändring-schablonmedel-flyktingmottaga",
       "typ": "budgetpost",
-      "label": "Sålda platser",
+      "label": "Förändring schablonmedel flyktingmottagande",
       "data": {
-        "mnkr": 282828303131.0
+        "mnkr": 2.0,
+        "tkr": 2000
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-korttidstillsyn",
+      "id": "budgetpost-utbildning-avgår-kommunbidragstillägg",
       "typ": "budgetpost",
-      "label": "Korttidstillsyn",
+      "label": "Avgår kommunbidragstillägg",
       "data": {
-        "mnkr": 1.3513413612512611e+17
+        "mnkr": -6.3,
+        "tkr": -6300
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-",
+      "id": "budgetpost-utbildning-index-30",
       "typ": "budgetpost",
-      "label": "",
+      "label": "Index 3,0%",
       "data": {
-        "mnkr": 2025.0
+        "mnkr": 84.0,
+        "tkr": 84006
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-egen-regi-vux",
+      "id": "budgetpost-utbildning-elevutveckling",
       "typ": "budgetpost",
-      "label": "Egen regi vux",
+      "label": "Elevutveckling",
       "data": {
-        "mnkr": 2.32700217000217e+22
+        "mnkr": 57.2,
+        "tkr": 57196
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-statsbidrag-yh",
+      "id": "budgetpost-utbildning-effekten-av-omställning",
       "typ": "budgetpost",
-      "label": "Statsbidrag Yh",
+      "label": "Effekten av omställning",
       "data": {
-        "mnkr": 1.360001315001333e+21
+        "mnkr": -14.3,
+        "tkr": -14300
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-arbetsmarknadsinsatser",
+      "id": "budgetpost-utbildning-grundläggande-behörighet-yrkesprogram",
       "typ": "budgetpost",
-      "label": "Arbetsmarknadsinsatser",
+      "label": "Grundläggande behörighet yrkesprogram",
       "data": {
-        "mnkr": 600060005600400.0
+        "mnkr": 7.6,
+        "tkr": 7600
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-uppdragsutbildning",
+      "id": "budgetpost-utbildning-förstärkning-gymnasie--och-anpassad-gymn",
       "typ": "budgetpost",
-      "label": "Uppdragsutbildning",
+      "label": "Förstärkning gymnasie- och anpassad gymnasieskola",
       "data": {
-        "mnkr": 1.3800120001100027e+18
+        "mnkr": 35.4,
+        "tkr": 35400
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-försäljning",
+      "id": "budgetpost-utbildning-överföring-av-center-för-skolutveckling",
       "typ": "budgetpost",
-      "label": "Försäljning",
+      "label": "Överföring av Center för Skolutveckling",
       "data": {
-        "mnkr": 5500550035002000.0
+        "mnkr": -15.9,
+        "tkr": -15852
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-avgifter",
+      "id": "budgetpost-utbildning-ersättning-för-förstärkning-skolbibliote",
       "typ": "budgetpost",
-      "label": "Avgifter",
+      "label": "Ersättning för förstärkning skolbibliotek",
       "data": {
-        "mnkr": 350035003000500.0
+        "mnkr": 2.9,
+        "tkr": 2900
       }
     },
     {
-      "id": "budgetpost-utbildningsnämnden-övrigt",
+      "id": "budgetpost-utbildning-summa-kommunbidrag-2026",
       "typ": "budgetpost",
-      "label": "Övrigt",
+      "label": "Summa Kommunbidrag 2026",
       "data": {
-        "mnkr": 7000700070000.0
-      }
-    },
-    {
-      "id": "budgetpost-utbildningsnämnden-summa",
-      "typ": "budgetpost",
-      "label": "Summa",
-      "data": {
-        "mnkr": 4.045003825003804e+22
-      }
-    },
-    {
-      "id": "budgetpost-utbildningsnämnden--35-000--------34-970---------26-000",
-      "typ": "budgetpost",
-      "label": "-35 000       -34 970        -26 000",
-      "data": {
-        "mnkr": -29087.0
+        "mnkr": 2927.8,
+        "tkr": 2927760
       }
     }
   ],
@@ -217,6 +212,61 @@
       "data": {
         "mnkr": -29087.0
       }
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-utgående-kommunbidrag-2025",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-förändring-schablonmedel-flyktingmottaga",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-avgår-kommunbidragstillägg",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-index-30",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-elevutveckling",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-effekten-av-omställning",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-grundläggande-behörighet-yrkesprogram",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-förstärkning-gymnasie--och-anpassad-gymn",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-överföring-av-center-för-skolutveckling",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-ersättning-för-förstärkning-skolbibliote",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-utbildningsnämnden-budget-2026",
+      "to_id": "budgetpost-utbildning-summa-kommunbidrag-2026",
+      "typ": "innehåller"
     }
   ]
 }
