@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "doc-intraservice-arsrapport-2025",
+      "typ": "dokument",
+      "label": "Intraservice årsrapport 2025",
+      "data": {
+        "källa": "begäran",
+        "period": "2025",
+        "typ": "årsrapport"
+      }
+    },
+    {
+      "id": "utfall-intraservice-2025",
+      "typ": "utfall",
+      "label": "Intraservice ekonomiskt utfall 2025",
+      "data": {
+        "period": "2025",
+        "enhet": "mnkr",
+        "intäkter": {
+          "bastjänster_förvaltning": 271.9,
+          "digital_infrastruktur_förvaltning": 776.9,
+          "totalt_förvaltning": 1048.8,
+          "bastjänster_förändringsinitiativ": 1.8,
+          "digital_infrastruktur_förändringsinitiativ": 22.7,
+          "totalt_förändringsinitiativ": 24.5,
+          "totalt_förvaltning_och_förändringsinitiativ": 1073.3,
+          "inköp_och_upphandling": 9.6,
+          "demokrati_och_medborgarservice": 29.3,
+          "tilläggs_och_specialisttjänster": 42.4,
+          "e_tjänstekort": 12.8,
+          "direktförsäljning_och_övrigt": 287.7,
+          "kommunbidrag": 38.2,
+          "totala_intäkter": 1493.3
+        },
+        "kostnader": {
+          "personalkostnader": -551.7,
+          "konsultkostnader": -110.7,
+          "it_program": -438.8,
+          "hyra_leasing_it": -238.5,
+          "övriga_kostnader": -146.0,
+          "finansnetto": -0.7,
+          "totala_kostnader": -1486.4
+        },
+        "resultat": {
+          "årets_resultat": 6.9,
+          "budget": 0,
+          "avvikelse_mot_budget": 6.9
+        },
+        "jämförelse": {
+          "utfall_2024_intäkter": 1413.4,
+          "utfall_2024_kostnader": -1409.7,
+          "utfall_2024_resultat": 3.7,
+          "budget_2025_intäkter": 1509.2,
+          "budget_2025_kostnader": -1509.2
+        },
+        "nyckeltal": {
+          "återreglering_till_kund_mnkr": 29.5,
+          "överskott_mnkr": 6.9
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "doc-intraservice-arsrapport-2025",
+      "to_id": "utfall-intraservice-2025",
+      "typ": "beskriver"
+    }
+  ]
+}
