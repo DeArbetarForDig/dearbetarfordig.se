@@ -161,12 +161,27 @@ const dataJson = JSON.stringify(arcs.map(a => ({ label: a.label, value: a.value,
     }
 
     circles.forEach((c, i) => {
-      c.addEventListener('mouseenter', () => highlight(i))
-      c.addEventListener('mouseleave', reset)
+      c.addEventListener('mouseenter', (e) => highlight(i))
+      c.addEventListener('mousemove', (e) => {
+        if (window.dafChartTooltip) {
+          const seg = segments[i]
+          window.dafChartTooltip.show(e, {
+            title: seg.label,
+            items: [{ label: showAbsolute ? 'Värde' : 'Andel', value: showAbsolute ? seg.value : seg.pct + '%' }]
+          })
+        }
+      })
+      c.addEventListener('mouseleave', () => {
+        reset()
+        if (window.dafChartTooltip) window.dafChartTooltip.hide()
+      })
     })
     legendItems.forEach((li, i) => {
       li.addEventListener('mouseenter', () => highlight(i))
-      li.addEventListener('mouseleave', reset)
+      li.addEventListener('mouseleave', () => {
+        reset()
+        if (window.dafChartTooltip) window.dafChartTooltip.hide()
+      })
     })
   })
 </script>
