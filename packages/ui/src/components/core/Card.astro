@@ -1,16 +1,19 @@
 ---
 /**
  * Card — container for short related information.
- * Structure: header (title + subtitle) + content (slot).
+ * Structure: header (title + subtitle + optional tooltip) + content (slot).
  */
+import Tooltip from './Tooltip.astro'
+
 interface Props {
   title?: string
   subtitle?: string
+  tooltip?: string
   titleSize?: 'sm' | 'base' | 'lg'
   class?: string
 }
 
-const { title, subtitle, titleSize = 'base', class: className } = Astro.props
+const { title, subtitle, tooltip, titleSize = 'base', class: className } = Astro.props
 const titleClasses = {
   sm: 'text-sm text-[var(--color-text-muted)]',
   base: 'font-bold text-[var(--color-text)]',
@@ -20,7 +23,12 @@ const titleClasses = {
 <div class:list={['card bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]', className]}>
   {(title || subtitle) && (
     <div class="card__header mb-3">
-      {title && <div class={titleClasses[titleSize]}>{title}</div>}
+      {title && !tooltip && <div class={titleClasses[titleSize]}>{title}</div>}
+      {title && tooltip && (
+        <Tooltip text={tooltip} position="top">
+          <div class:list={[titleClasses[titleSize], 'border-b border-dotted border-[var(--color-text-subtle)] cursor-help inline-block']}>{title}</div>
+        </Tooltip>
+      )}
       {subtitle && <div class="text-xs text-[var(--color-text-subtle)] mt-0.5">{subtitle}</div>}
     </div>
   )}

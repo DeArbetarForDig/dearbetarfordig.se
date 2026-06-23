@@ -115,7 +115,7 @@ const senasteBeslut = beslutList
     <h2 class="text-2xl font-bold mb-4">Demokratisk hälsa</h2>
     <p class="text-sm text-[var(--color-text-muted)] mb-4">Vetenskapliga nyckeltal baserade på Legislative Studies-forskning</p>
     <div class="grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-      <Card title="Konsensus" subtitle="Ärenden utan votering">
+      <Card title="Konsensus" subtitle="Ärenden utan votering" tooltip="Andel beslut som fattades utan formell omröstning — alla var överens. Över 85% kan tyda på att verklig debatt sker bakom stängda dörrar.">
         <div class="font-mono text-[2.5rem] font-bold leading-none"
           style={metrics.konsensus.konsensusgradProcent > 85 ? 'color:var(--color-warning)' : 'color:var(--color-text)'}
         >{metrics.konsensus.konsensusgradProcent}<span class="text-base ml-1 text-[var(--color-text-muted)]">%</span></div>
@@ -127,7 +127,7 @@ const senasteBeslut = beslutList
         )}
       </Card>
 
-      <Card title="Debatt-Gini" subtitle="0 = jämnt, 1 = få dominerar">
+      <Card title="Debatt-Gini" subtitle="0 = jämnt, 1 = få dominerar" tooltip="Gini-koefficient som mäter hur ojämnt fördelat talartiden är. 0 = alla politiker talar lika mycket. 1 = en enda person tar all tid. Baserat på 16 476 registrerade anföranden.">
         <div class="font-mono text-[2.5rem] font-bold leading-none"
           style={metrics.debatt.giniKoefficient > 0.7 ? 'color:var(--color-negative)' : metrics.debatt.giniKoefficient > 0.5 ? 'color:var(--color-warning)' : 'color:var(--color-positive)'}
         >{metrics.debatt.giniKoefficient}</div>
@@ -139,11 +139,11 @@ const senasteBeslut = beslutList
         )}
       </Card>
 
-      <Card title="Anföranden" subtitle={`${metrics.debatt.djupPerÄrende} per voteringsärende`}>
+      <Card title="Anföranden" subtitle={`${metrics.debatt.djupPerÄrende} per voteringsärende`} tooltip="Totalt antal registrerade talarturer i KF under mandatperioden. Fler anföranden per ärende tyder på djupare deliberation — men se Gini-koefficienten för hur jämnt de fördelas.">
         <div class="font-mono text-[2.5rem] font-bold leading-none text-[var(--color-text)]">{metrics.debatt.anföranden.toLocaleString('sv-SE')}</div>
       </Card>
 
-      <Card title="Snitt närvarande" subtitle={`${metrics.närvaro.möten} möten (inkl. ersättare)`}>
+      <Card title="Snitt närvarande" subtitle={`${metrics.närvaro.möten} möten (inkl. ersättare)`} tooltip="Genomsnittligt antal politiker som registrerats som närvarande per KF-sammanträde. Inkluderar både ordinarie ledamöter (81 st) och tjänstgörande ersättare.">
         <div class="font-mono text-[2.5rem] font-bold leading-none" style="color:var(--color-positive)">{metrics.närvaro.snittPerMöte}</div>
         <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-positive)">
           <Icon name="circle-check" size={14} />
