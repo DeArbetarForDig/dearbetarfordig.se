@@ -1,0 +1,163 @@
+---
+/**
+ * Tooltip — contextual hint shown on hover/focus.
+ *
+ * Usage:
+ *   <Tooltip text="Full explanation here">
+ *     <span>Hover me</span>
+ *   </Tooltip>
+ *
+ * Features:
+ * - Positions: top (default), bottom, left, right
+ * - Variants: default (dark bg), light (white bg)
+ * - Accessible: role="tooltip", aria-describedby
+ * - CSS-only for static triggers; no JS needed
+ * - Supports truncated text (shows full text on hover)
+ * - Fixed positioning option to escape overflow:hidden containers
+ */
+interface Props {
+  /** Tooltip message text */
+  text: string
+  /** Position relative to trigger */
+  position?: 'top' | 'bottom' | 'left' | 'right'
+  /** Visual style */
+  variant?: 'dark' | 'light'
+  /** Use fixed positioning (escapes overflow:hidden) */
+  fixed?: boolean
+  class?: string
+}
+
+const { text, position = 'top', variant = 'dark', fixed = false, class: className } = Astro.props
+const id = `tt-${Math.random().toString(36).slice(2, 8)}`
+---
+<span
+  class:list={['daf-tooltip', `daf-tooltip--${position}`, className]}
+  role="tooltip"
+  aria-describedby={id}
+>
+  <slot />
+  <span
+    class:list={['daf-tooltip__msg', variant === 'light' && 'daf-tooltip__msg--light', fixed && 'daf-tooltip__msg--fixed']}
+    id={id}
+    role="tooltip"
+  >
+    {text}
+  </span>
+</span>
+
+<style>
+  .daf-tooltip {
+    position: relative;
+    display: inline-flex;
+    cursor: default;
+  }
+
+  .daf-tooltip__msg {
+    position: absolute;
+    z-index: 50;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm, 4px);
+    font-size: var(--font-size-small, 0.75rem);
+    font-family: var(--font-sans);
+    line-height: 1.4;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+
+    /* Dark variant (default) */
+    background: var(--color-text, #1e293b);
+    color: var(--color-bg, #f8fafc);
+    box-shadow: var(--shadow-md);
+  }
+
+  .daf-tooltip__msg--light {
+    background: var(--color-surface, #fff);
+    color: var(--color-text, #1e293b);
+    border: 1px solid var(--color-border, #e2e8f0);
+  }
+
+  .daf-tooltip__msg--fixed {
+    position: fixed;
+  }
+
+  /* Show on hover/focus */
+  .daf-tooltip:hover .daf-tooltip__msg,
+  .daf-tooltip:focus-within .daf-tooltip__msg {
+    opacity: 1;
+  }
+
+  /* Positioning */
+  .daf-tooltip--top .daf-tooltip__msg {
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .daf-tooltip--bottom .daf-tooltip__msg {
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .daf-tooltip--left .daf-tooltip__msg {
+    right: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .daf-tooltip--right .daf-tooltip__msg {
+    left: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Arrow (CSS triangle) */
+  .daf-tooltip__msg::after {
+    content: '';
+    position: absolute;
+    border: 5px solid transparent;
+  }
+
+  .daf-tooltip--top .daf-tooltip__msg::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: var(--color-text, #1e293b);
+  }
+
+  .daf-tooltip--bottom .daf-tooltip__msg::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: var(--color-text, #1e293b);
+  }
+
+  .daf-tooltip--left .daf-tooltip__msg::after {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: var(--color-text, #1e293b);
+  }
+
+  .daf-tooltip--right .daf-tooltip__msg::after {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: var(--color-text, #1e293b);
+  }
+
+  /* Light variant arrow */
+  .daf-tooltip--top .daf-tooltip__msg--light::after {
+    border-top-color: var(--color-surface, #fff);
+  }
+  .daf-tooltip--bottom .daf-tooltip__msg--light::after {
+    border-bottom-color: var(--color-surface, #fff);
+  }
+  .daf-tooltip--left .daf-tooltip__msg--light::after {
+    border-left-color: var(--color-surface, #fff);
+  }
+  .daf-tooltip--right .daf-tooltip__msg--light::after {
+    border-right-color: var(--color-surface, #fff);
+  }
+</style>

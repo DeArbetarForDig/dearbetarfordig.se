@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import ChartTooltip from '../../../ui/src/components/core/ChartTooltip.astro'
 
 interface Props {
   title: string
@@ -57,6 +58,7 @@ const { title, description = 'Öppen demokratiplattform för svenska kommuner' }
       <slot />
     </main>
 
+    <ChartTooltip />
     <footer class="site-footer">
       <p>Public money, public code. Public decisions, public data.</p>
       <p style="margin-top: var(--space-sm);">AGPL-3.0 · <a href="https://github.com/YOUR_ORG/dearbetarfordig.se">Källkod</a></p>

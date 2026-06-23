@@ -1,0 +1,112 @@
+---
+/**
+ * ChartTooltip — mouse-following tooltip for data visualizations.
+ *
+ * Unlike the static Tooltip component, this one:
+ * - Follows the cursor position
+ * - Updates content dynamically via JS
+ * - Auto-flips when near viewport edges
+ * - Shows title + key/value pairs with color indicators
+ *
+ * Usage: include once in your chart container. Then from JS:
+ *   dafChartTooltip.show(event, { title: '2025-06', items: [{label:'S', value:'43', color:'var(--parti-s)'}] })
+ *   dafChartTooltip.hide()
+ */
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+<div class:list={['daf-chart-tooltip', className]} aria-hidden="true">
+  <div class="daf-chart-tooltip__title"></div>
+  <div class="daf-chart-tooltip__items"></div>
+</div>
+
+<style>
+  .daf-chart-tooltip {
+    position: fixed;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.12s;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm, 4px);
+    background: var(--color-text, #1e293b);
+    color: var(--color-bg, #f8fafc);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-small, 0.75rem);
+    box-shadow: var(--shadow-lg);
+    max-width: 280px;
+  }
+
+  .daf-chart-tooltip.visible {
+    opacity: 1;
+  }
+
+  .daf-chart-tooltip__title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    white-space: nowrap;
+  }
+
+  .daf-chart-tooltip__items {
+    display: grid;
+    gap: 2px;
+  }
+</style>
+
+<script is:inline>
+  /**
+   * Global chart tooltip controller.
+   * Charts call dafChartTooltip.show(event, data) and .hide().
+   */
+  window.dafChartTooltip = (() => {
+    const el = document.querySelector('.daf-chart-tooltip')
+    if (!el) return { show() {}, hide() {} }
+
+    const titleEl = el.querySelector('.daf-chart-tooltip__title')
+    const itemsEl = el.querySelector('.daf-chart-tooltip__items')
+    const offset = 16
+
+    return {
+      /**
+       * Show tooltip near cursor with data.
+       * @param {MouseEvent} event - mouse event for positioning
+       * @param {Object} data - { title: string, items: [{label, value, color?}] }
+       */
+      show(event, data) {
+        titleEl.textContent = data.title || ''
+        itemsEl.innerHTML = (data.items || []).map(item => `
+          <div style="display:flex;align-items:center;gap:6px">
+            ${item.color ? `<span style="width:8px;height:8px;border-radius:2px;background:${item.color};flex-shrink:0"></span>` : ''}
+            <span style="opacity:0.8">${item.label}</span>
+            <span style="margin-left:auto;font-family:var(--font-mono);font-weight:600">${item.value}</span>
+          </div>
+        `).join('')
+
+        // Position: flip if near edge
+        const x = event.clientX
+        const y = event.clientY
+        const w = el.offsetWidth
+        const h = el.offsetHeight
+
+        const left = (x + w + offset * 2 > window.innerWidth)
+          ? x - w - offset
+          : x + offset
+        const top = (y + h + offset > window.innerHeight)
+          ? y - h - offset / 2
+          : y + offset
+
+        el.style.left = left + 'px'
+        el.style.top = top + 'px'
+        el.classList.add('visible')
+      },
+
+      /** Hide tooltip */
+      hide() {
+        el.classList.remove('visible')
+      }
+    }
+  })()
+</script>
