@@ -7,6 +7,102 @@
       "data": {
         "år": 2026
       }
+    },
+    {
+      "id": "budgetpost-social-centrum-intäkter",
+      "typ": "budgetpost",
+      "label": "Intäkter",
+      "data": {
+        "mnkr": 150
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-kostnader",
+      "typ": "budgetpost",
+      "label": "Kostnader",
+      "data": {
+        "mnkr": -1620
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-kommunbidrag",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag",
+      "data": {
+        "mnkr": 1469.6
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-förvaltningsgemensamma-kostnader-och-stö",
+      "typ": "budgetpost",
+      "label": "Förvaltningsgemensamma kostnader och stödfunktioner",
+      "data": {
+        "mnkr": 139
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-barn-och-unga",
+      "typ": "budgetpost",
+      "label": "Barn och unga",
+      "data": {
+        "mnkr": 315
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-vuxen-och-försörjningsstöd",
+      "typ": "budgetpost",
+      "label": "Vuxen och försörjningsstöd",
+      "data": {
+        "mnkr": 478
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-stadsområde-välfärd-och-fritid",
+      "typ": "budgetpost",
+      "label": "Stadsområde välfärd och fritid",
+      "data": {
+        "mnkr": 194
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-stadenövergripande-uppdrag-—-barn-familj",
+      "typ": "budgetpost",
+      "label": "Stadenövergripande uppdrag — barn, familj och trygghet",
+      "data": {
+        "mnkr": 171
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-stadenövergripande-verksamheter",
+      "typ": "budgetpost",
+      "label": "Stadenövergripande verksamheter",
+      "data": {
+        "mnkr": 170
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-nämndreserv",
+      "typ": "budgetpost",
+      "label": "Nämndreserv",
+      "data": {
+        "mnkr": 3
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-total-ram",
+      "typ": "budgetpost",
+      "label": "Total ram",
+      "data": {
+        "mnkr": 1470
+      }
+    },
+    {
+      "id": "budgetpost-social-centrum-ram-till-studieförbunden",
+      "typ": "budgetpost",
+      "label": "Ram till studieförbunden",
+      "data": {
+        "mnkr": 29
+      }
     }
   ],
   "edges": [
@@ -25,6 +121,66 @@
       "data": {
         "mnkr": 139150.0
       }
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-intäkter",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-kostnader",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-kommunbidrag",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-förvaltningsgemensamma-kostnader-och-stö",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-barn-och-unga",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-vuxen-och-försörjningsstöd",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-stadsområde-välfärd-och-fritid",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-stadenövergripande-uppdrag-—-barn-familj",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-stadenövergripande-verksamheter",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-nämndreserv",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-total-ram",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-centrum-budget-2026",
+      "to_id": "budgetpost-social-centrum-ram-till-studieförbunden",
+      "typ": "innehåller"
     }
   ]
 }

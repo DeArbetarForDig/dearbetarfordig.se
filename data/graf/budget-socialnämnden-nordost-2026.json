@@ -9,11 +9,91 @@
       }
     },
     {
-      "id": "budgetpost-socialnämnden-nordost-summa",
+      "id": "budgetpost-social-nordost-intäkter",
       "typ": "budgetpost",
-      "label": "Summa",
+      "label": "Intäkter",
       "data": {
-        "mnkr": 41070.0
+        "mnkr": 251.4
+      }
+    },
+    {
+      "id": "budgetpost-social-nordost-kostnader",
+      "typ": "budgetpost",
+      "label": "Kostnader",
+      "data": {
+        "mnkr": -2182.9
+      }
+    },
+    {
+      "id": "budgetpost-social-nordost-kommunbidrag",
+      "typ": "budgetpost",
+      "label": "Kommunbidrag",
+      "data": {
+        "mnkr": 1931.5
+      }
+    },
+    {
+      "id": "budgetpost-social-nordost-vuxen",
+      "typ": "budgetpost",
+      "label": "Vuxen",
+      "data": {
+        "mnkr": 347
+      }
+    },
+    {
+      "id": "budgetpost-social-nordost-försörjningsstöd",
+      "typ": "budgetpost",
+      "label": "Försörjningsstöd",
+      "data": {
+        "mnkr": 476
+      }
+    },
+    {
+      "id": "budgetpost-social-nordost-barn-och-unga",
+      "typ": "budgetpost",
+      "label": "Barn och unga",
+      "data": {
+        "mnkr": 294
+      }
+    },
+    {
+      "id": "budgetpost-social-nordost-familjemottagning-och-resurs-barn-och-vu",
+      "typ": "budgetpost",
+      "label": "Familjemottagning och resurs barn och vuxna",
+      "data": {
+        "mnkr": 88
+      }
+    },
+    {
+      "id": "budgetpost-social-nordost-familjehemsvård-interna-boenden-samt-pla",
+      "typ": "budgetpost",
+      "label": "Familjehemsvård, interna boenden samt placering barn och unga",
+      "data": {
+        "mnkr": 307.5
+      }
+    },
+    {
+      "id": "budgetpost-social-nordost-stadsområde-välfärd-och-fritid",
+      "typ": "budgetpost",
+      "label": "Stadsområde välfärd och fritid",
+      "data": {
+        "mnkr": 122
+      }
+    },
+    {
+      "id": "budgetpost-social-nordost-stöd-och-förvaltningsgemensamt",
+      "typ": "budgetpost",
+      "label": "Stöd och förvaltningsgemensamt",
+      "data": {
+        "mnkr": 297
+      }
+    },
+    {
+      "id": "budgetpost-social-nordost-total-ram",
+      "typ": "budgetpost",
+      "label": "Total ram",
+      "data": {
+        "mnkr": 1931.5
       }
     }
   ],
@@ -49,6 +129,61 @@
       "data": {
         "mnkr": 18301401931460.0
       }
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-intäkter",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-kostnader",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-kommunbidrag",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-vuxen",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-försörjningsstöd",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-barn-och-unga",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-familjemottagning-och-resurs-barn-och-vu",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-familjehemsvård-interna-boenden-samt-pla",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-stadsområde-välfärd-och-fritid",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-stöd-och-förvaltningsgemensamt",
+      "typ": "innehåller"
+    },
+    {
+      "from_id": "namnd-socialnämnden-nordost-budget-2026",
+      "to_id": "budgetpost-social-nordost-total-ram",
+      "typ": "innehåller"
     }
   ]
 }
