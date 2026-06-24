@@ -12,6 +12,7 @@ export interface Politiker {
   parti: string
   email: string | null
   antalUppdrag: number
+  aktivSedan: string | null
 }
 
 export interface Beslut {

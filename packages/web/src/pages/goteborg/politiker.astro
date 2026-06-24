@@ -31,7 +31,7 @@ const parties = [...new Set(politiker.map((p) => p.parti))].sort()
   <div id="grid" class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
     {politiker.map(p => (
       <div class="politician-item" data-parti={p.parti} data-namn={p.namn.toLowerCase()}>
-        <PoliticianCard namn={p.namn} parti={p.parti} roll={`${p.antalUppdrag} uppdrag`} url={`/goteborg/politiker/${p.id}`} />
+        <PoliticianCard namn={p.namn} parti={p.parti} roll={`${p.antalUppdrag} uppdrag${p.aktivSedan && p.aktivSedan !== '2022' ? ` · sedan ${p.aktivSedan}` : ''}`} url={`/goteborg/politiker/${p.id}`} />
       </div>
     ))}
   </div>

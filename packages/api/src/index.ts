@@ -128,6 +128,7 @@ app.openapi(politikerRoute, async (c) => {
         parti: p.parti,
         email: p.email,
         antalUppdrag: (p.uppdrag as any[]).length,
+        aktivSedan: ((p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0]) || null,
       })),
     },
     200,
