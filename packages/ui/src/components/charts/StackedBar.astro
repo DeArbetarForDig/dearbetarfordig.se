@@ -1,0 +1,97 @@
+---
+/**
+ * StackedBar — horizontal stacked bar showing proportional segments.
+ *
+ * Usage:
+ *   <StackedBar segments={[
+ *     { label: 'Ja', value: 137, color: 'var(--vote-ja)' },
+ *     { label: 'Nej', value: 3, color: 'var(--vote-nej)' },
+ *     { label: 'Avstår', value: 0, color: 'var(--vote-avstar)' },
+ *     { label: 'Frånvarande', value: 5, color: 'var(--color-neutral)' },
+ *   ]} />
+ *
+ * Features:
+ * - Auto-calculates proportions from values
+ * - Legend with color swatch + label + value
+ * - Hover: dims other segments, tooltip shows percentage
+ * - Configurable bar height
+ */
+interface Segment {
+  label: string
+  value: number
+  color: string
+}
+
+interface Props {
+  segments: Segment[]
+  height?: number
+  legend?: boolean
+  class?: string
+}
+
+const { segments = [], height = 16, legend = true, class: className } = Astro.props
+const total = segments.reduce((s, x) => s + x.value, 0) || 1
+---
+<div class:list={['stacked-bar', className]}>
+  {legend && (
+    <div class="stacked-bar__legend">
+      {segments.filter(s => s.value > 0).map(s => (
+        <span class="stacked-bar__legend-item">
+          <span class="stacked-bar__swatch" style={`background:${s.color}`} />
+          {s.label}: <strong>{s.value}</strong>
+        </span>
+      ))}
+    </div>
+  )}
+  <div class="stacked-bar__track" style={`height:${height}px`}>
+    {segments.map(s => (
+      s.value > 0 && <span class="stacked-bar__segment" style={`width:${(s.value/total)*100}%;background:${s.color}`} title={`${s.label}: ${s.value} (${Math.round((s.value/total)*100)}%)`} />
+    ))}
+  </div>
+</div>
+
+<style>
+  .stacked-bar__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-label);
+  }
+
+  .stacked-bar__legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stacked-bar__legend-item strong {
+    font-family: var(--font-mono);
+  }
+
+  .stacked-bar__swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .stacked-bar__track {
+    display: flex;
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--color-surface-sunken);
+  }
+
+  .stacked-bar__segment {
+    transition: opacity 0.2s;
+  }
+
+  .stacked-bar__track:hover .stacked-bar__segment {
+    opacity: 0.4;
+  }
+
+  .stacked-bar__track:hover .stacked-bar__segment:hover {
+    opacity: 1;
+  }
+</style>
