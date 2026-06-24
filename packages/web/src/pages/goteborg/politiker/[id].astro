@@ -160,15 +160,20 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
     {mandatperioder.length > 0 && (
       <section class="mb-8">
         <Card title="Mandatperioder" titleSize="lg">
-          <div class="grid gap-2">
-            {mandatperioder.map(m => (
-              <div class="flex items-center gap-3 text-sm py-1 border-b border-[var(--color-border)] last:border-0">
-                <span class="font-mono text-xs text-[var(--color-text-muted)] shrink-0 w-20">{m.period}</span>
-                <span class="font-semibold">{m.roll}</span>
-                {m.ansvarsområde && <span class="text-[var(--color-text-muted)]">— {m.ansvarsområde}</span>}
-              </div>
+          <ol class="relative border-l-2 border-[var(--color-border-strong)] ml-3">
+            {mandatperioder.map((m, i) => (
+              <li class="mb-4 ml-6 last:mb-0">
+                <span class="absolute -left-[9px] flex items-center justify-center w-4 h-4 rounded-full border-2 border-[var(--color-border-strong)]"
+                  style={i === mandatperioder.length - 1 ? 'background:var(--color-primary);border-color:var(--color-primary)' : 'background:var(--color-surface)'}
+                />
+                <div class="flex items-baseline gap-3">
+                  <span class="font-mono text-sm text-[var(--color-text-muted)]">{m.period}</span>
+                  <span class="font-semibold text-sm">{m.roll}</span>
+                </div>
+                {m.ansvarsområde && <p class="text-xs text-[var(--color-text-muted)] mt-0.5">{m.ansvarsområde}</p>}
+              </li>
             ))}
-          </div>
+          </ol>
         </Card>
       </section>
     )}
