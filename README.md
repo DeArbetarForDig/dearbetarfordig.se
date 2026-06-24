@@ -45,6 +45,9 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 | Sociala medier-scraping | 🔜 Nästa |
 | PixelRAG (visual PDF parsing) | 🔜 Nästa |
 | Frontend (Astro) | ✅ Klar |
+| Design System (16 components) | ✅ Klar |
+| Politiker-profiler (125 st) | ✅ Klar |
+| Demokratisk hälsa (Rice, Gini, Consensus) | ✅ Klar |
 | Deploy (Hetzner) | 🔜 Nästa |
 
 ## Principer

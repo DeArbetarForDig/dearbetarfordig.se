@@ -32,7 +32,7 @@ const { namn, parti, foto, roll, narvaro, url = '#', class: className } = Astro.
 ---
 <a
   href={url}
-  class:list={['flex gap-4 items-start bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-4 no-underline text-(--color-text) shadow-[--shadow-sm] hover:shadow-[--shadow-md] hover:-translate-y-px transition-all duration-150', className]}
+  class:list={['flex gap-4 items-start bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-4 no-underline text-(--color-text) shadow-[--shadow-sm] hover:shadow-[--shadow-md] hover:-translate-y-px transition-all duration-150 h-[88px] overflow-hidden', className]}
 >
   {foto ? (
     <img src={foto} alt="" width="56" height="56" class="w-14 h-14 rounded-[--radius-sm] object-cover shrink-0" loading="lazy" />
@@ -43,7 +43,7 @@ const { namn, parti, foto, roll, narvaro, url = '#', class: className } = Astro.
   )}
   <div class="min-w-0 flex-1">
     <div class="flex items-center gap-2 mb-0.5">
-      <h3 class="text-lg font-semibold m-0 leading-tight">{namn}</h3>
+      <h3 class="text-lg font-semibold m-0 leading-tight truncate">{namn}</h3>
       <PartyTag parti={parti} size="sm" />
     </div>
     {roll && <p class="m-0 text-sm text-(--color-text-muted)">{roll}</p>}
