@@ -35,7 +35,7 @@ const total = segments.reduce((s, x) => s + x.value, 0) || 1
 <div class:list={['stacked-bar', className]}>
   {legend && (
     <div class="stacked-bar__legend">
-      {segments.filter(s => s.value > 0).map(s => (
+      {segments.map(s => (
         <span class="stacked-bar__legend-item">
           <span class="stacked-bar__swatch" style={`background:${s.color}`} />
           {s.label}: <strong>{s.value}</strong>

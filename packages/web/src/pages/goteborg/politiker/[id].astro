@@ -41,8 +41,24 @@ const totalMöten = 41
 const frånvarandeCount = totalMöten - attendanceCount
 const totalBar = jaCount + nejCount + avstarCount + frånvarandeCount
 
-// Earliest known activity
+// Build vote detail table from graf edges → related paragraf nodes
 const related = graf.related || []
+const relatedMap = new Map(related.map((r: any) => [r.id, r]))
+const voteDetails = edges
+  .filter((e: any) => e.typ.startsWith('röstade_'))
+  .map((e: any) => {
+    const target = relatedMap.get(e.to_id) || {}
+    const rost = e.typ.replace('röstade_', '')
+    return {
+      datum: (target as any).data?.datum || '',
+      rubrik: ((target as any).label || '').replace(/^§ \d+ /, '').slice(0, 80),
+      rost: rost === 'ja' ? 'Ja' : rost === 'nej' ? 'Nej' : 'Avstår',
+    }
+  })
+  .filter((v: any) => v.datum)
+  .sort((a: any, b: any) => b.datum.localeCompare(a.datum))
+
+// Earliest known activity
 const dates = related.map((r: any) => r.data?.datum).filter(Boolean).sort()
 const earliestDate = dates[0] || null
 const latestDate = dates[dates.length - 1] || null
@@ -106,9 +122,24 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
           <StackedBar segments={[
             { label: 'Ja', value: jaCount, color: 'var(--vote-ja)' },
             { label: 'Nej', value: nejCount, color: 'var(--vote-nej)' },
-            { label: 'Avstår', value: avstarCount, color: 'var(--vote-avstar)' },
+            { label: 'Avstår', value: avstarCount, color: 'var(--vote-avstår)' },
             { label: 'Frånvarande', value: frånvarandeCount, color: 'var(--color-neutral)' },
           ]} />
+
+          {voteDetails.length > 0 && (
+            <details class="mt-4">
+              <summary class="text-sm font-semibold cursor-pointer text-[var(--color-primary)] hover:underline">
+                Visa alla {voteDetails.length} voteringar
+              </summary>
+              <div class="mt-3">
+                <Table
+                  headers={['Datum', 'Ärende', 'Röst']}
+                  rows={voteDetails.map(v => [v.datum, v.rubrik, v.rost])}
+                  variant="compact"
+                />
+              </div>
+            </details>
+          )}
         </Card>
       </section>
     )}
