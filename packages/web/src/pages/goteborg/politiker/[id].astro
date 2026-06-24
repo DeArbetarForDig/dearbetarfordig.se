@@ -5,6 +5,7 @@
 import Base from '../../../layouts/Base.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
+import Table from '../../../../../ui/src/components/core/Table.astro'
 import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import HorizontalBar from '../../../../../ui/src/components/charts/HorizontalBar.astro'
@@ -143,17 +144,12 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
     <!-- Uppdrag (nuvarande mandatperiod) -->
     <section class="mb-8">
       <Card title={`Uppdrag (${uppdrag.length})`} subtitle="Nuvarande mandatperiod 2022–2026" titleSize="lg">
-        <div class="grid gap-2">
-          {uppdrag.map((u: any) => (
-            <div class="flex items-center justify-between text-sm py-1 border-b border-[var(--color-border)] last:border-0">
-              <div>
-                <span class="font-semibold">{u.roll}</span>
-                <span class="text-[var(--color-text-muted)] ml-2">{u.organisation}</span>
-              </div>
-              <span class="font-mono text-xs text-[var(--color-text-subtle)]">{u.från?.slice(0,4)}–{u.till?.slice(0,4)}</span>
-            </div>
-          ))}
-        </div>
+        <Table
+          headers={['Roll', 'Organisation', 'Period']}
+          rows={uppdrag.map((u: any) => [u.roll, u.organisation, `${u.från?.slice(0,4)}–${u.till?.slice(0,4)}`])}
+          variant="compact"
+          alignRight={[2]}
+        />
       </Card>
     </section>
 
