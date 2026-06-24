@@ -92,11 +92,11 @@ async function main() {
     await client`DELETE FROM goteborg.politiker`
     for (const p of polData.politiker) {
       await client`
-        INSERT INTO goteborg.politiker (id, fornamn, efternamn, parti, email, uppdrag)
-        VALUES (${p.id}, ${p.förnamn}, ${p.efternamn}, ${p.parti}, ${p.email}, ${client.json(p.uppdrag)})
+        INSERT INTO goteborg.politiker (id, fornamn, efternamn, parti, email, uppdrag, sociala)
+        VALUES (${p.id}, ${p.förnamn}, ${p.efternamn}, ${p.parti}, ${p.email}, ${client.json(p.uppdrag)}, ${client.json({ mandatperioder: p.mandatperioder || [], närstående: p.närstående || null })})
         ON CONFLICT (id) DO UPDATE SET
           fornamn = EXCLUDED.fornamn, efternamn = EXCLUDED.efternamn,
-          parti = EXCLUDED.parti, email = EXCLUDED.email, uppdrag = EXCLUDED.uppdrag`
+          parti = EXCLUDED.parti, email = EXCLUDED.email, uppdrag = EXCLUDED.uppdrag, sociala = EXCLUDED.sociala`
     }
     console.log(`   ✓ ${polData.politiker.length} politiker`)
   }
