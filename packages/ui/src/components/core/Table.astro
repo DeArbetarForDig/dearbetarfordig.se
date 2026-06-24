@@ -2,29 +2,19 @@
 /**
  * Table — structured data display with headers, rows, and columns.
  *
+ * Cells can be plain strings or objects with { text, color } for colored dot indicators.
+ *
  * Usage:
  *   <Table
- *     headers={['Namn', 'Parti', 'Röster']}
+ *     headers={['Namn', 'Parti', 'Röst']}
  *     rows={[
- *       ['Anna Svensson', 'C', '34'],
- *       ['Erik Johansson', 'S', '45'],
+ *       ['Anna Svensson', 'C', { text: 'Ja', color: 'var(--vote-ja)' }],
  *     ]}
  *   />
- *
- * Variants:
- * - default: clean lines, hover highlight
- * - compact: reduced padding for dense data
- * - striped: alternating row backgrounds
- *
- * Features:
- * - Right-align numeric columns via `alignRight` prop (array of column indices)
- * - Row hover highlighting
- * - Responsive: horizontal scroll on narrow screens
- * - Accessible: semantic table markup with <thead>/<tbody>
  */
 interface Props {
   headers: string[]
-  rows: (string | number)[][]
+  rows: (string | number | { text: string; color: string })[][]
   variant?: 'default' | 'compact' | 'striped'
   alignRight?: number[]
   class?: string
@@ -45,7 +35,14 @@ const { headers, rows, variant = 'default', alignRight = [], class: className } 
       {rows.map(row => (
         <tr>
           {row.map((cell, i) => (
-            <td class:list={[alignRight.includes(i) && 'right']}>{cell}</td>
+            <td class:list={[alignRight.includes(i) && 'right']}>
+              {typeof cell === 'object' && cell !== null && 'color' in cell ? (
+                <span class="daf-table__cell-icon">
+                  <span class="daf-table__dot" style={`background:${(cell as any).color}`} />
+                  {(cell as any).text}
+                </span>
+              ) : cell}
+            </td>
           ))}
         </tr>
       ))}
@@ -97,6 +94,20 @@ const { headers, rows, variant = 'default', alignRight = [], class: className } 
   .daf-table .right {
     text-align: right;
     white-space: nowrap;
+  }
+
+  /* Cell with color dot indicator */
+  .daf-table__cell-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .daf-table__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
   }
 
   /* Compact variant */
