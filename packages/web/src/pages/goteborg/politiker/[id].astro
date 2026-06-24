@@ -20,6 +20,7 @@ const id = Astro.params.id as string
 
 const detail = await getPolitikerDetail(id)
 const arvode = await getPolitikerArvode(id)
+const uppdrag = detail.uppdrag || []
 
 let graf: any = { edges: [], related: [] }
 try { graf = await getPolitikerGraf(id) } catch {}
@@ -33,8 +34,18 @@ const totalVotes = jaCount + nejCount + avstarCount
 const speechCount = edges.filter((e: any) => e.typ === 'talade_i').length
 const attendanceCount = edges.filter((e: any) => e.typ === 'närvarade').length
 
+// Earliest known activity
+const related = graf.related || []
+const dates = related.map((r: any) => r.data?.datum).filter(Boolean).sort()
+const earliestDate = dates[0] || null
+const latestDate = dates[dates.length - 1] || null
+
+// Earliest uppdrag start
+const earliestUppdrag = uppdrag.length > 0
+  ? uppdrag.map((u: any) => u.från).filter(Boolean).sort()[0]?.slice(0, 4)
+  : null
+
 const namn = `${detail.fornamn} ${detail.efternamn}`
-const uppdrag = detail.uppdrag || []
 ---
 
 <Base title={`${namn} (${detail.parti})`}>
@@ -55,7 +66,11 @@ const uppdrag = detail.uppdrag || []
           <PartyTag parti={detail.parti} full size="md" />
         </div>
         {detail.email && <p class="text-sm text-[var(--color-text-muted)]">{detail.email}</p>}
-        <p class="text-sm text-[var(--color-text-muted)] mt-1">{uppdrag.length} uppdrag</p>
+        <p class="text-sm text-[var(--color-text-muted)] mt-1">
+          {uppdrag.length} uppdrag
+          {earliestUppdrag && <span> · Aktiv sedan {earliestUppdrag}</span>}
+          {earliestDate && <span> · Data från {earliestDate}</span>}
+        </p>
       </div>
     </section>
 
