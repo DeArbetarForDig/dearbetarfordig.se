@@ -36,6 +36,9 @@ const avstarCount = edges.filter((e: any) => e.typ === 'röstade_avstår').lengt
 const totalVotes = jaCount + nejCount + avstarCount
 const speechCount = edges.filter((e: any) => e.typ === 'talade_i').length
 const attendanceCount = edges.filter((e: any) => e.typ === 'närvarade').length
+const totalMöten = 41
+const frånvarandeCount = totalMöten - attendanceCount
+const totalBar = jaCount + nejCount + avstarCount + frånvarandeCount
 
 // Earliest known activity
 const related = graf.related || []
@@ -109,21 +112,15 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
             <span class="flex items-center gap-2 text-sm">
               <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstar)" /> Avstår: <strong class="font-mono">{avstarCount}</strong>
             </span>
-            <span class="flex items-center gap-2 text-sm ml-auto">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--color-neutral)" /> Frånvarande: <strong class="font-mono">{41 - attendanceCount}</strong> av 41 möten
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm" style="background:var(--color-neutral)" /> Frånvarande: <strong class="font-mono">{frånvarandeCount}</strong> av 41
             </span>
           </div>
-          <div class="flex h-4 rounded-full overflow-hidden bg-[var(--color-surface-sunken)] mb-3">
-            <span style={`width:${totalVotes ? (jaCount/totalVotes)*100 : 0}%;background:var(--vote-ja)`} />
-            <span style={`width:${totalVotes ? (nejCount/totalVotes)*100 : 0}%;background:var(--vote-nej)`} />
-            <span class="flex-1" style="background:var(--vote-avstar)" />
-          </div>
-          <div class="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-            <span>Närvaro:</span>
-            <div class="flex-1 h-2 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
-              <div class="h-full rounded-full" style={`width:${Math.round((attendanceCount/41)*100)}%;background:var(--color-positive)`} />
-            </div>
-            <span class="font-mono">{Math.round((attendanceCount/41)*100)}%</span>
+          <div class="flex h-4 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
+            <span style={`width:${totalBar ? (jaCount/totalBar)*100 : 0}%;background:var(--vote-ja)`} />
+            <span style={`width:${totalBar ? (nejCount/totalBar)*100 : 0}%;background:var(--vote-nej)`} />
+            <span style={`width:${totalBar ? (avstarCount/totalBar)*100 : 0}%;background:var(--vote-avstar)`} />
+            <span style={`width:${totalBar ? (frånvarandeCount/totalBar)*100 : 0}%;background:var(--color-neutral)`} />
           </div>
         </Card>
       </section>
