@@ -5,6 +5,7 @@
 import Base from '../../../layouts/Base.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
+import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import HorizontalBar from '../../../../../ui/src/components/charts/HorizontalBar.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
@@ -160,20 +161,12 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
     {mandatperioder.length > 0 && (
       <section class="mb-8">
         <Card title="Mandatperioder" titleSize="lg">
-          <ol class="relative border-l-2 border-[var(--color-border-strong)] ml-3">
-            {mandatperioder.map((m, i) => (
-              <li class="mb-4 ml-6 last:mb-0">
-                <span class="absolute -left-[9px] flex items-center justify-center w-4 h-4 rounded-full border-2 border-[var(--color-border-strong)]"
-                  style={i === mandatperioder.length - 1 ? 'background:var(--color-primary);border-color:var(--color-primary)' : 'background:var(--color-surface)'}
-                />
-                <div class="flex items-baseline gap-3">
-                  <span class="font-mono text-sm text-[var(--color-text-muted)]">{m.period}</span>
-                  <span class="font-semibold text-sm">{m.roll}</span>
-                </div>
-                {m.ansvarsområde && <p class="text-xs text-[var(--color-text-muted)] mt-0.5">{m.ansvarsområde}</p>}
-              </li>
-            ))}
-          </ol>
+          <Timeline events={mandatperioder.map((m, i) => ({
+            datum: m.period,
+            titel: m.roll,
+            beskrivning: m.ansvarsområde || undefined,
+            status: i === mandatperioder.length - 1 ? 'active' as const : 'completed' as const,
+          }))} />
         </Card>
       </section>
     )}
