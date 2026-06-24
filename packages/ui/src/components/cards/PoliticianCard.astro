@@ -32,7 +32,7 @@ const { namn, parti, foto, roll, narvaro, url = '#', class: className } = Astro.
 ---
 <a
   href={url}
-  class:list={['flex gap-4 items-start bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-4 no-underline text-(--color-text) shadow-[--shadow-sm] hover:shadow-[--shadow-md] hover:-translate-y-px transition-all duration-150 h-[88px] overflow-hidden', className]}
+  class:list={['flex gap-4 items-start bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-4 no-underline text-(--color-text) shadow-[--shadow-sm] hover:shadow-[--shadow-md] hover:-translate-y-px transition-all duration-150', className]}
 >
   {foto ? (
     <img src={foto} alt="" width="56" height="56" class="w-14 h-14 rounded-[--radius-sm] object-cover shrink-0" loading="lazy" />
@@ -41,10 +41,10 @@ const { namn, parti, foto, roll, narvaro, url = '#', class: className } = Astro.
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     </span>
   )}
-  <div class="min-w-0 flex-1">
-    <div class="flex items-center gap-2 mb-0.5">
-      <h3 class="text-lg font-semibold m-0 leading-tight truncate">{namn}</h3>
+  <div style="min-width:0;flex:1">
+    <div style="display:flex;align-items:center;gap:8px;overflow:hidden;margin-bottom:2px">
       <PartyTag parti={parti} size="sm" />
+      <h3 class="text-lg font-semibold m-0 leading-tight" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{namn}</h3>
     </div>
     {roll && <p class="m-0 text-sm text-(--color-text-muted)">{roll}</p>}
     {narvaro != null && (
