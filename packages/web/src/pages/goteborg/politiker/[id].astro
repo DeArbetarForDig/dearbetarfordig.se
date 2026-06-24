@@ -139,6 +139,23 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
       </section>
     )}
 
+    <!-- Uppdrag (nuvarande mandatperiod) -->
+    <section class="mb-8">
+      <Card title={`Uppdrag (${uppdrag.length})`} subtitle="Nuvarande mandatperiod 2022–2026" titleSize="lg">
+        <div class="grid gap-2">
+          {uppdrag.map((u: any) => (
+            <div class="flex items-center justify-between text-sm py-1 border-b border-[var(--color-border)] last:border-0">
+              <div>
+                <span class="font-semibold">{u.roll}</span>
+                <span class="text-[var(--color-text-muted)] ml-2">{u.organisation}</span>
+              </div>
+              <span class="font-mono text-xs text-[var(--color-text-subtle)]">{u.från?.slice(0,4)}–{u.till?.slice(0,4)}</span>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </section>
+
     <!-- Mandatperioder (historik) -->
     {mandatperioder.length > 0 && (
       <section class="mb-8">
@@ -155,23 +172,6 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
         </Card>
       </section>
     )}
-
-    <!-- Uppdrag -->
-    <section class="mb-8">
-      <Card title={`Uppdrag (${uppdrag.length})`} titleSize="lg">
-        <div class="grid gap-2">
-          {uppdrag.map((u: any) => (
-            <div class="flex items-center justify-between text-sm py-1 border-b border-[var(--color-border)] last:border-0">
-              <div>
-                <span class="font-semibold">{u.roll}</span>
-                <span class="text-[var(--color-text-muted)] ml-2">{u.organisation}</span>
-              </div>
-              <span class="font-mono text-xs text-[var(--color-text-subtle)]">{u.från?.slice(0,4)}–{u.till?.slice(0,4)}</span>
-            </div>
-          ))}
-        </div>
-      </Card>
-    </section>
 
   </div>
 </Base>
