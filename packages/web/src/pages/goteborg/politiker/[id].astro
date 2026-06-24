@@ -1,0 +1,142 @@
+---
+/**
+ * Politician profile page — full portfolio with voting, speeches, arvode.
+ */
+import Base from '../../../layouts/Base.astro'
+import Card from '../../../../../ui/src/components/core/Card.astro'
+import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
+import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
+import HorizontalBar from '../../../../../ui/src/components/charts/HorizontalBar.astro'
+import Icon from '../../../../../ui/src/components/core/Icon.astro'
+import { getPolitiker, getPolitikerDetail, getPolitikerArvode, getPolitikerGraf } from '../../../data/api'
+
+export async function getStaticPaths() {
+  const politiker = await getPolitiker()
+  return politiker.map(p => ({ params: { id: p.id }, props: { summary: p } }))
+}
+
+const { summary } = Astro.props
+const id = Astro.params.id as string
+
+const detail = await getPolitikerDetail(id)
+const arvode = await getPolitikerArvode(id)
+
+let graf: any = { edges: [], related: [] }
+try { graf = await getPolitikerGraf(id) } catch {}
+
+// Aggregate voting data
+const edges = graf.edges || []
+const jaCount = edges.filter((e: any) => e.typ === 'röstade_ja').length
+const nejCount = edges.filter((e: any) => e.typ === 'röstade_nej').length
+const avstarCount = edges.filter((e: any) => e.typ === 'röstade_avstår').length
+const totalVotes = jaCount + nejCount + avstarCount
+const speechCount = edges.filter((e: any) => e.typ === 'talade_i').length
+const attendanceCount = edges.filter((e: any) => e.typ === 'närvarade').length
+
+const namn = `${detail.fornamn} ${detail.efternamn}`
+const uppdrag = detail.uppdrag || []
+---
+
+<Base title={`${namn} (${detail.parti})`}>
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Header -->
+    <section class="mb-8 flex items-start gap-6">
+      {detail.foto_url ? (
+        <img src={detail.foto_url} alt={namn} class="w-24 h-24 rounded-lg object-cover shrink-0" />
+      ) : (
+        <div class="w-24 h-24 rounded-lg bg-[var(--color-surface-sunken)] flex items-center justify-center shrink-0">
+          <Icon name="user" size={40} class="text-[var(--color-text-subtle)]" />
+        </div>
+      )}
+      <div>
+        <div class="flex items-center gap-3 mb-1">
+          <h1 class="text-3xl font-bold">{namn}</h1>
+          <PartyTag parti={detail.parti} full size="md" />
+        </div>
+        {detail.email && <p class="text-sm text-[var(--color-text-muted)]">{detail.email}</p>}
+        <p class="text-sm text-[var(--color-text-muted)] mt-1">{uppdrag.length} uppdrag</p>
+      </div>
+    </section>
+
+    <!-- KPI row -->
+    <section class="mb-8 grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+      <Card title="Röster" titleSize="sm">
+        <div class="font-mono text-2xl font-bold">{totalVotes}</div>
+      </Card>
+      <Card title="Anföranden" titleSize="sm">
+        <div class="font-mono text-2xl font-bold">{speechCount.toLocaleString('sv-SE')}</div>
+      </Card>
+      <Card title="Närvaro" titleSize="sm">
+        <div class="font-mono text-2xl font-bold">{attendanceCount} <span class="text-sm text-[var(--color-text-muted)]">möten</span></div>
+      </Card>
+      <Card title="Arvode" titleSize="sm">
+        <div class="font-mono text-2xl font-bold">{arvode.total_ersättning_kr?.toLocaleString('sv-SE')} <span class="text-sm text-[var(--color-text-muted)]">kr/mån</span></div>
+      </Card>
+    </section>
+
+    <!-- Voting breakdown -->
+    {totalVotes > 0 && (
+      <section class="mb-8">
+        <Card title="Röstningshistorik" titleSize="lg">
+          <div class="flex gap-6 mb-4">
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-ja)" /> Ja: <strong class="font-mono">{jaCount}</strong>
+            </span>
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-nej)" /> Nej: <strong class="font-mono">{nejCount}</strong>
+            </span>
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstar)" /> Avstår: <strong class="font-mono">{avstarCount}</strong>
+            </span>
+          </div>
+          <div class="flex h-4 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
+            <span style={`width:${totalVotes ? (jaCount/totalVotes)*100 : 0}%;background:var(--vote-ja)`} />
+            <span style={`width:${totalVotes ? (nejCount/totalVotes)*100 : 0}%;background:var(--vote-nej)`} />
+            <span class="flex-1" style="background:var(--vote-avstar)" />
+          </div>
+        </Card>
+      </section>
+    )}
+
+    <!-- Arvode detail -->
+    {arvode.fast_arvode_kr > 0 && (
+      <section class="mb-8">
+        <Card title="Ersättning" titleSize="lg" tooltip="Baserat på Göteborgs Stads regler för arvoden (KS 2025-12-10 §946). Grundarvode 2026: 80 475 kr/mån.">
+          <div class="grid gap-3 text-sm">
+            <div class="flex justify-between">
+              <span class="text-[var(--color-text-muted)]">Fast arvode (presidieuppdrag)</span>
+              <span class="font-mono font-semibold">{arvode.fast_arvode_kr?.toLocaleString('sv-SE')} kr/mån</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-[var(--color-text-muted)]">Förrättningsarvode ({arvode.antal_möten_deltog} möten × 1 640 kr)</span>
+              <span class="font-mono font-semibold">{arvode.förrättningsarvode_kr?.toLocaleString('sv-SE')} kr</span>
+            </div>
+            <div class="flex justify-between border-t border-[var(--color-border)] pt-2 font-semibold">
+              <span>Total ersättning</span>
+              <span class="font-mono">{arvode.total_ersättning_kr?.toLocaleString('sv-SE')} kr/mån</span>
+            </div>
+          </div>
+        </Card>
+      </section>
+    )}
+
+    <!-- Uppdrag -->
+    <section class="mb-8">
+      <Card title={`Uppdrag (${uppdrag.length})`} titleSize="lg">
+        <div class="grid gap-2">
+          {uppdrag.map((u: any) => (
+            <div class="flex items-center justify-between text-sm py-1 border-b border-[var(--color-border)] last:border-0">
+              <div>
+                <span class="font-semibold">{u.roll}</span>
+                <span class="text-[var(--color-text-muted)] ml-2">{u.organisation}</span>
+              </div>
+              <span class="font-mono text-xs text-[var(--color-text-subtle)]">{u.från?.slice(0,4)}–{u.till?.slice(0,4)}</span>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </section>
+
+  </div>
+</Base>
