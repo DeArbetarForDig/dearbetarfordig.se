@@ -48,13 +48,14 @@ const voteColors: Record<string, string> = { Ja: 'var(--vote-ja)', Nej: 'var(--v
 const voteDetails = edges
   .filter((e: any) => e.typ.startsWith('röstade_'))
   .map((e: any) => {
-    const target = relatedMap.get(e.to_id) || {}
+    const target = relatedMap.get(e.to_id) || {} as any
     const rost = e.typ.replace('röstade_', '')
     const rostLabel = rost === 'ja' ? 'Ja' : rost === 'nej' ? 'Nej' : 'Avstår'
     return {
-      datum: (target as any).data?.datum || '',
-      rubrik: ((target as any).label || '').replace(/^§ \d+ /, '').slice(0, 80),
-      rost: `●  ${rostLabel}`,
+      datum: target.data?.datum || '',
+      rubrik: (target.label || '').replace(/^§ \d+ /, '').slice(0, 80),
+      rubrikId: target.id || '',
+      rost: rostLabel,
       rostColor: voteColors[rostLabel] || 'var(--color-neutral)',
     }
   })
@@ -137,7 +138,7 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
               <div class="mt-3">
                 <Table
                   headers={['Datum', 'Ärende', 'Röst']}
-                  rows={voteDetails.map(v => [v.datum, v.rubrik, { text: v.rost.replace('●  ', ''), color: v.rostColor }])}
+                  rows={voteDetails.map(v => [v.datum, { text: v.rubrik, href: `/goteborg/beslut/${encodeURIComponent(v.rubrikId)}` }, { text: v.rost, color: v.rostColor }])}
                   variant="compact"
                 />
               </div>
