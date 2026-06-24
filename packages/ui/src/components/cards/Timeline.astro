@@ -1,19 +1,23 @@
 ---
 /**
- * Timeline — vertical chronology for a decision's lifecycle.
+ * Timeline — vertical chronology with connected entries.
  *
  * Usage:
  *   <Timeline events={[
  *     { datum: '2025-01-15', titel: 'Motion inlämnad', aktor: 'Anna (C)', status: 'completed' },
  *     { datum: '2025-06-12', titel: 'KF beslut', status: 'active' },
+ *     { datum: '2025-09-01', titel: 'Verkställande', status: 'pending' },
  *   ]} />
  *
  * Props:
  * - events: array of { datum, titel, aktor?, beskrivning?, status }
- * - status: 'completed' (green dot) | 'active' (blue + focus ring) | 'pending' (outline)
+ * - status: 'completed' (filled dot) | 'active' (blue dot + border) | 'pending' (dashed line, empty dot)
  *
- * Renders a vertical line with colored dots, connecting completed
- * steps to the current active step. Accessible via aria-label.
+ * Visual structure:
+ * - 8px dots on the left, connected by a vertical line
+ * - Active entry: blue dot, blue left border on target
+ * - Pending/future entries: dashed connector line, hollow dot
+ * - Accessible via aria-label on the list
  */
 interface TimelineEvent {
   datum: string
@@ -29,33 +33,132 @@ interface Props {
 }
 
 const { events = [], class: className } = Astro.props
-
-const statusColor: Record<string, string> = {
-  active: 'var(--color-primary)',
-  completed: 'var(--color-positive)',
-  pending: 'var(--color-text-subtle)',
-}
 ---
-<ol aria-label="Beslutshistorik" class:list={['list-none m-0 p-0 relative', className]}>
-  {events.map((e, i) => {
-    const color = statusColor[e.status || 'completed']
-    const last = i === events.length - 1
-    return (
-      <li class="flex gap-4">
-        <div class="flex flex-col items-center">
-          <span
-            class="w-3.5 h-3.5 rounded-full shrink-0 mt-0.5"
-            style={`background:${e.status === 'pending' ? 'var(--color-surface)' : color};border:2px solid ${color};${e.status === 'active' ? 'box-shadow:0 0 0 4px var(--color-focus-ring)' : ''}`}
-          />
-          {!last && <span class="w-0.5 flex-1 bg-(--color-border) mt-0.5" />}
-        </div>
-        <div class:list={[!last && 'pb-6']}>
-          <time class="text-xs text-(--color-text-muted) font-mono">{e.datum}</time>
-          <h4 class="m-0 mt-0.5 text-base font-semibold">{e.titel}</h4>
-          {e.aktor && <p class="m-0 mt-0.5 text-sm text-(--color-text-muted)">{e.aktor}</p>}
-          {e.beskrivning && <p class="m-0 mt-1 text-sm text-(--color-text-muted) max-w-[60ch]">{e.beskrivning}</p>}
-        </div>
-      </li>
-    )
-  })}
-</ol>
+<div class:list={['timeline', className]}>
+  <ul class="timeline__list" aria-label="Tidslinje">
+    {events.map((e, i) => {
+      const status = e.status || 'completed'
+      const isLast = i === events.length - 1
+      const isPending = status === 'pending'
+      const isActive = status === 'active'
+      return (
+        <li class:list={['timeline__entry', `timeline__entry--${status}`]} data-status={status}>
+          <div class="timeline__dot" />
+          {!isLast && <div class:list={['timeline__line', isPending && 'timeline__line--dashed']} />}
+          <div class:list={['timeline__target', isActive && 'timeline__target--active']}>
+            <time class="timeline__time">{e.datum}</time>
+            <h4 class="timeline__title">{e.titel}</h4>
+            {e.aktor && <p class="timeline__actor">{e.aktor}</p>}
+            {e.beskrivning && <p class="timeline__content">{e.beskrivning}</p>}
+          </div>
+        </li>
+      )
+    })}
+  </ul>
+</div>
+
+<style>
+  .timeline {
+    width: 100%;
+    position: relative;
+  }
+
+  .timeline__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline__entry {
+    position: relative;
+    padding: 0;
+  }
+
+  /* Dot — 8px circle, positioned left */
+  .timeline__dot {
+    position: absolute;
+    left: 0.5rem;
+    top: 1rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--color-text-subtle);
+    background: var(--color-text-subtle);
+    z-index: 2;
+  }
+
+  /* Active dot — blue filled */
+  .timeline__entry--active .timeline__dot {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+  }
+
+  /* Pending dot — hollow */
+  .timeline__entry--pending .timeline__dot {
+    background: var(--color-surface);
+    border-color: var(--color-text-subtle);
+  }
+
+  /* Connecting line */
+  .timeline__line {
+    position: absolute;
+    left: calc(0.5rem + 3.5px);
+    top: calc(1rem + 8px);
+    bottom: 0;
+    width: 0;
+    border-left: 1px solid var(--color-text-subtle);
+    z-index: 1;
+  }
+
+  .timeline__line--dashed {
+    border-left-style: dashed;
+  }
+
+  /* Target — content area */
+  .timeline__target {
+    padding: 0.75rem 1rem 0.75rem 2.25rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    margin: 2px;
+  }
+
+  .timeline__target--active {
+    border-color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  }
+
+  /* Time label */
+  .timeline__time {
+    display: block;
+    font-size: var(--font-size-small);
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  /* Title */
+  .timeline__title {
+    margin: 0;
+    font-size: var(--font-size-body);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  /* Actor */
+  .timeline__actor {
+    margin: 0.25rem 0 0;
+    font-size: var(--font-size-label);
+    color: var(--color-text-muted);
+  }
+
+  /* Content/description */
+  .timeline__content {
+    margin: 0.25rem 0 0;
+    font-size: var(--font-size-label);
+    color: var(--color-text-muted);
+    max-width: var(--max-width-text);
+  }
+</style>
