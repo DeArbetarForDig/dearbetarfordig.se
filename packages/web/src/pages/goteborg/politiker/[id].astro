@@ -9,6 +9,7 @@ import Table from '../../../../../ui/src/components/core/Table.astro'
 import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import HorizontalBar from '../../../../../ui/src/components/charts/HorizontalBar.astro'
+import StackedBar from '../../../../../ui/src/components/charts/StackedBar.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import { getPolitiker, getPolitikerDetail, getPolitikerArvode, getPolitikerGraf } from '../../../data/api'
 
@@ -102,26 +103,12 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
     {totalVotes > 0 && (
       <section class="mb-8">
         <Card title="Röstningshistorik" titleSize="lg">
-          <div class="flex gap-6 mb-4 flex-wrap">
-            <span class="flex items-center gap-2 text-sm">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-ja)" /> Ja: <strong class="font-mono">{jaCount}</strong>
-            </span>
-            <span class="flex items-center gap-2 text-sm">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-nej)" /> Nej: <strong class="font-mono">{nejCount}</strong>
-            </span>
-            <span class="flex items-center gap-2 text-sm">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstar)" /> Avstår: <strong class="font-mono">{avstarCount}</strong>
-            </span>
-            <span class="flex items-center gap-2 text-sm">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--color-neutral)" /> Frånvarande: <strong class="font-mono">{frånvarandeCount}</strong> av 41
-            </span>
-          </div>
-          <div class="flex h-4 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
-            <span style={`width:${totalBar ? (jaCount/totalBar)*100 : 0}%;background:var(--vote-ja)`} />
-            <span style={`width:${totalBar ? (nejCount/totalBar)*100 : 0}%;background:var(--vote-nej)`} />
-            <span style={`width:${totalBar ? (avstarCount/totalBar)*100 : 0}%;background:var(--vote-avstar)`} />
-            <span style={`width:${totalBar ? (frånvarandeCount/totalBar)*100 : 0}%;background:var(--color-neutral)`} />
-          </div>
+          <StackedBar segments={[
+            { label: 'Ja', value: jaCount, color: 'var(--vote-ja)' },
+            { label: 'Nej', value: nejCount, color: 'var(--vote-nej)' },
+            { label: 'Avstår', value: avstarCount, color: 'var(--vote-avstar)' },
+            { label: 'Frånvarande', value: frånvarandeCount, color: 'var(--color-neutral)' },
+          ]} />
         </Card>
       </section>
     )}
