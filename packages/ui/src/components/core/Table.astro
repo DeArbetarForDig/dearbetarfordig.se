@@ -1,0 +1,124 @@
+---
+/**
+ * Table — structured data display with headers, rows, and columns.
+ *
+ * Usage:
+ *   <Table
+ *     headers={['Namn', 'Parti', 'Röster']}
+ *     rows={[
+ *       ['Anna Svensson', 'C', '34'],
+ *       ['Erik Johansson', 'S', '45'],
+ *     ]}
+ *   />
+ *
+ * Variants:
+ * - default: clean lines, hover highlight
+ * - compact: reduced padding for dense data
+ * - striped: alternating row backgrounds
+ *
+ * Features:
+ * - Right-align numeric columns via `alignRight` prop (array of column indices)
+ * - Row hover highlighting
+ * - Responsive: horizontal scroll on narrow screens
+ * - Accessible: semantic table markup with <thead>/<tbody>
+ */
+interface Props {
+  headers: string[]
+  rows: (string | number)[][]
+  variant?: 'default' | 'compact' | 'striped'
+  alignRight?: number[]
+  class?: string
+}
+
+const { headers, rows, variant = 'default', alignRight = [], class: className } = Astro.props
+---
+<div class:list={['table-wrapper', className]}>
+  <table class:list={['daf-table', variant !== 'default' && `daf-table--${variant}`]}>
+    <thead>
+      <tr>
+        {headers.map((h, i) => (
+          <th class:list={[alignRight.includes(i) && 'right']}>{h}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map(row => (
+        <tr>
+          {row.map((cell, i) => (
+            <td class:list={[alignRight.includes(i) && 'right']}>{cell}</td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .daf-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--font-size-label);
+    position: relative;
+  }
+
+  /* Bottom border on whole table */
+  .daf-table::after {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-border-strong);
+    position: absolute;
+    display: block;
+    bottom: -1px;
+  }
+
+  .daf-table th {
+    border-bottom: 1px solid var(--color-border-strong);
+    font-weight: 500;
+    padding: var(--space-md);
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+
+  .daf-table td {
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-md);
+    color: var(--color-text);
+  }
+
+  .daf-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .daf-table tbody tr:hover {
+    background-color: var(--color-surface-sunken);
+  }
+
+  /* Right alignment for numeric columns */
+  .daf-table .right {
+    text-align: right;
+    font-family: var(--font-mono);
+  }
+
+  /* Compact variant */
+  .daf-table--compact th,
+  .daf-table--compact td {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  /* Striped variant */
+  .daf-table--striped tbody tr:nth-child(even) {
+    background-color: var(--color-surface-sunken);
+  }
+
+  .daf-table--striped tbody tr:hover {
+    background-color: var(--color-surface-sunken);
+    filter: brightness(0.97);
+  }
+</style>
