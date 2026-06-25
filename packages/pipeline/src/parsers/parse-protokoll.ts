@@ -180,7 +180,7 @@ function parseParagrafer(
         paragrafNr,
         ärendeNr,
         rubrik,
-        fulltext: section.trim(),
+        fulltext: section.trim().replace(/\n{3,}/g, '\n\n').replace(/[ \t]+\n/g, '\n'),
         datum: möteDatum,
         beslut,
         bordläggningsorsak,

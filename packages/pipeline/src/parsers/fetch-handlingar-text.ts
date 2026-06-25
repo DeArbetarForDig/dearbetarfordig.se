@@ -75,11 +75,21 @@ for (const meeting of handlingar.sammanträden) {
 
     // Extract text
     try {
-      const text = execSync(`pdftotext -layout "${localPath}" -`, {
+      const raw = execSync(`pdftotext -layout "${localPath}" -`, {
         maxBuffer: 20 * 1024 * 1024,
       }).toString().trim()
 
-      if (text.length < 50) continue // too short, probably error
+      if (raw.length < 50) continue
+
+      // Normalize: collapse multiple newlines, remove page headers/footers
+      const text = raw
+        .replace(/\f/g, '\n') // form feeds → newline
+        .replace(/Göteborgs Stad .+protokoll.+\d+ \(\d+\)/gi, '') // page headers
+        .replace(/Kommunfullmäktige\s*\n\s*Protokoll nr \d+\s*\n\s*Sammanträdesdatum:.+/g, '') // footers
+        .replace(/\n{3,}/g, '\n\n') // collapse 3+ newlines to 2
+        .replace(/[ \t]+\n/g, '\n') // trailing spaces
+        .replace(/\n[ \t]+/g, '\n') // leading spaces per line (layout artifacts)
+        .trim()
 
       node.data.handlingText = text
       updated++
