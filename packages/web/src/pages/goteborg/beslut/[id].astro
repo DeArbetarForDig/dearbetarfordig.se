@@ -83,9 +83,9 @@ const timeline = [
 
     {detail.beslut.fulltext && (
       <section class="mb-8">
-        <Card title="Protokollstext">
+        <Card title={detail.beslut.handlingText ? 'Handling (fulltext)' : 'Protokollstext'}>
           <div class="anforande-text">
-            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed" style="white-space:pre-wrap">{detail.beslut.fulltext}</p>
+            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed" style="white-space:pre-wrap">{detail.beslut.handlingText || detail.beslut.fulltext}</p>
           </div>
         </Card>
       </section>
