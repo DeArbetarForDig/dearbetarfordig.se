@@ -125,6 +125,13 @@ function parseParagrafer(
     }
     const rubrik = rubrikLines.join(' ').replace(/\s+/g, ' ').trim().slice(0, 200)
 
+    // For known types, use only the first meaningful line as rubrik
+    let cleanRubrik = rubrik
+    if (rubrik.startsWith('Frågestund')) cleanRubrik = 'Frågestund'
+    else if (rubrik.startsWith('Parentation')) cleanRubrik = rubrikLines[0]?.trim() || 'Parentation'
+    else if (rubrik.startsWith('Anmälan')) cleanRubrik = rubrikLines[0]?.trim().slice(0, 120) || 'Anmälan'
+    else if (rubrik.startsWith('Anförande Ordföranden')) cleanRubrik = 'Ordförandens avslutningsanförande'
+
     // Detect beslut type and reason
     let beslut: string | undefined
     let bordläggningsorsak: string | undefined
@@ -175,11 +182,11 @@ function parseParagrafer(
     nodes.push({
       id: paragrafId,
       typ: 'paragraf',
-      label: `§ ${paragrafNr} ${rubrik}`,
+      label: `§ ${paragrafNr} ${cleanRubrik}`,
       data: {
         paragrafNr,
         ärendeNr,
-        rubrik,
+        rubrik: cleanRubrik,
         fulltext: section.trim().replace(/\n{3,}/g, '\n\n').replace(/[ \t]+\n/g, '\n'),
         datum: möteDatum,
         beslut,
