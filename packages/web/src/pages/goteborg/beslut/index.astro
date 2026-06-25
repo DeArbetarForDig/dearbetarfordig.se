@@ -5,7 +5,6 @@ import Base from '../../../layouts/Base.astro'
 
 const allBeslut = await getBeslut(200)
 const beslut = allBeslut
-  .filter((b) => b.beslut)
   .map((b) => ({
     titel: b.rubrik.replace(/^§ \d+ /, ''),
     datum: b.datum,

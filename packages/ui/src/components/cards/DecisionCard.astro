@@ -42,10 +42,12 @@ const nejPct = total ? Math.round((nej! / total) * 100) : 0
   <Card class="h-full flex flex-col">
     <div class="flex justify-between items-center mb-2">
       <StatusBadge status={status} />
-      <time datetime={datum} class="text-xs text-[var(--color-text-muted)] font-mono">{datum}</time>
+      <span class="flex items-center gap-2 text-[var(--color-text-muted)]">
+        {paragraf && <span>{paragraf}</span>}
+        <time datetime={datum}>{datum}</time>
+      </span>
     </div>
     <h3 class="text-base font-semibold m-0 mb-1 leading-snug text-[var(--color-text)]">{titel}</h3>
-    {paragraf && <p class="m-0 mb-2 text-sm text-[var(--color-text-muted)]">{paragraf}</p>}
     {hasVotes && (
       <div class="mt-auto pt-2">
         <div class="flex gap-4 text-sm text-[var(--color-text-muted)] mb-1.5">

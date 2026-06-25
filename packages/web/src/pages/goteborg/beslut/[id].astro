@@ -11,8 +11,7 @@ import Base from '../../../layouts/Base.astro'
 
 export async function getStaticPaths() {
   const allBeslut = await getBeslut(200)
-  const withStatus = allBeslut.filter((b) => b.beslut)
-  return withStatus.map((b) => ({ params: { id: b.id }, props: { summary: b } }))
+  return allBeslut.map((b) => ({ params: { id: b.id }, props: { summary: b } }))
 }
 
 const { summary } = Astro.props
@@ -80,16 +79,6 @@ const timeline = [
     </div>
 
     <h1 class="text-[2rem] font-bold mb-6 max-w-[30ch]">{rubrik}</h1>
-
-    {(detail.beslut.handlingText || detail.beslut.fulltext) && (
-      <section class="mb-8">
-        <Card title={detail.beslut.handlingText ? 'Handling (fulltext)' : 'Protokollstext'}>
-          <div class="handling-text">
-            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed" style="white-space:pre-line">{detail.beslut.handlingText || detail.beslut.fulltext}</p>
-          </div>
-        </Card>
-      </section>
-    )}
 
     {hasVotes && (
       <section class="mb-8">
@@ -185,10 +174,19 @@ const timeline = [
 
     {detail.kopplingar.length > 0 && (
       <section>
-        <h2 class="text-lg font-bold mb-4">Kopplingar</h2>
-        <div class="bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-6 shadow-[--shadow-sm]">
+        <Card title="Kopplingar" titleSize="lg">
           <Timeline events={timeline} />
-        </div>
+        </Card>
+      </section>
+    )}
+
+    {(detail.beslut.handlingText || detail.beslut.fulltext) && (
+      <section class="mt-8 mb-8">
+        <Card title={detail.beslut.handlingText ? 'Handling (fulltext)' : 'Protokollstext'}>
+          <div class="handling-text">
+            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed" style="white-space:pre-line">{detail.beslut.handlingText || detail.beslut.fulltext}</p>
+          </div>
+        </Card>
       </section>
     )}
 
@@ -286,7 +284,6 @@ const timeline = [
     background: none;
     padding: 0;
   }
-  .anforande-text.expanded + .anforande-more { display: none; }
 </style>
 
 <script is:inline>
@@ -298,7 +295,10 @@ const timeline = [
     const btn = document.createElement('button');
     btn.className = 'anforande-more';
     btn.textContent = 'Visa mer';
-    btn.addEventListener('click', () => { el.classList.add('expanded'); btn.style.display = 'none'; });
+    btn.addEventListener('click', () => {
+      const expanded = el.classList.toggle('expanded');
+      btn.textContent = expanded ? 'Visa mindre' : 'Visa mer';
+    });
     el.after(btn);
   });
 </script>

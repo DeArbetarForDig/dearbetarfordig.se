@@ -120,10 +120,10 @@ function parseParagrafer(
     for (let i = 1; i < lines.length; i++) {
       const line = lines[i].trim()
       if (line.match(/^(Beslut|Handling|Information|Protokollsutdrag|Yrkande)/)) break
-      if (line.match(/^(Enligt|I ärendet|Under överläggningen)/)) break
+      if (line.match(/^(Enligt|I ärendet|Under överläggningen|BILAGA|Antal Ja)/)) break
       rubrikLines.push(line)
     }
-    const rubrik = rubrikLines.join(' ').replace(/\s+/g, ' ').trim()
+    const rubrik = rubrikLines.join(' ').replace(/\s+/g, ' ').trim().slice(0, 200)
 
     // Detect beslut type and reason
     let beslut: string | undefined

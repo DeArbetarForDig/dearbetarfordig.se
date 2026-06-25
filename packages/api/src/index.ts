@@ -322,7 +322,7 @@ app.openapi(beslutRoute, async (c) => {
       await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ORDER BY data->>'datum' DESC LIMIT ${lim}`
   } else {
     rows =
-      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' ORDER BY data->>'datum' DESC LIMIT ${lim}`
+      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int DESC LIMIT ${lim}`
   }
 
   // Check which beslut have namnupprop (röstade-edges)
