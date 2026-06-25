@@ -324,6 +324,14 @@ app.openapi(beslutRoute, async (c) => {
     rows =
       await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' ORDER BY data->>'datum' DESC LIMIT ${lim}`
   }
+
+  // Check which beslut have namnupprop (röstade-edges)
+  const ids = rows.map((r) => r.id)
+  const namnuppropIds = ids.length > 0
+    ? await sql`SELECT DISTINCT to_id FROM goteborg.graf_edges WHERE to_id = ANY(${ids}) AND typ LIKE 'röstade_%'`
+    : []
+  const namnuppropSet = new Set(namnuppropIds.map((r) => r.to_id))
+
   return c.json(
     {
       kommun,
@@ -335,6 +343,7 @@ app.openapi(beslutRoute, async (c) => {
         datum: (r.data as any).datum,
         beslut: (r.data as any).beslut,
         votering: (r.data as any).votering,
+        namnupprop: namnuppropSet.has(r.id),
         ärendeNr: (r.data as any).ärendeNr,
       })),
     },

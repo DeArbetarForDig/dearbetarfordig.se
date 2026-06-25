@@ -15,6 +15,7 @@ const beslut = allBeslut
     nej: b.votering?.nej,
     avstar: b.votering?.avstår,
     url: `/goteborg/beslut/${encodeURIComponent(b.id)}`,
+    namnupprop: (b as any).namnupprop,
   }))
 ---
 

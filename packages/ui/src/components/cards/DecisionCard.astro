@@ -5,6 +5,7 @@
  * Wraps the core Card component for consistent styling and hover.
  */
 import Card from '../core/Card.astro'
+import Icon from '../core/Icon.astro'
 import StatusBadge from '../core/StatusBadge.astro'
 
 interface Props {
@@ -15,6 +16,7 @@ interface Props {
   ja?: number
   nej?: number
   avstar?: number
+  namnupprop?: boolean
   url?: string
   class?: string
 }
@@ -27,6 +29,7 @@ const {
   ja,
   nej,
   avstar = 0,
+  namnupprop = false,
   url = '#',
   class: className,
 } = Astro.props
@@ -35,8 +38,8 @@ const total = hasVotes ? ja + nej + avstar : 0
 const jaPct = total ? Math.round((ja! / total) * 100) : 0
 const nejPct = total ? Math.round((nej! / total) * 100) : 0
 ---
-<a href={url} class:list={['block no-underline', className]}>
-  <Card>
+<a href={url} class:list={['block no-underline h-full', className]}>
+  <Card class="h-full flex flex-col">
     <div class="flex justify-between items-center mb-2">
       <StatusBadge status={status} />
       <time datetime={datum} class="text-xs text-[var(--color-text-muted)] font-mono">{datum}</time>
@@ -44,11 +47,16 @@ const nejPct = total ? Math.round((nej! / total) * 100) : 0
     <h3 class="text-base font-semibold m-0 mb-1 leading-snug text-[var(--color-text)]">{titel}</h3>
     {paragraf && <p class="m-0 mb-2 text-sm text-[var(--color-text-muted)]">{paragraf}</p>}
     {hasVotes && (
-      <div class="mt-2">
+      <div class="mt-auto pt-2">
         <div class="flex gap-4 text-sm text-[var(--color-text-muted)] mb-1.5">
           <span>Ja: <strong class="font-mono" style="color:var(--vote-ja)">{ja}</strong></span>
           <span>Nej: <strong class="font-mono" style="color:var(--vote-nej)">{nej}</strong></span>
           <span>Avstår: <strong class="font-mono" style="color:var(--vote-avstår)">{avstar}</strong></span>
+          {namnupprop ? (
+            <span class="ml-auto flex items-center gap-1 text-xs text-[var(--color-positive)]"><Icon name="user-check" size={12} /> Namnupprop</span>
+          ) : (
+            <span class="ml-auto flex items-center gap-1 text-xs text-[var(--color-text-subtle)]"><Icon name="hand" size={12} /> Handuppräckning</span>
+          )}
         </div>
         <div class="flex h-2 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]" title={`${jaPct}% ja`}>
           <span style={`width:${jaPct}%;background:var(--vote-ja)`}></span>
