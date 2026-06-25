@@ -48,12 +48,12 @@ const nejPct = total ? Math.round((nej! / total) * 100) : 0
         <div class="flex gap-4 text-sm text-[var(--color-text-muted)] mb-1.5">
           <span>Ja: <strong class="font-mono" style="color:var(--vote-ja)">{ja}</strong></span>
           <span>Nej: <strong class="font-mono" style="color:var(--vote-nej)">{nej}</strong></span>
-          <span>Avstår: <strong class="font-mono" style="color:var(--vote-avstar)">{avstar}</strong></span>
+          <span>Avstår: <strong class="font-mono" style="color:var(--vote-avstår)">{avstar}</strong></span>
         </div>
         <div class="flex h-2 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]" title={`${jaPct}% ja`}>
           <span style={`width:${jaPct}%;background:var(--vote-ja)`}></span>
           <span style={`width:${nejPct}%;background:var(--vote-nej)`}></span>
-          <span class="flex-1" style="background:var(--vote-avstar)"></span>
+          <span class="flex-1" style="background:var(--vote-avstår)"></span>
         </div>
       </div>
     )}
