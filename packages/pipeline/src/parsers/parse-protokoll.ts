@@ -114,9 +114,16 @@ function parseParagrafer(
 
     const paragrafId = `kf-${möteDatum}-§${paragrafNr}`
 
-    // Extract rubrik (first line after ärendenummer)
+    // Extract rubrik (lines after ärendenummer until beslut/handling keyword)
     const lines = section.split('\n').filter((l) => l.trim())
-    const rubrik = lines[1]?.trim() || ''
+    const rubrikLines: string[] = []
+    for (let i = 1; i < lines.length; i++) {
+      const line = lines[i].trim()
+      if (line.match(/^(Beslut|Handling|Information|Protokollsutdrag|Yrkande)/)) break
+      if (line.match(/^(Enligt|I ärendet|Under överläggningen)/)) break
+      rubrikLines.push(line)
+    }
+    const rubrik = rubrikLines.join(' ').replace(/\s+/g, ' ').trim()
 
     // Detect beslut type and reason
     let beslut: string | undefined
@@ -173,6 +180,7 @@ function parseParagrafer(
         paragrafNr,
         ärendeNr,
         rubrik,
+        fulltext: section.trim(),
         datum: möteDatum,
         beslut,
         bordläggningsorsak,

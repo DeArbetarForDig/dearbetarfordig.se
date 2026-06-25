@@ -81,6 +81,16 @@ const timeline = [
 
     <h1 class="text-[2rem] font-bold mb-6 max-w-[30ch]">{rubrik}</h1>
 
+    {detail.beslut.fulltext && (
+      <section class="mb-8">
+        <Card title="Protokollstext">
+          <div class="anforande-text">
+            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed" style="white-space:pre-wrap">{detail.beslut.fulltext}</p>
+          </div>
+        </Card>
+      </section>
+    )}
+
     {hasVotes && (
       <section class="mb-8">
         <Card title="Votering (namnupprop)">
