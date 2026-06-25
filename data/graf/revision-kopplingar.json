@@ -1,0 +1,16 @@
+{
+  "nodes": [],
+  "edges": [
+    { "from": "revision-inkop-2024-anmärkning", "to": "kf-2024-06-19-§297", "typ": "hänvisar_till", "label": "Interpellation om bojkottbeslutet (6 dagar efter)" },
+    { "from": "revision-inkop-2024-anmärkning", "to": "kf-2024-09-12-§339", "typ": "hänvisar_till", "label": "Uppföljning bojkottbeslutet" },
+    { "from": "revision-inkop-2024-anmärkning", "to": "kf-2024-10-10-§392", "typ": "hänvisar_till", "label": "Uppföljning bojkottbeslutet" },
+    { "from": "revision-inkop-2024-anmärkning", "to": "kf-2025-04-24-§206", "typ": "behandlad_i", "label": "Revisionsberättelse 2024 — ansvarsfrihet beviljad" },
+    { "from": "revision-grundskola-2024-anmärkning", "to": "kf-2025-11-27-§532", "typ": "hänvisar_till", "label": "Interpellation om olagligt budgetbeslut" },
+    { "from": "revision-grundskola-2024-anmärkning", "to": "kf-2025-12-11-§539", "typ": "hänvisar_till", "label": "Interpellation grundskola" },
+    { "from": "revision-grundskola-2024-anmärkning", "to": "kf-2026-01-29-§4", "typ": "hänvisar_till", "label": "Interpellation grundskola" },
+    { "from": "revision-grundskola-2024-anmärkning", "to": "kf-2025-04-24-§206", "typ": "behandlad_i", "label": "Revisionsberättelse 2024 — ansvarsfrihet beviljad" },
+    { "from": "revision-grundskola-2022-godkänd", "to": "kf-2024-04-25-§153", "typ": "behandlad_i", "label": "Revisionsberättelse 2022–2023" },
+    { "from": "revision-anmärkning-funktionsstöd-2025", "to": "kf-2026-04-23-§125", "typ": "behandlad_i", "label": "Revisionsberättelse 2025 — ansvarsfrihet AVSTYRKT" },
+    { "from": "revision-anmärkning-stadsfastighet-2025", "to": "kf-2026-04-23-§125", "typ": "behandlad_i", "label": "Revisionsberättelse 2025 — ansvarsfrihet beviljad" }
+  ]
+}

@@ -14,14 +14,21 @@ interface Props {
   class?: string
 }
 
-const { title, subtitle, tooltip, tooltipPosition = 'top-end', titleSize = 'base', class: className } = Astro.props
+const {
+  title,
+  subtitle,
+  tooltip,
+  tooltipPosition = 'top-end',
+  titleSize = 'base',
+  class: className,
+} = Astro.props
 const titleClasses = {
   sm: 'text-sm text-[var(--color-text-muted)]',
   base: 'font-bold text-[var(--color-text)]',
   lg: 'text-lg font-bold text-[var(--color-text)]',
 }
 ---
-<div class:list={['card bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)]', className]}>
+<div class:list={['card bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4 shadow-[var(--shadow-sm)] transition-shadow duration-150', className]}>
   {(title || subtitle) && (
     <div class="card__header mb-3">
       {title && !tooltip && <div class={titleClasses[titleSize]}>{title}</div>}

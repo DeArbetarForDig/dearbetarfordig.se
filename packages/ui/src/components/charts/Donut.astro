@@ -51,7 +51,9 @@ const arcs = segments.map((seg) => {
   return arc
 })
 
-const dataJson = JSON.stringify(arcs.map(a => ({ label: a.label, value: a.value, pct: Math.round(a.frac * 100) })))
+const dataJson = JSON.stringify(
+  arcs.map((a) => ({ label: a.label, value: a.value, pct: Math.round(a.frac * 100) })),
+)
 ---
 <div
   class:list={['daf-donut flex items-center gap-6', className]}

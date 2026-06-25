@@ -1,0 +1,597 @@
+{
+  "nodes": [
+    {
+      "id": "utfall-nämnd-exploateringsnamnden-2024",
+      "typ": "utfall",
+      "label": "Exploateringsnämnden utfall 2024: +74 mnkr",
+      "data": {
+        "nämnd": "Exploateringsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 1041,
+        "kostnaderMnkr": -1101,
+        "kommunbidragMnkr": 134,
+        "resultatMnkr": 74,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-forskolenamnden-2024",
+      "typ": "utfall",
+      "label": "Förskolenämnden utfall 2024: +173 mnkr",
+      "data": {
+        "nämnd": "Förskolenämnden",
+        "år": 2024,
+        "intäkterMnkr": 580,
+        "kostnaderMnkr": -5466,
+        "kommunbidragMnkr": 5059,
+        "resultatMnkr": 173,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-grundskolenamnden-2024",
+      "typ": "utfall",
+      "label": "Grundskolenämnden utfall 2024: +156 mnkr",
+      "data": {
+        "nämnd": "Grundskolenämnden",
+        "år": 2024,
+        "intäkterMnkr": 1256,
+        "kostnaderMnkr": -11146,
+        "kommunbidragMnkr": 10047,
+        "resultatMnkr": 156,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-idrotts-och-foreningsnamnden-2024",
+      "typ": "utfall",
+      "label": "Idrotts- och föreningsnämnden utfall 2024: -3 mnkr",
+      "data": {
+        "nämnd": "Idrotts- och föreningsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 331,
+        "kostnaderMnkr": -919,
+        "kommunbidragMnkr": 584,
+        "resultatMnkr": -3,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-inkops-och-upphandlingsnamnden-2024",
+      "typ": "utfall",
+      "label": "Inköps- och upphandlingsnämnden utfall 2024: +2 mnkr",
+      "data": {
+        "nämnd": "Inköps- och upphandlingsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 130,
+        "kostnaderMnkr": -134,
+        "kommunbidragMnkr": 6,
+        "resultatMnkr": 2,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kulturnamnden-2024",
+      "typ": "utfall",
+      "label": "Kulturnämnden utfall 2024: +7 mnkr",
+      "data": {
+        "nämnd": "Kulturnämnden",
+        "år": 2024,
+        "intäkterMnkr": 150,
+        "kostnaderMnkr": -875,
+        "kommunbidragMnkr": 731,
+        "resultatMnkr": 7,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-miljo-och-klimatnamnden-2024",
+      "typ": "utfall",
+      "label": "Miljö- och klimatnämnden utfall 2024: +6 mnkr",
+      "data": {
+        "nämnd": "Miljö- och klimatnämnden",
+        "år": 2024,
+        "intäkterMnkr": 91,
+        "kostnaderMnkr": -214,
+        "kommunbidragMnkr": 129,
+        "resultatMnkr": 6,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-namnden-for-arbetsmarknad-och-vuxenutbildning-2024",
+      "typ": "utfall",
+      "label": "Nämnden för arbetsmarknad och vuxenutbildning utfall 2024: +29 mnkr",
+      "data": {
+        "nämnd": "Nämnden för arbetsmarknad och vuxenutbildning",
+        "år": 2024,
+        "intäkterMnkr": 333,
+        "kostnaderMnkr": -1120,
+        "kommunbidragMnkr": 816,
+        "resultatMnkr": 29,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-namnden-for-demokrati-och-medborgarservice-2024",
+      "typ": "utfall",
+      "label": "Nämnden för demokrati och medborgarservice utfall 2024: +8 mnkr",
+      "data": {
+        "nämnd": "Nämnden för demokrati och medborgarservice",
+        "år": 2024,
+        "intäkterMnkr": 116,
+        "kostnaderMnkr": -233,
+        "kommunbidragMnkr": 126,
+        "resultatMnkr": 8,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-namnden-for-funktionsstod-2024",
+      "typ": "utfall",
+      "label": "Nämnden för funktionsstöd utfall 2024: +110 mnkr",
+      "data": {
+        "nämnd": "Nämnden för funktionsstöd",
+        "år": 2024,
+        "intäkterMnkr": 546,
+        "kostnaderMnkr": -6001,
+        "kommunbidragMnkr": 5565,
+        "resultatMnkr": 110,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-namnden-for-intraservice-2024",
+      "typ": "utfall",
+      "label": "Nämnden för Intraservice utfall 2024: +4 mnkr",
+      "data": {
+        "nämnd": "Nämnden för Intraservice",
+        "år": 2024,
+        "intäkterMnkr": 1342,
+        "kostnaderMnkr": -1374,
+        "kommunbidragMnkr": 36,
+        "resultatMnkr": 4,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-socialnamnden-centrum-2024",
+      "typ": "utfall",
+      "label": "Socialnämnden Centrum utfall 2024: +35 mnkr",
+      "data": {
+        "nämnd": "Socialnämnden Centrum",
+        "år": 2024,
+        "intäkterMnkr": 163,
+        "kostnaderMnkr": -1478,
+        "kommunbidragMnkr": 1350,
+        "resultatMnkr": 35,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-socialnamnden-hisingen-2024",
+      "typ": "utfall",
+      "label": "Socialnämnden Hisingen utfall 2024: +5 mnkr",
+      "data": {
+        "nämnd": "Socialnämnden Hisingen",
+        "år": 2024,
+        "intäkterMnkr": 111,
+        "kostnaderMnkr": -1394,
+        "kommunbidragMnkr": 1289,
+        "resultatMnkr": 5,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-socialnamnden-nordost-2024",
+      "typ": "utfall",
+      "label": "Socialnämnden Nordost utfall 2024: -16 mnkr",
+      "data": {
+        "nämnd": "Socialnämnden Nordost",
+        "år": 2024,
+        "intäkterMnkr": 245,
+        "kostnaderMnkr": -2065,
+        "kommunbidragMnkr": 1805,
+        "resultatMnkr": -16,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-socialnamnden-sydvast-2024",
+      "typ": "utfall",
+      "label": "Socialnämnden Sydväst utfall 2024: +22 mnkr",
+      "data": {
+        "nämnd": "Socialnämnden Sydväst",
+        "år": 2024,
+        "intäkterMnkr": 580,
+        "kostnaderMnkr": -1399,
+        "kommunbidragMnkr": 841,
+        "resultatMnkr": 22,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-stadsbyggnadsnamnden-2024",
+      "typ": "utfall",
+      "label": "Stadsbyggnadsnämnden utfall 2024: +8 mnkr",
+      "data": {
+        "nämnd": "Stadsbyggnadsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 232,
+        "kostnaderMnkr": -490,
+        "kommunbidragMnkr": 266,
+        "resultatMnkr": 8,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-stadsfastighetsnamnden-2024",
+      "typ": "utfall",
+      "label": "Stadsfastighetsnämnden utfall 2024: -20 mnkr",
+      "data": {
+        "nämnd": "Stadsfastighetsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 4304,
+        "kostnaderMnkr": -4323,
+        "kommunbidragMnkr": 0,
+        "resultatMnkr": -20,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-stadsmiljonamnden-2024",
+      "typ": "utfall",
+      "label": "Stadsmiljönämnden utfall 2024: +117 mnkr",
+      "data": {
+        "nämnd": "Stadsmiljönämnden",
+        "år": 2024,
+        "intäkterMnkr": 2440,
+        "kostnaderMnkr": -3811,
+        "kommunbidragMnkr": 1489,
+        "resultatMnkr": 117,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-utbildningsnamnden-2024",
+      "typ": "utfall",
+      "label": "Utbildningsnämnden utfall 2024: +45 mnkr",
+      "data": {
+        "nämnd": "Utbildningsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 1147,
+        "kostnaderMnkr": -3770,
+        "kommunbidragMnkr": 2668,
+        "resultatMnkr": 45,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kommunledningen-2024",
+      "typ": "utfall",
+      "label": "Kommunledningen utfall 2024: +29 mnkr",
+      "data": {
+        "nämnd": "Kommunledningen",
+        "år": 2024,
+        "intäkterMnkr": 176,
+        "kostnaderMnkr": -543,
+        "kommunbidragMnkr": 395,
+        "resultatMnkr": 29,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "utfall-nämnd-exploateringsnamnden-2024",
+      "to": "nämnd-exploateringsnämnden",
+      "typ": "utfall_för",
+      "label": "+74 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-exploateringsnamnden-2024",
+      "to": "direktör-kristina-lindfors",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 74
+      }
+    },
+    {
+      "from": "utfall-nämnd-forskolenamnden-2024",
+      "to": "nämnd-förskolenämnden",
+      "typ": "utfall_för",
+      "label": "+173 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-forskolenamnden-2024",
+      "to": "direktör-johan-olofsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 173
+      }
+    },
+    {
+      "from": "utfall-nämnd-grundskolenamnden-2024",
+      "to": "nämnd-grundskolenämnden",
+      "typ": "utfall_för",
+      "label": "+156 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-grundskolenamnden-2024",
+      "to": "direktör-maria-andersson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 156
+      }
+    },
+    {
+      "from": "utfall-nämnd-idrotts-och-foreningsnamnden-2024",
+      "to": "nämnd-idrotts-och-föreningsnämnden",
+      "typ": "utfall_för",
+      "label": "-3 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-idrotts-och-foreningsnamnden-2024",
+      "to": "direktör-johan-sävhage",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": -3
+      }
+    },
+    {
+      "from": "utfall-nämnd-inkops-och-upphandlingsnamnden-2024",
+      "to": "nämnd-inköps-och-upphandlingsnämnden",
+      "typ": "utfall_för",
+      "label": "+2 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-inkops-och-upphandlingsnamnden-2024",
+      "to": "direktör-henrik-karlsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 2
+      }
+    },
+    {
+      "from": "utfall-nämnd-kulturnamnden-2024",
+      "to": "nämnd-kulturnämnden",
+      "typ": "utfall_för",
+      "label": "+7 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-kulturnamnden-2024",
+      "to": "direktör-anna-rosengren",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 7
+      }
+    },
+    {
+      "from": "utfall-nämnd-miljo-och-klimatnamnden-2024",
+      "to": "nämnd-miljö-och-klimatnämnden",
+      "typ": "utfall_för",
+      "label": "+6 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-miljo-och-klimatnamnden-2024",
+      "to": "direktör-maria-jacobsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 6
+      }
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-arbetsmarknad-och-vuxenutbildning-2024",
+      "to": "nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning",
+      "typ": "utfall_för",
+      "label": "+29 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-arbetsmarknad-och-vuxenutbildning-2024",
+      "to": "direktör-lars-durfeldt",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 29
+      }
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-demokrati-och-medborgarservice-2024",
+      "to": "nämnd-nämnden-för-demokrati-och-medborgarservice",
+      "typ": "utfall_för",
+      "label": "+8 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-demokrati-och-medborgarservice-2024",
+      "to": "direktör-eva-englund",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 8
+      }
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-funktionsstod-2024",
+      "to": "nämnd-nämnden-för-funktionsstöd",
+      "typ": "utfall_för",
+      "label": "+110 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-funktionsstod-2024",
+      "to": "direktör-neri-samuelsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 110
+      }
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-intraservice-2024",
+      "to": "nämnd-nämnden-för-intraservice",
+      "typ": "utfall_för",
+      "label": "+4 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-intraservice-2024",
+      "to": "direktör-peter-söderström",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 4
+      }
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-centrum-2024",
+      "to": "nämnd-socialnämnden-centrum",
+      "typ": "utfall_för",
+      "label": "+35 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-centrum-2024",
+      "to": "direktör-sandra-säljö",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 35
+      }
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-hisingen-2024",
+      "to": "nämnd-socialnämnden-hisingen",
+      "typ": "utfall_för",
+      "label": "+5 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-hisingen-2024",
+      "to": "direktör-marie-larsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 5
+      }
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-nordost-2024",
+      "to": "nämnd-socialnämnden-nordost",
+      "typ": "utfall_för",
+      "label": "-16 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-nordost-2024",
+      "to": "direktör-fredrik-johansson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": -16
+      }
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-sydvast-2024",
+      "to": "nämnd-socialnämnden-sydväst",
+      "typ": "utfall_för",
+      "label": "+22 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-sydvast-2024",
+      "to": "direktör-annika-ljungh",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 22
+      }
+    },
+    {
+      "from": "utfall-nämnd-stadsbyggnadsnamnden-2024",
+      "to": "nämnd-stadsbyggnadsnämnden",
+      "typ": "utfall_för",
+      "label": "+8 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-stadsbyggnadsnamnden-2024",
+      "to": "direktör-henrik-kant",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 8
+      }
+    },
+    {
+      "from": "utfall-nämnd-stadsfastighetsnamnden-2024",
+      "to": "nämnd-stadsfastighetsnämnden",
+      "typ": "utfall_för",
+      "label": "-20 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-stadsfastighetsnamnden-2024",
+      "to": "direktör-martin-blixt",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": -20
+      }
+    },
+    {
+      "from": "utfall-nämnd-stadsmiljonamnden-2024",
+      "to": "nämnd-stadsmiljönämnden",
+      "typ": "utfall_för",
+      "label": "+117 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-stadsmiljonamnden-2024",
+      "to": "direktör-anders-ramsby",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 117
+      }
+    },
+    {
+      "from": "utfall-nämnd-utbildningsnamnden-2024",
+      "to": "nämnd-utbildningsnämnden",
+      "typ": "utfall_för",
+      "label": "+45 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-utbildningsnamnden-2024",
+      "to": "direktör-tomas-berndtsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 45
+      }
+    },
+    {
+      "from": "utfall-nämnd-kommunledningen-2024",
+      "to": "nämnd-kommunledningen",
+      "typ": "utfall_för",
+      "label": "+29 mnkr"
+    }
+  ]
+}

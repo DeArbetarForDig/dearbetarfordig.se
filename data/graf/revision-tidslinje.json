@@ -1,0 +1,150 @@
+{
+  "nodes": [
+    {
+      "id": "revision-grundskola-2022-godkänd",
+      "typ": "revision",
+      "label": "Revision 2022: Godkänd (med anmärkning om grundsärskolan)",
+      "data": { "nämnd": "Grundskolenämnden", "år": 2022, "typ": "anmärkning", "ansvarsfrihet": "tillstyrkt", "allvarlighetsgrad": "allvarlig", "brister": ["Allvarliga brister i grundsärskolan — elever med intellektuell funktionsnedsättning fick inte undervisning och stöd", "Timplanerna uppgick inte till minst garanterad tid", "Bristande bedömning och betygssättning", "Brustit i intern styrning och kontroll av skolformen"], "konsekvens": "Eleverna tillhör utsatt målgrupp som inte fått den utbildning de har rätt till" }
+    },
+    {
+      "id": "revision-grundskola-2023-godkänd",
+      "typ": "revision",
+      "label": "Revision 2023: Godkänd — inga anmärkningar",
+      "data": { "nämnd": "Grundskolenämnden", "år": 2023, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt", "notering": "Nämnd omnämns i granskning av hedersrelaterat våld — behövde utveckla arbetet" }
+    },
+    {
+      "id": "revision-grundskola-2024-anmärkning",
+      "typ": "revision",
+      "label": "Revision 2024: Anmärkning — olagligt beslut om kompletteringsbudget",
+      "data": { "nämnd": "Grundskolenämnden", "år": 2024, "typ": "anmärkning", "ansvarsfrihet": "tillstyrkt", "allvarlighetsgrad": "allvarlig", "brister": ["Nämnden beslutade olagligt att fördela kompletteringsbudget 90 Mkr utan att inkludera fristående skolor", "Förvaltningsdirektören varnade — beslutet stred mot skollagen", "Verkställde beslutet trots överklagande", "Förvaltningsrätten upphävde båda besluten som olagliga"], "konsekvens": "Medvetet lagbrott. Åsidosatte skollagen och kommunallagen. Skadat förtroendet." }
+    },
+    {
+      "id": "revision-grundskola-2025-godkänd",
+      "typ": "revision",
+      "label": "Revision 2025: Godkänd — inga anmärkningar",
+      "data": { "nämnd": "Grundskolenämnden", "år": 2025, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-förskola-2022-godkänd",
+      "typ": "revision",
+      "label": "Revision 2022: Godkänd",
+      "data": { "nämnd": "Förskolenämnden", "år": 2022, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-förskola-2023-anmärkning",
+      "typ": "revision",
+      "label": "Revision 2023: Anmärkning — ekonomi och hedersrelaterat våld",
+      "data": { "nämnd": "Förskolenämnden", "år": 2023, "typ": "anmärkning", "ansvarsfrihet": "tillstyrkt", "allvarlighetsgrad": "allvarlig", "brister": ["Negativ budgetavvikelse hela året utan åtgärdsbeslut", "Brister i arbetet mot hedersrelaterat våld och förtryck", "Brister i arbete med särskilt stöd", "Rekommendationer om utlämnande av allmän handling kvarstod"], "konsekvens": "Verksamheten har bara delvis bedrivits ändamålsenligt" }
+    },
+    {
+      "id": "revision-förskola-2024-godkänd",
+      "typ": "revision",
+      "label": "Revision 2024: Godkänd",
+      "data": { "nämnd": "Förskolenämnden", "år": 2024, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-förskola-2025-godkänd",
+      "typ": "revision",
+      "label": "Revision 2025: Godkänd",
+      "data": { "nämnd": "Förskolenämnden", "år": 2025, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-inkop-2022-godkänd",
+      "typ": "revision",
+      "label": "Revision 2022: Godkänd",
+      "data": { "nämnd": "Inköps- och upphandlingsnämnden", "år": 2022, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-inkop-2023-godkänd",
+      "typ": "revision",
+      "label": "Revision 2023: Godkänd",
+      "data": { "nämnd": "Inköps- och upphandlingsnämnden", "år": 2023, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-inkop-2024-anmärkning",
+      "typ": "revision",
+      "label": "Revision 2024: Anmärkning — olagligt bojkottbeslut",
+      "data": { "nämnd": "Inköps- och upphandlingsnämnden", "år": 2024, "typ": "anmärkning", "ansvarsfrihet": "tillstyrkt", "allvarlighetsgrad": "allvarlig", "brister": ["Nämnden beslutade 2024-06-13 om bojkott av varor från vissa stater", "Förvaltningsdirektören varnade i protokollet att beslutet riskerade vara olagligt", "Ingen juridisk bedömning begärdes", "Förvaltningsrätten upphävde — utanför kommunens befogenheter"], "konsekvens": "Olagligt beslut. Åsidosatte förvaltningslagens legalitetsprincip. Skadat förtroendet." }
+    },
+    {
+      "id": "revision-inkop-2025-godkänd",
+      "typ": "revision",
+      "label": "Revision 2025: Godkänd",
+      "data": { "nämnd": "Inköps- och upphandlingsnämnden", "år": 2025, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-funktionsstöd-2022-godkänd",
+      "typ": "revision",
+      "label": "Revision 2022: Godkänd",
+      "data": { "nämnd": "Nämnden för funktionsstöd", "år": 2022, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-funktionsstöd-2023-godkänd",
+      "typ": "revision",
+      "label": "Revision 2023: Godkänd",
+      "data": { "nämnd": "Nämnden för funktionsstöd", "år": 2023, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-funktionsstöd-2024-godkänd",
+      "typ": "revision",
+      "label": "Revision 2024: Godkänd",
+      "data": { "nämnd": "Nämnden för funktionsstöd", "år": 2024, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-stadsfastighet-2022-godkänd",
+      "typ": "revision",
+      "label": "Revision 2022: Godkänd",
+      "data": { "nämnd": "Stadsfastighetsnämnden", "år": 2022, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-stadsfastighet-2023-godkänd",
+      "typ": "revision",
+      "label": "Revision 2023: Godkänd",
+      "data": { "nämnd": "Stadsfastighetsnämnden", "år": 2023, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    },
+    {
+      "id": "revision-stadsfastighet-2024-godkänd",
+      "typ": "revision",
+      "label": "Revision 2024: Godkänd",
+      "data": { "nämnd": "Stadsfastighetsnämnden", "år": 2024, "typ": "godkänd", "ansvarsfrihet": "tillstyrkt" }
+    }
+  ],
+  "edges": [
+    { "from": "revision-grundskola-2022-godkänd", "to": "nämnd-grundskolenämnden", "typ": "riktas_mot" },
+    { "from": "revision-grundskola-2022-godkänd", "to": "direktör-maria-andersson", "typ": "ansvarig" },
+    { "from": "revision-grundskola-2023-godkänd", "to": "nämnd-grundskolenämnden", "typ": "riktas_mot" },
+    { "from": "revision-grundskola-2023-godkänd", "to": "direktör-maria-andersson", "typ": "ansvarig" },
+    { "from": "revision-grundskola-2024-anmärkning", "to": "nämnd-grundskolenämnden", "typ": "riktas_mot" },
+    { "from": "revision-grundskola-2024-anmärkning", "to": "direktör-maria-andersson", "typ": "ansvarig" },
+    { "from": "revision-grundskola-2025-godkänd", "to": "nämnd-grundskolenämnden", "typ": "riktas_mot" },
+    { "from": "revision-grundskola-2025-godkänd", "to": "direktör-maria-andersson", "typ": "ansvarig" },
+    { "from": "revision-förskola-2022-godkänd", "to": "nämnd-förskolenämnden", "typ": "riktas_mot" },
+    { "from": "revision-förskola-2022-godkänd", "to": "direktör-johan-olofsson", "typ": "ansvarig" },
+    { "from": "revision-förskola-2023-anmärkning", "to": "nämnd-förskolenämnden", "typ": "riktas_mot" },
+    { "from": "revision-förskola-2023-anmärkning", "to": "direktör-johan-olofsson", "typ": "ansvarig" },
+    { "from": "revision-förskola-2024-godkänd", "to": "nämnd-förskolenämnden", "typ": "riktas_mot" },
+    { "from": "revision-förskola-2024-godkänd", "to": "direktör-johan-olofsson", "typ": "ansvarig" },
+    { "from": "revision-förskola-2025-godkänd", "to": "nämnd-förskolenämnden", "typ": "riktas_mot" },
+    { "from": "revision-förskola-2025-godkänd", "to": "direktör-johan-olofsson", "typ": "ansvarig" },
+    { "from": "revision-inkop-2022-godkänd", "to": "nämnd-inköps-och-upphandlingsnämnden", "typ": "riktas_mot" },
+    { "from": "revision-inkop-2022-godkänd", "to": "direktör-henrik-karlsson", "typ": "ansvarig" },
+    { "from": "revision-inkop-2023-godkänd", "to": "nämnd-inköps-och-upphandlingsnämnden", "typ": "riktas_mot" },
+    { "from": "revision-inkop-2023-godkänd", "to": "direktör-henrik-karlsson", "typ": "ansvarig" },
+    { "from": "revision-inkop-2024-anmärkning", "to": "nämnd-inköps-och-upphandlingsnämnden", "typ": "riktas_mot" },
+    { "from": "revision-inkop-2024-anmärkning", "to": "direktör-henrik-karlsson", "typ": "ansvarig" },
+    { "from": "revision-inkop-2025-godkänd", "to": "nämnd-inköps-och-upphandlingsnämnden", "typ": "riktas_mot" },
+    { "from": "revision-inkop-2025-godkänd", "to": "direktör-henrik-karlsson", "typ": "ansvarig" },
+    { "from": "revision-funktionsstöd-2022-godkänd", "to": "nämnd-nämnden-för-funktionsstöd", "typ": "riktas_mot" },
+    { "from": "revision-funktionsstöd-2022-godkänd", "to": "direktör-neri-samuelsson", "typ": "ansvarig" },
+    { "from": "revision-funktionsstöd-2023-godkänd", "to": "nämnd-nämnden-för-funktionsstöd", "typ": "riktas_mot" },
+    { "from": "revision-funktionsstöd-2023-godkänd", "to": "direktör-neri-samuelsson", "typ": "ansvarig" },
+    { "from": "revision-funktionsstöd-2024-godkänd", "to": "nämnd-nämnden-för-funktionsstöd", "typ": "riktas_mot" },
+    { "from": "revision-funktionsstöd-2024-godkänd", "to": "direktör-neri-samuelsson", "typ": "ansvarig" },
+    { "from": "revision-stadsfastighet-2022-godkänd", "to": "nämnd-stadsfastighetsnämnden", "typ": "riktas_mot" },
+    { "from": "revision-stadsfastighet-2022-godkänd", "to": "direktör-martin-blixt", "typ": "ansvarig" },
+    { "from": "revision-stadsfastighet-2023-godkänd", "to": "nämnd-stadsfastighetsnämnden", "typ": "riktas_mot" },
+    { "from": "revision-stadsfastighet-2023-godkänd", "to": "direktör-martin-blixt", "typ": "ansvarig" },
+    { "from": "revision-stadsfastighet-2024-godkänd", "to": "nämnd-stadsfastighetsnämnden", "typ": "riktas_mot" },
+    { "from": "revision-stadsfastighet-2024-godkänd", "to": "direktör-martin-blixt", "typ": "ansvarig" }
+  ]
+}

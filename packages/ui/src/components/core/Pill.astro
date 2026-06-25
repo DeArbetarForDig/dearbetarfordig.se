@@ -1,0 +1,111 @@
+---
+/**
+ * Pill — visual indicator for status, category, or severity.
+ *
+ * Inspired by enterprise design system pill component: rounded capsule shape,
+ * severity colors with dot prefix, toggle/unselected states.
+ *
+ * Usage:
+ *   <Pill>Label</Pill>
+ *   <Pill severity="critical">Critical</Pill>
+ *   <Pill severity="success">Godkänd</Pill>
+ *   <Pill severity="warning">Anmärkning</Pill>
+ *   <Pill unselected>Inactive</Pill>
+ *
+ * Accessibility:
+ * - Color is never the only signal — dot glyph + text label
+ * - Sufficient contrast in all severity states
+ */
+interface Props {
+  severity?: 'critical' | 'major' | 'warning' | 'success' | 'info' | 'neutral'
+  unselected?: boolean
+  class?: string
+}
+
+const { severity, unselected = false, class: className } = Astro.props
+---
+
+<span
+  class:list={[
+    'pill',
+    severity && `pill--${severity}`,
+    { 'pill--unselected': unselected },
+    className,
+  ]}
+>
+  {severity && <span class="pill__dot" aria-hidden="true">●</span>}
+  <slot />
+</span>
+
+<style>
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 10px;
+    border-radius: 16px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-label);
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+  }
+
+  .pill__dot {
+    font-size: 0.6em;
+    line-height: 1;
+  }
+
+  /* Severity variants */
+  .pill--critical {
+    color: var(--color-negative);
+    background-color: color-mix(in srgb, var(--color-negative) 8%, transparent);
+    border-color: color-mix(in srgb, var(--color-negative) 25%, transparent);
+  }
+  .pill--critical .pill__dot { color: var(--color-negative); }
+
+  .pill--major {
+    color: var(--color-warning);
+    background-color: color-mix(in srgb, var(--color-warning) 8%, transparent);
+    border-color: color-mix(in srgb, var(--color-warning) 25%, transparent);
+  }
+  .pill--major .pill__dot { color: var(--color-warning); }
+
+  .pill--warning {
+    color: var(--color-warning);
+    background-color: color-mix(in srgb, var(--color-warning) 8%, transparent);
+    border-color: color-mix(in srgb, var(--color-warning) 25%, transparent);
+  }
+  .pill--warning .pill__dot { color: var(--color-warning); }
+
+  .pill--success {
+    color: var(--color-positive);
+    background-color: color-mix(in srgb, var(--color-positive) 8%, transparent);
+    border-color: color-mix(in srgb, var(--color-positive) 25%, transparent);
+  }
+  .pill--success .pill__dot { color: var(--color-positive); }
+
+  .pill--info {
+    color: var(--color-primary);
+    background-color: color-mix(in srgb, var(--color-primary) 8%, transparent);
+    border-color: color-mix(in srgb, var(--color-primary) 25%, transparent);
+  }
+  .pill--info .pill__dot { color: var(--color-primary); }
+
+  .pill--neutral {
+    color: var(--color-text-muted);
+    background-color: var(--color-surface-sunken);
+    border-color: var(--color-border);
+  }
+  .pill--neutral .pill__dot { color: var(--color-text-muted); }
+
+  /* Unselected state — dashed border like EDS */
+  .pill--unselected {
+    background-color: transparent;
+    border-style: dashed;
+    opacity: 0.7;
+  }
+</style>

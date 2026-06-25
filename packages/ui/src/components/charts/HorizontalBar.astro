@@ -33,15 +33,26 @@ interface Props {
   class?: string
 }
 
-const { bars = [], unit = '', barHeight = 16, labelWidth = '10rem', min: minProp = 0, max: maxProp, thresholds = [], class: className } = Astro.props
-const max = maxProp ?? Math.max(...bars.map(b => b.value), 1)
+const {
+  bars = [],
+  unit = '',
+  barHeight = 16,
+  labelWidth = '10rem',
+  min: minProp = 0,
+  max: maxProp,
+  thresholds = [],
+  class: className,
+} = Astro.props
+const max = maxProp ?? Math.max(...bars.map((b) => b.value), 1)
 const min = minProp
 
 function getBarColor(bar: Bar, value: number): string {
   if (bar.color) return bar.color
   for (const t of thresholds) {
-    if (t.moreThan != null && value > t.moreThan) return `var(--color-${t.color === 'red' ? 'negative' : t.color === 'green' ? 'positive' : 'primary'})`
-    if (t.lessThan != null && value < t.lessThan) return `var(--color-${t.color === 'red' ? 'negative' : t.color === 'green' ? 'positive' : 'primary'})`
+    if (t.moreThan != null && value > t.moreThan)
+      return `var(--color-${t.color === 'red' ? 'negative' : t.color === 'green' ? 'positive' : 'primary'})`
+    if (t.lessThan != null && value < t.lessThan)
+      return `var(--color-${t.color === 'red' ? 'negative' : t.color === 'green' ? 'positive' : 'primary'})`
   }
   return 'var(--color-primary)'
 }

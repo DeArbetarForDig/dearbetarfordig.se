@@ -3,10 +3,10 @@
  *
  * SVG hemicycle seating chart for kommunfullmäktige.
  * Seats ALWAYS show party color. Overlays (icons) show context:
- * - vote: 👍👎✋ (how they voted)
- * - debate: 🎤 (who spoke)
- * - motion: ✍️ (who submitted)
- * - custom: any emoji/icon per seat
+ * - vote: ja/nej/avstår (how they voted)
+ * - debate: (who spoke)
+ * - motion: (who submitted)
+ * - custom: any icon per seat
  */
 
 import { partyColors, voteColors } from '../../tokens/index.ts'
@@ -42,7 +42,7 @@ export interface ChamberConfig {
 function voteToOverlays(votes: VoteResult[]): SeatOverlay[] {
   return votes.map((v) => ({
     politikerId: v.politikerId,
-    icon: v.röst === 'ja' ? '👍' : v.röst === 'nej' ? '👎' : v.röst === 'avstår' ? '✋' : '·',
+    icon: v.röst === 'ja' ? '✓' : v.röst === 'nej' ? '✗' : v.röst === 'avstår' ? '–' : '·',
   }))
 }
 

@@ -1,0 +1,187 @@
+---
+import Card from '../../../../../ui/src/components/core/Card.astro'
+import Button from '../../../../../ui/src/components/core/Button.astro'
+import Icon from '../../../../../ui/src/components/core/Icon.astro'
+import Pill from '../../../../../ui/src/components/core/Pill.astro'
+import Table from '../../../../../ui/src/components/core/Table.astro'
+import KpiCard from '../../../../../ui/src/components/cards/KpiCard.astro'
+import PoliticianCard from '../../../../../ui/src/components/cards/PoliticianCard.astro'
+import { getFörvaltningar, getFörvaltningDetail } from '../../../data/api'
+import Base from '../../../layouts/Base.astro'
+
+export async function getStaticPaths() {
+  const { förvaltningar } = await getFörvaltningar()
+  return förvaltningar.map((f) => ({ params: { id: f.id }, props: { summary: f } }))
+}
+
+const { summary } = Astro.props
+const id = Astro.params.id as string
+const data = await getFörvaltningDetail(id)
+
+const direktör = data.direktör
+const nämnd = data.nämnd
+const utfall = data.utfall?.sort((a: any, b: any) => (b.år || 0) - (a.år || 0))?.[0] || null
+const revision = data.revision || []
+const ledamöter = data.ledamöter || []
+const budget = data.budget
+
+const hasAnmärkning = revision.some((r: any) => r.typ === 'anmärkning')
+const ansvarsfrihetAvstyrkt = revision.some((r: any) => r.ansvarsfrihet === 'avstyrkt')
+
+const revisionStatus = ansvarsfrihetAvstyrkt
+  ? 'avslag'
+  : hasAnmärkning
+    ? 'nej'
+    : 'bifall'
+const revisionLabel = ansvarsfrihetAvstyrkt
+  ? 'Avstyrkt ansvarsfrihet'
+  : hasAnmärkning
+    ? 'Anmärkning'
+    : 'Godkänd — ansvarsfrihet beviljad'
+
+const budgetMnkr = utfall?.kommunbidragMnkr || budget?.kommunbidragMnkr || 0
+const resultatMnkr = utfall?.resultatMnkr ?? null
+---
+
+<Base title={`${direktör.förvaltning} — Göteborg`}>
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Header -->
+    <section class="mb-8">
+      <p class="text-sm text-[var(--color-text-muted)] mb-1">Förvaltning</p>
+      <h1 class="text-3xl font-bold mb-2">{direktör.förvaltning}</h1>
+      {nämnd && <p class="text-sm text-[var(--color-text-muted)]">Nämnd: {nämnd.label}</p>}
+    </section>
+
+    <!-- KPI row -->
+    <section class="mb-8 grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+      <KpiCard label="Direktörslön" value={direktör.lön?.toLocaleString('sv-SE')} unit="kr/mån" />
+      {budgetMnkr > 0 && (
+        <KpiCard label="Kommunbidrag 2025" value={budgetMnkr.toLocaleString('sv-SE')} unit="mnkr" />
+      )}
+      {resultatMnkr !== null && (
+        <KpiCard label="Resultat 2025" value={`${resultatMnkr > 0 ? '+' : ''}${resultatMnkr}`} unit="mnkr" color={resultatMnkr < 0 ? 'var(--color-negative)' : 'var(--color-positive)'} />
+      )}
+      <KpiCard label="Ledamöter" value={ledamöter.length} />
+    </section>
+
+    <!-- Direktör -->
+    <section class="mb-8">
+      <Card title="Förvaltningsdirektör" titleSize="lg">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-lg bg-[var(--color-surface-sunken)] flex items-center justify-center shrink-0">
+            <Icon name="user" size={28} class="text-[var(--color-text-subtle)]" />
+          </div>
+          <div>
+            <p class="font-semibold text-lg">{direktör.namn}</p>
+            <p class="text-sm text-[var(--color-text-muted)]">
+              {direktör.lön?.toLocaleString('sv-SE')} kr/mån · Anställd {direktör.anställd}
+            </p>
+            {direktör.notering && (
+              <p class="text-xs text-[var(--color-text-muted)] mt-1 italic">{direktör.notering}</p>
+            )}
+          </div>
+        </div>
+      </Card>
+    </section>
+
+    <!-- Ekonomiskt utfall -->
+    {data.utfall?.length > 0 && (
+      <section class="mb-8">
+        <Card title="Ekonomiskt utfall 2022–2025" titleSize="lg">
+          <Table
+            headers={['År', 'Intäkter', 'Kostnader', 'Kommunbidrag', 'Resultat']}
+            rows={data.utfall
+              .sort((a: any, b: any) => (b.år || 0) - (a.år || 0))
+              .map((u: any) => [
+                String(u.år),
+                `${u.intäkterMnkr?.toLocaleString('sv-SE')} mnkr`,
+                `${u.kostnaderMnkr?.toLocaleString('sv-SE')} mnkr`,
+                `${u.kommunbidragMnkr?.toLocaleString('sv-SE')} mnkr`,
+                { text: `${u.resultatMnkr > 0 ? '+' : ''}${u.resultatMnkr} mnkr`, color: u.resultatMnkr < 0 ? 'var(--color-error)' : 'var(--color-success)' },
+              ])}
+            variant="compact"
+          />
+          {utfall?.kommentar && (
+            <p class="text-xs text-[var(--color-text-muted)] mt-3 italic">2025: {utfall.kommentar}</p>
+          )}
+        </Card>
+      </section>
+    )}
+
+    <!-- Revision -->
+    <section class="mb-8">
+      <Card title="Revisionshistorik" titleSize="lg">
+        <div class="flex items-center gap-3 mb-4">
+          <Pill severity={ansvarsfrihetAvstyrkt ? 'critical' : hasAnmärkning ? 'warning' : 'success'}>
+            {revisionLabel}
+          </Pill>
+        </div>
+        {revision.length > 0 ? (
+          <div class="space-y-4">
+            {revision.sort((a: any, b: any) => (b.år || 0) - (a.år || 0)).map((r: any) => (
+              <div class="p-3 rounded-lg bg-[var(--color-surface-sunken)]">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-mono text-[var(--color-text-muted)]">{r.år}</span>
+                  <p class="font-semibold text-sm">{r.typ === 'anmärkning' ? 'Anmärkning' : r.label}</p>
+                </div>
+                {r.brister && (
+                  <ul class="text-xs text-[var(--color-text-muted)] list-disc pl-4 space-y-0.5">
+                    {r.brister.map((b: string) => <li>{b}</li>)}
+                  </ul>
+                )}
+                {r.konsekvens && (
+                  <p class="text-xs font-semibold text-[var(--color-error)] mt-2">{r.konsekvens}</p>
+                )}
+                {r.källa && (
+                  <p class="text-[10px] text-[var(--color-text-muted)] mt-1">{r.källa}</p>
+                )}
+                {r.kopplingar?.length > 0 && (
+                  <div class="mt-2 flex flex-wrap gap-1.5">
+                    {r.kopplingar.map((k: any) => (
+                      <Button variant="ghost" size="sm" href={`/goteborg/beslut/${encodeURIComponent(k.beslutId)}`}>
+                        <Icon name={k.typ === 'behandlad_i' ? 'file-text' : 'message-circle'} size={14} />
+                        {k.label || k.beslutLabel}
+                      </Button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p class="text-sm text-[var(--color-text-muted)]">
+            Inga anmärkningar 2022–2025. Ansvarsfrihet beviljad varje år.
+          </p>
+        )}
+      </Card>
+    </section>
+
+    <!-- Ledamöter -->
+    {ledamöter.length > 0 && (
+      <section class="mb-8">
+        <Card title={`Nämndens ledamöter (${ledamöter.length})`} titleSize="lg">
+          <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+            {ledamöter.slice(0, 20).map((l: any) => {
+              const namn = l.label?.replace(/\s*\([^)]+\)$/, '') || ''
+              const parti = l.parti || ''
+              const politikerId = l.id?.replace('politiker-', '') || ''
+              return (
+                <PoliticianCard
+                  namn={namn}
+                  parti={parti}
+                  roll="Ledamot"
+                  url={`/goteborg/politiker/${politikerId}`}
+                />
+              )
+            })}
+          </div>
+          {ledamöter.length > 20 && (
+            <p class="text-sm text-[var(--color-text-muted)] mt-3">+ {ledamöter.length - 20} till</p>
+          )}
+        </Card>
+      </section>
+    )}
+
+  </div>
+</Base>

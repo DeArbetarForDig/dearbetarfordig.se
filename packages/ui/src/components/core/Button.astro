@@ -1,62 +1,165 @@
 ---
 /**
- * Button — primary action element.
+ * Button — clickable action element.
+ *
+ * Inspired by enterprise design system patterns: explicit states for hover,
+ * active (pressed), focus-visible, and disabled. Supports icons, icon-only
+ * mode, and renders as <a> when href is provided.
  *
  * Usage:
- *   <Button variant="primary" href="/link">Click me</Button>
- *   <Button variant="ghost" size="sm" disabled>Disabled</Button>
+ *   <Button variant="primary">Save</Button>
+ *   <Button variant="secondary" href="/link">Navigate</Button>
+ *   <Button variant="ghost" size="sm"><Icon name="link" slot="icon" /> Details</Button>
+ *   <Button variant="warning" disabled>Delete</Button>
+ *   <Button variant="secondary" iconOnly aria-label="Settings"><Icon name="settings" /></Button>
  *
- * Props:
- * - variant: primary | secondary | ghost | danger
- * - size: sm | md | lg
- * - href: if provided, renders as <a> instead of <button>
- * - disabled: grays out and prevents interaction
- *
- * Renders as <a> when href is set (for navigation), <button> otherwise (for actions).
- * Uses CSS custom properties for theming (--color-primary, --color-surface, etc).
+ * Accessibility:
+ * - role="button" on <a> elements
+ * - aria-label required for icon-only buttons
+ * - Focus ring on keyboard navigation (:focus-visible), not on click
+ * - Sufficient color contrast in all states
+ * - Enter/Space keyboard activation
  */
 interface Props {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'danger'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'warning'
   size?: 'sm' | 'md' | 'lg'
   href?: string
   disabled?: boolean
+  iconOnly?: boolean
   class?: string
+  [key: string]: any
 }
 
-const { variant = 'primary', size = 'md', href, disabled = false, class: className } = Astro.props
+const {
+  variant = 'secondary',
+  size = 'md',
+  href,
+  disabled = false,
+  iconOnly = false,
+  class: className,
+  ...rest
+} = Astro.props
 
-const sizeClasses = {
-  sm: 'px-3 py-1.5 text-sm',
-  md: 'px-4 py-2 text-base',
-  lg: 'px-5 py-3 text-lg',
-}
-
-const variantClasses = {
-  primary:
-    'bg-(--color-primary) text-(--color-primary-text) border border-(--color-primary) hover:bg-(--color-primary-hover)',
-  secondary:
-    'bg-(--color-surface) text-(--color-text) border border-(--color-border-strong) hover:bg-(--color-surface-sunken)',
-  ghost:
-    'bg-transparent text-(--color-primary) border border-transparent hover:bg-(--color-surface-sunken)',
-  danger: 'bg-(--color-negative) text-white border border-(--color-negative) hover:opacity-90',
-}
-
-const base =
-  'inline-flex items-center justify-center gap-2 font-semibold leading-none rounded-sm no-underline whitespace-nowrap transition-colors duration-150 cursor-pointer'
-const disabledClass = disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''
+const Tag = href && !disabled ? 'a' : 'button'
+const linkProps = Tag === 'a' ? { href, role: 'button' } : { disabled }
 ---
-{href ? (
-  <a
-    href={disabled ? undefined : href}
-    class:list={[base, sizeClasses[size], variantClasses[variant], disabledClass, className]}
-  >
-    <slot />
-  </a>
-) : (
-  <button
-    disabled={disabled}
-    class:list={[base, sizeClasses[size], variantClasses[variant], disabledClass, className]}
-  >
-    <slot />
-  </button>
-)}
+
+<Tag
+  class:list={['btn', `btn--${variant}`, `btn--${size}`, { 'btn--icon-only': iconOnly, 'btn--disabled': disabled }, className]}
+  {...linkProps}
+  {...rest}
+>
+  <slot />
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-width: 60px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: background-color 150ms, border-color 150ms, color 150ms;
+  }
+
+  /* Sizes */
+  .btn--sm { padding: 5px 9px; font-size: var(--font-size-label); min-width: 0; }
+  .btn--md { padding: 7px 11px; font-size: var(--font-size-body); }
+  .btn--lg { padding: 11px 15px; font-size: var(--font-size-body); }
+
+  /* Icon-only */
+  .btn--icon-only { min-width: auto; padding: 7px; }
+  .btn--icon-only.btn--sm { padding: 5px; }
+  .btn--icon-only.btn--lg { padding: 11px; }
+
+  /* Secondary (default) */
+  .btn--secondary {
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+  }
+  .btn--secondary:hover:not(.btn--disabled) {
+    background-color: var(--color-surface-sunken);
+    border-color: var(--color-text-muted);
+  }
+  .btn--secondary:active:not(.btn--disabled) {
+    background-color: var(--color-surface-sunken);
+    border-color: var(--color-text);
+    transition: none;
+  }
+
+  /* Primary */
+  .btn--primary {
+    color: var(--color-primary-text, #fff);
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+  }
+  .btn--primary:hover:not(.btn--disabled) {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+  }
+  .btn--primary:active:not(.btn--disabled) {
+    background-color: var(--color-primary);
+    filter: brightness(0.9);
+    transition: none;
+  }
+
+  /* Ghost */
+  .btn--ghost {
+    color: var(--color-primary);
+    background-color: transparent;
+    border: 1px solid transparent;
+    min-width: 0;
+  }
+  .btn--ghost:hover:not(.btn--disabled) {
+    background-color: var(--color-surface-sunken);
+    border-color: transparent;
+  }
+  .btn--ghost:active:not(.btn--disabled) {
+    background-color: var(--color-surface-sunken);
+    color: var(--color-text);
+    transition: none;
+  }
+
+  /* Warning */
+  .btn--warning {
+    color: var(--color-error);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-error);
+  }
+  .btn--warning:hover:not(.btn--disabled) {
+    color: #fff;
+    background-color: var(--color-error);
+    border-color: var(--color-error);
+  }
+  .btn--warning:active:not(.btn--disabled) {
+    color: #fff;
+    background-color: var(--color-error);
+    filter: brightness(0.9);
+    transition: none;
+  }
+
+  /* Focus visible — keyboard only, purple outline like EDS */
+  .btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+  }
+  .btn:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Disabled */
+  .btn--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+</style>

@@ -96,3 +96,11 @@ export async function getPolitikerArvode(id: string) {
 export async function getPolitikerGraf(id: string) {
   return fetchApi<{ node: any; edges: any[]; related: any[] }>(`/api/v1/goteborg/graf/node/politiker-${id}`)
 }
+
+export async function getFörvaltningar() {
+  return fetchApi<{ förvaltningar: any[] }>('/api/v1/goteborg/forvaltningar')
+}
+
+export async function getFörvaltningDetail(id: string) {
+  return fetchApi<any>(`/api/v1/goteborg/forvaltningar/${id}`)
+}
