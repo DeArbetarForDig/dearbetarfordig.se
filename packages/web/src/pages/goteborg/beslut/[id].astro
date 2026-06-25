@@ -1,13 +1,12 @@
 ---
 import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
-import Chamber from '../../../../../ui/src/components/charts/Chamber.astro'
 import Button from '../../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
-import { getBeslut, getBeslutDetail, getPolitiker, getAnföranden } from '../../../data/api'
+import { getBeslut, getBeslutDetail, getAnföranden } from '../../../data/api'
 import Base from '../../../layouts/Base.astro'
 
 export async function getStaticPaths() {
@@ -19,7 +18,6 @@ export async function getStaticPaths() {
 const { summary } = Astro.props
 const id = Astro.params.id
 const detail = await getBeslutDetail(id)
-const politiker = await getPolitiker()
 let anförandenData: any[] = []
 try {
   const res = await getAnföranden(id)
@@ -35,27 +33,15 @@ const motionärer = new Set(
 )
 
 const hasVotes = detail.beslut.röster && detail.beslut.röster.length > 0
-const seats = politiker
-  .slice(0, 81)
-  .map((p, i) => ({ nummer: i + 1, politikerId: p.id, namn: p.namn, parti: p.parti }))
-const votes = hasVotes
-  ? detail.beslut.röster?.map((r) => {
-      const pol = politiker.find((p) => p.namn === r.namn)
-      return {
-        politikerId: pol?.id || r.namn,
-        rost:
-          r.röst === 'avstår'
-            ? 'avstar'
-            : r.röst === 'frånvarande'
-              ? 'franvarande'
-              : (r.röst as 'ja' | 'nej'),
-      }
-    })
-  : []
+const jaCount = hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'ja').length : 0
+const nejCount = hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'nej').length : 0
+const avstarCount = hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'avstår').length : 0
 
-const jaCount = votes.filter((v) => v.rost === 'ja').length
-const nejCount = votes.filter((v) => v.rost === 'nej').length
-const avstarCount = votes.filter((v) => v.rost === 'avstar').length
+const sortedRöster = hasVotes ? (() => {
+  const partiCount: { [key: string]: number } = {}
+  detail.beslut.röster.forEach((r: any) => { partiCount[r.parti] = (partiCount[r.parti] || 0) + 1 })
+  return [...detail.beslut.röster].sort((a: any, b: any) => (partiCount[b.parti] - partiCount[a.parti]) || a.parti.localeCompare(b.parti) || a.namn.localeCompare(b.namn, 'sv'))
+})() : []
 
 // Fallback: votering data without individual votes (handuppräckning)
 const voteringSummary = detail.beslut.votering as { ja?: number; nej?: number; avstår?: number } | null
@@ -96,23 +82,62 @@ const timeline = [
     <h1 class="text-[2rem] font-bold mb-6 max-w-[30ch]">{rubrik}</h1>
 
     {hasVotes && (
-      <section class="bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-6 shadow-[--shadow-sm] mb-8">
-        <h2 class="text-lg font-bold mb-4">Votering i salen</h2>
-        <Chamber seats={seats} mode="vote" votes={votes} />
-        <div class="flex gap-6 justify-center mt-4 flex-wrap">
-          <span class="flex items-center gap-2 text-sm">
-            <span class="w-3 h-3 rounded-sm" style="background:var(--vote-ja)" />
-            Ja: <strong class="font-mono" style="color:var(--vote-ja)">{jaCount}</strong>
-          </span>
-          <span class="flex items-center gap-2 text-sm">
-            <span class="w-3 h-3 rounded-sm" style="background:var(--vote-nej)" />
-            Nej: <strong class="font-mono" style="color:var(--vote-nej)">{nejCount}</strong>
-          </span>
-          <span class="flex items-center gap-2 text-sm">
-            <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstår)" />
-            Avstår: <strong class="font-mono" style="color:var(--vote-avstår)">{avstarCount}</strong>
-          </span>
-        </div>
+      <section class="mb-8">
+        <Card title="Votering (namnupprop)">
+          <div class="flex gap-6 mb-3">
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-ja)" />
+              Ja: <strong class="font-mono" style="color:var(--vote-ja)">{detail.beslut.votering?.ja ?? jaCount}</strong>
+            </span>
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-nej)" />
+              Nej: <strong class="font-mono" style="color:var(--vote-nej)">{detail.beslut.votering?.nej ?? nejCount}</strong>
+            </span>
+            {(detail.beslut.votering?.avstår || avstarCount > 0) && (
+              <span class="flex items-center gap-2 text-sm">
+                <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstår)" />
+                Avstår: <strong class="font-mono" style="color:var(--vote-avstår)">{detail.beslut.votering?.avstår ?? avstarCount}</strong>
+              </span>
+            )}
+          </div>
+          <div class="flex h-3 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
+            <span style={`width:${Math.round(((detail.beslut.votering?.ja ?? jaCount) / ((detail.beslut.votering?.ja ?? jaCount) + (detail.beslut.votering?.nej ?? nejCount) + (detail.beslut.votering?.avstår ?? avstarCount))) * 100)}%;background:var(--vote-ja)`}></span>
+            <span style={`width:${Math.round(((detail.beslut.votering?.nej ?? nejCount) / ((detail.beslut.votering?.ja ?? jaCount) + (detail.beslut.votering?.nej ?? nejCount) + (detail.beslut.votering?.avstår ?? avstarCount))) * 100)}%;background:var(--vote-nej)`}></span>
+            <span class="flex-1" style="background:var(--vote-avstår)"></span>
+          </div>
+          <details class="mt-4">
+            <summary class="text-sm font-semibold cursor-pointer text-[var(--color-primary)]">
+              Visa alla {detail.beslut.röster.length} röster
+            </summary>
+            <div class="mt-3 text-sm">
+              {(() => {
+                const groups: { parti: string; members: any[] }[] = []
+                let current: { parti: string; members: any[] } | null = null
+                for (const r of sortedRöster) {
+                  if (!current || current.parti !== r.parti) {
+                    current = { parti: r.parti, members: [] }
+                    groups.push(current)
+                  }
+                  current.members.push(r)
+                }
+                return groups.map((g, i) => (
+                  <>
+                    {i > 0 && <div class="border-t border-[var(--color-border)] my-2"></div>}
+                    <div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-x-4 gap-y-1">
+                      {g.members.map((r: any) => (
+                        <div class="flex items-center gap-2 py-1">
+                          <span class="w-2.5 h-2.5 rounded-full shrink-0" style={`background:var(--vote-${r.röst === 'avstår' ? 'avstår' : r.röst})`}></span>
+                          <PartyTag parti={r.parti} size="sm" />
+                          <a href={`/goteborg/politiker/${r.politikerId || ''}`} class="truncate text-[var(--color-text)] no-underline hover:text-[var(--color-primary)]">{r.namn}</a>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ))
+              })()}
+            </div>
+          </details>
+        </Card>
       </section>
     )}
 
