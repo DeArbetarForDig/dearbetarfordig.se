@@ -312,7 +312,7 @@ const beslutRoute = createRoute({
 app.openapi(beslutRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const { datum, sök, limit } = c.req.valid('query')
-  const lim = capLimit(limit)
+  const lim = capLimit(limit, 2000)
   let rows
   if (datum) {
     rows =
@@ -327,9 +327,10 @@ app.openapi(beslutRoute, async (c) => {
 
   // Check which beslut have namnupprop (röstade-edges)
   const ids = rows.map((r) => r.id)
-  const namnuppropIds = ids.length > 0
-    ? await sql`SELECT DISTINCT to_id FROM goteborg.graf_edges WHERE to_id = ANY(${ids}) AND typ LIKE 'röstade_%'`
-    : []
+  const namnuppropIds =
+    ids.length > 0
+      ? await sql`SELECT DISTINCT to_id FROM goteborg.graf_edges WHERE to_id = ANY(${ids}) AND typ LIKE 'röstade_%'`
+      : []
   const namnuppropSet = new Set(namnuppropIds.map((r) => r.to_id))
 
   return c.json(

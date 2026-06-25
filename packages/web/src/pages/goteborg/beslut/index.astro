@@ -1,26 +1,135 @@
 ---
-import DecisionCard from '../../../../../ui/src/components/cards/DecisionCard.astro'
+import Card from '../../../../../ui/src/components/core/Card.astro'
+import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import { getBeslut } from '../../../data/api'
 import Base from '../../../layouts/Base.astro'
 
-const allBeslut = await getBeslut(200)
-const beslut = allBeslut
-  .map((b) => ({
-    titel: b.rubrik.replace(/^§ \d+ /, ''),
-    datum: b.datum,
-    status: b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut,
-    paragraf: b.paragraf ? `KF ${b.paragraf}` : undefined,
-    ja: b.votering?.ja,
-    nej: b.votering?.nej,
-    avstar: b.votering?.avstår,
-    url: `/goteborg/beslut/${encodeURIComponent(b.id)}`,
-    namnupprop: (b as any).namnupprop,
-  }))
+const allBeslut = await getBeslut(2000)
+const beslut = allBeslut.map((b) => ({
+  id: b.id,
+  titel: b.rubrik?.replace(/^§ \d+ /, '') || '',
+  datum: b.datum,
+  status: b.beslut === 'bordläggning' ? 'bordlagd' : (b.beslut || ''),
+  paragraf: b.paragraf || '',
+  ja: b.votering?.ja,
+  nej: b.votering?.nej,
+  namnupprop: (b as any).namnupprop,
+  url: `/goteborg/beslut/${encodeURIComponent(b.id)}`,
+}))
+
+const meetings = [...new Set(beslut.map(b => b.datum))].sort().reverse()
 ---
 
 <Base title="Beslut — Göteborg">
-  <h1 class="text-[2rem] font-bold mb-6">Beslut</h1>
-  <div class="grid grid-cols-[repeat(auto-fill,minmax(340px,1fr))] gap-4">
-    {beslut.map(b => <DecisionCard {...b} />)}
+  <h1 class="text-[2rem] font-bold mb-2">Beslut</h1>
+  <p class="text-sm text-[var(--color-text-muted)] mb-6">{beslut.length} ärenden från {meetings.length} sammanträden</p>
+
+  <!-- Filters -->
+  <div class="flex flex-wrap gap-3 mb-6 items-center">
+    <div class="flex items-center gap-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg px-3 py-2 flex-1 min-w-[220px]">
+      <Icon name="search" size={16} class="text-[var(--color-text-muted)] shrink-0" />
+      <input id="search" type="text" placeholder="Sök ärende..." class="border-none outline-none bg-transparent text-[var(--color-text)] font-sans text-sm w-full" />
+    </div>
+    <select id="filter-status" class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg px-3 py-2 text-sm text-[var(--color-text)]">
+      <option value="">Alla status</option>
+      <option value="bifall">Bifall</option>
+      <option value="avslag">Avslag</option>
+      <option value="bordlagd">Bordlagd</option>
+    </select>
+    <select id="filter-meeting" class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg px-3 py-2 text-sm text-[var(--color-text)]">
+      <option value="">Alla sammanträden</option>
+      {meetings.map(m => <option value={m}>{m}</option>)}
+    </select>
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm" id="beslut-table">
+      <thead>
+        <tr class="border-b border-[var(--color-border)] text-left text-[var(--color-text-muted)]">
+          <th class="py-2 px-3 font-semibold">§</th>
+          <th class="py-2 px-3 font-semibold">Datum</th>
+          <th class="py-2 px-3 font-semibold">Ärende</th>
+          <th class="py-2 px-3 font-semibold">Status</th>
+          <th class="py-2 px-3 font-semibold text-right">Votering</th>
+        </tr>
+      </thead>
+      <tbody id="beslut-tbody">
+        {beslut.map(b => (
+          <tr class="beslut-row border-b border-[var(--color-border)] hover:bg-[var(--color-surface-sunken)] transition-colors" data-status={b.status} data-datum={b.datum} data-text={`${b.paragraf} ${b.titel}`.toLowerCase()}>
+            <td class="py-2 px-3 font-mono text-[var(--color-text-muted)]">{b.paragraf}</td>
+            <td class="py-2 px-3 text-[var(--color-text-muted)]">{b.datum}</td>
+            <td class="py-2 px-3"><a href={b.url} class="text-[var(--color-text)] no-underline hover:text-[var(--color-primary)]">{b.titel}</a></td>
+            <td class="py-2 px-3">
+              {b.status === 'bifall' && <span class="text-[var(--color-positive)] font-semibold">Bifall</span>}
+              {b.status === 'avslag' && <span class="text-[var(--color-negative)] font-semibold">Avslag</span>}
+              {b.status === 'bordlagd' && <span class="text-[var(--color-warning)] font-semibold">Bordlagd</span>}
+              {!b.status && <span class="text-[var(--color-text-subtle)]">—</span>}
+            </td>
+            <td class="py-2 px-3 text-right font-mono">
+              {b.ja != null && (
+                <span>
+                  <span class="text-[var(--color-positive)]">{b.ja}</span>/<span class="text-[var(--color-negative)]">{b.nej}</span>
+                  {b.namnupprop && <Icon name="user-check" size={12} class="inline-block ml-1 text-[var(--color-positive)]" />}
+                </span>
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="flex justify-between items-center mt-4 text-sm text-[var(--color-text-muted)]">
+    <span id="showing">Visar 1–50 av {beslut.length}</span>
+    <div class="flex gap-2">
+      <button id="prev" class="px-3 py-1 border border-[var(--color-border)] rounded bg-[var(--color-surface)]" disabled>Föregående</button>
+      <button id="next" class="px-3 py-1 border border-[var(--color-border)] rounded bg-[var(--color-surface)]">Nästa</button>
+    </div>
   </div>
 </Base>
+
+<script is:inline>
+  const PAGE_SIZE = 50
+  let page = 0
+  const rows = Array.from(document.querySelectorAll('.beslut-row'))
+  const search = document.getElementById('search')
+  const statusFilter = document.getElementById('filter-status')
+  const meetingFilter = document.getElementById('filter-meeting')
+  const showing = document.getElementById('showing')
+  const prevBtn = document.getElementById('prev')
+  const nextBtn = document.getElementById('next')
+
+  function getFiltered() {
+    const q = search.value.toLowerCase()
+    const status = statusFilter.value
+    const meeting = meetingFilter.value
+    return rows.filter(r => {
+      if (q && !r.dataset.text.includes(q)) return false
+      if (status && r.dataset.status !== status) return false
+      if (meeting && r.dataset.datum !== meeting) return false
+      return true
+    })
+  }
+
+  function render() {
+    const filtered = getFiltered()
+    const start = page * PAGE_SIZE
+    const end = start + PAGE_SIZE
+    rows.forEach(r => r.style.display = 'none')
+    filtered.slice(start, end).forEach(r => r.style.display = '')
+    showing.textContent = filtered.length === 0
+      ? 'Inga resultat'
+      : `Visar ${start + 1}–${Math.min(end, filtered.length)} av ${filtered.length}`
+    prevBtn.disabled = page === 0
+    nextBtn.disabled = end >= filtered.length
+  }
+
+  search.addEventListener('input', () => { page = 0; render() })
+  statusFilter.addEventListener('change', () => { page = 0; render() })
+  meetingFilter.addEventListener('change', () => { page = 0; render() })
+  prevBtn.addEventListener('click', () => { page--; render() })
+  nextBtn.addEventListener('click', () => { page++; render() })
+  render()
+</script>
