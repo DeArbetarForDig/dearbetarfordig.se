@@ -84,11 +84,10 @@ for (const meeting of handlingar.sammanträden) {
       // Normalize: collapse multiple newlines, remove page headers/footers
       const text = raw
         .replace(/\f/g, '\n') // form feeds → newline
-        .replace(/Göteborgs Stad .+protokoll.+\d+ \(\d+\)/gi, '') // page headers
-        .replace(/Kommunfullmäktige\s*\n\s*Protokoll nr \d+\s*\n\s*Sammanträdesdatum:.+/g, '') // footers
+        .replace(/^.*\d+ \(\d+\)\s*$/gm, '') // any line ending with "N (M)" pattern = page footer
         .replace(/\n{3,}/g, '\n\n') // collapse 3+ newlines to 2
-        .replace(/[ \t]+\n/g, '\n') // trailing spaces
-        .replace(/\n[ \t]+/g, '\n') // leading spaces per line (layout artifacts)
+        .replace(/[ \t]+$/gm, '') // trailing spaces
+        .replace(/^[ \t]+/gm, '') // leading spaces per line
         .trim()
 
       node.data.handlingText = text
