@@ -128,7 +128,7 @@ app.openapi(politikerRoute, async (c) => {
         parti: p.parti,
         email: p.email,
         antalUppdrag: (p.uppdrag as any[]).length,
-        aktivSedan: ((p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0]) || null,
+        aktivSedan: (p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0] || null,
       })),
     },
     200,
@@ -661,13 +661,13 @@ app.openapi(metricsRoute, async (c) => {
 
   const ricePerParti: Record<string, { sum: number; count: number }> = {}
   for (const row of riceData) {
-    const rice = (row.ja + row.nej) > 0 ? Math.abs(row.ja - row.nej) / (row.ja + row.nej) : 1
+    const rice = row.ja + row.nej > 0 ? Math.abs(row.ja - row.nej) / (row.ja + row.nej) : 1
     if (!ricePerParti[row.parti]) ricePerParti[row.parti] = { sum: 0, count: 0 }
     ricePerParti[row.parti].sum += rice
     ricePerParti[row.parti].count++
   }
   const riceIndex = Object.fromEntries(
-    Object.entries(ricePerParti).map(([p, d]) => [p, Math.round((d.sum / d.count) * 100) / 100])
+    Object.entries(ricePerParti).map(([p, d]) => [p, Math.round((d.sum / d.count) * 100) / 100]),
   )
 
   // --- Attendance Rate (närvarade edges: politiker → möte) ---
@@ -733,7 +733,11 @@ app.openapi(metricsRoute, async (c) => {
       aktivitet: { jävsanmälningar: jävAntal, reservationer: resAntal, yrkanden: yrkAntal },
       riceIndex,
       närvaro: { registreringar: totalNärvaro, möten: totalMöten, snittPerMöte: snittNärvarande },
-      debatt: { giniKoefficient: debateGini, anföranden: totalAnföranden, djupPerÄrende: debateDepth },
+      debatt: {
+        giniKoefficient: debateGini,
+        anföranden: totalAnföranden,
+        djupPerÄrende: debateDepth,
+      },
       partilojalitet: Object.fromEntries(
         Object.entries(partier).map(([parti, d]) => [
           parti,
@@ -874,6 +878,265 @@ app.openapi(dokumentSökRoute, async (c) => {
   const results =
     await sql`SELECT id, titel, typ, datum, ts_headline('swedish', innehall, plainto_tsquery('swedish', ${q}), 'MaxWords=60,MinWords=20') as utdrag FROM goteborg.dokument WHERE to_tsvector('swedish', innehall) @@ plainto_tsquery('swedish', ${q})`
   return c.json({ query: q, resultat: results }, 200)
+})
+
+// --- Förvaltningsdirektörer (löner) ---
+const direktörerRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/lon/direktorer',
+  tags: ['Löner'],
+  summary: 'Löner för förvaltningsdirektörer',
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({ sort: z.enum(['namn', 'lön', 'anställd']).optional() }),
+  },
+  responses: {
+    200: {
+      content: { 'application/json': { schema: z.object({}).passthrough().openapi('Direktörer') } },
+      description: 'OK',
+    },
+  },
+})
+app.openapi(direktörerRoute, async (c) => {
+  const { sort } = c.req.valid('query')
+  const rows = await sql`
+    SELECT id, label, data FROM goteborg.graf_nodes
+    WHERE typ = 'förvaltningsdirektör'
+    ORDER BY CASE
+      WHEN ${sort || 'namn'} = 'lön' THEN lpad((data->>'lön')::text, 10, '0')
+      WHEN ${sort || 'namn'} = 'anställd' THEN data->>'anställd'
+      ELSE data->>'namn'
+    END`
+  if (rows.length === 0) {
+    // Fallback: read from file if not yet seeded
+    const { readFileSync, existsSync } = await import('node:fs')
+    const { join } = await import('node:path')
+    const filePath = join(import.meta.dirname, '../../../data/lon/forvaltningsdirektorer-2026.json')
+    if (!existsSync(filePath)) return c.json({ antal: 0, direktörer: [] }, 200)
+    const data = JSON.parse(readFileSync(filePath, 'utf-8'))
+    return c.json(
+      {
+        kommun: c.req.valid('param').kommun,
+        datum: data.datum,
+        antal: data.direktörer.length,
+        direktörer: data.direktörer,
+      },
+      200,
+    )
+  }
+  const direktörer = rows.map((r) => ({ id: r.id, ...r.data }))
+  return c.json(
+    {
+      kommun: c.req.valid('param').kommun,
+      datum: '2026-04-01',
+      antal: direktörer.length,
+      direktörer,
+    },
+    200,
+  )
+})
+
+const förvaltningarRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/forvaltningar',
+  tags: ['Förvaltningar'],
+  summary: 'Lista alla förvaltningar med direktör, budget och utfall',
+  request: { params: z.object({ kommun: z.string() }) },
+  responses: {
+    200: {
+      content: {
+        'application/json': { schema: z.object({}).passthrough().openapi('Förvaltningar') },
+      },
+      description: 'OK',
+    },
+  },
+})
+app.openapi(förvaltningarRoute, async (c) => {
+  const direktörer =
+    await sql`SELECT id, label, data FROM goteborg.graf_nodes WHERE typ = 'förvaltningsdirektör' ORDER BY data->>'namn'`
+  const results = []
+  for (const d of direktörer) {
+    const [lederEdge] =
+      await sql`SELECT to_id FROM goteborg.graf_edges WHERE from_id = ${d.id} AND typ = 'leder' LIMIT 1`
+    const nämndId = lederEdge?.to_id || null
+    const [nämnd] = nämndId
+      ? await sql`SELECT id, label, data FROM goteborg.graf_nodes WHERE id = ${nämndId}`
+      : [null]
+    const [utfall] = nämndId
+      ? await sql`SELECT data FROM goteborg.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'} AND data->>'nämnd' = ${(nämnd?.label || '').replace(/^Göteborgs Stads /, '')}`
+      : [null]
+    const [revision] = nämndId
+      ? await sql`SELECT n.data FROM goteborg.graf_edges e JOIN goteborg.graf_nodes n ON n.id = e.from_id WHERE e.to_id = ${nämndId} AND e.typ = 'riktas_mot' LIMIT 1`
+      : [null]
+    results.push({
+      id: d.id,
+      nämndId,
+      direktör: d.data,
+      nämnd: nämnd ? { id: nämnd.id, label: nämnd.label, ...nämnd.data } : null,
+      utfall: utfall?.data || null,
+      revision: revision?.data || null,
+    })
+  }
+  return c.json(
+    { kommun: c.req.valid('param').kommun, antal: results.length, förvaltningar: results },
+    200,
+  )
+})
+
+const förvaltningDetailRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/forvaltningar/{id}',
+  tags: ['Förvaltningar'],
+  summary: 'Enskild förvaltning — direktör, nämnd, budget, utfall, revision, ledamöter',
+  request: { params: z.object({ kommun: z.string(), id: z.string() }) },
+  responses: {
+    200: {
+      content: {
+        'application/json': { schema: z.object({}).passthrough().openapi('FörvaltningDetail') },
+      },
+      description: 'OK',
+    },
+    404: {
+      content: { 'application/json': { schema: z.object({ error: z.string() }) } },
+      description: 'Ej hittad',
+    },
+  },
+})
+app.openapi(förvaltningDetailRoute, async (c) => {
+  const id = c.req.valid('param').id
+  const direktörId = id.startsWith('direktör-') ? id : `direktör-${id}`
+
+  const [direktör] =
+    await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${direktörId} AND typ = 'förvaltningsdirektör'`
+  if (!direktör) return c.json({ error: 'Förvaltning inte hittad' }, 404)
+
+  const edges =
+    await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ${direktörId} OR to_id = ${direktörId}`
+
+  // Nämnd
+  const lederEdge = edges.find((e) => e.from_id === direktörId && e.typ === 'leder')
+  const [nämnd] = lederEdge
+    ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${lederEdge.to_id}`
+    : [null]
+
+  // Ledamöter (politiker → nämnd via organisationsstruktur edges)
+  const ledamöter = nämnd
+    ? await sql`SELECT n.id, n.label, n.data FROM goteborg.graf_edges e JOIN goteborg.graf_nodes n ON n.id = e.from_id WHERE e.to_id = ${nämnd.id} AND n.typ = 'politiker' LIMIT 50`
+    : []
+
+  // Utfall
+  const utfallNodes =
+    await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'}`
+  const utfall = utfallNodes.filter((n) =>
+    edges.some((e) => e.from_id === n.id && e.to_id === direktörId),
+  )
+
+  // Revision
+  const revisionIds = edges
+    .filter((e) => e.to_id === direktörId && e.from_id.startsWith('revision-'))
+    .map((e) => e.from_id)
+  const revision =
+    revisionIds.length > 0
+      ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${revisionIds})`
+      : []
+
+  // Linked KF decisions per revision node
+  const revisionLinks =
+    revisionIds.length > 0
+      ? await sql`SELECT e.from_id, e.typ, e.label, n.id as nod_id, n.label as nod_label, n.data->>'datum' as datum FROM goteborg.graf_edges e JOIN goteborg.graf_nodes n ON n.id = e.to_id WHERE e.from_id = ANY(${revisionIds}) AND e.typ IN ('hänvisar_till','behandlad_i')`
+      : []
+
+  // Budget (nämnd data has kommunbidragMnkr)
+  const budget = nämnd?.data || {}
+
+  return c.json(
+    {
+      direktör: { id: direktör.id, ...direktör.data },
+      nämnd: nämnd ? { id: nämnd.id, label: nämnd.label, ...nämnd.data } : null,
+      budget,
+      utfall: utfall.map((n) => ({ id: n.id, label: n.label, ...n.data })),
+      revision: revision.map((n) => {
+        const links = revisionLinks
+          .filter((l) => l.from_id === n.id)
+          .map((l) => ({
+            typ: l.typ,
+            label: l.label,
+            beslutId: l.nod_id,
+            beslutLabel: l.nod_label,
+            datum: l.datum,
+          }))
+        return { id: n.id, label: n.label, ...n.data, kopplingar: links }
+      }),
+      ledamöter: ledamöter.map((l) => ({ id: l.id, label: l.label, parti: l.data?.parti })),
+    },
+    200,
+  )
+})
+
+const direktörResultatRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/lon/direktorer/{id}/resultat',
+  tags: ['Löner'],
+  summary: 'Förvaltningsdirektörs resultat — budget, utfall, revision',
+  description: 'Sammanställer ekonomiskt utfall, revisionskritik och kopplingar för en direktör.',
+  request: { params: z.object({ kommun: z.string(), id: z.string() }) },
+  responses: {
+    200: {
+      content: {
+        'application/json': { schema: z.object({}).passthrough().openapi('DirektörResultat') },
+      },
+      description: 'OK',
+    },
+    404: {
+      content: { 'application/json': { schema: z.object({ error: z.string() }) } },
+      description: 'Ej hittad',
+    },
+  },
+})
+app.openapi(direktörResultatRoute, async (c) => {
+  const id = c.req.valid('param').id
+  const direktörId = id.startsWith('direktör-') ? id : `direktör-${id}`
+
+  const [direktör] =
+    await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${direktörId} AND typ = 'förvaltningsdirektör'`
+  if (!direktör) return c.json({ error: 'Direktör inte hittad' }, 404)
+
+  const edges =
+    await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ${direktörId} OR to_id = ${direktörId}`
+
+  // Utfall nodes (ansvarig edges pointing TO this director)
+  const utfallIds = edges
+    .filter((e) => e.typ === 'ansvarig' && e.to_id === direktörId)
+    .map((e) => e.from_id)
+  const utfallNodes =
+    utfallIds.length > 0
+      ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${utfallIds})`
+      : []
+
+  // Revision nodes
+  const revisionIds = edges
+    .filter((e) => e.to_id === direktörId && e.from_id.startsWith('revision-'))
+    .map((e) => e.from_id)
+  const revisionNodes =
+    revisionIds.length > 0
+      ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${revisionIds})`
+      : []
+
+  // Nämnd
+  const lederEdge = edges.find((e) => e.from_id === direktörId && e.typ === 'leder')
+  const [nämnd] = lederEdge
+    ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${lederEdge.to_id}`
+    : [null]
+
+  return c.json(
+    {
+      direktör: { id: direktör.id, ...direktör.data },
+      nämnd: nämnd ? { id: nämnd.id, label: nämnd.label, ...nämnd.data } : null,
+      utfall: utfallNodes.map((n) => ({ id: n.id, label: n.label, ...n.data })),
+      revision: revisionNodes.map((n) => ({ id: n.id, label: n.label, ...n.data })),
+    },
+    200,
+  )
 })
 
 // --- OpenAPI + Swagger ---

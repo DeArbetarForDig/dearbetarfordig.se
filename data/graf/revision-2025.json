@@ -1,0 +1,66 @@
+{
+  "nodes": [
+    {
+      "id": "revision-arsredogorelse-2025",
+      "typ": "revision",
+      "label": "Stadsrevisionens årsredogörelse 2025",
+      "data": {
+        "källa": "Handling 2026 nr 79",
+        "datum": "2026-04-13",
+        "anmärkningar": 2,
+        "avstyrktAnsvarsfrihet": 1,
+        "granskningar": 15,
+        "sammanfattning": "Granskningarna visar att stadens nämnder och bolag i stor utsträckning bedriver en ändamålsenlig verksamhet men att det finns förbättringsområden. Revisionskritik riktas till två nämnder."
+      }
+    },
+    {
+      "id": "revision-anmärkning-funktionsstöd-2025",
+      "typ": "revision",
+      "label": "ANMÄRKNING: Nämnden för funktionsstöd — vanvård BmSS Hundraårsgatan",
+      "data": {
+        "nämnd": "Nämnden för funktionsstöd",
+        "år": 2025,
+        "typ": "anmärkning",
+        "ansvarsfrihet": "avstyrkt",
+        "allvarlighetsgrad": "kritisk",
+        "brister": [
+          "Systematisk vanvård vid boende med särskild service (BmSS) Hundraårsgatan 32",
+          "Bristande intern styrning och kontroll",
+          "Flera hundra avvikelserapporter sedan 2021 utan adekvat åtgärd",
+          "Boende utsatta för tvångs- och begränsningsåtgärder",
+          "Nämnden agerade först efter Kalibers (SR) avslöjande",
+          "Liknande brister vid 5 andra boenden"
+        ],
+        "konsekvens": "Förvaltningsdirektören sades upp. Ansvarsfrihet avstyrktes för hela nämnden.",
+        "kommentar": "Ytterst ovanligt att ansvarsfrihet avstyrks — händer bara i särskilt allvarliga fall"
+      }
+    },
+    {
+      "id": "revision-anmärkning-stadsfastighet-2025",
+      "typ": "revision",
+      "label": "ANMÄRKNING: Stadsfastighetsnämnden — överskridande av befogenhet",
+      "data": {
+        "nämnd": "Stadsfastighetsnämnden",
+        "år": 2025,
+        "typ": "anmärkning",
+        "ansvarsfrihet": "tillstyrkt",
+        "allvarlighetsgrad": "allvarlig",
+        "brister": [
+          "Nämnden överskred sin befogenhet enligt reglementet",
+          "Beslut om Triple Net-avtal med RM Bildning AB utanför grunduppdraget",
+          "Förvaltningen informerade att ärendet låg utanför nämndens befogenhet men beslut fattades ändå"
+        ],
+        "kommentar": "Ansvarsfrihet beviljades trots anmärkning"
+      }
+    }
+  ],
+  "edges": [
+    { "from": "revision-arsredogorelse-2025", "to": "kf-2026-04-23-§124", "typ": "behandlad_i", "label": "KF 2026-04-23 §124" },
+    { "from": "revision-anmärkning-funktionsstöd-2025", "to": "revision-arsredogorelse-2025", "typ": "ingår_i" },
+    { "from": "revision-anmärkning-funktionsstöd-2025", "to": "nämnd-nämnden-för-funktionsstöd", "typ": "riktas_mot", "label": "anmärkning + avstyrkt ansvarsfrihet" },
+    { "from": "revision-anmärkning-funktionsstöd-2025", "to": "direktör-neri-samuelsson", "typ": "ansvarig", "label": "förvaltningsdirektör (uppsagd)", "data": { "uppsagd": true, "anställd": "2026-05-18", "kommentar": "Neri Samuelsson tillsattes 2026-05-18 som ny direktör efter att föregående direktör sagts upp" } },
+    { "from": "revision-anmärkning-stadsfastighet-2025", "to": "revision-arsredogorelse-2025", "typ": "ingår_i" },
+    { "from": "revision-anmärkning-stadsfastighet-2025", "to": "nämnd-stadsfastighetsnämnden", "typ": "riktas_mot", "label": "anmärkning" },
+    { "from": "revision-anmärkning-stadsfastighet-2025", "to": "direktör-martin-blixt", "typ": "ansvarig", "label": "förvaltningsdirektör" }
+  ]
+}

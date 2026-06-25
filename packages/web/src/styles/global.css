@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source "../../../ui/src/**/*.astro";
+@source "../../../ui/src/**/*.ts";
 @import "../../../ui/src/tokens/css/global.css";
 @import "../../../ui/src/tokens/css/light.css";
 @import "../../../ui/src/tokens/css/dark.css";
@@ -19,7 +21,12 @@ a {
 }
 a:hover {
   color: var(--color-primary-hover);
-  text-decoration: underline;
+}
+
+a:hover > .card {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-strong);
+  transform: translateY(-1px);
 }
 
 h1,

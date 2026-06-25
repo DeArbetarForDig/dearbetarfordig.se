@@ -19,10 +19,10 @@ export interface DecisionCardConfig {
 }
 
 const statusMeta: Record<BeslutStatus, { icon: string; label: string }> = {
-  bifall: { icon: '🟢', label: 'Bifall' },
-  avslag: { icon: '🔴', label: 'Avslag' },
-  remitterad: { icon: '📋', label: 'Remitterad' },
-  bordlagd: { icon: '⏸️', label: 'Bordlagd' },
+  bifall: { icon: '●', label: 'Bifall' },
+  avslag: { icon: '●', label: 'Avslag' },
+  remitterad: { icon: '◐', label: 'Remitterad' },
+  bordlagd: { icon: '◑', label: 'Bordlagd' },
 }
 
 export function generateDecisionCardHTML(config: DecisionCardConfig): string {

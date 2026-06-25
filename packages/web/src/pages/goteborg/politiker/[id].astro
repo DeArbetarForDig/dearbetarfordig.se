@@ -1,21 +1,26 @@
 ---
+import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
+import HorizontalBar from '../../../../../ui/src/components/charts/HorizontalBar.astro'
+import StackedBar from '../../../../../ui/src/components/charts/StackedBar.astro'
+import Card from '../../../../../ui/src/components/core/Card.astro'
+import Icon from '../../../../../ui/src/components/core/Icon.astro'
+import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
+import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
+import Table from '../../../../../ui/src/components/core/Table.astro'
+import {
+  getPolitiker,
+  getPolitikerArvode,
+  getPolitikerDetail,
+  getPolitikerGraf,
+} from '../../../data/api'
 /**
  * Politician profile page — full portfolio with voting, speeches, arvode.
  */
 import Base from '../../../layouts/Base.astro'
-import Card from '../../../../../ui/src/components/core/Card.astro'
-import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
-import Table from '../../../../../ui/src/components/core/Table.astro'
-import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
-import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
-import HorizontalBar from '../../../../../ui/src/components/charts/HorizontalBar.astro'
-import StackedBar from '../../../../../ui/src/components/charts/StackedBar.astro'
-import Icon from '../../../../../ui/src/components/core/Icon.astro'
-import { getPolitiker, getPolitikerDetail, getPolitikerArvode, getPolitikerGraf } from '../../../data/api'
 
 export async function getStaticPaths() {
   const politiker = await getPolitiker()
-  return politiker.map(p => ({ params: { id: p.id }, props: { summary: p } }))
+  return politiker.map((p) => ({ params: { id: p.id }, props: { summary: p } }))
 }
 
 const { summary } = Astro.props
@@ -24,10 +29,16 @@ const id = Astro.params.id as string
 const detail = await getPolitikerDetail(id)
 const arvode = await getPolitikerArvode(id)
 const uppdrag = detail.uppdrag || []
-const mandatperioder = (detail.sociala?.mandatperioder || []) as { period: string; roll: string; ansvarsområde?: string }[]
+const mandatperioder = (detail.sociala?.mandatperioder || []) as {
+  period: string
+  roll: string
+  ansvarsområde?: string
+}[]
 
 let graf: any = { edges: [], related: [] }
-try { graf = await getPolitikerGraf(id) } catch {}
+try {
+  graf = await getPolitikerGraf(id)
+} catch {}
 
 // Aggregate voting data
 const edges = graf.edges || []
@@ -44,11 +55,15 @@ const totalBar = jaCount + nejCount + avstarCount + frånvarandeCount
 // Build vote detail table from graf edges → related paragraf nodes
 const related = graf.related || []
 const relatedMap = new Map(related.map((r: any) => [r.id, r]))
-const voteColors: Record<string, string> = { Ja: 'var(--vote-ja)', Nej: 'var(--vote-nej)', 'Avstår': 'var(--vote-avstår)' }
+const voteColors: Record<string, string> = {
+  Ja: 'var(--vote-ja)',
+  Nej: 'var(--vote-nej)',
+  Avstår: 'var(--vote-avstår)',
+}
 const voteDetails = edges
   .filter((e: any) => e.typ.startsWith('röstade_'))
   .map((e: any) => {
-    const target = relatedMap.get(e.to_id) || {} as any
+    const target = relatedMap.get(e.to_id) || ({} as any)
     const rost = e.typ.replace('röstade_', '')
     const rostLabel = rost === 'ja' ? 'Ja' : rost === 'nej' ? 'Nej' : 'Avstår'
     return {
@@ -63,16 +78,24 @@ const voteDetails = edges
   .sort((a: any, b: any) => b.datum.localeCompare(a.datum))
 
 // Earliest known activity
-const dates = related.map((r: any) => r.data?.datum).filter(Boolean).sort()
+const dates = related
+  .map((r: any) => r.data?.datum)
+  .filter(Boolean)
+  .sort()
 const earliestDate = dates[0] || null
 const latestDate = dates[dates.length - 1] || null
 
 // Earliest uppdrag start
-const earliestUppdrag = mandatperioder.length > 0
-  ? mandatperioder[0].period.split('-')[0]
-  : uppdrag.length > 0
-    ? uppdrag.map((u: any) => u.från).filter(Boolean).sort()[0]?.slice(0, 4)
-    : null
+const earliestUppdrag =
+  mandatperioder.length > 0
+    ? mandatperioder[0].period.split('-')[0]
+    : uppdrag.length > 0
+      ? uppdrag
+          .map((u: any) => u.från)
+          .filter(Boolean)
+          .sort()[0]
+          ?.slice(0, 4)
+      : null
 
 const namn = `${detail.fornamn} ${detail.efternamn}`
 ---
