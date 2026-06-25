@@ -1,103 +1,30 @@
 ---
 /**
- * KPI — Key Performance Indicator.
+ * KpiCard — Key Performance Indicator card.
  *
- * Types:
- * 1. Numerical value + label
- * 2. Numerical value + unit
- * 3. Numerical value + limit (progress bar, color thresholds)
- * 4. Breakdown (sub-values)
- * 5. Trends (arrow + color)
- * 6. State (colored dot + label)
- * 7. Take action (drilldown link)
+ * Usage:
+ *   <KpiCard label="Röster" value={1234} />
+ *   <KpiCard label="Budget" value="10 226" unit="mnkr" />
+ *   <KpiCard label="Resultat" value="+73" unit="mnkr" color="var(--color-positive)" />
+ *
+ * Wraps the core Card component for consistent styling.
  */
+import Card from '../core/Card.astro'
+
 interface Props {
-  value: string | number
   label: string
+  value: string | number
   unit?: string
-  /** Limit type: shows progress bar */
-  max?: number
-  /** Trend direction */
-  trend?: 'up' | 'down'
-  trendValue?: string
-  /** State type: colored dot */
-  state?: 'error' | 'warning' | 'offline' | 'online'
-  /** Take action: drilldown URL */
-  href?: string
-  /** Breakdown: additional detail text */
-  breakdown?: string
+  color?: string
   class?: string
 }
 
-const { value, label, unit, max, trend, trendValue, state, href, breakdown, class: className } = Astro.props
-
-const trendColor = trend === 'up' ? 'var(--color-positive)' : trend === 'down' ? 'var(--color-negative)' : ''
-const trendIcon = trend === 'up' ? '↑' : trend === 'down' ? '↓' : ''
-
-const stateColors: Record<string, string> = {
-  error: 'var(--color-negative)',
-  warning: 'var(--color-warning)',
-  offline: 'var(--color-neutral)',
-  online: 'var(--color-positive)',
-}
-const stateColor = state ? stateColors[state] || 'var(--color-neutral)' : ''
-
-const progress = max ? Math.min(Math.round((Number(value) / max) * 100), 100) : 0
-const progressOver = max ? Number(value) / max > 0.9 : false
+const { label, value, unit, color, class: className } = Astro.props
 ---
-<div class:list={['kpi bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-4 shadow-[--shadow-sm]', className]}>
-  {/* Label (top for unit/limit types, bottom for basic) */}
-  {(unit || max) && <div class="text-sm text-(--color-text-muted) mb-1">{label}</div>}
-
-  {/* State dot */}
-  {state && (
-    <div class="flex items-center gap-2 mb-1">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style={`background:${stateColor}`} />
-      <span class="text-sm text-(--color-text-muted)">{label}</span>
+<div class:list={[className]}>
+  <Card title={label} titleSize="sm">
+    <div class="font-mono text-2xl font-bold" style={color ? `color:${color}` : ''}>
+      {value}{unit && <span class="text-sm text-[var(--color-text-muted)]"> {unit}</span>}
     </div>
-  )}
-
-  {/* Value row */}
-  <div class="flex items-baseline gap-1">
-    {state ? (
-      <span class="font-mono text-xl font-bold text-(--color-text)">{value}</span>
-    ) : (
-      <span class="font-mono text-[2.5rem] font-bold leading-none tracking-tight text-(--color-text)">{value}</span>
-    )}
-    {unit && <span class="text-base text-(--color-text-muted)">{unit}</span>}
-    {max && (
-      <span class="text-lg text-(--color-text-muted)">/ {max}</span>
-    )}
-    {max && unit && <span class="text-base text-(--color-text-muted)">{unit}</span>}
-  </div>
-
-  {/* Progress bar (limit type) */}
-  {max && (
-    <div class="mt-2 h-1.5 rounded-full overflow-hidden bg-(--color-surface-sunken)">
-      <div
-        class="h-full rounded-full transition-all"
-        style={`width:${progress}%;background:${progressOver ? 'var(--color-negative)' : 'var(--color-primary)'}`}
-      />
-    </div>
-  )}
-
-  {/* Label (bottom for basic type) */}
-  {!unit && !max && !state && <div class="text-sm text-(--color-text-muted) mt-2">{label}</div>}
-
-  {/* Trend */}
-  {trend && (
-    <div class="text-xs font-semibold mt-1" style={`color:${trendColor}`}>
-      {trendIcon} {trendValue}
-    </div>
-  )}
-
-  {/* Breakdown */}
-  {breakdown && <div class="text-xs text-(--color-text-subtle) mt-1">{breakdown}</div>}
-
-  {/* Take action (drilldown) */}
-  {href && (
-    <a href={href} class="flex items-center gap-1 text-sm text-(--color-primary) mt-2 no-underline hover:underline">
-      {label} <span class="text-xs">→</span>
-    </a>
-  )}
+  </Card>
 </div>

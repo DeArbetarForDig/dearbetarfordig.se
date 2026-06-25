@@ -1,0 +1,387 @@
+{
+  "nodes": [
+    {
+      "id": "utfall-nämnd-forskolenamnden-2022",
+      "typ": "utfall",
+      "label": "Förskolenämnden utfall 2022: -61 mnkr",
+      "data": {
+        "nämnd": "Förskolenämnden",
+        "år": 2022,
+        "intäkterMnkr": 565,
+        "kostnaderMnkr": -5107,
+        "kommunbidragMnkr": 4481,
+        "resultatMnkr": -61,
+        "budgetMnkr": -152,
+        "status": "stort_underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-grundskolenamnden-2022",
+      "typ": "utfall",
+      "label": "Grundskolenämnden utfall 2022: +114 mnkr",
+      "data": {
+        "nämnd": "Grundskolenämnden",
+        "år": 2022,
+        "intäkterMnkr": 1182,
+        "kostnaderMnkr": -10086,
+        "kommunbidragMnkr": 9017,
+        "resultatMnkr": 114,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-idrotts-och-foreningsnamnden-2022",
+      "typ": "utfall",
+      "label": "Idrotts- och föreningsnämnden utfall 2022: +6 mnkr",
+      "data": {
+        "nämnd": "Idrotts- och föreningsnämnden",
+        "år": 2022,
+        "intäkterMnkr": 167,
+        "kostnaderMnkr": -732,
+        "kommunbidragMnkr": 571,
+        "resultatMnkr": 6,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kulturnamnden-2022",
+      "typ": "utfall",
+      "label": "Kulturnämnden utfall 2022: +14 mnkr",
+      "data": {
+        "nämnd": "Kulturnämnden",
+        "år": 2022,
+        "intäkterMnkr": 154,
+        "kostnaderMnkr": -778,
+        "kommunbidragMnkr": 638,
+        "resultatMnkr": 14,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-miljo-och-klimatnamnden-2022",
+      "typ": "utfall",
+      "label": "Miljö- och klimatnämnden utfall 2022: +9 mnkr",
+      "data": {
+        "nämnd": "Miljö- och klimatnämnden",
+        "år": 2022,
+        "intäkterMnkr": 93,
+        "kostnaderMnkr": -189,
+        "kommunbidragMnkr": 105,
+        "resultatMnkr": 9,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-namnden-for-funktionsstod-2022",
+      "typ": "utfall",
+      "label": "Nämnden för funktionsstöd utfall 2022: +3 mnkr",
+      "data": {
+        "nämnd": "Nämnden för funktionsstöd",
+        "år": 2022,
+        "intäkterMnkr": 597,
+        "kostnaderMnkr": -5366,
+        "kommunbidragMnkr": 4772,
+        "resultatMnkr": 3,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-namnden-for-intraservice-2022",
+      "typ": "utfall",
+      "label": "Nämnden för Intraservice utfall 2022: 0 mnkr",
+      "data": {
+        "nämnd": "Nämnden för Intraservice",
+        "år": 2022,
+        "intäkterMnkr": 1268,
+        "kostnaderMnkr": -1290,
+        "kommunbidragMnkr": 22,
+        "resultatMnkr": 0,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-socialnamnden-centrum-2022",
+      "typ": "utfall",
+      "label": "Socialnämnden Centrum utfall 2022: +31 mnkr",
+      "data": {
+        "nämnd": "Socialnämnden Centrum",
+        "år": 2022,
+        "intäkterMnkr": 166,
+        "kostnaderMnkr": -1362,
+        "kommunbidragMnkr": 1227,
+        "resultatMnkr": 31,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-socialnamnden-hisingen-2022",
+      "typ": "utfall",
+      "label": "Socialnämnden Hisingen utfall 2022: +82 mnkr",
+      "data": {
+        "nämnd": "Socialnämnden Hisingen",
+        "år": 2022,
+        "intäkterMnkr": 135,
+        "kostnaderMnkr": -1224,
+        "kommunbidragMnkr": 1171,
+        "resultatMnkr": 82,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-socialnamnden-nordost-2022",
+      "typ": "utfall",
+      "label": "Socialnämnden Nordost utfall 2022: +144 mnkr",
+      "data": {
+        "nämnd": "Socialnämnden Nordost",
+        "år": 2022,
+        "intäkterMnkr": 197,
+        "kostnaderMnkr": -1708,
+        "kommunbidragMnkr": 1655,
+        "resultatMnkr": 144,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-socialnamnden-sydvast-2022",
+      "typ": "utfall",
+      "label": "Socialnämnden Sydväst utfall 2022: +36 mnkr",
+      "data": {
+        "nämnd": "Socialnämnden Sydväst",
+        "år": 2022,
+        "intäkterMnkr": 485,
+        "kostnaderMnkr": -1198,
+        "kommunbidragMnkr": 749,
+        "resultatMnkr": 36,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-utbildningsnamnden-2022",
+      "typ": "utfall",
+      "label": "Utbildningsnämnden utfall 2022: +1 mnkr",
+      "data": {
+        "nämnd": "Utbildningsnämnden",
+        "år": 2022,
+        "intäkterMnkr": 1053,
+        "kostnaderMnkr": -3308,
+        "kommunbidragMnkr": 2255,
+        "resultatMnkr": 1,
+        "budgetMnkr": -6,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kommunledningen-2022",
+      "typ": "utfall",
+      "label": "Kommunledningen utfall 2022: +14 mnkr",
+      "data": {
+        "nämnd": "Kommunledningen",
+        "år": 2022,
+        "intäkterMnkr": 174,
+        "kostnaderMnkr": -543,
+        "kommunbidragMnkr": 383,
+        "resultatMnkr": 14,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "utfall-nämnd-forskolenamnden-2022",
+      "to": "nämnd-förskolenämnden",
+      "typ": "utfall_för",
+      "label": "-61 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-forskolenamnden-2022",
+      "to": "direktör-johan-olofsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": -61
+      }
+    },
+    {
+      "from": "utfall-nämnd-grundskolenamnden-2022",
+      "to": "nämnd-grundskolenämnden",
+      "typ": "utfall_för",
+      "label": "+114 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-grundskolenamnden-2022",
+      "to": "direktör-maria-andersson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 114
+      }
+    },
+    {
+      "from": "utfall-nämnd-idrotts-och-foreningsnamnden-2022",
+      "to": "nämnd-idrotts-och-föreningsnämnden",
+      "typ": "utfall_för",
+      "label": "+6 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-idrotts-och-foreningsnamnden-2022",
+      "to": "direktör-johan-sävhage",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 6
+      }
+    },
+    {
+      "from": "utfall-nämnd-kulturnamnden-2022",
+      "to": "nämnd-kulturnämnden",
+      "typ": "utfall_för",
+      "label": "+14 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-kulturnamnden-2022",
+      "to": "direktör-anna-rosengren",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 14
+      }
+    },
+    {
+      "from": "utfall-nämnd-miljo-och-klimatnamnden-2022",
+      "to": "nämnd-miljö-och-klimatnämnden",
+      "typ": "utfall_för",
+      "label": "+9 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-miljo-och-klimatnamnden-2022",
+      "to": "direktör-maria-jacobsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 9
+      }
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-funktionsstod-2022",
+      "to": "nämnd-nämnden-för-funktionsstöd",
+      "typ": "utfall_för",
+      "label": "+3 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-funktionsstod-2022",
+      "to": "direktör-neri-samuelsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 3
+      }
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-intraservice-2022",
+      "to": "nämnd-nämnden-för-intraservice",
+      "typ": "utfall_för",
+      "label": "0 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-namnden-for-intraservice-2022",
+      "to": "direktör-peter-söderström",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 0
+      }
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-centrum-2022",
+      "to": "nämnd-socialnämnden-centrum",
+      "typ": "utfall_för",
+      "label": "+31 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-centrum-2022",
+      "to": "direktör-sandra-säljö",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 31
+      }
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-hisingen-2022",
+      "to": "nämnd-socialnämnden-hisingen",
+      "typ": "utfall_för",
+      "label": "+82 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-hisingen-2022",
+      "to": "direktör-marie-larsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 82
+      }
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-nordost-2022",
+      "to": "nämnd-socialnämnden-nordost",
+      "typ": "utfall_för",
+      "label": "+144 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-nordost-2022",
+      "to": "direktör-fredrik-johansson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 144
+      }
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-sydvast-2022",
+      "to": "nämnd-socialnämnden-sydväst",
+      "typ": "utfall_för",
+      "label": "+36 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-socialnamnden-sydvast-2022",
+      "to": "direktör-annika-ljungh",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 36
+      }
+    },
+    {
+      "from": "utfall-nämnd-utbildningsnamnden-2022",
+      "to": "nämnd-utbildningsnämnden",
+      "typ": "utfall_för",
+      "label": "+1 mnkr"
+    },
+    {
+      "from": "utfall-nämnd-utbildningsnamnden-2022",
+      "to": "direktör-tomas-berndtsson",
+      "typ": "ansvarig",
+      "label": "förvaltningsdirektör",
+      "data": {
+        "resultatMnkr": 1
+      }
+    },
+    {
+      "from": "utfall-nämnd-kommunledningen-2022",
+      "to": "nämnd-kommunledningen",
+      "typ": "utfall_för",
+      "label": "+14 mnkr"
+    }
+  ]
+}

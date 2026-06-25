@@ -1,0 +1,202 @@
+{
+  "nodes": [
+    {
+      "id": "utfall-sammanfattning-2025",
+      "typ": "utfall",
+      "label": "Ekonomiskt utfall 2025 — alla nämnder",
+      "data": {
+        "år": 2025,
+        "källa": "Göteborgs Stads årsredovisning 2025 (Handling 2026 nr 78)",
+        "totalResultatMnkr": 767,
+        "budgeteratResultatMnkr": -50,
+        "antalNämnder": 23,
+        "summering": "Nämnderna redovisade sammantaget +767 mnkr mot budgeterat -50 mnkr"
+      }
+    },
+    {
+      "id": "utfall-nämnd-exploateringsnämnden-2025",
+      "typ": "utfall",
+      "label": "Exploateringsnämnden utfall 2025: -1 mnkr",
+      "data": { "nämnd": "Exploateringsnämnden", "år": 2025, "intäkterMnkr": 1216, "kostnaderMnkr": -1353, "kommunbidragMnkr": 137, "resultatMnkr": -1, "budgetMnkr": 0, "avvikelseMnkr": -1, "status": "i_balans" }
+    },
+    {
+      "id": "utfall-nämnd-förskolenämnden-2025",
+      "typ": "utfall",
+      "label": "Förskolenämnden utfall 2025: +50 mnkr",
+      "data": { "nämnd": "Förskolenämnden", "år": 2025, "intäkterMnkr": 623, "kostnaderMnkr": -5718, "kommunbidragMnkr": 5145, "resultatMnkr": 50, "budgetMnkr": 0, "avvikelseMnkr": 50, "status": "överskott", "kommentar": "Högre intäkter, lägre köpta platser, färre barn än budgeterat" }
+    },
+    {
+      "id": "utfall-nämnd-grundskolenämnden-2025",
+      "typ": "utfall",
+      "label": "Grundskolenämnden utfall 2025: +73 mnkr",
+      "data": { "nämnd": "Grundskolenämnden", "år": 2025, "intäkterMnkr": 1314, "kostnaderMnkr": -11467, "kommunbidragMnkr": 10226, "resultatMnkr": 73, "budgetMnkr": 0, "avvikelseMnkr": 73, "status": "överskott", "kommentar": "Lägre personalkostnader än budgeterat" }
+    },
+    {
+      "id": "utfall-nämnd-idrotts-och-föreningsnämnden-2025",
+      "typ": "utfall",
+      "label": "Idrotts- och föreningsnämnden utfall 2025: +4 mnkr",
+      "data": { "nämnd": "Idrotts- och föreningsnämnden", "år": 2025, "intäkterMnkr": 349, "kostnaderMnkr": -955, "kommunbidragMnkr": 610, "resultatMnkr": 4, "budgetMnkr": 0, "avvikelseMnkr": 4, "status": "i_balans" }
+    },
+    {
+      "id": "utfall-nämnd-inköps-och-upphandlingsnämnden-2025",
+      "typ": "utfall",
+      "label": "Inköps- och upphandlingsnämnden utfall 2025: +17 mnkr",
+      "data": { "nämnd": "Inköps- och upphandlingsnämnden", "år": 2025, "intäkterMnkr": 143, "kostnaderMnkr": -132, "kommunbidragMnkr": 7, "resultatMnkr": 17, "budgetMnkr": 0, "avvikelseMnkr": 17, "status": "överskott" }
+    },
+    {
+      "id": "utfall-nämnd-kulturnämnden-2025",
+      "typ": "utfall",
+      "label": "Kulturnämnden utfall 2025: +9 mnkr",
+      "data": { "nämnd": "Kulturnämnden", "år": 2025, "intäkterMnkr": 155, "kostnaderMnkr": -882, "kommunbidragMnkr": 736, "resultatMnkr": 9, "budgetMnkr": 0, "avvikelseMnkr": 9, "status": "i_balans" }
+    },
+    {
+      "id": "utfall-nämnd-miljö-och-klimatnämnden-2025",
+      "typ": "utfall",
+      "label": "Miljö- och klimatnämnden utfall 2025: +10 mnkr",
+      "data": { "nämnd": "Miljö- och klimatnämnden", "år": 2025, "intäkterMnkr": 89, "kostnaderMnkr": -222, "kommunbidragMnkr": 143, "resultatMnkr": 10, "budgetMnkr": 0, "avvikelseMnkr": 10, "status": "i_balans" }
+    },
+    {
+      "id": "utfall-nämnd-arbetsmarknad-2025",
+      "typ": "utfall",
+      "label": "Nämnden för arbetsmarknad och vuxenutbildning utfall 2025: +60 mnkr",
+      "data": { "nämnd": "Nämnden för arbetsmarknad och vuxenutbildning", "år": 2025, "intäkterMnkr": 289, "kostnaderMnkr": -1071, "kommunbidragMnkr": 841, "resultatMnkr": 60, "budgetMnkr": 0, "avvikelseMnkr": 60, "status": "överskott" }
+    },
+    {
+      "id": "utfall-nämnd-demokrati-och-medborgarservice-2025",
+      "typ": "utfall",
+      "label": "Nämnden för demokrati och medborgarservice utfall 2025: +2 mnkr",
+      "data": { "nämnd": "Nämnden för demokrati och medborgarservice", "år": 2025, "intäkterMnkr": 120, "kostnaderMnkr": -242, "kommunbidragMnkr": 123, "resultatMnkr": 2, "budgetMnkr": 0, "avvikelseMnkr": 2, "status": "i_balans" }
+    },
+    {
+      "id": "utfall-nämnd-funktionsstöd-2025",
+      "typ": "utfall",
+      "label": "Nämnden för funktionsstöd utfall 2025: +95 mnkr",
+      "data": { "nämnd": "Nämnden för funktionsstöd", "år": 2025, "intäkterMnkr": 551, "kostnaderMnkr": -6216, "kommunbidragMnkr": 5760, "resultatMnkr": 95, "budgetMnkr": 0, "avvikelseMnkr": 95, "status": "överskott", "kommentar": "Buffert ej nyttjad, lägre personalkostnader, lägre IT-kostnader" }
+    },
+    {
+      "id": "utfall-nämnd-intraservice-2025",
+      "typ": "utfall",
+      "label": "Nämnden för Intraservice utfall 2025: +7 mnkr",
+      "data": { "nämnd": "Nämnden för Intraservice", "år": 2025, "intäkterMnkr": 1414, "kostnaderMnkr": -1445, "kommunbidragMnkr": 38, "resultatMnkr": 7, "budgetMnkr": 0, "avvikelseMnkr": 7, "status": "i_balans" }
+    },
+    {
+      "id": "utfall-nämnd-socialnämnden-centrum-2025",
+      "typ": "utfall",
+      "label": "Socialnämnden Centrum utfall 2025: +27 mnkr",
+      "data": { "nämnd": "Socialnämnden Centrum", "år": 2025, "intäkterMnkr": 200, "kostnaderMnkr": -1594, "kommunbidragMnkr": 1421, "resultatMnkr": 27, "budgetMnkr": 0, "avvikelseMnkr": 27, "status": "överskott", "kommentar": "Budgettillskott, nämndreserv ej nyttjad, högre statsbidrag" }
+    },
+    {
+      "id": "utfall-nämnd-socialnämnden-hisingen-2025",
+      "typ": "utfall",
+      "label": "Socialnämnden Hisingen utfall 2025: -4 mnkr",
+      "data": { "nämnd": "Socialnämnden Hisingen", "år": 2025, "intäkterMnkr": 155, "kostnaderMnkr": -1492, "kommunbidragMnkr": 1333, "resultatMnkr": -4, "budgetMnkr": 0, "avvikelseMnkr": -4, "status": "underskott", "kommentar": "Ökade kostnader köpt vård, nytt ramavtal sociala boenden, SiS-placeringar" }
+    },
+    {
+      "id": "utfall-nämnd-socialnämnden-nordost-2025",
+      "typ": "utfall",
+      "label": "Socialnämnden Nordost utfall 2025: -16 mnkr",
+      "data": { "nämnd": "Socialnämnden Nordost", "år": 2025, "intäkterMnkr": 299, "kostnaderMnkr": -2153, "kommunbidragMnkr": 1839, "resultatMnkr": -16, "budgetMnkr": -34, "avvikelseMnkr": 18, "status": "underskott", "kommentar": "Fler/komplexa placeringar barn & unga, köpt boende brottsförebyggande, ökade försörjningsstöd" }
+    },
+    {
+      "id": "utfall-nämnd-socialnämnden-sydväst-2025",
+      "typ": "utfall",
+      "label": "Socialnämnden Sydväst utfall 2025: -13 mnkr",
+      "data": { "nämnd": "Socialnämnden Sydväst", "år": 2025, "intäkterMnkr": 532, "kostnaderMnkr": -1412, "kommunbidragMnkr": 868, "resultatMnkr": -13, "budgetMnkr": -16, "avvikelseMnkr": 3, "status": "underskott", "kommentar": "Omställning anvisningsboenden Ukrainare, avveckling/mellanboende" }
+    },
+    {
+      "id": "utfall-nämnd-stadsbyggnadsnämnden-2025",
+      "typ": "utfall",
+      "label": "Stadsbyggnadsnämnden utfall 2025: +9 mnkr",
+      "data": { "nämnd": "Stadsbyggnadsnämnden", "år": 2025, "intäkterMnkr": 252, "kostnaderMnkr": -520, "kommunbidragMnkr": 278, "resultatMnkr": 9, "budgetMnkr": 0, "avvikelseMnkr": 9, "status": "i_balans" }
+    },
+    {
+      "id": "utfall-nämnd-stadsfastighetsnämnden-2025",
+      "typ": "utfall",
+      "label": "Stadsfastighetsnämnden utfall 2025: +73 mnkr",
+      "data": { "nämnd": "Stadsfastighetsnämnden", "år": 2025, "intäkterMnkr": 4621, "kostnaderMnkr": -4548, "kommunbidragMnkr": 0, "resultatMnkr": 73, "budgetMnkr": 0, "avvikelseMnkr": 73, "status": "överskott", "kommentar": "Lägre underhåll, mildt/snöfattigt vinterväder → lägre el/uppvärmning" }
+    },
+    {
+      "id": "utfall-nämnd-stadsmiljönämnden-2025",
+      "typ": "utfall",
+      "label": "Stadsmiljönämnden utfall 2025: +152 mnkr",
+      "data": { "nämnd": "Stadsmiljönämnden", "år": 2025, "intäkterMnkr": 2563, "kostnaderMnkr": -4027, "kommunbidragMnkr": 1616, "resultatMnkr": 152, "budgetMnkr": 0, "avvikelseMnkr": 152, "status": "stort_överskott", "kommentar": "Färre snöpådrag än normalår" }
+    },
+    {
+      "id": "utfall-nämnd-utbildningsnämnden-2025",
+      "typ": "utfall",
+      "label": "Utbildningsnämnden utfall 2025: +12 mnkr",
+      "data": { "nämnd": "Utbildningsnämnden", "år": 2025, "intäkterMnkr": 1206, "kostnaderMnkr": -3974, "kommunbidragMnkr": 2781, "resultatMnkr": 12, "budgetMnkr": 0, "avvikelseMnkr": 12, "status": "i_balans" }
+    },
+    {
+      "id": "utfall-nämnd-äldre-vård-omsorg-2025",
+      "typ": "utfall",
+      "label": "Äldre samt vård- och omsorgsnämnden utfall 2025: +155 mnkr",
+      "data": { "nämnd": "Äldre samt vård- och omsorgsnämnden", "år": 2025, "intäkterMnkr": 1550, "kostnaderMnkr": -8239, "kommunbidragMnkr": 6844, "resultatMnkr": 155, "budgetMnkr": 0, "avvikelseMnkr": 155, "status": "stort_överskott" }
+    },
+    {
+      "id": "utfall-nämnd-kretslopp-vatten-2025",
+      "typ": "utfall",
+      "label": "Kretslopp och vattennämnden utfall 2025: +198 mnkr",
+      "data": { "nämnd": "Kretslopp och vattennämnden", "år": 2025, "intäkterMnkr": 2661, "kostnaderMnkr": -2463, "kommunbidragMnkr": 0, "resultatMnkr": 198, "budgetMnkr": 62, "avvikelseMnkr": 136, "status": "stort_överskott", "kommentar": "Taxefinansierad. VA +163M, Avfall +35M" }
+    },
+    {
+      "id": "utfall-nämnd-arkivnämnden-2025",
+      "typ": "utfall",
+      "label": "Arkivnämnden utfall 2025: +4 mnkr",
+      "data": { "nämnd": "Arkivnämnden", "år": 2025, "intäkterMnkr": 41, "kostnaderMnkr": -62, "kommunbidragMnkr": 25, "resultatMnkr": 4, "budgetMnkr": 0, "avvikelseMnkr": 4, "status": "i_balans" }
+    },
+    {
+      "id": "utfall-nämnd-kommunledningen-2025",
+      "typ": "utfall",
+      "label": "Kommunledningen (SLK) utfall 2025: +22 mnkr",
+      "data": { "nämnd": "Kommunledningen", "år": 2025, "intäkterMnkr": 179, "kostnaderMnkr": -557, "kommunbidragMnkr": 400, "resultatMnkr": 22, "budgetMnkr": 0, "avvikelseMnkr": 22, "status": "överskott", "kommentar": "Lägre personalkostnader pga vakanser, tidsförskjutningar" }
+    }
+  ],
+  "edges": [
+    { "from": "utfall-nämnd-exploateringsnämnden-2025", "to": "nämnd-exploateringsnämnden", "typ": "utfall_för", "label": "-1 mnkr" },
+    { "from": "utfall-nämnd-exploateringsnämnden-2025", "to": "direktör-kristina-lindfors", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": -1, "status": "i_balans" } },
+    { "from": "utfall-nämnd-förskolenämnden-2025", "to": "nämnd-förskolenämnden", "typ": "utfall_för", "label": "+50 mnkr" },
+    { "from": "utfall-nämnd-förskolenämnden-2025", "to": "direktör-johan-olofsson", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 50, "status": "överskott" } },
+    { "from": "utfall-nämnd-grundskolenämnden-2025", "to": "nämnd-grundskolenämnden", "typ": "utfall_för", "label": "+73 mnkr" },
+    { "from": "utfall-nämnd-grundskolenämnden-2025", "to": "direktör-maria-andersson", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 73, "status": "överskott" } },
+    { "from": "utfall-nämnd-idrotts-och-föreningsnämnden-2025", "to": "nämnd-idrotts-och-föreningsnämnden", "typ": "utfall_för", "label": "+4 mnkr" },
+    { "from": "utfall-nämnd-idrotts-och-föreningsnämnden-2025", "to": "direktör-johan-sävhage", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 4, "status": "i_balans" } },
+    { "from": "utfall-nämnd-inköps-och-upphandlingsnämnden-2025", "to": "nämnd-inköps-och-upphandlingsnämnden", "typ": "utfall_för", "label": "+17 mnkr" },
+    { "from": "utfall-nämnd-inköps-och-upphandlingsnämnden-2025", "to": "direktör-henrik-karlsson", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 17, "status": "överskott" } },
+    { "from": "utfall-nämnd-kulturnämnden-2025", "to": "nämnd-kulturnämnden", "typ": "utfall_för", "label": "+9 mnkr" },
+    { "from": "utfall-nämnd-kulturnämnden-2025", "to": "direktör-anna-rosengren", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 9, "status": "i_balans" } },
+    { "from": "utfall-nämnd-miljö-och-klimatnämnden-2025", "to": "nämnd-miljö-och-klimatnämnden", "typ": "utfall_för", "label": "+10 mnkr" },
+    { "from": "utfall-nämnd-miljö-och-klimatnämnden-2025", "to": "direktör-maria-jacobsson", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 10, "status": "i_balans" } },
+    { "from": "utfall-nämnd-arbetsmarknad-2025", "to": "nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning", "typ": "utfall_för", "label": "+60 mnkr" },
+    { "from": "utfall-nämnd-arbetsmarknad-2025", "to": "direktör-lars-durfeldt", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 60, "status": "överskott" } },
+    { "from": "utfall-nämnd-demokrati-och-medborgarservice-2025", "to": "nämnd-nämnden-för-demokrati-och-medborgarservice", "typ": "utfall_för", "label": "+2 mnkr" },
+    { "from": "utfall-nämnd-demokrati-och-medborgarservice-2025", "to": "direktör-eva-englund", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 2, "status": "i_balans" } },
+    { "from": "utfall-nämnd-funktionsstöd-2025", "to": "nämnd-nämnden-för-funktionsstöd", "typ": "utfall_för", "label": "+95 mnkr" },
+    { "from": "utfall-nämnd-funktionsstöd-2025", "to": "direktör-neri-samuelsson", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 95, "status": "överskott" } },
+    { "from": "utfall-nämnd-intraservice-2025", "to": "nämnd-nämnden-för-intraservice", "typ": "utfall_för", "label": "+7 mnkr" },
+    { "from": "utfall-nämnd-intraservice-2025", "to": "direktör-peter-söderström", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 7, "status": "i_balans" } },
+    { "from": "utfall-nämnd-socialnämnden-centrum-2025", "to": "nämnd-socialnämnden-centrum", "typ": "utfall_för", "label": "+27 mnkr" },
+    { "from": "utfall-nämnd-socialnämnden-centrum-2025", "to": "direktör-sandra-säljö", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 27, "status": "överskott" } },
+    { "from": "utfall-nämnd-socialnämnden-hisingen-2025", "to": "nämnd-socialnämnden-hisingen", "typ": "utfall_för", "label": "-4 mnkr" },
+    { "from": "utfall-nämnd-socialnämnden-hisingen-2025", "to": "direktör-marie-larsson", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": -4, "status": "underskott" } },
+    { "from": "utfall-nämnd-socialnämnden-nordost-2025", "to": "nämnd-socialnämnden-nordost", "typ": "utfall_för", "label": "-16 mnkr" },
+    { "from": "utfall-nämnd-socialnämnden-nordost-2025", "to": "direktör-fredrik-johansson", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": -16, "status": "underskott" } },
+    { "from": "utfall-nämnd-socialnämnden-sydväst-2025", "to": "nämnd-socialnämnden-sydväst", "typ": "utfall_för", "label": "-13 mnkr" },
+    { "from": "utfall-nämnd-socialnämnden-sydväst-2025", "to": "direktör-annika-ljungh", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": -13, "status": "underskott" } },
+    { "from": "utfall-nämnd-stadsbyggnadsnämnden-2025", "to": "nämnd-stadsbyggnadsnämnden", "typ": "utfall_för", "label": "+9 mnkr" },
+    { "from": "utfall-nämnd-stadsbyggnadsnämnden-2025", "to": "direktör-henrik-kant", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 9, "status": "i_balans" } },
+    { "from": "utfall-nämnd-stadsfastighetsnämnden-2025", "to": "nämnd-stadsfastighetsnämnden", "typ": "utfall_för", "label": "+73 mnkr" },
+    { "from": "utfall-nämnd-stadsfastighetsnämnden-2025", "to": "direktör-martin-blixt", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 73, "status": "överskott" } },
+    { "from": "utfall-nämnd-stadsmiljönämnden-2025", "to": "nämnd-stadsmiljönämnden", "typ": "utfall_för", "label": "+152 mnkr" },
+    { "from": "utfall-nämnd-stadsmiljönämnden-2025", "to": "direktör-anders-ramsby", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 152, "status": "stort_överskott" } },
+    { "from": "utfall-nämnd-utbildningsnämnden-2025", "to": "nämnd-utbildningsnämnden", "typ": "utfall_för", "label": "+12 mnkr" },
+    { "from": "utfall-nämnd-utbildningsnämnden-2025", "to": "direktör-tomas-berndtsson", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 12, "status": "i_balans" } },
+    { "from": "utfall-nämnd-äldre-vård-omsorg-2025", "to": "nämnd-äldre-samt-vård-och-omsorgsnämnden", "typ": "utfall_för", "label": "+155 mnkr" },
+    { "from": "utfall-nämnd-äldre-vård-omsorg-2025", "to": "direktör-babbs-edberg", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 155, "status": "stort_överskott" } },
+    { "from": "utfall-nämnd-kretslopp-vatten-2025", "to": "nämnd-kretslopp-och-vatten-västsvenska-paketet", "typ": "utfall_för", "label": "+198 mnkr" },
+    { "from": "utfall-nämnd-kretslopp-vatten-2025", "to": "direktör-emma-hansryd", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 198, "status": "stort_överskott" } },
+    { "from": "utfall-nämnd-arkivnämnden-2025", "to": "nämnd-arkivnämnden", "typ": "utfall_för", "label": "+4 mnkr" },
+    { "from": "utfall-nämnd-arkivnämnden-2025", "to": "direktör-birgitta-torgén", "typ": "ansvarig", "label": "förvaltningsdirektör", "data": { "resultatMnkr": 4, "status": "i_balans" } },
+    { "from": "utfall-sammanfattning-2025", "to": "kf-2026-04-23-§123", "typ": "beslutad_i", "label": "Årsredovisning 2025 godkänd av KF" }
+  ]
+}

@@ -2,20 +2,9 @@
 /**
  * DecisionCard — displays a single KF decision in a feed.
  *
- * Usage:
- *   <DecisionCard titel="Ny cykelväg" datum="2025-06-12" status="bifall" ja={52} nej={21} avstar={8} />
- *
- * Props:
- * - titel: decision title
- * - datum: ISO date string
- * - status: bifall | avslag | remitterad | bordlagd
- * - paragraf: e.g. "KF § 45"
- * - ja/nej/avstar: vote counts (optional, shows progress bar if present)
- * - url: link to detail page
- *
- * Shows StatusBadge, date, title, and (if votes exist) a color-coded
- * progress bar showing ja/nej/avstår proportions.
+ * Wraps the core Card component for consistent styling and hover.
  */
+import Card from '../core/Card.astro'
 import StatusBadge from '../core/StatusBadge.astro'
 
 interface Props {
@@ -46,27 +35,27 @@ const total = hasVotes ? ja + nej + avstar : 0
 const jaPct = total ? Math.round((ja! / total) * 100) : 0
 const nejPct = total ? Math.round((nej! / total) * 100) : 0
 ---
-<article class:list={['bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-4 shadow-[--shadow-sm]', className]}>
-  <div class="flex justify-between items-center mb-2">
-    <StatusBadge status={status} />
-    <time datetime={datum} class="text-xs text-(--color-text-muted) font-mono">{datum}</time>
-  </div>
-  <h3 class="text-lg font-semibold m-0 mb-1 leading-snug">
-    <a href={url} class="text-(--color-text) no-underline hover:underline">{titel}</a>
-  </h3>
-  {paragraf && <p class="m-0 mb-2 text-sm text-(--color-text-muted)">{paragraf}</p>}
-  {hasVotes && (
-    <div class="mt-2">
-      <div class="flex gap-4 text-sm text-(--color-text-muted) mb-1.5">
-        <span>Ja: <strong class="font-mono" style="color:var(--vote-ja)">{ja}</strong></span>
-        <span>Nej: <strong class="font-mono" style="color:var(--vote-nej)">{nej}</strong></span>
-        <span>Avstår: <strong class="font-mono" style="color:var(--vote-avstar)">{avstar}</strong></span>
-      </div>
-      <div class="flex h-2 rounded-full overflow-hidden bg-(--color-surface-sunken)" title={`${jaPct}% ja`}>
-        <span style={`width:${jaPct}%;background:var(--vote-ja)`}></span>
-        <span style={`width:${nejPct}%;background:var(--vote-nej)`}></span>
-        <span class="flex-1" style="background:var(--vote-avstar)"></span>
-      </div>
+<a href={url} class:list={['block no-underline', className]}>
+  <Card>
+    <div class="flex justify-between items-center mb-2">
+      <StatusBadge status={status} />
+      <time datetime={datum} class="text-xs text-[var(--color-text-muted)] font-mono">{datum}</time>
     </div>
-  )}
-</article>
+    <h3 class="text-base font-semibold m-0 mb-1 leading-snug text-[var(--color-text)]">{titel}</h3>
+    {paragraf && <p class="m-0 mb-2 text-sm text-[var(--color-text-muted)]">{paragraf}</p>}
+    {hasVotes && (
+      <div class="mt-2">
+        <div class="flex gap-4 text-sm text-[var(--color-text-muted)] mb-1.5">
+          <span>Ja: <strong class="font-mono" style="color:var(--vote-ja)">{ja}</strong></span>
+          <span>Nej: <strong class="font-mono" style="color:var(--vote-nej)">{nej}</strong></span>
+          <span>Avstår: <strong class="font-mono" style="color:var(--vote-avstar)">{avstar}</strong></span>
+        </div>
+        <div class="flex h-2 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]" title={`${jaPct}% ja`}>
+          <span style={`width:${jaPct}%;background:var(--vote-ja)`}></span>
+          <span style={`width:${nejPct}%;background:var(--vote-nej)`}></span>
+          <span class="flex-1" style="background:var(--vote-avstar)"></span>
+        </div>
+      </div>
+    )}
+  </Card>
+</a>

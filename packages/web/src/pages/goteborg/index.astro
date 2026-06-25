@@ -1,11 +1,11 @@
 ---
-import Card from '../../../../ui/src/components/core/Card.astro'
 import DecisionCard from '../../../../ui/src/components/cards/DecisionCard.astro'
 import Chamber from '../../../../ui/src/components/charts/Chamber.astro'
 import Donut from '../../../../ui/src/components/charts/Donut.astro'
-import Button from '../../../../ui/src/components/core/Button.astro'
-import Icon from '../../../../ui/src/components/core/Icon.astro'
 import HorizontalBar from '../../../../ui/src/components/charts/HorizontalBar.astro'
+import Button from '../../../../ui/src/components/core/Button.astro'
+import Card from '../../../../ui/src/components/core/Card.astro'
+import Icon from '../../../../ui/src/components/core/Icon.astro'
 import { getBeslut, getBudget, getMetrics, getPolitiker, getStats } from '../../data/api'
 import Base from '../../layouts/Base.astro'
 
@@ -28,9 +28,21 @@ const partiMandat = Object.entries(stats.partier).map(([label, value]) => ({
   color: `var(--parti-${label.toLowerCase()})`,
 }))
 
-const partiNamn: Record<string, string> = { S: 'Socialdemokraterna', M: 'Moderaterna', SD: 'Sverigedemokraterna', V: 'Vänsterpartiet', MP: 'Miljöpartiet', C: 'Centerpartiet', L: 'Liberalerna', KD: 'Kristdemokraterna', D: 'Demokraterna' }
+const partiNamn: Record<string, string> = {
+  S: 'Socialdemokraterna',
+  M: 'Moderaterna',
+  SD: 'Sverigedemokraterna',
+  V: 'Vänsterpartiet',
+  MP: 'Miljöpartiet',
+  C: 'Centerpartiet',
+  L: 'Liberalerna',
+  KD: 'Kristdemokraterna',
+  D: 'Demokraterna',
+}
 
-const riceEntries = Object.entries(metrics.riceIndex || {}).sort(([,a]: any, [,b]: any) => b - a) as [string, number][]
+const riceEntries = Object.entries(metrics.riceIndex || {}).sort(
+  ([, a]: any, [, b]: any) => b - a,
+) as [string, number][]
 
 const senasteBeslut = beslutList
   .filter((b) => b.beslut)

@@ -3,19 +3,12 @@
  * PoliticianCard — compact card for a politician in list views.
  *
  * Usage:
- *   <PoliticianCard namn="Anna Svensson" parti="C" roll="Ledamot" narvaro={92} />
+ *   <PoliticianCard namn="Anna Svensson" parti="C" roll="Ledamot" url="/politiker/123" />
  *
- * Props:
- * - namn: full name
- * - parti: party code (renders PartyTag)
- * - foto: optional photo URL
- * - roll: role/position text
- * - narvaro: attendance percentage (optional)
- * - url: link to politician detail page
- *
- * Renders as a clickable link card with hover lift effect.
- * Shows placeholder icon if no photo provided.
+ * Wraps the core Card component for consistent styling.
  */
+import Card from '../core/Card.astro'
+import Icon from '../core/Icon.astro'
 import PartyTag from '../core/PartyTag.astro'
 
 interface Props {
@@ -30,27 +23,39 @@ interface Props {
 
 const { namn, parti, foto, roll, narvaro, url = '#', class: className } = Astro.props
 ---
-<a
-  href={url}
-  class:list={['flex gap-4 items-start bg-(--color-surface) border border-(--color-border) rounded-[--radius-md] p-4 no-underline text-(--color-text) shadow-[--shadow-sm] hover:shadow-[--shadow-md] hover:-translate-y-px transition-all duration-150', className]}
->
-  {foto ? (
-    <img src={foto} alt="" width="56" height="56" class="w-14 h-14 rounded-[--radius-sm] object-cover shrink-0" loading="lazy" />
-  ) : (
-    <span class="w-14 h-14 shrink-0 rounded-[--radius-sm] bg-(--color-surface-sunken) flex items-center justify-center text-(--color-text-subtle)">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    </span>
-  )}
-  <div style="min-width:0;flex:1">
-    <div style="display:flex;align-items:center;gap:8px;overflow:hidden;margin-bottom:2px">
-      <PartyTag parti={parti} size="sm" />
-      <h3 class="text-lg font-semibold m-0 leading-tight" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{namn}</h3>
+<a href={url} class:list={['politician-card block no-underline', className]}>
+  <Card>
+    <div class="flex gap-4 items-start">
+      {foto ? (
+        <img src={foto} alt="" width="56" height="56" class="w-14 h-14 rounded-lg object-cover shrink-0" loading="lazy" />
+      ) : (
+        <span class="w-14 h-14 shrink-0 rounded-lg bg-[var(--color-surface-sunken)] flex items-center justify-center">
+          <Icon name="user" size={26} class="text-[var(--color-text-subtle)]" />
+        </span>
+      )}
+      <div style="min-width:0;flex:1">
+        <div class="flex items-center gap-2 mb-0.5" style="overflow:hidden">
+          <PartyTag parti={parti} size="sm" />
+          <span class="text-base font-semibold leading-tight" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{namn}</span>
+        </div>
+        {roll && <p class="m-0 text-sm text-[var(--color-text-muted)]">{roll}</p>}
+        {narvaro != null && (
+          <p class="m-0 mt-1 text-sm text-[var(--color-text-muted)]">
+            Närvaro: <span class="font-mono font-semibold text-[var(--color-text)]">{narvaro}%</span>
+          </p>
+        )}
+      </div>
     </div>
-    {roll && <p class="m-0 text-sm text-(--color-text-muted)">{roll}</p>}
-    {narvaro != null && (
-      <p class="m-0 mt-1.5 text-sm text-(--color-text-muted)">
-        Närvaro: <span class="font-mono font-semibold text-(--color-text)">{narvaro}%</span>
-      </p>
-    )}
-  </div>
+  </Card>
 </a>
+
+<style is:global>
+  .politician-card:hover .card {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border-strong);
+    transform: translateY(-1px);
+  }
+  .politician-card .card {
+    transition: box-shadow 150ms, border-color 150ms, transform 150ms;
+  }
+</style>
