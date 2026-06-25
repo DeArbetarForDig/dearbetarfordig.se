@@ -81,11 +81,11 @@ const timeline = [
 
     <h1 class="text-[2rem] font-bold mb-6 max-w-[30ch]">{rubrik}</h1>
 
-    {detail.beslut.fulltext && (
+    {(detail.beslut.handlingText || detail.beslut.fulltext) && (
       <section class="mb-8">
         <Card title={detail.beslut.handlingText ? 'Handling (fulltext)' : 'Protokollstext'}>
-          <div class="anforande-text">
-            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed" style="white-space:pre-wrap">{detail.beslut.handlingText || detail.beslut.fulltext}</p>
+          <div class="handling-text">
+            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed" style="white-space:pre-line">{detail.beslut.handlingText || detail.beslut.fulltext}</p>
           </div>
         </Card>
       </section>
@@ -233,6 +233,28 @@ const timeline = [
 </Base>
 
 <style is:global>
+  .handling-text {
+    position: relative;
+    max-height: 20em;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .handling-text.expanded {
+    max-height: none;
+  }
+  .handling-text.short {
+    max-height: none;
+  }
+  .handling-text:not(.expanded):not(.short)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3em;
+    background: linear-gradient(transparent, var(--color-surface));
+  }
   .anforande-text {
     position: relative;
     max-height: 6em;
@@ -268,7 +290,7 @@ const timeline = [
 </style>
 
 <script is:inline>
-  document.querySelectorAll('.anforande-text').forEach(el => {
+  document.querySelectorAll('.anforande-text, .handling-text').forEach(el => {
     if (el.scrollHeight <= el.clientHeight + 2) {
       el.classList.add('short');
       return;

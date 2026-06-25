@@ -88,6 +88,8 @@ for (const meeting of handlingar.sammanträden) {
         .replace(/\n{3,}/g, '\n\n') // collapse 3+ newlines to 2
         .replace(/[ \t]+$/gm, '') // trailing spaces
         .replace(/^[ \t]+/gm, '') // leading spaces per line
+        .replace(/([^\n])\n([^\n])/g, '$1 $2') // join single newlines (paragraph wrap)
+        .replace(/\n{2,}/g, '\n\n') // normalize double newlines
         .trim()
 
       node.data.handlingText = text
