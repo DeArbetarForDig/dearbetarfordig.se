@@ -2,8 +2,12 @@
 import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
 import Chamber from '../../../../../ui/src/components/charts/Chamber.astro'
 import Button from '../../../../../ui/src/components/core/Button.astro'
+import Card from '../../../../../ui/src/components/core/Card.astro'
+import Icon from '../../../../../ui/src/components/core/Icon.astro'
+import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
-import { getBeslut, getBeslutDetail, getPolitiker } from '../../../data/api'
+import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
+import { getBeslut, getBeslutDetail, getPolitiker, getAnföranden } from '../../../data/api'
 import Base from '../../../layouts/Base.astro'
 
 export async function getStaticPaths() {
@@ -16,6 +20,19 @@ const { summary } = Astro.props
 const id = Astro.params.id
 const detail = await getBeslutDetail(id)
 const politiker = await getPolitiker()
+let anförandenData: any[] = []
+try {
+  const res = await getAnföranden(id)
+  anförandenData = res.anföranden || []
+} catch {}
+
+// Collect names of politicians who submitted motion/yrkande
+const motionärer = new Set(
+  detail.kopplingar
+    .filter((k: any) => k.typ === 'inlämnade_motion' || k.typ === 'yrkat')
+    .map((k: any) => k.nod?.label?.replace(/\s*\([^)]+\)$/, ''))
+    .filter(Boolean)
+)
 
 const hasVotes = detail.beslut.röster && detail.beslut.röster.length > 0
 const seats = politiker
@@ -39,6 +56,10 @@ const votes = hasVotes
 const jaCount = votes.filter((v) => v.rost === 'ja').length
 const nejCount = votes.filter((v) => v.rost === 'nej').length
 const avstarCount = votes.filter((v) => v.rost === 'avstar').length
+
+// Fallback: votering data without individual votes (handuppräckning)
+const voteringSummary = detail.beslut.votering as { ja?: number; nej?: number; avstår?: number } | null
+const hasHandcount = !hasVotes && voteringSummary && (voteringSummary.ja || voteringSummary.nej)
 
 const status = detail.beslut.beslut === 'bordläggning' ? 'bordlagd' : detail.beslut.beslut || 'info'
 const rubrik = detail.beslut.rubrik.replace(/^§ \d+ /, '')
@@ -95,6 +116,38 @@ const timeline = [
       </section>
     )}
 
+    {hasHandcount && (
+      <section class="mb-8">
+        <Card title="Votering (handuppräckning)">
+          <div class="flex gap-6 mb-3">
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-ja)" />
+              Ja: <strong class="font-mono" style="color:var(--vote-ja)">{voteringSummary!.ja}</strong>
+            </span>
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-nej)" />
+              Nej: <strong class="font-mono" style="color:var(--vote-nej)">{voteringSummary!.nej}</strong>
+            </span>
+            {voteringSummary!.avstår && (
+              <span class="flex items-center gap-2 text-sm">
+                <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstar)" />
+                Avstår: <strong class="font-mono" style="color:var(--vote-avstar)">{voteringSummary!.avstår}</strong>
+              </span>
+            )}
+          </div>
+          <div class="flex h-3 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
+            <span style={`width:${Math.round(((voteringSummary!.ja || 0) / ((voteringSummary!.ja || 0) + (voteringSummary!.nej || 0))) * 100)}%;background:var(--vote-ja)`}></span>
+            <span style={`flex:1;background:var(--vote-nej)`}></span>
+          </div>
+          <p class="m-0 mt-3 text-xs text-[var(--color-text-muted)]">Poängen avgjordes genom handuppräckning. Individuella röster protokollförs inte vid denna typ av omröstning.</p>
+          <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-[var(--color-warning)]">
+            <Icon name="alert-triangle" size={14} />
+            <span>Låg transparens — ingen namnupprop genomförd. Det går inte att se hur enskilda ledamöter röstade.</span>
+          </div>
+        </Card>
+      </section>
+    )}
+
     {detail.kopplingar.length > 0 && (
       <section>
         <h2 class="text-lg font-bold mb-4">Kopplingar</h2>
@@ -103,5 +156,92 @@ const timeline = [
         </div>
       </section>
     )}
+
+    {anförandenData.length > 0 && (
+      <section class="mt-8">
+        <h2 class="text-lg font-bold mb-4">
+          <Icon name="message-circle" size={20} class="inline-block mr-2 align-text-bottom" />
+          Debatt ({anförandenData.length} anföranden)
+        </h2>
+        <div class="space-y-3">
+          {anförandenData.map((a: any) => (
+            <Card>
+              <div class="flex gap-3 items-start">
+                <div class="shrink-0 w-8 h-8 rounded-full bg-[var(--color-surface-sunken)] flex items-center justify-center">
+                  <Icon name="user" size={16} class="text-[var(--color-text-subtle)]" />
+                </div>
+                <div style="min-width:0;flex:1">
+                  <div class="flex items-center gap-2 mb-1">
+                    {a.parti && <PartyTag parti={a.parti} size="sm" />}
+                    {a.politikerId ? (
+                      <a href={`/goteborg/politiker/${a.politikerId}`} class="font-semibold text-sm text-[var(--color-text)] no-underline hover:text-[var(--color-primary)]">{a.talare}</a>
+                    ) : (
+                      <span class="font-semibold text-sm">{a.talare}</span>
+                    )}
+                    {motionärer.has(a.talare) && <Tooltip text="Inlämnare av yrkande/motion" position="top"><Icon name="file-text" size={14} class="text-[var(--color-primary)]" /></Tooltip>}
+                  </div>
+                  {a.text ? (
+                    <div class="anforande-text">
+                      <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed" style="white-space:pre-wrap">{a.text}</p>
+                    </div>
+                  ) : (
+                    <p class="m-0 text-xs text-[var(--color-text-subtle)] italic">Transkription saknas</p>
+                  )}
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </section>
+    )}
   </div>
 </Base>
+
+<style is:global>
+  .anforande-text {
+    position: relative;
+    max-height: 6em;
+    overflow: hidden;
+  }
+  .anforande-text.expanded {
+    max-height: none;
+  }
+  .anforande-text.short {
+    max-height: none;
+  }
+  .anforande-text:not(.expanded):not(.short)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2em;
+    background: linear-gradient(transparent, var(--color-surface));
+  }
+  .anforande-more {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: var(--font-size-label);
+    font-weight: 600;
+    color: var(--color-primary);
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+  }
+  .anforande-text.expanded + .anforande-more { display: none; }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('.anforande-text').forEach(el => {
+    if (el.scrollHeight <= el.clientHeight + 2) {
+      el.classList.add('short');
+      return;
+    }
+    const btn = document.createElement('button');
+    btn.className = 'anforande-more';
+    btn.textContent = 'Visa mer';
+    btn.addEventListener('click', () => { el.classList.add('expanded'); btn.style.display = 'none'; });
+    el.after(btn);
+  });
+</script>

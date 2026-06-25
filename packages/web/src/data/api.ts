@@ -104,3 +104,7 @@ export async function getFörvaltningar() {
 export async function getFörvaltningDetail(id: string) {
   return fetchApi<any>(`/api/v1/goteborg/forvaltningar/${id}`)
 }
+
+export async function getAnföranden(beslutId: string) {
+  return fetchApi<{ beslutId: string; antal: number; anföranden: any[] }>(`/api/v1/goteborg/beslut/${encodeURIComponent(beslutId)}/anforanden`)
+}

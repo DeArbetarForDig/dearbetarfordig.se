@@ -389,6 +389,73 @@ app.openapi(beslutDetailRoute, async (c) => {
   )
 })
 
+// --- Anföranden per beslut ---
+const anförandenRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/beslut/{id}/anforanden',
+  tags: ['Beslut'],
+  summary: 'Anföranden (debattinlägg) kopplade till ett beslut',
+  request: { params: z.object({ kommun: z.string(), id: z.string() }) },
+  responses: {
+    200: {
+      content: { 'application/json': { schema: z.object({}).passthrough().openapi('Anföranden') } },
+      description: 'OK',
+    },
+  },
+})
+app.openapi(anförandenRoute, async (c) => {
+  const id = decodeURIComponent(c.req.valid('param').id)
+
+  // Get anförande nodes linked via 'diskuterade' edge
+  const anföranden = await sql`
+    SELECT a.id, a.label, a.data, e2.from_id as politiker_id
+    FROM goteborg.graf_edges e
+    JOIN goteborg.graf_nodes a ON a.id = e.from_id
+    LEFT JOIN goteborg.graf_edges e2 ON e2.to_id = a.id AND e2.typ = 'talade_i'
+    WHERE e.to_id = ${id} AND e.typ = 'diskuterade'
+    ORDER BY a.id`
+
+  if (anföranden.length === 0) {
+    return c.json({ beslutId: id, antal: 0, anföranden: [] }, 200)
+  }
+
+  // Try to load full text from speakers file
+  const datum = (anföranden[0].data as any)?.datum
+  let speakersData: any[] = []
+  if (datum) {
+    try {
+      const { readFileSync, existsSync } = await import('node:fs')
+      const { join } = await import('node:path')
+      const speakersPath = join(
+        import.meta.dirname,
+        `../../../data/debatter/speakers-${datum}.json`,
+      )
+      if (existsSync(speakersPath)) {
+        const file = JSON.parse(readFileSync(speakersPath, 'utf-8'))
+        speakersData = file.anföranden || []
+      }
+    } catch {}
+  }
+
+  // Match anförande nodes to speakers text by index
+  const results = anföranden.map((a, idx) => {
+    const label = a.label as string
+    const indexMatch = (a.id as string).match(/anforande-[\d-]+-(\d+)$/)
+    const speakerIdx = indexMatch ? Number.parseInt(indexMatch[1]) : -1
+    const speaker = speakerIdx >= 0 ? speakersData[speakerIdx] : null
+
+    return {
+      id: a.id,
+      talare: speaker?.talare || label.split(' — ')[0] || '',
+      parti: speaker?.parti || '',
+      politikerId: a.politiker_id?.replace('politiker-', '') || null,
+      text: speaker?.text || null,
+    }
+  })
+
+  return c.json({ beslutId: id, antal: results.length, anföranden: results }, 200)
+})
+
 // --- Budget ---
 const budgetRoute = createRoute({
   method: 'get',
