@@ -120,7 +120,7 @@ function parseParagrafer(
     for (let i = 1; i < lines.length; i++) {
       const line = lines[i].trim()
       if (line.match(/^(Beslut|Handling|Information|Protokollsutdrag|Yrkande)/)) break
-      if (line.match(/^(Enligt|I ärendet|Under överläggningen|BILAGA|Antal Ja)/)) break
+      if (line.match(/^(Enligt|I ärendet|Under överläggningen|BILAGA|Antal Ja|Göteborgs Stad)/)) break
       rubrikLines.push(line)
     }
     const rubrik = rubrikLines.join(' ').replace(/\s+/g, ' ').trim().slice(0, 200)
