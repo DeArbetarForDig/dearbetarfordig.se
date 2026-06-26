@@ -10,7 +10,7 @@ import { getBeslut, getBeslutDetail, getAnföranden } from '../../../data/api'
 import Base from '../../../layouts/Base.astro'
 
 export async function getStaticPaths() {
-  const allBeslut = await getBeslut(200)
+  const allBeslut = await getBeslut(2000)
   return allBeslut.map((b) => ({ params: { id: b.id }, props: { summary: b } }))
 }
 

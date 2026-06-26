@@ -43,10 +43,11 @@ interface Props {
   pageSize?: number
   filterable?: boolean
   sortable?: boolean
+  defaultSort?: { key: string; dir: 'asc' | 'desc' }
   id?: string
 }
 
-const { columns, data, pageSize = 20, filterable = true, sortable = true, id = 'data-table' } = Astro.props
+const { columns, data, pageSize = 20, filterable = true, sortable = true, defaultSort, id = 'data-table' } = Astro.props
 ---
 
 <div class="daf-table-wrapper" id={id} data-page-size={pageSize}>
@@ -127,7 +128,7 @@ const { columns, data, pageSize = 20, filterable = true, sortable = true, id = '
   @import '../../tokens/css/data-table.css';
 </style>
 
-<script is:inline define:vars={{ id, pageSize }}>
+<script is:inline define:vars={{ id, pageSize, defaultSort }}>
   (function() {
     const wrapper = document.getElementById(id)
     if (!wrapper) return
@@ -256,6 +257,16 @@ const { columns, data, pageSize = 20, filterable = true, sortable = true, id = '
         currentPage = 0
         render()
       })
+    }
+
+    // Apply default sort
+    if (defaultSort) {
+      const th = wrapper.querySelector(`th[data-key="${defaultSort.key}"]`)
+      if (th) {
+        th.classList.add(defaultSort.dir)
+        const type = th.dataset.sortType || 'default'
+        currentSort = [{ key: defaultSort.key, type, dir: defaultSort.dir }]
+      }
     }
 
     render()
