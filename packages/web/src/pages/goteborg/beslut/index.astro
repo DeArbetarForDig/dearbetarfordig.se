@@ -1,135 +1,38 @@
 ---
-import Card from '../../../../../ui/src/components/core/Card.astro'
+import DataTable from '../../../../../ui/src/components/core/DataTable.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import { getBeslut } from '../../../data/api'
 import Base from '../../../layouts/Base.astro'
 
 const allBeslut = await getBeslut(2000)
-const beslut = allBeslut.map((b) => ({
-  id: b.id,
-  titel: b.rubrik?.replace(/^§ \d+ /, '') || '',
-  datum: b.datum,
-  status: b.beslut === 'bordläggning' ? 'bordlagd' : (b.beslut || ''),
-  paragraf: b.paragraf || '',
-  ja: b.votering?.ja,
-  nej: b.votering?.nej,
-  namnupprop: (b as any).namnupprop,
-  url: `/goteborg/beslut/${encodeURIComponent(b.id)}`,
-}))
+const data = allBeslut.map((b) => {
+  const status = b.beslut === 'bordläggning' ? 'Bordlagd' : b.beslut === 'bifall' ? 'Bifall' : b.beslut === 'avslag' ? 'Avslag' : ''
+  const statusColor = b.beslut === 'bifall' ? 'var(--color-positive)' : b.beslut === 'avslag' ? 'var(--color-negative)' : b.beslut === 'bordläggning' ? 'var(--color-warning)' : ''
+  const titel = b.rubrik?.replace(/^§ \d+ /, '') || ''
+  const votering = b.votering ? `${b.votering.ja}/${b.votering.nej}` : ''
+  return {
+    paragraf: b.paragraf || '',
+    datum: b.datum,
+    titel,
+    status,
+    votering,
+    _titel_html: `<a href="/goteborg/beslut/${encodeURIComponent(b.id)}" class="text-[var(--color-text)] no-underline hover:text-[var(--color-primary)]">${titel}</a>`,
+    _status_html: statusColor ? `<span style="color:${statusColor};font-weight:600">${status}</span>` : '—',
+    _votering_html: votering ? `<span class="font-mono"><span style="color:var(--color-positive)">${b.votering.ja}</span>/<span style="color:var(--color-negative)">${b.votering.nej}</span>${(b as any).namnupprop ? ' <svg style="display:inline;vertical-align:-2px" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-positive)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>' : ''}</span>` : '',
+  }
+})
 
-const meetings = [...new Set(beslut.map(b => b.datum))].sort().reverse()
+const columns = [
+  { key: 'paragraf', label: '§', sort: 'default' as const, nowrap: true },
+  { key: 'datum', label: 'Datum', sort: 'date' as const, nowrap: true },
+  { key: 'titel', label: 'Ärende', sort: 'default' as const },
+  { key: 'status', label: 'Status', sort: 'default' as const, nowrap: true },
+  { key: 'votering', label: 'Votering', sort: 'default' as const, align: 'right' as const, nowrap: true },
+]
 ---
 
 <Base title="Beslut — Göteborg">
   <h1 class="text-[2rem] font-bold mb-2">Beslut</h1>
-  <p class="text-sm text-[var(--color-text-muted)] mb-6">{beslut.length} ärenden från {meetings.length} sammanträden</p>
-
-  <!-- Filters -->
-  <div class="flex flex-wrap gap-3 mb-6 items-center">
-    <div class="flex items-center gap-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg px-3 py-2 flex-1 min-w-[220px]">
-      <Icon name="search" size={16} class="text-[var(--color-text-muted)] shrink-0" />
-      <input id="search" type="text" placeholder="Sök ärende..." class="border-none outline-none bg-transparent text-[var(--color-text)] font-sans text-sm w-full" />
-    </div>
-    <select id="filter-status" class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg px-3 py-2 text-sm text-[var(--color-text)]">
-      <option value="">Alla status</option>
-      <option value="bifall">Bifall</option>
-      <option value="avslag">Avslag</option>
-      <option value="bordlagd">Bordlagd</option>
-    </select>
-    <select id="filter-meeting" class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg px-3 py-2 text-sm text-[var(--color-text)]">
-      <option value="">Alla sammanträden</option>
-      {meetings.map(m => <option value={m}>{m}</option>)}
-    </select>
-  </div>
-
-  <!-- Table -->
-  <div class="overflow-x-auto">
-    <table class="w-full text-sm" id="beslut-table">
-      <thead>
-        <tr class="border-b border-[var(--color-border)] text-left text-[var(--color-text-muted)]">
-          <th class="py-2 px-3 font-semibold">§</th>
-          <th class="py-2 px-3 font-semibold">Datum</th>
-          <th class="py-2 px-3 font-semibold">Ärende</th>
-          <th class="py-2 px-3 font-semibold">Status</th>
-          <th class="py-2 px-3 font-semibold text-right">Votering</th>
-        </tr>
-      </thead>
-      <tbody id="beslut-tbody">
-        {beslut.map(b => (
-          <tr class="beslut-row border-b border-[var(--color-border)] hover:bg-[var(--color-surface-sunken)] transition-colors" data-status={b.status} data-datum={b.datum} data-text={`${b.paragraf} ${b.titel}`.toLowerCase()}>
-            <td class="py-2 px-3 font-mono text-[var(--color-text-muted)]">{b.paragraf}</td>
-            <td class="py-2 px-3 text-[var(--color-text-muted)]">{b.datum}</td>
-            <td class="py-2 px-3"><a href={b.url} class="text-[var(--color-text)] no-underline hover:text-[var(--color-primary)]">{b.titel}</a></td>
-            <td class="py-2 px-3">
-              {b.status === 'bifall' && <span class="text-[var(--color-positive)] font-semibold">Bifall</span>}
-              {b.status === 'avslag' && <span class="text-[var(--color-negative)] font-semibold">Avslag</span>}
-              {b.status === 'bordlagd' && <span class="text-[var(--color-warning)] font-semibold">Bordlagd</span>}
-              {!b.status && <span class="text-[var(--color-text-subtle)]">—</span>}
-            </td>
-            <td class="py-2 px-3 text-right font-mono">
-              {b.ja != null && (
-                <span>
-                  <span class="text-[var(--color-positive)]">{b.ja}</span>/<span class="text-[var(--color-negative)]">{b.nej}</span>
-                  {b.namnupprop && <Icon name="user-check" size={12} class="inline-block ml-1 text-[var(--color-positive)]" />}
-                </span>
-              )}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Pagination -->
-  <div class="flex justify-between items-center mt-4 text-sm text-[var(--color-text-muted)]">
-    <span id="showing">Visar 1–50 av {beslut.length}</span>
-    <div class="flex gap-2">
-      <button id="prev" class="px-3 py-1 border border-[var(--color-border)] rounded bg-[var(--color-surface)]" disabled>Föregående</button>
-      <button id="next" class="px-3 py-1 border border-[var(--color-border)] rounded bg-[var(--color-surface)]">Nästa</button>
-    </div>
-  </div>
+  <p class="text-sm text-[var(--color-text-muted)] mb-6">{data.length} ärenden</p>
+  <DataTable columns={columns} data={data} pageSize={20} />
 </Base>
-
-<script is:inline>
-  const PAGE_SIZE = 50
-  let page = 0
-  const rows = Array.from(document.querySelectorAll('.beslut-row'))
-  const search = document.getElementById('search')
-  const statusFilter = document.getElementById('filter-status')
-  const meetingFilter = document.getElementById('filter-meeting')
-  const showing = document.getElementById('showing')
-  const prevBtn = document.getElementById('prev')
-  const nextBtn = document.getElementById('next')
-
-  function getFiltered() {
-    const q = search.value.toLowerCase()
-    const status = statusFilter.value
-    const meeting = meetingFilter.value
-    return rows.filter(r => {
-      if (q && !r.dataset.text.includes(q)) return false
-      if (status && r.dataset.status !== status) return false
-      if (meeting && r.dataset.datum !== meeting) return false
-      return true
-    })
-  }
-
-  function render() {
-    const filtered = getFiltered()
-    const start = page * PAGE_SIZE
-    const end = start + PAGE_SIZE
-    rows.forEach(r => r.style.display = 'none')
-    filtered.slice(start, end).forEach(r => r.style.display = '')
-    showing.textContent = filtered.length === 0
-      ? 'Inga resultat'
-      : `Visar ${start + 1}–${Math.min(end, filtered.length)} av ${filtered.length}`
-    prevBtn.disabled = page === 0
-    nextBtn.disabled = end >= filtered.length
-  }
-
-  search.addEventListener('input', () => { page = 0; render() })
-  statusFilter.addEventListener('change', () => { page = 0; render() })
-  meetingFilter.addEventListener('change', () => { page = 0; render() })
-  prevBtn.addEventListener('click', () => { page--; render() })
-  nextBtn.addEventListener('click', () => { page++; render() })
-  render()
-</script>

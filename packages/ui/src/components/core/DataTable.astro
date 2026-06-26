@@ -1,0 +1,330 @@
+---
+/**
+ * DataTable — full-featured data table with sort, filter, search, pagination.
+ *
+ * Full-featured table: column sorting (asc/desc/none cycle),
+ * per-column text filters, global search, pagination with page numbers,
+ * configurable rows-per-page.
+ *
+ * Usage:
+ *   <DataTable
+ *     columns={[
+ *       { key: 'paragraf', label: '§', sort: 'number' },
+ *       { key: 'datum', label: 'Datum', sort: 'date' },
+ *       { key: 'titel', label: 'Ärende', sort: 'default' },
+ *       { key: 'status', label: 'Status', sort: 'default' },
+ *     ]}
+ *     data={beslut}
+ *     pageSize={20}
+ *     filterable
+ *     sortable
+ *   />
+ *
+ * Props:
+ * - columns: { key, label, sort?, align?, nowrap?, render? }[]
+ * - data: Record<string, any>[] — row data keyed by column.key
+ * - pageSize: initial rows per page (default 20)
+ * - filterable: show per-column filter inputs
+ * - sortable: enable column header click to sort
+ * - id: optional table id
+ */
+interface Column {
+  key: string
+  label: string
+  sort?: 'default' | 'number' | 'date' | false
+  align?: 'left' | 'right' | 'center'
+  nowrap?: boolean
+}
+
+interface Props {
+  columns: Column[]
+  data: Record<string, any>[]
+  pageSize?: number
+  filterable?: boolean
+  sortable?: boolean
+  id?: string
+}
+
+const { columns, data, pageSize = 20, filterable = true, sortable = true, id = 'data-table' } = Astro.props
+---
+
+<div class="daf-table-wrapper" id={id} data-page-size={pageSize}>
+  <!-- Table -->
+  <div class="overflow-x-auto">
+    <table class="daf-dt">
+      <thead>
+        <tr>
+          {columns.map(col => (
+            <th
+              class:list={[
+                'daf-dt__th',
+                col.align === 'right' && 'text-right',
+                col.nowrap && 'whitespace-nowrap',
+                sortable && col.sort !== false && 'is-sortable',
+              ]}
+              data-key={col.key}
+              data-sort-type={col.sort || 'default'}
+            >
+              {col.label}
+              {sortable && col.sort !== false && <span class="daf-dt__sort-icon"></span>}
+            </th>
+          ))}
+        </tr>
+        {filterable && (
+          <tr class="daf-dt__filters">
+            {columns.map(col => (
+              <td class="daf-dt__filter-cell">
+                <input
+                  type="text"
+                  class="daf-dt__filter-input"
+                  data-key={col.key}
+                  placeholder={col.label}
+                  style={col.align === 'right' ? 'text-align:right' : ''}
+                />
+              </td>
+            ))}
+          </tr>
+        )}
+      </thead>
+      <tbody class="daf-dt__body">
+        {data.map(row => (
+          <tr class="daf-dt__row" data-row={JSON.stringify(Object.fromEntries(columns.map(c => [c.key, row[c.key] ?? ''])))}>
+            {columns.map(col => (
+              <td
+                class:list={['daf-dt__td', col.align === 'right' && 'text-right', col.nowrap && 'whitespace-nowrap']}
+                set:html={row[`_${col.key}_html`] || row[col.key] || ''}
+              />
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="daf-dt__footer">
+    <div class="daf-dt__info">
+      <span class="daf-dt__showing"></span>
+      <label class="daf-dt__page-size-label">
+        Rader:
+        <select class="daf-dt__page-size-select">
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="500">500</option>
+        </select>
+      </label>
+    </div>
+    <div class="daf-dt__pages"></div>
+  </div>
+</div>
+
+<style>
+  .daf-dt {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-label);
+  }
+  .daf-dt__th {
+    padding: 10px 12px;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 2px solid var(--color-border-strong);
+    color: var(--color-text);
+    user-select: none;
+  }
+  .daf-dt__th.is-sortable { cursor: pointer; }
+  .daf-dt__th.is-sortable:hover { color: var(--color-primary); }
+  .daf-dt__sort-icon::after { content: ''; margin-left: 4px; }
+  .daf-dt__th.asc .daf-dt__sort-icon::after { content: '▲'; font-size: 0.6em; }
+  .daf-dt__th.desc .daf-dt__sort-icon::after { content: '▼'; font-size: 0.6em; }
+
+  .daf-dt__filters { border-bottom: 1px solid var(--color-border); }
+  .daf-dt__filter-cell { padding: 6px 12px; }
+  .daf-dt__filter-input {
+    width: 100%;
+    padding: 4px 8px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--font-size-small);
+    outline: none;
+  }
+  .daf-dt__filter-input:focus { border-color: var(--color-primary); }
+
+  .daf-dt__td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+  .daf-dt__row:hover { background: var(--color-surface-sunken); }
+
+  .daf-dt__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    font-size: var(--font-size-label);
+    color: var(--color-text-muted);
+  }
+  .daf-dt__info { display: flex; align-items: center; gap: 16px; }
+  .daf-dt__page-size-label { display: flex; align-items: center; gap: 4px; }
+  .daf-dt__page-size-select {
+    padding: 2px 6px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--font-size-small);
+  }
+  .daf-dt__pages { display: flex; gap: 4px; align-items: center; }
+  .daf-dt__pages :global(button) {
+    min-width: 28px; height: 28px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--font-size-small);
+    cursor: pointer;
+  }
+  .daf-dt__pages :global(button:hover:not(.active):not(.disabled)) { background: var(--color-surface-sunken); }
+  .daf-dt__pages :global(button.active) { background: var(--color-primary); color: var(--color-primary-text, #fff); border-color: var(--color-primary); }
+  .daf-dt__pages :global(button.disabled) { opacity: 0.4; cursor: default; pointer-events: none; }
+</style>
+
+<script is:inline define:vars={{ id, pageSize }}>
+  (function() {
+    const wrapper = document.getElementById(id)
+    if (!wrapper) return
+
+    let currentPageSize = pageSize
+    let currentPage = 0
+    let currentSort = []
+    let currentFilter = {}
+    let currentSearch = ''
+
+    const rows = Array.from(wrapper.querySelectorAll('.daf-dt__row'))
+    const ths = wrapper.querySelectorAll('.daf-dt__th.is-sortable')
+    const filters = wrapper.querySelectorAll('.daf-dt__filter-input')
+    const showingEl = wrapper.querySelector('.daf-dt__showing')
+    const pagesEl = wrapper.querySelector('.daf-dt__pages')
+    const pageSizeSelect = wrapper.querySelector('.daf-dt__page-size-select')
+
+    // Set initial page size in select
+    if (pageSizeSelect) pageSizeSelect.value = String(currentPageSize)
+
+    function getRowData(row) {
+      return JSON.parse(row.dataset.row)
+    }
+
+    function matchesFilter(row) {
+      const data = getRowData(row)
+      for (const [key, value] of Object.entries(currentFilter)) {
+        if (value && !(data[key] + '').toLowerCase().includes(value.toLowerCase())) return false
+      }
+      return true
+    }
+
+    function getFiltered() {
+      return rows.filter(matchesFilter)
+    }
+
+    function sortRows(filtered) {
+      if (!currentSort.length) return filtered
+      const sorted = [...filtered]
+      sorted.sort((a, b) => {
+        const aData = getRowData(a)
+        const bData = getRowData(b)
+        for (const s of currentSort) {
+          let av = aData[s.key] ?? ''
+          let bv = bData[s.key] ?? ''
+          if (s.type === 'number') { av = parseFloat(av) || 0; bv = parseFloat(bv) || 0 }
+          else if (s.type === 'date') { av = new Date(av); bv = new Date(bv) }
+          else { av = (av + '').toLowerCase(); bv = (bv + '').toLowerCase() }
+          const cmp = av < bv ? -1 : av > bv ? 1 : 0
+          if (cmp !== 0) return s.dir === 'asc' ? cmp : -cmp
+        }
+        return 0
+      })
+      return sorted
+    }
+
+    function render() {
+      const filtered = sortRows(getFiltered())
+      const totalPages = Math.max(1, Math.ceil(filtered.length / currentPageSize))
+      if (currentPage >= totalPages) currentPage = totalPages - 1
+      const start = currentPage * currentPageSize
+      const end = start + currentPageSize
+
+      rows.forEach(r => r.style.display = 'none')
+      filtered.slice(start, end).forEach(r => r.style.display = '')
+
+      // Info
+      if (showingEl) {
+        showingEl.textContent = filtered.length === 0
+          ? 'Inga resultat'
+          : `Visar ${start + 1}–${Math.min(end, filtered.length)} av ${filtered.length}`
+      }
+
+      // Page numbers
+      if (pagesEl) {
+        let html = ''
+        if (totalPages > 1) {
+          html += `<button class="${currentPage === 0 ? 'disabled' : ''}" data-p="${currentPage - 1}">‹</button>`
+          for (let i = 0; i < totalPages; i++) {
+            if (totalPages > 7 && i > 1 && i < totalPages - 2 && Math.abs(i - currentPage) > 1) {
+              if (!html.endsWith('…</span>')) html += '<span>…</span>'
+              continue
+            }
+            html += `<button class="${i === currentPage ? 'active' : ''}" data-p="${i}">${i + 1}</button>`
+          }
+          html += `<button class="${currentPage >= totalPages - 1 ? 'disabled' : ''}" data-p="${currentPage + 1}">›</button>`
+        }
+        pagesEl.innerHTML = html
+        pagesEl.querySelectorAll('button:not(.disabled)').forEach(btn => {
+          btn.addEventListener('click', () => { currentPage = parseInt(btn.dataset.p); render() })
+        })
+      }
+    }
+
+    // Sort
+    ths.forEach(th => {
+      th.addEventListener('click', () => {
+        const key = th.dataset.key
+        const type = th.dataset.sortType || 'default'
+        // Cycle: none → asc → desc → none
+        let dir
+        if (th.classList.contains('asc')) { dir = 'desc'; th.classList.remove('asc'); th.classList.add('desc') }
+        else if (th.classList.contains('desc')) { dir = null; th.classList.remove('desc') }
+        else { dir = 'asc'; th.classList.add('asc') }
+        // Remove sort from other columns
+        ths.forEach(t => { if (t !== th) { t.classList.remove('asc', 'desc') } })
+        currentSort = dir ? [{ key, type, dir }] : []
+        currentPage = 0
+        render()
+      })
+    })
+
+    // Filter
+    filters.forEach(input => {
+      input.addEventListener('input', () => {
+        currentFilter[input.dataset.key] = input.value
+        currentPage = 0
+        render()
+      })
+    })
+
+    // Page size
+    if (pageSizeSelect) {
+      pageSizeSelect.addEventListener('change', () => {
+        currentPageSize = parseInt(pageSizeSelect.value)
+        currentPage = 0
+        render()
+      })
+    }
+
+    render()
+  })()
+</script>
