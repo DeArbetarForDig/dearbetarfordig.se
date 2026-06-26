@@ -6,6 +6,7 @@
 @import "../../../ui/src/tokens/css/dark.css";
 @import "../../../ui/src/tokens/css/svg.css";
 @import "../../../ui/src/tokens/css/chart-tooltip.css";
+@import "../../../ui/src/tokens/css/data-table.css";
 
 body {
   font-family: var(--font-sans);

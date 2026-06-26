@@ -23,11 +23,11 @@ const data = allBeslut.map((b) => {
 })
 
 const columns = [
-  { key: 'paragraf', label: '§', sort: 'default' as const, nowrap: true },
-  { key: 'datum', label: 'Datum', sort: 'date' as const, nowrap: true },
+  { key: 'paragraf', label: '§', sort: 'default' as const, nowrap: true, width: '80px' },
+  { key: 'datum', label: 'Datum', sort: 'date' as const, nowrap: true, width: '120px' },
   { key: 'titel', label: 'Ärende', sort: 'default' as const },
-  { key: 'status', label: 'Status', sort: 'default' as const, nowrap: true },
-  { key: 'votering', label: 'Votering', sort: 'default' as const, align: 'right' as const, nowrap: true },
+  { key: 'status', label: 'Status', sort: 'default' as const, nowrap: true, width: '120px' },
+  { key: 'votering', label: 'Votering', sort: 'default' as const, nowrap: true, width: '120px' },
 ]
 ---
 

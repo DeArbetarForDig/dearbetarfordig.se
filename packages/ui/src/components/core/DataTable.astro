@@ -34,6 +34,7 @@ interface Column {
   sort?: 'default' | 'number' | 'date' | false
   align?: 'left' | 'right' | 'center'
   nowrap?: boolean
+  width?: string
 }
 
 interface Props {
@@ -49,6 +50,11 @@ const { columns, data, pageSize = 20, filterable = true, sortable = true, id = '
 ---
 
 <div class="daf-table-wrapper" id={id} data-page-size={pageSize}>
+  <!-- Info bar (top) -->
+  <div class="daf-dt__topbar">
+    <span class="daf-dt__showing"></span>
+  </div>
+
   <!-- Table -->
   <div class="overflow-x-auto">
     <table class="daf-dt">
@@ -64,6 +70,7 @@ const { columns, data, pageSize = 20, filterable = true, sortable = true, id = '
               ]}
               data-key={col.key}
               data-sort-type={col.sort || 'default'}
+              style={col.width ? `width:${col.width}` : ''}
             >
               {col.label}
               {sortable && col.sort !== false && <span class="daf-dt__sort-icon"></span>}
@@ -101,97 +108,23 @@ const { columns, data, pageSize = 20, filterable = true, sortable = true, id = '
     </table>
   </div>
 
-  <!-- Pagination -->
+  <!-- Pagination (bottom) -->
   <div class="daf-dt__footer">
-    <div class="daf-dt__info">
-      <span class="daf-dt__showing"></span>
-      <label class="daf-dt__page-size-label">
-        Rader:
-        <select class="daf-dt__page-size-select">
-          <option value="20">20</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-          <option value="500">500</option>
-        </select>
-      </label>
-    </div>
     <div class="daf-dt__pages"></div>
+    <label class="daf-dt__page-size-label">
+      Rader:
+      <select class="daf-dt__page-size-select">
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="500">500</option>
+      </select>
+    </label>
   </div>
 </div>
 
 <style>
-  .daf-dt {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: var(--font-size-label);
-  }
-  .daf-dt__th {
-    padding: 10px 12px;
-    font-weight: 600;
-    text-align: left;
-    border-bottom: 2px solid var(--color-border-strong);
-    color: var(--color-text);
-    user-select: none;
-  }
-  .daf-dt__th.is-sortable { cursor: pointer; }
-  .daf-dt__th.is-sortable:hover { color: var(--color-primary); }
-  .daf-dt__sort-icon::after { content: ''; margin-left: 4px; }
-  .daf-dt__th.asc .daf-dt__sort-icon::after { content: '▲'; font-size: 0.6em; }
-  .daf-dt__th.desc .daf-dt__sort-icon::after { content: '▼'; font-size: 0.6em; }
-
-  .daf-dt__filters { border-bottom: 1px solid var(--color-border); }
-  .daf-dt__filter-cell { padding: 6px 12px; }
-  .daf-dt__filter-input {
-    width: 100%;
-    padding: 4px 8px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    background: var(--color-surface);
-    color: var(--color-text);
-    font-size: var(--font-size-small);
-    outline: none;
-  }
-  .daf-dt__filter-input:focus { border-color: var(--color-primary); }
-
-  .daf-dt__td {
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-text);
-  }
-  .daf-dt__row:hover { background: var(--color-surface-sunken); }
-
-  .daf-dt__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    font-size: var(--font-size-label);
-    color: var(--color-text-muted);
-  }
-  .daf-dt__info { display: flex; align-items: center; gap: 16px; }
-  .daf-dt__page-size-label { display: flex; align-items: center; gap: 4px; }
-  .daf-dt__page-size-select {
-    padding: 2px 6px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    background: var(--color-surface);
-    color: var(--color-text);
-    font-size: var(--font-size-small);
-  }
-  .daf-dt__pages { display: flex; gap: 4px; align-items: center; }
-  .daf-dt__pages :global(button) {
-    min-width: 28px; height: 28px;
-    display: inline-flex; align-items: center; justify-content: center;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    background: var(--color-surface);
-    color: var(--color-text);
-    font-size: var(--font-size-small);
-    cursor: pointer;
-  }
-  .daf-dt__pages :global(button:hover:not(.active):not(.disabled)) { background: var(--color-surface-sunken); }
-  .daf-dt__pages :global(button.active) { background: var(--color-primary); color: var(--color-primary-text, #fff); border-color: var(--color-primary); }
-  .daf-dt__pages :global(button.disabled) { opacity: 0.4; cursor: default; pointer-events: none; }
+  @import '../../tokens/css/data-table.css';
 </style>
 
 <script is:inline define:vars={{ id, pageSize }}>
