@@ -120,7 +120,7 @@ function parseParagrafer(
     for (let i = 1; i < lines.length; i++) {
       const line = lines[i].trim()
       if (line.match(/^(Beslut|Handling|Information|Protokollsutdrag|Yrkande)/)) break
-      if (line.match(/^(Enligt|I ärendet|Under överläggningen|BILAGA|Antal Ja|Göteborgs Stad)/)) break
+      if (line.match(/^(Enligt|I ärendet|Under överläggningen|BILAGA|Antal Ja|Göteborgs Stad|Anförandet)/)) break
       rubrikLines.push(line)
     }
     const rubrik = rubrikLines.join(' ').replace(/\s+/g, ' ').trim().slice(0, 200)
@@ -130,7 +130,7 @@ function parseParagrafer(
     if (rubrik.startsWith('Frågestund')) cleanRubrik = 'Frågestund'
     else if (rubrik.startsWith('Parentation')) cleanRubrik = rubrikLines[0]?.trim() || 'Parentation'
     else if (rubrik.startsWith('Anmälan')) cleanRubrik = rubrikLines[0]?.trim().slice(0, 120) || 'Anmälan'
-    else if (rubrik.startsWith('Anförande Ordföranden')) cleanRubrik = 'Ordförandens avslutningsanförande'
+    else if (rubrik.startsWith('Anförande') && rubrik.includes('rdföranden')) cleanRubrik = 'Ordförandens avslutningsanförande'
 
     // Detect beslut type and reason
     let beslut: string | undefined
