@@ -32,9 +32,9 @@ const motionärer = new Set(
 )
 
 const hasVotes = detail.beslut.röster && detail.beslut.röster.length > 0
-const jaCount = hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'ja').length : 0
-const nejCount = hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'nej').length : 0
-const avstarCount = hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'avstår').length : 0
+const jaCount = detail.beslut.votering?.ja ?? (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'ja').length : 0)
+const nejCount = detail.beslut.votering?.nej ?? (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'nej').length : 0)
+const avstarCount = detail.beslut.votering?.avstår ?? (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'avstår').length : 0)
 
 const sortedRöster = hasVotes ? (() => {
   const partiCount: { [key: string]: number } = {}
