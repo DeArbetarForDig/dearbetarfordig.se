@@ -383,9 +383,32 @@ app.openapi(beslutDetailRoute, async (c) => {
     relatedIds.length > 0
       ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})`
       : []
+
+  // Build röster from edges if not in node data
+  let röster = (node.data as any).röster
+  if (!röster) {
+    const voteEdges = edges.filter((e) => e.typ.startsWith('röstade_') && e.to_id === id)
+    if (voteEdges.length > 0) {
+      const voterIds = voteEdges.map((e) => e.from_id)
+      const voters =
+        await sql`SELECT id, label, data->>'parti' as parti FROM goteborg.graf_nodes WHERE id = ANY(${voterIds})`
+      const voterMap = new Map(voters.map((v) => [v.id, v]))
+      röster = voteEdges.map((e) => {
+        const voter = voterMap.get(e.from_id)
+        const namn = voter?.label?.replace(/\s*\([^)]+\)$/, '') || ''
+        return {
+          namn,
+          parti: voter?.parti || '',
+          röst: e.typ.replace('röstade_', ''),
+          politikerId: e.from_id.replace('politiker-', ''),
+        }
+      })
+    }
+  }
+
   return c.json(
     {
-      beslut: { id: node.id, ...node.data, label: node.label },
+      beslut: { id: node.id, ...node.data, label: node.label, röster },
       kopplingar: edges.map((e) => {
         const target = related.find((r) => r.id === (e.from_id === id ? e.to_id : e.from_id))
         return {

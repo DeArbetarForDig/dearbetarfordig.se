@@ -124,3 +124,40 @@ h3 {
   font-size: var(--font-size-label);
   color: var(--color-text-muted);
 }
+
+/* Tooltip (global, for use in raw HTML contexts like DataTable) */
+.daf-tooltip {
+  position: relative;
+  display: inline-flex;
+  cursor: default;
+}
+.daf-tooltip__msg {
+  position: absolute;
+  z-index: 50;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-small);
+  font-family: var(--font-sans);
+  line-height: 1.4;
+  white-space: nowrap;
+  width: max-content;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  background: var(--color-text);
+  color: var(--color-bg);
+  box-shadow: var(--shadow-md);
+}
+.daf-tooltip:hover .daf-tooltip__msg { opacity: 1; }
+.daf-tooltip--top-end .daf-tooltip__msg {
+  bottom: calc(100% + 8px);
+  right: -8px;
+}
+.daf-tooltip--top-end .daf-tooltip__msg::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 8px;
+  border: 5px solid transparent;
+  border-top-color: var(--color-text);
+}

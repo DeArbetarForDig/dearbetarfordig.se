@@ -71,7 +71,7 @@ const { columns, data, pageSize = 20, filterable = true, sortable = true, defaul
               ]}
               data-key={col.key}
               data-sort-type={col.sort || 'default'}
-              style={col.width ? `width:${col.width}` : ''}
+              style={col.width ? `width:${col.width};min-width:${col.width}` : ''}
             >
               {col.label}
               {sortable && col.sort !== false && <span class="daf-dt__sort-icon"></span>}

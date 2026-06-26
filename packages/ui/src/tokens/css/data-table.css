@@ -3,7 +3,6 @@
 .daf-dt {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
   font-size: var(--font-size-label);
 }
 
@@ -31,6 +30,8 @@
 .daf-dt__filter-cell { padding: 8px 8px; }
 .daf-dt__filter-input {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 4px 8px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
@@ -47,8 +48,6 @@
   padding: 8px 12px;
   border-bottom: 1px solid var(--color-border);
   color: var(--color-text);
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .daf-dt__row:hover { background: var(--color-surface-sunken); }
 

@@ -120,7 +120,8 @@ function parseParagrafer(
     for (let i = 1; i < lines.length; i++) {
       const line = lines[i].trim()
       if (line.match(/^(Beslut|Handling|Information|Protokollsutdrag|Yrkande)/)) break
-      if (line.match(/^(Enligt|I ärendet|Under överläggningen|BILAGA|Antal Ja|Göteborgs Stad|Anförandet)/)) break
+      if (line.match(/^(Enligt|I ärendet|Under överläggningen|BILAGA|Antal Ja|Anförandet)/)) break
+      if (line.match(/Göteborgs\s+Stad\s+[Kk]ommunfullmäktige\s+protokoll/i)) break
       rubrikLines.push(line)
     }
     const rubrik = rubrikLines.join(' ').replace(/\s+/g, ' ').trim().slice(0, 200)
@@ -187,7 +188,7 @@ function parseParagrafer(
         paragrafNr,
         ärendeNr,
         rubrik: cleanRubrik,
-        fulltext: section.trim().replace(/\n{3,}/g, '\n\n').replace(/[ \t]+\n/g, '\n'),
+        fulltext: section.trim().replace(/\n{3,}/g, '\n\n').replace(/[ \t]+\n/g, '\n').replace(/Göteborgs\s+Stad\s+[Kk]ommunfullmäktige\s+protokoll[^\n]*/gi, '').replace(/\n{3,}/g, '\n\n').trim(),
         datum: möteDatum,
         beslut,
         bordläggningsorsak,
