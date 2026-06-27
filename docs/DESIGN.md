@@ -32,7 +32,7 @@
 
 ---
 
-## Foundations 
+## Foundations
 
 ### Visuell hierarki — 3 lager
 
@@ -76,7 +76,7 @@
 | KPI-siffra | 2.5rem (40px) | 700 | JetBrains Mono |
 | Data/nummer | 1.25rem (20px) | 500 | JetBrains Mono |
 
-**Regler :**
+**Regler:**
 - Sentence case, aldrig VERSALER i UI
 - Radhöjd: 1.5× fontstorlek
 - Max radlängd: 70 tecken (brödtext)
@@ -95,7 +95,7 @@
 | Data/siffror | JetBrains Mono | 1.25rem |
 | Labels | Inter | 0.75rem, sentence case |
 
-## Färger 
+## Färger
 
 ### Tema — Ljus & Mörk
 
@@ -111,7 +111,7 @@ Aldrig ren vit (#FFF) eller ren svart (#000). Använd nyanser av grå.
 | Primary | #2563EB (blue-600) | #60A5FA (blue-400) | `--primary` |
 | Accent | #7C3AED (violet-600) | #A78BFA (violet-400) | `--accent` |
 
-### Status 
+### Status
 
 | Status | Färg | Användning |
 |--------|------|-----------|
@@ -138,7 +138,7 @@ Partifärger är **kategoriska** — de ska kunna särskiljas. Ordningen följer
 }
 ```
 
-### Datavisualisering — regler 
+### Datavisualisering — regler
 
 - Färg ska **aldrig** vara enda informationsbäraren (+ mönster/text/ikon)
 - Max 8 kategorier i ett diagram (fler → "Övrigt")
@@ -161,7 +161,7 @@ Alla grafer renderas som **SVG** (ej Canvas) → fungerar utan JS, i curl, i pri
 | Heatmap | Aktivitet per politiker/månad | D3 |
 | Hierarchy | Organisationsträd | D3-hierarchy |
 
-### Regler 
+### Regler
 
 - Y-axel börjar alltid vid 0
 - Max 8 kategorier i donut (fler → «övrigt»)
