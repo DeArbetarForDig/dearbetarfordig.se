@@ -19,21 +19,26 @@ mkdirSync(TMP_DIR, { recursive: true })
 
 const year = process.argv[2] || '2026'
 
-// Load handlingar index
+// Load handlingar index from ALL years for cross-reference
+const urlMap = new Map<string, string>()
+for (const y of ['2023', '2024', '2025', '2026']) {
+  const hFile = join(DATA_DIR, `beslut/kf-handlingar-${y}.json`)
+  if (!existsSync(hFile)) continue
+  const h = JSON.parse(readFileSync(hFile, 'utf-8'))
+  for (const meeting of h.sammanträden) {
+    for (const doc of meeting.handlingar) {
+      urlMap.set(doc.titel, doc.url)
+    }
+  }
+}
+
+// Load target year's handlingar for meeting list
 const handlingarFile = join(DATA_DIR, `beslut/kf-handlingar-${year}.json`)
 if (!existsSync(handlingarFile)) {
   console.error(`No handlingar file for ${year}`)
   process.exit(1)
 }
 const handlingar = JSON.parse(readFileSync(handlingarFile, 'utf-8'))
-
-// Build URL map: "Handling_YYYY_nr_NN.pdf" → URL
-const urlMap = new Map<string, string>()
-for (const meeting of handlingar.sammanträden) {
-  for (const h of meeting.handlingar) {
-    urlMap.set(h.titel, h.url)
-  }
-}
 
 // Process each graf file for this year's meetings
 let totalUpdated = 0
