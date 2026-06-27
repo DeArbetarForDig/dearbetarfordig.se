@@ -152,12 +152,14 @@ const timeline = [
               <span class="w-3 h-3 rounded-sm" style="background:var(--vote-nej)" />
               Nej: <strong class="font-mono" style="color:var(--vote-nej)">{voteringSummary!.nej}</strong>
             </span>
-            {voteringSummary!.avstår && (
-              <span class="flex items-center gap-2 text-sm">
-                <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstår)" />
-                Avstår: <strong class="font-mono" style="color:var(--vote-avstår)">{voteringSummary!.avstår}</strong>
-              </span>
-            )}
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstår)" />
+              Avstår: <strong class="font-mono" style="color:var(--vote-avstår)">{voteringSummary!.avstår || 0}</strong>
+            </span>
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-frånvarande)" />
+              Frånvarande: <strong class="font-mono" style="color:var(--vote-frånvarande)">{voteringSummary!.frånvarande || 0}</strong>
+            </span>
           </div>
           <div class="flex h-3 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
             <span style={`width:${Math.round(((voteringSummary!.ja || 0) / ((voteringSummary!.ja || 0) + (voteringSummary!.nej || 0))) * 100)}%;background:var(--vote-ja)`}></span>
