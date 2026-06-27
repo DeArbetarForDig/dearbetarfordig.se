@@ -1,16 +1,18 @@
 /**
  * @daf/ui — Chamber (Sal-komponent)
  *
- * SVG hemicycle seating chart for kommunfullmäktige.
+ * Universal SVG hemicycle parliament chart.
+ * Uses arc-proportion formula: seats_in_row = round(N × R_i / ΣR)
+ *
  * Seats ALWAYS show party color. Overlays (icons) show context:
- * - vote: ja/nej/avstår (how they voted)
- * - debate: (who spoke)
- * - motion: (who submitted)
+ * - vote: ja/nej/avstår
+ * - debate: who spoke
+ * - motion: who submitted
  * - custom: any icon per seat
  */
 
-import { partyColors, voteColors } from '../../tokens/index.ts'
-import type { PartyCode, VotePosition } from '../../tokens/index.ts'
+import { partyColors, voteColors } from '../../tokens/index'
+import type { PartyCode, VotePosition } from '../../tokens/index'
 
 export interface Seat {
   nummer: number
@@ -37,6 +39,46 @@ export interface ChamberConfig {
   votes?: VoteResult[]
   overlays?: SeatOverlay[]
   size?: number
+  rows?: number
+  seatRadius?: number
+}
+
+function computeSeatPositions(totalSeats: number, size: number, numRows?: number, seatRadius?: number) {
+  const r = seatRadius ?? size * 0.028
+  const gap = r * 2.5
+  const rows = numRows ?? Math.max(3, Math.min(7, Math.round(Math.sqrt(totalSeats / 4))))
+  const innerR = rows * gap + r * 2
+  const cx = size / 2
+  const cy = size * 0.85
+
+  const radii = Array.from({ length: rows }, (_, i) => innerR + i * gap)
+  const sumR = radii.reduce((s, v) => s + v, 0)
+
+  const rawSeats = radii.map((R) => (totalSeats * R) / sumR)
+  const rowSeats = rawSeats.map((v) => Math.round(v))
+  let diff = totalSeats - rowSeats.reduce((s, v) => s + v, 0)
+  while (diff !== 0) {
+    rowSeats[diff > 0 ? rowSeats.length - 1 : 0] += Math.sign(diff)
+    diff = totalSeats - rowSeats.reduce((s, v) => s + v, 0)
+  }
+
+  const positions: { nummer: number; x: number; y: number }[] = []
+  let seatNum = 1
+
+  for (let row = 0; row < rows; row++) {
+    const R = radii[row]
+    const count = rowSeats[row]
+    for (let i = 0; i < count; i++) {
+      const angle = Math.PI - (count === 1 ? Math.PI / 2 : (i / (count - 1)) * Math.PI)
+      positions.push({
+        nummer: seatNum++,
+        x: cx + R * Math.cos(angle),
+        y: cy - R * Math.sin(angle),
+      })
+    }
+  }
+
+  return positions
 }
 
 function voteToOverlays(votes: VoteResult[]): SeatOverlay[] {
@@ -46,49 +88,9 @@ function voteToOverlays(votes: VoteResult[]): SeatOverlay[] {
   }))
 }
 
-function computeSeatPositions(totalSeats: number, size: number) {
-  const cx = size / 2
-  const cy = size * 0.85
-  const positions: { nummer: number; x: number; y: number }[] = []
-
-  const presidiumCount = 4
-  for (let i = 0; i < presidiumCount; i++) {
-    const angle = Math.PI * (0.35 + (i / (presidiumCount - 1)) * 0.3)
-    const r = size * 0.12
-    positions.push({
-      nummer: i + 1,
-      x: cx - r * Math.cos(angle),
-      y: cy - r * Math.sin(angle),
-    })
-  }
-
-  const rowCapacities = [10, 12, 14, 16, 18, 11]
-  let seatNum = presidiumCount + 1
-  let rowIndex = 0
-
-  for (const capacity of rowCapacities) {
-    if (seatNum > totalSeats) break
-    const seatsInRow = Math.min(capacity, totalSeats - seatNum + 1)
-    const radius = size * (0.22 + rowIndex * 0.11)
-
-    for (let i = 0; i < seatsInRow; i++) {
-      const t = seatsInRow === 1 ? 0.5 : i / (seatsInRow - 1)
-      const angle = Math.PI * (0.15 + t * 0.7)
-      positions.push({
-        nummer: seatNum,
-        x: cx - radius * Math.cos(angle),
-        y: cy - radius * Math.sin(angle),
-      })
-      seatNum++
-    }
-    rowIndex++
-  }
-
-  return positions
-}
-
 export function generateChamberSVG(config: ChamberConfig): string {
-  const { seats, mode, votes, overlays: customOverlays, size = 500 } = config
+  const { seats, mode, votes, overlays: customOverlays, size = 500, rows, seatRadius } = config
+  const r = seatRadius ?? size * 0.028
 
   const overlayMap = new Map<string, string>()
   if (mode === 'vote' && votes) {
@@ -98,8 +100,7 @@ export function generateChamberSVG(config: ChamberConfig): string {
   }
 
   const seatMap = new Map(seats.map((s) => [s.nummer, s]))
-  const positions = computeSeatPositions(seats.length, size)
-  const seatSize = size * 0.028
+  const positions = computeSeatPositions(seats.length, size, rows, seatRadius)
 
   const seatElements = positions
     .map(({ nummer, x, y }) => {
@@ -112,18 +113,17 @@ export function generateChamberSVG(config: ChamberConfig): string {
 
       return `<g class="seat" data-nummer="${nummer}" data-party="${seat.parti}">
       <title>${seat.namn} (${seat.parti})${overlayLabel}</title>
-      <rect x="${x - seatSize}" y="${y - seatSize * 0.7}" width="${seatSize * 2}" height="${seatSize * 1.4}" rx="3" fill="${fill}" />
-      <text x="${x}" y="${y + 3}" text-anchor="middle" font-size="${size * 0.018}" fill="white" font-weight="bold">${nummer}</text>
-      ${icon ? `<text x="${x + seatSize * 0.7}" y="${y - seatSize * 0.3}" font-size="${size * 0.024}">${icon}</text>` : ''}
+      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${fill}" stroke="rgba(0,0,0,0.15)" stroke-width="0.5" />
+      ${icon ? `<text x="${(x + r * 0.8).toFixed(1)}" y="${(y - r * 0.5).toFixed(1)}" font-size="${r}">${icon}</text>` : ''}
     </g>`
     })
     .join('\n    ')
 
   const resultatPanel = mode === 'vote' && votes ? generateResultPanel(votes, size) : ''
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size * 0.9}" role="img" aria-label="Göteborgs kommunfullmäktige — ${seats.length} ledamöter">
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size * 0.9}" role="img" aria-label="Kommunfullmäktige — ${seats.length} ledamöter">
   <style>
-    .seat rect:hover { stroke: #fff; stroke-width: 2; cursor: pointer; }
+    .seat circle:hover { stroke: #fff; stroke-width: 2; cursor: pointer; }
     .seat { transition: opacity 0.15s; }
   </style>
   ${seatElements}
