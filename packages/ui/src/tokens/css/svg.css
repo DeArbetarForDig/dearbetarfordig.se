@@ -7,6 +7,10 @@ text {
   text-anchor: middle;
   dominant-baseline: middle;
 
+  &.bold {
+    font-weight: var(--font-weight-bold);
+  }
+
   &.inverse {
     fill: var(--system-white);
   }
