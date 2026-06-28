@@ -84,8 +84,10 @@ function parseParagrafer(text: string, datum: string) {
 
     // Detect beslut type
     let beslut: string | undefined
+    const hasBeslutText = section.match(/Enligt beslutssats|fastställs|tillstyrker.*föreslår/i)
     if (section.match(/tillstyrker.*föreslår att\s*kommunfullmäktige/i)) beslut = 'tillstyrkan_kf'
-    else if (section.match(/bordlägg/i)) beslut = 'bordläggning'
+    else if (hasBeslutText && section.match(/bordlägg/i)) beslut = 'bifall' // partial bordläggning = still beslut
+    else if (section.match(/bordlägg/i) && !hasBeslutText) beslut = 'bordläggning'
     else if (section.match(/avslås/i)) beslut = 'avslag'
     else if (section.match(/bifallits|bifall/i)) beslut = 'bifall'
     else if (section.match(/Beslut\s*\n/)) beslut = 'beslut'
