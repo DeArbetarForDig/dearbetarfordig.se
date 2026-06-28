@@ -604,7 +604,7 @@ app.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
       FROM goteborg.graf_edges e
       JOIN goteborg.graf_nodes n ON n.id = e.to_id
       JOIN goteborg.graf_nodes gp ON gp.id = e.from_id
-      WHERE e.typ = 'ledamot_i' AND gp.typ = 'politiker'
+      WHERE e.typ = 'ledamot_i' AND gp.typ = 'politiker' AND e.data->>'roll' NOT LIKE 'Ersättare%'
       ORDER BY n.label, gp.label`
 
   // Group by nämnd, then sort each nämnd's politicians by party size (desc)
