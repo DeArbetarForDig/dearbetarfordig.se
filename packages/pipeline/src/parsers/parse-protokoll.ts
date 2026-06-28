@@ -179,7 +179,10 @@ function parseParagrafer(
       jäv.push({ namn: jävMatch[1].trim(), parti: jävMatch[2] })
     }
 
-    // Create paragraf node
+    // Create paragraf node — trim bilagor from fulltext
+    const bilagaIdx = section.search(/\bBILAGA\s+\d/i)
+    const cleanSection = bilagaIdx > 0 ? section.slice(0, bilagaIdx) : section
+
     nodes.push({
       id: paragrafId,
       typ: 'paragraf',
@@ -188,7 +191,7 @@ function parseParagrafer(
         paragrafNr,
         ärendeNr,
         rubrik: cleanRubrik,
-        fulltext: section.trim().replace(/\n{3,}/g, '\n\n').replace(/[ \t]+\n/g, '\n').replace(/Göteborgs\s+Stad\s+[Kk]ommunfullmäktige\s+protokoll[^\n]*/gi, '').replace(/\n{3,}/g, '\n\n').trim(),
+        fulltext: cleanSection.trim().replace(/\n{3,}/g, '\n\n').replace(/[ \t]+\n/g, '\n').replace(/Göteborgs\s+Stad\s+[Kk]ommunfullmäktige\s+protokoll[^\n]*/gi, '').replace(/\n{3,}/g, '\n\n').trim(),
         datum: möteDatum,
         beslut,
         bordläggningsorsak,
@@ -332,6 +335,92 @@ function parseVoteringar(
   return { nodes, edges }
 }
 
+// Parse Bilaga 1 — närvarolista (attendance table)
+function parseNärvarolista(
+  text: string,
+  möteDatum: string,
+  möteId: string,
+): GraphEdge[] {
+  const edges: GraphEdge[] = []
+
+  // Load politiker for name→id resolution
+  const polPath = join(import.meta.dirname, '../../../../data/politiker/goteborg.json')
+  let nameToId = new Map<string, string>()
+  let politikerList: Array<{ id: string; förnamn: string; efternamn: string }> = []
+  if (existsSync(polPath)) {
+    const polData = JSON.parse(readFileSync(polPath, 'utf-8'))
+    politikerList = polData.politiker
+    for (const p of polData.politiker) {
+      // Exact matches
+      nameToId.set(`${p.efternamn}, ${p.förnamn}`.toLowerCase(), p.id)
+      nameToId.set(`${p.förnamn} ${p.efternamn}`.toLowerCase(), p.id)
+      // Parts of double surnames: "Andersson Broang" → also match "Broang"
+      const parts = p.efternamn.split(/\s+/)
+      if (parts.length > 1) {
+        for (const part of parts) {
+          nameToId.set(`${part}, ${p.förnamn}`.toLowerCase(), p.id)
+          nameToId.set(`${p.förnamn} ${part}`.toLowerCase(), p.id)
+        }
+      }
+    }
+  }
+
+  function resolvePolitiker(rawNamn: string): string | undefined {
+    // Direct lookup
+    const direct = nameToId.get(rawNamn.toLowerCase())
+    if (direct) return direct
+    // "Efternamn, Förnamn" → "Förnamn Efternamn"
+    const flipped = rawNamn.split(',').reverse().map(s => s.trim()).join(' ')
+    const flippedMatch = nameToId.get(flipped.toLowerCase())
+    if (flippedMatch) return flippedMatch
+    // Try matching by förnamn only (for short names in protocol)
+    const parts = flipped.toLowerCase().split(/\s+/)
+    for (const p of politikerList) {
+      const pParts = `${p.förnamn} ${p.efternamn}`.toLowerCase().split(/\s+/)
+      // All parts of the raw name must appear in the full name
+      if (parts.every(part => pParts.includes(part))) return p.id
+    }
+    return undefined
+  }
+
+  // Find Bilaga 1 section with attendance data
+  const bilagaMatch = text.match(/BILAGA\s+1[\s\S]*?(?:Plats\s+Ledamot|Ledamot\s+\d)/i)
+  if (!bilagaMatch) return edges
+
+  const startIdx = text.indexOf(bilagaMatch[0])
+  const bilagaText = text.slice(startIdx)
+
+  // Parse attendance rows: "Akbas, Aslan    S    14:44    21:43"
+  const rowRe = /^([A-ZÅÄÖa-zåäö][A-ZÅÄÖa-zåäö ,\-]+?)\s{2,}(S|M|V|SD|L|MP|D|KD|C|FP)\s{2,}(\d{1,2}:\d{2})\s+(\d{1,2}:\d{2})/gm
+  let match: RegExpExecArray | null
+
+  while ((match = rowRe.exec(bilagaText)) !== null) {
+    const rawNamn = match[1].trim()
+    const parti = match[2]
+    const ankom = match[3]
+    const utgick = match[4]
+
+    // Try to resolve to UUID
+    const id = resolvePolitiker(rawNamn)
+    
+    if (!id) {
+      // Skip unresolvable — don't create broken edges
+      continue
+    }
+
+    const politikerId = `politiker-${id}`
+
+    edges.push({
+      from: politikerId,
+      to: möteId,
+      typ: 'närvarade',
+      label: `${ankom}–${utgick}`,
+    })
+  }
+
+  return edges
+}
+
 async function main() {
   const pdfUrl = process.argv[2]
   const datum = process.argv[3] || '2025-01-01'
@@ -431,6 +520,10 @@ async function main() {
     }
   }
 
+  // Parse närvarolista (Bilaga 1)
+  const närvaroEdges = parseNärvarolista(text, datum, möteId)
+  edges.push(...närvaroEdges)
+
   const graph: KnowledgeGraph = { nodes, edges }
 
   console.log(
@@ -438,6 +531,7 @@ async function main() {
   )
   console.log(`   Edges: ${edges.length}`)
   console.log(`   Voteringar: ${voteringar.nodes.length} (${totalRöster} individuella röster)`)
+  console.log(`   Närvaro: ${närvaroEdges.length} registreringar (Bilaga 1)`)
 
   const outPath = join(OUTPUT_DIR, `kf-${datum}.json`)
   writeFileSync(outPath, JSON.stringify(graph, null, 2))

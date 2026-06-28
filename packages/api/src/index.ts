@@ -274,15 +274,31 @@ app.openapi(mötenRoute, async (c) => {
 
   // Single query — no N+1
   const meetings =
-    await sql`SELECT data->>'datum' as datum, label FROM goteborg.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
+    await sql`SELECT id, data->>'datum' as datum, label FROM goteborg.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
   const counts =
     await sql`SELECT data->>'datum' as datum, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' GROUP BY data->>'datum'`
   const countMap = Object.fromEntries(counts.map((c) => [c.datum, c.antal]))
+  const närvaroRows =
+    await sql`SELECT e.to_id, e.from_id, e.label, p.fornamn, p.efternamn, p.parti
+      FROM goteborg.graf_edges e
+      LEFT JOIN goteborg.politiker p ON p.id = replace(e.from_id, 'politiker-', '')::uuid
+      WHERE e.typ = 'närvarade'`
+  const närvaroMap = new Map<string, Array<{ namn: string; parti: string; tid: string }>>()
+  for (const r of närvaroRows) {
+    if (!r.fornamn) continue
+    if (!närvaroMap.has(r.to_id)) närvaroMap.set(r.to_id, [])
+    närvaroMap.get(r.to_id)!.push({
+      namn: `${r.fornamn} ${r.efternamn}`,
+      parti: r.parti,
+      tid: r.label || '',
+    })
+  }
 
   let möten = meetings.map((m) => ({
     datum: m.datum,
     label: m.label,
     antalBeslut: countMap[m.datum] || 0,
+    närvarande: närvaroMap.get(m.id) || [],
   }))
   if (år) möten = möten.filter((m) => m.datum?.startsWith(år))
 
