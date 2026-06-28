@@ -1,0 +1,508 @@
+---
+/**
+ * StackedAreaChart — stacked area chart for budget visualization over time.
+ *
+ * Usage:
+ *   <StackedAreaChart
+ *     series={[
+ *       { name: 'Utbildning', values: [5200, 5400, 5600, 5800, 6000] },
+ *       { name: 'Vård & omsorg', values: [4100, 4300, 4500, 4700, 4900] },
+ *     ]}
+ *     categories={['2022', '2023', '2024', '2025', '2026']}
+ *     unit="mnkr"
+ *   />
+ *
+ * Features:
+ * - SVG stacked areas with smooth curves
+ * - Interactive legend pills (click to toggle series)
+ * - Hover: vertical line + tooltip with values per category
+ * - Responsive width via viewBox
+ * - Dark/light theme aware
+ */
+interface Series {
+  name: string
+  values: number[]
+  color?: string
+}
+
+interface Props {
+  series: Series[]
+  categories: string[]
+  unit?: string
+  height?: number
+  class?: string
+}
+
+const {
+  series = [],
+  categories = ['2022', '2023', '2024', '2025', '2026'],
+  unit = 'mnkr',
+  height = 300,
+  class: className,
+} = Astro.props
+
+const COLORS = [
+  '#2563eb',
+  '#7c3aed',
+  '#16a34a',
+  '#dc2626',
+  '#eab308',
+  '#0891b2',
+  '#db2777',
+  '#ea580c',
+  '#4f46e5',
+  '#059669',
+]
+
+const margin = { top: 24, right: 16, bottom: 40, left: 56 }
+const chartWidth = 600
+const chartHeight = height - margin.top - margin.bottom
+const innerWidth = chartWidth - margin.left - margin.right
+
+// Compute stacked values
+const numPoints = categories.length
+
+// Stack: for each point, cumulative sum from bottom
+function computeStack(seriesData: Series[]) {
+  const stacked: { name: string; color: string; lower: number[]; upper: number[] }[] = []
+  const cumulative = new Array(numPoints).fill(0)
+
+  for (let i = 0; i < seriesData.length; i++) {
+    const s = seriesData[i]
+    const lower = [...cumulative]
+    const upper = cumulative.map((c, j) => c + (s.values[j] || 0))
+    stacked.push({
+      name: s.name,
+      color: s.color || COLORS[i % COLORS.length],
+      lower,
+      upper,
+    })
+    upper.forEach((v, j) => {
+      cumulative[j] = v
+    })
+  }
+  return { stacked, maxY: Math.max(...cumulative) }
+}
+
+const { stacked, maxY } = computeStack(series)
+
+// Scale helpers
+const xStep = numPoints > 1 ? innerWidth / (numPoints - 1) : 0
+function xPos(i: number) {
+  return margin.left + i * xStep
+}
+
+// Nice Y axis
+function niceMax(v: number) {
+  if (v <= 0) return 100
+  const mag = 10 ** Math.floor(Math.log10(v))
+  return Math.ceil(v / mag) * mag
+}
+const yMax = niceMax(maxY)
+function yPos(v: number) {
+  return margin.top + chartHeight - (v / yMax) * chartHeight
+}
+
+// Generate area path (polygon)
+function areaPath(lower: number[], upper: number[]) {
+  const pts: string[] = []
+  // Top line left to right
+  for (let i = 0; i < numPoints; i++) {
+    pts.push(`${xPos(i).toFixed(1)},${yPos(upper[i]).toFixed(1)}`)
+  }
+  // Bottom line right to left
+  for (let i = numPoints - 1; i >= 0; i--) {
+    pts.push(`${xPos(i).toFixed(1)},${yPos(lower[i]).toFixed(1)}`)
+  }
+  return `M${pts[0]} ${pts
+    .slice(1)
+    .map((p) => `L${p}`)
+    .join(' ')} Z`
+}
+
+// Generate line path (top edge)
+function linePath(upper: number[]) {
+  return upper
+    .map((v, i) => `${i === 0 ? 'M' : 'L'}${xPos(i).toFixed(1)},${yPos(v).toFixed(1)}`)
+    .join(' ')
+}
+
+// Y-axis ticks (4-5 ticks)
+const numTicks = 5
+const yTicks = Array.from({ length: numTicks + 1 }, (_, i) => Math.round((yMax / numTicks) * i))
+
+// Data for client-side interactivity
+const chartData = JSON.stringify({
+  series: series.map((s, i) => ({
+    name: s.name,
+    values: s.values,
+    color: s.color || COLORS[i % COLORS.length],
+  })),
+  categories,
+  unit,
+})
+---
+<div class:list={['daf-stacked-area', className]} data-chart={chartData}>
+  <div class="daf-stacked-area__legend">
+    {stacked.map((s, i) => (
+      <button class="daf-stacked-area__pill" data-index={i} data-active="true" style={`--pill-color:${s.color}`}>
+        <span class="daf-stacked-area__pill-dot" />
+        {s.name}
+      </button>
+    ))}
+  </div>
+  <svg
+    viewBox={`0 0 ${chartWidth} ${height + 10}`}
+    preserveAspectRatio="xMidYMid meet"
+    role="img"
+    aria-label={`Budget fördelning ${categories[0]}–${categories[categories.length - 1]}`}
+    class="daf-stacked-area__svg"
+  >
+    {/* Y-axis gridlines & labels */}
+    {yTicks.map(tick => (
+      <line
+        x1={margin.left} y1={yPos(tick)}
+        x2={chartWidth - margin.right} y2={yPos(tick)}
+        class="daf-stacked-area__grid"
+      />
+    ))}
+    {yTicks.map(tick => (
+      <text
+        x={margin.left - 8} y={yPos(tick)}
+        class="daf-stacked-area__y-label"
+      >{tick.toLocaleString('sv-SE')}</text>
+    ))}
+
+    {/* Y-axis unit */}
+    <text x={margin.left - 8} y={margin.top - 12} class="daf-stacked-area__unit">{unit}</text>
+
+    {/* X-axis labels */}
+    {categories.map((cat, i) => (
+      <text x={xPos(i)} y={height - 8} class="daf-stacked-area__x-label">{cat}</text>
+    ))}
+
+    {/* Stacked areas (bottom to top) */}
+    <g class="daf-stacked-area__areas">
+      {stacked.map((s, i) => (
+        <g class="daf-stacked-area__series" data-index={i}>
+          <path d={areaPath(s.lower, s.upper)} fill={s.color} class="daf-stacked-area__fill" />
+          <path d={linePath(s.upper)} stroke={s.color} class="daf-stacked-area__line" />
+        </g>
+      ))}
+    </g>
+
+    {/* Hover overlay columns */}
+    {categories.map((_, i) => (
+      <rect
+        x={xPos(i) - (xStep / 2)}
+        y={margin.top}
+        width={i === 0 || i === numPoints - 1 ? xStep / 2 + (i === 0 ? 0 : xStep / 2) : xStep}
+        height={chartHeight}
+        class="daf-stacked-area__hover-zone"
+        data-col={i}
+      />
+    ))}
+
+    {/* Tooltip vertical line (hidden by default) */}
+    <line
+      x1={0} y1={margin.top}
+      x2={0} y2={margin.top + chartHeight}
+      class="daf-stacked-area__vline"
+    />
+
+    {/* Tooltip circles */}
+    {stacked.map((s) => (
+      <circle r="4" fill={s.color} stroke="var(--color-surface, #fff)" stroke-width="2" class="daf-stacked-area__dot" />
+    ))}
+  </svg>
+</div>
+
+<style>
+  .daf-stacked-area {
+    width: 100%;
+  }
+
+  .daf-stacked-area__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .daf-stacked-area__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface);
+    font-size: var(--font-size-label);
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: opacity var(--transition), background var(--transition);
+  }
+
+  .daf-stacked-area__pill[data-active="false"] {
+    opacity: 0.4;
+    background: var(--color-surface-sunken);
+  }
+
+  .daf-stacked-area__pill-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--pill-color);
+  }
+
+  .daf-stacked-area__svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .daf-stacked-area__grid {
+    stroke: var(--color-border);
+    stroke-width: 0.5;
+  }
+
+  .daf-stacked-area__y-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    fill: var(--color-text-muted);
+    text-anchor: end;
+    dominant-baseline: middle;
+  }
+
+  .daf-stacked-area__unit {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    fill: var(--color-text-subtle);
+    text-anchor: end;
+    dominant-baseline: auto;
+  }
+
+  .daf-stacked-area__x-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    fill: var(--color-text-muted);
+    text-anchor: middle;
+    dominant-baseline: hanging;
+  }
+
+  .daf-stacked-area__fill {
+    fill-opacity: 0.5;
+    transition: fill-opacity 0.3s;
+  }
+
+  .daf-stacked-area__series.dimmed .daf-stacked-area__fill {
+    fill-opacity: 0.1;
+  }
+
+  .daf-stacked-area__series.dimmed .daf-stacked-area__line {
+    stroke-opacity: 0.2;
+  }
+
+  .daf-stacked-area__series.hidden {
+    display: none;
+  }
+
+  .daf-stacked-area__line {
+    fill: none;
+    stroke-width: 2;
+    transition: stroke-opacity 0.3s;
+  }
+
+  .daf-stacked-area__hover-zone {
+    fill: transparent;
+    cursor: crosshair;
+  }
+
+  .daf-stacked-area__vline {
+    stroke: var(--color-text);
+    stroke-width: 1;
+    stroke-dasharray: 4 3;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+
+  .daf-stacked-area__vline.visible {
+    opacity: 0.6;
+  }
+
+  .daf-stacked-area__dot {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+
+  .daf-stacked-area__dot.visible {
+    opacity: 1;
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('.daf-stacked-area').forEach(container => {
+    const raw = JSON.parse(container.dataset.chart || '{}')
+    const categories = raw.categories || []
+    const unit = raw.unit || ''
+    let activeSeries = raw.series.map(() => true)
+
+    const svg = container.querySelector('.daf-stacked-area__svg')
+    const pills = container.querySelectorAll('.daf-stacked-area__pill')
+    const vline = container.querySelector('.daf-stacked-area__vline')
+    const dots = container.querySelectorAll('.daf-stacked-area__dot')
+    const seriesEls = container.querySelectorAll('.daf-stacked-area__series')
+    const hoverZones = container.querySelectorAll('.daf-stacked-area__hover-zone')
+
+    // Parse chart geometry from viewBox
+    const vb = svg.getAttribute('viewBox').split(' ').map(Number)
+    const chartW = vb[2]
+    const chartH = vb[3]
+    const margin = { top: 24, right: 16, bottom: 40, left: 56 }
+    const innerW = chartW - margin.left - margin.right
+    const innerH = chartH - margin.top - margin.bottom
+    const numPoints = categories.length
+    const xStep = numPoints > 1 ? innerW / (numPoints - 1) : 0
+
+    function xPos(i) { return margin.left + i * xStep }
+
+    function recompute() {
+      const visible = raw.series.filter((_, i) => activeSeries[i])
+      const cumulative = new Array(numPoints).fill(0)
+      const stacked = []
+
+      for (const s of visible) {
+        const lower = [...cumulative]
+        const upper = cumulative.map((c, j) => c + (s.values[j] || 0))
+        stacked.push({ name: s.name, color: s.color, lower, upper })
+        upper.forEach((v, j) => { cumulative[j] = v })
+      }
+
+      const maxRaw = Math.max(...cumulative, 1)
+      const mag = Math.pow(10, Math.floor(Math.log10(maxRaw)))
+      const yMax = Math.ceil(maxRaw / mag) * mag
+      function yP(v) { return margin.top + innerH - (v / yMax) * innerH }
+
+      // Update area paths
+      let visIdx = 0
+      seriesEls.forEach((el, i) => {
+        if (!activeSeries[i]) {
+          el.classList.add('hidden')
+          return
+        }
+        el.classList.remove('hidden')
+        const s = stacked[visIdx]
+        const fillPath = el.querySelector('.daf-stacked-area__fill')
+        const linePath = el.querySelector('.daf-stacked-area__line')
+
+        // area
+        let d = ''
+        for (let j = 0; j < numPoints; j++) d += `${j === 0 ? 'M' : 'L'}${xPos(j).toFixed(1)},${yP(s.upper[j]).toFixed(1)} `
+        for (let j = numPoints - 1; j >= 0; j--) d += `L${xPos(j).toFixed(1)},${yP(s.lower[j]).toFixed(1)} `
+        d += 'Z'
+        fillPath.setAttribute('d', d)
+
+        // line
+        let ld = ''
+        for (let j = 0; j < numPoints; j++) ld += `${j === 0 ? 'M' : 'L'}${xPos(j).toFixed(1)},${yP(s.upper[j]).toFixed(1)} `
+        linePath.setAttribute('d', ld)
+        visIdx++
+      })
+
+      // Update grid + Y labels
+      const gridLines = container.querySelectorAll('.daf-stacked-area__grid')
+      const yLabels = container.querySelectorAll('.daf-stacked-area__y-label')
+      const numTicks = 5
+      gridLines.forEach((line, i) => {
+        const tick = Math.round((yMax / numTicks) * i)
+        line.setAttribute('y1', yP(tick))
+        line.setAttribute('y2', yP(tick))
+      })
+      yLabels.forEach((label, i) => {
+        const tick = Math.round((yMax / numTicks) * i)
+        label.setAttribute('y', yP(tick))
+        label.textContent = tick.toLocaleString('sv-SE')
+      })
+
+      return { stacked, yMax, yP }
+    }
+
+    let state = recompute()
+
+    // Legend pill toggle
+    pills.forEach((pill, i) => {
+      pill.addEventListener('click', () => {
+        activeSeries[i] = !activeSeries[i]
+        pill.dataset.active = activeSeries[i] ? 'true' : 'false'
+        state = recompute()
+      })
+    })
+
+    // Hover interaction
+    hoverZones.forEach(zone => {
+      zone.addEventListener('mouseenter', (e) => {
+        const col = parseInt(zone.dataset.col)
+        showHover(col, e)
+      })
+      zone.addEventListener('mousemove', (e) => {
+        const col = parseInt(zone.dataset.col)
+        showHover(col, e)
+      })
+      zone.addEventListener('mouseleave', hideHover)
+    })
+
+    function showHover(col, e) {
+      const x = xPos(col)
+      vline.setAttribute('x1', x)
+      vline.setAttribute('x2', x)
+      vline.classList.add('visible')
+
+      const visible = raw.series.filter((_, i) => activeSeries[i])
+      const cumulative = new Array(numPoints).fill(0)
+      const positions = []
+
+      for (const s of visible) {
+        const upper = cumulative.map((c, j) => c + (s.values[j] || 0))
+        positions.push(upper[col])
+        upper.forEach((v, j) => { cumulative[j] = v })
+      }
+
+      let dotIdx = 0
+      dots.forEach((dot, i) => {
+        if (!activeSeries[i]) {
+          dot.classList.remove('visible')
+          return
+        }
+        dot.setAttribute('cx', x)
+        dot.setAttribute('cy', state.yP(positions[dotIdx]))
+        dot.classList.add('visible')
+        dotIdx++
+      })
+
+      // Tooltip
+      if (window.dafChartTooltip) {
+        const items = []
+        let visI = 0
+        raw.series.forEach((s, i) => {
+          if (!activeSeries[i]) return
+          items.push({ label: s.name, value: s.values[col]?.toLocaleString('sv-SE') + ' ' + unit, color: s.color })
+          visI++
+        })
+        window.dafChartTooltip.show(e, {
+          title: categories[col],
+          unit: unit,
+          items
+        })
+      }
+    }
+
+    function hideHover() {
+      vline.classList.remove('visible')
+      dots.forEach(d => d.classList.remove('visible'))
+      if (window.dafChartTooltip) window.dafChartTooltip.hide()
+    }
+  })
+</script>

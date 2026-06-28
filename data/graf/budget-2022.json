@@ -1,0 +1,539 @@
+{
+  "nodes": [
+    {
+      "id": "budget-2022",
+      "typ": "budget",
+      "label": "Göteborgs Stad Kommunbudget 2022",
+      "data": {
+        "år": 2022,
+        "totalMnkr": 35389,
+        "styre": "M+L+C+KD",
+        "källa": "PDF"
+      }
+    },
+    {
+      "id": "nämnd-byggnadsnämnden-2022",
+      "typ": "organisation",
+      "label": "Byggnadsnämnden",
+      "data": {
+        "kommunbidragMnkr": 162,
+        "andelProcent": 0.5
+      }
+    },
+    {
+      "id": "nämnd-fastighetsnämnden-2022",
+      "typ": "organisation",
+      "label": "Fastighetsnämnden",
+      "data": {
+        "kommunbidragMnkr": 46,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-förskolenämnden-2022",
+      "typ": "organisation",
+      "label": "Förskolenämnden",
+      "data": {
+        "kommunbidragMnkr": 4481,
+        "andelProcent": 12.7
+      }
+    },
+    {
+      "id": "nämnd-grundskolenämnden-2022",
+      "typ": "organisation",
+      "label": "Grundskolenämnden",
+      "data": {
+        "kommunbidragMnkr": 8881,
+        "andelProcent": 25.1
+      }
+    },
+    {
+      "id": "nämnd-idrotts-och-föreningsnämnden-2022",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden",
+      "data": {
+        "kommunbidragMnkr": 569,
+        "andelProcent": 1.6
+      }
+    },
+    {
+      "id": "nämnd-kommunledningen-2022",
+      "typ": "organisation",
+      "label": "Kommunledningen",
+      "data": {
+        "kommunbidragMnkr": 373,
+        "andelProcent": 1.1
+      }
+    },
+    {
+      "id": "nämnd-kulturnämnden-2022",
+      "typ": "organisation",
+      "label": "Kulturnämnden",
+      "data": {
+        "kommunbidragMnkr": 628,
+        "andelProcent": 1.8
+      }
+    },
+    {
+      "id": "nämnd-lokalnämnden-2022",
+      "typ": "organisation",
+      "label": "Lokalnämnden",
+      "data": {
+        "kommunbidragMnkr": 0,
+        "andelProcent": 0
+      }
+    },
+    {
+      "id": "nämnd-miljö-och-klimatnämnden-2022",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden",
+      "data": {
+        "kommunbidragMnkr": 105,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning-2022",
+      "typ": "organisation",
+      "label": "Nämnden för arbetsmarknad och vuxenutbildning",
+      "data": {
+        "kommunbidragMnkr": 740,
+        "andelProcent": 2.1
+      }
+    },
+    {
+      "id": "nämnd-nämnden-för-funktionsstöd-2022",
+      "typ": "organisation",
+      "label": "Nämnden för funktionsstöd",
+      "data": {
+        "kommunbidragMnkr": 4687,
+        "andelProcent": 13.2
+      }
+    },
+    {
+      "id": "nämnd-nämnden-för-inköp-och-upphandling-2022",
+      "typ": "organisation",
+      "label": "Nämnden för inköp och upphandling",
+      "data": {
+        "kommunbidragMnkr": 8,
+        "andelProcent": 0
+      }
+    },
+    {
+      "id": "nämnd-nämnden-för-intraservice-2022",
+      "typ": "organisation",
+      "label": "Nämnden för Intraservice",
+      "data": {
+        "kommunbidragMnkr": 22,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-nämnden-för-demokrati-och-medborgarservice-2022",
+      "typ": "organisation",
+      "label": "Nämnden för demokrati och medborgarservice",
+      "data": {
+        "kommunbidragMnkr": 88,
+        "andelProcent": 0.2
+      }
+    },
+    {
+      "id": "nämnd-park-och-naturnämnden-2022",
+      "typ": "organisation",
+      "label": "Park- och naturnämnden",
+      "data": {
+        "kommunbidragMnkr": 332,
+        "andelProcent": 0.9
+      }
+    },
+    {
+      "id": "nämnd-socialnämnd-nordost-2022",
+      "typ": "organisation",
+      "label": "Socialnämnd Nordost",
+      "data": {
+        "kommunbidragMnkr": 1592,
+        "andelProcent": 4.5
+      }
+    },
+    {
+      "id": "nämnd-socialnämnd-centrum-2022",
+      "typ": "organisation",
+      "label": "Socialnämnd Centrum",
+      "data": {
+        "kommunbidragMnkr": 1187,
+        "andelProcent": 3.4
+      }
+    },
+    {
+      "id": "nämnd-socialnämnd-sydväst-2022",
+      "typ": "organisation",
+      "label": "Socialnämnd Sydväst",
+      "data": {
+        "kommunbidragMnkr": 723,
+        "andelProcent": 2
+      }
+    },
+    {
+      "id": "nämnd-socialnämnd-hisingen-2022",
+      "typ": "organisation",
+      "label": "Socialnämnd Hisingen",
+      "data": {
+        "kommunbidragMnkr": 1124,
+        "andelProcent": 3.2
+      }
+    },
+    {
+      "id": "nämnd-trafiknämnden-2022",
+      "typ": "organisation",
+      "label": "Trafiknämnden",
+      "data": {
+        "kommunbidragMnkr": 1333,
+        "andelProcent": 3.8
+      }
+    },
+    {
+      "id": "nämnd-utbildningsnämnden-2022",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden",
+      "data": {
+        "kommunbidragMnkr": 2226,
+        "andelProcent": 6.3
+      }
+    },
+    {
+      "id": "nämnd-valnämnden-2022",
+      "typ": "organisation",
+      "label": "Valnämnden",
+      "data": {
+        "kommunbidragMnkr": 32,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-äldre-samt-vård-och-omsorgsnämnd-2022",
+      "typ": "organisation",
+      "label": "Äldre samt vård- och omsorgsnämnd",
+      "data": {
+        "kommunbidragMnkr": 5746,
+        "andelProcent": 16.2
+      }
+    },
+    {
+      "id": "nämnd-arkivnämnden-2022",
+      "typ": "organisation",
+      "label": "Arkivnämnden",
+      "data": {
+        "kommunbidragMnkr": 24,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-business-region-göteborg-ab-2022",
+      "typ": "organisation",
+      "label": "Business Region Göteborg AB",
+      "data": {
+        "kommunbidragMnkr": 31,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-fastighetsnämnden-transfereringar-2022",
+      "typ": "organisation",
+      "label": "Fastighetsnämnden transfereringar",
+      "data": {
+        "kommunbidragMnkr": 68,
+        "andelProcent": 0.2
+      }
+    },
+    {
+      "id": "nämnd-göteborg-co-ab-2022",
+      "typ": "organisation",
+      "label": "Göteborg & Co AB",
+      "data": {
+        "kommunbidragMnkr": 121,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-socialnämnd-centrum-studieförbunden-2022",
+      "typ": "organisation",
+      "label": "Socialnämnd Centrum studieförbunden",
+      "data": {
+        "kommunbidragMnkr": 29,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-överförmyndarnämnden-arvoden-2022",
+      "typ": "organisation",
+      "label": "Överförmyndarnämnden arvoden",
+      "data": {
+        "kommunbidragMnkr": 33,
+        "andelProcent": 0.1
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "budget-2022",
+      "to": "nämnd-byggnadsnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 162,
+        "andel": 0.5
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-fastighetsnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 46,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-förskolenämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 4481,
+        "andel": 12.7
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-grundskolenämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 8881,
+        "andel": 25.1
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-idrotts-och-föreningsnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 569,
+        "andel": 1.6
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-kommunledningen-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 373,
+        "andel": 1.1
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-kulturnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 628,
+        "andel": 1.8
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-lokalnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 0,
+        "andel": 0
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-miljö-och-klimatnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 105,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 740,
+        "andel": 2.1
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-nämnden-för-funktionsstöd-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 4687,
+        "andel": 13.2
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-nämnden-för-inköp-och-upphandling-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 8,
+        "andel": 0
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-nämnden-för-intraservice-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 22,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-nämnden-för-demokrati-och-medborgarservice-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 88,
+        "andel": 0.2
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-park-och-naturnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 332,
+        "andel": 0.9
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-socialnämnd-nordost-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1592,
+        "andel": 4.5
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-socialnämnd-centrum-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1187,
+        "andel": 3.4
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-socialnämnd-sydväst-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 723,
+        "andel": 2
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-socialnämnd-hisingen-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1124,
+        "andel": 3.2
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-trafiknämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1333,
+        "andel": 3.8
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-utbildningsnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 2226,
+        "andel": 6.3
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-valnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 32,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-äldre-samt-vård-och-omsorgsnämnd-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 5746,
+        "andel": 16.2
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-arkivnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 24,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-business-region-göteborg-ab-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 31,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-fastighetsnämnden-transfereringar-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 68,
+        "andel": 0.2
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-göteborg-co-ab-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 121,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-socialnämnd-centrum-studieförbunden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 29,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-överförmyndarnämnden-arvoden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 33,
+        "andel": 0.1
+      }
+    }
+  ]
+}

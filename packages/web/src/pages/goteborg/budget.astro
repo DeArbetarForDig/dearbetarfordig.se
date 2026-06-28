@@ -1,11 +1,13 @@
 ---
 import Donut from '../../../../ui/src/components/charts/Donut.astro'
+import StackedAreaChart from '../../../../ui/src/components/charts/StackedAreaChart.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
-import { getBudget } from '../../data/api'
+import { getBudget, getBudgetYear } from '../../data/api'
 import Base from '../../layouts/Base.astro'
 
 const budget = await getBudget()
-const allPoster = budget.nämnder.filter((n: any) => n.kommunbidragMnkr)
+const allPoster = budget.nämnder
+  .filter((n: any) => n.kommunbidragMnkr)
   .sort((a: any, b: any) => b.kommunbidragMnkr - a.kommunbidragMnkr)
 
 // Split: nämnder (≥10 mnkr) vs öronmärkta poster (<10 mnkr)
@@ -37,8 +39,43 @@ const segments = [
     value: n.kommunbidragMnkr,
     color: colors[i],
   })),
-  ...(övrigtSum > 0 ? [{ label: `Övrigt (${rest.length} poster)`, value: övrigtSum, color: colors[10] }] : []),
+  ...(övrigtSum > 0
+    ? [{ label: `Övrigt (${rest.length} poster)`, value: övrigtSum, color: colors[10] }]
+    : []),
 ]
+
+// --- Stacked Area Chart: budget per kategori 2022-2026 ---
+const years = [2022, 2023, 2024, 2025, 2026]
+const budgets = await Promise.all(years.map((y) => getBudgetYear(y)))
+
+// Gruppera nämnder i kategorier
+const kategorier: Record<string, { label: string; match: RegExp; color: string }> = {
+  skola: { label: 'Skola & förskola', match: /Förskole|Grundskole|Utbildnings/, color: '#2563eb' },
+  omsorg: {
+    label: 'Omsorg & funktionsstöd',
+    match: /Äldre|omsorg|funktionsstöd/i,
+    color: '#7c3aed',
+  },
+  social: { label: 'Socialnämnderna', match: /Socialnämnd/, color: '#16a34a' },
+  stadsmiljö: { label: 'Stadsmiljö & trafik', match: /Stadsmiljö|Trafik|Park-/, color: '#ea580c' },
+  kultur: { label: 'Kultur & idrott', match: /Kultur|Idrotts/, color: '#0891b2' },
+  övrigt: { label: 'Övrigt', match: /.*/, color: '#64748b' },
+}
+
+const katKeys = Object.keys(kategorier)
+const seriesData = katKeys.map((key) => {
+  const kat = kategorier[key]
+  const values = budgets.map((b) => {
+    const matchingNämnder = b.nämnder.filter((n: any) => {
+      if (key === 'övrigt') {
+        return !Object.entries(kategorier).some(([k, v]) => k !== 'övrigt' && v.match.test(n.namn))
+      }
+      return kat.match.test(n.namn)
+    })
+    return matchingNämnder.reduce((sum: number, n: any) => sum + (n.kommunbidragMnkr || 0), 0)
+  })
+  return { name: kat.label, values, color: kat.color }
+})
 ---
 
 <Base title="Budget — Göteborg">
@@ -51,6 +88,10 @@ const segments = [
   <div class="grid gap-8">
     <Card>
       <Donut segments={segments} size={360} thickness={60} showValue showAbsoluteValue legend unit="mnkr" />
+    </Card>
+
+    <Card title="Budget per kategori 2022–2026" titleSize="lg" subtitle="Kommunbidrag (mnkr) — utveckling över tid">
+      <StackedAreaChart series={seriesData} categories={years.map(String)} unit="mnkr" />
     </Card>
 
     {öronmärkta.length > 0 && (

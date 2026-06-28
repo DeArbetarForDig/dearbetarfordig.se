@@ -128,7 +128,8 @@ app.openapi(politikerRoute, async (c) => {
         parti: p.parti,
         email: p.email,
         antalUppdrag: (p.uppdrag as any[]).length,
-        aktivSedan: (p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0] ||
+        aktivSedan:
+          (p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0] ||
           ((p.uppdrag as any[]) || []).reduce((earliest: string | null, u: any) => {
             if (!u.från) return earliest
             const y = u.från.slice(0, 4)
@@ -278,8 +279,7 @@ app.openapi(mötenRoute, async (c) => {
   const counts =
     await sql`SELECT data->>'datum' as datum, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' GROUP BY data->>'datum'`
   const countMap = Object.fromEntries(counts.map((c) => [c.datum, c.antal]))
-  const närvaroRows =
-    await sql`SELECT e.to_id, e.from_id, e.label, p.fornamn, p.efternamn, p.parti
+  const närvaroRows = await sql`SELECT e.to_id, e.from_id, e.label, p.fornamn, p.efternamn, p.parti
       FROM goteborg.graf_edges e
       LEFT JOIN goteborg.politiker p ON p.id = replace(e.from_id, 'politiker-', '')::uuid
       WHERE e.typ = 'närvarade'`
@@ -291,11 +291,12 @@ app.openapi(mötenRoute, async (c) => {
     const tid = r.label || ''
     // Skip duplicates (same name, same meeting, no time or already have time)
     const existing = närvaroMap.get(r.to_id)!
-    const hasSameName = existing.find(e => e.namn === namn)
+    const hasSameName = existing.find((e) => e.namn === namn)
     if (hasSameName) {
       // Merge: keep the one with time, or combine intervals
       if (tid && !hasSameName.tid) hasSameName.tid = tid
-      else if (tid && hasSameName.tid && !hasSameName.tid.includes(tid)) hasSameName.tid += `, ${tid}`
+      else if (tid && hasSameName.tid && !hasSameName.tid.includes(tid))
+        hasSameName.tid += `, ${tid}`
     } else {
       existing.push({ namn, parti: r.parti, tid })
     }
@@ -342,7 +343,8 @@ app.openapi(beslutRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const { datum, sök, organ, limit } = c.req.valid('query')
   const lim = capLimit(limit, 2000)
-  const organFilter = organ === 'kf' ? "AND id LIKE 'kf-%'" : organ === 'ks' ? "AND id LIKE 'ks-%'" : ''
+  const organFilter =
+    organ === 'kf' ? "AND id LIKE 'kf-%'" : organ === 'ks' ? "AND id LIKE 'ks-%'" : ''
   let rows
   if (datum) {
     rows =
@@ -525,8 +527,11 @@ const budgetRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/budget',
   tags: ['Budget'],
-  summary: 'Kommunbudget per nämnd',
-  request: { params: z.object({ kommun: z.string() }) },
+  summary: 'Kommunbudget per nämnd (filtrera på år med ?år=2024)',
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({ år: z.string().optional() }),
+  },
   responses: {
     200: {
       content: {
@@ -539,15 +544,46 @@ const budgetRoute = createRoute({
   },
 })
 app.openapi(budgetRoute, async (c) => {
-  const rows =
-    await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'organisation' AND data ? 'kommunbidragMnkr' ORDER BY (data->>'kommunbidragMnkr')::float DESC NULLS LAST`
-  const totalMnkr = rows.reduce((sum, r) => sum + ((r.data as any).kommunbidragMnkr || 0), 0)
+  const år = c.req.valid('query').år
+  if (år) {
+    const budgetNode =
+      await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${`budget-${år}`} AND typ = 'budget'`
+    if (budgetNode.length === 0)
+      return c.json(
+        {
+          kommun: c.req.valid('param').kommun,
+          år: Number(år),
+          totalMnkr: 0,
+          styre: null,
+          nämnder: [],
+        },
+        200,
+      )
+    const meta = budgetNode[0].data as any
+    const rows =
+      await sql`SELECT n.* FROM goteborg.graf_nodes n JOIN goteborg.graf_edges e ON e.to_id = n.id WHERE e.from_id = ${`budget-${år}`} AND e.typ = 'finansierar' ORDER BY (n.data->>'kommunbidragMnkr')::float DESC NULLS LAST`
+    return c.json(
+      {
+        kommun: c.req.valid('param').kommun,
+        år: Number(år),
+        totalMnkr: meta.totalMnkr,
+        styre: meta.styre,
+        nämnder: rows.map((r) => ({ id: r.id, namn: r.label, ...(r.data as object) })),
+      },
+      200,
+    )
+  }
+  // Utan år: returnera alla tillgängliga budgetår med summary
+  const years =
+    await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'budget' AND id LIKE 'budget-20%' AND data ? 'totalMnkr' ORDER BY (data->>'år')::int`
   return c.json(
     {
       kommun: c.req.valid('param').kommun,
-      år: 2026,
-      totalMnkr,
-      nämnder: rows.map((r) => ({ id: r.id, namn: r.label, ...(r.data as object) })),
+      år: years.map((y) => ({
+        år: (y.data as any).år,
+        totalMnkr: (y.data as any).totalMnkr,
+        styre: (y.data as any).styre,
+      })),
     },
     200,
   )

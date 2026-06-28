@@ -1,0 +1,539 @@
+{
+  "nodes": [
+    {
+      "id": "budget-2023",
+      "typ": "budget",
+      "label": "Göteborgs Stad Kommunbudget 2023",
+      "data": {
+        "år": 2023,
+        "totalMnkr": 37858,
+        "styre": "S+V+MP",
+        "källa": "PDF"
+      }
+    },
+    {
+      "id": "nämnd-exploateringsnämnden-2023",
+      "typ": "organisation",
+      "label": "Exploateringsnämnden",
+      "data": {
+        "kommunbidragMnkr": 125,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-förskolenämnden-2023",
+      "typ": "organisation",
+      "label": "Förskolenämnden",
+      "data": {
+        "kommunbidragMnkr": 4702,
+        "andelProcent": 12.4
+      }
+    },
+    {
+      "id": "nämnd-grundskolenämnden-2023",
+      "typ": "organisation",
+      "label": "Grundskolenämnden",
+      "data": {
+        "kommunbidragMnkr": 9344,
+        "andelProcent": 24.7
+      }
+    },
+    {
+      "id": "nämnd-idrotts-och-föreningsnämnden-2023",
+      "typ": "organisation",
+      "label": "Idrotts- och föreningsnämnden",
+      "data": {
+        "kommunbidragMnkr": 662,
+        "andelProcent": 1.7
+      }
+    },
+    {
+      "id": "nämnd-kommunledningen-2023",
+      "typ": "organisation",
+      "label": "Kommunledningen",
+      "data": {
+        "kommunbidragMnkr": 385,
+        "andelProcent": 1
+      }
+    },
+    {
+      "id": "nämnd-kretslopp-och-vattennämnden-2023",
+      "typ": "organisation",
+      "label": "Kretslopp- och vattennämnden",
+      "data": {
+        "kommunbidragMnkr": 0,
+        "andelProcent": 0
+      }
+    },
+    {
+      "id": "nämnd-kulturnämnden-2023",
+      "typ": "organisation",
+      "label": "Kulturnämnden",
+      "data": {
+        "kommunbidragMnkr": 668,
+        "andelProcent": 1.8
+      }
+    },
+    {
+      "id": "nämnd-miljö-och-klimatnämnden-2023",
+      "typ": "organisation",
+      "label": "Miljö- och klimatnämnden",
+      "data": {
+        "kommunbidragMnkr": 105,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning-2023",
+      "typ": "organisation",
+      "label": "Nämnden för Arbetsmarknad och vuxenutbildning",
+      "data": {
+        "kommunbidragMnkr": 747,
+        "andelProcent": 2
+      }
+    },
+    {
+      "id": "nämnd-nämnden-för-demokrati-och-medborgarservice-2023",
+      "typ": "organisation",
+      "label": "Nämnden för Demokrati och medborgarservice",
+      "data": {
+        "kommunbidragMnkr": 98,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-nämnden-för-funktionsstöd-2023",
+      "typ": "organisation",
+      "label": "Nämnden för Funktionsstöd",
+      "data": {
+        "kommunbidragMnkr": 5087,
+        "andelProcent": 13.4
+      }
+    },
+    {
+      "id": "nämnd-nämnden-för-inköp-och-upphandling-2023",
+      "typ": "organisation",
+      "label": "Nämnden för Inköp och upphandling",
+      "data": {
+        "kommunbidragMnkr": 8,
+        "andelProcent": 0
+      }
+    },
+    {
+      "id": "nämnd-nämnden-för-intraservice-2023",
+      "typ": "organisation",
+      "label": "Nämnden för Intraservice",
+      "data": {
+        "kommunbidragMnkr": 37,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-socialnämnd-centrum-2023",
+      "typ": "organisation",
+      "label": "Socialnämnd Centrum",
+      "data": {
+        "kommunbidragMnkr": 1255,
+        "andelProcent": 3.3
+      }
+    },
+    {
+      "id": "nämnd-socialnämnd-hisingen-2023",
+      "typ": "organisation",
+      "label": "Socialnämnd Hisingen",
+      "data": {
+        "kommunbidragMnkr": 1209,
+        "andelProcent": 3.2
+      }
+    },
+    {
+      "id": "nämnd-socialnämnd-nordost-2023",
+      "typ": "organisation",
+      "label": "Socialnämnd Nordost",
+      "data": {
+        "kommunbidragMnkr": 1704,
+        "andelProcent": 4.5
+      }
+    },
+    {
+      "id": "nämnd-socialnämnd-sydväst-2023",
+      "typ": "organisation",
+      "label": "Socialnämnd Sydväst",
+      "data": {
+        "kommunbidragMnkr": 773,
+        "andelProcent": 2
+      }
+    },
+    {
+      "id": "nämnd-stadsbyggnadsnämnden-2023",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämnden",
+      "data": {
+        "kommunbidragMnkr": 246,
+        "andelProcent": 0.7
+      }
+    },
+    {
+      "id": "nämnd-stadsfastighetsnämnden-2023",
+      "typ": "organisation",
+      "label": "Stadsfastighetsnämnden",
+      "data": {
+        "kommunbidragMnkr": 0,
+        "andelProcent": 0
+      }
+    },
+    {
+      "id": "nämnd-stadsmiljönämnden-2023",
+      "typ": "organisation",
+      "label": "Stadsmiljönämnden",
+      "data": {
+        "kommunbidragMnkr": 1766,
+        "andelProcent": 4.7
+      }
+    },
+    {
+      "id": "nämnd-utbildningsnämnden-2023",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden",
+      "data": {
+        "kommunbidragMnkr": 2402,
+        "andelProcent": 6.3
+      }
+    },
+    {
+      "id": "nämnd-valnämnden-2023",
+      "typ": "organisation",
+      "label": "Valnämnden",
+      "data": {
+        "kommunbidragMnkr": 12,
+        "andelProcent": 0
+      }
+    },
+    {
+      "id": "nämnd-äldre-samt-vård-och-omsorgsnämnden-2023",
+      "typ": "organisation",
+      "label": "Äldre samt vård- och omsorgsnämnden",
+      "data": {
+        "kommunbidragMnkr": 6209,
+        "andelProcent": 16.4
+      }
+    },
+    {
+      "id": "nämnd-arkivnämnden-2023",
+      "typ": "organisation",
+      "label": "Arkivnämnden",
+      "data": {
+        "kommunbidragMnkr": 24,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-business-region-göteborg-ab-2023",
+      "typ": "organisation",
+      "label": "Business Region Göteborg AB",
+      "data": {
+        "kommunbidragMnkr": 32,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-stadsbyggnadsnämndens-transfereringar-2023",
+      "typ": "organisation",
+      "label": "Stadsbyggnadsnämndens transfereringar",
+      "data": {
+        "kommunbidragMnkr": 68,
+        "andelProcent": 0.2
+      }
+    },
+    {
+      "id": "nämnd-göteborg-co-ab-2023",
+      "typ": "organisation",
+      "label": "Göteborg & Co AB",
+      "data": {
+        "kommunbidragMnkr": 128,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-socialnämnd-centrum-studieförbunden-2023",
+      "typ": "organisation",
+      "label": "Socialnämnd Centrum studieförbunden",
+      "data": {
+        "kommunbidragMnkr": 29,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-överförmyndarnämnden-arvoden-2023",
+      "typ": "organisation",
+      "label": "Överförmyndarnämnden arvoden",
+      "data": {
+        "kommunbidragMnkr": 34,
+        "andelProcent": 0.1
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "budget-2023",
+      "to": "nämnd-exploateringsnämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 125,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-förskolenämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 4702,
+        "andel": 12.4
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-grundskolenämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 9344,
+        "andel": 24.7
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-idrotts-och-föreningsnämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 662,
+        "andel": 1.7
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-kommunledningen-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 385,
+        "andel": 1
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-kretslopp-och-vattennämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 0,
+        "andel": 0
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-kulturnämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 668,
+        "andel": 1.8
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-miljö-och-klimatnämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 105,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 747,
+        "andel": 2
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-nämnden-för-demokrati-och-medborgarservice-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 98,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-nämnden-för-funktionsstöd-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 5087,
+        "andel": 13.4
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-nämnden-för-inköp-och-upphandling-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 8,
+        "andel": 0
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-nämnden-för-intraservice-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 37,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-socialnämnd-centrum-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1255,
+        "andel": 3.3
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-socialnämnd-hisingen-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1209,
+        "andel": 3.2
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-socialnämnd-nordost-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1704,
+        "andel": 4.5
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-socialnämnd-sydväst-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 773,
+        "andel": 2
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-stadsbyggnadsnämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 246,
+        "andel": 0.7
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-stadsfastighetsnämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 0,
+        "andel": 0
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-stadsmiljönämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1766,
+        "andel": 4.7
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-utbildningsnämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 2402,
+        "andel": 6.3
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-valnämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 12,
+        "andel": 0
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-äldre-samt-vård-och-omsorgsnämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 6209,
+        "andel": 16.4
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-arkivnämnden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 24,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-business-region-göteborg-ab-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 32,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-stadsbyggnadsnämndens-transfereringar-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 68,
+        "andel": 0.2
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-göteborg-co-ab-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 128,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-socialnämnd-centrum-studieförbunden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 29,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2023",
+      "to": "nämnd-överförmyndarnämnden-arvoden-2023",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 34,
+        "andel": 0.1
+      }
+    }
+  ]
+}
