@@ -78,15 +78,15 @@ const dataJson = JSON.stringify(
     </g>
     <g class="daf-donut__center">
       <text class="daf-donut__value" x={cx} y={cy - (unit ? 4 : 0)} text-anchor="middle" dominant-baseline="central"
-        style={`font-family:var(--font-mono);font-weight:700;font-size:${size * 0.16}px;fill:var(--color-text)`}>
+        style={`font-family:var(--font-mono);font-weight:700;font-size:${size * 0.11}px;fill:var(--color-text)`}>
         {showValue ? total : ''}
       </text>
-      <text class="daf-donut__unit" x={cx} y={cy + size * 0.12} text-anchor="middle" dominant-baseline="central"
-        style={`font-family:var(--font-sans);font-size:${size * 0.07}px;fill:var(--color-text-muted)`}>
+      <text class="daf-donut__unit" x={cx} y={cy + size * 0.09} text-anchor="middle" dominant-baseline="central"
+        style={`font-family:var(--font-sans);font-size:${size * 0.06}px;fill:var(--color-text-muted)`}>
         {showValue ? unit : ''}
       </text>
-      <text class="daf-donut__label" x={cx} y={cy + size * 0.22} text-anchor="middle" dominant-baseline="central"
-        style={`font-family:var(--font-sans);font-size:${size * 0.06}px;fill:var(--color-text-muted)`}>
+      <text class="daf-donut__label" x={cx} y={cy + size * 0.17} text-anchor="middle" dominant-baseline="central"
+        style={`font-family:var(--font-sans);font-size:${size * 0.04}px;fill:var(--color-text-muted)`}>
       </text>
     </g>
   </svg>
@@ -97,8 +97,9 @@ const dataJson = JSON.stringify(
           <span class="w-3 h-3 rounded-sm shrink-0" style={`background:${a.color}`} />
           <span class="text-(--color-text)">{a.label}</span>
           <span class="font-mono text-(--color-text-muted) ml-auto pl-3">
-            {showAbsoluteValue ? a.value : `${Math.round(a.frac * 100)}%`}
+            {showAbsoluteValue ? `${a.value} ${unit}` : `${Math.round(a.frac * 100)}%`}
           </span>
+          {showAbsoluteValue && <span class="font-mono text-(--color-text-subtle) pl-2 w-10 text-right">{Math.round(a.frac * 100)}%</span>}
         </li>
       ))}
     </ul>
@@ -148,7 +149,7 @@ const dataJson = JSON.stringify(
       const seg = segments[index]
       if (valueEl) valueEl.textContent = showAbsolute ? seg.value : seg.pct + '%'
       if (unitEl) unitEl.textContent = showAbsolute ? unit : ''
-      if (labelEl) labelEl.textContent = seg.label
+      if (labelEl) labelEl.textContent = seg.label.length > 25 ? seg.label.slice(0, 23) + '…' : seg.label
     }
 
     function reset() {
