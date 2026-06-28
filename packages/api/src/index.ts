@@ -621,7 +621,7 @@ app.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
     })
   }
 
-  // Sort each nämnd: by party size in KF (same as stats endpoint)
+  // Sort each nämnd: by party size in KF — same query as stats endpoint
   const partiStorlek = await sql`SELECT parti, COUNT(*)::int as antal FROM goteborg.politiker GROUP BY parti ORDER BY antal DESC`
   const partiRank = new Map(partiStorlek.map((r, i) => [r.parti as string, i]))
   for (const [, pols] of byNämnd) {
@@ -772,7 +772,14 @@ const statsRoute = createRoute({
 app.openapi(statsRoute, async (c) => {
   const [pol, parties, nodeCount, edgeCount] = await Promise.all([
     sql`SELECT COUNT(*)::int as total FROM goteborg.politiker`,
-    sql`SELECT parti, COUNT(*)::int as antal FROM goteborg.politiker GROUP BY parti ORDER BY antal DESC`,
+    // Count KF ledamöter only (not ersättare) — use uppdrag JSONB to filter
+    sql`SELECT parti, COUNT(*)::int as antal FROM goteborg.politiker
+        WHERE EXISTS (
+          SELECT 1 FROM jsonb_array_elements(uppdrag) u
+          WHERE u->>'organisation' ILIKE '%Kommunfullmäktige%'
+            AND u->>'roll' NOT ILIKE 'Ersättare%'
+        )
+        GROUP BY parti ORDER BY antal DESC`,
     sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes`,
     sql`SELECT COUNT(*)::int as total FROM goteborg.graf_edges`,
   ])
