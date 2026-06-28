@@ -45,9 +45,9 @@ const circ = 2 * Math.PI * r
 let offset = 0
 const arcs = segments.map((seg) => {
   const frac = seg.value / total
-  const dash = frac * circ
-  const arc = { ...seg, frac, dash, offset }
-  offset += dash
+  const dash = frac * circ - 2
+  const arc = { ...seg, frac, dash: Math.max(dash, 0), offset: offset + 1 }
+  offset += frac * circ
   return arc
 })
 
