@@ -1,0 +1,1333 @@
+{
+  "nodes": [
+    {
+      "id": "möte-ks-2024-10-23",
+      "typ": "möte",
+      "label": "KS Sammanträde 2024-10-23",
+      "data": {
+        "datum": "2024-10-23",
+        "organisation": "Kommunstyrelsen",
+        "närvarande": [
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Martin Wannholt",
+            "parti": "D",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Johannes Hulter",
+            "parti": "S",
+            "roll": "Tjänstgörande ersättare"
+          },
+          {
+            "namn": "Nina Miskovsky",
+            "parti": "M",
+            "roll": "Tjänstgörande ersättare"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "roll": "Övriga ersättare"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "roll": "Övriga ersättare"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "roll": "Övriga ersättare"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§845",
+      "typ": "paragraf",
+      "label": "§ 845 Anmälan av jäv vid sammanträdet",
+      "data": {
+        "paragrafNr": "845",
+        "ärendeNr": "SLK-2024-00074",
+        "rubrik": "Anmälan av jäv vid sammanträdet",
+        "fulltext": "§ 845 Ärendenummer SLK-2024-00074\nAnmälan av jäv vid sammanträdet\nBeslut\n\nHampus Magnusson (M) anmäler jäv under paragraf 865: Bidrag till samt översyn av\nenskilda vägar i Göteborgs Stad.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§846",
+      "typ": "paragraf",
+      "label": "§ 846 Kommunstyrelsens lokalbehovsplan 2025",
+      "data": {
+        "paragrafNr": "846",
+        "ärendeNr": "SLK-2024-00830",
+        "rubrik": "Kommunstyrelsens lokalbehovsplan 2025",
+        "fulltext": "§ 846 Ärendenummer SLK-2024-00830\nKommunstyrelsens lokalbehovsplan 2025\nBeslut\n\nEnligt stadsledningskontorets förslag:\nKommunstyrelsens lokalbehovsplan för 2025, i enlighet med bilagan till\nstadsledningskontorets tjänsteutlåtande, godkänns.\n\nHandling\n\nStadsledningskontorets tjänsteutlåtande den 25 september 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§847",
+      "typ": "paragraf",
+      "label": "§ 847 Hemställan från Renova AB om inriktning att implementera koldioxidavskiljning",
+      "data": {
+        "paragrafNr": "847",
+        "ärendeNr": "SLK-2024-00649",
+        "rubrik": "Hemställan från Renova AB om inriktning att implementera koldioxidavskiljning",
+        "fulltext": "§ 847 Ärendenummer SLK-2024-00649\n\nHemställan från Renova AB om inriktning att implementera\nkoldioxidavskiljning\nBeslut\n\nPå förslag av ordföranden Jonas Attenius (S):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 27 september 2024.\nÅterremissyrkande från SD den 14 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "org-renova-ab",
+      "typ": "organisation",
+      "label": "Renova AB",
+      "data": {}
+    },
+    {
+      "id": "ks-2024-10-23-§848",
+      "typ": "paragraf",
+      "label": "§ 848 Kompletterande budget oktober 2024 samt Göteborgs Stads vatten- och avloppstaxa för år 2025, Göteborgs Stads avfallstaxa för år 2025 och Göteborgs Stads taxa för verksamhet enligt miljöbalken",
+      "data": {
+        "paragrafNr": "848",
+        "ärendeNr": "SLK-2024-00672",
+        "rubrik": "Kompletterande budget oktober 2024 samt Göteborgs Stads vatten- och avloppstaxa för år 2025, Göteborgs Stads avfallstaxa för år 2025 och Göteborgs Stads taxa för verksamhet enligt miljöbalken",
+        "fulltext": "§ 848 Ärendenummer SLK-2024-00672\n\nKompletterande budget oktober 2024 samt Göteborgs Stads\nvatten- och avloppstaxa för år 2025, Göteborgs Stads\navfallstaxa för år 2025 och Göteborgs Stads taxa för\nverksamhet enligt miljöbalken\nBeslut\n\nPå förslag av ordföranden Jonas Attenius (S):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nHandling\n\nStadsledningskontorets tjänsteutlåtande den 14 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§849",
+      "typ": "paragraf",
+      "label": "§ 849 Motion av Hans Arby (C) om att inrätta en marin återvinningscentral",
+      "data": {
+        "paragrafNr": "849",
+        "ärendeNr": "SLK-2024-00429",
+        "rubrik": "Motion av Hans Arby (C) om att inrätta en marin återvinningscentral",
+        "fulltext": "§ 849 Ärendenummer SLK-2024-00429\nMotion av Hans Arby (C) om att inrätta en marin\nåtervinningscentral\nBeslut\n\nPå förslag av ordföranden Jonas Attenius (S):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nHandling\n\nStadsledningskontorets tjänsteutlåtande den 17 september 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§850",
+      "typ": "paragraf",
+      "label": "§ 850 Motion av Johanna Holmdahl (KD) om att utfärda kompiskortet till barn med funktionshinder som i dagsläget beviljats stödinsatser inom LSS",
+      "data": {
+        "paragrafNr": "850",
+        "ärendeNr": "SLK-2024-00293",
+        "rubrik": "Motion av Johanna Holmdahl (KD) om att utfärda kompiskortet till barn med funktionshinder som i dagsläget beviljats stödinsatser inom LSS",
+        "fulltext": "§ 850 Ärendenummer SLK-2024-00293\n\nMotion av Johanna Holmdahl (KD) om att utfärda\nkompiskortet till barn med funktionshinder som i dagsläget\nbeviljats stödinsatser inom LSS\nBeslut\n\nPå förslag av Daniel Bernmar (V):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 26 september 2024.\nYrkande från SD den 17 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§851",
+      "typ": "paragraf",
+      "label": "§ 851 Remiss från Finansdepartementet - Nätt och jämnt Likvärdighet och effektivitet i kommunsektorn (SOU 2024:50)",
+      "data": {
+        "paragrafNr": "851",
+        "ärendeNr": "SLK-2024-00725",
+        "rubrik": "Remiss från Finansdepartementet - Nätt och jämnt Likvärdighet och effektivitet i kommunsektorn (SOU 2024:50)",
+        "fulltext": "§ 851 Ärendenummer SLK-2024-00725\n\nRemiss från Finansdepartementet - Nätt och jämnt Likvärdighet och effektivitet i kommunsektorn (SOU 2024:50)\nBeslut\n\nPå förslag av Axel Josefson (M):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nHandling\n\nStadsledningskontorets tjänsteutlåtande den 1 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§852",
+      "typ": "paragraf",
+      "label": "§ 852 Remiss från Arbetsmarknadsdepartementet - Styrkraft för lyckad integration (SOU 2024:41)",
+      "data": {
+        "paragrafNr": "852",
+        "ärendeNr": "SLK-2024-00695",
+        "rubrik": "Remiss från Arbetsmarknadsdepartementet - Styrkraft för lyckad integration (SOU 2024:41)",
+        "fulltext": "§ 852 Ärendenummer SLK-2024-00695\n\nRemiss från Arbetsmarknadsdepartementet - Styrkraft för\nlyckad integration (SOU 2024:41)\nBeslut\n\nEnligt stadsledningskontorets förslag:\nYttrande över remissen Styrkraft för lyckad integration (SOU 2024:41), i enlighet med\nbilaga 2 till stadsledningskontorets tjänsteutlåtande, översänds till\nArbetsmarknadsdepartementet.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 25 september 2024.\nYttrande från SD den 22 oktober 2024.\n\nProtokollsanteckning\n\nJörgen Fogelklou (SD) antecknar som yttrande en skrivelse från den 22 oktober 2024.\n\nProtokollsutdrag skickas till\n\nSkrivelse till Arbetsmarknadsdepartementet",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§853",
+      "typ": "paragraf",
+      "label": "§ 853 Remiss från Utbildningsdepartementet - Statens skolverks redovisning av uppdrag om ett nationellt professionsprogram",
+      "data": {
+        "paragrafNr": "853",
+        "ärendeNr": "SLK-2024-00696",
+        "rubrik": "Remiss från Utbildningsdepartementet - Statens skolverks redovisning av uppdrag om ett nationellt professionsprogram",
+        "fulltext": "§ 853 Ärendenummer SLK-2024-00696\n\nRemiss från Utbildningsdepartementet - Statens skolverks\nredovisning av uppdrag om ett nationellt professionsprogram\nBeslut\n\nEnligt stadsledningskontorets förslag:\nYttrande över remissen av Statens skolverks redovisning av uppdrag om ett nationellt\nprofessionsprogram, i enlighet med bilaga 2 till stadsledningskontorets tjänsteutlåtande,\növersänds till Utbildningsdepartementet.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 27 september 2024.\nYttrande från S, MP och V den 18 oktober 2024.\n\nProtokollsanteckning\n\nRepresentanterna från S och V antecknar som yttrande en skrivelse från\nden 18 oktober 2024.\n\nProtokollsutdrag skickas till\nSkrivelse till Utbildningsdepartementet",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§854",
+      "typ": "paragraf",
+      "label": "§ 854 Redovisning av uppdrag om utvecklad ekonomistyrning avseende hyressättning av stadens verksamhetslokaler",
+      "data": {
+        "paragrafNr": "854",
+        "ärendeNr": "SLK-2023-00963",
+        "rubrik": "Redovisning av uppdrag om utvecklad ekonomistyrning avseende hyressättning av stadens verksamhetslokaler",
+        "fulltext": "§ 854 Ärendenummer SLK-2023-00963\n\nRedovisning av uppdrag om utvecklad ekonomistyrning\navseende hyressättning av stadens verksamhetslokaler\nBeslut\n\nPå förslag av tjänstgörande ersättaren Johannes Hulter (S):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nTidigare behandling\n\nBordlagt den 25 september 2024, § 739.\n\nHandling\n\nStadsledningskontorets tjänsteutlåtande den 30 augusti 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§855",
+      "typ": "paragraf",
+      "label": "§ 855 Redovisning av uppdrag om att ta fram förslag på hur villkoren för familjehem kan förbättras",
+      "data": {
+        "paragrafNr": "855",
+        "ärendeNr": "SLK-2024-00440",
+        "rubrik": "Redovisning av uppdrag om att ta fram förslag på hur villkoren för familjehem kan förbättras",
+        "fulltext": "§ 855 Ärendenummer SLK-2024-00440\n\nRedovisning av uppdrag om att ta fram förslag på hur\nvillkoren för familjehem kan förbättras\nBeslut\n\nPå förslag av Jenny Broman (V):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 792.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 11 september 2024.\nTilläggsyrkande från M, D, L och KD den 4 oktober 2024.\nTilläggsyrkande från SD den 4 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§856",
+      "typ": "paragraf",
+      "label": "§ 856 Redovisning av uppdrag om inrättandet av en omställningsfunktion för ett giftfritt Göteborg",
+      "data": {
+        "paragrafNr": "856",
+        "ärendeNr": "SLK-2024-00791",
+        "rubrik": "Redovisning av uppdrag om inrättandet av en omställningsfunktion för ett giftfritt Göteborg",
+        "fulltext": "§ 856 Ärendenummer SLK-2024-00791\nRedovisning av uppdrag om inrättandet av en\nomställningsfunktion för ett giftfritt Göteborg\nBeslut\n\nKommunstyrelsen tillstyrker stadsledningskontorets förslag och föreslår att\nkommunfullmäktige beslutar:\n1. Redovisning av kommunfullmäktiges uppdrag 23 februari 2023 § 32 punkt 1, till\nmiljö- och klimatnämnden om att föreslå hur arbetet för en giftfri miljö skulle kunna\nbyggas upp och organiseras med ett liknande koncept som Göteborgs Stads\nklimatomställningsfunktion inom budgetram, antecknas och förklaras fullgjort.\n2. Redovisning av kommunfullmäktiges uppdrag 23 februari 2023 § 32 punkt 2, till\nmiljö- och klimatnämnden om att utöver nuvarande resurser för kemikaliearbetet\nundersöka möjligheterna till extern finansiering för att möjliggöra inrättandet av en\nomställningsfunktion för ett giftfritt Göteborg, antecknas och förklaras fullgjort.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 793.\n\nHandling\n\nStadsledningskontorets tjänsteutlåtande den 12 september 2024.\n\nProtokollsutdrag skickas till\nKF Handling 2024 nr 197",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "tillstyrkan_kf",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "org-miljö--och-klimatnämnden",
+      "typ": "organisation",
+      "label": "miljö- och klimatnämnden",
+      "data": {}
+    },
+    {
+      "id": "ks-2024-10-23-§857",
+      "typ": "paragraf",
+      "label": "§ 857 Hemställan från exploateringsnämnden om en planeringsinriktning Fiskebäcks hamn, muddring och utbyggnad av kajer",
+      "data": {
+        "paragrafNr": "857",
+        "ärendeNr": "SLK-2024-00702",
+        "rubrik": "Hemställan från exploateringsnämnden om en planeringsinriktning Fiskebäcks hamn, muddring och utbyggnad av kajer",
+        "fulltext": "§ 857 Ärendenummer SLK-2024-00702\n\nHemställan från exploateringsnämnden om en\nplaneringsinriktning Fiskebäcks hamn, muddring och\nutbyggnad av kajer\nBeslut\n\nEnligt återremissyrkande från S, V och MP:\nÄrendet återremitteras till exploateringsnämnden med följande uppdrag:\n•\n•\n•\n•\n•\n\nUtreda frågan om otillåtet statsstöd.\nTa fram en samhällsekonomisk analys av projektets nytta.\nTa fram en redogörelse för de ekonomiska riskerna för staden om FUAB skulle få\nproblem att betala avgälden under de första 30 åren.\nTa fram en redogörelse för vilka garantier som har givits, och som finns för att\ninvesteringen kommer skapa fler arbetstillfällen i Göteborg.\nTa fram en tydligare beskrivning av hur projektet och den planerade verksamheten\nförhåller sig till gällande översiktsplan samt stadens miljö- och klimatprogram\ninklusive en redogörelse av projektets klimatpåverkan.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 794.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 11 september 2024.\nYrkande från SD den 30 september 2024.\nYrkande från M, D, L och KD den 4 oktober 2024.\nÅterremissyrkande från S, V och MP den 18 oktober 2024.\n\nYrkanden\n\nTjänstgörande ersättaren Johannes Hulter (S) yrkar att ärendet ska återremitteras enligt\nyrkande från S, V och MP den 18 oktober 2024 samt avslag på övriga yrkanden.\nAxel Josefson (M) yrkar bifall till yrkande från M, D, L och KD den 4 oktober 2024 och\navslag på återremissyrkande från S, V och MP den 18 oktober 2024.\nJörgen Fogelklou (SD) yrkar bifall till yrkande från SD den 30 september 2024.\n\nPropositionsordning\n\nOrdföranden Jonas Attenius (S) ställer först propositioner på dels ärendets återremiss och\ndels ärendets avgörande idag och finner att kommunstyrelsen beslutat återremittera\närendet. Omröstning begärs.\n\nKommunstyrelsen\n\nOmröstning\n\nProtokoll nr 30\nSammanträdesdatum: 2024-10-23\n\nGodkänd voteringsproposition: ”Ja för ärendets återremiss och Nej för ärendets\navgörande idag.”\nDaniel Bernmar (V), Viktoria Tryggvadottir Rolka (S), Blerta Hoti (S), Jenny Broman (V),\nMarina Johansson (S), tjänstgörande ersättaren Johannes Hulter (S) och ordföranden\nJonas Attenius (S) röstar Ja (7).\nAxel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Jörgen Fogelklou\n(SD), Axel Darvik (L) och Elisabet Lann (KD) röstar Nej (6).\n\nReservation\n\nAxel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Axel Darvik (L) och\nElisabet Lann (KD) reserverar sig mot beslutet enligt följande:\nModeraterna, Demokraterna, Liberalerna och Kristdemokraterna reserverar sig mot\nSocialdemokraternas och Vänsterpartiets beslut att återemittera ärendet till\nexploateringsnämnden. Det är demokratiskt olyckligt att de utnyttjar en falsk majoritet i\nkommunstyrelsen att fördröja ett ärende där det sannolikt finns en majoritet i\nkommunfullmäktige för godkännande av föreslagen planeringsinriktning och projektram.\nFrågan om godkännande eller återremiss borde därför ha fått avgöras i\nkommunfullmäktige. Dessutom omfattar återremissen uppdrag om ytterligare utredning\nom frågan om statsstöd och en samhällsekonomis analys, vilka\nexploateringsförvaltningen vid nämndbeslutet sa sig ha problem att omhänderta. Frågan\nom projektet ska ses som otillåtet statsstöd eller inte har utretts och bedömts av\nförvaltningen så långt som går och nästa steg är att i ett senare skede göra en regelrätt\nansökan om godkännande till EU-kommissionen. Exploateringsförvaltningen har inte\ninformation, verktyg och kompetens för att kunna göra den omfattande\nsamhällsekonomisk analys som efterfrågas.\n\nProtokollsutdrag skickas till\nExploateringsnämnden - Återremiss",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Tjänstgörande ersättaren Johannes Hulter",
+            "parti": "S",
+            "typ": "att ärendet ska återremitteras enligt"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "typ": "yrkande från M, D, L och KD den 4 oktober 2024 och"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "yrkande från SD den 30 september 2024"
+          }
+        ],
+        "reservationer": [
+          "Axel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Axel Darvik (L) och\nElisabet Lann (KD) reserverar sig mot beslutet enligt följande:\nModeraterna, Demokraterna, Liberalerna och Kristdemokraterna reserverar sig mot\nSocialdemokraternas och Vänsterpartiets beslut att återemittera ärendet till\nexploateringsnämnden. Det är demokratiskt olyckligt att de utnyttjar en falsk majoritet i\nkommunstyrelsen att fördröja ett ärende där det sannolikt finns en majoritet i\nkommunfullmäktige för godkännande av föreslagen planeringsinriktning och projektram.\nFrågan om godkännande eller återremiss borde därför ha fått avgöras i\nkommunfullmäktige. Dessutom omfattar återremissen uppdrag om ytterligare utredning\nom frågan om statsstöd och en samhällsekonomis analys, vilka\nexploateringsförvaltningen vid nämndbeslutet sa sig ha problem att omhänderta. Frågan\nom projektet ska ses som otillåtet statsstöd eller inte har utretts och bedömts av\nförvaltningen så långt som går och nästa steg är att i ett senare skede göra en regelrätt\nansökan om godkännande till EU-kommissionen. Exploateringsförvaltningen har inte\ninformation, verktyg och kompetens för att kunna göra den omfattande\nsamhällsekonomisk analys som efterfrågas."
+        ]
+      }
+    },
+    {
+      "id": "org-exploateringsnämnden",
+      "typ": "organisation",
+      "label": "exploateringsnämnden",
+      "data": {}
+    },
+    {
+      "id": "ks-2024-10-23-§858",
+      "typ": "paragraf",
+      "label": "§ 858 Genomförandebeslut för byggnation av Skra Bro Vård- och omsorgsboende",
+      "data": {
+        "paragrafNr": "858",
+        "ärendeNr": "SLK-2024-00794",
+        "rubrik": "Genomförandebeslut för byggnation av Skra Bro Vård- och omsorgsboende",
+        "fulltext": "§ 858 Ärendenummer SLK-2024-00794\n\nGenomförandebeslut för byggnation av Skra Bro Vård- och\nomsorgsboende\nBeslut\n\nPå förslag av Axel Josefson (M):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 795.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 4 september 2024.\nÅterremissyrkande från SD den 30 september 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§859",
+      "typ": "paragraf",
+      "label": "§ 859 Begäran om överlåtelse av tillsynsansvar från Länsstyrelsen Västra Götaland för vattenverksamhet enligt 11 kap. miljöbalken",
+      "data": {
+        "paragrafNr": "859",
+        "ärendeNr": "SLK-2024-00790",
+        "rubrik": "Begäran om överlåtelse av tillsynsansvar från Länsstyrelsen Västra Götaland för vattenverksamhet enligt 11 kap. miljöbalken",
+        "fulltext": "§ 859 Ärendenummer SLK-2024-00790\n\nBegäran om överlåtelse av tillsynsansvar från Länsstyrelsen\nVästra Götaland för vattenverksamhet enligt 11 kap.\nmiljöbalken\nBeslut\n\nKommunstyrelsen tillstyrker stadsledningskontorets förslag och föreslår att\nkommunfullmäktige beslutar:\n1. Kommunfullmäktige begär hos Länsstyrelsen Västra Götaland att kommunen genom\nmiljö- och klimatnämnden får överta tillsyn över vattenverksamheter enligt 11 kap.\nmiljöbalken i enlighet med stadsledningskontorets tjänsteutlåtande.\n2. Kommunfullmäktiges beslut översänds till Länsstyrelsen Västra Götaland.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 796.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 16 september 2024.\nÅterremissyrkande från SD den 4 oktober 2024.\nÅterremissyrkande från M, D, L och KD den 2 oktober 2024.\n\nYrkanden\n\nJörgen Fogelklou (SD) yrkar i första hand att ärendet ska återremitteras enligt yrkande\nfrån SD den 4 oktober 2024 och i andra hand att ärendet ska återremitteras enligt yrkande\nfrån M, D, L och KD den 2 oktober 2024.\nAxel Josefson (M) yrkar att ärendet ska återremitteras enligt yrkande från\nM, D, L och KD den 2 oktober 2024 och yrkande från SD den 4 oktober 2024.\nOrdföranden Jonas Attenius (S) yrkar bifall till stadsledningskontorets förslag och avslag\npå övriga yrkanden.\n\nPropositionsordning\n\nOrdföranden ställer först propositioner på dels ärendets återremiss enligt yrkande från\nM, D, L och KD och dels ärendets avgörande idag och finner att kommunstyrelsen\nbeslutat avgöra ärendet vid dagens sammanträde.\nOrdföranden ställer härefter propositioner på dels ärendets återremiss enligt yrkande från\nSD och dels ärendets avgörande idag och finner att kommunstyrelsen beslutat avgöra\närendet vid dagens sammanträde.\nKommunstyrelsen beslutar därefter att bifalla stadsledningskontorets förslag.\n\nKommunstyrelsen\n\nProtokollsutdrag skickas till\n\nProtokoll nr 30\nSammanträdesdatum: 2024-10-23\n\nKF Handling 2024 nr 198",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "tillstyrkan_kf",
+        "yrkanden": [
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "i första hand att ärendet ska återremitteras enligt yrkande"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "typ": "att ärendet ska återremitteras enligt yrkande från"
+          }
+        ],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "org-länsstyrelsen",
+      "typ": "organisation",
+      "label": "Länsstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "org-sd-och-dels-ärendets-avgörande-idag-och-finner-att-kommunstyrelsen",
+      "typ": "organisation",
+      "label": "SD och dels ärendets avgörande idag och finner att kommunstyrelsen",
+      "data": {}
+    },
+    {
+      "id": "ks-2024-10-23-§860",
+      "typ": "paragraf",
+      "label": "§ 860 Utdelning ur Göteborgs Stads Parkering AB",
+      "data": {
+        "paragrafNr": "860",
+        "ärendeNr": "SLK-2024-00747",
+        "rubrik": "Utdelning ur Göteborgs Stads Parkering AB",
+        "fulltext": "§ 860 Ärendenummer SLK-2024-00747\nUtdelning ur Göteborgs Stads Parkering AB\nBeslut\n\nPå förslag av Axel Josefson (M):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 797.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 24 september 2024.\nYttrande från SD den 7 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§861",
+      "typ": "paragraf",
+      "label": "§ 861 Göteborgs Stads åtgärdsplan för partiklar (PM10) 2025–2030",
+      "data": {
+        "paragrafNr": "861",
+        "ärendeNr": "SLK-2023-00446",
+        "rubrik": "Göteborgs Stads åtgärdsplan för partiklar (PM10) 2025–2030",
+        "fulltext": "§ 861 Ärendenummer SLK-2023-00446\n\nGöteborgs Stads åtgärdsplan för partiklar (PM10) 2025–2030\nBeslut\n\nPå förslag av Axel Josefson (M):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 798.\n\nHandling\n\nStadsledningskontorets tjänsteutlåtande den 16 september 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§862",
+      "typ": "paragraf",
+      "label": "§ 862 Redovisning av konsekvenser av att föra över ansvaret för stadmiljönämndens arbetsmarknadsenhet till nämnden för arbetsmarknad och vuxenutbildning",
+      "data": {
+        "paragrafNr": "862",
+        "ärendeNr": "SLK-2023-01049",
+        "rubrik": "Redovisning av konsekvenser av att föra över ansvaret för stadmiljönämndens arbetsmarknadsenhet till nämnden för arbetsmarknad och vuxenutbildning",
+        "fulltext": "§ 862 Ärendenummer SLK-2023-01049\n\nRedovisning av konsekvenser av att föra över ansvaret för\nstadmiljönämndens arbetsmarknadsenhet till nämnden för\narbetsmarknad och vuxenutbildning\nBeslut\n\nKommunstyrelsen tillstyrker stadsledningskontorets förslag och föreslår att\nkommunfullmäktige beslutar:\nRedovisning av kommunfullmäktiges uppdrag, givet i budget 2024, att redovisa\nkonsekvenserna av att föra över ansvaret för stadsmiljönämndens arbetsmarknadsenhet\ntill nämnden för arbetsmarknad och vuxenutbildning, antecknas och förklaras fullgjort.\n\nTidigare behandling\n\nBordlagt den 25 september 2024, § 736 och den 9 oktober 2024, § 806.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 4 september 2024.\nYttrande från V, S och MP den 18 oktober 2024.\n\nProtokollsanteckning\n\nRepresentanterna från V och S antecknar som yttrande en skrivelse från\nden 18 oktober 2024.\n\nProtokollsutdrag skickas till\nKF Handling 2024 nr 199",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "tillstyrkan_kf",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§863",
+      "typ": "paragraf",
+      "label": "§ 863 Redovisning av uppdrag att ta fram ett alternativt mått till Polismyndighetens lista över utsatta områden",
+      "data": {
+        "paragrafNr": "863",
+        "ärendeNr": "SLK-2023-01040",
+        "rubrik": "Redovisning av uppdrag att ta fram ett alternativt mått till Polismyndighetens lista över utsatta områden",
+        "fulltext": "§ 863 Ärendenummer SLK-2023-01040\n\nRedovisning av uppdrag att ta fram ett alternativt mått till\nPolismyndighetens lista över utsatta områden\nBeslut\n\nKommunstyrelsen tillstyrker stadsledningskontorets förslag med tillägg enligt yrkande\nfrån S, V och MP den 22 oktober 2024 och föreslår att kommunfullmäktige beslutar:\n1. Redovisning av kommunfullmäktiges uppdrag, givet i budget 2024, att ta fram ett\nalternativt mått till Polismyndighetens lista över utsatta områden, antecknas och\nförklaras fullgjort.\n2. Kommunstyrelsen får i uppdrag att årligen genomföra en analys enligt\nStadsledningskontorets förslag på analysmodell och redovisa den inom ramen för\nordinarie uppföljning. Analysen ska tillgängliggöras för samtliga nämnder och\nstyrelser och utgöra underlag för insatser inom deras uppdrag.\n3. Stadsbyggnadsnämnden får i uppdrag att uppdatera tillgänglighetsmåttets målpunkter\noch följa upp tillgängligheten med hjälp av det framtagna verktyget på ett sådant vis\natt det kan ingå i stadsledningskontorets analysmodell.\n\nTidigare behandling\n\nBordlagt den 25 september 2024, § 737 och den 9 oktober 2024, § 807.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 23 augusti 2024.\nTilläggsyrkande från SD den 7 oktober 2024.\nTilläggsyrkande från S, V och MP särskilt yttrande C den 18 oktober 2024.\nYttrande från M, D, L och KD den 24 september 2024.\n\nYrkanden\n\nOrdföranden Jonas Attenius (S) yrkar bifall till stadsledningskontorets förslag och\ntilläggsyrkande från S, V och MP den 18 oktober 2024 samt avslag på tilläggsyrkande\nfrån SD den 7 oktober 2024.\nJörgen Fogelklou (SD) yrkar bifall till tilläggsyrkande från SD den 7 oktober 2024.\nAxel Josefson (M) yrkar bifall till stadsledningskontorets förslag och avslag på övriga\nyrkanden.\n\nKommunstyrelsen\n\nPropositionsordning\n\nProtokoll nr 30\nSammanträdesdatum: 2024-10-23\n\nKommunstyrelsen beslutar först att bifalla stadsledningskontorets förslag.\nOrdföranden ställer härefter propositioner på bifall respektive avslag på tilläggsyrkandet\nfrån S, V och MP och finner att det bifallits.\nOrdföranden ställer därefter propositioner på bifall respektive avslag på tilläggsyrkandet\nfrån SD och finner att det avslagits.\n\nProtokollsanteckningar\n\nRepresentanterna från M, D, L och KD antecknar som yttrande en skrivelse från\nden 24 september 2024.\nEmmyly Bönfors (C) antecknar som yttrande en skrivelse från den 18 oktober 2024.\n\nProtokollsutdrag skickas till\nKF Handling 2024 nr 200",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "tilläggsyrkande från SD den 7 oktober 2024"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "typ": "stadsledningskontorets förslag och avslag på övriga"
+          }
+        ],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§864",
+      "typ": "paragraf",
+      "label": "§ 864 Göteborgs Stads program för jämlika livsvillkor och jämlik hälsa 2024-2030",
+      "data": {
+        "paragrafNr": "864",
+        "ärendeNr": "SLK-2022-01235",
+        "rubrik": "Göteborgs Stads program för jämlika livsvillkor och jämlik hälsa 2024-2030",
+        "fulltext": "§ 864 Ärendenummer SLK-2022-01235\n\nGöteborgs Stads program för jämlika livsvillkor och jämlik\nhälsa 2024-2030\nBeslut\n\nKommunstyrelsen tillstyrker yrkande från V, S och MP den 18 oktober 2024 och föreslår\natt kommunfullmäktige beslutar:\n1. Göteborgs Stads program för jämlika livsvillkor och jämlik hälsa 2024-2030, i\nenlighet med bilaga 4 till stadsledningskontorets tjänstutlåtande med de ändringar och\ntillägg som framgår av yrkande från V, S och MP, antas.\n2. Kommunstyrelsen får i uppdrag att vid behov revidera programmet i enlighet med\nden nya socialtjänstlagen som träder i kraft 2025.\n3. Göteborgs Stads program för en jämlik stad 2018-2026 som antogs av\nkommunfullmäktige 2018-01-18 § 10, upphör att gälla.\n4. Göteborgs Stads folkhälsoprogram 2019-2020 som antogs av kommunfullmäktige\n2019-05-23 § 10 och förlängdes 2023-01-26 § 20, upphör att gälla.\n5. Göteborgs Stads strategiska plan för suicidprevention som antogs av\nkommunfullmäktige 2014-10-09 § 13 och förlängdes 2023-01-26 § 20, upphör att\ngälla.\n6. Redovisning av kommunfullmäktiges uppdrag 2022-10-27 § 34, att ta fram ett nytt\nprogram för jämlika livsvillkor och jämlik hälsa, förklaras fullgjort.\n\nTidigare behandling\n\nBordlagt den 28 augusti 2024, § 602, den 11 september 2024, § 696,\nden 25 september 2024, § 752 och den 9 oktober 2024, § 810.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 10 juni 2024.\nYrkande från KD, M och D den 23 augusti 2024.\nYrkande från SD den 17 oktober 2024.\nYrkande från V, S och MP särskilt yttrande C den 18 oktober 2024.\nYttrande från SD den 27 augusti 2024.\n\nYrkanden\n\nDaniel Bernmar (V) yrkar bifall till yrkande från V, S och MP den 18 oktober 2024 och\navslag på övriga yrkanden.\nJörgen Fogelklou (SD) yrkar bifall till yrkande från SD den 17 oktober 2024.\nAxel Josefson (M) yrkar bifall till yrkande från KD, M och D den 23 augusti 2024 och\navslag på övriga yrkanden.\nAxel Darvik (L) yrkar bifall till stadsledningskontorets förslag.\n\nKommunstyrelsen\n\nPropositionsordning\n\nProtokoll nr 30\nSammanträdesdatum: 2024-10-23\n\nOrdföranden Jonas Attenius (S) ställer propositioner på yrkandena och finner att\nDaniel Bernmars yrkande bifallits.\n\nProtokollsanteckningar\n\nJörgen Fogelklou (SD) antecknar som yttrande en skrivelse från den 27 augusti 2024.\nEmmyly Bönfors (C) antecknar som yttrande en skrivelse från den 18 oktober 2024.\n\nProtokollsutdrag skickas till\nKF Handling 2024 nr 201",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "typ": "yrkande från V, S och MP den 18 oktober 2024 och"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "yrkande från SD den 17 oktober 2024"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "typ": "yrkande från KD, M och D den 23 augusti 2024 och"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "typ": "stadsledningskontorets förslag"
+          }
+        ],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§865",
+      "typ": "paragraf",
+      "label": "§ 865 Bidrag till samt översyn av enskilda vägar i Göteborgs Stad",
+      "data": {
+        "paragrafNr": "865",
+        "ärendeNr": "SLK-2022-01387",
+        "rubrik": "Bidrag till samt översyn av enskilda vägar i Göteborgs Stad",
+        "fulltext": "§ 865 Ärendenummer SLK-2022-01387\n\nBidrag till samt översyn av enskilda vägar i Göteborgs Stad\nBeslut\n\nKommunstyrelsen tillstyrker stadsledningskontorets förslag och föreslår att\nkommunfullmäktige beslutar:\n\n1. Göteborgs Stad ska lämna över skötseln av enskilda vägar till respektive\nvägsamfällighet från och med den 1 januari 2025. Beslutet ska verkställas successivt i\nvarje enskilt fall och med berörd vägsamfällighet.\n2. Villkor för bidrag till enskilda vägar i Göteborgs Stad, i enlighet med bilaga 5 till\nstadsledningskontorets tjänsteutlåtande, fastställs.\n3. Stadsmiljönämnden får delegation att besluta om bidrag för respektive\nverksamhetsområde utifrån Villkor för bidrag till enskilda vägar i Göteborgs Stad.\n4. Södra skärgården omfattas tills vidare inte av denna förändring.\n\nTidigare behandling\n\nÅterremitterat den 24 maj 2023, § 439. Bordlagt den 12 juni 2024, § 544,\nden 28 augusti 2024, § 625, den 11 september 2024, § 705, den 25 september 2024, § 754\noch den 9 oktober 2024, § 811.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 2 mars 2023, reviderat den 10 maj 2024.\nÅterremissyrkande från D, M, L och KD den 9 oktober 2024.\nYttrande från S, MP och V den 22 oktober 2024.\n\nYrkanden\n\nOrdföranden Jonas Attenius (S) yrkar bifall till stadsledningskontorets förslag och avslag\npå återremissyrkande från D, M, L och KD den 9 oktober 2024.\nAxel Josefson (M) och Jörgen Fogelklou (SD) yrkar att ärendet ska återremitteras enligt\nyrkande från D, M, L och KD den 9 oktober 2024 samt anmäler att ledamöterna från\nM, D, L och KD och SD inte deltar i beslutet för det fall återremissyrkandet faller.\n\nPropositionsordning\n\nOrdföranden ställer först proposition på dels ärendets återremiss och dels ärendets\navgörande idag och finner att kommunstyrelsen beslutat avgöra ärendet vid dagens\nsammanträde.\nKommunstyrelsen beslutar härefter att bifalla stadsledningskontorets förslag.\n\nJäv\n\nHampus Magnusson (M) deltar inte i handläggningen av ärendet på grund av jäv.\n\nKommunstyrelsen\n\nProtokollsanteckningar\n\nProtokoll nr 30\nSammanträdesdatum: 2024-10-23\n\nAxel Josefson (M), Martin Wannholt (D), Axel Darvik (L), Elisabet Lann (KD),\ntjänstgörande ersättaren Nina Miskovsky (M) och Jörgen Fogelklou (SD) deltar inte i\nbeslutet.\nRepresentanterna från S och V antecknar som yttrande en skrivelse från\nden 22 oktober 2024.\n\nProtokollsutdrag skickas till\nKF Handling 2024 nr 202",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "tillstyrkan_kf",
+        "yrkanden": [
+          {
+            "namn": "Axel Josefson och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "att ärendet ska återremitteras enligt"
+          }
+        ],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§866",
+      "typ": "paragraf",
+      "label": "§ 866 Revidering av Göteborgs Stads riktlinje för god ekonomisk hushållning samt resultatutjämningsreserv och resultatreserv",
+      "data": {
+        "paragrafNr": "866",
+        "ärendeNr": "SLK-2023-00089",
+        "rubrik": "Revidering av Göteborgs Stads riktlinje för god ekonomisk hushållning samt resultatutjämningsreserv och resultatreserv",
+        "fulltext": "§ 866 Ärendenummer SLK-2023-00089\n\nRevidering av Göteborgs Stads riktlinje för god ekonomisk\nhushållning samt resultatutjämningsreserv och\nresultatreserv\nBeslut\n\nKommunstyrelsen tillstyrker yrkande från S, V och MP den 18 oktober 2024 och föreslår\natt kommunfullmäktige beslutar:\n1. Reviderad version av Göteborgs Stads riktlinje för god ekonomisk hushållning samt\nresultatutjämningsreserv och resultatreserv, i enlighet med bilaga 1 i yrkande från\nS, V och MP fastställs och gäller från och med den 1 januari 2025.\n2. Kommunstyrelsen får i uppdrag att kontinuerligt följa nettolåneskuldens utveckling\nkopplat till den skattefinansierade delen av stadens verksamhet och sett till antalet\ninvånare.\n\nTidigare behandling\n\nBordlagt den 24 januari 2024, § 46, den 7 februari 2024, § 105, den 21 februari 2024,\n§ 150, den 6 mars 2024, § 200, den 20 mars 2024, § 239, den 10 april 2024, § 301,\nden 24 april 2024, § 357, den 8 maj 2024, § 403, den 29 maj 2024, § 496,\nden 12 juni 2024, § 564, den 28 augusti 2024, § 628, den 11 september 2024, § 706,\nden 25 september 2024, § 755 och den 9 oktober 2024, § 812.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 18 december 2023.\nÅterremissyrkande från M, D, L och KD den 22 oktober 2024.\nYrkande från S, V och MP särskilt yttrande C den 18 oktober 2024.\nYttrande från SD den 18 mars 2024.\nYttrande från C den 18 oktober 2024.\n\nYrkanden\n\nOrdföranden Jonas Attenius (S) yrkar bifall till yrkande från V, S och MP\nden 18 oktober 2024 och avslag på återremissyrkande från M, D, L och KD\nden 22 oktober 2024.\nAxel Josefson (M) yrkar att ärendet ska återremitteras enligt yrkande från\nM, D, L och KD den 22 oktober 2024 och avslag på övriga yrkanden för det fall\nåterremissyrkandet faller.\nJörgen Fogelklou (SD) yrkar bifall till stadsledningskontorets förslag.\n\nKommunstyrelsen\n\nPropositionsordning\n\nProtokoll nr 30\nSammanträdesdatum: 2024-10-23\n\nOrdföranden ställer först propositioner på dels ärendets återremiss och dels ärendets\navgörande idag och finner att kommunstyrelsen beslutat avgöra ärendet vid dagens\nsammanträde. Omröstning begärs.\n\nOmröstning\n\nGodkänd voteringsproposition: \"Ja för ärendets avgörande idag och Nej för ärendets\nåterremiss.\"\nDaniel Bernmar (V), Viktoria Tryggvadottir Rolka (S), Blerta Hoti (S), Jörgen Fogelklou\n(SD), Jenny Broman (V), Marina Johansson (S), tjänstgörande ersättaren Johannes Hulter\n(S) och ordföranden Jonas Attenius (S) röstar Ja (8).\nAxel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Axel Darvik (L) och\nElisabet Lann (KD) röstar Nej (5).\n\nPropositionsordning\n\nOrdföranden ställer härefter propositioner på återstående yrkanden och finner att det egna\nyrkandet bifallits.\n\nProtokollsanteckningar\n\nJörgen Fogelklou (SD) antecknar som yttrande en skrivelse från den 18 mars 2024.\nEmmyly Bönfors (C) antecknar som yttrande två skrivelser från den 18 oktober 2024.\n\nReservation\n\nAxel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Axel Darvik (L) och\nElisabet Lann (KD) reserverar sig mot beslutet.\n\nProtokollsutdrag skickas till\nKF Handling 2024 nr 203",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "typ": "att ärendet ska återremitteras enligt yrkande från"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "stadsledningskontorets förslag"
+          }
+        ],
+        "reservationer": [
+          "Axel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Axel Darvik (L) och\nElisabet Lann (KD) reserverar sig mot beslutet."
+        ]
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§867",
+      "typ": "paragraf",
+      "label": "§ 867 Yrkande från SD angående åtgärder mot missbruk av lustgas i Göteborgs kommun i väntan på ett nationellt förbud",
+      "data": {
+        "paragrafNr": "867",
+        "ärendeNr": "SLK-2024-00891",
+        "rubrik": "Yrkande från SD angående åtgärder mot missbruk av lustgas i Göteborgs kommun i väntan på ett nationellt förbud",
+        "fulltext": "§ 867 Ärendenummer SLK-2024-00891\n\nYrkande från SD angående åtgärder mot missbruk av lustgas\ni Göteborgs kommun i väntan på ett nationellt förbud\nBeslut\n\nPå förslag av Axel Josefson (M):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 827.\n\nHandling\n\nYrkande från SD den 30 september 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§868",
+      "typ": "paragraf",
+      "label": "§ 868 Yrkande från M, D, L och KD angående kartläggning och åtgärder för att underlätta orosanmälningar i förskolan",
+      "data": {
+        "paragrafNr": "868",
+        "ärendeNr": "SLK-2024-00895",
+        "rubrik": "Yrkande från M, D, L och KD angående kartläggning och åtgärder för att underlätta orosanmälningar i förskolan",
+        "fulltext": "§ 868 Ärendenummer SLK-2024-00895\n\nYrkande från M, D, L och KD angående kartläggning och\nåtgärder för att underlätta orosanmälningar i förskolan\nBeslut\n\nYrkandet från M, D, L och KD avslås.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 828.\n\nHandlingar\n\nYrkande från M, D, L och KD den 15 september 2024.\nTilläggsyrkande från SD den 17 oktober 2024.\nYttrande från V, S och MP den 22 oktober 2024.\n\nYrkanden\n\nAxel Josefson (M) och Jörgen Fogelklou (SD) yrkar bifall till yrkande från\nM, D, L och KD den 15 september 2024 och tilläggsyrkande från SD\nden 17 oktober 2024.\nJenny Broman (V) yrkar avslag på samtliga yrkanden.\n\nPropositionsordning\n\nOrdföranden Jonas Attenius (S) ställer propositioner på bifall respektive avslag på\nyrkandet från M, D, L och KD och finner att det avslagits. Omröstning begärs.\n\nOmröstning\n\nGodkänd voteringsproposition: \"Ja för avslag och Nej för bifall till yrkandet från\nM, D, L och KD.\"\nDaniel Bernmar (V), Viktoria Tryggvadottir Rolka (S), Blerta Hoti (S), Jenny Broman (V),\nMarina Johansson (S), tjänstgörande ersättaren Johannes Hulter (S) och ordföranden\nJonas Attenius (S) röstar Ja (7).\nAxel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Jörgen Fogelklou\n(SD), Axel Darvik (L) och Elisabet Lann (KD) röstar Nej (6).\nOrdföranden konstaterar härmed att tilläggsyrkandet från SD har fallit.\n\nProtokollsanteckning\n\nRepresentanterna från V och S antecknar som yttrande en skrivelse från\nden 22 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "avslag",
+        "yrkanden": [
+          {
+            "namn": "Axel Josefson och Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "yrkande från"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "typ": "på samtliga yrkanden"
+          }
+        ],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§869",
+      "typ": "paragraf",
+      "label": "§ 869 Yrkande från M, D, L och KD angående inhämtning av synpunkter från branschorganisationer",
+      "data": {
+        "paragrafNr": "869",
+        "ärendeNr": "SLK-2024-00898",
+        "rubrik": "Yrkande från M, D, L och KD angående inhämtning av synpunkter från branschorganisationer",
+        "fulltext": "§ 869 Ärendenummer SLK-2024-00898\n\nYrkande från M, D, L och KD angående inhämtning av\nsynpunkter från branschorganisationer\nBeslut\n\nYrkandet från M, D, L och KD avslås.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 828.\n\nHandlingar\n\nYrkande från M, D, L och KD den 2 oktober 2024.\nTilläggsyrkande från SD den 17 oktober 2024.\n\nYrkanden\n\nAxel Josefson (M) yrkar bifall till yrkande från M, D, L och KD den 2 oktober 2024 och\navslag på tilläggsyrkande från SD den 17 oktober 2024.\nJörgen Fogelklou (SD) yrkar bifall till yrkande från M, D, L och KD den 2 oktober 2024\noch tilläggsyrkande från SD den 17 oktober 2024.\nOrdföranden Jonas Attenius (S) yrkar avslag på samtliga yrkanden.\n\nPropositionsordning\n\nOrdföranden Jonas Attenius (S) ställer propositioner på bifall respektive avslag på\nyrkandet från M, D, L och KD och finner att det avslagits. Omröstning begärs.\n\nOmröstning\n\nGodkänd voteringsproposition: \"Ja för avslag och Nej för bifall till yrkandet från\nM, D, L och KD.\"\nDaniel Bernmar (V), Viktoria Tryggvadottir Rolka (S), Blerta Hoti (S), Jenny Broman\n(V), Marina Johansson (S), tjänstgörande ersättaren Johannes Hulter (S) och ordföranden\nJonas Attenius (S) röstar Ja (7).\nAxel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Jörgen Fogelklou\n(SD), Axel Darvik (L) och Elisabet Lann (KD) röstar Nej (6).\nOrdföranden konstaterar härmed att tilläggsyrkandet från SD har fallit.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "avslag",
+        "yrkanden": [
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "typ": "yrkande från M, D, L och KD den 2 oktober 2024 och"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "yrkande från M, D, L och KD den 2 oktober 2024"
+          }
+        ],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§870",
+      "typ": "paragraf",
+      "label": "§ 870 Förslag till budget 2025 och flerårsplaner 2026-2027",
+      "data": {
+        "paragrafNr": "870",
+        "ärendeNr": "SLK-2024-00922",
+        "rubrik": "Förslag till budget 2025 och flerårsplaner 2026-2027",
+        "fulltext": "§ 870 Ärendenummer SLK-2024-00922\n\nFörslag till budget 2025 och flerårsplaner 2026-2027\nBeslut\n\nKommunstyrelsen tillstyrker förslaget från S, V och MP i skrivelse den 23 oktober 2024\noch föreslår att kommunfullmäktige beslutar:\nSocialdemokraternas, Vänsterpartiets och Miljöpartiets förslag till budget 2025 fastställs i\nsin helhet inklusive de mål, riktlinjer, uppdrag ekonomiska ramar och bilagor som anges i\nbudgetyrkandet samt att skattesatsen fastställs till 21:12 öre per skattekrona.\nSocialdemokraternas, Vänsterpartiets och Miljöpartiets förslag till flerårsplaner för åren\n2026–2027 fastställs som underlag för den fortsatta planeringen.\n\nTidigare behandling\n\nBordlagt den 9 oktober 2024, § 830.\n\nHandlingar\n\nSocialdemokraternas, Vänsterpartiets och Miljöpartiets förslag till budget 2025 och\nflerårsplaner 2026-2027.\nModeraternas, Demokraternas, Liberalernas och Kristdemokraternas förslag till budget\n2025 och flerårsplaner 2026-2027.\nCenterpartiets förslag till budget 2025 och flerårsplaner 2026-2027.\nYrkande från S, V och MP den 9 oktober 2024.\nYrkande från M, D, L och KD den 23 oktober 2024.\nYttrande från C den 23 oktober 2024.\n\nYrkanden\n\nOrdföranden Jonas Attenius (S) och Daniel Bernmar (V) yrkar bifall till budgetförslaget\nfrån S, V och MP och avslag på budgetförslaget från M, D, L och KD.\nAxel Josefson (M), Martin Wannholt (D), Axel Darvik (L) och Elisabet Lann (KD) yrkar\nbifall till budgetförslaget från M, D, L och KD och avslag på budgetförslaget från\nS, V och MP.\n\nPropositionsordning\n\nOrdföranden Jonas Attenius (S) ställer propositioner på yrkandena beträffande de olika\nbudgetförslagen och finner att budgetförslaget från S, V och MP bifallits. Omröstning\nbegärs.\n\nKommunstyrelsen\n\nOmröstning\n\nProtokoll nr 30\nSammanträdesdatum: 2024-10-23\n\nGodkänd voteringsproposition: \"Ja för bifall till budgetförslaget från S, V och MP och\nNej för bifall till budgetförslaget från M, D, L och KD.\"\nDaniel Bernmar (V), Viktoria Tryggvadottir Rolka (S), Blerta Hoti (S), Jenny Broman (V),\nMarina Johansson (S), tjänstgörande ersättaren Johannes Hulter (S) och ordföranden\nJonas Attenius (S) röstar Ja (7).\nAxel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Axel Darvik (L) och\nElisabet Lann (KD) röstar Nej (5).\nJörgen Fogelklou (SD) avstår från att rösta (1).\n\nProtokollsanteckningar\n\nEmmyly Bönfors (C) antecknar som yttrande en skrivelse från den 23 oktober 2024.\nEmmyly Bönfors (C) antecknar följande till protokollet: Om jag hade kunnat rösta så\nhade jag yrkat bifall till Centerpartiets förslag till budget 2025 och flerårsplaner\n2026–2027.\n\nReservation\n\nAxel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Axel Darvik (L) och\nElisabet Lann (KD) reserverar sig mot beslutet till förmån för det egna yrkandet.\n\nProtokollsutdrag skickas till\nKF Handling 2024 nr 196",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Axel Josefson, Martin Wannholt, Axel Darvik och Elisabet Lann",
+            "parti": "KD",
+            "typ": "bifall till budgetförslaget från M, D, L och KD och avslag på budgetförslaget från"
+          }
+        ],
+        "reservationer": [
+          "Axel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Axel Darvik (L) och\nElisabet Lann (KD) reserverar sig mot beslutet till förmån för det egna yrkandet."
+        ]
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§871",
+      "typ": "paragraf",
+      "label": "§ 871 Redovisning av uppdrag gällande förändrad samverkan med externa aktörer från stadsdelsnämnder till facknämnder",
+      "data": {
+        "paragrafNr": "871",
+        "ärendeNr": "SLK-2023-00895",
+        "rubrik": "Redovisning av uppdrag gällande förändrad samverkan med externa aktörer från stadsdelsnämnder till facknämnder",
+        "fulltext": "§ 871 Ärendenummer SLK-2023-00895\n\nRedovisning av uppdrag gällande förändrad samverkan med\nexterna aktörer från stadsdelsnämnder till facknämnder\nBeslut\n\nKommunstyrelsen tillstyrker yrkande från V, S och MP den 18 oktober 2024 och föreslår\natt kommunfullmäktige beslutar:\n1. Äldre samt vård- och omsorgsnämnden får i uppdrag att utreda hur nämnden kan\nskapa relationer och samarbeten med civilsamhällets organisationer för målgruppen\näldre, samt inrätta funktioner för att hantera föreningsbidrag eller andra former av\nsamarbeten för målgruppen äldre. Uppdraget ska kostnadsredovisas i\nbudgetunderlaget för 2026.\n2. Nämnden för demokrati och medborgarservice får i uppdrag att utveckla hur stödet\ntill övriga nämnder i högre grad kan anpassas och erbjudas utifrån nämndernas behov\noch önskemål, för att möjliggöra bättre efterlevnad av §5 i nämndernas reglemente.\nUppdraget ska kostnadsredovisas i budgetunderlaget för 2026.\n3. Socialnämnden Centrum, Socialnämnden Hisingen, Socialnämnden Nordost och\nSocialnämnden Sydväst får i uppdrag att utveckla arbetet med lokala organisationer\nsom arbetar med exempelvis områdesutveckling, lokala mötesplatser inklusive\nläxhjälp eller andra studiestöttande insatser och lokalt trygghetsarbete.\nEnligt stadsledningskontorets förslag:\nRedovisning av kommunstyrelsens uppdrag 2023-11-08 § 779 till stadsledningskontoret\natt identifiera vilka verksamheter, insatser, stöd till och samarbeten med externa aktörer\nsom har avvecklas eller är under avveckling sedan omorganisationen från stadsdelsnämnd\ntill facknämnd, antecknas och förklaras fullgjort.\n\nTidigare behandling\n\nBordlagt den 12 juni 2024, § 549, den 28 augusti 2024, § 636, den 11 september 2024,\n§ 714, den 25 september 2024, § 765 och den 9 oktober 2024, § 821.\n\nHandlingar\n\nStadsledningskontorets tjänsteutlåtande den 20 maj 2024.\nTilläggsyrkande från SD den 10 juni 2024.\nTilläggsyrkande från V, S och MP särskilt yttrande C den 18 oktober 2024.\n\nKommunstyrelsen\n\nYrkanden\n\nProtokoll nr 30\nSammanträdesdatum: 2024-10-23\n\nDaniel Bernmar (V) yrkar bifall till tilläggsyrkande från V, S och MP\nden 18 oktober 2024.\nAxel Josefson (M) yrkar bifall till stadsledningskontorets förslag och avslag på övriga\nyrkanden.\nJörgen Fogelklou (SD) yrkar bifall till stadsledningskontorets förslag och tilläggsyrkande\nfrån SD den 10 juni 2024.\n\nPropositionsordning\n\nKommunstyrelsen beslutar först att bifalla stadsledningskontorets förslag.\nOrdföranden Jonas Attenius (S) ställer härefter propositioner på bifall respektive avslag\npå tilläggsyrkandet från V, S och MP och finner att det bifallits.\nOrdföranden ställer därefter propositioner på bifall respektive avslag på tilläggsyrkandet\nfrån SD och finner att det avslagits.\n\nProtokollsutdrag skickas till\nKF Handling 2024 nr 204",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bifall",
+        "yrkanden": [
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "typ": "tilläggsyrkande från V, S och MP"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "typ": "stadsledningskontorets förslag och avslag på övriga"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "typ": "stadsledningskontorets förslag och tilläggsyrkande"
+          }
+        ],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "org-stadsdelsnämnder-till-facknämnd",
+      "typ": "organisation",
+      "label": "stadsdelsnämnder till facknämnd",
+      "data": {}
+    },
+    {
+      "id": "org-övriga-nämnder-i-högre-grad-kan-anpassas-och-erbjudas-utifrån-nämnd",
+      "typ": "organisation",
+      "label": "övriga nämnder i högre grad kan anpassas och erbjudas utifrån nämnd",
+      "data": {}
+    },
+    {
+      "id": "org-stadsdelsnämnd",
+      "typ": "organisation",
+      "label": "stadsdelsnämnd",
+      "data": {}
+    },
+    {
+      "id": "org-facknämnd",
+      "typ": "organisation",
+      "label": "facknämnd",
+      "data": {}
+    },
+    {
+      "id": "ks-2024-10-23-§872",
+      "typ": "paragraf",
+      "label": "§ 872 Redovisning av uppdrag att utreda för- och nackdelar med att den planerade investeringen i ett nytt centralbad genomförs av Higab AB i stället för idrotts- och föreningsnämnden",
+      "data": {
+        "paragrafNr": "872",
+        "ärendeNr": "SLK-2024-00624",
+        "rubrik": "Redovisning av uppdrag att utreda för- och nackdelar med att den planerade investeringen i ett nytt centralbad genomförs av Higab AB i stället för idrotts- och föreningsnämnden",
+        "fulltext": "§ 872 Ärendenummer SLK-2024-00624\n\nRedovisning av uppdrag att utreda för- och nackdelar med att\nden planerade investeringen i ett nytt centralbad genomförs\nav Higab AB i stället för idrotts- och föreningsnämnden\nBeslut\n\nPå förslag av Daniel Bernmar (V):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nTidigare behandling\n\nBordlagt den 11 september 2024, § 683, den 25 september 2024, § 768 och\nden 9 oktober 2024, § 823.\n\nHandling\n\nStadsledningskontorets tjänsteutlåtande den 19 augusti 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§873",
+      "typ": "paragraf",
+      "label": "§ 873 Göteborgs Stads biblioteksplan 2024-2028",
+      "data": {
+        "paragrafNr": "873",
+        "ärendeNr": "SLK-2024-00397",
+        "rubrik": "Göteborgs Stads biblioteksplan 2024-2028",
+        "fulltext": "§ 873 Ärendenummer SLK-2024-00397\nGöteborgs Stads biblioteksplan 2024-2028\nBeslut\n\nPå förslag av Jörgen Fogelklou (SD):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nTidigare behandling\n\nÅterremitterat från kommunfullmäktige den 10 oktober 2024.\n\nHandlingar\n\nÅterremissyrkande från M och D den 15 september 2024 i kommunfullmäktige.\nÅterremissyrkande från SD den 9 september 2024 i kommunfullmäktige.\nKF Handling 2024 nr 125.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§874",
+      "typ": "paragraf",
+      "label": "§ 874 Yrkande från D, M, L och KD om att pausa pilotområde cykel och utveckla dialogen med göteborgarna",
+      "data": {
+        "paragrafNr": "874",
+        "ärendeNr": "SLK-2024-00939",
+        "rubrik": "Yrkande från D, M, L och KD om att pausa pilotområde cykel och utveckla dialogen med göteborgarna",
+        "fulltext": "§ 874 Ärendenummer SLK-2024-00939\n\nYrkande från D, M, L och KD om att pausa pilotområde cykel\noch utveckla dialogen med göteborgarna\nBeslut\n\nPå förslag av Axel Josefson (M):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nHandlingar\n\nYrkande från D, M, L och KD den 11 oktober 2024.\nYrkande från SD den 17 oktober 2024.\nYttrande från C, MP, V och S den 22 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§875",
+      "typ": "paragraf",
+      "label": "§ 875 Yrkande från SD angående säkerhetsprövning av samtliga kommunalråd",
+      "data": {
+        "paragrafNr": "875",
+        "ärendeNr": "SLK-2024-00946",
+        "rubrik": "Yrkande från SD angående säkerhetsprövning av samtliga kommunalråd",
+        "fulltext": "§ 875 Ärendenummer SLK-2024-00946\n\nYrkande från SD angående säkerhetsprövning av samtliga\nkommunalråd\nBeslut\n\nPå förslag av Axel Josefson (M):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nHandling\n\nYrkande från SD den 14 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§876",
+      "typ": "paragraf",
+      "label": "§ 876 Val av representant i Kontaktforum för studentfrågor i stället för Hannah Lind (M) som avsagt sig",
+      "data": {
+        "paragrafNr": "876",
+        "ärendeNr": "SLK-2024-00008",
+        "rubrik": "Val av representant i Kontaktforum för studentfrågor i stället för Hannah Lind (M) som avsagt sig",
+        "fulltext": "§ 876 Ärendenummer SLK-2024-00008\n\nVal av representant i Kontaktforum för studentfrågor i stället\nför Hannah Lind (M) som avsagt sig\nBeslut\n\nTill representant i Kontaktforum för studentfrågor i stället för Hannah Lind (M) för tiden\ntill och med 2026 utses Love Josefsson (M).\n\nProtokollsutdrag skickas till\nKontaktforum för studentfrågor\nValberedningen\nLove Josefsson",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§877",
+      "typ": "paragraf",
+      "label": "§ 877 Yrkande från S, V och MP angående förbättrad samordning och förstärkt samarbete mellan ordningsvakter och Polismyndigheten",
+      "data": {
+        "paragrafNr": "877",
+        "ärendeNr": "SLK-2024-00951",
+        "rubrik": "Yrkande från S, V och MP angående förbättrad samordning och förstärkt samarbete mellan ordningsvakter och Polismyndigheten",
+        "fulltext": "§ 877 Ärendenummer SLK-2024-00951\n\nYrkande från S, V och MP angående förbättrad samordning\noch förstärkt samarbete mellan ordningsvakter och\nPolismyndigheten\nBeslut\n\nPå förslag av Axel Josefson (M):\nÄrendet bordläggs till sammanträdet den 6 november 2024.\n\nHandling\n\nYrkande från S, V och MP den 16 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "bordläggning",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§878",
+      "typ": "paragraf",
+      "label": "§ 878 Stadsdirektörens anmälningar",
+      "data": {
+        "paragrafNr": "878",
+        "ärendeNr": "SLK-2024-00061",
+        "rubrik": "Stadsdirektörens anmälningar",
+        "fulltext": "§ 878 Ärendenummer SLK-2024-00061\nStadsdirektörens anmälningar\nBeslut\n\nInga anmälningar förekom.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§879",
+      "typ": "paragraf",
+      "label": "§ 879 Inkomna remisser till Göteborgs Stad, 2024",
+      "data": {
+        "paragrafNr": "879",
+        "ärendeNr": "SLK-2024-00025",
+        "rubrik": "Inkomna remisser till Göteborgs Stad, 2024",
+        "fulltext": "§ 879 Ärendenummer SLK-2024-00025\nInkomna remisser till Göteborgs Stad, 2024\nBeslut\n\nAntecknas.\n\nHandling\n\nInkomna remisser till Göteborgs Stad, 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§880",
+      "typ": "paragraf",
+      "label": "§ 880 Inkomna skrivelser och vidtagna åtgärder, 2024",
+      "data": {
+        "paragrafNr": "880",
+        "ärendeNr": "SLK-2024-00026",
+        "rubrik": "Inkomna skrivelser och vidtagna åtgärder, 2024",
+        "fulltext": "§ 880 Ärendenummer SLK-2024-00026\nInkomna skrivelser och vidtagna åtgärder, 2024\nBeslut\n\nAntecknas.\n\nHandling\n\nInkomna skrivelser och vidtagna åtgärder, 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§881",
+      "typ": "paragraf",
+      "label": "§ 881 Lista över delegationsbeslut 2024 - Stadsledningskontoret",
+      "data": {
+        "paragrafNr": "881",
+        "ärendeNr": "SLK-2024-00115",
+        "rubrik": "Lista över delegationsbeslut 2024 - Stadsledningskontoret",
+        "fulltext": "§ 881 Ärendenummer SLK-2024-00115\n\nLista över delegationsbeslut 2024 - Stadsledningskontoret\nBeslut\n\nAntecknas.\n\nHandling\n\nLista över delegationsbeslut till sammanträde 2024-10-23.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§882",
+      "typ": "paragraf",
+      "label": "§ 882 Uppföljning av Göteborgs Stads riktlinje för finansverksamheten samt stiftelsernas kapitalförvaltning",
+      "data": {
+        "paragrafNr": "882",
+        "ärendeNr": "SLK-2023-00033",
+        "rubrik": "Uppföljning av Göteborgs Stads riktlinje för finansverksamheten samt stiftelsernas kapitalförvaltning",
+        "fulltext": "§ 882 Ärendenummer SLK-2023-00033\n\nUppföljning av Göteborgs Stads riktlinje för\nfinansverksamheten samt stiftelsernas kapitalförvaltning\nBeslut\n\nEnligt stadsledningskontorets förslag:\n1. Återrapporteringen av Göteborgs Stads riktlinjer för finansverksamheten för\nseptember 2024 antecknas.\n2. Återrapporteringen av stiftelsernas kapitalförvaltning för september 2024 antecknas.\n\nHandling\n\nStadsledningskontorets tjänsteutlåtande den 11 oktober 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§883",
+      "typ": "paragraf",
+      "label": "§ 883 Extra månadsuppföljning 2024",
+      "data": {
+        "paragrafNr": "883",
+        "ärendeNr": "SLK-2024-00046",
+        "rubrik": "Extra månadsuppföljning 2024",
+        "fulltext": "§ 883 Ärendenummer SLK-2024-00046\nExtra månadsuppföljning 2024\nBeslut\n\nAntecknas.\n\nHandling\n\nExtra månadsuppföljning 2024.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§884",
+      "typ": "paragraf",
+      "label": "§ 884 Kommunstyrelsens personalutskott protokoll 2024-10-02",
+      "data": {
+        "paragrafNr": "884",
+        "ärendeNr": "SLK-2024-00321",
+        "rubrik": "Kommunstyrelsens personalutskott protokoll 2024-10-02",
+        "fulltext": "§ 884 Ärendenummer SLK-2024-00321\n\nKommunstyrelsens personalutskott protokoll 2024-10-02\nBeslut\n\nAntecknas.\n\nHandling\n\nKommunstyrelsens personalutskott protokoll 2024-10-02.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§885",
+      "typ": "paragraf",
+      "label": "§ 885 Förvaltningsrättens domar beträffande Överprövning av avtals giltighet enligt lagen (2016:1145) om offentlig upphandling, LOU",
+      "data": {
+        "paragrafNr": "885",
+        "ärendeNr": "SLK-2024-00944",
+        "rubrik": "Förvaltningsrättens domar beträffande Överprövning av avtals giltighet enligt lagen (2016:1145) om offentlig upphandling, LOU",
+        "fulltext": "§ 885 Ärendenummer SLK-2024-00944\n\nFörvaltningsrättens domar beträffande Överprövning av\navtals giltighet enligt lagen (2016:1145) om offentlig\nupphandling, LOU\nBeslut\n\nAntecknas.\n\nHandling\n\nFörvaltningsrättens domar beträffande Överprövning av avtals giltighet enligt lagen\n(2016:1145) om offentlig upphandling, LOU.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-23-§886",
+      "typ": "paragraf",
+      "label": "§ 886 Förvaltningsrättens dom beträffande överklagande av kommunstyrelsens beslut att avslå yrkande från D, M, L och KD gällande avlägsnande av demonstranter vid Vasaparken som olovligt ianspråktagit Götebo",
+      "data": {
+        "paragrafNr": "886",
+        "ärendeNr": "SLK-2024-00860",
+        "rubrik": "Förvaltningsrättens dom beträffande överklagande av kommunstyrelsens beslut att avslå yrkande från D, M, L och KD gällande avlägsnande av demonstranter vid Vasaparken som olovligt ianspråktagit Götebo",
+        "fulltext": "§ 886 Ärendenummer SLK-2024-00860\n\nFörvaltningsrättens dom beträffande överklagande av\nkommunstyrelsens beslut att avslå yrkande från D, M, L och\nKD gällande avlägsnande av demonstranter vid Vasaparken\nsom olovligt ianspråktagit Göteborgs Stads mark\nBeslut\n\nAntecknas.\n\nHandling\n\nFörvaltningsrättens dom den 14 oktober 2024 beträffande överklagande av\nkommunstyrelsens beslut att avslå yrkande från D, M, L och KD gällande avlägsnande av\ndemonstranter vid Vasaparken som olovligt ianspråktagit Göteborgs Stads mark.",
+        "datum": "2024-10-23",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "ks-2024-10-23-§847",
+      "to": "org-renova-ab",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§856",
+      "to": "kf-handling-2024-197",
+      "typ": "hänvisar_till",
+      "label": "KF Handling 2024 nr 197"
+    },
+    {
+      "from": "ks-2024-10-23-§856",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§856",
+      "to": "org-miljö--och-klimatnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§857",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§857",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§857",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§857",
+      "to": "org-exploateringsnämnden",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§859",
+      "to": "kf-handling-2024-198",
+      "typ": "hänvisar_till",
+      "label": "KF Handling 2024 nr 198"
+    },
+    {
+      "from": "ks-2024-10-23-§859",
+      "to": "org-länsstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§859",
+      "to": "org-länsstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§859",
+      "to": "org-sd-och-dels-ärendets-avgörande-idag-och-finner-att-kommunstyrelsen",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§862",
+      "to": "kf-handling-2024-199",
+      "typ": "hänvisar_till",
+      "label": "KF Handling 2024 nr 199"
+    },
+    {
+      "from": "ks-2024-10-23-§865",
+      "to": "kf-handling-2024-202",
+      "typ": "hänvisar_till",
+      "label": "KF Handling 2024 nr 202"
+    },
+    {
+      "from": "ks-2024-10-23-§871",
+      "to": "org-stadsdelsnämnder-till-facknämnd",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§871",
+      "to": "org-övriga-nämnder-i-högre-grad-kan-anpassas-och-erbjudas-utifrån-nämnd",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§871",
+      "to": "org-stadsdelsnämnd",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "ks-2024-10-23-§871",
+      "to": "org-facknämnd",
+      "typ": "hänvisar_till"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§845",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§846",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§847",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§848",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§849",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§850",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§851",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§852",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§853",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§854",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§855",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§856",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§857",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§858",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§859",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§860",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§861",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§862",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§863",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§864",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§865",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§866",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§867",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§868",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§869",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§870",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§871",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§872",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§873",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§874",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§875",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§876",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§877",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§878",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§879",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§880",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§881",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§882",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§883",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§884",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§885",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-23",
+      "to": "ks-2024-10-23-§886",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "möte-ks-2024-10-23",
+      "typ": "närvarade"
+    }
+  ]
+}

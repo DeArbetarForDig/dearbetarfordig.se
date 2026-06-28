@@ -1,0 +1,38 @@
+---
+import DataTable from '../../../../../ui/src/components/core/DataTable.astro'
+import { getBeslut } from '../../../data/api'
+import Base from '../../../layouts/Base.astro'
+
+const allBeslut = await getBeslut(2000)
+const ksBeslut = allBeslut.filter((b: any) => b.organ === 'KS')
+
+const data = ksBeslut.map((b) => {
+  const status = b.beslut === 'bordläggning' ? 'Bordlagd' : b.beslut === 'bifall' ? 'Bifall' : b.beslut === 'avslag' ? 'Avslag' : b.beslut === 'tillstyrkan_kf' ? 'Tillstyrkan → KF' : b.beslut === 'beslut' ? 'Beslutat' : 'Info'
+  const statusColor = b.beslut === 'bifall' || b.beslut === 'beslut' ? 'var(--color-positive)' : b.beslut === 'tillstyrkan_kf' ? 'var(--color-primary)' : b.beslut === 'avslag' ? 'var(--color-negative)' : b.beslut === 'bordläggning' ? 'var(--color-warning)' : ''
+  const titel = b.rubrik?.replace(/^§ \d+ /, '') || ''
+  return {
+    paragraf: b.paragraf ? parseInt(b.paragraf.replace('§ ', '')) || 0 : 0,
+    datum: b.datum,
+    titel,
+    ärendeNr: (b as any).ärendeNr || '',
+    status,
+    _titel_html: `<a href="/goteborg/beslut/${encodeURIComponent(b.id)}" class="text-[var(--color-text)] hover:text-[var(--color-primary)]">${titel}</a>`,
+    _paragraf_html: b.paragraf ? `§ ${parseInt(b.paragraf.replace('§ ', ''))}` : '',
+    _status_html: statusColor ? `<span style="color:${statusColor};font-weight:600">${status}</span>` : status || '—',
+  }
+})
+
+const columns = [
+  { key: 'paragraf', label: '§', sort: 'number' as const, nowrap: true, width: '60px' },
+  { key: 'datum', label: 'Datum', sort: 'date' as const, nowrap: true, width: '100px' },
+  { key: 'ärendeNr', label: 'Dnr', sort: 'default' as const, nowrap: true, width: '140px' },
+  { key: 'titel', label: 'Ärende', sort: 'default' as const },
+  { key: 'status', label: 'Status', sort: 'default' as const, nowrap: true, width: '90px' },
+]
+---
+
+<Base title="KS Beslut — Göteborg">
+  <h1 class="text-[2rem] font-bold mb-2">KS Beslut</h1>
+  <p class="text-sm text-[var(--color-text-muted)] mb-6">Kommunstyrelsen — {data.length} ärenden</p>
+  <DataTable columns={columns} data={data} pageSize={20} defaultSort={{ key: 'datum', dir: 'desc' }} />
+</Base>

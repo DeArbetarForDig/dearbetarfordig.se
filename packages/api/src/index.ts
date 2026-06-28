@@ -323,6 +323,7 @@ const beslutRoute = createRoute({
     query: z.object({
       datum: z.string().optional(),
       sök: z.string().optional(),
+      organ: z.enum(['kf', 'ks', 'all']).optional(),
       limit: z.string().optional(),
     }),
   },
@@ -339,18 +340,19 @@ const beslutRoute = createRoute({
 })
 app.openapi(beslutRoute, async (c) => {
   const { kommun } = c.req.valid('param')
-  const { datum, sök, limit } = c.req.valid('query')
+  const { datum, sök, organ, limit } = c.req.valid('query')
   const lim = capLimit(limit, 2000)
+  const organFilter = organ === 'kf' ? "AND id LIKE 'kf-%'" : organ === 'ks' ? "AND id LIKE 'ks-%'" : ''
   let rows
   if (datum) {
     rows =
-      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
+      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
   } else if (sök) {
     rows =
-      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ORDER BY data->>'datum' DESC LIMIT ${lim}`
+      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC LIMIT ${lim}`
   } else {
     rows =
-      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int DESC LIMIT ${lim}`
+      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int DESC LIMIT ${lim}`
   }
 
   // Check which beslut have namnupprop (röstade-edges)
@@ -367,6 +369,7 @@ app.openapi(beslutRoute, async (c) => {
       antal: rows.length,
       beslut: rows.map((r) => ({
         id: r.id,
+        organ: (r.id as string).startsWith('ks-') ? 'KS' : 'KF',
         paragraf: (r.data as any).paragrafNr ? `§ ${(r.data as any).paragrafNr}` : null,
         rubrik: r.label,
         datum: (r.data as any).datum,

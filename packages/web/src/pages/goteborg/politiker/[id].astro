@@ -49,7 +49,7 @@ const nejCount = edges.filter((e: any) => e.typ === 'röstade_nej').length
 const avstarCount = edges.filter((e: any) => e.typ === 'röstade_avstår').length
 const totalVotes = jaCount + nejCount + avstarCount
 const speechCount = edges.filter((e: any) => e.typ === 'talade_i').length
-const attendanceCount = edges.filter((e: any) => e.typ === 'närvarade').length
+const attendanceCount = new Set(edges.filter((e: any) => e.typ === 'närvarade').map((e: any) => e.to_id)).size
 const totalMöten = (await getMöten()).length
 const frånvarandeCount = totalMöten - attendanceCount
 const totalBar = jaCount + nejCount + avstarCount + frånvarandeCount
@@ -182,14 +182,16 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
     )}
 
     <!-- Arvode detail -->
-    {arvode.fast_arvode_kr > 0 && (
+    {arvode.total_ersättning_kr > 0 && (
       <section class="mb-8">
         <Card title="Ersättning" titleSize="lg" tooltip="Baserat på Göteborgs Stads regler för arvoden (KS 2025-12-10 §946). Grundarvode 2026: 80 475 kr/mån.">
           <div class="grid gap-3 text-sm">
+            {arvode.fast_arvode_kr > 0 && (
             <div class="flex justify-between">
               <span class="text-[var(--color-text-muted)]">Fast arvode (presidieuppdrag)</span>
               <span class="font-mono font-semibold">{arvode.fast_arvode_kr?.toLocaleString('sv-SE')} kr/mån</span>
             </div>
+            )}
             <div class="flex justify-between">
               <span class="text-[var(--color-text-muted)]">Förrättningsarvode ({arvode.antal_möten_deltog} möten × 1 640 kr)</span>
               <span class="font-mono font-semibold">{arvode.förrättningsarvode_kr?.toLocaleString('sv-SE')} kr</span>

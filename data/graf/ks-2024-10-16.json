@@ -1,0 +1,216 @@
+{
+  "nodes": [
+    {
+      "id": "möte-ks-2024-10-16",
+      "typ": "möte",
+      "label": "KS Sammanträde 2024-10-16",
+      "data": {
+        "datum": "2024-10-16",
+        "organisation": "Kommunstyrelsen",
+        "närvarande": [
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Martin Wannholt",
+            "parti": "D",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Johannes Hulter",
+            "parti": "S",
+            "roll": "Tjänstgörande ersättare"
+          },
+          {
+            "namn": "Nina Miskovsky",
+            "parti": "M",
+            "roll": "Tjänstgörande ersättare"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "roll": "Tjänstgörande ersättare"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "roll": "Tjänstgörande ersättare"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "roll": "Övriga ersättare"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ks-2024-10-16-§842",
+      "typ": "paragraf",
+      "label": "§ 842 Val av justerare",
+      "data": {
+        "paragrafNr": "842",
+        "ärendeNr": "SLK-2024-00062",
+        "rubrik": "Val av justerare",
+        "fulltext": "§ 842 Ärendenummer SLK-2024-00062\nVal av justerare\nBeslut\n\nMartin Wannholt (D) utses att jämte ordföranden justera dagens protokoll.",
+        "datum": "2024-10-16",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-16-§843",
+      "typ": "paragraf",
+      "label": "§ 843 Anmälan av jäv vid sammanträdet",
+      "data": {
+        "paragrafNr": "843",
+        "ärendeNr": "SLK-2024-00074",
+        "rubrik": "Anmälan av jäv vid sammanträdet",
+        "fulltext": "§ 843 Ärendenummer SLK-2024-00074\nAnmälan av jäv vid sammanträdet\nBeslut\n\nIngen av kommunstyrelsens ledamöter eller tjänstgörande ersättare ansåg sig förhindrade\natt delta vid ärendenas behandling.",
+        "datum": "2024-10-16",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2024-10-16-§844",
+      "typ": "paragraf",
+      "label": "§ 844 Delårsrapport per augusti 2024",
+      "data": {
+        "paragrafNr": "844",
+        "ärendeNr": "SLK-2024-00684",
+        "rubrik": "Delårsrapport per augusti 2024",
+        "fulltext": "§ 844 Ärendenummer SLK-2024-00684\nDelårsrapport per augusti 2024\nBeslut\n\nKommunstyrelsen tillstyrker stadsledningskontorets förslag och föreslår att\nkommunfullmäktige beslutar:\nGöteborgs Stads delårsbokslut per augusti 2024, i enlighet med bilagan till\nstadsledningskontorets tjänsteutlåtande, godkänns.\n\nHandling\n\nStadsledningskontorets tjänsteutlåtande den 7 oktober 2024.\n\nProtokollsutdrag skickas till\nKF Handling 2024 nr 192",
+        "datum": "2024-10-16",
+        "organ": "Kommunstyrelsen",
+        "beslut": "tillstyrkan_kf",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "ks-2024-10-16-§844",
+      "to": "kf-handling-2024-192",
+      "typ": "hänvisar_till",
+      "label": "KF Handling 2024 nr 192"
+    },
+    {
+      "from": "möte-ks-2024-10-16",
+      "to": "ks-2024-10-16-§842",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-16",
+      "to": "ks-2024-10-16-§843",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2024-10-16",
+      "to": "ks-2024-10-16-§844",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "möte-ks-2024-10-16",
+      "typ": "närvarade"
+    }
+  ]
+}

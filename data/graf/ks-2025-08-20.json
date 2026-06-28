@@ -1,0 +1,229 @@
+{
+  "nodes": [
+    {
+      "id": "möte-ks-2025-08-20",
+      "typ": "möte",
+      "label": "KS Sammanträde 2025-08-20",
+      "data": {
+        "datum": "2025-08-20",
+        "organisation": "Kommunstyrelsen",
+        "närvarande": [
+          {
+            "namn": "Jonas Attenius",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Axel Josefson",
+            "parti": "M",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Daniel Bernmar",
+            "parti": "V",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Hampus Magnusson",
+            "parti": "M",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Viktoria Tryggvadottir Rolka",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Blerta Hoti",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Martin Wannholt",
+            "parti": "D",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Jörgen Fogelklou",
+            "parti": "SD",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Jenny Broman",
+            "parti": "V",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Axel Darvik",
+            "parti": "L",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Marina Johansson",
+            "parti": "S",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Karin Pleijel",
+            "parti": "MP",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Elisabet Lann",
+            "parti": "KD",
+            "roll": "Ledamot"
+          },
+          {
+            "namn": "Johannes Hulter",
+            "parti": "S",
+            "roll": "Övriga ersättare"
+          },
+          {
+            "namn": "Nina Miskovsky",
+            "parti": "M",
+            "roll": "Övriga ersättare"
+          },
+          {
+            "namn": "Marie Brynolfsson",
+            "parti": "V",
+            "roll": "Övriga ersättare"
+          },
+          {
+            "namn": "Anneli Rhedin",
+            "parti": "M",
+            "roll": "Övriga ersättare"
+          },
+          {
+            "namn": "Emmyly Bönfors",
+            "parti": "C",
+            "roll": "Övriga ersättare"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ks-2025-08-20-§582",
+      "typ": "paragraf",
+      "label": "§ 582 Förordnande av vikarierande politisk sekreterare för S för tiden 2025-08-22—2026-05-01",
+      "data": {
+        "paragrafNr": "582",
+        "ärendeNr": "SLK-2025-00007",
+        "rubrik": "Förordnande av vikarierande politisk sekreterare för S för tiden 2025-08-22—2026-05-01",
+        "fulltext": "§ 582 Ärendenummer SLK-2025-00007\n\nFörordnande av vikarierande politisk sekreterare för S för\ntiden 2025-08-22—2026-05-01\nBeslut\n\n1. Felix Oderth (S) förordnas som vikarierande politisk sekreterare för S för tiden\nfrån och med den 22 augusti 2025 till och med den 1 maj 2026.\n2. För anställningen gäller kommunallagens bestämmelser om politiska tjänstemän.\n3. Lön och övriga anställningsvillkor fastställs av kommunstyrelsens arbetsutskott.\n\nProtokollsutdrag skickas till\nFelix Oderth\nStadsledningskontoret/Kontorsledning",
+        "datum": "2025-08-20",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    },
+    {
+      "id": "ks-2025-08-20-§583",
+      "typ": "paragraf",
+      "label": "§ 583 Förordnande av politisk sekreterare för L för tiden 2025-09-01—2026-12-31",
+      "data": {
+        "paragrafNr": "583",
+        "ärendeNr": "SLK-2025-00007",
+        "rubrik": "Förordnande av politisk sekreterare för L för tiden 2025-09-01—2026-12-31",
+        "fulltext": "§ 583 Ärendenummer SLK-2025-00007\nFörordnande av politisk sekreterare för L för tiden\n2025-09-01—2026-12-31\nBeslut\n\n1. Anastasia Davås (L) förordnas som politisk sekreterare för L för tiden\nfrån och med den 1 september 2025 till och med den 31 december 2026.\n2. För anställningen gäller kommunallagens bestämmelser om politiska tjänstemän.\n3. Lön och övriga anställningsvillkor fastställs av kommunstyrelsens arbetsutskott.\n\nProtokollsutdrag skickas till\nAnastasia Davås\nStadsledningskontoret/Kontorsledning",
+        "datum": "2025-08-20",
+        "organ": "Kommunstyrelsen",
+        "beslut": "beslut",
+        "yrkanden": [],
+        "reservationer": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "möte-ks-2025-08-20",
+      "to": "ks-2025-08-20-§582",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "möte-ks-2025-08-20",
+      "to": "ks-2025-08-20-§583",
+      "typ": "beslut_av"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "möte-ks-2025-08-20",
+      "typ": "närvarade"
+    }
+  ]
+}
