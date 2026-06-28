@@ -127,6 +127,7 @@ app.openapi(politikerRoute, async (c) => {
         namn: `${p.fornamn} ${p.efternamn}`,
         parti: p.parti,
         email: p.email,
+        uppdrag: p.uppdrag,
         antalUppdrag: (p.uppdrag as any[]).length,
         aktivSedan:
           (p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0] ||
@@ -587,6 +588,47 @@ app.openapi(budgetRoute, async (c) => {
     },
     200,
   )
+})
+
+// --- Uppdrag per nämnd ---
+app.get('/api/v1/:kommun/graf/uppdrag-per-nämnd', async (c) => {
+  const rows =
+    await sql`SELECT n.label as namn, COUNT(*)::int as count FROM goteborg.graf_edges e JOIN goteborg.graf_nodes n ON n.id = e.to_id WHERE e.typ = 'uppdrag_till' GROUP BY n.label ORDER BY count DESC`
+  return c.json({ rows })
+})
+
+// Politiker per nämnd via graf — returnerar politiker med API-länk
+app.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
+  const rows =
+    await sql`SELECT e.to_id as namnd_id, n.label as namnd, gp.id as pol_id, gp.label as namn, gp.data->>'parti' as parti, e.data->>'roll' as roll
+      FROM goteborg.graf_edges e
+      JOIN goteborg.graf_nodes n ON n.id = e.to_id
+      JOIN goteborg.graf_nodes gp ON gp.id = e.from_id
+      WHERE e.typ = 'ledamot_i' AND gp.typ = 'politiker'
+      ORDER BY n.label, gp.label`
+
+  // Group by nämnd, then sort each nämnd's politicians by party size (desc)
+  const byNämnd = new Map<string, any[]>()
+  for (const r of rows) {
+    if (!byNämnd.has(r.namnd)) byNämnd.set(r.namnd, [])
+    const uuid = (r.pol_id as string).replace(/^pol-/, '')
+    byNämnd.get(r.namnd)!.push({
+      id: uuid,
+      namn: r.namn,
+      parti: r.parti,
+      roll: r.roll,
+      url: `/api/v1/${c.req.param('kommun')}/politiker/${uuid}`,
+    })
+  }
+
+  // Sort each nämnd: by party size in KF (same as stats endpoint)
+  const partiStorlek = await sql`SELECT parti, COUNT(*)::int as antal FROM goteborg.politiker GROUP BY parti ORDER BY antal DESC`
+  const partiRank = new Map(partiStorlek.map((r, i) => [r.parti as string, i]))
+  for (const [, pols] of byNämnd) {
+    pols.sort((a, b) => (partiRank.get(a.parti) ?? 99) - (partiRank.get(b.parti) ?? 99) || a.namn.localeCompare(b.namn, 'sv'))
+  }
+
+  return c.json(Object.fromEntries(byNämnd))
 })
 
 // --- Graf ---

@@ -4,9 +4,10 @@ import Chamber from '../../../../ui/src/components/charts/Chamber.astro'
 import Donut from '../../../../ui/src/components/charts/Donut.astro'
 import HorizontalBar from '../../../../ui/src/components/charts/HorizontalBar.astro'
 import Button from '../../../../ui/src/components/core/Button.astro'
+import PartyTag from '../../../../ui/src/components/core/PartyTag.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../ui/src/components/core/Icon.astro'
-import { getBeslut, getBudget, getMetrics, getPolitiker, getStats } from '../../data/api'
+import { fetchApi, getBeslut, getBudget, getMetrics, getPolitiker, getStats } from '../../data/api'
 import Base from '../../layouts/Base.astro'
 
 const stats = await getStats()
@@ -14,9 +15,16 @@ const metrics = await getMetrics()
 const politiker = await getPolitiker()
 const beslutList = await getBeslut(200)
 const budget = await getBudget()
+
+// Politiker per nämnd — från grafen (ledamot_i edges)
+const polPerNämnd = await fetchApi<Record<string, { id: string; namn: string; parti: string; roll: string; url: string }[]>>('/api/v1/goteborg/graf/politiker-per-nämnd')
+// Case-insensitive lookup map
+const polPerNämndLower = new Map(Object.entries(polPerNämnd || {}).map(([k, v]) => [k.toLowerCase(), v]))
+
 const topNämnder = budget.nämnder
   .filter((n: any) => n.kommunbidragMnkr > 200 && !n.namn.includes('Reavinster'))
   .slice(0, 12)
+  .map((n: any) => ({ ...n, politiker: polPerNämndLower.get(n.namn.toLowerCase()) || [] }))
 
 const seats = politiker
   .slice(0, 81)
@@ -92,13 +100,8 @@ const senasteBeslut = beslutList
     </div>
   </section>
 
-  <!-- Two-column: Donut + Struktur -->
-  <section class="mb-12 grid gap-8" style="grid-template-columns: 1fr 2fr;">
-    <!-- Mandatfördelning -->
-    <Card title="Mandatfördelning" titleSize="lg">
-      <Donut segments={partiMandat} showValue unit="mandat" />
-    </Card>
-
+  <!-- Struktur -->
+  <section class="mb-12">
     <!-- Struktur -->
     <Card title="Hur styrs Göteborg?" titleSize="lg">
       <div class="flex flex-col gap-3">
@@ -113,8 +116,19 @@ const senasteBeslut = beslutList
         <div class="ml-12 grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
           {topNämnder.map((n: any) => (
             <div class="p-3 rounded bg-[var(--color-surface-sunken)] text-sm">
-              <span class="font-semibold">{n.namn}</span><br/>
-              <span class="text-xs font-mono text-[var(--color-text-muted)]">{n.kommunbidragMnkr} mnkr</span>
+              <span class="font-semibold">{n.namn}</span>
+              {n.politiker.length > 0 && (
+                <ul class="mt-2 space-y-1">
+                  {n.politiker.map((p: any) => (
+                    <li>
+                      <a href={`/goteborg/politiker/${p.id}`} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
+                        <PartyTag parti={p.parti} size="sm" />
+                        <span class="truncate">{p.namn}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>

@@ -134,6 +134,90 @@ async function main() {
     }
 
     console.log(`   ✓ ${totalNodes} graf nodes, ${totalEdges} edges (from ${files.length} files)`)
+
+    // Add politiker → nämnd edges (ledamot_i)
+    // Single global set to deduplicate across both KF and full nämnd roster sources
+    const allLedamotEdges = new Set<string>()
+
+    if (polData) {
+      let polEdges = 0
+      for (const p of polData.politiker) {
+        await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data)
+          VALUES (${`pol-${p.id}`}, 'politiker', ${`${p.förnamn} ${p.efternamn}`}, ${client.json({ parti: p.parti, email: p.email })})
+          ON CONFLICT (id) DO UPDATE SET label = EXCLUDED.label, data = EXCLUDED.data`
+      }
+
+      const nämndNodes = await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ IN ('organisation','nämnd') ORDER BY id`
+      const nämndMap = new Map<string, string>()
+      for (const n of nämndNodes) {
+        const key = (n.label as string).toLowerCase().replace(/- och/g, ' och')
+        const id = n.id as string
+        // Prefer org- nodes (from protocols) over nämnd-...-year nodes (from budget)
+        const existing = nämndMap.get(key)
+        if (!existing || id.startsWith('org-') || (!existing.startsWith('org-') && id > existing)) {
+          nämndMap.set(key, id)
+        }
+      }
+
+      for (const p of polData.politiker) {
+        for (const u of p.uppdrag || []) {
+          const orgRaw: string = (u.organisation || '').replace(/^Göteborgs Stads\s+/i, '')
+          if (!orgRaw.toLowerCase().includes('nämnd')) continue
+          const orgKey = orgRaw.replace(/nämnd\b(?!\w)/gi, 'nämnden').replace(/- och/g, ' och').toLowerCase()
+          const nämndId = nämndMap.get(orgKey)
+          if (!nämndId) continue
+          const edgeKey = `${p.id}:${nämndId}`
+          if (allLedamotEdges.has(edgeKey)) continue
+          allLedamotEdges.add(edgeKey)
+          try {
+            await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
+              VALUES (${`pol-${p.id}`}, ${nämndId}, 'ledamot_i', ${client.json({ roll: u.roll, från: u.från, till: u.till })})`
+            polEdges++
+          } catch {}
+        }
+      }
+      console.log(`   ✓ ${polEdges} politiker→nämnd edges (KF-ledamöter)`)
+    }
+
+    const nämndLedamoterFile = join(DATA_DIR, 'politiker/namnd-ledamoter.json')
+    if (existsSync(nämndLedamoterFile)) {
+      const nämndData = JSON.parse(readFileSync(nämndLedamoterFile, 'utf-8'))
+      const nämndNodes2 = await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ IN ('organisation','nämnd') ORDER BY id`
+      const nämndMap2 = new Map<string, string>()
+      for (const n of nämndNodes2) {
+        const key = (n.label as string).toLowerCase().replace(/- och/g, ' och')
+        const id = n.id as string
+        const existing = nämndMap2.get(key)
+        if (!existing || id.startsWith('org-') || (!existing.startsWith('org-') && id > existing)) {
+          nämndMap2.set(key, id)
+        }
+      }
+
+      let nämndEdges = 0
+      for (const [orgNamn, members] of Object.entries(nämndData.nämnder as Record<string, any[]>)) {
+        const orgKey = orgNamn.replace(/^Göteborgs Stads\s+/i, '').replace(/nämnd\b(?!\w)/gi, 'nämnden').replace(/- och/g, ' och').toLowerCase()
+        const nämndId = nämndMap2.get(orgKey)
+        if (!nämndId) continue
+        for (const m of members) {
+          if (!m.id) continue
+          const polId = `pol-${m.id}`
+          const edgeKey = `${m.id}:${nämndId}`
+          if (allLedamotEdges.has(edgeKey)) continue
+          allLedamotEdges.add(edgeKey)
+          // Ensure politiker node exists
+          await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data)
+            VALUES (${polId}, 'politiker', ${`${m.förnamn} ${m.efternamn}`}, ${client.json({ parti: m.parti })})
+            ON CONFLICT (id) DO NOTHING`
+          try {
+            await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
+              VALUES (${polId}, ${nämndId}, 'ledamot_i', ${client.json({ roll: m.roll })})
+              ON CONFLICT DO NOTHING`
+            nämndEdges++
+          } catch {}
+        }
+      }
+      console.log(`   ✓ ${nämndEdges} nämndledamot edges (full roster)`)
+    }
   }
 
   // Seed dokument (full-text parsed documents)
