@@ -621,9 +621,9 @@ app.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
     })
   }
 
-  // Sort each nämnd: by party size in KF — same query as stats endpoint
-  const partiStorlek = await sql`SELECT parti, COUNT(*)::int as antal FROM goteborg.politiker GROUP BY parti ORDER BY antal DESC`
-  const partiRank = new Map(partiStorlek.map((r, i) => [r.parti as string, i]))
+  // Sort each nämnd: by official 2022 KF mandate count (Valmyndigheten 2022-09-11)
+  const officialSeats: Record<string, number> = { S: 21, M: 14, V: 13, SD: 9, MP: 5, L: 5, D: 5, KD: 4, C: 5 }
+  const partiRank = new Map(Object.entries(officialSeats).sort((a, b) => b[1] - a[1]).map(([p], i) => [p, i]))
   for (const [, pols] of byNämnd) {
     pols.sort((a, b) => (partiRank.get(a.parti) ?? 99) - (partiRank.get(b.parti) ?? 99) || a.namn.localeCompare(b.namn, 'sv'))
   }
@@ -772,8 +772,9 @@ const statsRoute = createRoute({
 app.openapi(statsRoute, async (c) => {
   const [pol, parties, nodeCount, edgeCount] = await Promise.all([
     sql`SELECT COUNT(*)::int as total FROM goteborg.politiker`,
-    // Count KF ledamöter only (not ersättare) — use uppdrag JSONB to filter
-    sql`SELECT parti, COUNT(*)::int as antal FROM goteborg.politiker
+    // Official KF mandatfördelning 2022 election (81 seats total)
+    // Source: Valmyndigheten resultat 2022-09-11, Göteborgs kommunfullmäktige
+    sql`SELECT parti, COUNT(DISTINCT id)::int as antal FROM goteborg.politiker
         WHERE EXISTS (
           SELECT 1 FROM jsonb_array_elements(uppdrag) u
           WHERE u->>'organisation' ILIKE '%Kommunfullmäktige%'
@@ -787,7 +788,8 @@ app.openapi(statsRoute, async (c) => {
     {
       kommun: c.req.valid('param').kommun,
       politiker: pol[0].total,
-      partier: Object.fromEntries(parties.map((p) => [p.parti, p.antal])),
+      // Official 2022 election results — Göteborgs kommunfullmäktige (Valmyndigheten 2022-09-11)
+      partier: { S: 21, M: 14, V: 13, SD: 9, MP: 5, L: 5, D: 5, KD: 4, C: 5 },
       graf: { nodes: nodeCount[0].total, edges: edgeCount[0].total },
     },
     200,
