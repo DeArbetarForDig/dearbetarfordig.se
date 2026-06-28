@@ -38,7 +38,7 @@ const total = hasVotes ? ja + nej + avstar : 0
 const jaPct = total ? Math.round((ja! / total) * 100) : 0
 const nejPct = total ? Math.round((nej! / total) * 100) : 0
 ---
-<a href={url} class:list={['block no-underline h-full', className]}>
+<a href={url} class:list={['block h-full', className]}>
   <Card class="h-full flex flex-col">
     <div class="flex justify-between items-center mb-2">
       <StatusBadge status={status} />

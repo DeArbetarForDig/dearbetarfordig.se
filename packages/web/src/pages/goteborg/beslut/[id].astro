@@ -127,7 +127,7 @@ const timeline = [
                         <div class="flex items-center gap-2 py-1">
                           <span class="w-2.5 h-2.5 rounded-full shrink-0" style={`background:var(--vote-${r.röst === 'avstår' ? 'avstår' : r.röst})`}></span>
                           <PartyTag parti={r.parti} size="sm" />
-                          <a href={`/goteborg/politiker/${r.politikerId || ''}`} class="truncate text-[var(--color-text)] no-underline hover:text-[var(--color-primary)]">{r.namn}</a>
+                          <a href={`/goteborg/politiker/${r.politikerId || ''}`} class="truncate text-[var(--color-text)] hover:text-[var(--color-primary)]">{r.namn}</a>
                         </div>
                       ))}
                     </div>
@@ -209,7 +209,7 @@ const timeline = [
                   <div class="flex items-center gap-2 mb-1">
                     {a.parti && <PartyTag parti={a.parti} size="sm" />}
                     {a.politikerId ? (
-                      <a href={`/goteborg/politiker/${a.politikerId}`} class="font-semibold text-sm text-[var(--color-text)] no-underline hover:text-[var(--color-primary)]">{a.talare}</a>
+                      <a href={`/goteborg/politiker/${a.politikerId}`} class="font-semibold text-sm text-[var(--color-text)] hover:text-[var(--color-primary)]">{a.talare}</a>
                     ) : (
                       <span class="font-semibold text-sm">{a.talare}</span>
                     )}

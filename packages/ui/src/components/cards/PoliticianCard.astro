@@ -23,7 +23,7 @@ interface Props {
 
 const { namn, parti, foto, roll, narvaro, url = '#', class: className } = Astro.props
 ---
-<a href={url} class:list={['politician-card block no-underline', className]}>
+<a href={url} class:list={['politician-card block', className]}>
   <Card>
     <div class="flex gap-4 items-start">
       {foto ? (

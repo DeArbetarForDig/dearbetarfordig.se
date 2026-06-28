@@ -28,7 +28,7 @@ const sorted = förvaltningar.sort((a: any, b: any) => (b.direktör?.lön || 0) 
             : 'Nollresultat'
         : null
       return (
-        <a href={`/goteborg/forvaltning/${f.id}`} class="block no-underline">
+        <a href={`/goteborg/forvaltning/${f.id}`} class="block">
           <Card>
             <div class="flex items-center justify-between gap-4 flex-wrap">
               <div class="min-w-0">
