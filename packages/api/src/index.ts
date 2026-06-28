@@ -287,11 +287,18 @@ app.openapi(mötenRoute, async (c) => {
   for (const r of närvaroRows) {
     if (!r.fornamn) continue
     if (!närvaroMap.has(r.to_id)) närvaroMap.set(r.to_id, [])
-    närvaroMap.get(r.to_id)!.push({
-      namn: `${r.fornamn} ${r.efternamn}`,
-      parti: r.parti,
-      tid: r.label || '',
-    })
+    const namn = `${r.fornamn} ${r.efternamn}`
+    const tid = r.label || ''
+    // Skip duplicates (same name, same meeting, no time or already have time)
+    const existing = närvaroMap.get(r.to_id)!
+    const hasSameName = existing.find(e => e.namn === namn)
+    if (hasSameName) {
+      // Merge: keep the one with time, or combine intervals
+      if (tid && !hasSameName.tid) hasSameName.tid = tid
+      else if (tid && hasSameName.tid && !hasSameName.tid.includes(tid)) hasSameName.tid += `, ${tid}`
+    } else {
+      existing.push({ namn, parti: r.parti, tid })
+    }
   }
 
   let möten = meetings.map((m) => ({

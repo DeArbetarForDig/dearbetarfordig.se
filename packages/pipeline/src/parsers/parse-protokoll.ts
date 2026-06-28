@@ -165,10 +165,16 @@ function parseParagrafer(
 
     // Extract yrkanden (who proposed what)
     const yrkanden: Array<{ namn: string; parti: string; typ: string }> = []
-    const yrkRe = /([\wÅÄÖåäö\s-]+?)\s*\((\w+)\)\s*(?:yrkar bifall till|yrkar)\s*(.{10,80})/g
+    const yrkLineRe = /^([\wÅÄÖåäö\s,()-]+?)\s+(?:yrkar bifall till|yrkar)\s*(.{10,80})/gm
     let yrkMatch
-    while ((yrkMatch = yrkRe.exec(section)) !== null) {
-      yrkanden.push({ namn: yrkMatch[1].trim(), parti: yrkMatch[2], typ: yrkMatch[3].trim() })
+    while ((yrkMatch = yrkLineRe.exec(section)) !== null) {
+      const rawNames = yrkMatch[1].trim()
+      const typ = yrkMatch[2].trim().replace(/\.$/, '')
+      // Extract all "(Parti)" from the names string — use last one as group parti
+      const partiMatches = [...rawNames.matchAll(/\((\w+)\)/g)]
+      const parti = partiMatches.length > 0 ? partiMatches[partiMatches.length - 1][1] : ''
+      const namn = rawNames.replace(/\s*\(\w+\)/g, '').replace(/^Yrkanden\s*/i, '').trim()
+      if (namn && parti && !namn.match(/^(Ordföranden|Propositioner)/)) yrkanden.push({ namn, parti, typ })
     }
 
     // Extract jävsanmälan
