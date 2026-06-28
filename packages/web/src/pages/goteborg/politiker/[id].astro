@@ -2,12 +2,14 @@
 import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
 import HorizontalBar from '../../../../../ui/src/components/charts/HorizontalBar.astro'
 import StackedBar from '../../../../../ui/src/components/charts/StackedBar.astro'
+import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import Table from '../../../../../ui/src/components/core/Table.astro'
 import {
+  getMöten,
   getPolitiker,
   getPolitikerArvode,
   getPolitikerDetail,
@@ -48,7 +50,7 @@ const avstarCount = edges.filter((e: any) => e.typ === 'röstade_avstår').lengt
 const totalVotes = jaCount + nejCount + avstarCount
 const speechCount = edges.filter((e: any) => e.typ === 'talade_i').length
 const attendanceCount = edges.filter((e: any) => e.typ === 'närvarade').length
-const totalMöten = 41
+const totalMöten = (await getMöten()).length
 const frånvarandeCount = totalMöten - attendanceCount
 const totalBar = jaCount + nejCount + avstarCount + frånvarandeCount
 
@@ -129,16 +131,24 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
     <!-- KPI row -->
     <section class="mb-8 grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
       <Card title="Röster" titleSize="sm">
-        <div class="font-mono text-2xl font-bold">{totalVotes}</div>
+        <Tooltip text="Antal namnupprop (voteringar) där politikern deltog" position="bottom-left">
+          <div class="font-mono text-2xl font-bold">{totalVotes}</div>
+        </Tooltip>
       </Card>
       <Card title="Anföranden" titleSize="sm">
-        <div class="font-mono text-2xl font-bold">{speechCount.toLocaleString('sv-SE')}</div>
+        <Tooltip text="Antal registrerade anföranden i KF-debatter" position="bottom">
+          <div class="font-mono text-2xl font-bold">{speechCount.toLocaleString('sv-SE')}</div>
+        </Tooltip>
       </Card>
       <Card title="Närvaro" titleSize="sm">
-        <div class="font-mono text-2xl font-bold">{attendanceCount} <span class="text-sm text-[var(--color-text-muted)]">möten</span></div>
+        <Tooltip text="Antal möten med registrerad närvaro av totalt antal KF-sammanträden" position="bottom">
+          <div class="font-mono text-2xl font-bold">{attendanceCount}/{totalMöten} <span class="text-sm text-[var(--color-text-muted)]">möten</span></div>
+        </Tooltip>
       </Card>
       <Card title="Arvode" titleSize="sm">
-        <div class="font-mono text-2xl font-bold">{arvode.total_ersättning_kr?.toLocaleString('sv-SE')} <span class="text-sm text-[var(--color-text-muted)]">kr/mån</span></div>
+        <Tooltip text="Beräknad total ersättning per månad (fast + förrättning)" position="bottom-right">
+          <div class="font-mono text-2xl font-bold">{arvode.total_ersättning_kr?.toLocaleString('sv-SE')} <span class="text-sm text-[var(--color-text-muted)]">kr/mån</span></div>
+        </Tooltip>
       </Card>
     </section>
 

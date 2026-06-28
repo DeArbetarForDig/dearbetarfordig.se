@@ -16,12 +16,12 @@ interface Props {
   parti: string
   foto?: string
   roll?: string
-  narvaro?: number
+  aktivSedan?: string
   url?: string
   class?: string
 }
 
-const { namn, parti, foto, roll, narvaro, url = '#', class: className } = Astro.props
+const { namn, parti, foto, roll, aktivSedan, url = '#', class: className } = Astro.props
 ---
 <a href={url} class:list={['politician-card block', className]}>
   <Card>
@@ -39,9 +39,9 @@ const { namn, parti, foto, roll, narvaro, url = '#', class: className } = Astro.
           <span class="text-base font-semibold leading-tight" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{namn}</span>
         </div>
         {roll && <p class="m-0 text-sm text-[var(--color-text-muted)]">{roll}</p>}
-        {narvaro != null && (
+        {aktivSedan && (
           <p class="m-0 mt-1 text-sm text-[var(--color-text-muted)]">
-            Närvaro: <span class="font-mono font-semibold text-[var(--color-text)]">{narvaro}%</span>
+            Aktiv sedan: <span class="font-mono font-semibold text-[var(--color-text)]">{aktivSedan}</span>
           </p>
         )}
       </div>

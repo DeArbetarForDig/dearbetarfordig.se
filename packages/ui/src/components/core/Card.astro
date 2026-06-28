@@ -9,7 +9,7 @@ interface Props {
   title?: string
   subtitle?: string
   tooltip?: string
-  tooltipPosition?: 'top' | 'top-end' | 'bottom' | 'bottom-end' | 'left' | 'right'
+  tooltipPosition?: 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-left' | 'bottom-right' | 'left' | 'right'
   titleSize?: 'sm' | 'base' | 'lg'
   class?: string
 }
@@ -18,7 +18,7 @@ const {
   title,
   subtitle,
   tooltip,
-  tooltipPosition = 'top-end',
+  tooltipPosition = 'top-left',
   titleSize = 'base',
   class: className,
 } = Astro.props

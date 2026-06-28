@@ -128,7 +128,12 @@ app.openapi(politikerRoute, async (c) => {
         parti: p.parti,
         email: p.email,
         antalUppdrag: (p.uppdrag as any[]).length,
-        aktivSedan: (p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0] || null,
+        aktivSedan: (p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0] ||
+          ((p.uppdrag as any[]) || []).reduce((earliest: string | null, u: any) => {
+            if (!u.från) return earliest
+            const y = u.från.slice(0, 4)
+            return !earliest || y < earliest ? y : earliest
+          }, null),
       })),
     },
     200,

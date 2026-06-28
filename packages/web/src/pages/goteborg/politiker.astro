@@ -10,19 +10,29 @@ const parties = [...new Set(politiker.map((p) => p.parti))].sort()
 <Base title="Politiker — Göteborg">
   <h1 class="text-[2rem] font-bold mb-6">Politiker</h1>
 
-  <div id="filter-bar" class="flex flex-wrap gap-4 mb-6 items-center">
-    <div class="flex items-center gap-2 bg-(--color-surface) border border-(--color-border) rounded-[--radius-sm] px-3 py-1.5 flex-1 min-w-[220px]">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-(--color-text-muted) shrink-0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input id="search-input" type="text" placeholder="Sök ledamot…" class="border-none outline-none bg-transparent text-(--color-text) font-sans text-base w-full" />
+  <div id="filter-bar" class="flex flex-col gap-3 mb-6">
+    <div class="flex flex-wrap gap-4 items-center">
+      <div class="flex items-center gap-2 bg-(--color-surface) border border-(--color-border) rounded-[--radius-sm] px-3 py-1.5 flex-1 min-w-[220px]">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-(--color-text-muted) shrink-0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="search-input" type="text" placeholder="Sök ledamot…" class="border-none outline-none bg-transparent text-(--color-text) font-sans text-base w-full" />
+      </div>
+      <div class="flex gap-1.5 flex-wrap">
+        <button data-parti="alla" class="chip active">Alla</button>
+        {parties.map(p => (
+          <button data-parti={p} class="chip">
+            <span class="w-2.5 h-2.5 rounded-sm shrink-0" style={`background:var(--parti-${p.toLowerCase()})`} />
+            {p}
+          </button>
+        ))}
+      </div>
     </div>
     <div class="flex gap-1.5 flex-wrap">
-      <button data-parti="alla" class="chip active">Alla</button>
-      {parties.map(p => (
-        <button data-parti={p} class="chip">
-          <span class="w-2.5 h-2.5 rounded-sm shrink-0" style={`background:var(--parti-${p.toLowerCase()})`} />
-          {p}
-        </button>
-      ))}
+      <button data-period="alla" class="chip chip--period active">Alla perioder</button>
+      <button data-period="2006" class="chip chip--period">sedan 2006</button>
+      <button data-period="2010" class="chip chip--period">sedan 2010</button>
+      <button data-period="2014" class="chip chip--period">sedan 2014</button>
+      <button data-period="2018" class="chip chip--period">sedan 2018</button>
+      <button data-period="2022" class="chip chip--period">sedan 2022</button>
     </div>
   </div>
 
@@ -30,8 +40,8 @@ const parties = [...new Set(politiker.map((p) => p.parti))].sort()
 
   <div id="grid" class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
     {politiker.map(p => (
-      <div class="politician-item" data-parti={p.parti} data-namn={p.namn.toLowerCase()}>
-        <PoliticianCard namn={p.namn} parti={p.parti} roll={`${p.antalUppdrag} uppdrag${p.aktivSedan && p.aktivSedan !== '2022' ? ` · sedan ${p.aktivSedan}` : ''}`} url={`/goteborg/politiker/${p.id}`} />
+      <div class="politician-item" data-parti={p.parti} data-namn={p.namn.toLowerCase()} data-sedan={p.aktivSedan || '2022'}>
+        <PoliticianCard namn={p.namn} parti={p.parti} roll={`${p.antalUppdrag} uppdrag`} aktivSedan={p.aktivSedan} url={`/goteborg/politiker/${p.id}`} />
       </div>
     ))}
   </div>
@@ -61,10 +71,12 @@ const parties = [...new Set(politiker.map((p) => p.parti))].sort()
 
   <script is:inline>
     const input = document.getElementById('search-input')
-    const chips = document.querySelectorAll('.chip')
+    const partiChips = document.querySelectorAll('.chip:not(.chip--period)')
+    const periodChips = document.querySelectorAll('.chip--period')
     const items = document.querySelectorAll('.politician-item')
     const countEl = document.getElementById('count')
     let activeParti = 'alla'
+    let activePeriod = 'alla'
 
     function filter() {
       const q = input.value.toLowerCase()
@@ -72,7 +84,10 @@ const parties = [...new Set(politiker.map((p) => p.parti))].sort()
       items.forEach(el => {
         const parti = el.dataset.parti
         const namn = el.dataset.namn
-        const show = (activeParti === 'alla' || parti === activeParti) && namn.includes(q)
+        const sedan = el.dataset.sedan
+        const matchParti = activeParti === 'alla' || parti === activeParti
+        const matchPeriod = activePeriod === 'alla' || sedan <= activePeriod
+        const show = matchParti && matchPeriod && namn.includes(q)
         el.classList.toggle('hidden', !show)
         if (show) visible++
       })
@@ -80,11 +95,19 @@ const parties = [...new Set(politiker.map((p) => p.parti))].sort()
     }
 
     input.addEventListener('input', filter)
-    chips.forEach(chip => {
+    partiChips.forEach(chip => {
       chip.addEventListener('click', () => {
-        chips.forEach(c => c.classList.remove('active'))
+        partiChips.forEach(c => c.classList.remove('active'))
         chip.classList.add('active')
         activeParti = chip.dataset.parti
+        filter()
+      })
+    })
+    periodChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        periodChips.forEach(c => c.classList.remove('active'))
+        chip.classList.add('active')
+        activePeriod = chip.dataset.period
         filter()
       })
     })
