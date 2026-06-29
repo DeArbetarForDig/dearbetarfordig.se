@@ -3,6 +3,23 @@ import { swaggerUI } from '@hono/swagger-ui'
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { cors } from 'hono/cors'
 import postgres from 'postgres'
+import {
+  politikerLinks,
+  politikerListLinks,
+  möteLinks,
+  mötenListLinks,
+  beslutLinks,
+  beslutListLinks,
+  debattLinks,
+  debatterListLinks,
+  förvaltningLinks,
+  förvaltningarListLinks,
+  anförandenLinks,
+  budgetLinks,
+  baseUrl,
+  halCollection,
+  halResource,
+} from './hal.js'
 
 // --- Config ---
 const DATABASE_URL =
@@ -118,28 +135,23 @@ app.openapi(politikerRoute, async (c) => {
   const rows = parti
     ? await sql`SELECT * FROM goteborg.politiker WHERE parti = ${parti.toUpperCase()} ORDER BY efternamn LIMIT ${lim}`
     : await sql`SELECT * FROM goteborg.politiker ORDER BY efternamn LIMIT ${lim}`
-  return c.json(
-    {
-      kommun,
-      antal: rows.length,
-      politiker: rows.map((p) => ({
-        id: p.id,
-        namn: `${p.fornamn} ${p.efternamn}`,
-        parti: p.parti,
-        email: p.email,
-        uppdrag: p.uppdrag,
-        antalUppdrag: (p.uppdrag as any[]).length,
-        aktivSedan:
-          (p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0] ||
-          ((p.uppdrag as any[]) || []).reduce((earliest: string | null, u: any) => {
-            if (!u.från) return earliest
-            const y = u.från.slice(0, 4)
-            return !earliest || y < earliest ? y : earliest
-          }, null),
-      })),
-    },
-    200,
-  )
+  const items = rows.map((p) => ({
+    id: p.id,
+    namn: `${p.fornamn} ${p.efternamn}`,
+    parti: p.parti,
+    email: p.email,
+    uppdrag: p.uppdrag,
+    antalUppdrag: (p.uppdrag as any[]).length,
+    aktivSedan:
+      (p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0] ||
+      ((p.uppdrag as any[]) || []).reduce((earliest: string | null, u: any) => {
+        if (!u.från) return earliest
+        const y = u.från.slice(0, 4)
+        return !earliest || y < earliest ? y : earliest
+      }, null),
+    _links: politikerLinks(kommun, p.id),
+  }))
+  return c.json(halCollection(items, politikerListLinks(kommun)), 200)
 })
 
 const politikerDetailRoute = createRoute({
@@ -178,10 +190,23 @@ app.openapi(politikerDetailRoute, async (c) => {
   const möten = rows.map((r) => ({
     datum: r.datum,
     möte: r.mote,
-    url: `/api/v1/${kommun}/politiker/${id}/anforanden?datum=${r.datum}`,
+    _links: {
+      anforanden: { href: `/api/v1/${kommun}/politiker/${id}/anforanden?datum=${r.datum}` },
+      möte: { href: `/api/v1/${kommun}/möten/${r.datum}` },
+    },
   }))
 
-  return c.json({ ...(person as any), möten }, 200)
+  const item = {
+    id: person.id,
+    namn: `${person.fornamn} ${person.efternamn}`,
+    parti: person.parti,
+    email: person.email,
+    foto: person.foto,
+    sociala: person.sociala,
+    uppdrag: person.uppdrag,
+  }
+
+  return c.json(halResource(item, politikerLinks(kommun, id), { möten }), 200)
 })
 
 // --- Arvode ---
@@ -232,37 +257,38 @@ app.openapi(arvodesRoute, async (c) => {
   const grundarvode = 80475 // 2026 (från PDF)
   const förrättningPerMöte = 1640 // heldag KF
 
+  const { kommun } = c.req.valid('param')
+  const arvodesLinks = {
+    self: { href: `${baseUrl(kommun)}/politiker/${id}/arvode` },
+    politiker: { href: `${baseUrl(kommun)}/politiker/${id}` },
+  }
+
   if (arvodesEdge.length === 0) {
     // Politiker utan registrerad arvodesdata (ersättare som ej deltagit i votering)
-    return c.json(
-      {
-        politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
-        grundarvode_kr: grundarvode,
-        fast_arvode_kr: 0,
-        förrättningsarvode_kr: 0,
-        antal_möten_deltog: 0,
-        total_ersättning_kr: 0,
-        källa: 'Göteborgs Stads regler för arvoden (KS 2025-12-10 §946)',
-        notering: 'Ingen registrerad närvaro vid voteringar under perioden',
-      },
-      200,
-    )
+    const item = {
+      politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
+      grundarvode_kr: grundarvode,
+      fast_arvode_kr: 0,
+      förrättningsarvode_kr: 0,
+      antal_möten_deltog: 0,
+      total_ersättning_kr: 0,
+      källa: 'Göteborgs Stads regler för arvoden (KS 2025-12-10 §946)',
+      notering: 'Ingen registrerad närvaro vid voteringar under perioden',
+    }
+    return c.json(halResource(item, arvodesLinks), 200)
   }
 
   const data = arvodesEdge[0].data as any
-  return c.json(
-    {
-      politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
-      grundarvode_kr: grundarvode,
-      fast_arvode_kr: data.fast_arvode_kr || 0,
-      förrättningsarvode_kr: data.förrättningsarvode_kr || 0,
-      antal_möten_deltog: data.antal_möten_deltog || 0,
-      total_ersättning_kr: data.total_ersättning_kr || data.fast_arvode_kr || 0,
-      detaljer: data.detaljer || [],
-      källa: 'Göteborgs Stads regler för arvoden (KS 2025-12-10 §946)',
-    },
-    200,
-  )
+  const item = {
+    politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
+    grundarvode_kr: grundarvode,
+    fast_arvode_kr: data.fast_arvode_kr || 0,
+    förrättningsarvode_kr: data.förrättningsarvode_kr || 0,
+    antal_möten_deltog: data.antal_möten_deltog || 0,
+    total_ersättning_kr: data.total_ersättning_kr || data.fast_arvode_kr || 0,
+    källa: 'Göteborgs Stads regler för arvoden (KS 2025-12-10 §946)',
+  }
+  return c.json(halResource(item, arvodesLinks, { detaljer: data.detaljer || [] }), 200)
 })
 
 // --- Möten (fixed N+1) ---
@@ -319,16 +345,16 @@ app.openapi(mötenRoute, async (c) => {
     }
   }
 
-  let möten = meetings.map((m) => ({
+  let items = meetings.map((m) => ({
     datum: m.datum,
     label: m.label,
     antalBeslut: countMap[m.datum] || 0,
-    url: `/api/v1/${kommun}/möten/${m.datum}`,
     närvarande: (närvaroMap.get(m.id) || []).length,
+    _links: möteLinks(kommun, m.datum),
   }))
-  if (år) möten = möten.filter((m) => m.datum?.startsWith(år))
+  if (år) items = items.filter((m) => m.datum?.startsWith(år))
 
-  return c.json({ kommun, antal: möten.length, möten }, 200)
+  return c.json(halCollection(items, mötenListLinks(kommun)), 200)
 })
 
 // --- Möte (enskilt) ---
@@ -350,17 +376,17 @@ const moteRoute = createRoute({
   },
 })
 app.openapi(moteRoute, async (c) => {
-  const { datum } = c.req.valid('param')
+  const { kommun, datum } = c.req.valid('param')
 
   const [mote] =
     await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'möte' AND data->>'datum' = ${datum}`
   if (!mote) return c.json({ error: 'Sammanträde ej hittat' }, 404)
 
-  const beslut =
+  const beslutRows =
     await sql`SELECT id, label, data FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ORDER BY (data->>'paragrafNr')::int`
 
   const nearvaroRows = await sql`
-    SELECT e.label, p.fornamn, p.efternamn, p.parti
+    SELECT e.label, p.fornamn, p.efternamn, p.parti, p.id as politiker_id
     FROM goteborg.graf_edges e
     LEFT JOIN goteborg.politiker p ON p.id = replace(e.from_id, 'politiker-', '')::uuid
     WHERE e.to_id = ${mote.id} AND e.typ = 'närvarade' AND p.id IS NOT NULL`
@@ -373,36 +399,44 @@ app.openapi(moteRoute, async (c) => {
     WHERE e.to_id = ${mote.id} AND e.typ = 'talade_i' AND gp.typ = 'politiker'
     ORDER BY (e.data->>'ordning')::int`
 
-  return c.json(
-    {
-      datum,
-      label: mote.label,
-      antalBeslut: beslut.length,
-      beslut: beslut.map((b) => ({
-        id: b.id,
-        paragraf: (b.data as any).paragrafNr,
-        rubrik: (b.data as any).rubrik,
-        beslut: (b.data as any).beslut,
+  const item = {
+    datum,
+    label: mote.label,
+    antalBeslut: beslutRows.length,
+  }
+
+  const related = {
+    beslut: beslutRows.map((b) => ({
+      id: b.id,
+      paragraf: (b.data as any).paragrafNr,
+      rubrik: (b.data as any).rubrik,
+      beslut: (b.data as any).beslut,
+      _links: beslutLinks(kommun, b.id, datum),
+    })),
+    närvarande: nearvaroRows
+      .filter((r) => r.fornamn)
+      .map((r) => ({
+        namn: `${r.fornamn} ${r.efternamn}`,
+        parti: r.parti,
+        tid: r.label || '',
+        _links: r.politiker_id ? { politiker: { href: `${baseUrl(kommun)}/politiker/${r.politiker_id}` } } : undefined,
       })),
-      närvarande: nearvaroRows
-        .filter((r) => r.fornamn)
-        .map((r) => ({
-          namn: `${r.fornamn} ${r.efternamn}`,
-          parti: r.parti,
-          tid: r.label || '',
-        })),
-      anföranden: anförandenRows.map((r) => ({
+    anföranden: anförandenRows.map((r) => {
+      const polId = (r.pol_id as string).replace('pol-', '')
+      return {
         talare: (r.data as any).talare,
         parti: r.parti,
-        politikerId: (r.pol_id as string).replace('pol-', ''),
+        politikerId: polId,
         ärende: (r.data as any).ärende,
         ärendeTitel: (r.data as any).ärendeTitel,
         text: (r.data as any).text,
         ordning: (r.data as any).ordning,
-      })),
-    },
-    200,
-  )
+        _links: { politiker: { href: `${baseUrl(kommun)}/politiker/${polId}` } },
+      }
+    }),
+  }
+
+  return c.json(halResource(item, möteLinks(kommun, datum), related), 200)
 })
 
 // --- Beslut ---
@@ -415,6 +449,7 @@ const beslutRoute = createRoute({
     params: z.object({ kommun: z.string() }),
     query: z.object({
       datum: z.string().optional(),
+      år: z.string().optional(),
       sök: z.string().optional(),
       organ: z.enum(['kf', 'ks', 'all']).optional(),
       limit: z.string().optional(),
@@ -433,14 +468,15 @@ const beslutRoute = createRoute({
 })
 app.openapi(beslutRoute, async (c) => {
   const { kommun } = c.req.valid('param')
-  const { datum, sök, organ, limit } = c.req.valid('query')
+  const { datum, år, sök, organ, limit } = c.req.valid('query')
   const lim = capLimit(limit, 2000)
-  const organFilter =
-    organ === 'kf' ? "AND id LIKE 'kf-%'" : organ === 'ks' ? "AND id LIKE 'ks-%'" : ''
   let rows
   if (datum) {
     rows =
       await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
+  } else if (år) {
+    rows =
+      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' LIKE ${`${år}-%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int LIMIT ${lim}`
   } else if (sök) {
     rows =
       await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC LIMIT ${lim}`
@@ -457,24 +493,19 @@ app.openapi(beslutRoute, async (c) => {
       : []
   const namnuppropSet = new Set(namnuppropIds.map((r) => r.to_id))
 
-  return c.json(
-    {
-      kommun,
-      antal: rows.length,
-      beslut: rows.map((r) => ({
-        id: r.id,
-        organ: (r.id as string).startsWith('ks-') ? 'KS' : 'KF',
-        paragraf: (r.data as any).paragrafNr ? `§ ${(r.data as any).paragrafNr}` : null,
-        rubrik: r.label,
-        datum: (r.data as any).datum,
-        beslut: (r.data as any).beslut,
-        votering: (r.data as any).votering,
-        namnupprop: namnuppropSet.has(r.id),
-        ärendeNr: (r.data as any).ärendeNr,
-      })),
-    },
-    200,
-  )
+  const items = rows.map((r) => ({
+    id: r.id,
+    organ: (r.id as string).startsWith('ks-') ? 'KS' : 'KF',
+    paragraf: (r.data as any).paragrafNr ? `§ ${(r.data as any).paragrafNr}` : null,
+    rubrik: r.label,
+    datum: (r.data as any).datum,
+    beslut: (r.data as any).beslut,
+    votering: (r.data as any).votering,
+    namnupprop: namnuppropSet.has(r.id),
+    ärendeNr: (r.data as any).ärendeNr,
+    _links: beslutLinks(kommun, r.id, (r.data as any).datum),
+  }))
+  return c.json(halCollection(items, beslutListLinks(kommun)), 200)
 })
 
 const beslutDetailRoute = createRoute({
@@ -499,6 +530,7 @@ const beslutDetailRoute = createRoute({
   },
 })
 app.openapi(beslutDetailRoute, async (c) => {
+  const { kommun } = c.req.valid('param')
   const id = decodeURIComponent(c.req.valid('param').id)
   const [node] = await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${id}`
   if (!node) return c.json({ error: 'Beslut inte hittat' }, 404)
@@ -526,25 +558,25 @@ app.openapi(beslutDetailRoute, async (c) => {
           parti: voter?.parti || '',
           röst: e.typ.replace('röstade_', ''),
           politikerId: e.from_id.replace('politiker-', ''),
+          _links: { politiker: { href: `${baseUrl(kommun)}/politiker/${e.from_id.replace('politiker-', '')}` } },
         }
       })
     }
   }
 
-  return c.json(
-    {
-      beslut: { id: node.id, ...node.data, label: node.label, röster },
-      kopplingar: edges.map((e) => {
-        const target = related.find((r) => r.id === (e.from_id === id ? e.to_id : e.from_id))
-        return {
-          typ: e.typ,
-          riktning: e.from_id === id ? 'ut' : 'in',
-          nod: target ? { id: target.id, typ: target.typ, label: target.label } : null,
-        }
-      }),
-    },
-    200,
-  )
+  const datum = (node.data as any).datum
+
+  const item = { id: node.id, ...node.data, label: node.label, röster }
+  const kopplingar = edges.map((e) => {
+    const target = related.find((r) => r.id === (e.from_id === id ? e.to_id : e.from_id))
+    return {
+      typ: e.typ,
+      riktning: e.from_id === id ? 'ut' : 'in',
+      nod: target ? { id: target.id, typ: target.typ, label: target.label } : null,
+    }
+  })
+
+  return c.json(halResource(item, beslutLinks(kommun, id, datum), { kopplingar }), 200)
 })
 
 // --- Anföranden per beslut ---
@@ -562,6 +594,7 @@ const anförandenRoute = createRoute({
   },
 })
 app.openapi(anförandenRoute, async (c) => {
+  const { kommun } = c.req.valid('param')
   const id = decodeURIComponent(c.req.valid('param').id)
 
   // Get anförande nodes linked via 'diskuterade' edge
@@ -574,7 +607,7 @@ app.openapi(anförandenRoute, async (c) => {
     ORDER BY a.id`
 
   if (anföranden.length === 0) {
-    return c.json({ beslutId: id, antal: 0, anföranden: [] }, 200)
+    return c.json(halCollection([], anförandenLinks(kommun, 'beslut', id)), 200)
   }
 
   // Load full text from yttrandeprotokoll (new format) or speakers (legacy fallback)
@@ -601,17 +634,19 @@ app.openapi(anförandenRoute, async (c) => {
     const indexMatch = (a.id as string).match(/anforande-[\d-]+-(\d+)$/)
     const speakerIdx = indexMatch ? Number.parseInt(indexMatch[1]) : -1
     const speaker = speakerIdx >= 0 ? speakersData[speakerIdx] : null
+    const polId = a.politiker_id?.replace('politiker-', '') || null
 
     return {
       id: a.id,
       talare: speaker?.talare || label.split(' — ')[0] || '',
       parti: speaker?.parti || '',
-      politikerId: a.politiker_id?.replace('politiker-', '') || null,
+      politikerId: polId,
       text: speaker?.text || null,
+      _links: polId ? { politiker: { href: `${baseUrl(kommun)}/politiker/${polId}` } } : undefined,
     }
   })
 
-  return c.json({ beslutId: id, antal: results.length, anföranden: results }, 200)
+  return c.json(halCollection(results, anförandenLinks(kommun, 'beslut', id)), 200)
 })
 
 // --- Budget ---
@@ -636,76 +671,78 @@ const budgetRoute = createRoute({
   },
 })
 app.openapi(budgetRoute, async (c) => {
+  const { kommun } = c.req.valid('param')
   const år = c.req.valid('query').år
   if (år) {
     const budgetNode =
       await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${`budget-${år}`} AND typ = 'budget'`
-    if (budgetNode.length === 0)
-      return c.json(
-        {
-          kommun: c.req.valid('param').kommun,
-          år: Number(år),
-          totalMnkr: 0,
-          styre: null,
-          nämnder: [],
-        },
-        200,
-      )
+    if (budgetNode.length === 0) {
+      const item = { år: Number(år), totalMnkr: 0, styre: null }
+      return c.json(halResource(item, budgetLinks(kommun, år), { nämnder: [] }), 200)
+    }
     const meta = budgetNode[0].data as any
     const rows =
       await sql`SELECT n.* FROM goteborg.graf_nodes n JOIN goteborg.graf_edges e ON e.to_id = n.id WHERE e.from_id = ${`budget-${år}`} AND e.typ = 'finansierar' ORDER BY (n.data->>'kommunbidragMnkr')::float DESC NULLS LAST`
-    return c.json(
-      {
-        kommun: c.req.valid('param').kommun,
-        år: Number(år),
-        totalMnkr: meta.totalMnkr,
-        styre: meta.styre,
-        nämnder: rows.map((r) => ({ id: r.id, namn: r.label, ...(r.data as object) })),
-      },
-      200,
-    )
+    const item = { år: Number(år), totalMnkr: meta.totalMnkr, styre: meta.styre }
+    const nämnder = rows.map((r) => ({ id: r.id, namn: r.label, ...(r.data as object) }))
+    return c.json(halResource(item, budgetLinks(kommun, år), { nämnder }), 200)
   }
   // Utan år: returnera alla tillgängliga budgetår med summary
   const years =
     await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'budget' AND id LIKE 'budget-20%' AND data ? 'totalMnkr' ORDER BY (data->>'år')::int`
-  return c.json(
-    {
-      kommun: c.req.valid('param').kommun,
-      år: years.map((y) => ({
-        år: (y.data as any).år,
-        totalMnkr: (y.data as any).totalMnkr,
-        styre: (y.data as any).styre,
-      })),
-    },
-    200,
-  )
+  const items = years.map((y) => ({
+    år: (y.data as any).år,
+    totalMnkr: (y.data as any).totalMnkr,
+    styre: (y.data as any).styre,
+    _links: budgetLinks(kommun, String((y.data as any).år)),
+  }))
+  return c.json(halCollection(items, budgetLinks(kommun)), 200)
 })
 
 // --- Debatter (yttrandeprotokoll) ---
-app.get('/api/v1/:kommun/debatter', async (c) => {
+const debatterRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/debatter',
+  tags: ['Debatter'],
+  summary: 'Lista KF-sammanträden med yttrandeprotokoll',
+  request: { params: z.object({ kommun: z.string() }) },
+  responses: { 200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('DebatterList') } }, description: 'OK' } },
+})
+app.openapi(debatterRoute, async (c) => {
+  const { kommun } = c.req.valid('param')
   const { readdirSync } = await import('node:fs')
   const { join } = await import('node:path')
   const dir = join(import.meta.dirname, '../../../data/debatter')
-  const files = readdirSync(dir)
-    .filter((f) => f.match(/^kf-\d{4}-\d{2}-\d{2}\.json$/))
-    .sort()
-    .reverse()
-  const meetings = files.map((f) => {
+  const files = readdirSync(dir).filter((f) => f.match(/^kf-\d{4}-\d{2}-\d{2}\.json$/)).sort().reverse()
+  const items = files.map((f) => {
     const datum = f.replace('kf-', '').replace('.json', '')
-    return { datum, url: `/api/v1/${c.req.param('kommun')}/debatter/${datum}` }
+    return { datum, _links: debattLinks(kommun, datum) }
   })
-  return c.json({ antal: meetings.length, möten: meetings })
+  return c.json(halCollection(items, debatterListLinks(kommun)))
 })
 
-app.get('/api/v1/:kommun/debatter/:datum', async (c) => {
-  const datum = c.req.param('datum')
+const debattRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/debatter/{datum}',
+  tags: ['Debatter'],
+  summary: 'Yttrandeprotokoll för ett sammanträde — alla anföranden (?talare=, ?ärende=, ?q=)',
+  request: {
+    params: z.object({ kommun: z.string(), datum: z.string() }),
+    query: z.object({ talare: z.string().optional(), ärende: z.string().optional(), q: z.string().optional() }),
+  },
+  responses: {
+    200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('Debatt') } }, description: 'OK' },
+    404: { content: { 'application/json': { schema: z.object({ error: z.string() }) } }, description: 'Ej hittad' },
+  },
+})
+app.openapi(debattRoute, async (c) => {
+  const { kommun, datum } = c.req.valid('param')
   const { readFileSync, existsSync } = await import('node:fs')
   const { join } = await import('node:path')
   const path = join(import.meta.dirname, `../../../data/debatter/kf-${datum}.json`)
   if (!existsSync(path)) return c.json({ error: 'Inget yttrandeprotokoll för detta datum' }, 404)
   const data = JSON.parse(readFileSync(path, 'utf-8'))
-  // Optional: filter by talare or ärende
-  const { talare, ärende, q } = c.req.query() as Record<string, string>
+  const { talare, ärende, q } = c.req.valid('query')
   let anföranden = data.anföranden
   if (talare)
     anföranden = anföranden.filter((a: any) =>
@@ -713,7 +750,15 @@ app.get('/api/v1/:kommun/debatter/:datum', async (c) => {
     )
   if (ärende) anföranden = anföranden.filter((a: any) => String(a.ärende) === ärende)
   if (q) anföranden = anföranden.filter((a: any) => a.text?.toLowerCase().includes(q.toLowerCase()))
-  return c.json({ datum, titel: data.titel, antal: anföranden.length, anföranden })
+
+  // Add _links to each anförande if politikerId exists
+  const items = anföranden.map((a: any) => ({
+    ...a,
+    _links: a.politikerId ? { politiker: { href: `${baseUrl(kommun)}/politiker/${a.politikerId}` } } : undefined,
+  }))
+
+  const item = { datum, titel: data.titel }
+  return c.json(halResource(item, debattLinks(kommun, datum), { anföranden: items }), 200)
 })
 
 // --- Uppdrag per nämnd ---
@@ -725,6 +770,7 @@ app.get('/api/v1/:kommun/graf/uppdrag-per-nämnd', async (c) => {
 
 // Anföranden per politiker (from talade_i edges)
 app.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
+  const kommun = c.req.param('kommun')
   const id = c.req.param('id')
   const datum = c.req.query('datum')
   const rows = datum
@@ -740,19 +786,16 @@ app.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
         JOIN goteborg.graf_nodes n ON n.id = e.to_id
         WHERE e.from_id = ${`pol-${id}`} AND e.typ = 'talade_i'
         ORDER BY (e.data->>'datum') DESC, (e.data->>'ordning')::int`
-  return c.json({
-    politikerId: id,
-    datum: datum || null,
-    antal: rows.length,
-    anföranden: rows.map((r) => ({
-      datum: r.datum,
-      möte: r.mote,
-      ärende: (r.data as any).ärende,
-      ärendeTitel: (r.data as any).ärendeTitel,
-      text: (r.data as any).text,
-      ordning: (r.data as any).ordning,
-    })),
-  })
+  const items = rows.map((r) => ({
+    datum: r.datum,
+    möte: r.mote,
+    ärende: (r.data as any).ärende,
+    ärendeTitel: (r.data as any).ärendeTitel,
+    text: (r.data as any).text,
+    ordning: (r.data as any).ordning,
+    _links: { möte: { href: `${baseUrl(kommun)}/möten/${r.datum}` } },
+  }))
+  return c.json(halCollection(items, anförandenLinks(kommun, 'politiker', id, datum || undefined)))
 })
 
 // Politiker per nämnd via graf — returnerar politiker med API-länk
@@ -1346,6 +1389,7 @@ const förvaltningarRoute = createRoute({
   },
 })
 app.openapi(förvaltningarRoute, async (c) => {
+  const { kommun } = c.req.valid('param')
   const direktörer =
     await sql`SELECT id, label, data FROM goteborg.graf_nodes WHERE typ = 'förvaltningsdirektör' ORDER BY data->>'namn'`
   const results = []
@@ -1369,12 +1413,10 @@ app.openapi(förvaltningarRoute, async (c) => {
       nämnd: nämnd ? { id: nämnd.id, label: nämnd.label, ...nämnd.data } : null,
       utfall: utfall?.data || null,
       revision: revision?.data || null,
+      _links: förvaltningLinks(kommun, d.id),
     })
   }
-  return c.json(
-    { kommun: c.req.valid('param').kommun, antal: results.length, förvaltningar: results },
-    200,
-  )
+  return c.json(halCollection(results, förvaltningarListLinks(kommun)), 200)
 })
 
 const förvaltningDetailRoute = createRoute({
@@ -1397,7 +1439,7 @@ const förvaltningDetailRoute = createRoute({
   },
 })
 app.openapi(förvaltningDetailRoute, async (c) => {
-  const id = c.req.valid('param').id
+  const { kommun, id } = c.req.valid('param')
   const direktörId = id.startsWith('direktör-') ? id : `direktör-${id}`
 
   const [direktör] =
@@ -1443,28 +1485,39 @@ app.openapi(förvaltningDetailRoute, async (c) => {
   // Budget (nämnd data has kommunbidragMnkr)
   const budget = nämnd?.data || {}
 
-  return c.json(
-    {
-      direktör: { id: direktör.id, ...direktör.data },
-      nämnd: nämnd ? { id: nämnd.id, label: nämnd.label, ...nämnd.data } : null,
-      budget,
-      utfall: utfall.map((n) => ({ id: n.id, label: n.label, ...n.data })),
-      revision: revision.map((n) => {
-        const links = revisionLinks
-          .filter((l) => l.from_id === n.id)
-          .map((l) => ({
-            typ: l.typ,
-            label: l.label,
-            beslutId: l.nod_id,
-            beslutLabel: l.nod_label,
-            datum: l.datum,
-          }))
-        return { id: n.id, label: n.label, ...n.data, kopplingar: links }
-      }),
-      ledamöter: ledamöter.map((l) => ({ id: l.id, label: l.label, parti: l.data?.parti })),
-    },
-    200,
-  )
+  const item = {
+    direktör: { id: direktör.id, ...direktör.data },
+    nämnd: nämnd ? { id: nämnd.id, label: nämnd.label, ...nämnd.data } : null,
+    budget,
+  }
+
+  const related = {
+    utfall: utfall.map((n) => ({ id: n.id, label: n.label, ...n.data })),
+    revision: revision.map((n) => {
+      const links = revisionLinks
+        .filter((l) => l.from_id === n.id)
+        .map((l) => ({
+          typ: l.typ,
+          label: l.label,
+          beslutId: l.nod_id,
+          beslutLabel: l.nod_label,
+          datum: l.datum,
+          _links: { beslut: { href: `${baseUrl(kommun)}/beslut/${encodeURIComponent(l.nod_id)}` } },
+        }))
+      return { id: n.id, label: n.label, ...n.data, kopplingar: links }
+    }),
+    ledamöter: ledamöter.map((l) => {
+      const polId = (l.id as string).replace('pol-', '')
+      return {
+        id: l.id,
+        label: l.label,
+        parti: l.data?.parti,
+        _links: { politiker: { href: `${baseUrl(kommun)}/politiker/${polId}` } },
+      }
+    }),
+  }
+
+  return c.json(halResource(item, förvaltningLinks(kommun, direktörId), related), 200)
 })
 
 const direktörResultatRoute = createRoute({
@@ -1538,10 +1591,39 @@ app.doc('/openapi.json', {
   openapi: '3.1.0',
   info: {
     title: 'De Arbetar För Dig — API',
-    version: '0.3.0',
+    version: '0.4.0',
     description: `Öppen demokrati-API för Göteborgs Stad.
 
+**HAL Format (Hypertext Application Language):**
+
+Alla svar följer HAL-standarden för hypermedia API:er.
+
+*Listor (collections):*
+\`\`\`json
+{
+  "_embedded": { "items": [...] },
+  "_links": { "self": { "href": "/api/v1/goteborg/politiker" } },
+  "total": 125
+}
+\`\`\`
+
+*Resurser (single item):*
+\`\`\`json
+{
+  "_embedded": {
+    "item": { "id": "...", "namn": "..." },
+    "related": { "möten": [...] }
+  },
+  "_links": {
+    "self": { "href": "/api/v1/goteborg/politiker/{id}" },
+    "collection": { "href": "/api/v1/goteborg/politiker" }
+  }
+}
+\`\`\`
+
 **Endpoints:**
+- \`/möten?år=\` — Lista sammanträden (KF+KS) med url per möte
+- \`/möten/{datum}\` — Enskilt möte: beslut, närvaro, anföranden
 - \`/politiker\` — 125 KF-ledamöter med uppdrag och möten
 - \`/politiker/{id}\` — Detaljprofil inkl. lista över möten där politikern talade
 - \`/politiker/{id}/anforanden?datum=\` — Anföranden (tal) per möte
@@ -1550,7 +1632,10 @@ app.doc('/openapi.json', {
 - \`/debatter/{datum}\` — Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)
 - \`/budget?år=\` — Kommunbudget per nämnd (2022–2026)
 - \`/graf\` — Knowledge graph (noder + kanter)
+- \`/graf/node/{id}\` — Graf-nod med relaterade noder och kanter
 - \`/stats\` — Demokratisk hälsa (Rice-index, Gini, konsensusgrad)
+- \`/metrics\` — Beslutskraft och partilojalitet
+- \`/sök?q=\` — Fulltextsökning över alla resurser
 
 **Datakällor:** Nämndhandlingar (goteborg.se), Yttrandeprotokoll PDF, Valmyndigheten`,
     license: { name: 'AGPL-3.0', url: 'https://www.gnu.org/licenses/agpl-3.0.html' },
@@ -1565,6 +1650,6 @@ app.get('/docs', swaggerUI({ url: '/openapi.json' }))
 app.get('/', (c) => c.redirect('/docs'))
 
 serve({ fetch: app.fetch, port: 3000 }, (info) => {
-  console.log(`🚀 API v0.2.0 at http://localhost:${info.port}`)
+  console.log(`🚀 API v0.4.0 at http://localhost:${info.port}`)
   console.log(`📖 Docs: http://localhost:${info.port}/docs`)
 })

@@ -32,36 +32,44 @@ describe('Smoke tests — alla endpoints svarar', () => {
 
   it('GET /api/v1/goteborg/politiker → har politiker', async () => {
     const { data } = await get('/api/v1/goteborg/politiker?limit=125')
-    expect(data.antal).toBe(125)
-    expect(data.politiker[0]).toHaveProperty('id')
-    expect(data.politiker[0]).toHaveProperty('namn')
-    expect(data.politiker[0]).toHaveProperty('parti')
+    expect(data.total).toBe(125)
+    expect(data._embedded.items[0]).toHaveProperty('id')
+    expect(data._embedded.items[0]).toHaveProperty('namn')
+    expect(data._embedded.items[0]).toHaveProperty('parti')
+    expect(data._links.self.href).toBe('/api/v1/goteborg/politiker')
   })
 
   it('GET /api/v1/goteborg/politiker?parti=S → filtrerar', async () => {
     const { data } = await get('/api/v1/goteborg/politiker?parti=S')
-    expect(data.antal).toBe(33)
-    data.politiker.forEach((p: any) => expect(p.parti).toBe('S'))
+    expect(data.total).toBe(33)
+    data._embedded.items.forEach((p: any) => expect(p.parti).toBe('S'))
   })
 
   it('GET /api/v1/goteborg/möten → har sammanträden', async () => {
     const { data } = await get('/api/v1/goteborg/m%C3%B6ten')
-    expect(data.antal).toBeGreaterThan(10)
-    expect(data.möten[0]).toHaveProperty('datum')
-    expect(data.möten[0]).toHaveProperty('antalBeslut')
+    expect(data.total).toBeGreaterThan(10)
+    expect(data._embedded.items[0]).toHaveProperty('datum')
+    expect(data._embedded.items[0]).toHaveProperty('antalBeslut')
   })
 
   it('GET /api/v1/goteborg/beslut → har beslut', async () => {
     const { data } = await get('/api/v1/goteborg/beslut')
-    expect(data.antal).toBeGreaterThan(0)
-    expect(data.beslut[0]).toHaveProperty('rubrik')
-    expect(data.beslut[0]).toHaveProperty('datum')
+    expect(data.total).toBeGreaterThan(0)
+    expect(data._embedded.items[0]).toHaveProperty('rubrik')
+    expect(data._embedded.items[0]).toHaveProperty('datum')
   })
 
-  it('GET /api/v1/goteborg/budget → organisationer med belopp', async () => {
+  it('GET /api/v1/goteborg/budget → lista budgetår', async () => {
     const { data } = await get('/api/v1/goteborg/budget')
-    expect(data.totalMnkr).toBeGreaterThan(30000)
-    expect(data.nämnder.length).toBeGreaterThan(20)
+    expect(data.total).toBeGreaterThan(0)
+    expect(data._embedded.items[0]).toHaveProperty('år')
+    expect(data._embedded.items[0]).toHaveProperty('totalMnkr')
+  })
+
+  it('GET /api/v1/goteborg/budget?år=2025 → organisationer med belopp', async () => {
+    const { data } = await get('/api/v1/goteborg/budget?%C3%A5r=2025')
+    expect(data._embedded.item.totalMnkr).toBeGreaterThan(30000)
+    expect(data._embedded.related.nämnder.length).toBeGreaterThan(20)
   })
 
   it('GET /api/v1/goteborg/metrics → beslutskraft och partilojalitet', async () => {
@@ -129,7 +137,7 @@ describe('Investigation: Jäv och konflikter', () => {
   it('Politiker har bolagsuppdrag i grafen', async () => {
     const { data: polList } = await get('/api/v1/goteborg/politiker?parti=L&limit=5')
     let found = false
-    for (const pol of polList.politiker) {
+    for (const pol of polList._embedded.items) {
       const { data: node } = await get(`/api/v1/goteborg/graf/node/politiker-${pol.id}`)
       const bolagEdges = node.edges.filter((e: any) => e.typ === 'bolagsuppdrag')
       if (bolagEdges.length > 0) {
@@ -160,8 +168,8 @@ describe('Integration: полный путь по графу (politiker → besl
   it('Kan gå från politiker → votering → beslut → nämnd → annan politiker', async () => {
     // 1. Hämta en politiker (Jonas Attenius, S)
     const { data: polList } = await get('/api/v1/goteborg/politiker?parti=S')
-    expect(polList.antal).toBeGreaterThan(0)
-    const jonas = polList.politiker.find((p: any) => p.namn.includes('Attenius'))
+    expect(polList.total).toBeGreaterThan(0)
+    const jonas = polList._embedded.items.find((p: any) => p.namn.includes('Attenius'))
     expect(jonas).toBeDefined()
 
     // 2. Hämta politikerns graf-nod med alla kopplingar
@@ -199,7 +207,7 @@ describe('Integration: полный путь по графу (politiker → besl
 
   it('Varje politiker-nod har minst sitter_i-edges', async () => {
     const { data: polList } = await get('/api/v1/goteborg/politiker?parti=M&limit=3')
-    for (const pol of polList.politiker) {
+    for (const pol of polList._embedded.items) {
       const { data: node } = await get(`/api/v1/goteborg/graf/node/politiker-${pol.id}`)
       expect(node.node).toBeDefined()
       const sitterI = node.edges.filter((e: any) => e.typ === 'sitter_i')
@@ -209,7 +217,7 @@ describe('Integration: полный путь по графу (politiker → besl
 
   it('Beslut-noder har kopplingar till möte', async () => {
     const { data: beslut } = await get('/api/v1/goteborg/beslut?datum=2025-11-27&limit=3')
-    for (const b of beslut.beslut) {
+    for (const b of beslut._embedded.items) {
       const { data: node } = await get(`/api/v1/goteborg/graf/node/${encodeURIComponent(b.id)}`)
       expect(node.node).toBeDefined()
       const mötesEdge = node.edges.find((e: any) => e.typ === 'beslut_av')
@@ -220,8 +228,9 @@ describe('Integration: полный путь по графу (politiker → besl
 
 describe('Investigation: Budget — vart går pengarna?', () => {
   it('Största budgetposten är grundskola', async () => {
-    const { data } = await get('/api/v1/goteborg/budget')
-    const sorted = data.nämnder.sort(
+    const { data } = await get('/api/v1/goteborg/budget?%C3%A5r=2025')
+    const nämnder = data._embedded.related.nämnder
+    const sorted = nämnder.sort(
       (a: any, b: any) => (b.kommunbidragMnkr || 0) - (a.kommunbidragMnkr || 0),
     )
     expect(sorted[0].namn).toContain('Grundskole')
