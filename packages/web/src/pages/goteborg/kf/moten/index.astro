@@ -1,0 +1,41 @@
+---
+import PartyTag from '../../../../../../ui/src/components/core/PartyTag.astro'
+import { getMöten } from '../../../../data/api'
+import Base from '../../../../layouts/Base.astro'
+
+const allMöten = await getMöten()
+const möten = allMöten.filter((m: any) => m.label?.includes('KF')).sort((a: any, b: any) => b.datum.localeCompare(a.datum))
+---
+
+<Base title="KF Möten — Göteborg">
+  <h1 class="text-[2rem] font-bold mb-2">KF Möten</h1>
+  <p class="text-sm text-[var(--color-text-muted)] mb-8">
+    Kommunfullmäktige — {möten.length} sammanträden
+  </p>
+
+  <div class="flex flex-col gap-2">
+    {möten.map((m: any) => {
+      const hasYttrande = true // all KF meetings have yttrandeprotokoll from 2023+
+      const year = m.datum?.slice(0, 4)
+      const hasDebatt = parseInt(year) >= 2023
+      return (
+        <div class="flex items-center gap-4 p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
+          <span class="font-mono text-sm shrink-0 w-28">{m.datum}</span>
+          <span class="text-sm text-[var(--color-text-muted)] flex-1">{m.antalBeslut} beslut</span>
+          <div class="flex gap-2">
+            <a href={`/goteborg/kf/beslut?datum=${m.datum}`}
+              class="text-xs px-3 py-1 bg-[var(--color-surface-sunken)] border border-[var(--color-border)] rounded hover:border-[var(--color-primary)] transition-colors">
+              Beslut
+            </a>
+            {hasDebatt && (
+              <a href={`/goteborg/debatter/${m.datum}`}
+                class="text-xs px-3 py-1 bg-[var(--color-surface-sunken)] border border-[var(--color-border)] rounded hover:border-[var(--color-primary)] transition-colors">
+                Debatt
+              </a>
+            )}
+          </div>
+        </div>
+      )
+    })}
+  </div>
+</Base>
