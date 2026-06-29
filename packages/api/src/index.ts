@@ -323,11 +323,86 @@ app.openapi(mötenRoute, async (c) => {
     datum: m.datum,
     label: m.label,
     antalBeslut: countMap[m.datum] || 0,
-    närvarande: närvaroMap.get(m.id) || [],
+    url: `/api/v1/${kommun}/möten/${m.datum}`,
+    närvarande: (närvaroMap.get(m.id) || []).length,
   }))
   if (år) möten = möten.filter((m) => m.datum?.startsWith(år))
 
   return c.json({ kommun, antal: möten.length, möten }, 200)
+})
+
+// --- Möte (enskilt) ---
+const moteRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/möten/{datum}',
+  tags: ['Möten'],
+  summary: 'Enskilt sammanträde — beslut, närvaro och anföranden',
+  request: { params: z.object({ kommun: z.string(), datum: z.string() }) },
+  responses: {
+    200: {
+      content: { 'application/json': { schema: z.object({}).passthrough().openapi('Mote') } },
+      description: 'OK',
+    },
+    404: {
+      content: { 'application/json': { schema: z.object({ error: z.string() }) } },
+      description: 'Ej hittad',
+    },
+  },
+})
+app.openapi(moteRoute, async (c) => {
+  const { datum } = c.req.valid('param')
+
+  const [mote] =
+    await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'möte' AND data->>'datum' = ${datum}`
+  if (!mote) return c.json({ error: 'Sammanträde ej hittat' }, 404)
+
+  const beslut =
+    await sql`SELECT id, label, data FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ORDER BY (data->>'paragrafNr')::int`
+
+  const nearvaroRows = await sql`
+    SELECT e.label, p.fornamn, p.efternamn, p.parti
+    FROM goteborg.graf_edges e
+    LEFT JOIN goteborg.politiker p ON p.id = replace(e.from_id, 'politiker-', '')::uuid
+    WHERE e.to_id = ${mote.id} AND e.typ = 'närvarade' AND p.id IS NOT NULL`
+
+  // Anföranden from yttrandeprotokoll (talade_i)
+  const anförandenRows = await sql`
+    SELECT e.data, gp.label as talare, gp.data->>'parti' as parti, gp.id as pol_id
+    FROM goteborg.graf_edges e
+    JOIN goteborg.graf_nodes gp ON gp.id = e.from_id
+    WHERE e.to_id = ${mote.id} AND e.typ = 'talade_i' AND gp.typ = 'politiker'
+    ORDER BY (e.data->>'ordning')::int`
+
+  return c.json(
+    {
+      datum,
+      label: mote.label,
+      antalBeslut: beslut.length,
+      beslut: beslut.map((b) => ({
+        id: b.id,
+        paragraf: (b.data as any).paragrafNr,
+        rubrik: (b.data as any).rubrik,
+        beslut: (b.data as any).beslut,
+      })),
+      närvarande: nearvaroRows
+        .filter((r) => r.fornamn)
+        .map((r) => ({
+          namn: `${r.fornamn} ${r.efternamn}`,
+          parti: r.parti,
+          tid: r.label || '',
+        })),
+      anföranden: anförandenRows.map((r) => ({
+        talare: (r.data as any).talare,
+        parti: r.parti,
+        politikerId: (r.pol_id as string).replace('pol-', ''),
+        ärende: (r.data as any).ärende,
+        ärendeTitel: (r.data as any).ärendeTitel,
+        text: (r.data as any).text,
+        ordning: (r.data as any).ordning,
+      })),
+    },
+    200,
+  )
 })
 
 // --- Beslut ---
