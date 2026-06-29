@@ -2,7 +2,7 @@
 import Card from '../../../../../../ui/src/components/core/Card.astro'
 import PartyTag from '../../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../../ui/src/components/core/StatusBadge.astro'
-import { getMöten, getMöteAnföranden, fetchApi } from '../../../../data/api'
+import { getMöten, getMöteAnföranden, fetchApi, getStats } from '../../../../data/api'
 import Base from '../../../../layouts/Base.astro'
 
 export async function getStaticPaths() {
@@ -30,11 +30,37 @@ for (const n of närvarandeRaw) {
     existing.tider.push(n.tid)
   }
 }
-// Sort tider and join
-const närvarande = [...närvarandeMap.values()].map(n => ({
-  ...n,
-  tid: n.tider.sort().join(', ') || ''
-}))
+
+// Get party order by KF seats
+const stats = await getStats()
+const partiOrder = Object.entries(stats.partier)
+  .sort((a, b) => (b[1] as number) - (a[1] as number))
+  .map(([parti]) => parti)
+
+// Sort närvarande by party order, then by name
+const närvarandeSorted = [...närvarandeMap.values()]
+  .map(n => ({ ...n, tid: n.tider.sort().join(', ') || '' }))
+  .sort((a, b) => {
+    const partiA = partiOrder.indexOf(a.parti)
+    const partiB = partiOrder.indexOf(b.parti)
+    const orderA = partiA === -1 ? 999 : partiA
+    const orderB = partiB === -1 ? 999 : partiB
+    if (orderA !== orderB) return orderA - orderB
+    return a.namn.localeCompare(b.namn, 'sv')
+  })
+
+// Group by party
+const närvarandeByParti: { parti: string; members: typeof närvarandeSorted }[] = []
+let currentParti: { parti: string; members: typeof närvarandeSorted } | null = null
+for (const n of närvarandeSorted) {
+  if (!currentParti || currentParti.parti !== n.parti) {
+    currentParti = { parti: n.parti, members: [] }
+    närvarandeByParti.push(currentParti)
+  }
+  currentParti.members.push(n)
+}
+
+const närvarande = närvarandeSorted
 
 // Fetch anföranden
 const anförandenData = await getMöteAnföranden(datum!)
@@ -174,11 +200,29 @@ const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
 
   <!-- Närvaro panel -->
   <div id="panel-narvaro" class="tab-panel hidden">
-    <div class="grid gap-2" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
-      {närvarande.map((n: any) => (
-        <div class="flex items-center gap-2 p-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
-          <PartyTag parti={n.parti} size="sm" />
-          <span class="text-sm truncate">{n.namn}</span>
+    <div class="flex flex-col gap-4">
+      {närvarandeByParti.map((group) => (
+        <div>
+          <div class="flex items-center gap-2 mb-2 pb-1 border-b border-[var(--color-border)]">
+            <PartyTag parti={group.parti} size="sm" />
+            <span class="text-sm text-[var(--color-text-muted)]">{group.members.length} ledamöter</span>
+          </div>
+          <div class="grid gap-2" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+            {group.members.map((n: any) => {
+              const politikerId = n._links?.politiker?.href?.split('/').pop()
+              return (
+                <div class="flex items-center gap-2 p-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+                  {politikerId ? (
+                    <a href={`/goteborg/politiker/${politikerId}`} class="text-sm truncate hover:text-[var(--color-primary)]">
+                      {n.namn}
+                    </a>
+                  ) : (
+                    <span class="text-sm truncate">{n.namn}</span>
+                  )}
+                </div>
+              )
+            })}
+          </div>
         </div>
       ))}
     </div>
