@@ -147,7 +147,8 @@ async function main() {
           ON CONFLICT (id) DO UPDATE SET label = EXCLUDED.label, data = EXCLUDED.data`
       }
 
-      const nämndNodes = await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ IN ('organisation','nämnd') ORDER BY id`
+      const nämndNodes =
+        await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ IN ('organisation','nämnd') ORDER BY id`
       const nämndMap = new Map<string, string>()
       for (const n of nämndNodes) {
         const key = (n.label as string).toLowerCase().replace(/- och/g, ' och')
@@ -163,7 +164,10 @@ async function main() {
         for (const u of p.uppdrag || []) {
           const orgRaw: string = (u.organisation || '').replace(/^Göteborgs Stads\s+/i, '')
           if (!orgRaw.toLowerCase().includes('nämnd')) continue
-          const orgKey = orgRaw.replace(/nämnd\b(?!\w)/gi, 'nämnden').replace(/- och/g, ' och').toLowerCase()
+          const orgKey = orgRaw
+            .replace(/nämnd\b(?!\w)/gi, 'nämnden')
+            .replace(/- och/g, ' och')
+            .toLowerCase()
           const nämndId = nämndMap.get(orgKey)
           if (!nämndId) continue
           const edgeKey = `${p.id}:${nämndId}`
@@ -182,7 +186,8 @@ async function main() {
     const nämndLedamoterFile = join(DATA_DIR, 'politiker/namnd-ledamoter.json')
     if (existsSync(nämndLedamoterFile)) {
       const nämndData = JSON.parse(readFileSync(nämndLedamoterFile, 'utf-8'))
-      const nämndNodes2 = await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ IN ('organisation','nämnd') ORDER BY id`
+      const nämndNodes2 =
+        await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ IN ('organisation','nämnd') ORDER BY id`
       const nämndMap2 = new Map<string, string>()
       for (const n of nämndNodes2) {
         const key = (n.label as string).toLowerCase().replace(/- och/g, ' och')
@@ -195,7 +200,11 @@ async function main() {
 
       let nämndEdges = 0
       for (const [orgNamn, members] of Object.entries(nämndData.nämnder as Record<string, any[]>)) {
-        const orgKey = orgNamn.replace(/^Göteborgs Stads\s+/i, '').replace(/nämnd\b(?!\w)/gi, 'nämnden').replace(/- och/g, ' och').toLowerCase()
+        const orgKey = orgNamn
+          .replace(/^Göteborgs Stads\s+/i, '')
+          .replace(/nämnd\b(?!\w)/gi, 'nämnden')
+          .replace(/- och/g, ' och')
+          .toLowerCase()
         const nämndId = nämndMap2.get(orgKey)
         if (!nämndId) continue
         for (const m of members) {
@@ -233,6 +242,37 @@ async function main() {
         VALUES (${doc.id}, ${doc.titel}, ${doc.typ}, ${doc.nämnd}, ${doc.datum}, ${doc.källa}, ${innehall}, ${doc.graf_nod || null})`
     }
     console.log(`   ✓ ${docs.length} dokument (full-text)`)
+  }
+
+  // Seed talade_i edges from yttrandeprotokoll (kf-*.json in debatter/)
+  const debatterDir = join(DATA_DIR, 'debatter')
+  if (existsSync(debatterDir)) {
+    const files = readdirSync(debatterDir).filter((f) => f.match(/^kf-\d{4}-\d{2}-\d{2}\.json$/))
+    let taladEdges = 0
+    for (const file of files) {
+      const datum = file.replace('kf-', '').replace('.json', '')
+      const moteId = `möte-kf-${datum}` // möte node id in graf
+      const data = JSON.parse(readFileSync(join(debatterDir, file), 'utf-8'))
+      for (const a of data.anföranden || []) {
+        if (!a.politikerId) continue
+        const polId = `pol-${a.politikerId}`
+        const edgeData = {
+          talare: a.talare,
+          parti: a.parti,
+          ärende: a.ärende,
+          ärendeTitel: a.ärendeTitel,
+          text: a.text,
+          ordning: a.ordning,
+          datum,
+        }
+        try {
+          await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
+            VALUES (${polId}, ${moteId}, 'talade_i', ${client.json(edgeData)})`
+          taladEdges++
+        } catch {}
+      }
+    }
+    console.log(`   ✓ ${taladEdges} talade_i edges (anföranden→möten)`)
   }
 
   console.log('\n✅ Database seeded')

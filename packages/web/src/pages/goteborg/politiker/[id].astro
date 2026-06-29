@@ -9,6 +9,7 @@ import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import Table from '../../../../../ui/src/components/core/Table.astro'
 import {
+  fetchApi,
   getMöten,
   getPolitiker,
   getPolitikerArvode,
@@ -30,6 +31,8 @@ const id = Astro.params.id as string
 
 const detail = await getPolitikerDetail(id)
 const arvode = await getPolitikerArvode(id)
+const anförandenData = await fetchApi<{ antal: number; anföranden: any[] }>(`/api/v1/goteborg/politiker/${id}/anforanden`)
+const anföranden = anförandenData?.anföranden || []
 const uppdrag = detail.uppdrag || []
 const mandatperioder = (detail.sociala?.mandatperioder || []) as {
   period: string
@@ -232,4 +235,23 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
     )}
 
   </div>
+  {anföranden.length > 0 && (
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4">Anföranden ({anföranden.length})</h2>
+      <div class="flex flex-col gap-3">
+        {anföranden.slice(0, 20).map((a) => (
+          <div class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
+            <div class="flex items-center gap-2 mb-2 text-xs text-[var(--color-text-muted)]">
+              <a href={`/goteborg/debatter/${a.datum}`} class="font-mono hover:text-[var(--color-primary)]">{a.datum}</a>
+              {a.ärende && <span>· Ärende {a.ärende}: {a.ärendeTitel?.slice(0, 50)}</span>}
+            </div>
+            <p class="text-sm text-[var(--color-text)] leading-relaxed">{a.text?.slice(0, 300)}{(a.text?.length || 0) > 300 ? '…' : ''}</p>
+          </div>
+        ))}
+        {anföranden.length > 20 && (
+          <p class="text-sm text-[var(--color-text-muted)] text-center">+{anföranden.length - 20} fler anföranden via <a href={`/goteborg/debatter`} class="hover:text-[var(--color-primary)]">debatter</a></p>
+        )}
+      </div>
+    </section>
+  )}
 </Base>

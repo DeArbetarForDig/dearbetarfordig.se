@@ -632,6 +632,29 @@ app.get('/api/v1/:kommun/graf/uppdrag-per-nämnd', async (c) => {
   return c.json({ rows })
 })
 
+// Anföranden per politiker (from talade_i edges)
+app.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
+  const id = c.req.param('id')
+  const rows = await sql`
+    SELECT e.data, n.label as mote, n.data->>'datum' as datum
+    FROM goteborg.graf_edges e
+    JOIN goteborg.graf_nodes n ON n.id = e.to_id
+    WHERE e.from_id = ${`pol-${id}`} AND e.typ = 'talade_i'
+    ORDER BY (e.data->>'datum') DESC, (e.data->>'ordning')::int`
+  return c.json({
+    politikerId: id,
+    antal: rows.length,
+    anföranden: rows.map((r) => ({
+      datum: r.datum,
+      möte: r.mote,
+      ärende: (r.data as any).ärende,
+      ärendeTitel: (r.data as any).ärendeTitel,
+      text: (r.data as any).text,
+      ordning: (r.data as any).ordning,
+    })),
+  })
+})
+
 // Politiker per nämnd via graf — returnerar politiker med API-länk
 app.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
   const rows =
