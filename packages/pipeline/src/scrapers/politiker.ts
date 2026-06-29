@@ -10,7 +10,7 @@
  * 3. Spara till data/politiker/goteborg.json
  */
 
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import * as cheerio from 'cheerio'
 
@@ -144,20 +144,39 @@ async function main() {
     await sleep(DELAY_MS)
   }
 
-  // Step 3: Save
+  // Step 3: Merge with existing data to preserve mandatperioder and other enriched fields
+  const outPath = join(OUTPUT_DIR, 'goteborg.json')
+  const existingByid = new Map<string, any>()
+  if (existsSync(outPath)) {
+    try {
+      const existing = JSON.parse(readFileSync(outPath, 'utf-8'))
+      for (const p of existing.politiker || []) existingByid.set(p.id, p)
+    } catch {}
+  }
+
+  const finalResults = results.map((p) => {
+    const prev = existingByid.get(p.id)
+    return {
+      ...p,
+      // Preserve enriched fields that scraper doesn't collect
+      mandatperioder: p.mandatperioder?.length ? p.mandatperioder : prev?.mandatperioder || [],
+      närstående: p.närstående ?? prev?.närstående ?? null,
+    }
+  })
+
+  // Save
   mkdirSync(OUTPUT_DIR, { recursive: true })
   const output = {
     kommun: 'goteborg',
     källa: `${BASE_URL}/organisation/${KF_ORG_ID}`,
     hämtad: new Date().toISOString(),
     mandatperiod: { från: '2022-10-15', till: '2026-10-14' },
-    antal: results.length,
-    politiker: results,
+    antal: finalResults.length,
+    politiker: finalResults,
   }
 
-  const outPath = join(OUTPUT_DIR, 'goteborg.json')
   writeFileSync(outPath, JSON.stringify(output, null, 2))
-  console.log(`\n✅ Sparad: ${outPath} (${results.length} politiker)`)
+  console.log(`\n✅ Sparad: ${outPath} (${finalResults.length} politiker)`)
 }
 
 main().catch(console.error)
