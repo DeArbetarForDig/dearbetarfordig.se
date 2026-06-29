@@ -163,9 +163,25 @@ const politikerDetailRoute = createRoute({
 })
 app.openapi(politikerDetailRoute, async (c) => {
   const { id } = c.req.valid('param')
+  const { kommun } = c.req.valid('param')
   const [person] = await sql`SELECT * FROM goteborg.politiker WHERE id = ${id}`
   if (!person) return c.json({ error: 'Politiker inte hittad' }, 404)
-  return c.json(person as any, 200)
+
+  // Möten where this politiker spoke (from talade_i edges)
+  const rows = await sql`
+    SELECT DISTINCT e.data->>'datum' as datum, n.label as mote
+    FROM goteborg.graf_edges e
+    JOIN goteborg.graf_nodes n ON n.id = e.to_id
+    WHERE e.from_id = ${`pol-${id}`} AND e.typ = 'talade_i'
+    ORDER BY datum DESC`
+
+  const möten = rows.map((r) => ({
+    datum: r.datum,
+    möte: r.mote,
+    url: `/api/v1/${kommun}/politiker/${id}/anforanden?datum=${r.datum}`,
+  }))
+
+  return c.json({ ...(person as any), möten }, 200)
 })
 
 // --- Arvode ---
@@ -635,14 +651,23 @@ app.get('/api/v1/:kommun/graf/uppdrag-per-nämnd', async (c) => {
 // Anföranden per politiker (from talade_i edges)
 app.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
   const id = c.req.param('id')
-  const rows = await sql`
-    SELECT e.data, n.label as mote, n.data->>'datum' as datum
-    FROM goteborg.graf_edges e
-    JOIN goteborg.graf_nodes n ON n.id = e.to_id
-    WHERE e.from_id = ${`pol-${id}`} AND e.typ = 'talade_i'
-    ORDER BY (e.data->>'datum') DESC, (e.data->>'ordning')::int`
+  const datum = c.req.query('datum')
+  const rows = datum
+    ? await sql`
+        SELECT e.data, n.label as mote, n.data->>'datum' as datum
+        FROM goteborg.graf_edges e
+        JOIN goteborg.graf_nodes n ON n.id = e.to_id
+        WHERE e.from_id = ${`pol-${id}`} AND e.typ = 'talade_i' AND e.data->>'datum' = ${datum}
+        ORDER BY (e.data->>'ordning')::int`
+    : await sql`
+        SELECT e.data, n.label as mote, n.data->>'datum' as datum
+        FROM goteborg.graf_edges e
+        JOIN goteborg.graf_nodes n ON n.id = e.to_id
+        WHERE e.from_id = ${`pol-${id}`} AND e.typ = 'talade_i'
+        ORDER BY (e.data->>'datum') DESC, (e.data->>'ordning')::int`
   return c.json({
     politikerId: id,
+    datum: datum || null,
     antal: rows.length,
     anföranden: rows.map((r) => ({
       datum: r.datum,
