@@ -486,19 +486,19 @@ app.openapi(anförandenRoute, async (c) => {
     return c.json({ beslutId: id, antal: 0, anföranden: [] }, 200)
   }
 
-  // Try to load full text from speakers file
+  // Load full text from yttrandeprotokoll (new format) or speakers (legacy fallback)
   const datum = (anföranden[0].data as any)?.datum
   let speakersData: any[] = []
   if (datum) {
     try {
       const { readFileSync, existsSync } = await import('node:fs')
       const { join } = await import('node:path')
-      const speakersPath = join(
-        import.meta.dirname,
-        `../../../data/debatter/speakers-${datum}.json`,
-      )
-      if (existsSync(speakersPath)) {
-        const file = JSON.parse(readFileSync(speakersPath, 'utf-8'))
+      // New format: kf-{datum}.json (from parse-yttrandeprotokoll)
+      const newPath = join(import.meta.dirname, `../../../data/debatter/kf-${datum}.json`)
+      const legacyPath = join(import.meta.dirname, `../../../data/debatter/speakers-${datum}.json`)
+      const path = existsSync(newPath) ? newPath : legacyPath
+      if (existsSync(path)) {
+        const file = JSON.parse(readFileSync(path, 'utf-8'))
         speakersData = file.anföranden || []
       }
     } catch {}
@@ -590,6 +590,41 @@ app.openapi(budgetRoute, async (c) => {
   )
 })
 
+// --- Debatter (yttrandeprotokoll) ---
+app.get('/api/v1/:kommun/debatter', async (c) => {
+  const { readdirSync } = await import('node:fs')
+  const { join } = await import('node:path')
+  const dir = join(import.meta.dirname, '../../../data/debatter')
+  const files = readdirSync(dir)
+    .filter((f) => f.match(/^kf-\d{4}-\d{2}-\d{2}\.json$/))
+    .sort()
+    .reverse()
+  const meetings = files.map((f) => {
+    const datum = f.replace('kf-', '').replace('.json', '')
+    return { datum, url: `/api/v1/${c.req.param('kommun')}/debatter/${datum}` }
+  })
+  return c.json({ antal: meetings.length, möten: meetings })
+})
+
+app.get('/api/v1/:kommun/debatter/:datum', async (c) => {
+  const datum = c.req.param('datum')
+  const { readFileSync, existsSync } = await import('node:fs')
+  const { join } = await import('node:path')
+  const path = join(import.meta.dirname, `../../../data/debatter/kf-${datum}.json`)
+  if (!existsSync(path)) return c.json({ error: 'Inget yttrandeprotokoll för detta datum' }, 404)
+  const data = JSON.parse(readFileSync(path, 'utf-8'))
+  // Optional: filter by talare or ärende
+  const { talare, ärende, q } = c.req.query() as Record<string, string>
+  let anföranden = data.anföranden
+  if (talare)
+    anföranden = anföranden.filter((a: any) =>
+      a.talare.toLowerCase().includes(talare.toLowerCase()),
+    )
+  if (ärende) anföranden = anföranden.filter((a: any) => String(a.ärende) === ärende)
+  if (q) anföranden = anföranden.filter((a: any) => a.text?.toLowerCase().includes(q.toLowerCase()))
+  return c.json({ datum, titel: data.titel, antal: anföranden.length, anföranden })
+})
+
 // --- Uppdrag per nämnd ---
 app.get('/api/v1/:kommun/graf/uppdrag-per-nämnd', async (c) => {
   const rows =
@@ -622,10 +657,28 @@ app.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
   }
 
   // Sort each nämnd: by official 2022 KF mandate count (Valmyndigheten 2022-09-11)
-  const officialSeats: Record<string, number> = { S: 21, M: 14, V: 13, SD: 9, MP: 5, L: 5, D: 5, KD: 4, C: 5 }
-  const partiRank = new Map(Object.entries(officialSeats).sort((a, b) => b[1] - a[1]).map(([p], i) => [p, i]))
+  const officialSeats: Record<string, number> = {
+    S: 21,
+    M: 14,
+    V: 13,
+    SD: 9,
+    MP: 5,
+    L: 5,
+    D: 5,
+    KD: 4,
+    C: 5,
+  }
+  const partiRank = new Map(
+    Object.entries(officialSeats)
+      .sort((a, b) => b[1] - a[1])
+      .map(([p], i) => [p, i]),
+  )
   for (const [, pols] of byNämnd) {
-    pols.sort((a, b) => (partiRank.get(a.parti) ?? 99) - (partiRank.get(b.parti) ?? 99) || a.namn.localeCompare(b.namn, 'sv'))
+    pols.sort(
+      (a, b) =>
+        (partiRank.get(a.parti) ?? 99) - (partiRank.get(b.parti) ?? 99) ||
+        a.namn.localeCompare(b.namn, 'sv'),
+    )
   }
 
   return c.json(Object.fromEntries(byNämnd))

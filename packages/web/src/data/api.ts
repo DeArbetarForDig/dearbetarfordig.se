@@ -89,6 +89,14 @@ export async function getBudgetYear(år: number) {
   return fetchApi<{ kommun: string; år: number; totalMnkr: number; styre: string; nämnder: any[] }>(`/api/v1/goteborg/budget?%C3%A5r=${år}`)
 }
 
+export async function getDebatter() {
+  return fetchApi<{ antal: number; möten: { datum: string; url: string }[] }>('/api/v1/goteborg/debatter')
+}
+
+export async function getDebatt(datum: string) {
+  return fetchApi<{ datum: string; titel: string; antal: number; anföranden: any[] }>(`/api/v1/goteborg/debatter/${datum}`)
+}
+
 export async function getPolitikerDetail(id: string) {
   return fetchApi<any>(`/api/v1/goteborg/politiker/${id}`)
 }
