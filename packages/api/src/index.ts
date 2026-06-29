@@ -1463,8 +1463,21 @@ app.doc('/openapi.json', {
   openapi: '3.1.0',
   info: {
     title: 'De Arbetar För Dig — API',
-    version: '0.2.0',
-    description: 'Öppen demokrati-API. Knowledge graph med politiker, beslut, budget och lagar.',
+    version: '0.3.0',
+    description: `Öppen demokrati-API för Göteborgs Stad.
+
+**Endpoints:**
+- \`/politiker\` — 125 KF-ledamöter med uppdrag och möten
+- \`/politiker/{id}\` — Detaljprofil inkl. lista över möten där politikern talade
+- \`/politiker/{id}/anforanden?datum=\` — Anföranden (tal) per möte
+- \`/beslut\` — KF/KS-beslut med voteringar och ärendenummer
+- \`/debatter\` — Lista alla KF-sammanträden med yttrandeprotokoll
+- \`/debatter/{datum}\` — Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)
+- \`/budget?år=\` — Kommunbudget per nämnd (2022–2026)
+- \`/graf\` — Knowledge graph (noder + kanter)
+- \`/stats\` — Demokratisk hälsa (Rice-index, Gini, konsensusgrad)
+
+**Datakällor:** Nämndhandlingar (goteborg.se), Yttrandeprotokoll PDF, Valmyndigheten`,
     license: { name: 'AGPL-3.0', url: 'https://www.gnu.org/licenses/agpl-3.0.html' },
     contact: {
       name: 'DeArbetarForDig',
