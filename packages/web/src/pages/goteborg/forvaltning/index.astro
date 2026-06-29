@@ -4,7 +4,7 @@ import Pill from '../../../../../ui/src/components/core/Pill.astro'
 import { getFörvaltningar } from '../../../data/api'
 import Base from '../../../layouts/Base.astro'
 
-const { förvaltningar } = await getFörvaltningar()
+const förvaltningar = await getFörvaltningar()
 
 // Sort by salary descending
 const sorted = förvaltningar.sort((a: any, b: any) => (b.direktör?.lön || 0) - (a.direktör?.lön || 0))

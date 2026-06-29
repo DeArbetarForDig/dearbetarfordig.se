@@ -1,0 +1,220 @@
+---
+import Card from '../../../../../../ui/src/components/core/Card.astro'
+import PartyTag from '../../../../../../ui/src/components/core/PartyTag.astro'
+import StatusBadge from '../../../../../../ui/src/components/core/StatusBadge.astro'
+import { getMöten, getMöteAnföranden, fetchApi } from '../../../../data/api'
+import Base from '../../../../layouts/Base.astro'
+
+export async function getStaticPaths() {
+  const möten = await getMöten()
+  return möten
+    .filter((m: any) => m.label?.includes('KF'))
+    .map((m) => ({ params: { datum: m.datum } }))
+}
+
+const { datum } = Astro.params
+
+// Fetch meeting details from API
+const möteData = await fetchApi<any>(`/api/v1/goteborg/möten/${datum}`)
+const möte = möteData._embedded?.item || {}
+const beslut = möteData._embedded?.related?.beslut || []
+
+// Merge närvarande by name (combine multiple time ranges)
+const närvarandeRaw = möteData._embedded?.related?.närvarande || []
+const närvarandeMap = new Map<string, any>()
+for (const n of närvarandeRaw) {
+  const existing = närvarandeMap.get(n.namn)
+  if (!existing) {
+    närvarandeMap.set(n.namn, { ...n, tider: n.tid ? [n.tid] : [] })
+  } else if (n.tid && !existing.tider.includes(n.tid)) {
+    existing.tider.push(n.tid)
+  }
+}
+// Sort tider and join
+const närvarande = [...närvarandeMap.values()].map(n => ({
+  ...n,
+  tid: n.tider.sort().join(', ') || ''
+}))
+
+// Fetch anföranden
+const anförandenData = await getMöteAnföranden(datum!)
+const anföranden = anförandenData?.anföranden || []
+
+// Group anföranden by ärende
+const byÄrende = new Map<number | null, typeof anföranden>()
+for (const a of anföranden) {
+  const key = a.ärende
+  if (!byÄrende.has(key)) byÄrende.set(key, [])
+  byÄrende.get(key)!.push(a)
+}
+
+// Party distribution for anföranden
+const partiCount: Record<string, number> = {}
+for (const a of anföranden) {
+  if (a.parti) partiCount[a.parti] = (partiCount[a.parti] || 0) + 1
+}
+const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
+---
+
+<Base title={`KF ${datum} — Göteborg`}>
+  <div class="mb-6">
+    <a href="/goteborg/kf/moten" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)]">
+      ← Alla sammanträden
+    </a>
+  </div>
+
+  <h1 class="text-[2rem] font-bold mb-1">Kommunfullmäktige</h1>
+  <p class="font-mono text-[var(--color-text-muted)] mb-6">{datum}</p>
+
+  <!-- Stats -->
+  <div class="flex flex-wrap gap-4 mb-8 text-sm">
+    <span class="px-3 py-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+      {beslut.length} beslut
+    </span>
+    <span class="px-3 py-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+      {närvarande.length} närvarande
+    </span>
+    <span class="px-3 py-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+      {anföranden.length} anföranden
+    </span>
+  </div>
+
+  <!-- Tabs navigation -->
+  <div class="flex gap-2 mb-6 border-b border-[var(--color-border)]">
+    <button id="tab-beslut" class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-[var(--color-primary)] text-[var(--color-primary)]">
+      Beslut ({beslut.length})
+    </button>
+    <button id="tab-debatt" class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
+      Debatt ({anföranden.length})
+    </button>
+    <button id="tab-narvaro" class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
+      Närvaro ({närvarande.length})
+    </button>
+  </div>
+
+  <!-- Beslut panel -->
+  <div id="panel-beslut" class="tab-panel">
+    <div class="flex flex-col gap-3">
+      {beslut.map((b: any) => (
+        <a href={`/goteborg/beslut/${encodeURIComponent(b.id)}`}
+          class="block p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:border-[var(--color-primary)] transition-colors">
+          <div class="flex items-start justify-between gap-4">
+            <div class="min-w-0">
+              <span class="text-xs font-mono text-[var(--color-text-muted)]">§{b.paragraf}</span>
+              <p class="font-semibold mt-1">{b.rubrik}</p>
+            </div>
+            {b.beslut && (
+              <StatusBadge
+                status={b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut}
+              />
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- Debatt panel -->
+  <div id="panel-debatt" class="tab-panel hidden">
+    <!-- Party distribution -->
+    {topPartier.length > 0 && (
+      <div class="mb-6">
+        <p class="text-xs text-[var(--color-text-muted)] mb-2">Anföranden per parti:</p>
+        <div class="flex flex-wrap gap-2">
+          {topPartier.map(([parti, count]) => (
+            <span class="inline-flex items-center gap-1 text-xs">
+              <PartyTag parti={parti} size="sm" />
+              <span class="text-[var(--color-text-muted)]">{count}</span>
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Search -->
+    <div class="mb-6">
+      <input
+        id="search"
+        type="text"
+        placeholder="Sök i anföranden…"
+        class="w-full max-w-md px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] font-sans"
+      />
+    </div>
+
+    <!-- Anföranden grouped by ärende -->
+    <div id="anforanden-list" class="flex flex-col gap-6">
+      {[...byÄrende.entries()].map(([ärendeNr, anfs]) => (
+        <section>
+          {ärendeNr !== null && (
+            <h2 class="text-sm font-bold text-[var(--color-text-muted)] mb-3 pb-1 border-b border-[var(--color-border)]">
+              §{ärendeNr}. {anfs[0].ärendeTitel}
+            </h2>
+          )}
+          <div class="flex flex-col gap-3">
+            {anfs.map((a: any) => (
+              <div class="anforande p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
+                <div class="flex items-center gap-2 mb-2">
+                  <PartyTag parti={a.parti} size="sm" />
+                  {a.politikerId ? (
+                    <a href={`/goteborg/politiker/${a.politikerId}`} class="font-semibold text-sm hover:text-[var(--color-primary)]">
+                      {a.talare}
+                    </a>
+                  ) : (
+                    <span class="font-semibold text-sm">{a.talare}</span>
+                  )}
+                </div>
+                <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{a.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+
+  <!-- Närvaro panel -->
+  <div id="panel-narvaro" class="tab-panel hidden">
+    <div class="grid gap-2" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+      {närvarande.map((n: any) => (
+        <div class="flex items-center gap-2 p-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+          <PartyTag parti={n.parti} size="sm" />
+          <span class="text-sm truncate">{n.namn}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<script is:inline>
+  // Tab switching
+  const tabs = document.querySelectorAll('.tab-btn')
+  const panels = document.querySelectorAll('.tab-panel')
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.id.replace('tab-', 'panel-')
+
+      tabs.forEach((t) => {
+        t.classList.remove('border-[var(--color-primary)]', 'text-[var(--color-primary)]')
+        t.classList.add('border-transparent', 'text-[var(--color-text-muted)]')
+      })
+      tab.classList.remove('border-transparent', 'text-[var(--color-text-muted)]')
+      tab.classList.add('border-[var(--color-primary)]', 'text-[var(--color-primary)]')
+
+      panels.forEach((p) => p.classList.add('hidden'))
+      document.getElementById(target)?.classList.remove('hidden')
+    })
+  })
+
+  // Search in anföranden
+  const input = document.getElementById('search')
+  const items = document.querySelectorAll('.anforande')
+
+  input?.addEventListener('input', () => {
+    const q = input.value.toLowerCase()
+    items.forEach((el) => {
+      const text = el.textContent?.toLowerCase() || ''
+      el.classList.toggle('hidden', q.length > 0 && !text.includes(q))
+    })
+  })
+</script>

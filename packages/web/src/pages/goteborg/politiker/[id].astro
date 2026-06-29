@@ -9,9 +9,9 @@ import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import Table from '../../../../../ui/src/components/core/Table.astro'
 import {
-  fetchApi,
   getMöten,
   getPolitiker,
+  getPolitikerAnföranden,
   getPolitikerArvode,
   getPolitikerDetail,
   getPolitikerGraf,
@@ -31,7 +31,7 @@ const id = Astro.params.id as string
 
 const detail = await getPolitikerDetail(id)
 const arvode = await getPolitikerArvode(id)
-const anförandenData = await fetchApi<{ antal: number; anföranden: any[] }>(`/api/v1/goteborg/politiker/${id}/anforanden`)
+const anförandenData = await getPolitikerAnföranden(id)
 const anföranden = anförandenData?.anföranden || []
 const uppdrag = detail.uppdrag || []
 const mandatperioder = (detail.sociala?.mandatperioder || []) as {
@@ -242,14 +242,14 @@ const namn = `${detail.fornamn} ${detail.efternamn}`
         {anföranden.slice(0, 20).map((a) => (
           <div class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
             <div class="flex items-center gap-2 mb-2 text-xs text-[var(--color-text-muted)]">
-              <a href={`/goteborg/debatter/${a.datum}`} class="font-mono hover:text-[var(--color-primary)]">{a.datum}</a>
+              <a href={`/goteborg/kf/moten/${a.datum}`} class="font-mono hover:text-[var(--color-primary)]">{a.datum}</a>
               {a.ärende && <span>· Ärende {a.ärende}: {a.ärendeTitel?.slice(0, 50)}</span>}
             </div>
             <p class="text-sm text-[var(--color-text)] leading-relaxed">{a.text?.slice(0, 300)}{(a.text?.length || 0) > 300 ? '…' : ''}</p>
           </div>
         ))}
         {anföranden.length > 20 && (
-          <p class="text-sm text-[var(--color-text-muted)] text-center">+{anföranden.length - 20} fler anföranden via <a href={`/goteborg/debatter`} class="hover:text-[var(--color-primary)]">debatter</a></p>
+          <p class="text-sm text-[var(--color-text-muted)] text-center">+{anföranden.length - 20} fler anföranden via <a href="/goteborg/kf/moten" class="hover:text-[var(--color-primary)]">sammanträden</a></p>
         )}
       </div>
     </section>

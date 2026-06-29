@@ -10,8 +10,6 @@ import {
   mötenListLinks,
   beslutLinks,
   beslutListLinks,
-  debattLinks,
-  debatterListLinks,
   förvaltningLinks,
   förvaltningarListLinks,
   anförandenLinks,
@@ -699,43 +697,22 @@ app.openapi(budgetRoute, async (c) => {
   return c.json(halCollection(items, budgetLinks(kommun)), 200)
 })
 
-// --- Debatter (yttrandeprotokoll) ---
-const debatterRoute = createRoute({
+// --- Möte anföranden (yttrandeprotokoll) ---
+const moteAnforandenRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/debatter',
-  tags: ['Debatter'],
-  summary: 'Lista KF-sammanträden med yttrandeprotokoll',
-  request: { params: z.object({ kommun: z.string() }) },
-  responses: { 200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('DebatterList') } }, description: 'OK' } },
-})
-app.openapi(debatterRoute, async (c) => {
-  const { kommun } = c.req.valid('param')
-  const { readdirSync } = await import('node:fs')
-  const { join } = await import('node:path')
-  const dir = join(import.meta.dirname, '../../../data/debatter')
-  const files = readdirSync(dir).filter((f) => f.match(/^kf-\d{4}-\d{2}-\d{2}\.json$/)).sort().reverse()
-  const items = files.map((f) => {
-    const datum = f.replace('kf-', '').replace('.json', '')
-    return { datum, _links: debattLinks(kommun, datum) }
-  })
-  return c.json(halCollection(items, debatterListLinks(kommun)))
-})
-
-const debattRoute = createRoute({
-  method: 'get',
-  path: '/api/v1/{kommun}/debatter/{datum}',
-  tags: ['Debatter'],
-  summary: 'Yttrandeprotokoll för ett sammanträde — alla anföranden (?talare=, ?ärende=, ?q=)',
+  path: '/api/v1/{kommun}/möten/{datum}/anföranden',
+  tags: ['Möten'],
+  summary: 'Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)',
   request: {
     params: z.object({ kommun: z.string(), datum: z.string() }),
     query: z.object({ talare: z.string().optional(), ärende: z.string().optional(), q: z.string().optional() }),
   },
   responses: {
-    200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('Debatt') } }, description: 'OK' },
+    200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('MoteAnforanden') } }, description: 'OK' },
     404: { content: { 'application/json': { schema: z.object({ error: z.string() }) } }, description: 'Ej hittad' },
   },
 })
-app.openapi(debattRoute, async (c) => {
+app.openapi(moteAnforandenRoute, async (c) => {
   const { kommun, datum } = c.req.valid('param')
   const { readFileSync, existsSync } = await import('node:fs')
   const { join } = await import('node:path')
@@ -757,8 +734,13 @@ app.openapi(debattRoute, async (c) => {
     _links: a.politikerId ? { politiker: { href: `${baseUrl(kommun)}/politiker/${a.politikerId}` } } : undefined,
   }))
 
-  const item = { datum, titel: data.titel }
-  return c.json(halResource(item, debattLinks(kommun, datum), { anföranden: items }), 200)
+  return c.json(
+    halCollection(items, {
+      self: { href: `${baseUrl(kommun)}/möten/${datum}/anföranden` },
+      möte: { href: `${baseUrl(kommun)}/möten/${datum}` },
+    }),
+    200,
+  )
 })
 
 // --- Uppdrag per nämnd ---
@@ -1628,8 +1610,7 @@ Alla svar följer HAL-standarden för hypermedia API:er.
 - \`/politiker/{id}\` — Detaljprofil inkl. lista över möten där politikern talade
 - \`/politiker/{id}/anforanden?datum=\` — Anföranden (tal) per möte
 - \`/beslut\` — KF/KS-beslut med voteringar och ärendenummer
-- \`/debatter\` — Lista alla KF-sammanträden med yttrandeprotokoll
-- \`/debatter/{datum}\` — Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)
+- \`/möten/{datum}/anföranden\` — Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)
 - \`/budget?år=\` — Kommunbudget per nämnd (2022–2026)
 - \`/graf\` — Knowledge graph (noder + kanter)
 - \`/graf/node/{id}\` — Graf-nod med relaterade noder och kanter

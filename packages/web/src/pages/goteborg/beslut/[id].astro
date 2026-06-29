@@ -6,19 +6,15 @@ import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
-import { getBeslut, getBeslutDetail, getAnföranden, getMöten } from '../../../data/api'
+import { getBeslut, getBeslutDetail, getAnföranden, fetchApi } from '../../../data/api'
 import Base from '../../../layouts/Base.astro'
 
 export async function getStaticPaths() {
-  const [allBeslut, allMöten] = await Promise.all([getBeslut(2000), getMöten()])
-  const närvaroByDatum = new Map<string, any[]>()
-  for (const m of allMöten as any[]) {
-    if (m.närvarande) närvaroByDatum.set(m.datum, m.närvarande)
-  }
-  return allBeslut.map((b) => ({ params: { id: b.id }, props: { summary: b, närvaroByDatum } }))
+  const allBeslut = await getBeslut(2000)
+  return allBeslut.map((b) => ({ params: { id: b.id }, props: { summary: b } }))
 }
 
-const { summary, närvaroByDatum } = Astro.props
+const { summary } = Astro.props
 const id = Astro.params.id
 const detail = await getBeslutDetail(id)
 let anförandenData: any[] = []
@@ -53,8 +49,25 @@ const hasHandcount = !hasVotes && voteringSummary && (voteringSummary.ja || vote
 const status = detail.beslut.beslut === 'bordläggning' ? 'bordlagd' : detail.beslut.beslut || 'info'
 const rubrik = detail.beslut.rubrik.replace(/^§ \d+ /, '')
 
-// Get närvarande for this meeting (from getStaticPaths)
-const närvarande: Array<{ namn: string; parti: string; tid: string }> = (närvaroByDatum as Map<string, any[]>).get(detail.beslut.datum) || []
+// Fetch närvarande from meeting detail API (merge time ranges)
+let närvarande: Array<{ namn: string; parti: string; tid: string }> = []
+try {
+  const möteData = await fetchApi<any>(`/api/v1/goteborg/möten/${detail.beslut.datum}`)
+  const närvarandeRaw = möteData._embedded?.related?.närvarande || []
+  const närvarandeMap = new Map<string, any>()
+  for (const n of närvarandeRaw) {
+    const existing = närvarandeMap.get(n.namn)
+    if (!existing) {
+      närvarandeMap.set(n.namn, { ...n, tider: n.tid ? [n.tid] : [] })
+    } else if (n.tid && !existing.tider.includes(n.tid)) {
+      existing.tider.push(n.tid)
+    }
+  }
+  närvarande = [...närvarandeMap.values()].map(n => ({
+    ...n,
+    tid: n.tider.sort().join(', ') || ''
+  }))
+} catch {}
 const närvarandeByParti = (() => {
   const partiCount: Record<string, number> = {}
   närvarande.forEach(n => { partiCount[n.parti] = (partiCount[n.parti] || 0) + 1 })

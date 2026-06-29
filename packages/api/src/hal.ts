@@ -100,7 +100,7 @@ export function möteLinks(kommun: string, datum: string): HalLinks {
   return {
     self: { href: `${base}/möten/${datum}` },
     collection: { href: `${base}/möten` },
-    debatt: { href: `${base}/debatter/${datum}` },
+    anföranden: { href: `${base}/möten/${datum}/anföranden` },
     beslut: { href: `${base}/beslut?datum=${datum}` },
   }
 }
@@ -134,23 +134,6 @@ export function beslutListLinks(kommun: string): HalLinks {
   }
 }
 
-// Debatt links
-export function debattLinks(kommun: string, datum: string): HalLinks {
-  const base = baseUrl(kommun)
-  return {
-    self: { href: `${base}/debatter/${datum}` },
-    collection: { href: `${base}/debatter` },
-    möte: { href: `${base}/möten/${datum}` },
-  }
-}
-
-// Debatter list links
-export function debatterListLinks(kommun: string): HalLinks {
-  const base = baseUrl(kommun)
-  return {
-    self: { href: `${base}/debatter` },
-  }
-}
 
 // Förvaltning links
 export function förvaltningLinks(kommun: string, id: string): HalLinks {
