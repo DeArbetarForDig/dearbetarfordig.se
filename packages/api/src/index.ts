@@ -4,19 +4,19 @@ import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { cors } from 'hono/cors'
 import postgres from 'postgres'
 import {
-  politikerLinks,
-  politikerListLinks,
-  möteLinks,
-  mötenListLinks,
+  anförandenLinks,
+  baseUrl,
   beslutLinks,
   beslutListLinks,
+  budgetLinks,
   förvaltningLinks,
   förvaltningarListLinks,
-  anförandenLinks,
-  budgetLinks,
-  baseUrl,
   halCollection,
   halResource,
+  möteLinks,
+  mötenListLinks,
+  politikerLinks,
+  politikerListLinks,
 } from './hal.js'
 
 // --- Config ---
@@ -424,7 +424,9 @@ app.openapi(moteRoute, async (c) => {
         namn: `${r.fornamn} ${r.efternamn}`,
         parti: r.parti,
         tid: r.label || '',
-        _links: r.politiker_id ? { politiker: { href: `${baseUrl(kommun)}/politiker/${r.politiker_id}` } } : undefined,
+        _links: r.politiker_id
+          ? { politiker: { href: `${baseUrl(kommun)}/politiker/${r.politiker_id}` } }
+          : undefined,
       })),
     anföranden: anförandenRows.map((r) => {
       const polId = (r.pol_id as string).replace('pol-', '')
@@ -563,7 +565,11 @@ app.openapi(beslutDetailRoute, async (c) => {
           parti: voter?.parti || '',
           röst: e.typ.replace('röstade_', ''),
           politikerId: e.from_id.replace('politiker-', ''),
-          _links: { politiker: { href: `${baseUrl(kommun)}/politiker/${e.from_id.replace('politiker-', '')}` } },
+          _links: {
+            politiker: {
+              href: `${baseUrl(kommun)}/politiker/${e.from_id.replace('politiker-', '')}`,
+            },
+          },
         }
       })
     }
@@ -712,11 +718,23 @@ const moteAnforandenRoute = createRoute({
   summary: 'Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)',
   request: {
     params: z.object({ kommun: z.string(), datum: z.string() }),
-    query: z.object({ talare: z.string().optional(), ärende: z.string().optional(), q: z.string().optional() }),
+    query: z.object({
+      talare: z.string().optional(),
+      ärende: z.string().optional(),
+      q: z.string().optional(),
+    }),
   },
   responses: {
-    200: { content: { 'application/json': { schema: z.object({}).passthrough().openapi('MoteAnforanden') } }, description: 'OK' },
-    404: { content: { 'application/json': { schema: z.object({ error: z.string() }) } }, description: 'Ej hittad' },
+    200: {
+      content: {
+        'application/json': { schema: z.object({}).passthrough().openapi('MoteAnforanden') },
+      },
+      description: 'OK',
+    },
+    404: {
+      content: { 'application/json': { schema: z.object({ error: z.string() }) } },
+      description: 'Ej hittad',
+    },
   },
 })
 app.openapi(moteAnforandenRoute, async (c) => {
@@ -738,7 +756,9 @@ app.openapi(moteAnforandenRoute, async (c) => {
   // Add _links to each anförande if politikerId exists
   const items = anföranden.map((a: any) => ({
     ...a,
-    _links: a.politikerId ? { politiker: { href: `${baseUrl(kommun)}/politiker/${a.politikerId}` } } : undefined,
+    _links: a.politikerId
+      ? { politiker: { href: `${baseUrl(kommun)}/politiker/${a.politikerId}` } }
+      : undefined,
   }))
 
   return c.json(
@@ -948,11 +968,20 @@ const sökRoute = createRoute({
 })
 app.openapi(sökRoute, async (c) => {
   const q = c.req.valid('query').q
-  const politiker =
-    await sql`SELECT id, fornamn || ' ' || efternamn as namn, parti, 'politiker' as typ FROM goteborg.politiker WHERE fornamn ILIKE ${`%${q}%`} OR efternamn ILIKE ${`%${q}%`} LIMIT 10`
+  const politiker = await sql`
+    SELECT id, fornamn || ' ' || efternamn as namn, parti, 'politiker' as typ
+    FROM goteborg.politiker
+    WHERE to_tsvector('swedish', fornamn || ' ' || efternamn) @@ plainto_tsquery('swedish', ${q})
+    LIMIT 10`
+  const dokument = await sql`
+    SELECT id, titel, 'dokument' as typ
+    FROM goteborg.dokument
+    WHERE to_tsvector('swedish', titel || ' ' || innehall) @@ plainto_tsquery('swedish', ${q})
+    ORDER BY ts_rank(to_tsvector('swedish', titel || ' ' || innehall), plainto_tsquery('swedish', ${q})) DESC
+    LIMIT 10`
   const nodes =
     await sql`SELECT id, label, typ FROM goteborg.graf_nodes WHERE label ILIKE ${`%${q}%`} LIMIT 20`
-  return c.json({ query: q, resultat: [...politiker, ...nodes] }, 200)
+  return c.json({ query: q, resultat: [...politiker, ...dokument, ...nodes] }, 200)
 })
 
 // --- Stats ---
@@ -1236,6 +1265,36 @@ app.openapi(dokumentListRoute, async (c) => {
   )
 })
 
+// dokumentSökRoute registreras FÖRE dokumentDetailRoute — annars matchar Hono
+// /dokument/sök mot /dokument/{id} (id="sök") och söket blir aldrig nått.
+const dokumentSökRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/dokument/sök',
+  tags: ['Dokument'],
+  summary: 'Sök i dokumentinnehåll (fulltext)',
+  request: { params: z.object({ kommun: z.string() }), query: z.object({ q: z.string() }) },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.object({ query: z.string(), resultat: z.array(z.unknown()) }),
+        },
+      },
+      description: 'OK',
+    },
+  },
+})
+app.openapi(dokumentSökRoute, async (c) => {
+  const q = c.req.valid('query').q
+  const results = await sql`
+    SELECT id, titel, typ, datum, ts_headline('swedish', innehall, plainto_tsquery('swedish', ${q}), 'MaxWords=60,MinWords=20') as utdrag
+    FROM goteborg.dokument
+    WHERE to_tsvector('swedish', titel || ' ' || innehall) @@ plainto_tsquery('swedish', ${q})
+    ORDER BY ts_rank(to_tsvector('swedish', titel || ' ' || innehall), plainto_tsquery('swedish', ${q})) DESC
+    LIMIT 20`
+  return c.json({ query: q, resultat: results }, 200)
+})
+
 const dokumentDetailRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/dokument/{id}',
@@ -1283,30 +1342,6 @@ app.openapi(dokumentDetailRoute, async (c) => {
     } as any,
     200,
   )
-})
-
-const dokumentSökRoute = createRoute({
-  method: 'get',
-  path: '/api/v1/{kommun}/dokument/sök',
-  tags: ['Dokument'],
-  summary: 'Sök i dokumentinnehåll (fulltext)',
-  request: { params: z.object({ kommun: z.string() }), query: z.object({ q: z.string() }) },
-  responses: {
-    200: {
-      content: {
-        'application/json': {
-          schema: z.object({ query: z.string(), resultat: z.array(z.unknown()) }),
-        },
-      },
-      description: 'OK',
-    },
-  },
-})
-app.openapi(dokumentSökRoute, async (c) => {
-  const q = c.req.valid('query').q
-  const results =
-    await sql`SELECT id, titel, typ, datum, ts_headline('swedish', innehall, plainto_tsquery('swedish', ${q}), 'MaxWords=60,MinWords=20') as utdrag FROM goteborg.dokument WHERE to_tsvector('swedish', innehall) @@ plainto_tsquery('swedish', ${q})`
-  return c.json({ query: q, resultat: results }, 200)
 })
 
 // --- Förvaltningsdirektörer (löner) ---

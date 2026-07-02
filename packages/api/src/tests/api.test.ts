@@ -86,6 +86,19 @@ describe('Smoke tests — alla endpoints svarar', () => {
     expect(data.resultat.length).toBeGreaterThan(0)
   })
 
+  it('GET /api/v1/goteborg/sök?q=cybersäkerhet → hittar dokument (FTS)', async () => {
+    const { data } = await get('/api/v1/goteborg/s%C3%B6k?q=cybers%C3%A4kerhet')
+    const dokumentTräffar = data.resultat.filter((r: any) => r.typ === 'dokument')
+    expect(dokumentTräffar.length).toBeGreaterThan(0)
+  })
+
+  it('GET /api/v1/goteborg/dokument/sök?q=cybersäkerhet → rankade träffar med utdrag', async () => {
+    const { data } = await get('/api/v1/goteborg/dokument/s%C3%B6k?q=cybers%C3%A4kerhet')
+    expect(data.resultat.length).toBeGreaterThan(0)
+    expect(data.resultat[0]).toHaveProperty('utdrag')
+    expect(data.resultat[0].utdrag.toLowerCase()).toContain('cybersäkerhet')
+  })
+
   it('GET /api/v1/goteborg/graf → visar nodtyper', async () => {
     const { data } = await get('/api/v1/goteborg/graf')
     expect(data.nodes.length).toBeGreaterThan(5)

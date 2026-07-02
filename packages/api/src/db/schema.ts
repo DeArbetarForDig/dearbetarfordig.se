@@ -41,7 +41,10 @@ export const dokument = goteborg.table(
     innehåll: text('innehall').notNull(),
     grafNod: text('graf_nod'),
   },
-  (t) => [index('idx_dokument_typ').on(t.typ), index('idx_dokument_fts').using('gin', t.innehåll)],
+  // idx_dokument_fts (riktigt GIN-uttrycksindex på to_tsvector('swedish', titel || ' ' || innehall))
+  // skapas i seed.ts, inte här — schema.ts appliceras inte mot databasen (ingen db:push/migrate),
+  // så indexdeklarationer hör hemma i seed.ts. Samma mönster som idx_politiker_fts.
+  (t) => [index('idx_dokument_typ').on(t.typ)],
 )
 
 export const grafEdges = goteborg.table(
