@@ -136,11 +136,10 @@ export async function getMöteAnföranden(datum: string, filters?: { talare?: st
 }
 
 export async function getPolitikerDetail(id: string) {
-  const data = await fetchApi<HalResource<any, { möten?: any[]; uppdrag?: any[] }>>(`/api/v1/goteborg/politiker/${id}`)
+  const data = await fetchApi<HalResource<any, { möten?: any[] }>>(`/api/v1/goteborg/politiker/${id}`)
   return {
     ...data._embedded.item,
     möten: data._embedded.related?.möten || [],
-    uppdrag: data._embedded.related?.uppdrag || [],
   }
 }
 

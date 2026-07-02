@@ -429,7 +429,7 @@ app.openapi(moteRoute, async (c) => {
           : undefined,
       })),
     anföranden: anförandenRows.map((r) => {
-      const polId = (r.pol_id as string).replace('pol-', '')
+      const polId = (r.pol_id as string).replace('politiker-', '')
       return {
         talare: (r.data as any).talare,
         parti: r.parti,
@@ -824,7 +824,7 @@ app.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
   const byNämnd = new Map<string, any[]>()
   for (const r of rows) {
     if (!byNämnd.has(r.namnd)) byNämnd.set(r.namnd, [])
-    const uuid = (r.pol_id as string).replace(/^pol-/, '')
+    const uuid = (r.pol_id as string).replace(/^politiker-/, '')
     byNämnd.get(r.namnd)!.push({
       id: uuid,
       namn: r.namn,
@@ -1534,7 +1534,7 @@ app.openapi(förvaltningDetailRoute, async (c) => {
       return { id: n.id, label: n.label, ...n.data, kopplingar: links }
     }),
     ledamöter: ledamöter.map((l) => {
-      const polId = (l.id as string).replace('pol-', '')
+      const polId = (l.id as string).replace('politiker-', '')
       return {
         id: l.id,
         label: l.label,
