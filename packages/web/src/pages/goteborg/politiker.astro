@@ -1,10 +1,34 @@
 ---
 import PoliticianCard from '../../../../ui/src/components/cards/PoliticianCard.astro'
-import { getPolitiker } from '../../data/api'
+import { type Politiker, getPolitiker } from '../../data/api'
 import Base from '../../layouts/Base.astro'
 
 const politiker = await getPolitiker()
 const parties = [...new Set(politiker.map((p) => p.parti))].sort()
+
+// Uppdragskategorier: KF, KS, och varje enskild nämnd (en person kan tillhöra flera)
+function uppdragskategorier(uppdrag: Politiker['uppdrag']): string[] {
+  const kategorier = new Set<string>()
+  for (const u of uppdrag || []) {
+    const org = u.organisation || ''
+    if (/Kommunfullmäktige/i.test(org)) kategorier.add('KF')
+    else if (/Kommunstyrelsen/i.test(org)) kategorier.add('KS')
+    else if (/nämnd/i.test(org)) kategorier.add(org.replace(/^Göteborgs Stads\s+/i, '').trim())
+  }
+  return [...kategorier]
+}
+
+const politikerMedUppdrag = politiker.map((p) => ({
+  ...p,
+  uppdragskategorier: uppdragskategorier(p.uppdrag),
+}))
+const nämnder = [
+  ...new Set(
+    politikerMedUppdrag.flatMap((p) =>
+      p.uppdragskategorier.filter((k) => k !== 'KF' && k !== 'KS'),
+    ),
+  ),
+].sort((a, b) => a.localeCompare(b, 'sv'))
 ---
 
 <Base title="Politiker — Göteborg">
@@ -34,13 +58,21 @@ const parties = [...new Set(politiker.map((p) => p.parti))].sort()
       <button data-period="2018" class="chip chip--period">sedan 2018</button>
       <button data-period="2022" class="chip chip--period">sedan 2022</button>
     </div>
+    <div class="flex gap-1.5 flex-wrap">
+      <button data-uppdrag="alla" class="chip chip--uppdrag active">Alla uppdrag</button>
+      <button data-uppdrag="KF" class="chip chip--uppdrag">KF</button>
+      <button data-uppdrag="KS" class="chip chip--uppdrag">KS</button>
+      {nämnder.map(n => (
+        <button data-uppdrag={n} class="chip chip--uppdrag">{n}</button>
+      ))}
+    </div>
   </div>
 
   <p id="count" class="text-sm text-(--color-text-muted) mb-4">{politiker.length} ledamöter</p>
 
   <div id="grid" class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
-    {politiker.map(p => (
-      <div class="politician-item" data-parti={p.parti} data-namn={p.namn.toLowerCase()} data-sedan={p.aktivSedan || '2022'}>
+    {politikerMedUppdrag.map(p => (
+      <div class="politician-item" data-parti={p.parti} data-namn={p.namn.toLowerCase()} data-sedan={p.aktivSedan || '2022'} data-uppdrag={p.uppdragskategorier.join('|')}>
         <PoliticianCard namn={p.namn} parti={p.parti} roll={`${p.antalUppdrag} uppdrag`} aktivSedan={p.aktivSedan} url={`/goteborg/politiker/${p.id}`} />
       </div>
     ))}
@@ -71,12 +103,14 @@ const parties = [...new Set(politiker.map((p) => p.parti))].sort()
 
   <script is:inline>
     const input = document.getElementById('search-input')
-    const partiChips = document.querySelectorAll('.chip:not(.chip--period)')
+    const partiChips = document.querySelectorAll('.chip:not(.chip--period):not(.chip--uppdrag)')
     const periodChips = document.querySelectorAll('.chip--period')
+    const uppdragChips = document.querySelectorAll('.chip--uppdrag')
     const items = document.querySelectorAll('.politician-item')
     const countEl = document.getElementById('count')
     let activeParti = 'alla'
     let activePeriod = 'alla'
+    let activeUppdrag = 'alla'
 
     function filter() {
       const q = input.value.toLowerCase()
@@ -85,9 +119,11 @@ const parties = [...new Set(politiker.map((p) => p.parti))].sort()
         const parti = el.dataset.parti
         const namn = el.dataset.namn
         const sedan = el.dataset.sedan
+        const uppdrag = (el.dataset.uppdrag || '').split('|')
         const matchParti = activeParti === 'alla' || parti === activeParti
         const matchPeriod = activePeriod === 'alla' || sedan <= activePeriod
-        const show = matchParti && matchPeriod && namn.includes(q)
+        const matchUppdrag = activeUppdrag === 'alla' || uppdrag.includes(activeUppdrag)
+        const show = matchParti && matchPeriod && matchUppdrag && namn.includes(q)
         el.classList.toggle('hidden', !show)
         if (show) visible++
       })
@@ -108,6 +144,14 @@ const parties = [...new Set(politiker.map((p) => p.parti))].sort()
         periodChips.forEach(c => c.classList.remove('active'))
         chip.classList.add('active')
         activePeriod = chip.dataset.period
+        filter()
+      })
+    })
+    uppdragChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        uppdragChips.forEach(c => c.classList.remove('active'))
+        chip.classList.add('active')
+        activeUppdrag = chip.dataset.uppdrag
         filter()
       })
     })

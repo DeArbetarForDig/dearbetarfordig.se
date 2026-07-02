@@ -25,6 +25,7 @@ export interface Politiker {
   email: string | null
   antalUppdrag: number
   aktivSedan: string | null
+  uppdrag: Array<{ organisation: string; roll: string; från?: string; till?: string }>
 }
 
 export interface Beslut {
