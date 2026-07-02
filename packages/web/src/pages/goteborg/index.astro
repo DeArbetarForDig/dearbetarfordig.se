@@ -113,7 +113,7 @@ const senasteBeslut = beslutList
           <h3 class="font-bold">Kommunstyrelsen (KS)</h3>
           <p class="text-sm text-[var(--color-text-muted)]">"Regeringen" — 13 ledamöter leder det dagliga arbetet</p>
         </div>
-        <div class="ml-12 grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="ml-12 grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
           {topNämnder.map((n: any) => (
             <div class="p-3 rounded bg-[var(--color-surface-sunken)] text-sm">
               <span class="font-semibold">{n.namn}</span>
@@ -123,7 +123,7 @@ const senasteBeslut = beslutList
                     <li>
                       <a href={`/goteborg/politiker/${p.id}`} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
                         <PartyTag parti={p.parti} size="sm" />
-                        <span class="truncate">{p.namn}</span>
+                        <span class="truncate">{p.namn}{p.ärKf && ' (KF)'}</span>
                       </a>
                     </li>
                   ))}

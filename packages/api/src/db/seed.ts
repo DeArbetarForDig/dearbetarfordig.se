@@ -230,6 +230,12 @@ async function main() {
           await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data)
             VALUES (${polId}, 'politiker', ${`${m.förnamn} ${m.efternamn}`}, ${client.json({ parti: m.parti })})
             ON CONFLICT (id) DO NOTHING`
+          // Ensure a politiker row exists too — nämnd-only ledamöter (not KF
+          // ledamöter) aren't in goteborg.json, so /politiker/{id} 404:ade
+          // even though they had a graph node and showed up in nämnd listings.
+          await client`INSERT INTO goteborg.politiker (id, fornamn, efternamn, parti, uppdrag)
+            VALUES (${m.id}, ${m.förnamn}, ${m.efternamn}, ${m.parti}, '[]')
+            ON CONFLICT (id) DO NOTHING`
           try {
             await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
               VALUES (${polId}, ${nämndId}, 'ledamot_i', ${client.json({ roll: m.roll })})

@@ -62,7 +62,7 @@ export interface Möte {
 }
 
 export async function getPolitiker(): Promise<Politiker[]> {
-  const data = await fetchApi<HalCollection<Politiker>>('/api/v1/goteborg/politiker?limit=200')
+  const data = await fetchApi<HalCollection<Politiker>>('/api/v1/goteborg/politiker?limit=1000')
   return data._embedded.items
 }
 
@@ -144,7 +144,8 @@ export async function getPolitikerDetail(id: string) {
 }
 
 export async function getPolitikerArvode(id: string) {
-  return fetchApi<any>(`/api/v1/goteborg/politiker/${id}/arvode`)
+  const data = await fetchApi<HalResource<any>>(`/api/v1/goteborg/politiker/${id}/arvode`)
+  return data._embedded.item
 }
 
 export async function getPolitikerGraf(id: string) {

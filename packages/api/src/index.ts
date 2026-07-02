@@ -133,7 +133,7 @@ const politikerRoute = createRoute({
 app.openapi(politikerRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const { parti, limit } = c.req.valid('query')
-  const lim = capLimit(limit)
+  const lim = capLimit(limit, 2000)
   const schema = getSchema(kommun)
   const rows = parti
     ? await sql`SELECT * FROM goteborg.politiker WHERE parti = ${parti.toUpperCase()} ORDER BY efternamn LIMIT ${lim}`
@@ -813,10 +813,15 @@ app.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
 // Politiker per nämnd via graf — returnerar politiker med API-länk
 app.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
   const rows =
-    await sql`SELECT e.to_id as namnd_id, n.label as namnd, gp.id as pol_id, gp.label as namn, gp.data->>'parti' as parti, e.data->>'roll' as roll
+    await sql`SELECT e.to_id as namnd_id, n.label as namnd, gp.id as pol_id, gp.label as namn, gp.data->>'parti' as parti, e.data->>'roll' as roll,
+        EXISTS (
+          SELECT 1 FROM jsonb_array_elements(COALESCE(p.uppdrag, '[]'::jsonb)) u
+          WHERE u->>'organisation' ILIKE '%Kommunfullmäktige%'
+        ) as ar_kf
       FROM goteborg.graf_edges e
       JOIN goteborg.graf_nodes n ON n.id = e.to_id
       JOIN goteborg.graf_nodes gp ON gp.id = e.from_id
+      LEFT JOIN goteborg.politiker p ON p.id = replace(gp.id, 'politiker-', '')::uuid
       WHERE e.typ = 'ledamot_i' AND gp.typ = 'politiker' AND e.data->>'roll' NOT LIKE 'Ersättare%'
       ORDER BY n.label, gp.label`
 
@@ -830,6 +835,7 @@ app.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
       namn: r.namn,
       parti: r.parti,
       roll: r.roll,
+      ärKf: r.ar_kf,
       url: `/api/v1/${c.req.param('kommun')}/politiker/${uuid}`,
     })
   }
