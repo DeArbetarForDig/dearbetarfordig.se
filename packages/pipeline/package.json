@@ -7,8 +7,7 @@
     "scrape:politiker": "tsx src/scrapers/politiker.ts",
     "scrape:youtube": "tsx src/scrapers/youtube-kf.ts",
     "scrape:handlingar": "tsx src/scrapers/handlingar.ts",
-    "scrape:all": "tsx src/scrapers/politiker.ts && tsx src/scrapers/youtube-kf.ts",
-    "transcribe": "tsx src/transcription/run.ts"
+    "scrape:all": "tsx src/scrapers/politiker.ts && tsx src/scrapers/youtube-kf.ts"
   },
   "dependencies": {
     "@daf/shared": "workspace:*",

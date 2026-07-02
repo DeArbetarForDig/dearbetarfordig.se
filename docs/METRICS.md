@@ -49,7 +49,7 @@ Vetenskapligt grundade metrics för utvärdering av kommunfullmäktige.
 | Data | Källa | Metod |
 |------|-------|-------|
 | Voteringar (17 210 röster) | KF-protokoll (PDF) | pdftotext + regex |
-| Anföranden (16 476) | Yttrandeprotokoll + whisper.cpp | Speaker attribution |
+| Anföranden (16 476) | Yttrandeprotokoll (PDF) | pdftotext + regex (speaker attribution) |
 | Närvaro (3 243 reg.) | KF-protokoll upprop | pdftotext |
 | Beslut (1 731 ärenden) | KF-protokoll 2023–2026 | parse-protokoll.ts |
 | Budget | Budget-PDF 2026 | parse-budget.ts |

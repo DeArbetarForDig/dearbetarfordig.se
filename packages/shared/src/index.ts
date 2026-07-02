@@ -89,11 +89,9 @@ export const ÄrendeSchema = z.object({
 })
 export type Ärende = z.infer<typeof ÄrendeSchema>
 
-// --- Debatt (transkription) ---
+// --- Debatt (anförande, källa: Yttrandeprotokoll) ---
 export const AnförandeSchema = z.object({
   politikerId: z.string().uuid(),
-  startTid: z.string(),
-  slutTid: z.string(),
   text: z.string(),
 })
 export const DebattSchema = z.object({

@@ -23,7 +23,7 @@
 /goteborg/beslut              → Lista med beslut
 /goteborg/beslut/[id]         → Enskilt beslut + votering
 /goteborg/struktur            → Hur kommunen är organiserad
-/goteborg/debatter            → Transkriberade KF-möten (v2)
+/goteborg/debatter            → KF-möten med anföranden (Yttrandeprotokoll, v2)
 /goteborg/budget              → Budgetvisualisering (v2)
 ```
 
@@ -273,7 +273,7 @@ interface Props {
 | Voteringar | KF-protokoll (PDF → parser) | JSON |
 | Nämnder/struktur | goteborg.se organisation | JSON |
 | Foton | goteborg.se / riksdagen | WebP |
-| Debatter | YouTube → whisper.cpp | JSON (v2) |
+| Debatter | Yttrandeprotokoll (PDF → parser) | JSON (v2) |
 | Budget | Budget-PDF → tabula | JSON (v2) |
 
 ---
@@ -295,7 +295,7 @@ interface Props {
 ## Avgränsningar (MVP)
 
 Ingår INTE i MVP:
-- [ ] Debatter (transkription) — v2
+- [ ] Debatter (anföranden) — v2
 - [ ] Budget-visualisering — v2
 - [ ] Bevakningar/notifikationer — v3
 - [ ] Fler kommuner — efter Göteborg fungerar

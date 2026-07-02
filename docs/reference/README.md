@@ -224,7 +224,7 @@ git clone --depth 1 https://github.com/everypolitician/everypolitician-data.git 
 1. **Фокус на kommun** — ни один из аналогов не работает на муниципальном уровне Швеции
 2. **Полный стек на TypeScript** — единый язык для фронта, API, pipeline
 3. **Static-first + curl-friendly** — HTML как API (как TheyWorkForYou, но ещё чище)
-4. **Транскрипция дебатов** — Whisper для KF-möten (никто из аналогов не делает)
+4. **Полнотекстовые анфёранден** — Yttrandeprotokoll (официальный PDF) для KF-möten (никто из аналогов не делает)
 5. **Бюджетная визуализация** — объединяем Decidim-подход с финансовой прозрачностью
 6. **EU-sovereign** — Hetzner, без US-cloud, GDPR by design
 

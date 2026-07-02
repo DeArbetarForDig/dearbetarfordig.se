@@ -91,7 +91,7 @@
 }
 ```
 
-### Debatt (transkription)
+### Debatt (anförande, källa: Yttrandeprotokoll)
 
 ```json
 {
@@ -102,8 +102,6 @@
   "anföranden": [
     {
       "politiker_id": "uuid",
-      "start_tid": "01:23:45",
-      "slut_tid": "01:27:12",
       "text": "Herr ordförande, jag vill...",
       "typ": "anförande"
     }
@@ -216,7 +214,7 @@ data/
 ├── beslut/
 │   └── goteborg-2025.json   # Beslut per år
 ├── debatter/
-│   └── kf-2025-04-24.json   # Transkription per möte
+│   └── kf-2025-04-24.json   # Anföranden per möte (Yttrandeprotokoll)
 └── budget/
     └── goteborg-2026.json   # Budget per år
 ```

@@ -21,14 +21,5 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  whisper:
-    build:
-      context: .
-      dockerfile: docker/whisper.Dockerfile
-    volumes:
-      - ./.tmp:/data
-    profiles:
-      - transcribe
-
 volumes:
   pgdata:

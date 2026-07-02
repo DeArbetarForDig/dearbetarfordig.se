@@ -16,7 +16,7 @@
 | Möten (parsade) | 41 |
 | Individuella röster | 17 210 (27 möten med voteringsbilagor) |
 | Närvaroregistreringar | 3 243 (41 möten) |
-| Transkriberade möten | 41 |
+| Möten med Yttrandeprotokoll (anföranden) | 41 |
 | Speaker-attributions | 39 |
 | API-tester | 22/22 ✅ |
 
@@ -60,6 +60,7 @@
 - ✅ **Anförande→paragraf** — 94% link rate (rubrik-matching + ordinal + budget-fallback)
 - ✅ **Conflict detection** — framework klar, 0 bekräftade konflikter (kommunala bolag exkluderade)
 - ✅ **3 begäran skickade** — Intraservice, Inköp & upphandling, Stadsledningskontoret
+- ✅ **Whisper-transkribering borttagen** — vi provade whisper.cpp för anföranden, men Yttrandeprotokoll (officiell PDF med fullständig text) täcker redan alla 41 möten och är 100% korrekt utan ljudpipeline; `packages/pipeline/src/transcription/` borttagen
 
 ## Begäran status
 
@@ -97,8 +98,6 @@ packages/pipeline/src/
 │   ├── parse-speakers.ts     # Yttrandeprotokoll → anföranden
 │   ├── parse-inbox.ts        # Begäran-svar → leverantörer, avtal
 │   └── namnd-budget-config.ts
-└── transcription/
-    └── run.ts                # whisper.cpp (speaker-based chunking)
 
 packages/api/src/
 ├── index.ts                  # Hono REST API (OpenAPI 3.1, Swagger UI)

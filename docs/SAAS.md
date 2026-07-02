@@ -24,10 +24,10 @@ Alternativt: kund pekar egen domän via CNAME (t.ex. `insyn.goteborg.se`).
 └─────────────────────┬───────────────────────┘
                       │ /api/* proxied
 ┌─────────────────────▼───────────────────────┐
-│  FastAPI (Python 3.12)                       │
+│  Hono 4 (TypeScript, Node.js 22)             │
 │  - Tenant routing via subdomain/header       │
-│  - OpenAPI 3.1 auto-docs                     │
-│  - Rate limiting (anonymous: 100/h)          │
+│  - @hono/zod-openapi → OpenAPI 3.1 + Swagger │
+│  - Rate limiting (in-memory, anonymous: /h)  │
 └─────────────────────┬───────────────────────┘
                       │
 ┌─────────────────────▼───────────────────────┐
@@ -46,13 +46,14 @@ Alternativt: kund pekar egen domän via CNAME (t.ex. `insyn.goteborg.se`).
 ## Datapipeline
 
 ```
-Datakällor (per kommun)          Pipeline              Lagring
-─────────────────────          ──────────            ────────
-YouTube (KF-video)    ─→  yt-dlp → Whisper    ─→  debatter/
-politiker.goteborg.se ─→  scraper (Python)    ─→  politiker/
-nämndhandlingar       ─→  PDF-parser          ─→  beslut/
-budget-PDF            ─→  tabula/camelot      ─→  budget/
-diarium               ─→  adapter per system  ─→  ärenden/
+Datakällor (per kommun)          Pipeline                    Lagring
+─────────────────────          ──────────                  ────────
+Yttrandeprotokoll (PDF)  ─→  pdftotext + regex (talare)  ─→  debatter/
+YouTube (KF-video)       ─→  yt-dlp (metadata/länk)       ─→  debatter/
+politiker.goteborg.se    ─→  scraper (Cheerio)            ─→  politiker/
+nämndhandlingar          ─→  PDF-parser                   ─→  beslut/
+budget-PDF               ─→  pdftotext + regex            ─→  budget/
+diarium                  ─→  adapter per system            ─→  ärenden/
 ```
 
 Varje kommun har olika källsystem. Vi bygger **adapters**:
@@ -98,13 +99,13 @@ Varje kommun har olika källsystem. Vi bygger **adapters**:
 
 | Tjänst | Uppgift | Leverantör | Kostnad |
 |--------|---------|-----------|---------|
-| Transkription + speaker ID | YouTube → text med talarbyte | Assembly AI | ~$1.80/möte (5h) |
+| Anföranden + speaker ID | Yttrandeprotokoll (PDF) → text med talare | Egen parser (pdftotext + regex) | Gratis |
 | PDF → strukturerad data | Protokoll → JSON (votering, paragraf, beslut) | Claude API (Haiku) | ~$0.50/protokoll |
 | Klassificering | Autotagga ärenden (IT, skola, budget...) | Claude Haiku | ~$0.01/ärende |
 | Sammanfattning | Kort summary per beslut/debatt | Claude Haiku | ~$0.05/beslut |
 | Semantic search | Embeddings för AI-sök (v0.3+) | OpenAI / Cohere | ~$0.10/1000 dok |
 
-**Årskostnad (Göteborg, ~11 KF-möten + ~50 nämndprotokoll):** ~$50/år ≈ 550 kr/år
+**Årskostnad (Göteborg, ~11 KF-möten + ~50 nämndprotokoll):** ~$30/år ≈ 330 kr/år (lägre än tidigare estimat tack vare gratis Yttrandeprotokoll-parsning istället för betald transkription)
 
 ---
 

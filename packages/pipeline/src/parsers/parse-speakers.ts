@@ -1,8 +1,8 @@
 /**
- * Speaker Attribution — parsar yttrandeprotokoll PDF och kopplar till transkriptioner
+ * Speaker Attribution — parsar yttrandeprotokoll PDF
  *
- * Input: yttrandeprotokoll PDF + transcription JSON (samma datum)
- * Output: anföranden med talare + text (merged)
+ * Input: yttrandeprotokoll PDF (samma datum)
+ * Output: anföranden med talare + text
  *
  * npx tsx src/parsers/parse-speakers.ts [datum]
  */
