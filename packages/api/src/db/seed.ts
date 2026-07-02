@@ -143,7 +143,7 @@ async function main() {
       let polEdges = 0
       for (const p of polData.politiker) {
         await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data)
-          VALUES (${`pol-${p.id}`}, 'politiker', ${`${p.förnamn} ${p.efternamn}`}, ${client.json({ parti: p.parti, email: p.email })})
+          VALUES (${`politiker-${p.id}`}, 'politiker', ${`${p.förnamn} ${p.efternamn}`}, ${client.json({ parti: p.parti, email: p.email })})
           ON CONFLICT (id) DO UPDATE SET label = EXCLUDED.label, data = EXCLUDED.data`
       }
 
@@ -175,7 +175,7 @@ async function main() {
           allLedamotEdges.add(edgeKey)
           try {
             await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
-              VALUES (${`pol-${p.id}`}, ${nämndId}, 'ledamot_i', ${client.json({ roll: u.roll, från: u.från, till: u.till })})`
+              VALUES (${`politiker-${p.id}`}, ${nämndId}, 'ledamot_i', ${client.json({ roll: u.roll, från: u.från, till: u.till })})`
             polEdges++
           } catch {}
         }
@@ -209,7 +209,7 @@ async function main() {
         if (!nämndId) continue
         for (const m of members) {
           if (!m.id) continue
-          const polId = `pol-${m.id}`
+          const polId = `politiker-${m.id}`
           const edgeKey = `${m.id}:${nämndId}`
           if (allLedamotEdges.has(edgeKey)) continue
           allLedamotEdges.add(edgeKey)
@@ -255,7 +255,7 @@ async function main() {
       const data = JSON.parse(readFileSync(join(debatterDir, file), 'utf-8'))
       for (const a of data.anföranden || []) {
         if (!a.politikerId) continue
-        const polId = `pol-${a.politikerId}`
+        const polId = `politiker-${a.politikerId}`
         const edgeData = {
           talare: a.talare,
           parti: a.parti,

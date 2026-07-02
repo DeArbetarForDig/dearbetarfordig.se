@@ -182,7 +182,7 @@ app.openapi(politikerDetailRoute, async (c) => {
     SELECT DISTINCT e.data->>'datum' as datum, n.label as mote
     FROM goteborg.graf_edges e
     JOIN goteborg.graf_nodes n ON n.id = e.to_id
-    WHERE e.from_id = ${`pol-${id}`} AND e.typ = 'talade_i'
+    WHERE e.from_id = ${`politiker-${id}`} AND e.typ = 'talade_i'
     ORDER BY datum DESC`
 
   const möten = rows.map((r) => ({
@@ -760,13 +760,13 @@ app.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
         SELECT e.data, n.label as mote, n.data->>'datum' as datum
         FROM goteborg.graf_edges e
         JOIN goteborg.graf_nodes n ON n.id = e.to_id
-        WHERE e.from_id = ${`pol-${id}`} AND e.typ = 'talade_i' AND e.data->>'datum' = ${datum}
+        WHERE e.from_id = ${`politiker-${id}`} AND e.typ = 'talade_i' AND e.data->>'datum' = ${datum}
         ORDER BY (e.data->>'ordning')::int`
     : await sql`
         SELECT e.data, n.label as mote, n.data->>'datum' as datum
         FROM goteborg.graf_edges e
         JOIN goteborg.graf_nodes n ON n.id = e.to_id
-        WHERE e.from_id = ${`pol-${id}`} AND e.typ = 'talade_i'
+        WHERE e.from_id = ${`politiker-${id}`} AND e.typ = 'talade_i'
         ORDER BY (e.data->>'datum') DESC, (e.data->>'ordning')::int`
   const items = rows.map((r) => ({
     datum: r.datum,
