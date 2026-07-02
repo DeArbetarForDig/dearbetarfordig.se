@@ -199,6 +199,15 @@ async function main() {
     const nämndLedamoterFile = join(DATA_DIR, 'politiker/namnd-ledamoter.json')
     if (existsSync(nämndLedamoterFile)) {
       const nämndData = JSON.parse(readFileSync(nämndLedamoterFile, 'utf-8'))
+
+      // Nämnd-only ledamöter (not in goteborg.json/KF-rostret) get a full
+      // delete+reinsert here, same as every other table in this script —
+      // otherwise a stale row from an older seed run (e.g. empty uppdrag,
+      // before this aggregation existed) would linger forever behind
+      // ON CONFLICT DO NOTHING.
+      const kfIds = polData ? polData.politiker.map((p: any) => p.id) : []
+      await client`DELETE FROM goteborg.politiker WHERE NOT (id = ANY(${kfIds}))`
+
       const nämndNodes2 =
         await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ IN ('organisation','nämnd') ORDER BY id`
       const nämndMap2 = new Map<string, string>()
@@ -208,6 +217,25 @@ async function main() {
         const existing = nämndMap2.get(key)
         if (!existing || id.startsWith('org-') || (!existing.startsWith('org-') && id > existing)) {
           nämndMap2.set(key, id)
+        }
+      }
+
+      // Pre-aggregate nämnd-memberships per person — samma person kan sitta i
+      // flera nämnder, och den första INSERT (ON CONFLICT DO NOTHING nedan)
+      // ska redan ha hela listan, annars visar profilsidan "Uppdrag (0)".
+      const uppdragByPerson = new Map<
+        string,
+        Array<{ organisation: string; organisationId: string; roll: string }>
+      >()
+      for (const members of Object.values(nämndData.nämnder as Record<string, any[]>)) {
+        for (const m of members) {
+          if (!m.id) continue
+          if (!uppdragByPerson.has(m.id)) uppdragByPerson.set(m.id, [])
+          uppdragByPerson.get(m.id)!.push({
+            organisation: m.organisation,
+            organisationId: m.organisationId,
+            roll: m.roll,
+          })
         }
       }
 
@@ -233,8 +261,11 @@ async function main() {
           // Ensure a politiker row exists too — nämnd-only ledamöter (not KF
           // ledamöter) aren't in goteborg.json, so /politiker/{id} 404:ade
           // even though they had a graph node and showed up in nämnd listings.
+          // Table was cleared of non-KF rows above, so this is a fresh insert;
+          // uppdrag = alla nämnder personen sitter i (aggregerat ovan), inte
+          // bara den vi råkar iterera över just nu.
           await client`INSERT INTO goteborg.politiker (id, fornamn, efternamn, parti, uppdrag)
-            VALUES (${m.id}, ${m.förnamn}, ${m.efternamn}, ${m.parti}, '[]')
+            VALUES (${m.id}, ${m.förnamn}, ${m.efternamn}, ${m.parti}, ${client.json(uppdragByPerson.get(m.id) || [])})
             ON CONFLICT (id) DO NOTHING`
           try {
             await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
