@@ -6,6 +6,37 @@ import Base from '../../layouts/Base.astro'
 const politiker = await getPolitiker()
 const parties = [...new Set(politiker.map((p) => p.parti))].sort()
 
+// politiker.goteborg.se namnger nämnder i obestämd form ("grundskolenämnd"),
+// medan resten av sajten (startsidan, budget-grafen) använder den bestämda
+// formen ("Grundskolenämnden") — samma mönster som NÄMND_ID_MAP i
+// packages/pipeline/src/parsers/parse-budget.ts. Mappa till samma visningsnamn
+// här så att filtret matchar det man ser på startsidan.
+const NÄMND_VISNINGSNAMN: Record<string, string> = {
+  exploateringsnämnd: 'Exploateringsnämnden',
+  förskolenämnd: 'Förskolenämnden',
+  grundskolenämnd: 'Grundskolenämnden',
+  'idrotts- och föreningsnämnd': 'Idrotts- och föreningsnämnden',
+  'inköps- och upphandlingsnämnd': 'Inköps- och upphandlingsnämnden',
+  'kretslopp- och vattennämnd': 'Kretslopp och vattennämnden',
+  kulturnämnd: 'Kulturnämnden',
+  'miljö- och klimatnämnd': 'Miljö- och klimatnämnden',
+  'nämnd för arbetsmarknad och vuxenutbildning': 'Nämnden för arbetsmarknad och vuxenutbildning',
+  'nämnd för demokrati och medborgarservice': 'Nämnden för demokrati och medborgarservice',
+  'nämnd för funktionsstöd': 'Nämnden för funktionsstöd',
+  'nämnd för intraservice': 'Nämnden för intraservice',
+  'socialnämnd Centrum': 'Socialnämnden Centrum',
+  'socialnämnd Hisingen': 'Socialnämnden Hisingen',
+  'socialnämnd Nordost': 'Socialnämnden Nordost',
+  'socialnämnd Sydväst': 'Socialnämnden Sydväst',
+  stadsbyggnadsnämnd: 'Stadsbyggnadsnämnden',
+  stadsfastighetsnämnd: 'Stadsfastighetsnämnden',
+  stadsmiljönämnd: 'Stadsmiljönämnden',
+  utbildningsnämnd: 'Utbildningsnämnden',
+  valnämnd: 'Valnämnden',
+  'äldre samt vård och omsorgsnämnd': 'Äldre samt vård- och omsorgsnämnden',
+  överförmyndarnämnd: 'Överförmyndarnämnden',
+}
+
 // Uppdragskategorier: KF, KS, och varje enskild nämnd (en person kan tillhöra flera)
 function uppdragskategorier(uppdrag: Politiker['uppdrag']): string[] {
   const kategorier = new Set<string>()
@@ -13,7 +44,10 @@ function uppdragskategorier(uppdrag: Politiker['uppdrag']): string[] {
     const org = u.organisation || ''
     if (/Kommunfullmäktige/i.test(org)) kategorier.add('KF')
     else if (/Kommunstyrelsen/i.test(org)) kategorier.add('KS')
-    else if (/nämnd/i.test(org)) kategorier.add(org.replace(/^Göteborgs Stads\s+/i, '').trim())
+    else if (/nämnd/i.test(org)) {
+      const rå = org.replace(/^Göteborgs Stads\s+/i, '').trim()
+      kategorier.add(NÄMND_VISNINGSNAMN[rå] || rå)
+    }
   }
   return [...kategorier]
 }
