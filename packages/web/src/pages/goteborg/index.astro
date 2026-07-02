@@ -49,6 +49,23 @@ const partiRank = new Map(
     .map(([p], i) => [p, i]),
 )
 
+// KF-ledamöter — sedan roster:et växte till 412 (KF + alla nämnd-only) räcker
+// inte längre "de första 81 i alfabetisk ordning" (se seats nedan, som byggde
+// på det antagandet och tystnat gick sönder). Filtrera på faktiskt uppdrag
+// istället, som KS-listan.
+const kfLedamöter = politiker
+  .filter((p) =>
+    (p.uppdrag || []).some(
+      (u) => /Kommunfullmäktige/i.test(u.organisation) && /^Ledamot\b/i.test(u.roll),
+    ),
+  )
+  .map((p) => ({ id: p.id, namn: p.namn, parti: p.parti }))
+  .sort(
+    (a, b) =>
+      (partiRank.get(a.parti) ?? 99) - (partiRank.get(b.parti) ?? 99) ||
+      a.namn.localeCompare(b.namn, 'sv'),
+  )
+
 // KS-ledamöter — samma källa (uppdrag) som nämnd/KF-filtret på /goteborg/politiker.
 // Exakt organisation "Kommunstyrelsen" (inte Arbetsutskott/presidium), bara
 // Ledamot-roller (inte Ersättare/Representant).
@@ -70,9 +87,12 @@ const ksLedamöter = politiker
       a.namn.localeCompare(b.namn, 'sv'),
   )
 
-const seats = politiker
-  .slice(0, 81)
-  .map((p, i) => ({ nummer: i + 1, politikerId: p.id, namn: p.namn, parti: p.parti }))
+const seats = kfLedamöter.map((p, i) => ({
+  nummer: i + 1,
+  politikerId: p.id,
+  namn: p.namn,
+  parti: p.parti,
+}))
 
 const partiMandat = Object.entries(stats.partier).map(([label, value]) => ({
   label,
@@ -151,7 +171,19 @@ const senasteBeslut = beslutList
       <div class="flex flex-col gap-3">
         <div class="p-4 rounded-lg bg-[var(--color-surface-sunken)] border-l-4 border-l-[var(--color-primary)]">
           <h3 class="font-bold">Kommunfullmäktige (KF)</h3>
-          <p class="text-sm text-[var(--color-text-muted)]">"Riksdagen för Göteborg" — 81 ledamöter fattar alla stora beslut</p>
+          <p class="text-sm text-[var(--color-text-muted)] mb-2">"Riksdagen för Göteborg" — 81 ledamöter fattar alla stora beslut</p>
+          {kfLedamöter.length > 0 && (
+            <ul class="grid gap-1.5" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+              {kfLedamöter.map((p) => (
+                <li>
+                  <a href={`/goteborg/politiker/${p.id}`} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
+                    <PartyTag parti={p.parti} size="sm" />
+                    <span class="truncate">{p.namn}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <div class="ml-6 p-4 rounded-lg bg-[var(--color-surface-sunken)] border-l-4 border-l-violet-500">
           <h3 class="font-bold">Kommunstyrelsen (KS)</h3>
