@@ -30,6 +30,25 @@ const topNämnder = budget.nämnder
   .slice(0, 12)
   .map((n: any) => ({ ...n, politiker: polPerNämndLower.get(n.namn.toLowerCase()) || [] }))
 
+// Samma partirankning (2022 KF-mandat, Valmyndigheten 2022-09-11) som
+// /api/v1/goteborg/graf/politiker-per-nämnd använder för att sortera nämnd-listorna.
+const officialSeats: Record<string, number> = {
+  S: 21,
+  M: 14,
+  V: 13,
+  SD: 9,
+  MP: 5,
+  L: 5,
+  D: 5,
+  KD: 4,
+  C: 5,
+}
+const partiRank = new Map(
+  Object.entries(officialSeats)
+    .sort((a, b) => b[1] - a[1])
+    .map(([p], i) => [p, i]),
+)
+
 // KS-ledamöter — samma källa (uppdrag) som nämnd/KF-filtret på /goteborg/politiker.
 // Exakt organisation "Kommunstyrelsen" (inte Arbetsutskott/presidium), bara
 // Ledamot-roller (inte Ersättare/Representant).
@@ -39,8 +58,17 @@ const ksLedamöter = politiker
       (u) => u.organisation === 'Kommunstyrelsen' && /^Ledamot\b/i.test(u.roll),
     ),
   )
-  .map((p) => ({ id: p.id, namn: p.namn, parti: p.parti }))
-  .sort((a, b) => a.parti.localeCompare(b.parti) || a.namn.localeCompare(b.namn, 'sv'))
+  .map((p) => ({
+    id: p.id,
+    namn: p.namn,
+    parti: p.parti,
+    ärKf: (p.uppdrag || []).some((u) => /Kommunfullmäktige/i.test(u.organisation)),
+  }))
+  .sort(
+    (a, b) =>
+      (partiRank.get(a.parti) ?? 99) - (partiRank.get(b.parti) ?? 99) ||
+      a.namn.localeCompare(b.namn, 'sv'),
+  )
 
 const seats = politiker
   .slice(0, 81)
@@ -134,7 +162,7 @@ const senasteBeslut = beslutList
                 <li>
                   <a href={`/goteborg/politiker/${p.id}`} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
                     <PartyTag parti={p.parti} size="sm" />
-                    <span class="truncate">{p.namn}</span>
+                    <span class="truncate">{p.namn}{p.ärKf && ' (KF)'}</span>
                   </a>
                 </li>
               ))}
