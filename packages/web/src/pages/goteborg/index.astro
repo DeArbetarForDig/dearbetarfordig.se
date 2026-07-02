@@ -4,9 +4,9 @@ import Chamber from '../../../../ui/src/components/charts/Chamber.astro'
 import Donut from '../../../../ui/src/components/charts/Donut.astro'
 import HorizontalBar from '../../../../ui/src/components/charts/HorizontalBar.astro'
 import Button from '../../../../ui/src/components/core/Button.astro'
-import PartyTag from '../../../../ui/src/components/core/PartyTag.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../ui/src/components/core/Icon.astro'
+import PartyTag from '../../../../ui/src/components/core/PartyTag.astro'
 import { fetchApi, getBeslut, getBudget, getMetrics, getPolitiker, getStats } from '../../data/api'
 import Base from '../../layouts/Base.astro'
 
@@ -17,14 +17,30 @@ const beslutList = await getBeslut(200)
 const budget = await getBudget()
 
 // Politiker per nämnd — från grafen (ledamot_i edges)
-const polPerNämnd = await fetchApi<Record<string, { id: string; namn: string; parti: string; roll: string; url: string }[]>>('/api/v1/goteborg/graf/politiker-per-nämnd')
+const polPerNämnd = await fetchApi<
+  Record<string, { id: string; namn: string; parti: string; roll: string; url: string }[]>
+>('/api/v1/goteborg/graf/politiker-per-nämnd')
 // Case-insensitive lookup map
-const polPerNämndLower = new Map(Object.entries(polPerNämnd || {}).map(([k, v]) => [k.toLowerCase(), v]))
+const polPerNämndLower = new Map(
+  Object.entries(polPerNämnd || {}).map(([k, v]) => [k.toLowerCase(), v]),
+)
 
 const topNämnder = budget.nämnder
   .filter((n: any) => n.kommunbidragMnkr > 200 && !n.namn.includes('Reavinster'))
   .slice(0, 12)
   .map((n: any) => ({ ...n, politiker: polPerNämndLower.get(n.namn.toLowerCase()) || [] }))
+
+// KS-ledamöter — samma källa (uppdrag) som nämnd/KF-filtret på /goteborg/politiker.
+// Exakt organisation "Kommunstyrelsen" (inte Arbetsutskott/presidium), bara
+// Ledamot-roller (inte Ersättare/Representant).
+const ksLedamöter = politiker
+  .filter((p) =>
+    (p.uppdrag || []).some(
+      (u) => u.organisation === 'Kommunstyrelsen' && /^Ledamot\b/i.test(u.roll),
+    ),
+  )
+  .map((p) => ({ id: p.id, namn: p.namn, parti: p.parti }))
+  .sort((a, b) => a.parti.localeCompare(b.parti) || a.namn.localeCompare(b.namn, 'sv'))
 
 const seats = politiker
   .slice(0, 81)
@@ -111,7 +127,19 @@ const senasteBeslut = beslutList
         </div>
         <div class="ml-6 p-4 rounded-lg bg-[var(--color-surface-sunken)] border-l-4 border-l-violet-500">
           <h3 class="font-bold">Kommunstyrelsen (KS)</h3>
-          <p class="text-sm text-[var(--color-text-muted)]">"Regeringen" — 13 ledamöter leder det dagliga arbetet</p>
+          <p class="text-sm text-[var(--color-text-muted)] mb-2">"Regeringen" — 13 ledamöter leder det dagliga arbetet</p>
+          {ksLedamöter.length > 0 && (
+            <ul class="grid gap-1.5" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+              {ksLedamöter.map((p) => (
+                <li>
+                  <a href={`/goteborg/politiker/${p.id}`} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
+                    <PartyTag parti={p.parti} size="sm" />
+                    <span class="truncate">{p.namn}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <div class="ml-12 grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
           {topNämnder.map((n: any) => (
