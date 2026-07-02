@@ -26,11 +26,12 @@
           "intäkter_fg_år_period": 346.2,
           "prognos_intäkter_helår": 1513.3,
           "prognos_kostnader_helår": -1550.7,
-          "budget_kostnader_helår": -1633.7,
-          "prognos_resultat_helår": 37.4,
+          "budget_kostnader_helår": -1549.1,
+          "prognos_resultat_helår": 0,
           "bokslut_fg_år_intäkter": 1413.5,
           "bokslut_fg_år_kostnader": -1444.8
         },
+        "_rättat_2026-07-02": "budget_kostnader_helår och prognos_resultat_helår var felaktiga (läste av fel rader/en trasig 'Totalt'-rad i källdokumentets tjänstetabell för helår). Korrigerat och verifierat mot delarsrapport-nämnd-nämnden-för-intraservice-2026-mars, som läser resultaträkningen kolumn för kolumn via Docling — se docs/ANALYS-2026-07.md §2. prognos_resultat_helår=0 matchar dokumentets egen text: 'Sammantaget bedömer förvaltningen nollprognosen för helåret'.",
         "per_tjänsteområde": {
           "gemensamma_ekonomi": {
             "utfall_intäkter_period": 20.5,

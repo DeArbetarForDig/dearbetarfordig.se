@@ -1,11 +1,14 @@
 import { join } from 'node:path'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { extractWithDocling } from '../../lib/docling'
 import {
+  findHelårTjänsteTable,
   findResultatTable,
   findTjänsteTable,
   parseResultatTable,
+  parseTjänsteRader,
   parseTjänsteTable,
+  validateTjänsteTotalt,
 } from '../parse-delarsrapport'
 
 // Golden-file test: verifierar Docling-tabellextraktion + parsning mot kända
@@ -53,5 +56,29 @@ describe('parse-delarsrapport (Docling-pilot)', () => {
     const totalFörvaltning = tjänster.find((t) => t.tjänst === 'Total förvaltning')
     expect(totalFörvaltning?.ärSumma).toBe(true)
     expect(totalFörvaltning?.resultatPeriod).toBeCloseTo(26.4)
+  })
+
+  it('avstämningen mot period-tabellens Totalt-rad är tyst (den stämmer)', () => {
+    const tjänsteTable = findTjänsteTable(tables)
+    const varning = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    validateTjänsteTotalt(parseTjänsteRader(tjänsteTable!), 'period')
+
+    expect(varning).not.toHaveBeenCalled()
+    varning.mockRestore()
+  })
+
+  it('fångar det verkliga felet i helår-tabellens Totalt-rad (felvänd Intäkter)', () => {
+    const helårTjänsteTable = findHelårTjänsteTable(tables)
+    expect(helårTjänsteTable).toBeDefined()
+
+    const varning = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    validateTjänsteTotalt(parseTjänsteRader(helårTjänsteTable!), 'helår')
+
+    // Källdokumentets Totalt-rad har fel tecken på Intäkter (kolumn 1) — kostnader,
+    // budget, resultat och avvikelse i samma rad stämmer. Se docs/FUTURE.md.
+    expect(varning).toHaveBeenCalledTimes(1)
+    expect(varning.mock.calls[0][0]).toContain('kolumn 1')
+    varning.mockRestore()
   })
 })

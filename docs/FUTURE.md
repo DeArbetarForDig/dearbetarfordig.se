@@ -13,8 +13,9 @@ Många kommunala dokument (delårsrapporter, budgetbilagor, upphandlingsprotokol
 ### Utvärdering (2026-06-23)
 Testad på Intraservice delårsrapport Q1 2026 (26 sidor):
 - **Rendering:** 2 sekunder via `pixelshot` → 26 tiles (JPG)
-- **Tabellkvalitet:** Perfekt — kolumner, nästlade kategorier, totalsummor synliga
+- **Tabellkvalitet:** Ursprungligen bedömd "Perfekt" — kolumner, nästlade kategorier, totalsummor synliga
 - **Jämfört med regex:** VLM kan läsa tabeller som regex missar (5-kolumns resultaträkning med underkategorier)
+- **Uppdaterat 2026-07-02:** vid jämförelse mot Docling-parsningen (`docs/ANALYS-2026-07.md` §2) hittades två faktiska fel i det pdftotext+PixelRAG-sammanställda `data/graf/intraservice-delarsrapport-q1-2026.json`: (1) ett värde från raden `Kommunbidrag` feltolkat som `Resultat`, och (2) `budget_kostnader_helår` läst från `Totalt`-raden i fel tabell (helår-tjänstetabellen) istället för resultaträkningens egen kolumn. Den `Totalt`-raden har dessutom ett verkligt fel i själva källdokumentet — inte i extraktionen: `Intäkter helår` är felvänd (`-1 633,7` istället för `+1 633,7`), medan `Kostnader`/`Budget kostnader`/`Resultat`/`Avvikelse` i samma rad stämmer. Docling-parsern har nu en avstämningskontroll per kolumn som pekade ut exakt vilken enskild cell som var fel. "Perfekt" bör alltså läsas som "visuellt plausibel", inte siffermässigt verifierad — och tyder på att VLM-läsning inte automatiskt är säkrare än strukturerad tabellextraktion utan en oberoende avstämning ovanpå.
 
 ### Varför inte nu
 - **Kostnad:** Varje PDF-sida kräver ett VLM API-anrop (~$0.01–0.03/sida)
