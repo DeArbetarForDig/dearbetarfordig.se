@@ -27,6 +27,14 @@
     }
   },
   "files": {
-    "ignore": ["node_modules", "dist", ".astro", "docs/reference", ".tmp", "data"]
+    "ignore": [
+      "node_modules",
+      "dist",
+      ".astro",
+      "docs/reference",
+      ".tmp",
+      "data",
+      "packages/pipeline/python/.venv"
+    ]
   }
 }

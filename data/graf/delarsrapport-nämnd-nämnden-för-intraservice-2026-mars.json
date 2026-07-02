@@ -1,0 +1,373 @@
+{
+  "nodes": [
+    {
+      "id": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "utfall",
+      "label": "Nämnden För Intraservice — delårsrapport 2026-mars: +19.5 mnkr",
+      "data": {
+        "nämnd": "Nämnden För Intraservice",
+        "period": "2026-mars",
+        "budgetMnkr": 3,
+        "utfallMnkr": 22.5,
+        "avvikelseMnkr": 19.5,
+        "avvikelseProcent": 650,
+        "status": "i_balans",
+        "poster": {
+          "Intäkter": {
+            "utfallPeriod": 373.6,
+            "budgetPeriod": 375.7,
+            "avvikelsePeriod": -2.1,
+            "utfallFgAr": 346.2,
+            "prognosHelar": 1513.3,
+            "fgPrognosHelar": 1506.8,
+            "budgetHelar": 1506.8,
+            "bokslutFgAr": 1413.5
+          },
+          "Kostnader": {
+            "utfallPeriod": -360.5,
+            "budgetPeriod": -382.1,
+            "avvikelsePeriod": 21.6,
+            "utfallFgAr": -347.1,
+            "prognosHelar": -1550.7,
+            "fgPrognosHelar": -1549.1,
+            "budgetHelar": -1549.1,
+            "bokslutFgAr": -1444.8
+          },
+          "Kommunbidrag": {
+            "utfallPeriod": 9.4,
+            "budgetPeriod": 9.4,
+            "avvikelsePeriod": 0,
+            "utfallFgAr": 9.5,
+            "prognosHelar": 37.4,
+            "fgPrognosHelar": 42.3,
+            "budgetHelar": 42.3,
+            "bokslutFgAr": 38.2
+          },
+          "Kommuninterna bidrag": {
+            "utfallPeriod": 0,
+            "budgetPeriod": 0,
+            "avvikelsePeriod": 0,
+            "utfallFgAr": 0,
+            "prognosHelar": 0,
+            "fgPrognosHelar": 0,
+            "budgetHelar": 0,
+            "bokslutFgAr": 0
+          },
+          "Resultat": {
+            "utfallPeriod": 22.5,
+            "budgetPeriod": 3,
+            "avvikelsePeriod": 19.5,
+            "utfallFgAr": 8.6,
+            "prognosHelar": 0,
+            "fgPrognosHelar": 0,
+            "budgetHelar": 0,
+            "bokslutFgAr": 6.9
+          }
+        },
+        "källa": "docling"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-ekonomi-2026-mars",
+      "typ": "tjänst",
+      "label": "Ekonomi: +6.8 mnkr",
+      "data": {
+        "tjänst": "Ekonomi",
+        "kategori": "Gemensamma tjänster",
+        "ärSumma": false,
+        "utfallIntakterPeriod": 20.5,
+        "utfallKostnaderPeriod": -13.7,
+        "resultatPeriod": 6.8,
+        "budgetKostnaderPeriod": -20.7,
+        "budgetavvikelse": 7,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-hr-2026-mars",
+      "typ": "tjänst",
+      "label": "HR: +1.5 mnkr",
+      "data": {
+        "tjänst": "HR",
+        "kategori": "Gemensamma tjänster",
+        "ärSumma": false,
+        "utfallIntakterPeriod": 35.8,
+        "utfallKostnaderPeriod": -34.3,
+        "resultatPeriod": 1.5,
+        "budgetKostnaderPeriod": -36.2,
+        "budgetavvikelse": 1.9,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-kommunikation-ledning-och-styrning-2026-mars",
+      "typ": "tjänst",
+      "label": "Kommunikation, ledning och styrning: +2.4 mnkr",
+      "data": {
+        "tjänst": "Kommunikation, ledning och styrning",
+        "kategori": "Gemensamma tjänster",
+        "ärSumma": false,
+        "utfallIntakterPeriod": 24.5,
+        "utfallKostnaderPeriod": -22.1,
+        "resultatPeriod": 2.4,
+        "budgetKostnaderPeriod": -24.6,
+        "budgetavvikelse": 2.5,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-digital-infrastruktur-2026-mars",
+      "typ": "tjänst",
+      "label": "Digital infrastruktur: +15.7 mnkr",
+      "data": {
+        "tjänst": "Digital infrastruktur",
+        "kategori": null,
+        "ärSumma": false,
+        "utfallIntakterPeriod": 210.1,
+        "utfallKostnaderPeriod": -194.4,
+        "resultatPeriod": 15.7,
+        "budgetKostnaderPeriod": -205.5,
+        "budgetavvikelse": 11.1,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-total-förvaltning-2026-mars",
+      "typ": "tjänst",
+      "label": "Total förvaltning: +26.4 mnkr",
+      "data": {
+        "tjänst": "Total förvaltning",
+        "kategori": null,
+        "ärSumma": true,
+        "utfallIntakterPeriod": 290.9,
+        "utfallKostnaderPeriod": -264.5,
+        "resultatPeriod": 26.4,
+        "budgetKostnaderPeriod": -287,
+        "budgetavvikelse": 22.5,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-förändringsinitiativ-2026-mars",
+      "typ": "tjänst",
+      "label": "Förändringsinitiativ: +1.5 mnkr",
+      "data": {
+        "tjänst": "Förändringsinitiativ",
+        "kategori": null,
+        "ärSumma": false,
+        "utfallIntakterPeriod": 9.1,
+        "utfallKostnaderPeriod": -7.6,
+        "resultatPeriod": 1.5,
+        "budgetKostnaderPeriod": -9.5,
+        "budgetavvikelse": 2.4,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-total-förvaltning-och-förändringsinitiativ-2026-mars",
+      "typ": "tjänst",
+      "label": "Total förvaltning och förändringsinitiativ: +27.9 mnkr",
+      "data": {
+        "tjänst": "Total förvaltning och förändringsinitiativ",
+        "kategori": null,
+        "ärSumma": true,
+        "utfallIntakterPeriod": 300,
+        "utfallKostnaderPeriod": -272.1,
+        "resultatPeriod": 27.9,
+        "budgetKostnaderPeriod": -296.5,
+        "budgetavvikelse": 24.9,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-e-tjänstekort-2026-mars",
+      "typ": "tjänst",
+      "label": "E-tjänstekort: -0.3 mnkr",
+      "data": {
+        "tjänst": "E-tjänstekort",
+        "kategori": null,
+        "ärSumma": false,
+        "utfallIntakterPeriod": 2.6,
+        "utfallKostnaderPeriod": -2.9,
+        "resultatPeriod": -0.3,
+        "budgetKostnaderPeriod": -2.7,
+        "budgetavvikelse": -0.2,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-bastjänster-inköp-och-upphandling-ink-2026-mars",
+      "typ": "tjänst",
+      "label": "Bastjänster, inköp och upphandling (INK): +0.2 mnkr",
+      "data": {
+        "tjänst": "Bastjänster, inköp och upphandling (INK)",
+        "kategori": null,
+        "ärSumma": false,
+        "utfallIntakterPeriod": 2.7,
+        "utfallKostnaderPeriod": -2.5,
+        "resultatPeriod": 0.2,
+        "budgetKostnaderPeriod": -2.7,
+        "budgetavvikelse": 0.2,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-digital-infrastruktur-demokrati-och-medborgarservice-dm-2026-mars",
+      "typ": "tjänst",
+      "label": "Digital infrastruktur, Demokrati- och Medborgarservice (DM): +0.2 mnkr",
+      "data": {
+        "tjänst": "Digital infrastruktur, Demokrati- och Medborgarservice (DM)",
+        "kategori": null,
+        "ärSumma": false,
+        "utfallIntakterPeriod": 7.7,
+        "utfallKostnaderPeriod": -7.5,
+        "resultatPeriod": 0.2,
+        "budgetKostnaderPeriod": -7.8,
+        "budgetavvikelse": 0.3,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-tilläggstjänster-2026-mars",
+      "typ": "tjänst",
+      "label": "Tilläggstjänster: +0.7 mnkr",
+      "data": {
+        "tjänst": "Tilläggstjänster",
+        "kategori": null,
+        "ärSumma": false,
+        "utfallIntakterPeriod": 7.6,
+        "utfallKostnaderPeriod": -6.9,
+        "resultatPeriod": 0.7,
+        "budgetKostnaderPeriod": -12,
+        "budgetavvikelse": 5.1,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-direktförsäljning-och-övrigt-2026-mars",
+      "typ": "tjänst",
+      "label": "Direktförsäljning och övrigt: -8 mnkr",
+      "data": {
+        "tjänst": "Direktförsäljning och övrigt",
+        "kategori": null,
+        "ärSumma": false,
+        "utfallIntakterPeriod": 61.8,
+        "utfallKostnaderPeriod": -69.8,
+        "resultatPeriod": -8,
+        "budgetKostnaderPeriod": -65.3,
+        "budgetavvikelse": -5,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-kommunbidrag-2026-mars",
+      "typ": "tjänst",
+      "label": "Kommunbidrag: +1.8 mnkr",
+      "data": {
+        "tjänst": "Kommunbidrag",
+        "kategori": null,
+        "ärSumma": false,
+        "utfallIntakterPeriod": 10.6,
+        "utfallKostnaderPeriod": -8.8,
+        "resultatPeriod": 1.8,
+        "budgetKostnaderPeriod": -9.6,
+        "budgetavvikelse": 0.8,
+        "period": "2026-mars"
+      }
+    },
+    {
+      "id": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-totalt-2026-mars",
+      "typ": "tjänst",
+      "label": "Totalt: +22.5 mnkr",
+      "data": {
+        "tjänst": "Totalt",
+        "kategori": null,
+        "ärSumma": true,
+        "utfallIntakterPeriod": 393,
+        "utfallKostnaderPeriod": -370.5,
+        "resultatPeriod": 22.5,
+        "budgetKostnaderPeriod": -396.6,
+        "budgetavvikelse": 26.1,
+        "period": "2026-mars"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "to": "nämnd-nämnden-för-intraservice",
+      "typ": "utfall_för",
+      "label": "+19.5 mnkr"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-ekonomi-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-hr-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-kommunikation-ledning-och-styrning-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-digital-infrastruktur-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-total-förvaltning-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-förändringsinitiativ-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-total-förvaltning-och-förändringsinitiativ-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-e-tjänstekort-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-bastjänster-inköp-och-upphandling-ink-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-digital-infrastruktur-demokrati-och-medborgarservice-dm-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-tilläggstjänster-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-direktförsäljning-och-övrigt-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-kommunbidrag-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    },
+    {
+      "from": "delarsrapport-tjanst-nämnd-nämnden-för-intraservice-totalt-2026-mars",
+      "to": "delarsrapport-nämnd-nämnden-för-intraservice-2026-mars",
+      "typ": "ingår_i"
+    }
+  ]
+}

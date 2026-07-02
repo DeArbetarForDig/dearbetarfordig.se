@@ -2,7 +2,7 @@
 
 ## PixelRAG — visuell PDF-parsning
 
-**Status:** Utvärderat, ej implementerat (kostnadsskäl)
+**Status:** Utvärderat, ej implementerat — kostnadsproblemet löst istället via [Docling](https://github.com/docling-project/docling) (lokal, gratis, se `docs/ANALYS-2026-07.md` §2). Samma testdokument (Intraservice delårsrapport mars 2026) parsades framgångsrikt med Docling 2026-07-02, utan VLM-kostnad. PixelRAG kvarstår som möjlig fallback för dokument Docling inte heller klarar (punkt 3 nedan).
 
 ### Problem
 Många kommunala dokument (delårsrapporter, budgetbilagor, upphandlingsprotokoll) innehåller komplexa tabeller som vår regex-parser inte kan hantera korrekt. Kolumner smälter ihop, nästlade kategorier tappas, och siffror hamnar i fel fält.
