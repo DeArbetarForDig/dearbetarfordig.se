@@ -1,4 +1,5 @@
 ---
+import Icon from '../../../../../../ui/src/components/core/Icon.astro'
 import { getMöten } from '../../../../data/api'
 import Base from '../../../../layouts/Base.astro'
 
@@ -23,6 +24,12 @@ const möten = allMöten
         <div class="flex items-center gap-4">
           <span class="font-mono font-semibold">{m.datum}</span>
           <span class="text-sm text-[var(--color-text-muted)]">{m.antalBeslut} beslut</span>
+          {m.videoUrl && (
+            <span class="inline-flex items-center gap-1.5 text-xs text-[var(--color-text-muted)]">
+              <Icon name="monitor-play" size={14} />
+              Webb-TV
+            </span>
+          )}
         </div>
         <span class="text-[var(--color-text-muted)]">→</span>
       </a>

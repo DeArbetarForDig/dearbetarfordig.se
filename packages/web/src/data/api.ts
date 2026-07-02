@@ -58,6 +58,7 @@ export interface Möte {
   label: string
   antalBeslut: number
   url?: string
+  videoUrl?: string
 }
 
 export async function getPolitiker(): Promise<Politiker[]> {

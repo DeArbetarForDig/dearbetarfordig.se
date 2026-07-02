@@ -1,5 +1,6 @@
 ---
 import Card from '../../../../../../ui/src/components/core/Card.astro'
+import Icon from '../../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../../ui/src/components/core/StatusBadge.astro'
 import { getMöten, getMöteAnföranden, fetchApi, getStats } from '../../../../data/api'
@@ -104,6 +105,27 @@ const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
       {anföranden.length} anföranden
     </span>
   </div>
+
+  <!-- Webb-TV -->
+  {möte.videoUrl && (
+    <a href={möte.videoUrl} target="_blank" rel="noopener noreferrer" class="group block max-w-md mb-8">
+      <Card class="hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)]">
+        <div class="flex items-center gap-4">
+          <span
+            class="flex items-center justify-center w-10 h-10 rounded-lg text-[var(--color-primary)]"
+            style="background: color-mix(in srgb, var(--color-primary) 12%, transparent)"
+          >
+            <Icon name="monitor-play" size={22} />
+          </span>
+          <div class="min-w-0 flex-1">
+            <p class="font-semibold group-hover:text-[var(--color-primary)] transition-colors">Se sändningen</p>
+            <p class="text-xs text-[var(--color-text-subtle)]">Webb-TV — hela mötet, per ärende eller per talare</p>
+          </div>
+          <Icon name="external-link" size={16} class="text-[var(--color-text-muted)]" />
+        </div>
+      </Card>
+    </a>
+  )}
 
   <!-- Tabs navigation -->
   <div class="flex gap-2 mb-6 border-b border-[var(--color-border)]">
