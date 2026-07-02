@@ -359,7 +359,16 @@
             "typ": "yrkande från M, L och KD den 13 maj 2026"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 9,
+          "nej": 4,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Jonas Attenius och Martin Wannholts yrkande och Nej för bifall till Axel Josefsons yrkande.",
+          "jaBetyder": "bifall: Jonas Attenius och Martin Wannholts yrkande",
+          "nejBetyder": "bifall: Axel Josefsons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -402,7 +411,16 @@
             "typ": "yrkande från L, M och KD"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 8,
+          "nej": 5,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Martin Wannholts yrkande och Nej för bifall till Pär Gustafssons och Jörgen Fogelklous yrkande.",
+          "jaBetyder": "bifall: Martin Wannholts yrkande",
+          "nejBetyder": "bifall: Pär Gustafssons och Jörgen Fogelklous yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -424,7 +442,16 @@
             "typ": "att utredningen ska tillstyrkas"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 9,
+          "nej": 4,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Jonas Attenius yrkande och Nej för bifall till Axel Josefsons yrkande.",
+          "jaBetyder": "bifall: Jonas Attenius yrkande",
+          "nejBetyder": "bifall: Axel Josefsons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -630,7 +657,16 @@
         ],
         "reservationer": [
           "Axel Josefson (M), Hampus Magnusson (M), Jörgen Fogelklou (SD) och\nDan-Ove Marcelind (KD) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 8,
+          "nej": 5,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från M, KD och SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -654,7 +690,16 @@
         ],
         "reservationer": [
           "Jörgen Fogelklou (SD) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från KD, M, D, L och SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -826,7 +871,16 @@
             "typ": "stadsledningskontorets"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till tilläggsyrkandet från M, D, L och KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -869,7 +923,16 @@
             "typ": "på yrkande från KD"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 10,
+          "nej": 3,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -898,7 +961,16 @@
         ],
         "reservationer": [
           "Jörgen Fogelklou (SD) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 12,
+          "nej": 1,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -1166,6 +1238,171 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-05-20-§371",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-05-20-§373",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-05-20-§374",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2026-05-20-§376",
       "to": "kf-handling-2026-129",
       "typ": "hänvisar_till",
@@ -1196,6 +1433,281 @@
       "from": "ks-2026-05-20-§380",
       "to": "org-grundskolenämnden",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-05-20-§382",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-05-20-§383",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-05-20-§391",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-05-20-§393",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2026-05-20-§394",
+      "typ": "röstade_nej"
     },
     {
       "from": "ks-2026-05-20-§397",

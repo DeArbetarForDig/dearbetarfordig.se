@@ -356,7 +356,16 @@
             "typ": "stadsledningskontorets"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Daniel Bernmars yrkande och Nej för bifall till Axel Josefsons yrkande.",
+          "jaBetyder": "bifall: Daniel Bernmars yrkande",
+          "nejBetyder": "bifall: Axel Josefsons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -557,7 +566,16 @@
         ],
         "reservationer": [
           "Axel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Elisabet Lann (KD)\nsamt tjänstgörande ersättarna Nina Miskovsky (M) och Anneli Rhedin (M) reserverar sig\nmot beslutet enligt följande:\nVi vill uttrycka vår oro över att vänsterstyrets återremiss innebär en tillbakagång i det\narbete som hittills syftat till ökad kontroll och transparens kring Göteborgs Stads\nföreningsbidrag. Med det här beslutet sänks kraven på dokumentation och insyn, vilket\nriskerar att försvåra upptäckten av oegentligheter och att kommunala medel går till\nfelaktiga ändamål. Civilsamhället och föreningslivet, inte minst idrottsrörelsen, har en\nroll i att erbjuda ett sammanhang och bidra till trygghet och en meningsfull fritid för både\nvuxna och barn. Vi anser att det därför är av största vikt att staden har tydliga regler och\neffektiva kontrollmekanismer för att säkra att denna är miljö är fri från kriminalitet och\nmissbruk av offentliga medel. När kraven urvattnas ökar risken för sådant missbruk och\nför att fel aktörer får tillgång till skattebetalarnas pengar."
-        ]
+        ],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för bifall och Nej för avslag på återremissyrkandet från V, S och MP.",
+          "jaBetyder": "bifall",
+          "nejBetyder": "avslag",
+          "verified": true
+        }
       }
     },
     {
@@ -660,7 +678,16 @@
             "typ": "yrkande från M den 2 juni 2025"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 9,
+          "nej": 4,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Daniel Bernmars yrkande och Nej för bifall till Axel Josefsons yrkande.",
+          "jaBetyder": "bifall: Daniel Bernmars yrkande",
+          "nejBetyder": "bifall: Axel Josefsons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -939,6 +966,61 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2025-06-04-§499",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2025-06-04-§504",
       "to": "org-exploateringsnämnden",
       "typ": "hänvisar_till"
@@ -966,6 +1048,61 @@
       "label": "KF Handling 2025 nr 136"
     },
     {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2025-06-04-§510",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2025-06-04-§510",
       "to": "org-idrotts--och-föreningsnämnden",
       "typ": "hänvisar_till"
@@ -979,6 +1116,61 @@
       "from": "ks-2025-06-04-§512",
       "to": "org-stadsfastighetsnämnden",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2025-06-04-§515",
+      "typ": "röstade_nej"
     },
     {
       "from": "ks-2025-06-04-§521",

@@ -340,7 +340,16 @@
             "typ": "stadsledningskontorets förslag och avslag på yrkande"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 8,
+          "nej": 5,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Jenny Bromans yrkande och Nej för bifall till Axel Josefsons yrkande.",
+          "jaBetyder": "bifall: Jenny Bromans yrkande",
+          "nejBetyder": "bifall: Axel Josefsons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -462,7 +471,16 @@
         ],
         "reservationer": [
           "Jörgen Fogelklou (SD) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till tilläggsyrkandet från KD, M, D och L.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -497,7 +515,16 @@
         ],
         "reservationer": [
           "Jörgen Fogelklou (SD) reserverar sig mot beslutet till förmån för det egna yrkandet."
-        ]
+        ],
+        "votering": {
+          "ja": 12,
+          "nej": 1,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till tilläggsyrkandet från SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -633,7 +660,16 @@
         ],
         "reservationer": [
           "Axel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D), Axel Darvik (L) och\nElisabet Lann (KD) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från M, D, L och KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -655,7 +691,16 @@
             "typ": "yrkande från"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från M, D, L och KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -687,7 +732,16 @@
             "typ": "på samtliga"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 3,
+          "avstår": 3,
+          "proposition": "Ja för bifall till Daniel Bernmars yrkande och Nej för bifall till Axel Josefsons och Jörgen Fogelklous yrkande.",
+          "jaBetyder": "bifall: Daniel Bernmars yrkande",
+          "nejBetyder": "bifall: Axel Josefsons och Jörgen Fogelklous yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -714,7 +768,16 @@
             "typ": "på yrkande"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 10,
+          "nej": 3,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från L och KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -1098,6 +1161,61 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2024-10-09-§805",
       "to": "org-kommunstyrelsen",
       "typ": "hänvisar_till"
@@ -1128,6 +1246,61 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2024-10-09-§808",
       "to": "kf-handling-2024-187",
       "typ": "hänvisar_till",
@@ -1142,6 +1315,61 @@
       "from": "ks-2024-10-09-§808",
       "to": "org-berörda-ansvariga-nämnd",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_nej"
     },
     {
       "from": "ks-2024-10-09-§809",
@@ -1164,6 +1392,226 @@
       "to": "kf-handling-2024-189",
       "typ": "hänvisar_till",
       "label": "KF Handling 2024 nr 189"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_avstår"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_avstår"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_nej"
     },
     {
       "from": "ks-2024-10-09-§821",

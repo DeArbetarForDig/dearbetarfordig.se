@@ -383,7 +383,16 @@
             "typ": "att utredningen ska tillstyrkas"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Blerta Hoti Singhs yrkande och Nej för bifall till Axel Josefsons yrkande.",
+          "jaBetyder": "bifall: Blerta Hoti Singhs yrkande",
+          "nejBetyder": "bifall: Axel Josefsons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -426,7 +435,16 @@
             "typ": "yrkande från M, D, L, KD och SD den 5 januari 2026"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Daniel Bernmars yrkande och Nej för bifall till Axel Josefsons yrkande.",
+          "jaBetyder": "bifall: Daniel Bernmars yrkande",
+          "nejBetyder": "bifall: Axel Josefsons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -662,7 +680,16 @@
             "typ": "yrkande från L, M, D och KD den 9 januari 2026"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Jonas Attenius yrkande och Nej för bifall till Pär Gustafssons yrkande.",
+          "jaBetyder": "bifall: Jonas Attenius yrkande",
+          "nejBetyder": "bifall: Pär Gustafssons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -721,7 +748,16 @@
             "typ": "att motionen ska avstyrkas med hänvisning till"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Viktoria Tryggvadottir Rolkas yrkande och Nej för bifall till Pär Gustafssons yrkande.",
+          "jaBetyder": "bifall: Viktoria Tryggvadottir Rolkas yrkande",
+          "nejBetyder": "bifall: Pär Gustafssons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -958,9 +994,229 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2026-01-14-§17",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2026-01-14-§19",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2026-01-14-§23",
       "to": "org-en-nämnd",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2026-01-14-§33",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2026-01-14-§36",
+      "typ": "röstade_nej"
     },
     {
       "from": "ks-2026-01-14-§42",

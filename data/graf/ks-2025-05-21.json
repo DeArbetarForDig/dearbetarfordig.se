@@ -476,7 +476,16 @@
             "typ": "på yrkande från M och SD den"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 10,
+          "nej": 3,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från M och SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -975,7 +984,16 @@
         ],
         "reservationer": [
           "Jörgen Fogelklou (SD) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 12,
+          "nej": 1,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -1225,6 +1243,61 @@
       "label": "KF Handling 2025 nr 123"
     },
     {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2025-05-21-§450",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2025-05-21-§457",
       "to": "kf-handling-2025-124",
       "typ": "hänvisar_till",
@@ -1279,6 +1352,61 @@
       "to": "kf-handling-2025-129",
       "typ": "hänvisar_till",
       "label": "KF Handling 2025 nr 129"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2025-05-21-§473",
+      "typ": "röstade_nej"
     },
     {
       "from": "ks-2025-05-21-§476",

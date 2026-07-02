@@ -427,7 +427,16 @@
             "typ": "stadsledningskontorets förslag och tilläggsyrkande"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 12,
+          "nej": 1,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till tilläggsyrkandet från SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -669,7 +678,16 @@
             "typ": "på yrkande från M, D, L och KD den 30 april 2024"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 5,
+          "avstår": 1,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från M, D, L och KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -855,7 +873,16 @@
             "typ": "att ärendet ska avgöras vid dagens sammanträde"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för ärendets återremiss och Nej för ärendets avgörande idag.",
+          "jaBetyder": "återremiss",
+          "nejBetyder": "avgörande idag",
+          "verified": true
+        }
       }
     },
     {
@@ -894,7 +921,16 @@
             "typ": "att Göteborgsförslag 12879 inte ska beredas vidare"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 8,
+          "nej": 5,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Blerta Hotis och Jörgen Fogelklous yrkande och Nej för bifall till Axel Josefsons yrkande.",
+          "jaBetyder": "bifall: Blerta Hotis och Jörgen Fogelklous yrkande",
+          "nejBetyder": "bifall: Axel Josefsons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -1120,6 +1156,61 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-05-15-§441",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2024-05-15-§445",
       "to": "kf-handling-2024-91",
       "typ": "hänvisar_till",
@@ -1155,6 +1246,61 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-05-15-§451",
+      "typ": "röstade_avstår"
+    },
+    {
       "from": "ks-2024-05-15-§452",
       "to": "org-göteborgs-stadshus-ab",
       "typ": "hänvisar_till"
@@ -1164,6 +1310,61 @@
       "to": "kf-handling-2024-100",
       "typ": "hänvisar_till",
       "label": "KF Handling 2024 nr 100"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-05-15-§458",
+      "typ": "röstade_nej"
     },
     {
       "from": "ks-2024-05-15-§458",
@@ -1179,6 +1380,61 @@
       "from": "ks-2024-05-15-§458",
       "to": "org-miljö--och-klimatnämnden",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-05-15-§459",
+      "typ": "röstade_nej"
     },
     {
       "from": "ks-2024-05-15-§468",

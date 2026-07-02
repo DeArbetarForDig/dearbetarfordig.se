@@ -428,7 +428,16 @@
         ],
         "reservationer": [
           "Axel Josefson (M), Hampus Magnusson (M), Martin Wannholt (D) och\nJörgen Fogelklou (SD) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 9,
+          "nej": 4,
+          "avstår": 0,
+          "proposition": "Ja för att avstyrka motionen och Nej för att tillstyrka motionen",
+          "jaBetyder": null,
+          "nejBetyder": null,
+          "verified": false
+        }
       }
     },
     {
@@ -492,7 +501,16 @@
             "typ": "att motionen ska anses besvarad med hänvisning till yttrande"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för att anse motionen besvarad och Nej för att tillstyrka motionen",
+          "jaBetyder": null,
+          "nejBetyder": null,
+          "verified": false
+        }
       }
     },
     {
@@ -639,7 +657,16 @@
             "typ": "yrkande från V, S och MP den 21 mars 2025 och"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 12,
+          "nej": 1,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till tilläggsyrkandet från SD",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -726,7 +753,16 @@
             "typ": "bifall till yrkande från KD, M, D och L den 17 mars 2025"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 8,
+          "nej": 5,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från KD, M, D och L.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -777,7 +813,16 @@
         ],
         "reservationer": [
           "Jörgen Fogelklou (SD) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 12,
+          "nej": 1,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -822,7 +867,16 @@
         ],
         "reservationer": [
           "Jörgen Fogelklou (SD) reserverar sig mot beslutet till förmån för det egna yrkandet."
-        ]
+        ],
+        "votering": {
+          "ja": 12,
+          "nej": 1,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -854,7 +908,16 @@
             "typ": "yrkande från L, KD och C den 4 april 2025 om att"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för att anse motionen besvarad och Nej för att tillstyrka motionen",
+          "jaBetyder": null,
+          "nejBetyder": null,
+          "verified": false
+        }
       }
     },
     {
@@ -994,7 +1057,16 @@
             "typ": "yrkande från M, D, L och KD den 2 april 2025 och tilläggsyrkande från"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 5,
+          "avstår": 1,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från M, D, L och KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -1193,6 +1265,126 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2025-04-09-§305",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "ks-2025-04-09-§308",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2025-04-09-§311",
       "to": "org-stadsfastighetsnämnden",
       "typ": "hänvisar_till"
@@ -1213,6 +1405,66 @@
       "from": "ks-2025-04-09-§313",
       "to": "org-miljö--och-klimatnämnden",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2025-04-09-§314",
+      "typ": "röstade_nej"
     },
     {
       "from": "ks-2025-04-09-§314",
@@ -1242,14 +1494,309 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "ks-2025-04-09-§317",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2025-04-09-§318",
       "to": "org-sd-angående-batterifab",
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2025-04-09-§319",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2025-04-09-§320",
       "to": "org-miljö--och-klimatnämnden",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2025-04-09-§321",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "ks-2025-04-09-§322",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-8eee926c-a802-4a4c-a93b-8145f4c80f55",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-edf21e66-d2ab-4162-922b-a291a2a566ee",
+      "to": "ks-2025-04-09-§328",
+      "typ": "röstade_avstår"
     },
     {
       "from": "ks-2025-04-09-§333",

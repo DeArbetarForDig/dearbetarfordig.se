@@ -297,7 +297,16 @@
             "typ": "bifall yrkande från SD den 2 februari 2024"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 5,
+          "avstår": 1,
+          "proposition": "Ja för bifall till Karin Pleijels yrkande och Nej för bifall till Axel Darviks yrkande.",
+          "jaBetyder": "bifall: Karin Pleijels yrkande",
+          "nejBetyder": "bifall: Axel Darviks yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -395,7 +404,16 @@
             "typ": "att ärendet ska återremitteras enligt"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till återremissyrkandet från M, D, L och KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -552,7 +570,16 @@
             "typ": "att ärendet ska återremitteras enligt yrkande från"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till återremissyrkandet från KD, M, D och L.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -625,7 +652,16 @@
         ],
         "reservationer": [
           "Axel Josefson (M), Axel Darvik (L), Elisabet Lann (KD) och tjänstgörande ersättarna\nNina Miskovsky (M) och Anneli Rhedin (M) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från M, D, L och KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -707,7 +743,16 @@
         ],
         "reservationer": [
           "Axel Josefson (M), Axel Darvik (L), Elisabet Lann (KD) och tjänstgörande ersättarna\nNina Miskovsky (M) och Anneli Rhedin (M) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från M, D, L och KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -777,7 +822,16 @@
             "typ": "yrkande från D, M, L och KD"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från D, M, L och KD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        }
       }
     },
     {
@@ -926,6 +980,56 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2024-02-07-§102",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-02-07-§102",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-02-07-§102",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-02-07-§102",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-02-07-§102",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-02-07-§102",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-02-07-§102",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2024-02-07-§102",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-02-07-§102",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-02-07-§102",
+      "typ": "röstade_avstår"
+    },
+    {
       "from": "ks-2024-02-07-§103",
       "to": "kf-handling-2024-22",
       "typ": "hänvisar_till",
@@ -960,6 +1064,56 @@
       "from": "ks-2024-02-07-§103",
       "to": "org-annan-nämnd",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2024-02-07-§106",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-02-07-§106",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-02-07-§106",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-02-07-§106",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-02-07-§106",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-02-07-§106",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-02-07-§106",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-02-07-§106",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2024-02-07-§106",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-02-07-§106",
+      "typ": "röstade_nej"
     },
     {
       "from": "ks-2024-02-07-§106",
@@ -1008,6 +1162,56 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2024-02-07-§113",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-02-07-§113",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-02-07-§113",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-02-07-§113",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-02-07-§113",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-02-07-§113",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-02-07-§113",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-02-07-§113",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2024-02-07-§113",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-02-07-§113",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2024-02-07-§113",
       "to": "org-tre-stiftelser-i-skrivelse-till-kommunstyrelsen",
       "typ": "hänvisar_till"
@@ -1016,6 +1220,156 @@
       "from": "ks-2024-02-07-§114",
       "to": "org-trafiknämnden",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2024-02-07-§115",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-02-07-§115",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-02-07-§115",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-02-07-§115",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-02-07-§115",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-02-07-§115",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-02-07-§115",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-02-07-§115",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2024-02-07-§115",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-02-07-§115",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2024-02-07-§118",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-02-07-§118",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-02-07-§118",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-02-07-§118",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-02-07-§118",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-02-07-§118",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-02-07-§118",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-02-07-§118",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2024-02-07-§118",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-02-07-§118",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
+      "to": "ks-2024-02-07-§121",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-02-07-§121",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-02-07-§121",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-02-07-§121",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-02-07-§121",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-02-07-§121",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
+      "to": "ks-2024-02-07-§121",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-02-07-§121",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2024-02-07-§121",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-02-07-§121",
+      "typ": "röstade_nej"
     },
     {
       "from": "möte-ks-2024-02-07",

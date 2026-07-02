@@ -519,7 +519,16 @@
             "typ": "stadsledningskontorets förslag och avslag på yrkande"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 5,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Karin Pleijels yrkande och Nej för bifall till Axel Josefsons yrkande.",
+          "jaBetyder": "bifall: Karin Pleijels yrkande",
+          "nejBetyder": "bifall: Axel Josefsons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -557,7 +566,16 @@
             "typ": "stadsledningskontorets förslag"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 5,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Jonas Attenius yrkande och Nej för bifall till Axel Josefsons yrkande.",
+          "jaBetyder": "bifall: Jonas Attenius yrkande",
+          "nejBetyder": "bifall: Axel Josefsons yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -586,7 +604,16 @@
         ],
         "reservationer": [
           "Martin Wannholt (D) reserverar sig mot beslutet."
-        ]
+        ],
+        "votering": {
+          "ja": 11,
+          "nej": 1,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Johannes Hulters och Axel Josefsons yrkande och Nej för bifall till Martin Wannholts yrkande.",
+          "jaBetyder": "bifall: Johannes Hulters och Axel Josefsons yrkande",
+          "nejBetyder": "bifall: Martin Wannholts yrkande",
+          "verified": true
+        }
       }
     },
     {
@@ -910,7 +937,16 @@
             "typ": "att ärendet ska återremitteras enligt yrkande från KD, M och D"
           }
         ],
-        "reservationer": []
+        "reservationer": [],
+        "votering": {
+          "ja": 7,
+          "nej": 5,
+          "avstår": 0,
+          "proposition": "Ja för ärendets avgörande idag och Nej för ärendets återremiss.",
+          "jaBetyder": "avgörande idag",
+          "nejBetyder": "återremiss",
+          "verified": true
+        }
       }
     },
     {
@@ -1381,6 +1417,156 @@
       "typ": "hänvisar_till"
     },
     {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-06-12-§557",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-06-12-§557",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-06-12-§557",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-06-12-§557",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-06-12-§557",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-06-12-§557",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-06-12-§557",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-06-12-§557",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2024-06-12-§557",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-06-12-§557",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-06-12-§559",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-06-12-§559",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-06-12-§559",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-06-12-§559",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-06-12-§559",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-06-12-§559",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-06-12-§559",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-06-12-§559",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2024-06-12-§559",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-06-12-§559",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-06-12-§560",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-06-12-§560",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-06-12-§560",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-06-12-§560",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-06-12-§560",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-06-12-§560",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2024-06-12-§560",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-06-12-§560",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-06-12-§560",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-06-12-§560",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2024-06-12-§560",
       "to": "kf-handling-2024-114",
       "typ": "hänvisar_till",
@@ -1480,6 +1666,56 @@
       "from": "ks-2024-06-12-§570",
       "to": "org-grundskolenämnden",
       "typ": "hänvisar_till"
+    },
+    {
+      "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
+      "to": "ks-2024-06-12-§574",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-9628c524-9710-471b-9f59-743cb62753f8",
+      "to": "ks-2024-06-12-§574",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-086446b9-bc31-4ce5-891c-a18706fba3fa",
+      "to": "ks-2024-06-12-§574",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-88786a94-ffef-40d9-856b-8e204db9a1be",
+      "to": "ks-2024-06-12-§574",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-06-12-§574",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
+      "to": "ks-2024-06-12-§574",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
+      "to": "ks-2024-06-12-§574",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
+      "to": "ks-2024-06-12-§574",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-3de5a108-95d1-4065-9101-8dae5b326e50",
+      "to": "ks-2024-06-12-§574",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-10c253de-1f09-431e-abe0-9f75e4d3f545",
+      "to": "ks-2024-06-12-§574",
+      "typ": "röstade_nej"
     },
     {
       "from": "möte-ks-2024-06-12",

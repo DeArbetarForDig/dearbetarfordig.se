@@ -6,7 +6,7 @@ import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
-import { getBeslut, getBeslutDetail, getAnföranden, fetchApi } from '../../../data/api'
+import { fetchApi, getAnföranden, getBeslut, getBeslutDetail } from '../../../data/api'
 import Base from '../../../layouts/Base.astro'
 
 export async function getStaticPaths() {
@@ -28,26 +28,49 @@ const motionärer = new Set(
   detail.kopplingar
     .filter((k: any) => k.typ === 'inlämnade_motion' || k.typ === 'yrkat')
     .map((k: any) => k.nod?.label?.replace(/\s*\([^)]+\)$/, ''))
-    .filter(Boolean)
+    .filter(Boolean),
 )
 
 const hasVotes = detail.beslut.röster && detail.beslut.röster.length > 0
-const jaCount = detail.beslut.votering?.ja ?? (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'ja').length : 0)
-const nejCount = detail.beslut.votering?.nej ?? (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'nej').length : 0)
-const avstarCount = detail.beslut.votering?.avstår ?? (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'avstår').length : 0)
+const jaCount =
+  detail.beslut.votering?.ja ??
+  (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'ja').length : 0)
+const nejCount =
+  detail.beslut.votering?.nej ??
+  (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'nej').length : 0)
+const avstarCount =
+  detail.beslut.votering?.avstår ??
+  (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'avstår').length : 0)
 
-const sortedRöster = hasVotes ? (() => {
-  const partiCount: { [key: string]: number } = {}
-  detail.beslut.röster.forEach((r: any) => { partiCount[r.parti] = (partiCount[r.parti] || 0) + 1 })
-  return [...detail.beslut.röster].sort((a: any, b: any) => (partiCount[b.parti] - partiCount[a.parti]) || a.parti.localeCompare(b.parti) || a.namn.localeCompare(b.namn, 'sv'))
-})() : []
+const sortedRöster = hasVotes
+  ? (() => {
+      const partiCount: { [key: string]: number } = {}
+      detail.beslut.röster.forEach((r: any) => {
+        partiCount[r.parti] = (partiCount[r.parti] || 0) + 1
+      })
+      return [...detail.beslut.röster].sort(
+        (a: any, b: any) =>
+          partiCount[b.parti] - partiCount[a.parti] ||
+          a.parti.localeCompare(b.parti) ||
+          a.namn.localeCompare(b.namn, 'sv'),
+      )
+    })()
+  : []
 
 // Fallback: votering data without individual votes (handuppräckning)
-const voteringSummary = detail.beslut.votering as { ja?: number; nej?: number; avstår?: number } | null
+const voteringSummary = detail.beslut.votering as {
+  ja?: number
+  nej?: number
+  avstår?: number
+} | null
 const hasHandcount = !hasVotes && voteringSummary && (voteringSummary.ja || voteringSummary.nej)
 
 const status = detail.beslut.beslut === 'bordläggning' ? 'bordlagd' : detail.beslut.beslut || 'info'
 const rubrik = detail.beslut.rubrik.replace(/^§ \d+ /, '')
+// data.organ är opålitligt (KF-parsern sätter det aldrig på paragraf-nivå) —
+// id-prefixet är källan till sanning, samma mönster som listendpointen
+// (packages/api/src/index.ts, r.id.startsWith('ks-') ? 'KS' : 'KF').
+const organ = (detail.beslut.id as string).startsWith('ks-') ? 'KS' : 'KF'
 
 // Fetch närvarande from meeting detail API (merge time ranges)
 let närvarande: Array<{ namn: string; parti: string; tid: string }> = []
@@ -63,15 +86,22 @@ try {
       existing.tider.push(n.tid)
     }
   }
-  närvarande = [...närvarandeMap.values()].map(n => ({
+  närvarande = [...närvarandeMap.values()].map((n) => ({
     ...n,
-    tid: n.tider.sort().join(', ') || ''
+    tid: n.tider.sort().join(', ') || '',
   }))
 } catch {}
 const närvarandeByParti = (() => {
   const partiCount: Record<string, number> = {}
-  närvarande.forEach(n => { partiCount[n.parti] = (partiCount[n.parti] || 0) + 1 })
-  const sorted = [...närvarande].sort((a, b) => (partiCount[b.parti] - partiCount[a.parti]) || a.parti.localeCompare(b.parti) || a.namn.localeCompare(b.namn, 'sv'))
+  närvarande.forEach((n) => {
+    partiCount[n.parti] = (partiCount[n.parti] || 0) + 1
+  })
+  const sorted = [...närvarande].sort(
+    (a, b) =>
+      partiCount[b.parti] - partiCount[a.parti] ||
+      a.parti.localeCompare(b.parti) ||
+      a.namn.localeCompare(b.namn, 'sv'),
+  )
   const groups: { parti: string; members: typeof närvarande }[] = []
   let current: { parti: string; members: typeof närvarande } | null = null
   for (const n of sorted) {
@@ -95,7 +125,7 @@ const timeline = [
     .slice(0, 5),
   {
     datum: detail.beslut.datum,
-    titel: `KF beslut — ${status === 'bifall' ? 'Bifall' : status === 'avslag' ? 'Avslag' : status === 'bordlagd' ? 'Bordlagd' : 'Behandling'}`,
+    titel: `${organ} beslut — ${status === 'bifall' ? 'Bifall' : status === 'avslag' ? 'Avslag' : status === 'bordlagd' ? 'Bordlagd' : 'Behandling'}`,
     status: 'active' as const,
   },
 ]
@@ -110,7 +140,7 @@ const timeline = [
     <div class="flex items-center gap-4 mt-4 mb-2">
       <StatusBadge status={status} />
       <time class="font-mono text-sm text-(--color-text-muted)">{detail.beslut.datum}</time>
-      {summary.paragraf && <span class="font-mono text-sm text-(--color-text-subtle)">KF {summary.paragraf}</span>}
+      {summary.paragraf && <span class="font-mono text-sm text-(--color-text-subtle)">{organ} {summary.paragraf}</span>}
     </div>
 
     <h1 class="text-[2rem] font-bold mb-6 max-w-[30ch]">{rubrik}</h1>
