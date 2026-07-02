@@ -6,7 +6,7 @@
     "från": "2022-10-15",
     "till": "2026-10-14"
   },
-  "antal": 126,
+  "antal": 125,
   "politiker": [
     {
       "id": "f829c1ef-42f0-4eaa-8d1c-2b6af1174c3d",
@@ -6371,38 +6371,6 @@
           "period": "2022-2026",
           "roll": "Ersättare",
           "källa": "politiker.goteborg.se"
-        }
-      ],
-      "närstående": null
-    },
-    {
-      "id": "97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
-      "email": "johannes.hulter@politiker.goteborg.se",
-      "uppdrag": [
-        {
-          "organisation": "Kommunfullmäktige, alfabetisk ordning",
-          "organisationId": "8f8da821-ebcd-4d1a-8a91-b1427de24de5",
-          "roll": "Ledamot"
-        },
-        {
-          "organisation": "Kommunstyrelsen",
-          "organisationId": "75ac2ef7-a31f-4fbd-ac7e-127e688d9524",
-          "roll": "Ersättare"
-        },
-        {
-          "organisation": "Göteborgs Stads stadsbyggnadsnämnd",
-          "organisationId": "4a3c2c10-3ae6-48a4-b72a-d800aab53e94",
-          "roll": "Ledamot och ordförande"
-        }
-      ],
-      "förnamn": "Johannes",
-      "efternamn": "Hulter",
-      "parti": "S",
-      "mandatperioder": [
-        {
-          "period": "2022-2026",
-          "roll": "Ledamot",
-          "källa": "politiker.goteborg.se (manuellt tillagd — saknades i scrape)"
         }
       ],
       "närstående": null
