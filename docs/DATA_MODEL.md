@@ -57,7 +57,7 @@
   "organisation_id": "uuid",
   "datum": "2025-04-24",
   "typ": "sammanträde",
-  "video_url": "https://youtube.com/watch?v=...",
+  "video_url": "https://goteborg.webbtvkf.se/?20250424",
   "protokoll_pdf": "/dokument/kf-2025-04-24.pdf",
   "ärenden": ["uuid", "uuid"]
 }

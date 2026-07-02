@@ -87,7 +87,7 @@
 packages/pipeline/src/
 ├── scrapers/
 │   ├── politiker.ts          # 125 KF-ledamöter (cheerio)
-│   ├── youtube-kf.ts         # KF-videor (yt-dlp)
+│   ├── webbtv-kf.ts          # KF-sändningslänkar (webb-TV)
 │   ├── handlingar.ts         # Handlingar + PDF-länkar (playwright)
 │   └── allabolag.ts          # Bolagsengagemang (90/125 politiker)
 ├── parsers/

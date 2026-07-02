@@ -5,9 +5,9 @@
   "scripts": {
     "scrape": "tsx src/scrapers/politiker.ts",
     "scrape:politiker": "tsx src/scrapers/politiker.ts",
-    "scrape:youtube": "tsx src/scrapers/youtube-kf.ts",
+    "scrape:webbtv": "tsx src/scrapers/webbtv-kf.ts",
     "scrape:handlingar": "tsx src/scrapers/handlingar.ts",
-    "scrape:all": "tsx src/scrapers/politiker.ts && tsx src/scrapers/youtube-kf.ts"
+    "scrape:all": "tsx src/scrapers/politiker.ts && tsx src/scrapers/webbtv-kf.ts"
   },
   "dependencies": {
     "@daf/shared": "workspace:*",

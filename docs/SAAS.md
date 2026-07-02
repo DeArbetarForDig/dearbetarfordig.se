@@ -49,7 +49,7 @@ Alternativt: kund pekar egen domän via CNAME (t.ex. `insyn.goteborg.se`).
 Datakällor (per kommun)          Pipeline                    Lagring
 ─────────────────────          ──────────                  ────────
 Yttrandeprotokoll (PDF)  ─→  pdftotext + regex (talare)  ─→  debatter/
-YouTube (KF-video)       ─→  yt-dlp (metadata/länk)       ─→  debatter/
+webb-TV (KF-sändning)    ─→  länkverifiering (fetch)      ─→  debatter/
 politiker.goteborg.se    ─→  scraper (Cheerio)            ─→  politiker/
 nämndhandlingar          ─→  PDF-parser                   ─→  beslut/
 budget-PDF               ─→  pdftotext + regex            ─→  budget/

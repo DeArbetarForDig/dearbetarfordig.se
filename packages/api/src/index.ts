@@ -316,7 +316,7 @@ app.openapi(mötenRoute, async (c) => {
 
   // Single query — no N+1
   const meetings =
-    await sql`SELECT id, data->>'datum' as datum, label FROM goteborg.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
+    await sql`SELECT id, data->>'datum' as datum, data->>'videoUrl' as video_url, label FROM goteborg.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
   const counts =
     await sql`SELECT data->>'datum' as datum, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' GROUP BY data->>'datum'`
   const countMap = Object.fromEntries(counts.map((c) => [c.datum, c.antal]))
@@ -348,6 +348,7 @@ app.openapi(mötenRoute, async (c) => {
     label: m.label,
     antalBeslut: countMap[m.datum] || 0,
     närvarande: (närvaroMap.get(m.id) || []).length,
+    ...(m.video_url ? { videoUrl: m.video_url } : {}),
     _links: möteLinks(kommun, m.datum),
   }))
   if (år) items = items.filter((m) => m.datum?.startsWith(år))
@@ -401,6 +402,7 @@ app.openapi(moteRoute, async (c) => {
     datum,
     label: mote.label,
     antalBeslut: beslutRows.length,
+    ...((mote.data as any)?.videoUrl ? { videoUrl: (mote.data as any).videoUrl } : {}),
   }
 
   const related = {

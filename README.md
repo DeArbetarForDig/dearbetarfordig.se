@@ -24,7 +24,7 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 |-----------|--------|
 | Politiker-scraper (125 KF-ledamöter) | ✅ Klar |
 | Handlingar-scraper (1835 dokument, 36 möten) | ✅ Klar |
-| YouTube KF-videor (41 möten) | ✅ Klar |
+| Webb-TV sändningslänkar (42 möten) | ✅ Klar |
 | REST API (politiker, beslut, budget, graf, arvode) | ✅ Klar |
 | Knowledge Graph — 18 880 noder, 76 096 kanter | ✅ Klar |
 | Protokoll parsade (41 st, 2023-2026) | ✅ Klar |
@@ -67,7 +67,7 @@ pnpm install
 
 # === Data pipeline ===
 pnpm scrape:politiker     # → 125 politiker → data/politiker/goteborg.json
-pnpm scrape:youtube       # → 20 KF-videor → data/debatter/youtube-kf-goteborg.json
+pnpm scrape:webbtv        # → 42 sändningslänkar → data/debatter/webbtv-kf-goteborg.json
 pnpm scrape:handlingar   # → 664 dokument → data/beslut/kf-handlingar-2025.json
 
 # === Parsers (PDF → Knowledge Graph) ===
@@ -107,8 +107,8 @@ curl localhost:3000/api/v1/goteborg/politiker/{id}
 # Sammanträden + dokument
 curl localhost:3000/api/v1/goteborg/beslut?år=2025
 
-# YouTube-videor KF
-curl localhost:3000/api/v1/goteborg/debatter
+# Sammanträden (med webb-TV-länk per möte)
+curl localhost:3000/api/v1/goteborg/möten
 
 # Statistik
 curl localhost:3000/api/v1/goteborg/stats
@@ -142,7 +142,7 @@ ljudnedladdning eller transkribering.
 | Vem talar | Yttrandeprotokoll (PDF) |
 | Vilken § | Yttrandeprotokoll (PDF) |
 | Vad de sa (text) | Yttrandeprotokoll (PDF) |
-| Video-länk | YouTube (KF Göteborg-kanalen) |
+| Video-länk | goteborg.webbtvkf.se (officiell webb-TV) |
 
 ## Knowledge Graph
 
@@ -187,7 +187,7 @@ dearbetarfordig.se/
 │   ├── api/                # Hono REST API
 │   ├── pipeline/           # Scrapers + parsers
 │   │   └── src/
-│   │       ├── scrapers/   # politiker.ts, youtube-kf.ts, handlingar.ts
+│   │       ├── scrapers/   # politiker.ts, webbtv-kf.ts, handlingar.ts
 │   │       └── parsers/    # parse-protokoll.ts (PDF → knowledge graph), parse-yttrandeprotokoll.ts (anföranden)
 │   ├── shared/             # Zod schemas, types
 │   ├── ui/                 # Design system
@@ -195,7 +195,7 @@ dearbetarfordig.se/
 ├── data/                   # Collected data (JSON)
 │   ├── politiker/          # goteborg.json (125 politiker)
 │   ├── beslut/             # kf-handlingar-2025.json (664 docs)
-│   ├── debatter/           # youtube-kf-goteborg.json (20 videos)
+│   ├── debatter/           # anföranden per möte + webbtv-kf-goteborg.json
 │   └── graf/               # kf-2025-11-27.json (knowledge graph)
 ├── .github/workflows/      # CI/CD
 ├── Dockerfile
@@ -212,7 +212,7 @@ dearbetarfordig.se/
 | Protokoll → graf | PDF:er från ovan | pdftotext + regex NER |
 | Budget → graf | Budget-PDF från KF | pdftotext + regex (tabeller) |
 | Begäran-dokument | Email (registrator) | data/inbox/ + parse-inbox.ts |
-| KF-videor | YouTube "KF Göteborg" | yt-dlp / fallback |
+| KF-sändningar (video-länk) | goteborg.webbtvkf.se | fetch + datumverifiering |
 | Anföranden & speaker attribution | Yttrandeprotokoll (PDF) | pdftotext + regex |
 | Bolagsengagemang | allabolag.se | Planned (scraper) |
 | Inkomst + fastigheter | ratsit.se | Planned (scraper) |
@@ -253,7 +253,7 @@ Anna Svensson (C)
 |---------|----------|---------|
 | `scrape:politiker` | Veckovis | Automatisk (cron) |
 | `scrape:handlingar` | Veckovis | Automatisk (cron) |
-| `scrape:youtube` | Veckovis | Automatisk (cron) |
+| `scrape:webbtv` | Veckovis | Automatisk (cron) |
 | `parse-protokoll` | Vid nytt protokoll | Efter scrape:handlingar |
 | `parse-budget` | Årligen (nov) | Manuell/efter budgetbeslut |
 | `parse-yttrandeprotokoll` | Vid nytt möte | Efter scrape:handlingar |

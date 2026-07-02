@@ -135,6 +135,18 @@ async function main() {
 
     console.log(`   ✓ ${totalNodes} graf nodes, ${totalEdges} edges (from ${files.length} files)`)
 
+    // Merge webb-TV sändningslänkar onto möte nodes
+    const webbtv = loadJSON('debatter/webbtv-kf-goteborg.json')
+    if (webbtv?.sändningar?.length) {
+      let withVideo = 0
+      for (const s of webbtv.sändningar) {
+        const res =
+          await client`UPDATE goteborg.graf_nodes SET data = data || ${client.json({ videoUrl: s.url })} WHERE id = ${`möte-kf-${s.datum}`}`
+        withVideo += res.count
+      }
+      console.log(`   ✓ ${withVideo} möten med sändningslänk (webb-TV)`)
+    }
+
     // Add politiker → nämnd edges (ledamot_i)
     // Single global set to deduplicate across both KF and full nämnd roster sources
     const allLedamotEdges = new Set<string>()
