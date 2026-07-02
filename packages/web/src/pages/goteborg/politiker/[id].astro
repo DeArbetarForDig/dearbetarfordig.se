@@ -213,7 +213,7 @@ const namn = detail.namn
       <Card title={`Uppdrag (${uppdrag.length})`} subtitle="Nuvarande mandatperiod 2022–2026" titleSize="lg">
         <Table
           headers={['Roll', 'Organisation', 'Period']}
-          rows={uppdrag.map((u: any) => [u.roll, u.organisation, `${u.från?.slice(0,4)}–${u.till?.slice(0,4)}`])}
+          rows={uppdrag.map((u: any) => [u.roll, u.organisation, u.från && u.till ? `${u.från.slice(0, 4)}–${u.till.slice(0, 4)}` : 'N/A'])}
           variant="compact"
           alignRight={[2]}
         />
