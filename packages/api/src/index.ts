@@ -57,6 +57,11 @@ app.use('/api/v1/:kommun/*', async (c, next) => {
 const rateMap = new Map<string, { count: number; reset: number }>()
 app.use('/*', async (c, next) => {
   const ip = c.req.header('x-forwarded-for') || 'unknown'
+  // Direct access without proxy header = local dev / SSG build — skip limiting
+  if (ip === 'unknown' && process.env.NODE_ENV !== 'production') {
+    await next()
+    return
+  }
   const now = Date.now()
   const entry = rateMap.get(ip)
   const limit = process.env.NODE_ENV === 'production' ? 200 : 5000
@@ -770,15 +775,18 @@ app.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
         JOIN goteborg.graf_nodes n ON n.id = e.to_id
         WHERE e.from_id = ${`politiker-${id}`} AND e.typ = 'talade_i'
         ORDER BY (e.data->>'datum') DESC, (e.data->>'ordning')::int`
-  const items = rows.map((r) => ({
-    datum: r.datum,
-    möte: r.mote,
-    ärende: (r.data as any).ärende,
-    ärendeTitel: (r.data as any).ärendeTitel,
-    text: (r.data as any).text,
-    ordning: (r.data as any).ordning,
-    _links: { möte: { href: `${baseUrl(kommun)}/möten/${r.datum}` } },
-  }))
+  const items = rows.map((r) => {
+    const d = (r.data as any) || {}
+    return {
+      datum: r.datum,
+      möte: r.mote,
+      ärende: d.ärende,
+      ärendeTitel: d.ärendeTitel,
+      text: d.text,
+      ordning: d.ordning,
+      _links: { möte: { href: `${baseUrl(kommun)}/möten/${r.datum}` } },
+    }
+  })
   return c.json(halCollection(items, anförandenLinks(kommun, 'politiker', id, datum || undefined)))
 })
 

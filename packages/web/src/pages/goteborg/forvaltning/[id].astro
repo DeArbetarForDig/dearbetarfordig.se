@@ -10,7 +10,7 @@ import { getFörvaltningar, getFörvaltningDetail } from '../../../data/api'
 import Base from '../../../layouts/Base.astro'
 
 export async function getStaticPaths() {
-  const { förvaltningar } = await getFörvaltningar()
+  const förvaltningar = await getFörvaltningar()
   return förvaltningar.map((f) => ({ params: { id: f.id }, props: { summary: f } }))
 }
 
