@@ -195,6 +195,83 @@ async function main() {
       }
       console.log(`   ✓ ${polEdges} politiker→nämnd edges (KF-ledamöter)`)
     }
+
+    // Add politiker → bolag edges (bolagsuppdrag) — company board/leadership
+    // roles scraped from allabolag.se (allabolag.ts →
+    // data/politiker/bolagsengagemang-goteborg.json). This is a jäv/conflict-
+    // of-interest signal (a politiker sitting on a company board that later
+    // gets city contracts) central to this site's mission, so it's worth
+    // wiring up even though company-name matching across sources is
+    // inherently fuzzy.
+    const bolagData = loadJSON('politiker/bolagsengagemang-goteborg.json')
+    if (bolagData?.politiker?.length) {
+      const normalizeBolagNamn = (namn: string) =>
+        namn
+          .toLowerCase()
+          .replace(/\(publ\)/g, '')
+          .replace(/\b(aktiebolag|ekonomisk förening|ideell förening)\b/g, '')
+          .replace(/\bab\b\.?/g, '')
+          .replace(/[.,]/g, '')
+          .replace(/\s+/g, ' ')
+          .trim()
+      const slugifyBolag = (namn: string) =>
+        `bolag-${namn
+          .toLowerCase()
+          .trim()
+          .replace(/[^\p{L}\p{N}]+/gu, '-')
+          .replace(/^-+|-+$/g, '')}`
+
+      // Clear previously-seeded bolagsuppdrag edges so re-running seed stays
+      // idempotent instead of accumulating duplicates on every re-seed.
+      await client`DELETE FROM goteborg.graf_edges WHERE typ = 'bolagsuppdrag'`
+
+      const existingBolagNodes =
+        await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ = 'bolag'`
+      const bolagByNamn = new Map<string, string>()
+      for (const n of existingBolagNodes) {
+        bolagByNamn.set(normalizeBolagNamn(n.label as string), n.id as string)
+      }
+
+      let bolagEdges = 0
+      let nyaBolagNoder = 0
+      let ejMatchade = 0
+      for (const p of bolagData.politiker) {
+        for (const b of p.bolagsuppdrag || []) {
+          const bolagNamn: string = (b.bolag || '').trim()
+          if (!bolagNamn) {
+            ejMatchade++
+            continue
+          }
+          const key = normalizeBolagNamn(bolagNamn)
+          let bolagId = bolagByNamn.get(key)
+          if (!bolagId) {
+            bolagId = slugifyBolag(bolagNamn)
+            try {
+              await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data)
+                VALUES (${bolagId}, 'bolag', ${bolagNamn}, ${client.json({ källa: 'allabolag.se' })})
+                ON CONFLICT (id) DO NOTHING`
+              bolagByNamn.set(key, bolagId)
+              nyaBolagNoder++
+            } catch {
+              ejMatchade++
+              continue
+            }
+          }
+          try {
+            await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
+              VALUES (${`politiker-${p.id}`}, ${bolagId}, 'bolagsuppdrag', ${client.json({ roll: b.roll, url: b.url || null })})`
+            bolagEdges++
+          } catch {
+            // FK violation (politiker no longer in graf_nodes) or other
+            // insert failure — skip and count rather than crash the seed.
+            ejMatchade++
+          }
+        }
+      }
+      console.log(
+        `   ✓ ${bolagEdges} politiker→bolag edges (bolagsuppdrag), ${nyaBolagNoder} nya bolagsnoder${ejMatchade ? `, ${ejMatchade} ej matchade/hoppade över` : ''}`,
+      )
+    }
   }
 
   // Seed dokument (full-text parsed documents)

@@ -155,7 +155,12 @@ describe('Investigation: Jäv och konflikter', () => {
   })
 
   it('Politiker har bolagsuppdrag i grafen', async () => {
-    const { data: polList } = await get('/api/v1/goteborg/politiker?parti=L&limit=5')
+    // bolagsengagemang-goteborg.json (allabolag.ts) only covers the original
+    // ~125 KF-ledamöter scraped so far, not the full 700+ roster the
+    // comprehensive scraper now returns — so an arbitrary top-5 alphabetical
+    // slice of parti=L isn't guaranteed to hit someone with bolagsuppdrag.
+    // Search the whole party instead of a narrow slice.
+    const { data: polList } = await get('/api/v1/goteborg/politiker?parti=L&limit=100')
     let found = false
     for (const pol of polList._embedded.items) {
       const { data: node } = await get(`/api/v1/goteborg/graf/node/politiker-${pol.id}`)
