@@ -37,6 +37,15 @@ function getSchema(kommun: string): string | null {
   if (!ALLOWED_KOMMUNER.includes(kommun)) return null
   return kommun
 }
+// Route handlers only run after the kommun-validation middleware below, which
+// already restricts `kommun` to ALLOWED_KOMMUNER — this just narrows the type
+// so query code can use the schema name directly (via the sql() identifier
+// helper, e.g. `${sql(schema)}.politiker`) instead of a hardcoded literal.
+function requireSchema(kommun: string): string {
+  const schema = getSchema(kommun)
+  if (!schema) throw new Error(`Unknown kommun: ${kommun}`)
+  return schema
+}
 
 // --- Middleware ---
 app.use('/*', cors({ origin: '*', allowMethods: ['GET', 'OPTIONS'] }))
@@ -147,10 +156,10 @@ app.openapi(politikerRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const { parti, limit } = c.req.valid('query')
   const lim = capLimit(limit, 2000)
-  const schema = getSchema(kommun)
+  const schema = requireSchema(kommun)
   const rows = parti
-    ? await sql`SELECT * FROM goteborg.politiker WHERE parti = ${parti.toUpperCase()} ORDER BY efternamn LIMIT ${lim}`
-    : await sql`SELECT * FROM goteborg.politiker ORDER BY efternamn LIMIT ${lim}`
+    ? await sql`SELECT * FROM ${sql(schema)}.politiker WHERE parti = ${parti.toUpperCase()} ORDER BY efternamn LIMIT ${lim}`
+    : await sql`SELECT * FROM ${sql(schema)}.politiker ORDER BY efternamn LIMIT ${lim}`
   const items = rows.map((p) => ({
     id: p.id,
     namn: `${p.fornamn} ${p.efternamn}`,
@@ -192,14 +201,15 @@ const politikerDetailRoute = createRoute({
 app.openapi(politikerDetailRoute, async (c) => {
   const { id } = c.req.valid('param')
   const { kommun } = c.req.valid('param')
-  const [person] = await sql`SELECT * FROM goteborg.politiker WHERE id = ${id}`
+  const schema = requireSchema(kommun)
+  const [person] = await sql`SELECT * FROM ${sql(schema)}.politiker WHERE id = ${id}`
   if (!person) return c.json({ error: 'Politiker inte hittad' }, 404)
 
   // Möten where this politiker spoke (from talade_i edges)
   const rows = await sql`
     SELECT DISTINCT e.data->>'datum' as datum, n.label as mote
-    FROM goteborg.graf_edges e
-    JOIN goteborg.graf_nodes n ON n.id = e.to_id
+    FROM ${sql(schema)}.graf_edges e
+    JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id
     WHERE e.from_id = ${`politiker-${id}`} AND e.typ = 'talade_i'
     ORDER BY datum DESC`
 
@@ -257,15 +267,17 @@ const arvodesRoute = createRoute({
 })
 app.openapi(arvodesRoute, async (c) => {
   const { id } = c.req.valid('param')
+  const { kommun } = c.req.valid('param')
+  const schema = requireSchema(kommun)
 
   // Hämta politikerns grunddata
-  const [person] = await sql`SELECT * FROM goteborg.politiker WHERE id = ${id}`
+  const [person] = await sql`SELECT * FROM ${sql(schema)}.politiker WHERE id = ${id}`
   if (!person) return c.json({ error: 'Politiker inte hittad' }, 404)
 
   // Hämta arvodesedge: politiker-{uuid} → arvode-regler-2026
   // Denna edge innehåller all beräknad arvodesdata (skapas vid seed)
   const arvodesEdge = await sql`
-    SELECT data FROM goteborg.graf_edges 
+    SELECT data FROM ${sql(schema)}.graf_edges
     WHERE from_id = ${`politiker-${id}`} AND typ = 'arvoderas_enligt'
     LIMIT 1`
 
@@ -273,7 +285,6 @@ app.openapi(arvodesRoute, async (c) => {
   const grundarvode = 80475 // 2026 (från PDF)
   const förrättningPerMöte = 1640 // heldag KF
 
-  const { kommun } = c.req.valid('param')
   const arvodesLinks = {
     self: { href: `${baseUrl(kommun)}/politiker/${id}/arvode` },
     politiker: { href: `${baseUrl(kommun)}/politiker/${id}` },
@@ -331,16 +342,17 @@ const mötenRoute = createRoute({
 app.openapi(mötenRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const { år } = c.req.valid('query')
+  const schema = requireSchema(kommun)
 
   // Single query — no N+1
   const meetings =
-    await sql`SELECT id, data->>'datum' as datum, data->>'videoUrl' as video_url, label FROM goteborg.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
+    await sql`SELECT id, data->>'datum' as datum, data->>'videoUrl' as video_url, label FROM ${sql(schema)}.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
   const counts =
-    await sql`SELECT data->>'datum' as datum, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' GROUP BY data->>'datum'`
+    await sql`SELECT data->>'datum' as datum, COUNT(*)::int as antal FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' GROUP BY data->>'datum'`
   const countMap = Object.fromEntries(counts.map((c) => [c.datum, c.antal]))
   const närvaroRows = await sql`SELECT e.to_id, e.from_id, e.label, p.fornamn, p.efternamn, p.parti
-      FROM goteborg.graf_edges e
-      LEFT JOIN goteborg.politiker p ON p.id = replace(e.from_id, 'politiker-', '')::uuid
+      FROM ${sql(schema)}.graf_edges e
+      LEFT JOIN ${sql(schema)}.politiker p ON p.id = replace(e.from_id, 'politiker-', '')::uuid
       WHERE e.typ = 'närvarade'`
   const närvaroMap = new Map<string, Array<{ namn: string; parti: string; tid: string }>>()
   for (const r of närvaroRows) {
@@ -394,25 +406,26 @@ const moteRoute = createRoute({
 })
 app.openapi(moteRoute, async (c) => {
   const { kommun, datum } = c.req.valid('param')
+  const schema = requireSchema(kommun)
 
   const [mote] =
-    await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'möte' AND data->>'datum' = ${datum}`
+    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'möte' AND data->>'datum' = ${datum}`
   if (!mote) return c.json({ error: 'Sammanträde ej hittat' }, 404)
 
   const beslutRows =
-    await sql`SELECT id, label, data FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ORDER BY (data->>'paragrafNr')::int`
+    await sql`SELECT id, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ORDER BY (data->>'paragrafNr')::int`
 
   const nearvaroRows = await sql`
     SELECT e.label, p.fornamn, p.efternamn, p.parti, p.id as politiker_id
-    FROM goteborg.graf_edges e
-    LEFT JOIN goteborg.politiker p ON p.id = replace(e.from_id, 'politiker-', '')::uuid
+    FROM ${sql(schema)}.graf_edges e
+    LEFT JOIN ${sql(schema)}.politiker p ON p.id = replace(e.from_id, 'politiker-', '')::uuid
     WHERE e.to_id = ${mote.id} AND e.typ = 'närvarade' AND p.id IS NOT NULL`
 
   // Anföranden from yttrandeprotokoll (talade_i)
   const anförandenRows = await sql`
     SELECT e.data, gp.label as talare, gp.data->>'parti' as parti, gp.id as pol_id
-    FROM goteborg.graf_edges e
-    JOIN goteborg.graf_nodes gp ON gp.id = e.from_id
+    FROM ${sql(schema)}.graf_edges e
+    JOIN ${sql(schema)}.graf_nodes gp ON gp.id = e.from_id
     WHERE e.to_id = ${mote.id} AND e.typ = 'talade_i' AND gp.typ = 'politiker'
     ORDER BY (e.data->>'ordning')::int`
 
@@ -490,26 +503,27 @@ app.openapi(beslutRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const { datum, år, sök, organ, limit } = c.req.valid('query')
   const lim = capLimit(limit, 2000)
+  const schema = requireSchema(kommun)
   let rows
   if (datum) {
     rows =
-      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
+      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
   } else if (år) {
     rows =
-      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' LIKE ${`${år}-%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int LIMIT ${lim}`
+      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' LIKE ${`${år}-%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int LIMIT ${lim}`
   } else if (sök) {
     rows =
-      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC LIMIT ${lim}`
+      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC LIMIT ${lim}`
   } else {
     rows =
-      await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'paragraf' ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int DESC LIMIT ${lim}`
+      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int DESC LIMIT ${lim}`
   }
 
   // Check which beslut have namnupprop (röstade-edges)
   const ids = rows.map((r) => r.id)
   const namnuppropIds =
     ids.length > 0
-      ? await sql`SELECT DISTINCT to_id FROM goteborg.graf_edges WHERE to_id = ANY(${ids}) AND typ LIKE 'röstade_%'`
+      ? await sql`SELECT DISTINCT to_id FROM ${sql(schema)}.graf_edges WHERE to_id = ANY(${ids}) AND typ LIKE 'röstade_%'`
       : []
   const namnuppropSet = new Set(namnuppropIds.map((r) => r.to_id))
 
@@ -552,13 +566,14 @@ const beslutDetailRoute = createRoute({
 app.openapi(beslutDetailRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const id = decodeURIComponent(c.req.valid('param').id)
-  const [node] = await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${id}`
+  const schema = requireSchema(kommun)
+  const [node] = await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${id}`
   if (!node) return c.json({ error: 'Beslut inte hittat' }, 404)
-  const edges = await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ${id} OR to_id = ${id}`
+  const edges = await sql`SELECT * FROM ${sql(schema)}.graf_edges WHERE from_id = ${id} OR to_id = ${id}`
   const relatedIds = [...new Set(edges.map((e) => (e.from_id === id ? e.to_id : e.from_id)))]
   const related =
     relatedIds.length > 0
-      ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})`
+      ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${relatedIds})`
       : []
 
   // Build röster from edges if not in node data
@@ -568,7 +583,7 @@ app.openapi(beslutDetailRoute, async (c) => {
     if (voteEdges.length > 0) {
       const voterIds = voteEdges.map((e) => e.from_id)
       const voters =
-        await sql`SELECT id, label, data->>'parti' as parti FROM goteborg.graf_nodes WHERE id = ANY(${voterIds})`
+        await sql`SELECT id, label, data->>'parti' as parti FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${voterIds})`
       const voterMap = new Map(voters.map((v) => [v.id, v]))
       röster = voteEdges.map((e) => {
         const voter = voterMap.get(e.from_id)
@@ -620,13 +635,14 @@ const anförandenRoute = createRoute({
 app.openapi(anförandenRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const id = decodeURIComponent(c.req.valid('param').id)
+  const schema = requireSchema(kommun)
 
   // Get anförande nodes linked via 'diskuterade' edge
   const anföranden = await sql`
     SELECT a.id, a.label, a.data, e2.from_id as politiker_id
-    FROM goteborg.graf_edges e
-    JOIN goteborg.graf_nodes a ON a.id = e.from_id
-    LEFT JOIN goteborg.graf_edges e2 ON e2.to_id = a.id AND e2.typ = 'talade_i'
+    FROM ${sql(schema)}.graf_edges e
+    JOIN ${sql(schema)}.graf_nodes a ON a.id = e.from_id
+    LEFT JOIN ${sql(schema)}.graf_edges e2 ON e2.to_id = a.id AND e2.typ = 'talade_i'
     WHERE e.to_id = ${id} AND e.typ = 'diskuterade'
     ORDER BY a.id`
 
@@ -697,23 +713,24 @@ const budgetRoute = createRoute({
 app.openapi(budgetRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const år = c.req.valid('query').år
+  const schema = requireSchema(kommun)
   if (år) {
     const budgetNode =
-      await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${`budget-${år}`} AND typ = 'budget'`
+      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${`budget-${år}`} AND typ = 'budget'`
     if (budgetNode.length === 0) {
       const item = { år: Number(år), totalMnkr: 0, styre: null }
       return c.json(halResource(item, budgetLinks(kommun, år), { nämnder: [] }), 200)
     }
     const meta = budgetNode[0].data as any
     const rows =
-      await sql`SELECT n.* FROM goteborg.graf_nodes n JOIN goteborg.graf_edges e ON e.to_id = n.id WHERE e.from_id = ${`budget-${år}`} AND e.typ = 'finansierar' ORDER BY (n.data->>'kommunbidragMnkr')::float DESC NULLS LAST`
+      await sql`SELECT n.* FROM ${sql(schema)}.graf_nodes n JOIN ${sql(schema)}.graf_edges e ON e.to_id = n.id WHERE e.from_id = ${`budget-${år}`} AND e.typ = 'finansierar' ORDER BY (n.data->>'kommunbidragMnkr')::float DESC NULLS LAST`
     const item = { år: Number(år), totalMnkr: meta.totalMnkr, styre: meta.styre }
     const nämnder = rows.map((r) => ({ id: r.id, namn: r.label, ...(r.data as object) }))
     return c.json(halResource(item, budgetLinks(kommun, år), { nämnder }), 200)
   }
   // Utan år: returnera alla tillgängliga budgetår med summary
   const years =
-    await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'budget' AND id LIKE 'budget-20%' AND data ? 'totalMnkr' ORDER BY (data->>'år')::int`
+    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'budget' AND id LIKE 'budget-20%' AND data ? 'totalMnkr' ORDER BY (data->>'år')::int`
   const items = years.map((y) => ({
     år: (y.data as any).år,
     totalMnkr: (y.data as any).totalMnkr,
@@ -785,27 +802,29 @@ app.openapi(moteAnforandenRoute, async (c) => {
 
 // --- Uppdrag per nämnd ---
 app.get('/api/v1/:kommun/graf/uppdrag-per-nämnd', async (c) => {
+  const schema = requireSchema(c.req.param('kommun'))
   const rows =
-    await sql`SELECT n.label as namn, COUNT(*)::int as count FROM goteborg.graf_edges e JOIN goteborg.graf_nodes n ON n.id = e.to_id WHERE e.typ = 'uppdrag_till' GROUP BY n.label ORDER BY count DESC`
+    await sql`SELECT n.label as namn, COUNT(*)::int as count FROM ${sql(schema)}.graf_edges e JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id WHERE e.typ = 'uppdrag_till' GROUP BY n.label ORDER BY count DESC`
   return c.json({ rows })
 })
 
 // Anföranden per politiker (from talade_i edges)
 app.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
   const kommun = c.req.param('kommun')
+  const schema = requireSchema(kommun)
   const id = c.req.param('id')
   const datum = c.req.query('datum')
   const rows = datum
     ? await sql`
         SELECT e.data, n.label as mote, n.data->>'datum' as datum
-        FROM goteborg.graf_edges e
-        JOIN goteborg.graf_nodes n ON n.id = e.to_id
+        FROM ${sql(schema)}.graf_edges e
+        JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id
         WHERE e.from_id = ${`politiker-${id}`} AND e.typ = 'talade_i' AND e.data->>'datum' = ${datum}
         ORDER BY (e.data->>'ordning')::int`
     : await sql`
         SELECT e.data, n.label as mote, n.data->>'datum' as datum
-        FROM goteborg.graf_edges e
-        JOIN goteborg.graf_nodes n ON n.id = e.to_id
+        FROM ${sql(schema)}.graf_edges e
+        JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id
         WHERE e.from_id = ${`politiker-${id}`} AND e.typ = 'talade_i'
         ORDER BY (e.data->>'datum') DESC, (e.data->>'ordning')::int`
   const items = rows.map((r) => {
@@ -825,16 +844,17 @@ app.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
 
 // Politiker per nämnd via graf — returnerar politiker med API-länk
 app.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
+  const schema = requireSchema(c.req.param('kommun'))
   const rows =
     await sql`SELECT e.to_id as namnd_id, n.label as namnd, gp.id as pol_id, gp.label as namn, gp.data->>'parti' as parti, e.data->>'roll' as roll,
         EXISTS (
           SELECT 1 FROM jsonb_array_elements(COALESCE(p.uppdrag, '[]'::jsonb)) u
           WHERE u->>'organisation' ILIKE '%Kommunfullmäktige%'
         ) as ar_kf
-      FROM goteborg.graf_edges e
-      JOIN goteborg.graf_nodes n ON n.id = e.to_id
-      JOIN goteborg.graf_nodes gp ON gp.id = e.from_id
-      LEFT JOIN goteborg.politiker p ON p.id = replace(gp.id, 'politiker-', '')::uuid
+      FROM ${sql(schema)}.graf_edges e
+      JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id
+      JOIN ${sql(schema)}.graf_nodes gp ON gp.id = e.from_id
+      LEFT JOIN ${sql(schema)}.politiker p ON p.id = replace(gp.id, 'politiker-', '')::uuid
       WHERE e.typ = 'ledamot_i' AND gp.typ = 'politiker' AND e.data->>'roll' NOT LIKE 'Ersättare%'
       ORDER BY n.label, gp.label`
 
@@ -901,31 +921,33 @@ const grafRoute = createRoute({
   },
 })
 app.openapi(grafRoute, async (c) => {
+  const { kommun } = c.req.valid('param')
   const { datum, typ } = c.req.valid('query')
+  const schema = requireSchema(kommun)
   if (datum) {
     const nodes =
-      await sql`SELECT * FROM goteborg.graf_nodes WHERE data->>'datum' = ${datum} OR id = ${`möte-kf-${datum}`}`
+      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE data->>'datum' = ${datum} OR id = ${`möte-kf-${datum}`}`
     const allIds = nodes.map((n) => n.id)
     const edges =
       allIds.length > 0
-        ? await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ANY(${allIds}) OR to_id = ANY(${allIds})`
+        ? await sql`SELECT * FROM ${sql(schema)}.graf_edges WHERE from_id = ANY(${allIds}) OR to_id = ANY(${allIds})`
         : []
     const relatedIds = [
       ...new Set(edges.flatMap((e) => [e.from_id, e.to_id]).filter((id) => !allIds.includes(id))),
     ]
     const relatedNodes =
       relatedIds.length > 0
-        ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})`
+        ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${relatedIds})`
         : []
     return c.json({ nodes: [...nodes, ...relatedNodes], edges }, 200)
   }
   if (typ) {
-    const nodes = await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = ${typ}`
+    const nodes = await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = ${typ}`
     return c.json({ antal: nodes.length, nodes }, 200)
   }
   const counts =
-    await sql`SELECT typ, COUNT(*)::int as antal FROM goteborg.graf_nodes GROUP BY typ ORDER BY antal DESC`
-  const edgeCount = await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_edges`
+    await sql`SELECT typ, COUNT(*)::int as antal FROM ${sql(schema)}.graf_nodes GROUP BY typ ORDER BY antal DESC`
+  const edgeCount = await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_edges`
   return c.json({ nodes: counts, edges: edgeCount[0].total }, 200)
 })
 
@@ -955,14 +977,16 @@ const grafNodeRoute = createRoute({
   },
 })
 app.openapi(grafNodeRoute, async (c) => {
+  const { kommun } = c.req.valid('param')
   const id = decodeURIComponent(c.req.valid('param').id)
-  const [node] = await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${id}`
+  const schema = requireSchema(kommun)
+  const [node] = await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${id}`
   if (!node) return c.json({ error: 'Node not found' }, 404)
-  const edges = await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ${id} OR to_id = ${id}`
+  const edges = await sql`SELECT * FROM ${sql(schema)}.graf_edges WHERE from_id = ${id} OR to_id = ${id}`
   const relatedIds = [...new Set(edges.map((e) => (e.from_id === id ? e.to_id : e.from_id)))]
   const related =
     relatedIds.length > 0
-      ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${relatedIds})`
+      ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${relatedIds})`
       : []
   return c.json({ node, edges, related } as any, 200)
 })
@@ -986,20 +1010,22 @@ const sökRoute = createRoute({
   },
 })
 app.openapi(sökRoute, async (c) => {
+  const { kommun } = c.req.valid('param')
   const q = c.req.valid('query').q
+  const schema = requireSchema(kommun)
   const politiker = await sql`
     SELECT id, fornamn || ' ' || efternamn as namn, parti, 'politiker' as typ
-    FROM goteborg.politiker
+    FROM ${sql(schema)}.politiker
     WHERE to_tsvector('swedish', fornamn || ' ' || efternamn) @@ plainto_tsquery('swedish', ${q})
     LIMIT 10`
   const dokument = await sql`
     SELECT id, titel, 'dokument' as typ
-    FROM goteborg.dokument
+    FROM ${sql(schema)}.dokument
     WHERE to_tsvector('swedish', titel || ' ' || innehall) @@ plainto_tsquery('swedish', ${q})
     ORDER BY ts_rank(to_tsvector('swedish', titel || ' ' || innehall), plainto_tsquery('swedish', ${q})) DESC
     LIMIT 10`
   const nodes =
-    await sql`SELECT id, label, typ FROM goteborg.graf_nodes WHERE label ILIKE ${`%${q}%`} LIMIT 20`
+    await sql`SELECT id, label, typ FROM ${sql(schema)}.graf_nodes WHERE label ILIKE ${`%${q}%`} LIMIT 20`
   return c.json({ query: q, resultat: [...politiker, ...dokument, ...nodes] }, 200)
 })
 
@@ -1029,19 +1055,20 @@ const statsRoute = createRoute({
   },
 })
 app.openapi(statsRoute, async (c) => {
+  const schema = requireSchema(c.req.valid('param').kommun)
   const [pol, parties, nodeCount, edgeCount] = await Promise.all([
-    sql`SELECT COUNT(*)::int as total FROM goteborg.politiker`,
+    sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.politiker`,
     // Official KF mandatfördelning 2022 election (81 seats total)
     // Source: Valmyndigheten resultat 2022-09-11, Göteborgs kommunfullmäktige
-    sql`SELECT parti, COUNT(DISTINCT id)::int as antal FROM goteborg.politiker
+    sql`SELECT parti, COUNT(DISTINCT id)::int as antal FROM ${sql(schema)}.politiker
         WHERE EXISTS (
           SELECT 1 FROM jsonb_array_elements(uppdrag) u
           WHERE u->>'organisation' ILIKE '%Kommunfullmäktige%'
             AND u->>'roll' NOT ILIKE 'Ersättare%'
         )
         GROUP BY parti ORDER BY antal DESC`,
-    sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes`,
-    sql`SELECT COUNT(*)::int as total FROM goteborg.graf_edges`,
+    sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes`,
+    sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_edges`,
   ])
   return c.json(
     {
@@ -1072,24 +1099,25 @@ const metricsRoute = createRoute({
   },
 })
 app.openapi(metricsRoute, async (c) => {
+  const schema = requireSchema(c.req.valid('param').kommun)
   // All metrics computed from edges — no JSONB scanning
 
   // Beslutskraft
   const beslutTyper =
-    await sql`SELECT data->>'beslut' as typ, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' IS NOT NULL GROUP BY data->>'beslut'`
+    await sql`SELECT data->>'beslut' as typ, COUNT(*)::int as antal FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' IS NOT NULL GROUP BY data->>'beslut'`
   const totalBeslut = beslutTyper.reduce((s, r) => s + r.antal, 0)
   const bifall = beslutTyper.find((r) => r.typ === 'bifall')?.antal || 0
   const bordlagd = beslutTyper.find((r) => r.typ === 'bordläggning')?.antal || 0
 
   // Bordläggningsorsaker
   const bordOrsaker =
-    await sql`SELECT data->>'bordläggningsorsak' as orsak, COUNT(*)::int as antal FROM goteborg.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' = 'bordläggning' AND data->>'bordläggningsorsak' IS NOT NULL GROUP BY data->>'bordläggningsorsak'`
+    await sql`SELECT data->>'bordläggningsorsak' as orsak, COUNT(*)::int as antal FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' = 'bordläggning' AND data->>'bordläggningsorsak' IS NOT NULL GROUP BY data->>'bordläggningsorsak'`
 
   // Konsensus (paragraf nodes without any röstade edges = decided without vote)
   const [{ total: totalParagrafer }] =
-    await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'paragraf'`
+    await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf'`
   const [{ antal: medVotering }] =
-    await sql`SELECT COUNT(DISTINCT to_id)::int as antal FROM goteborg.graf_edges WHERE typ LIKE 'röstade_%'`
+    await sql`SELECT COUNT(DISTINCT to_id)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ LIKE 'röstade_%'`
   const utanVotering = totalParagrafer - medVotering
 
   // Parti-statistik from edges (SQL aggregation)
@@ -1098,8 +1126,8 @@ app.openapi(metricsRoute, async (c) => {
       n.data->>'parti' as parti,
       e.typ,
       COUNT(*)::int as antal
-    FROM goteborg.graf_edges e
-    JOIN goteborg.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
+    FROM ${sql(schema)}.graf_edges e
+    JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
     WHERE e.typ LIKE 'röstade_%'
     GROUP BY n.data->>'parti', e.typ
     ORDER BY parti`
@@ -1116,11 +1144,11 @@ app.openapi(metricsRoute, async (c) => {
 
   // Jäv och reservationer
   const [{ antal: jävAntal }] =
-    await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'jävsanmälan'`
+    await sql`SELECT COUNT(*)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ = 'jävsanmälan'`
   const [{ antal: resAntal }] =
-    await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'reserverade_sig'`
+    await sql`SELECT COUNT(*)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ = 'reserverade_sig'`
   const [{ antal: yrkAntal }] =
-    await sql`SELECT COUNT(*)::int as antal FROM goteborg.graf_edges WHERE typ = 'yrkat'`
+    await sql`SELECT COUNT(*)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ = 'yrkat'`
 
   // --- Rice Index per parti (avg across all voteringar) ---
   // For each votering, Rice = abs(ja - nej) / (ja + nej) per party
@@ -1130,8 +1158,8 @@ app.openapi(metricsRoute, async (c) => {
       e.to_id as paragraf_id,
       SUM(CASE WHEN e.typ = 'röstade_ja' THEN 1 ELSE 0 END)::int as ja,
       SUM(CASE WHEN e.typ = 'röstade_nej' THEN 1 ELSE 0 END)::int as nej
-    FROM goteborg.graf_edges e
-    JOIN goteborg.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
+    FROM ${sql(schema)}.graf_edges e
+    JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
     WHERE e.typ LIKE 'röstade_%' AND e.typ != 'röstade_avstår'
     GROUP BY n.data->>'parti', e.to_id
     HAVING SUM(CASE WHEN e.typ IN ('röstade_ja','röstade_nej') THEN 1 ELSE 0 END) > 0`
@@ -1149,15 +1177,15 @@ app.openapi(metricsRoute, async (c) => {
 
   // --- Attendance Rate (närvarade edges: politiker → möte) ---
   const [{ total: totalNärvaro }] =
-    await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_edges WHERE typ = 'närvarade'`
+    await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_edges WHERE typ = 'närvarade'`
   const [{ total: totalMöten }] =
-    await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'möte'`
+    await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'möte'`
   const snittNärvarande = totalMöten > 0 ? Math.round(totalNärvaro / totalMöten) : 0
 
   // --- Debate Participation Gini (from anförande nodes, grouped by politician name) ---
   const speechCounts = await sql`
     SELECT label, COUNT(*)::int as speeches
-    FROM goteborg.graf_nodes
+    FROM ${sql(schema)}.graf_nodes
     WHERE typ = 'anförande'
     GROUP BY label
     ORDER BY speeches DESC`
@@ -1186,7 +1214,7 @@ app.openapi(metricsRoute, async (c) => {
 
   // --- Debate Depth (anföranden per ärende med votering) ---
   const [{ total: totalAnföranden }] =
-    await sql`SELECT COUNT(*)::int as total FROM goteborg.graf_nodes WHERE typ = 'anförande'`
+    await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'anförande'`
   const debateDepth = medVotering > 0 ? Math.round((totalAnföranden / medVotering) * 10) / 10 : 0
 
   return c.json(
@@ -1263,9 +1291,10 @@ const dokumentListRoute = createRoute({
 })
 app.openapi(dokumentListRoute, async (c) => {
   const { typ } = c.req.valid('query')
+  const schema = requireSchema(c.req.valid('param').kommun)
   const docs = typ
-    ? await sql`SELECT id, titel, typ, namnd, datum, kalla, graf_nod, LENGTH(innehall)::int as chars FROM goteborg.dokument WHERE typ = ${typ} ORDER BY datum DESC`
-    : await sql`SELECT id, titel, typ, namnd, datum, kalla, graf_nod, LENGTH(innehall)::int as chars FROM goteborg.dokument ORDER BY datum DESC`
+    ? await sql`SELECT id, titel, typ, namnd, datum, kalla, graf_nod, LENGTH(innehall)::int as chars FROM ${sql(schema)}.dokument WHERE typ = ${typ} ORDER BY datum DESC`
+    : await sql`SELECT id, titel, typ, namnd, datum, kalla, graf_nod, LENGTH(innehall)::int as chars FROM ${sql(schema)}.dokument ORDER BY datum DESC`
   return c.json(
     {
       antal: docs.length,
@@ -1305,9 +1334,10 @@ const dokumentSökRoute = createRoute({
 })
 app.openapi(dokumentSökRoute, async (c) => {
   const q = c.req.valid('query').q
+  const schema = requireSchema(c.req.valid('param').kommun)
   const results = await sql`
     SELECT id, titel, typ, datum, ts_headline('swedish', innehall, plainto_tsquery('swedish', ${q}), 'MaxWords=60,MinWords=20') as utdrag
-    FROM goteborg.dokument
+    FROM ${sql(schema)}.dokument
     WHERE to_tsvector('swedish', titel || ' ' || innehall) @@ plainto_tsquery('swedish', ${q})
     ORDER BY ts_rank(to_tsvector('swedish', titel || ' ' || innehall), plainto_tsquery('swedish', ${q})) DESC
     LIMIT 20`
@@ -1346,7 +1376,8 @@ const dokumentDetailRoute = createRoute({
 })
 app.openapi(dokumentDetailRoute, async (c) => {
   const id = c.req.valid('param').id
-  const [doc] = await sql`SELECT * FROM goteborg.dokument WHERE id = ${id}`
+  const schema = requireSchema(c.req.valid('param').kommun)
+  const [doc] = await sql`SELECT * FROM ${sql(schema)}.dokument WHERE id = ${id}`
   if (!doc) return c.json({ error: 'Dokument ej hittat' }, 404)
   return c.json(
     {
@@ -1382,8 +1413,9 @@ const direktörerRoute = createRoute({
 })
 app.openapi(direktörerRoute, async (c) => {
   const { sort } = c.req.valid('query')
+  const schema = requireSchema(c.req.valid('param').kommun)
   const rows = await sql`
-    SELECT id, label, data FROM goteborg.graf_nodes
+    SELECT id, label, data FROM ${sql(schema)}.graf_nodes
     WHERE typ = 'förvaltningsdirektör'
     ORDER BY CASE
       WHEN ${sort || 'namn'} = 'lön' THEN lpad((data->>'lön')::text, 10, '0')
@@ -1436,21 +1468,22 @@ const förvaltningarRoute = createRoute({
 })
 app.openapi(förvaltningarRoute, async (c) => {
   const { kommun } = c.req.valid('param')
+  const schema = requireSchema(kommun)
   const direktörer =
-    await sql`SELECT id, label, data FROM goteborg.graf_nodes WHERE typ = 'förvaltningsdirektör' ORDER BY data->>'namn'`
+    await sql`SELECT id, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'förvaltningsdirektör' ORDER BY data->>'namn'`
   const results = []
   for (const d of direktörer) {
     const [lederEdge] =
-      await sql`SELECT to_id FROM goteborg.graf_edges WHERE from_id = ${d.id} AND typ = 'leder' LIMIT 1`
+      await sql`SELECT to_id FROM ${sql(schema)}.graf_edges WHERE from_id = ${d.id} AND typ = 'leder' LIMIT 1`
     const nämndId = lederEdge?.to_id || null
     const [nämnd] = nämndId
-      ? await sql`SELECT id, label, data FROM goteborg.graf_nodes WHERE id = ${nämndId}`
+      ? await sql`SELECT id, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ${nämndId}`
       : [null]
     const [utfall] = nämndId
-      ? await sql`SELECT data FROM goteborg.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'} AND data->>'nämnd' = ${(nämnd?.label || '').replace(/^Göteborgs Stads /, '')}`
+      ? await sql`SELECT data FROM ${sql(schema)}.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'} AND data->>'nämnd' = ${(nämnd?.label || '').replace(/^Göteborgs Stads /, '')}`
       : [null]
     const [revision] = nämndId
-      ? await sql`SELECT n.data FROM goteborg.graf_edges e JOIN goteborg.graf_nodes n ON n.id = e.from_id WHERE e.to_id = ${nämndId} AND e.typ = 'riktas_mot' LIMIT 1`
+      ? await sql`SELECT n.data FROM ${sql(schema)}.graf_edges e JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id WHERE e.to_id = ${nämndId} AND e.typ = 'riktas_mot' LIMIT 1`
       : [null]
     results.push({
       id: d.id,
@@ -1486,29 +1519,30 @@ const förvaltningDetailRoute = createRoute({
 })
 app.openapi(förvaltningDetailRoute, async (c) => {
   const { kommun, id } = c.req.valid('param')
+  const schema = requireSchema(kommun)
   const direktörId = id.startsWith('direktör-') ? id : `direktör-${id}`
 
   const [direktör] =
-    await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${direktörId} AND typ = 'förvaltningsdirektör'`
+    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${direktörId} AND typ = 'förvaltningsdirektör'`
   if (!direktör) return c.json({ error: 'Förvaltning inte hittad' }, 404)
 
   const edges =
-    await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ${direktörId} OR to_id = ${direktörId}`
+    await sql`SELECT * FROM ${sql(schema)}.graf_edges WHERE from_id = ${direktörId} OR to_id = ${direktörId}`
 
   // Nämnd
   const lederEdge = edges.find((e) => e.from_id === direktörId && e.typ === 'leder')
   const [nämnd] = lederEdge
-    ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${lederEdge.to_id}`
+    ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${lederEdge.to_id}`
     : [null]
 
   // Ledamöter (politiker → nämnd via organisationsstruktur edges)
   const ledamöter = nämnd
-    ? await sql`SELECT n.id, n.label, n.data FROM goteborg.graf_edges e JOIN goteborg.graf_nodes n ON n.id = e.from_id WHERE e.to_id = ${nämnd.id} AND n.typ = 'politiker' LIMIT 50`
+    ? await sql`SELECT n.id, n.label, n.data FROM ${sql(schema)}.graf_edges e JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id WHERE e.to_id = ${nämnd.id} AND n.typ = 'politiker' LIMIT 50`
     : []
 
   // Utfall
   const utfallNodes =
-    await sql`SELECT * FROM goteborg.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'}`
+    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'}`
   const utfall = utfallNodes.filter((n) =>
     edges.some((e) => e.from_id === n.id && e.to_id === direktörId),
   )
@@ -1519,13 +1553,13 @@ app.openapi(förvaltningDetailRoute, async (c) => {
     .map((e) => e.from_id)
   const revision =
     revisionIds.length > 0
-      ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${revisionIds})`
+      ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${revisionIds})`
       : []
 
   // Linked KF decisions per revision node
   const revisionLinks =
     revisionIds.length > 0
-      ? await sql`SELECT e.from_id, e.typ, e.label, n.id as nod_id, n.label as nod_label, n.data->>'datum' as datum FROM goteborg.graf_edges e JOIN goteborg.graf_nodes n ON n.id = e.to_id WHERE e.from_id = ANY(${revisionIds}) AND e.typ IN ('hänvisar_till','behandlad_i')`
+      ? await sql`SELECT e.from_id, e.typ, e.label, n.id as nod_id, n.label as nod_label, n.data->>'datum' as datum FROM ${sql(schema)}.graf_edges e JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id WHERE e.from_id = ANY(${revisionIds}) AND e.typ IN ('hänvisar_till','behandlad_i')`
       : []
 
   // Budget (nämnd data has kommunbidragMnkr)
@@ -1588,14 +1622,15 @@ const direktörResultatRoute = createRoute({
 })
 app.openapi(direktörResultatRoute, async (c) => {
   const id = c.req.valid('param').id
+  const schema = requireSchema(c.req.valid('param').kommun)
   const direktörId = id.startsWith('direktör-') ? id : `direktör-${id}`
 
   const [direktör] =
-    await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${direktörId} AND typ = 'förvaltningsdirektör'`
+    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${direktörId} AND typ = 'förvaltningsdirektör'`
   if (!direktör) return c.json({ error: 'Direktör inte hittad' }, 404)
 
   const edges =
-    await sql`SELECT * FROM goteborg.graf_edges WHERE from_id = ${direktörId} OR to_id = ${direktörId}`
+    await sql`SELECT * FROM ${sql(schema)}.graf_edges WHERE from_id = ${direktörId} OR to_id = ${direktörId}`
 
   // Utfall nodes (ansvarig edges pointing TO this director)
   const utfallIds = edges
@@ -1603,7 +1638,7 @@ app.openapi(direktörResultatRoute, async (c) => {
     .map((e) => e.from_id)
   const utfallNodes =
     utfallIds.length > 0
-      ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${utfallIds})`
+      ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${utfallIds})`
       : []
 
   // Revision nodes
@@ -1612,13 +1647,13 @@ app.openapi(direktörResultatRoute, async (c) => {
     .map((e) => e.from_id)
   const revisionNodes =
     revisionIds.length > 0
-      ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ANY(${revisionIds})`
+      ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${revisionIds})`
       : []
 
   // Nämnd
   const lederEdge = edges.find((e) => e.from_id === direktörId && e.typ === 'leder')
   const [nämnd] = lederEdge
-    ? await sql`SELECT * FROM goteborg.graf_nodes WHERE id = ${lederEdge.to_id}`
+    ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${lederEdge.to_id}`
     : [null]
 
   return c.json(
