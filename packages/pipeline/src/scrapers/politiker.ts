@@ -86,23 +86,28 @@ async function scrapePersonDetail(
   const emailLink = $('a[href^="mailto:"]').first()
   const email = emailLink.length ? emailLink.text().trim() : null
 
-  // Uppdrag table
+  // Uppdrag table — personsidan har TVÅ tabeller som delar id="engagementTable"
+  // (ogiltig HTML): "Uppdrag" (nuvarande) och "Uppdragshistorik" (tidigare,
+  // annan kolumnordning). Historiken sitter i <div id="person-history">,
+  // exkludera den så inte datum/parti-kolumner blandas ihop.
   const uppdrag: PersonDetail['uppdrag'] = []
-  $('#engagementTable\\:tbody_element tr, #engagementTable tbody tr').each((_, row) => {
-    const cells = $(row).find('td')
-    const orgLink = cells.eq(0).find('a')
-    const orgHref = orgLink.attr('href') || ''
-    const organisationId = orgHref.split('/organisation/')[1] || ''
-    const organisation = cells.eq(0).text().trim()
-    const roll = cells.eq(1).text().trim()
-    const från = cells.eq(2).text().trim()
-    const tillText = cells.eq(3).text().trim()
-    const till = tillText || null
+  $('#engagementTable\\:tbody_element tr, #engagementTable tbody tr')
+    .filter((_, row) => $(row).parents('#person-history').length === 0)
+    .each((_, row) => {
+      const cells = $(row).find('td')
+      const orgLink = cells.eq(0).find('a')
+      const orgHref = orgLink.attr('href') || ''
+      const organisationId = orgHref.split('/organisation/')[1] || ''
+      const organisation = cells.eq(0).text().trim()
+      const roll = cells.eq(1).text().trim()
+      const från = cells.eq(2).text().trim()
+      const tillText = cells.eq(3).text().trim()
+      const till = tillText || null
 
-    if (organisation) {
-      uppdrag.push({ organisation, organisationId, roll, från, till })
-    }
-  })
+      if (organisation) {
+        uppdrag.push({ organisation, organisationId, roll, från, till })
+      }
+    })
 
   return { id: personId, email, uppdrag }
 }

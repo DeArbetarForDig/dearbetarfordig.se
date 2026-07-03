@@ -5,6 +5,7 @@
   "scripts": {
     "scrape": "tsx src/scrapers/politiker.ts",
     "scrape:politiker": "tsx src/scrapers/politiker.ts",
+    "scrape:alla-fortroendevalda": "tsx src/scrapers/alla-fortroendevalda.ts",
     "scrape:webbtv": "tsx src/scrapers/webbtv-kf.ts",
     "scrape:handlingar": "tsx src/scrapers/handlingar.ts",
     "scrape:all": "tsx src/scrapers/politiker.ts && tsx src/scrapers/webbtv-kf.ts",
