@@ -25,7 +25,13 @@ interface Props {
   class?: string
 }
 
-const { seats = [], totalSeats: totalProp, mode = 'overview', votes = [], class: className } = Astro.props
+const {
+  seats = [],
+  totalSeats: totalProp,
+  mode = 'overview',
+  votes = [],
+  class: className,
+} = Astro.props
 const N = totalProp ?? seats.length ?? 81
 
 // Scale: parliament-svg uses r_seat = 0.4 * seatDistance.
@@ -35,11 +41,13 @@ const R0 = 200
 
 // --- Algorithm from parliament-svg ---
 function seatDistance(n: number, rings: number, r: number) {
-  return (Math.PI * rings * r) / (n - rings) / (1 + (Math.PI * (rings - 1) * rings / 2) / (n - rings))
+  return (
+    (Math.PI * rings * r) / (n - rings) / (1 + (Math.PI * (rings - 1) * rings) / 2 / (n - rings))
+  )
 }
 
 function score(n: number, rings: number, r: number) {
-  return Math.abs(seatDistance(n, rings, r) * rings / r - 5 / 7)
+  return Math.abs((seatDistance(n, rings, r) * rings) / r - 5 / 7)
 }
 
 function calcRings(n: number, r: number) {
@@ -48,7 +56,10 @@ function calcRings(n: number, r: number) {
   let dir = 0
   if (score(n, k + 1, r) < d) dir = 1
   if (k > 1 && score(n, k - 1, r) < d) dir = -1
-  while (k + dir > 0 && score(n, k + dir, r) < d) { d = score(n, k + dir, r); k += dir }
+  while (k + dir > 0 && score(n, k + dir, r) < d) {
+    d = score(n, k + dir, r)
+    k += dir
+  }
   return k
 }
 
@@ -71,12 +82,15 @@ const radii = Array.from({ length: numRings }, (_, i) => R0 - i * dist)
 const perRing = distribute(radii, N)
 
 // Generate positions
-interface Pos { x: number; y: number }
+interface Pos {
+  x: number
+  y: number
+}
 const rings: Pos[][] = []
 for (let i = 0; i < numRings; i++) {
   const r = radii[i]
   const count = perRing[i]
-  const a = (Math.PI * r) / ((count - 1) || 1)
+  const a = (Math.PI * r) / (count - 1 || 1)
   const ring: Pos[] = []
   for (let j = 0; j < count; j++) {
     const b = j * a
@@ -87,8 +101,14 @@ for (let i = 0; i < numRings; i++) {
 
 // Round-robin fill (least-filled ring gets next seat)
 const partyGroups = new Map<string, Seat[]>()
-for (const s of seats) { const l = partyGroups.get(s.parti) ?? []; l.push(s); partyGroups.set(s.parti, l) }
-const orderedSeats: Seat[] = [...partyGroups.entries()].sort((a, b) => b[1].length - a[1].length).flatMap(([_, m]) => m)
+for (const s of seats) {
+  const l = partyGroups.get(s.parti) ?? []
+  l.push(s)
+  partyGroups.set(s.parti, l)
+}
+const orderedSeats: Seat[] = [...partyGroups.entries()]
+  .sort((a, b) => b[1].length - a[1].length)
+  .flatMap(([_, m]) => m)
 
 const progress = new Array(numRings).fill(0)
 const points: { x: number; y: number; seat: Seat | null }[] = []
@@ -96,7 +116,7 @@ const points: { x: number; y: number; seat: Seat | null }[] = []
 for (let i = 0; i < N; i++) {
   let best = 0
   for (let k = 1; k < numRings; k++) {
-    if ((progress[k] / rings[k].length) < (progress[best] / rings[best].length)) best = k
+    if (progress[k] / rings[k].length < progress[best] / rings[best].length) best = k
   }
   const pos = rings[best][progress[best]]
   points.push({ ...pos, seat: orderedSeats[i] ?? null })
@@ -105,16 +125,20 @@ for (let i = 0; i < N; i++) {
 
 // ViewBox
 const pad = dist * 0.5
-const vbX = Math.min(...points.map(p => p.x)) - pad
-const vbY = Math.min(...points.map(p => p.y)) - pad
-const vbW = Math.max(...points.map(p => p.x)) - vbX + pad
-const vbH = Math.max(...points.map(p => p.y)) - vbY + pad
+const vbX = Math.min(...points.map((p) => p.x)) - pad
+const vbY = Math.min(...points.map((p) => p.y)) - pad
+const vbW = Math.max(...points.map((p) => p.x)) - vbX + pad
+const vbH = Math.max(...points.map((p) => p.y)) - vbY + pad
 
-const voteMap = new Map(votes.map(v => [v.politikerId, v.röst]))
+const voteMap = new Map(votes.map((v) => [v.politikerId, v.röst]))
 // Party stats for hover
 const partyStats = [...partyGroups.entries()]
   .sort((a, b) => b[1].length - a[1].length)
-  .map(([parti, members]) => ({ parti, count: members.length, pct: Math.round(members.length / N * 100) }))
+  .map(([parti, members]) => ({
+    parti,
+    count: members.length,
+    pct: Math.round((members.length / N) * 100),
+  }))
 const partyStatsJson = JSON.stringify(partyStats)
 ---
 

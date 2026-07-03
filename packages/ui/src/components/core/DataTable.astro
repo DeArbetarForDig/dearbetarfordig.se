@@ -47,7 +47,15 @@ interface Props {
   id?: string
 }
 
-const { columns, data, pageSize = 20, filterable = true, sortable = true, defaultSort, id = 'data-table' } = Astro.props
+const {
+  columns,
+  data,
+  pageSize = 20,
+  filterable = true,
+  sortable = true,
+  defaultSort,
+  id = 'data-table',
+} = Astro.props
 ---
 
 <div class="daf-table-wrapper" id={id} data-page-size={pageSize}>

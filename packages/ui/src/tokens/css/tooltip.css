@@ -96,7 +96,7 @@
 
 /* --- Arrows --- */
 .daf-tooltip__msg::after {
-  content: '';
+  content: "";
   position: absolute;
   border: 5px solid transparent;
 }

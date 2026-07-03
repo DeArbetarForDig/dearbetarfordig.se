@@ -72,7 +72,9 @@ async function main() {
       })
       const närvaroMatch = out.match(/Närvaro: (\d+)/)
       const nodesMatch = out.match(/Nodes: (\d+)/)
-      console.log(`  ✓ ${datum} — ${nodesMatch?.[1] || '?'} nodes, ${närvaroMatch?.[1] || '0'} närvaro`)
+      console.log(
+        `  ✓ ${datum} — ${nodesMatch?.[1] || '?'} nodes, ${närvaroMatch?.[1] || '0'} närvaro`,
+      )
       ok++
     } catch (e: any) {
       console.log(`  ✗ ${datum} — parse error`)

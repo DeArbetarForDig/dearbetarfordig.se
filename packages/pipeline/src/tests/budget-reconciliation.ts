@@ -31,7 +31,7 @@ console.log(' Budget Reconciliation — dearbetarfordig.se')
 console.log('═══════════════════════════════════════════════\n')
 
 // Check 1: nämnder sum vs total
-console.log(`1. Nämnder → Total budget`)
+console.log('1. Nämnder → Total budget')
 console.log(`   Σ nämnder:  ${nämndTotal.toLocaleString('sv-SE')} mnkr`)
 console.log(`   Total doc:  ${totalBudget?.toLocaleString('sv-SE')} mnkr`)
 const diff1 = Math.abs(nämndTotal - totalBudget) / totalBudget
@@ -44,7 +44,7 @@ if (diff1 < TOLERANCE) {
 }
 
 // Check 2: per-nämnd budgetposter vs nämnd total
-console.log(`2. Budgetposter per nämnd`)
+console.log('2. Budgetposter per nämnd')
 const budgetFiles = readdirSync(grafDir).filter(
   (f) => f.startsWith('budget-') && f !== 'budget-2026.json',
 )
@@ -79,12 +79,12 @@ for (const file of budgetFiles) {
   }
 }
 
-console.log(`\n═══════════════════════════════════════════════`)
+console.log('\n═══════════════════════════════════════════════')
 console.log(` Resultat: ${passed} OK, ${failed} FEL, ${skipped} hoppade`)
 console.log('═══════════════════════════════════════════════')
 
 // Check 3: Deep reconciliation — known subtotal relationships
-console.log(`\n3. Djup avstämning (kända subtotaler)`)
+console.log('\n3. Djup avstämning (kända subtotaler)')
 
 const deepChecks: {
   file: string
@@ -177,7 +177,7 @@ for (const check of deepChecks) {
   }
 }
 
-console.log(`\n═══════════════════════════════════════════════`)
+console.log('\n═══════════════════════════════════════════════')
 console.log(` Total: ${passed + deepPassed} OK, ${failed + deepFailed} FEL`)
 console.log('═══════════════════════════════════════════════')
 

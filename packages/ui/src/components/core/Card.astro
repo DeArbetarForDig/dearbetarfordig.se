@@ -9,7 +9,15 @@ interface Props {
   title?: string
   subtitle?: string
   tooltip?: string
-  tooltipPosition?: 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-left' | 'bottom-right' | 'left' | 'right'
+  tooltipPosition?:
+    | 'top'
+    | 'top-left'
+    | 'top-right'
+    | 'bottom'
+    | 'bottom-left'
+    | 'bottom-right'
+    | 'left'
+    | 'right'
   titleSize?: 'sm' | 'base' | 'lg'
   class?: string
 }

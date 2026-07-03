@@ -2,12 +2,12 @@
 import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
 import HorizontalBar from '../../../../../ui/src/components/charts/HorizontalBar.astro'
 import StackedBar from '../../../../../ui/src/components/charts/StackedBar.astro'
-import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import Table from '../../../../../ui/src/components/core/Table.astro'
+import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
 import {
   getMöten,
   getPolitiker,
@@ -52,7 +52,9 @@ const nejCount = edges.filter((e: any) => e.typ === 'röstade_nej').length
 const avstarCount = edges.filter((e: any) => e.typ === 'röstade_avstår').length
 const totalVotes = jaCount + nejCount + avstarCount
 const speechCount = edges.filter((e: any) => e.typ === 'talade_i').length
-const attendanceCount = new Set(edges.filter((e: any) => e.typ === 'närvarade').map((e: any) => e.to_id)).size
+const attendanceCount = new Set(
+  edges.filter((e: any) => e.typ === 'närvarade').map((e: any) => e.to_id),
+).size
 const totalMöten = (await getMöten()).length
 const frånvarandeCount = totalMöten - attendanceCount
 const totalBar = jaCount + nejCount + avstarCount + frånvarandeCount

@@ -131,8 +131,10 @@ function parseParagrafer(
     let cleanRubrik = rubrik
     if (rubrik.startsWith('Frågestund')) cleanRubrik = 'Frågestund'
     else if (rubrik.startsWith('Parentation')) cleanRubrik = rubrikLines[0]?.trim() || 'Parentation'
-    else if (rubrik.startsWith('Anmälan')) cleanRubrik = rubrikLines[0]?.trim().slice(0, 120) || 'Anmälan'
-    else if (rubrik.startsWith('Anförande') && rubrik.includes('rdföranden')) cleanRubrik = 'Ordförandens avslutningsanförande'
+    else if (rubrik.startsWith('Anmälan'))
+      cleanRubrik = rubrikLines[0]?.trim().slice(0, 120) || 'Anmälan'
+    else if (rubrik.startsWith('Anförande') && rubrik.includes('rdföranden'))
+      cleanRubrik = 'Ordförandens avslutningsanförande'
 
     // Detect beslut type and reason
     let beslut: string | undefined
@@ -174,8 +176,12 @@ function parseParagrafer(
       // Extract all "(Parti)" from the names string — use last one as group parti
       const partiMatches = [...rawNames.matchAll(/\((\w+)\)/g)]
       const parti = partiMatches.length > 0 ? partiMatches[partiMatches.length - 1][1] : ''
-      const namn = rawNames.replace(/\s*\(\w+\)/g, '').replace(/^Yrkanden\s*/i, '').trim()
-      if (namn && parti && !namn.match(/^(Ordföranden|Propositioner)/)) yrkanden.push({ namn, parti, typ })
+      const namn = rawNames
+        .replace(/\s*\(\w+\)/g, '')
+        .replace(/^Yrkanden\s*/i, '')
+        .trim()
+      if (namn && parti && !namn.match(/^(Ordföranden|Propositioner)/))
+        yrkanden.push({ namn, parti, typ })
     }
 
     // Extract jävsanmälan
@@ -198,7 +204,13 @@ function parseParagrafer(
         paragrafNr,
         ärendeNr,
         rubrik: cleanRubrik,
-        fulltext: cleanSection.trim().replace(/\n{3,}/g, '\n\n').replace(/[ \t]+\n/g, '\n').replace(/Göteborgs\s+Stad\s+[Kk]ommunfullmäktige\s+protokoll[^\n]*/gi, '').replace(/\n{3,}/g, '\n\n').trim(),
+        fulltext: cleanSection
+          .trim()
+          .replace(/\n{3,}/g, '\n\n')
+          .replace(/[ \t]+\n/g, '\n')
+          .replace(/Göteborgs\s+Stad\s+[Kk]ommunfullmäktige\s+protokoll[^\n]*/gi, '')
+          .replace(/\n{3,}/g, '\n\n')
+          .trim(),
         datum: möteDatum,
         beslut,
         bordläggningsorsak,
@@ -343,16 +355,12 @@ function parseVoteringar(
 }
 
 // Parse Bilaga 1 — närvarolista (attendance table)
-function parseNärvarolista(
-  text: string,
-  möteDatum: string,
-  möteId: string,
-): GraphEdge[] {
+function parseNärvarolista(text: string, möteDatum: string, möteId: string): GraphEdge[] {
   const edges: GraphEdge[] = []
 
   // Load politiker for name→id resolution
   const polPath = join(import.meta.dirname, '../../../../data/politiker/goteborg.json')
-  let nameToId = new Map<string, string>()
+  const nameToId = new Map<string, string>()
   let politikerList: Array<{ id: string; förnamn: string; efternamn: string }> = []
   if (existsSync(polPath)) {
     const polData = JSON.parse(readFileSync(polPath, 'utf-8'))
@@ -377,7 +385,11 @@ function parseNärvarolista(
     const direct = nameToId.get(rawNamn.toLowerCase())
     if (direct) return direct
     // "Efternamn, Förnamn" → "Förnamn Efternamn"
-    const flipped = rawNamn.split(',').reverse().map(s => s.trim()).join(' ')
+    const flipped = rawNamn
+      .split(',')
+      .reverse()
+      .map((s) => s.trim())
+      .join(' ')
     const flippedMatch = nameToId.get(flipped.toLowerCase())
     if (flippedMatch) return flippedMatch
     // Try matching by förnamn only (for short names in protocol)
@@ -385,7 +397,7 @@ function parseNärvarolista(
     for (const p of politikerList) {
       const pParts = `${p.förnamn} ${p.efternamn}`.toLowerCase().split(/\s+/)
       // All parts of the raw name must appear in the full name
-      if (parts.every(part => pParts.includes(part))) return p.id
+      if (parts.every((part) => pParts.includes(part))) return p.id
     }
     return undefined
   }
@@ -398,7 +410,8 @@ function parseNärvarolista(
   const bilagaText = text.slice(startIdx)
 
   // Parse attendance rows: "Akbas, Aslan    S    14:44    21:43"
-  const rowRe = /^([A-ZÅÄÖa-zåäö][A-ZÅÄÖa-zåäö ,\-]+?)\s{2,}(S|M|V|SD|L|MP|D|KD|C|FP)\s{2,}(\d{1,2}:\d{2})\s+(\d{1,2}:\d{2})/gm
+  const rowRe =
+    /^([A-ZÅÄÖa-zåäö][A-ZÅÄÖa-zåäö ,\-]+?)\s{2,}(S|M|V|SD|L|MP|D|KD|C|FP)\s{2,}(\d{1,2}:\d{2})\s+(\d{1,2}:\d{2})/gm
   let match: RegExpExecArray | null
 
   while ((match = rowRe.exec(bilagaText)) !== null) {
@@ -409,7 +422,7 @@ function parseNärvarolista(
 
     // Try to resolve to UUID
     const id = resolvePolitiker(rawNamn)
-    
+
     if (!id) {
       // Skip unresolvable — don't create broken edges
       continue

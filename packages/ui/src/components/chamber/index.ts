@@ -43,7 +43,12 @@ export interface ChamberConfig {
   seatRadius?: number
 }
 
-function computeSeatPositions(totalSeats: number, size: number, numRows?: number, seatRadius?: number) {
+function computeSeatPositions(
+  totalSeats: number,
+  size: number,
+  numRows?: number,
+  seatRadius?: number,
+) {
   const r = seatRadius ?? size * 0.028
   const gap = r * 2.5
   const rows = numRows ?? Math.max(3, Math.min(7, Math.round(Math.sqrt(totalSeats / 4))))

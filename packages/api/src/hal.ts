@@ -39,11 +39,7 @@ export interface HalResource<T, R = Record<string, unknown>> {
 /**
  * Create a HAL collection response
  */
-export function halCollection<T>(
-  items: T[],
-  links: HalLinks,
-  total?: number
-): HalCollection<T> {
+export function halCollection<T>(items: T[], links: HalLinks, total?: number): HalCollection<T> {
   return {
     _embedded: { items },
     _links: links,
@@ -57,7 +53,7 @@ export function halCollection<T>(
 export function halResource<T, R = Record<string, unknown>>(
   item: T,
   links: HalLinks,
-  related?: R
+  related?: R,
 ): HalResource<T, R> {
   const response: HalResource<T, R> = {
     _embedded: { item },
@@ -134,7 +130,6 @@ export function beslutListLinks(kommun: string): HalLinks {
   }
 }
 
-
 // Förvaltning links
 export function förvaltningLinks(kommun: string, id: string): HalLinks {
   const base = baseUrl(kommun)
@@ -162,7 +157,12 @@ export function budgetLinks(kommun: string, år?: string): HalLinks {
 }
 
 // Anföranden links (for politiker or beslut)
-export function anförandenLinks(kommun: string, type: 'politiker' | 'beslut', id: string, datum?: string): HalLinks {
+export function anförandenLinks(
+  kommun: string,
+  type: 'politiker' | 'beslut',
+  id: string,
+  datum?: string,
+): HalLinks {
   const base = baseUrl(kommun)
   const encodedId = encodeURIComponent(id)
   if (type === 'politiker') {

@@ -99,7 +99,9 @@ async function main() {
 
   // Save
   writeFileSync(DATA_PATH, JSON.stringify(data, null, 2))
-  console.log(`\n✅ Updated ${updated}/${data.politiker.length} politicians with historical mandatperioder`)
+  console.log(
+    `\n✅ Updated ${updated}/${data.politiker.length} politicians with historical mandatperioder`,
+  )
 }
 
 main().catch(console.error)

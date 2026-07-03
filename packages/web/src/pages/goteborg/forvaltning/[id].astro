@@ -1,12 +1,12 @@
 ---
-import Card from '../../../../../ui/src/components/core/Card.astro'
+import KpiCard from '../../../../../ui/src/components/cards/KpiCard.astro'
+import PoliticianCard from '../../../../../ui/src/components/cards/PoliticianCard.astro'
 import Button from '../../../../../ui/src/components/core/Button.astro'
+import Card from '../../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import Pill from '../../../../../ui/src/components/core/Pill.astro'
 import Table from '../../../../../ui/src/components/core/Table.astro'
-import KpiCard from '../../../../../ui/src/components/cards/KpiCard.astro'
-import PoliticianCard from '../../../../../ui/src/components/cards/PoliticianCard.astro'
-import { getFörvaltningar, getFörvaltningDetail } from '../../../data/api'
+import { getFörvaltningDetail, getFörvaltningar } from '../../../data/api'
 import Base from '../../../layouts/Base.astro'
 
 export async function getStaticPaths() {
@@ -28,11 +28,7 @@ const budget = data.budget
 const hasAnmärkning = revision.some((r: any) => r.typ === 'anmärkning')
 const ansvarsfrihetAvstyrkt = revision.some((r: any) => r.ansvarsfrihet === 'avstyrkt')
 
-const revisionStatus = ansvarsfrihetAvstyrkt
-  ? 'avslag'
-  : hasAnmärkning
-    ? 'nej'
-    : 'bifall'
+const revisionStatus = ansvarsfrihetAvstyrkt ? 'avslag' : hasAnmärkning ? 'nej' : 'bifall'
 const revisionLabel = ansvarsfrihetAvstyrkt
   ? 'Avstyrkt ansvarsfrihet'
   : hasAnmärkning

@@ -7,7 +7,9 @@ import Base from '../../../layouts/Base.astro'
 const förvaltningar = await getFörvaltningar()
 
 // Sort by salary descending
-const sorted = förvaltningar.sort((a: any, b: any) => (b.direktör?.lön || 0) - (a.direktör?.lön || 0))
+const sorted = förvaltningar.sort(
+  (a: any, b: any) => (b.direktör?.lön || 0) - (a.direktör?.lön || 0),
+)
 ---
 
 <Base title="Förvaltningar — Göteborg">

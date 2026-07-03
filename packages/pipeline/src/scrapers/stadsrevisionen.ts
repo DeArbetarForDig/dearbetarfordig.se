@@ -54,9 +54,9 @@ function extractNämnder(titel: string): string[] {
     intraservice: 'Nämnden för intraservice',
     'demokrati och medborgar': 'Nämnden för demokrati och medborgarservice',
     'inköps- och upphandling': 'Inköps- och upphandlingsnämnden',
-    'arbetsmarknad': 'Nämnden för arbetsmarknad och vuxenutbildning',
+    arbetsmarknad: 'Nämnden för arbetsmarknad och vuxenutbildning',
     'äldre samt vård': 'Äldre samt vård- och omsorgsnämnden',
-    'social': 'Socialnämnderna',
+    social: 'Socialnämnderna',
     stadsfastighet: 'Stadsfastighetsnämnden',
     'kretslopp och vatten': 'Kretslopp och vattennämnden',
     arkiv: 'Arkivnämnden',
@@ -71,7 +71,7 @@ function extractNämnder(titel: string): string[] {
 function sanitizeFilename(url: string, titel: string): string {
   const urlMatch = url.match(/\/([^/]+\.pdf)/i)
   if (urlMatch) return urlMatch[1]
-  return titel.replace(/[^a-zA-Z0-9åäöÅÄÖ_-]/g, '_').slice(0, 80) + '.pdf'
+  return `${titel.replace(/[^a-zA-Z0-9åäöÅÄÖ_-]/g, '_').slice(0, 80)}.pdf`
 }
 
 async function main() {
@@ -98,7 +98,9 @@ async function main() {
         const text = a.textContent?.trim() || ''
         if (
           href &&
-          (href.includes('.pdf') || text.toLowerCase().includes('rapport') || text.toLowerCase().includes('granskning'))
+          (href.includes('.pdf') ||
+            text.toLowerCase().includes('rapport') ||
+            text.toLowerCase().includes('granskning'))
         ) {
           results.push({ text, href })
         }
@@ -113,7 +115,11 @@ async function main() {
       const results: Array<{ text: string; href: string }> = []
       document.querySelectorAll('a').forEach((a) => {
         const text = a.textContent?.trim() || ''
-        if (text.match(/\d{4}/) || text.toLowerCase().includes('rapporter') || text.toLowerCase().includes('granskningar')) {
+        if (
+          text.match(/\d{4}/) ||
+          text.toLowerCase().includes('rapporter') ||
+          text.toLowerCase().includes('granskningar')
+        ) {
           results.push({ text, href: a.href })
         }
       })

@@ -256,7 +256,7 @@ function parseParagrafer(text: string, datum: string, nameToId: Map<string, stri
       const line = rawLine.trim()
       if (!line) {
         if (started) continue
-        else continue
+        continue
       }
       if (
         line.match(/^(Beslut|Handling|Yrkanden|Protokollsutdrag|Propositionsordning)$/) ||

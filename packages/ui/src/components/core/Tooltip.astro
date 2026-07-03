@@ -19,7 +19,15 @@ interface Props {
   /** Tooltip message text */
   text: string
   /** Position relative to trigger */
-  position?: 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-left' | 'bottom-right' | 'left' | 'right'
+  position?:
+    | 'top'
+    | 'top-left'
+    | 'top-right'
+    | 'bottom'
+    | 'bottom-left'
+    | 'bottom-right'
+    | 'left'
+    | 'right'
   /** Visual style */
   variant?: 'dark' | 'light'
   /** Use fixed positioning (escapes overflow:hidden) */

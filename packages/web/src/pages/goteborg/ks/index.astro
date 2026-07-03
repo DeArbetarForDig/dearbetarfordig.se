@@ -7,18 +7,40 @@ const allBeslut = await getBeslut(2000)
 const ksBeslut = allBeslut.filter((b: any) => b.organ === 'KS')
 
 const data = ksBeslut.map((b) => {
-  const status = b.beslut === 'bordläggning' ? 'Bordlagd' : b.beslut === 'bifall' ? 'Bifall' : b.beslut === 'avslag' ? 'Avslag' : b.beslut === 'tillstyrkan_kf' ? 'Tillstyrkan → KF' : b.beslut === 'beslut' ? 'Beslutat' : 'Info'
-  const statusColor = b.beslut === 'bifall' || b.beslut === 'beslut' ? 'var(--color-positive)' : b.beslut === 'tillstyrkan_kf' ? 'var(--color-primary)' : b.beslut === 'avslag' ? 'var(--color-negative)' : b.beslut === 'bordläggning' ? 'var(--color-warning)' : ''
+  const status =
+    b.beslut === 'bordläggning'
+      ? 'Bordlagd'
+      : b.beslut === 'bifall'
+        ? 'Bifall'
+        : b.beslut === 'avslag'
+          ? 'Avslag'
+          : b.beslut === 'tillstyrkan_kf'
+            ? 'Tillstyrkan → KF'
+            : b.beslut === 'beslut'
+              ? 'Beslutat'
+              : 'Info'
+  const statusColor =
+    b.beslut === 'bifall' || b.beslut === 'beslut'
+      ? 'var(--color-positive)'
+      : b.beslut === 'tillstyrkan_kf'
+        ? 'var(--color-primary)'
+        : b.beslut === 'avslag'
+          ? 'var(--color-negative)'
+          : b.beslut === 'bordläggning'
+            ? 'var(--color-warning)'
+            : ''
   const titel = b.rubrik?.replace(/^§ \d+ /, '') || ''
   return {
-    paragraf: b.paragraf ? parseInt(b.paragraf.replace('§ ', '')) || 0 : 0,
+    paragraf: b.paragraf ? Number.parseInt(b.paragraf.replace('§ ', '')) || 0 : 0,
     datum: b.datum,
     titel,
     ärendeNr: (b as any).ärendeNr || '',
     status,
     _titel_html: `<a href="/goteborg/beslut/${encodeURIComponent(b.id)}" class="text-[var(--color-text)] hover:text-[var(--color-primary)]">${titel}</a>`,
-    _paragraf_html: b.paragraf ? `§ ${parseInt(b.paragraf.replace('§ ', ''))}` : '',
-    _status_html: statusColor ? `<span style="color:${statusColor};font-weight:600">${status}</span>` : status || '—',
+    _paragraf_html: b.paragraf ? `§ ${Number.parseInt(b.paragraf.replace('§ ', ''))}` : '',
+    _status_html: statusColor
+      ? `<span style="color:${statusColor};font-weight:600">${status}</span>`
+      : status || '—',
   }
 })
 

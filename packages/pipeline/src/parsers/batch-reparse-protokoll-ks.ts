@@ -32,7 +32,8 @@ async function main() {
   const protocols = getProtokollUrls()
   console.log(`📄 Batch parse KS: ${protocols.length} protokoll\n`)
 
-  let ok = 0, fail = 0
+  let ok = 0
+  let fail = 0
 
   for (const { datum, url } of protocols) {
     const pdfPath = join(TMP_DIR, `ks-protokoll-${datum}.pdf`)
@@ -42,24 +43,29 @@ async function main() {
         execSync(`curl -sL '${url}' -o "${pdfPath}"`, { timeout: 30000 })
       } catch {
         console.log(`  ✗ ${datum} — download failed`)
-        fail++; continue
+        fail++
+        continue
       }
     }
 
     const header = readFileSync(pdfPath, 'utf-8').slice(0, 5)
     if (!header.startsWith('%PDF')) {
       console.log(`  ✗ ${datum} — not a PDF`)
-      fail++; continue
+      fail++
+      continue
     }
 
     try {
       const out = execSync(`npx tsx "${PARSER}" "${pdfPath}" "${datum}"`, {
-        encoding: 'utf-8', timeout: 60000,
+        encoding: 'utf-8',
+        timeout: 60000,
         cwd: join(import.meta.dirname, '../../../..'),
       })
       const nodesMatch = out.match(/Nodes: (\d+)/)
       const närvMatch = out.match(/Närvarande: (\d+)/)
-      console.log(`  ✓ ${datum} — ${nodesMatch?.[1] || '?'} nodes, ${närvMatch?.[1] || '0'} närvarande`)
+      console.log(
+        `  ✓ ${datum} — ${nodesMatch?.[1] || '?'} nodes, ${närvMatch?.[1] || '0'} närvarande`,
+      )
       ok++
     } catch {
       console.log(`  ✗ ${datum} — parse error`)

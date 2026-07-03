@@ -46,28 +46,29 @@ interface GraphEdge {
 
 // Mapping: nämnd name → nämnd graph ID
 const NÄMND_ID_MAP: Record<string, string> = {
-  'Förskolenämnden': 'nämnd-förskolenämnden',
-  'Grundskolenämnden': 'nämnd-grundskolenämnden',
-  'Utbildningsnämnden': 'nämnd-utbildningsnämnden',
-  'Stadsmiljönämnden': 'nämnd-stadsmiljönämnden',
-  'Exploateringsnämnden': 'nämnd-exploateringsnämnden',
-  'Stadsbyggnadsnämnden': 'nämnd-stadsbyggnadsnämnden',
+  Förskolenämnden: 'nämnd-förskolenämnden',
+  Grundskolenämnden: 'nämnd-grundskolenämnden',
+  Utbildningsnämnden: 'nämnd-utbildningsnämnden',
+  Stadsmiljönämnden: 'nämnd-stadsmiljönämnden',
+  Exploateringsnämnden: 'nämnd-exploateringsnämnden',
+  Stadsbyggnadsnämnden: 'nämnd-stadsbyggnadsnämnden',
   'Idrotts- och föreningsnämnden': 'nämnd-idrotts-och-föreningsnämnden',
-  'Kulturnämnden': 'nämnd-kulturnämnden',
+  Kulturnämnden: 'nämnd-kulturnämnden',
   'Miljö- och klimatnämnden': 'nämnd-miljö-och-klimatnämnden',
   'Nämnden för funktionsstöd': 'nämnd-nämnden-för-funktionsstöd',
   'Nämnden för intraservice': 'nämnd-nämnden-för-intraservice',
   'Nämnden för demokrati och medborgarservice': 'nämnd-nämnden-för-demokrati-och-medborgarservice',
   'Inköps- och upphandlingsnämnden': 'nämnd-inköps-och-upphandlingsnämnden',
-  'Nämnden för arbetsmarknad och vuxenutbildning': 'nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning',
+  'Nämnden för arbetsmarknad och vuxenutbildning':
+    'nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning',
   'Äldre samt vård- och omsorgsnämnden': 'nämnd-äldre-samt-vård-och-omsorgsnämnden',
   'Socialnämnden Nordost': 'nämnd-socialnämnden-nordost',
   'Socialnämnden Centrum': 'nämnd-socialnämnden-centrum',
   'Socialnämnden Sydväst': 'nämnd-socialnämnden-sydväst',
   'Socialnämnden Hisingen': 'nämnd-socialnämnden-hisingen',
-  'Stadsfastighetsnämnden': 'nämnd-stadsfastighetsnämnden',
+  Stadsfastighetsnämnden: 'nämnd-stadsfastighetsnämnden',
   'Kretslopp och vattennämnden': 'nämnd-kretslopp-och-vatten-västsvenska-paketet',
-  'Arkivnämnden': 'nämnd-arkivnämnden',
+  Arkivnämnden: 'nämnd-arkivnämnden',
 }
 
 // Mapping: nämnd → direktör graph ID
@@ -134,7 +135,7 @@ function findNämndId(name: string): string | null {
 
 /**
  * Parse the "Kommunbidrag" or "Resultat per nämnd" table from årsredovisning PDF.
- * 
+ *
  * Typical table format:
  *   Nämnd                    Budget    Utfall    Avvikelse
  *   Förskolenämnden          5 361     5 320     41
@@ -179,7 +180,9 @@ function parseUtfallTable(text: string): NämndUtfall[] {
 
     // Match: name followed by 2-4 numbers
     // Pattern: text (at least 10 chars), then 2+ number columns separated by spaces
-    const match = line.match(/^(.{10,50}?)\s{2,}(-?[\d ]+(?:,\d)?)\s{2,}(-?[\d ]+(?:,\d)?)\s{2,}(-?[\d ]+(?:,\d)?)/)
+    const match = line.match(
+      /^(.{10,50}?)\s{2,}(-?[\d ]+(?:,\d)?)\s{2,}(-?[\d ]+(?:,\d)?)\s{2,}(-?[\d ]+(?:,\d)?)/,
+    )
     if (!match) continue
 
     const nämndNamn = match[1].trim()
@@ -199,8 +202,9 @@ function parseUtfallTable(text: string): NämndUtfall[] {
       direktörId: DIREKTÖR_MAP[nämndId] || null,
       budgetMnkr: budget,
       utfallMnkr: utfall,
-      avvikelseMnkr: avvikelse || (utfall - budget),
-      avvikelseProcent: budget !== 0 ? Math.round(((utfall - budget) / Math.abs(budget)) * 1000) / 10 : 0,
+      avvikelseMnkr: avvikelse || utfall - budget,
+      avvikelseProcent:
+        budget !== 0 ? Math.round(((utfall - budget) / Math.abs(budget)) * 1000) / 10 : 0,
     })
   }
 
@@ -219,7 +223,10 @@ function parseKompletterandeUppföljning(text: string): NämndUtfall[] {
     const line = lines[i]
     // Look for nämnd names followed by numbers
     for (const [nämndNamn, nämndId] of Object.entries(NÄMND_ID_MAP)) {
-      if (line.includes(nämndNamn) || line.toLowerCase().includes(nämndNamn.toLowerCase().slice(0, 20))) {
+      if (
+        line.includes(nämndNamn) ||
+        line.toLowerCase().includes(nämndNamn.toLowerCase().slice(0, 20))
+      ) {
         // Try to find numbers on same line or next line
         const numbers = line.match(/-?[\d ]{3,}(?:,\d)?/g)
         if (numbers && numbers.length >= 2) {
@@ -234,7 +241,8 @@ function parseKompletterandeUppföljning(text: string): NämndUtfall[] {
             budgetMnkr: budget,
             utfallMnkr: utfall,
             avvikelseMnkr: avvikelse,
-            avvikelseProcent: budget !== 0 ? Math.round(((utfall - budget) / Math.abs(budget)) * 1000) / 10 : 0,
+            avvikelseProcent:
+              budget !== 0 ? Math.round(((utfall - budget) / Math.abs(budget)) * 1000) / 10 : 0,
           })
           break
         }
@@ -264,8 +272,12 @@ function buildGraph(utfall: NämndUtfall[], år: string): { nodes: GraphNode[]; 
       totalUtfallMnkr: totalUtfall,
       totalAvvikelseMnkr: totalUtfall - totalBudget,
       antalNämnder: utfall.length,
-      underskott: utfall.filter((u) => u.avvikelseMnkr < 0).map((u) => ({ nämnd: u.nämnd, mnkr: u.avvikelseMnkr })),
-      överskott: utfall.filter((u) => u.avvikelseMnkr > 0).map((u) => ({ nämnd: u.nämnd, mnkr: u.avvikelseMnkr })),
+      underskott: utfall
+        .filter((u) => u.avvikelseMnkr < 0)
+        .map((u) => ({ nämnd: u.nämnd, mnkr: u.avvikelseMnkr })),
+      överskott: utfall
+        .filter((u) => u.avvikelseMnkr > 0)
+        .map((u) => ({ nämnd: u.nämnd, mnkr: u.avvikelseMnkr })),
     },
   })
 
@@ -283,12 +295,22 @@ function buildGraph(utfall: NämndUtfall[], år: string): { nodes: GraphNode[]; 
         utfallMnkr: u.utfallMnkr,
         avvikelseMnkr: u.avvikelseMnkr,
         avvikelseProcent: u.avvikelseProcent,
-        status: u.avvikelseMnkr < -10 ? 'stort_underskott' : u.avvikelseMnkr < 0 ? 'underskott' : 'i_balans',
+        status:
+          u.avvikelseMnkr < -10
+            ? 'stort_underskott'
+            : u.avvikelseMnkr < 0
+              ? 'underskott'
+              : 'i_balans',
       },
     })
 
     // Edge: utfall → nämnd
-    edges.push({ from: nodeId, to: u.nämndId, typ: 'utfall_för', label: `${u.avvikelseMnkr > 0 ? '+' : ''}${u.avvikelseMnkr} mnkr` })
+    edges.push({
+      from: nodeId,
+      to: u.nämndId,
+      typ: 'utfall_för',
+      label: `${u.avvikelseMnkr > 0 ? '+' : ''}${u.avvikelseMnkr} mnkr`,
+    })
 
     // Edge: utfall → summary
     edges.push({ from: nodeId, to: summaryId, typ: 'ingår_i' })
@@ -300,7 +322,10 @@ function buildGraph(utfall: NämndUtfall[], år: string): { nodes: GraphNode[]; 
         to: u.direktörId,
         typ: 'ansvarig',
         label: 'förvaltningsdirektör',
-        data: { avvikelseMnkr: u.avvikelseMnkr, status: u.avvikelseMnkr < 0 ? 'underskott' : 'i_balans' },
+        data: {
+          avvikelseMnkr: u.avvikelseMnkr,
+          status: u.avvikelseMnkr < 0 ? 'underskott' : 'i_balans',
+        },
       })
     }
   }
@@ -349,8 +374,8 @@ async function main() {
   }
 
   // Print summary
-  console.log(`\n   Resultat per nämnd:`)
-  console.log('   ' + '-'.repeat(70))
+  console.log('\n   Resultat per nämnd:')
+  console.log(`   ${'-'.repeat(70)}`)
   for (const u of utfall.sort((a, b) => a.avvikelseMnkr - b.avvikelseMnkr)) {
     const sign = u.avvikelseMnkr >= 0 ? '+' : ''
     const flag = u.avvikelseMnkr < -10 ? ' ⚠️' : ''

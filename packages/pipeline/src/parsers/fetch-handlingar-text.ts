@@ -82,7 +82,9 @@ for (const meeting of handlingar.sammanträden) {
     try {
       const raw = execSync(`pdftotext -layout "${localPath}" -`, {
         maxBuffer: 20 * 1024 * 1024,
-      }).toString().trim()
+      })
+        .toString()
+        .trim()
 
       if (raw.length < 50) continue
 

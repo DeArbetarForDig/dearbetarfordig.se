@@ -3,7 +3,7 @@ import Card from '../../../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../../ui/src/components/core/StatusBadge.astro'
-import { getMöten, getMöteAnföranden, fetchApi, getStats } from '../../../../data/api'
+import { fetchApi, getMöteAnföranden, getMöten, getStats } from '../../../../data/api'
 import Base from '../../../../layouts/Base.astro'
 
 export async function getStaticPaths() {
@@ -40,7 +40,7 @@ const partiOrder = Object.entries(stats.partier)
 
 // Sort närvarande by party order, then by name
 const närvarandeSorted = [...närvarandeMap.values()]
-  .map(n => ({ ...n, tid: n.tider.sort().join(', ') || '' }))
+  .map((n) => ({ ...n, tid: n.tider.sort().join(', ') || '' }))
   .sort((a, b) => {
     const partiA = partiOrder.indexOf(a.parti)
     const partiB = partiOrder.indexOf(b.parti)

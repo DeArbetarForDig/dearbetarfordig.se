@@ -7,21 +7,39 @@ const allBeslut = await getBeslut(2000)
 const kfBeslut = allBeslut.filter((b: any) => !b.organ || b.organ === 'KF')
 
 const data = kfBeslut.map((b) => {
-  const status = b.beslut === 'bordläggning' ? 'Bordlagd' : b.beslut === 'bifall' ? 'Bifall' : b.beslut === 'avslag' ? 'Avslag' : ''
-  const statusColor = b.beslut === 'bifall' ? 'var(--color-positive)' : b.beslut === 'avslag' ? 'var(--color-negative)' : b.beslut === 'bordläggning' ? 'var(--color-warning)' : ''
+  const status =
+    b.beslut === 'bordläggning'
+      ? 'Bordlagd'
+      : b.beslut === 'bifall'
+        ? 'Bifall'
+        : b.beslut === 'avslag'
+          ? 'Avslag'
+          : ''
+  const statusColor =
+    b.beslut === 'bifall'
+      ? 'var(--color-positive)'
+      : b.beslut === 'avslag'
+        ? 'var(--color-negative)'
+        : b.beslut === 'bordläggning'
+          ? 'var(--color-warning)'
+          : ''
   const titel = b.rubrik?.replace(/^§ \d+ /, '') || ''
   const votering = b.votering ? `${b.votering.ja}/${b.votering.nej}` : ''
   return {
-    paragraf: b.paragraf ? parseInt(b.paragraf.replace('§ ', '')) || 0 : 0,
+    paragraf: b.paragraf ? Number.parseInt(b.paragraf.replace('§ ', '')) || 0 : 0,
     datum: b.datum,
     titel,
     ärendeNr: (b as any).ärendeNr || '',
     status,
     votering,
     _titel_html: `<a href="/goteborg/beslut/${encodeURIComponent(b.id)}" class="text-[var(--color-text)] hover:text-[var(--color-primary)]">${titel}</a>`,
-    _paragraf_html: b.paragraf ? `§ ${parseInt(b.paragraf.replace('§ ', ''))}` : '',
-    _status_html: statusColor ? `<span style="color:${statusColor};font-weight:600">${status}</span>` : '—',
-    _votering_html: votering ? `<span style="display:flex;align-items:center;justify-content:flex-end;gap:6px"><span class="font-mono"><span style="color:var(--color-positive)">${b.votering.ja}</span>/<span style="color:var(--color-negative)">${b.votering.nej}</span>/<span style="color:var(--color-warning)">${b.votering.avstår || 0}</span>/<span style="color:var(--vote-frånvarande)">${b.votering.frånvarande || 0}</span></span>${(b as any).namnupprop ? '<span class="daf-tooltip daf-tooltip--top-right" role="tooltip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-positive)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg><span class="daf-tooltip__msg">Namnupprop — individuella röster protokollförda</span></span>' : '<span class="daf-tooltip daf-tooltip--top-right" role="tooltip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-subtle)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg><span class="daf-tooltip__msg">Handuppräckning — individuella röster ej protokollförda</span></span>'}</span>` : '',
+    _paragraf_html: b.paragraf ? `§ ${Number.parseInt(b.paragraf.replace('§ ', ''))}` : '',
+    _status_html: statusColor
+      ? `<span style="color:${statusColor};font-weight:600">${status}</span>`
+      : '—',
+    _votering_html: votering
+      ? `<span style="display:flex;align-items:center;justify-content:flex-end;gap:6px"><span class="font-mono"><span style="color:var(--color-positive)">${b.votering.ja}</span>/<span style="color:var(--color-negative)">${b.votering.nej}</span>/<span style="color:var(--color-warning)">${b.votering.avstår || 0}</span>/<span style="color:var(--vote-frånvarande)">${b.votering.frånvarande || 0}</span></span>${(b as any).namnupprop ? '<span class="daf-tooltip daf-tooltip--top-right" role="tooltip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-positive)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg><span class="daf-tooltip__msg">Namnupprop — individuella röster protokollförda</span></span>' : '<span class="daf-tooltip daf-tooltip--top-right" role="tooltip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-subtle)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg><span class="daf-tooltip__msg">Handuppräckning — individuella röster ej protokollförda</span></span>'}</span>`
+      : '',
   }
 })
 
