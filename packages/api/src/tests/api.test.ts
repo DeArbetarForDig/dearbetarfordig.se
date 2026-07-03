@@ -40,8 +40,15 @@ describe('Smoke tests — alla endpoints svarar', () => {
   })
 
   it('GET /api/v1/goteborg/politiker?parti=S → filtrerar', async () => {
-    const { data } = await get('/api/v1/goteborg/politiker?parti=S')
-    expect(data.total).toBe(33)
+    // Not a hardcoded count: how many S-affiliated ledamöter/ersättare exist
+    // grows with every scrape (e.g. e58417a's comprehensive scraper alone took
+    // this from 33 to 222+ by covering nämnder/bolag/stiftelser, not just KF).
+    // Assert filter correctness + plausibility instead, so this doesn't rot
+    // on the next legitimate data update.
+    const { data: alla } = await get('/api/v1/goteborg/politiker?limit=2000')
+    const { data } = await get('/api/v1/goteborg/politiker?parti=S&limit=2000')
+    expect(data.total).toBeGreaterThan(0)
+    expect(data.total).toBeLessThan(alla.total)
     data._embedded.items.forEach((p: any) => expect(p.parti).toBe('S'))
   })
 
