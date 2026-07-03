@@ -55,6 +55,19 @@ app.use('/api/v1/:kommun/*', async (c, next) => {
 
 // Rate limiting (simple in-memory, per IP)
 const rateMap = new Map<string, { count: number; reset: number }>()
+// Buckets expire after their `reset` timestamp but are never removed on their
+// own — without this, one entry per distinct IP (or the shared 'unknown'
+// bucket) accumulates for the lifetime of the process. Prune stale buckets
+// periodically instead of on every request to keep the sweep cheap.
+const RATE_LIMIT_CLEANUP_INTERVAL_MS = 60_000
+const rateMapCleanupTimer = setInterval(() => {
+  const now = Date.now()
+  for (const [ip, entry] of rateMap) {
+    if (entry.reset <= now) rateMap.delete(ip)
+  }
+}, RATE_LIMIT_CLEANUP_INTERVAL_MS)
+// Don't let the cleanup timer keep the process (or test runner) alive.
+rateMapCleanupTimer.unref?.()
 app.use('/*', async (c, next) => {
   const ip = c.req.header('x-forwarded-for') || 'unknown'
   // Direct access without proxy header = local dev / SSG build — skip limiting
