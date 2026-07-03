@@ -21,9 +21,56 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
+      # Non-blocking for now: packages/api/src/index.ts has ~18 pre-existing
+      # Hono route-response-typing errors (a separate refactor, tracked in
+      # docs/ANALYS-2026-07.md §6/§10 item 4). Still runs on every push/PR so
+      # regressions elsewhere are visible, just doesn't fail the build yet.
+      - name: Typecheck (non-blocking, see known issues in docs/ANALYS-2026-07.md)
+        run: pnpm -r typecheck
+        continue-on-error: true
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: daf
+          POSTGRES_USER: daf
+          POSTGRES_PASSWORD: daf_local
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgresql://daf:daf_local@localhost:5432/daf
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: corepack enable && corepack prepare pnpm@9 --activate
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @daf/pipeline test
+      - run: pnpm --filter @daf/api db:seed
+      - name: Start API server
+        run: |
+          pnpm --filter @daf/api exec tsx src/index.ts &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3000/healthz && break
+            sleep 1
+          done
+      - run: pnpm --filter @daf/api test
 
   deploy:
-    needs: lint
+    needs: [lint, test]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push' && vars.DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     steps:
