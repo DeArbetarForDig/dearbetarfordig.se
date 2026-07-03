@@ -38,6 +38,7 @@ export interface GraphEdge {
     | 'regleras_av'
     | 'inlämnad_av'
     | 'votering'
+    | 'närvarade'
   label?: string
 }
 

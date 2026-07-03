@@ -7,7 +7,7 @@ import { join } from 'node:path'
 
 const OUTPUT_DIR = join(import.meta.dirname, '../../../../data/graf')
 
-const DIREKTÖR_MAP: Record<string, string> = {
+const DIREKTÖR_MAP: Record<string, string | null> = {
   'Exploateringsnämnden': 'direktör-kristina-lindfors',
   'Förskolenämnden': 'direktör-johan-olofsson',
   'Grundskolenämnden': 'direktör-maria-andersson',

@@ -1,3 +1,4 @@
+/// <reference types="astro/client" />
 const API_BASE = import.meta.env.API_URL || 'http://localhost:3000'
 
 export async function fetchApi<T>(path: string): Promise<T> {

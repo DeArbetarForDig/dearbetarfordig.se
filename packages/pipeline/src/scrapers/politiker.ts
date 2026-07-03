@@ -40,6 +40,10 @@ interface PersonDetail {
     från: string
     till: string | null
   }>
+  // Never populated by this scraper — carried over from existing data on
+  // merge (see Step 3 below), hence optional here.
+  mandatperioder?: Array<{ roll?: string; källa?: string; period?: string }>
+  närstående?: unknown | null
 }
 
 function sleep(ms: number) {
