@@ -32,7 +32,7 @@ jobs:
         run: pnpm --filter @daf/pipeline exec playwright install chromium --with-deps
 
       - name: Scrape politiker
-        run: pnpm scrape:politiker
+        run: pnpm scrape:alla-fortroendevalda
 
       - name: Scrape handlingar
         run: pnpm scrape:handlingar

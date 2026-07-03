@@ -14,9 +14,10 @@
     "api": "pnpm --filter @daf/api dev",
     "scrape": "pnpm --filter @daf/pipeline scrape",
     "scrape:politiker": "pnpm --filter @daf/pipeline scrape:politiker",
+    "scrape:alla-fortroendevalda": "pnpm --filter @daf/pipeline scrape:alla-fortroendevalda",
     "scrape:webbtv": "pnpm --filter @daf/pipeline scrape:webbtv",
     "scrape:handlingar": "pnpm --filter @daf/pipeline scrape:handlingar",
-    "pipeline": "pnpm scrape:politiker && pnpm scrape:webbtv && pnpm scrape:handlingar",
+    "pipeline": "pnpm scrape:alla-fortroendevalda && pnpm scrape:webbtv && pnpm scrape:handlingar",
     "lint": "biome check .",
     "lint:fix": "biome check --fix .",
     "format": "biome format --write ."
