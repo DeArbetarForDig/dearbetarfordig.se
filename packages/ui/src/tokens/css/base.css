@@ -1,0 +1,123 @@
+/**
+ * @daf/ui — Base app chrome
+ *
+ * Element defaults (body, links, headings) and layout chrome
+ * (sysbar, footer, theme toggle) shared by every DAF site.
+ */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+a:hover > .card {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-strong);
+  transform: translateY(-1px);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+/* Sysbar */
+.sysbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 var(--space-md);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  user-select: none;
+}
+
+.sysbar__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.sysbar__brand {
+  text-decoration: none;
+  color: var(--color-text);
+}
+.sysbar__brand:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.sysbar__product {
+  font-weight: 700;
+  font-size: var(--font-size-h3);
+}
+
+.sysbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.sysbar__location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+}
+
+.sysbar__item {
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.sysbar__item:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.sysbar__theme-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+}
+.sysbar__theme-btn:hover {
+  background: var(--color-surface-sunken);
+}
+
+/* Theme toggle icons */
+[data-theme="light"] .theme-icon-dark {
+  display: none;
+}
+[data-theme="dark"] .theme-icon-light {
+  display: none;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+}

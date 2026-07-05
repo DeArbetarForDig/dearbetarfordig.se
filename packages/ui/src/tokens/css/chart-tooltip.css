@@ -119,6 +119,7 @@
   height: 8px;
   border-radius: 2px;
   flex-shrink: 0;
+  background: var(--dot-color);
 }
 
 /* Summary section (optional totals row) */

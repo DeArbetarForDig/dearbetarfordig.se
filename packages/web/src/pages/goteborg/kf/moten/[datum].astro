@@ -112,8 +112,7 @@ const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
       <Card class="hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)]">
         <div class="flex items-center gap-4">
           <span
-            class="flex items-center justify-center w-10 h-10 rounded-lg text-[var(--color-primary)]"
-            style="background: color-mix(in srgb, var(--color-primary) 12%, transparent)"
+            class="flex items-center justify-center w-10 h-10 rounded-lg text-[var(--color-primary)] bg-(--color-primary-tint)"
           >
             <Icon name="monitor-play" size={22} />
           </span>
@@ -229,7 +228,7 @@ const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
             <PartyTag parti={group.parti} size="sm" />
             <span class="text-sm text-[var(--color-text-muted)]">{group.members.length} ledamöter</span>
           </div>
-          <div class="grid gap-2" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+          <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
             {group.members.map((n: any) => {
               const politikerId = n._links?.politiker?.href?.split('/').pop()
               return (

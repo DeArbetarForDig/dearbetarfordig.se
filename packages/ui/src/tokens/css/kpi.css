@@ -1,0 +1,9 @@
+/* KPI (components/kpi generateKPIHTML) */
+
+.daf-kpi__trend--up {
+  color: var(--color-positive);
+}
+
+.daf-kpi__trend--down {
+  color: var(--color-negative);
+}

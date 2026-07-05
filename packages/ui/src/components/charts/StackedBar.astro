@@ -37,15 +37,15 @@ const total = segments.reduce((s, x) => s + x.value, 0) || 1
     <div class="stacked-bar__legend">
       {segments.map(s => (
         <span class="stacked-bar__legend-item">
-          <span class="stacked-bar__swatch" style={`background:${s.color}`} />
+          <span class="stacked-bar__swatch" style={`--seg-color:${s.color}`} />
           {s.label}: <strong>{s.value}</strong>
         </span>
       ))}
     </div>
   )}
-  <div class="stacked-bar__track" style={`height:${height}px`}>
+  <div class="stacked-bar__track" style={`--bar-h:${height}px`}>
     {segments.map(s => (
-      s.value > 0 && <span class="stacked-bar__segment" style={`width:${(s.value/total)*100}%;background:${s.color}`} title={`${s.label}: ${s.value} (${Math.round((s.value/total)*100)}%)`} />
+      s.value > 0 && <span class="stacked-bar__segment" style={`--seg-w:${(s.value/total)*100}%;--seg-color:${s.color}`} title={`${s.label}: ${s.value} (${Math.round((s.value/total)*100)}%)`} />
     ))}
   </div>
 </div>
@@ -74,16 +74,20 @@ const total = segments.reduce((s, x) => s + x.value, 0) || 1
     height: 12px;
     border-radius: 3px;
     flex-shrink: 0;
+    background: var(--seg-color);
   }
 
   .stacked-bar__track {
     display: flex;
+    height: var(--bar-h);
     border-radius: 999px;
     overflow: hidden;
     background: var(--color-surface-sunken);
   }
 
   .stacked-bar__segment {
+    width: var(--seg-w);
+    background: var(--seg-color);
     transition: opacity 0.2s;
   }
 

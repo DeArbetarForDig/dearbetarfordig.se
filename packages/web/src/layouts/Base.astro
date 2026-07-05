@@ -57,14 +57,14 @@ const { title, description = 'Öppen demokratiplattform för svenska kommuner' }
     </header>
 
     <!-- Content layer -->
-    <main class="max-w-6xl mx-auto w-full flex-1" style="padding: var(--space-xl) var(--space-md);">
+    <main class="max-w-6xl mx-auto w-full flex-1 py-(--space-xl) px-(--space-md)">
       <slot />
     </main>
 
     <ChartTooltip />
     <footer class="site-footer">
       <p>Public money, public code. Public decisions, public data.</p>
-      <p style="margin-top: var(--space-sm);">AGPL-3.0 · <a href="https://github.com/YOUR_ORG/dearbetarfordig.se">Källkod</a></p>
+      <p class="mt-(--space-sm)">AGPL-3.0 · <a href="https://github.com/YOUR_ORG/dearbetarfordig.se">Källkod</a></p>
     </footer>
 
     <script is:inline>

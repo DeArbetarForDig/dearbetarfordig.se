@@ -47,7 +47,7 @@ const { class: className } = Astro.props
         if (itemsEl) {
           itemsEl.innerHTML = (data.items || []).map(item =>
             `<div class="item">` +
-            (item.color ? `<span class="dot" style="background:${item.color}"></span>` : '') +
+            (item.color ? `<span class="dot" style="--dot-color:${item.color}"></span>` : '') +
             `<span class="key">${item.label}</span>` +
             `<span class="value">${item.value}</span>` +
             `</div>`

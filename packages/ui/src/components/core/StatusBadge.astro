@@ -39,12 +39,27 @@ const meta = META[status] || META.info
 const text = label ?? meta.label
 ---
 <span
-  class:list={['inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-sm font-semibold leading-tight', className]}
-  style={solid
-    ? `background:${meta.color};color:#fff;border:1px solid transparent`
-    : `background:color-mix(in srgb, ${meta.color} 12%, transparent);color:${meta.color};border:1px solid color-mix(in srgb, ${meta.color} 30%, transparent)`
-  }
+  class:list={[
+    'daf-badge inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm text-sm font-semibold leading-tight',
+    solid ? 'daf-badge--solid' : 'daf-badge--tint',
+    className,
+  ]}
+  style={`--badge-color:${meta.color}`}
 >
   <span aria-hidden="true" class="text-[0.7em]">{meta.dot}</span>
   {text}
 </span>
+
+<style>
+  .daf-badge--solid {
+    background: var(--badge-color);
+    color: var(--system-white);
+    border: 1px solid transparent;
+  }
+
+  .daf-badge--tint {
+    background: color-mix(in srgb, var(--badge-color) 12%, transparent);
+    color: var(--badge-color);
+    border: 1px solid color-mix(in srgb, var(--badge-color) 30%, transparent);
+  }
+</style>

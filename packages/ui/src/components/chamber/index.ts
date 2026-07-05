@@ -11,7 +11,6 @@
  * - custom: any icon per seat
  */
 
-import { partyColors, voteColors } from '../../tokens/index'
 import type { PartyCode, VotePosition } from '../../tokens/index'
 
 export interface Seat {
@@ -112,13 +111,14 @@ export function generateChamberSVG(config: ChamberConfig): string {
       const seat = seatMap.get(nummer)
       if (!seat) return ''
 
-      const fill = partyColors[seat.parti] ?? partyColors['-']
+      // Colors come from svg.css (.seat.parti-* → var(--parti-*))
+      const partiClass = `parti-${seat.parti === '-' ? 'ovriga' : seat.parti.toLowerCase()}`
       const icon = overlayMap.get(seat.politikerId) ?? ''
       const overlayLabel = icon ? ` — ${icon}` : ''
 
-      return `<g class="seat" data-nummer="${nummer}" data-party="${seat.parti}">
+      return `<g class="seat-group" data-nummer="${nummer}" data-party="${seat.parti}">
       <title>${seat.namn} (${seat.parti})${overlayLabel}</title>
-      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${fill}" stroke="rgba(0,0,0,0.15)" stroke-width="0.5" />
+      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" class="seat ${partiClass} seat--outlined" />
       ${icon ? `<text x="${(x + r * 0.8).toFixed(1)}" y="${(y - r * 0.5).toFixed(1)}" font-size="${r}">${icon}</text>` : ''}
     </g>`
     })
@@ -127,10 +127,6 @@ export function generateChamberSVG(config: ChamberConfig): string {
   const resultatPanel = mode === 'vote' && votes ? generateResultPanel(votes, size) : ''
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size * 0.9}" role="img" aria-label="Kommunfullmäktige — ${seats.length} ledamöter">
-  <style>
-    .seat circle:hover { stroke: #fff; stroke-width: 2; cursor: pointer; }
-    .seat { transition: opacity 0.15s; }
-  </style>
   ${seatElements}
   ${resultatPanel}
 </svg>`
@@ -146,12 +142,12 @@ function generateResultPanel(votes: VoteResult[], size: number): string {
   const py = size * 0.05
 
   return `<g class="resultat-panel">
-    <rect x="${px}" y="${py}" width="${size * 0.26}" height="${size * 0.2}" rx="4" fill="#1a1a2e" opacity="0.9" />
-    <text x="${px + 8}" y="${py + 20}" font-size="11" fill="#aaa">Votering avslutad</text>
-    <text x="${px + 8}" y="${py + 38}" font-size="13" fill="${voteColors.ja}" font-weight="bold">Ja: ${ja}</text>
-    <text x="${px + 8}" y="${py + 56}" font-size="13" fill="${voteColors.nej}" font-weight="bold">Nej: ${nej}</text>
-    <text x="${px + 8}" y="${py + 74}" font-size="13" fill="${voteColors.avstår}" font-weight="bold">Avstår: ${avstår}</text>
-    <text x="${px + 8}" y="${py + 92}" font-size="13" fill="#666">Frånv: ${frånv}</text>
+    <rect x="${px}" y="${py}" width="${size * 0.26}" height="${size * 0.2}" rx="4" class="chamber-panel__bg" />
+    <text x="${px + 8}" y="${py + 20}" font-size="11" class="chamber-panel__label">Votering avslutad</text>
+    <text x="${px + 8}" y="${py + 38}" font-size="13" class="chamber-panel__ja" font-weight="bold">Ja: ${ja}</text>
+    <text x="${px + 8}" y="${py + 56}" font-size="13" class="chamber-panel__nej" font-weight="bold">Nej: ${nej}</text>
+    <text x="${px + 8}" y="${py + 74}" font-size="13" class="chamber-panel__avstår" font-weight="bold">Avstår: ${avstår}</text>
+    <text x="${px + 8}" y="${py + 92}" font-size="13" class="chamber-panel__muted">Frånv: ${frånv}</text>
   </g>`
 }
 

@@ -1,0 +1,56 @@
+---
+/**
+ * OrgBlock — horizontal block for an organ in the municipal hierarchy
+ * (Kommunfullmäktige, Kommunstyrelsen, nämnd).
+ * Structure: title + optional description + grid of politician links.
+ *
+ * Usage:
+ *   <OrgBlock title="Kommunstyrelsen (KS)" description="..." accent="var(--org-ks)" politiker={[...]} />
+ *
+ * Props:
+ * - title: organ name
+ * - description: one-line explanation shown under the title
+ * - accent: CSS color for the left border, pass a var() token (default var(--org-kf))
+ * - politiker: list of members; ärKf appends " (KF)" to the name
+ * - class: extra classes, e.g. ml-6/ml-12 for hierarchy indentation
+ *
+ * Slot renders after the politician list for extra content.
+ */
+import PartyTag from '../core/PartyTag.astro'
+
+interface Props {
+  title: string
+  description?: string
+  accent?: string
+  politiker?: { url: string; namn: string; parti: string; ärKf?: boolean }[]
+  class?: string
+}
+
+const {
+  title,
+  description,
+  accent = 'var(--org-kf)',
+  politiker = [],
+  class: className,
+} = Astro.props
+---
+<div
+  class:list={['p-4 rounded-lg bg-(--color-surface-sunken) border-l-4 border-l-(--org-accent)', className]}
+  style={`--org-accent:${accent}`}
+>
+  <h3 class="font-bold">{title}</h3>
+  {description && <p class="text-sm text-(--color-text-muted)">{description}</p>}
+  {politiker.length > 0 && (
+    <ul class="mt-2 grid gap-1.5 grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
+      {politiker.map((p) => (
+        <li>
+          <a href={p.url} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
+            <PartyTag parti={p.parti} size="sm" />
+            <span class="truncate">{p.namn}{p.ärKf && ' (KF)'}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+  <slot />
+</div>

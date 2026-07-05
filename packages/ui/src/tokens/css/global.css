@@ -75,12 +75,39 @@ svg {
   --color-warning: #eab308;
   --color-info: #2563eb;
   --color-neutral: #64748b;
+  --color-error: var(--color-negative);
 
-  /* Vote colors */
+  /* Vote colors (ASCII aliases for use in utility class names) */
   --vote-ja: #16a34a;
   --vote-nej: #dc2626;
   --vote-avstår: #eab308;
   --vote-frånvarande: #64748b;
+  --vote-avstar: var(--vote-avstår);
+  --vote-franvarande: var(--vote-frånvarande);
+
+  /* Organisational hierarchy accents (KF → KS → nämnd) */
+  --org-kf: var(--color-primary);
+  --org-ks: #8b5cf6;
+  --org-namnd: #0ea5e9;
+
+  /* Categorical chart palette */
+  --chart-1: #2563eb;
+  --chart-2: #7c3aed;
+  --chart-3: #16a34a;
+  --chart-4: #dc2626;
+  --chart-5: #eab308;
+  --chart-6: #0891b2;
+  --chart-7: #db2777;
+  --chart-8: #ea580c;
+  --chart-9: #4f46e5;
+  --chart-10: #059669;
+
+  /* Tints */
+  --color-primary-tint: color-mix(in srgb, var(--color-primary) 12%, transparent);
+
+  /* Chamber SVG */
+  --seat-stroke: rgba(0, 0, 0, 0.15);
+  --chamber-panel-bg: #1a1a2e;
 
   /* Main colors */
   --system-balck: var(--gray-14); /* typo kept for backwards compat */

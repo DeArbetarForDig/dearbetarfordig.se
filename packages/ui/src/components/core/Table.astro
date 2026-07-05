@@ -34,12 +34,12 @@ const { headers, rows, variant = 'default', alignRight = [], class: className } 
             <td class:list={[alignRight.includes(i) && 'right']}>
               {typeof cell === 'object' && cell !== null && 'color' in cell && !('href' in cell) ? (
                 <span class="daf-table__cell-icon">
-                  <span class="daf-table__dot" style={`background:${(cell as any).color}`} />
+                  <span class="daf-table__dot" style={`--dot-color:${(cell as any).color}`} />
                   {(cell as any).text}
                 </span>
               ) : typeof cell === 'object' && cell !== null && 'href' in cell ? (
                 <a href={(cell as any).href} class="daf-table__link">
-                  {'color' in cell && <span class="daf-table__dot" style={`background:${(cell as any).color}`} />}
+                  {'color' in cell && <span class="daf-table__dot" style={`--dot-color:${(cell as any).color}`} />}
                   {(cell as any).text}
                 </a>
               ) : cell}
@@ -109,6 +109,7 @@ const { headers, rows, variant = 'default', alignRight = [], class: className } 
     height: 10px;
     border-radius: 50%;
     flex-shrink: 0;
+    background: var(--dot-color);
   }
 
   .daf-table__link {

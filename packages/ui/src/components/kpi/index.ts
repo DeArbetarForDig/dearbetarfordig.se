@@ -15,12 +15,12 @@ export interface KPIConfig {
 export function generateKPIHTML(config: KPIConfig): string {
   const { value, label, unit, trend, trendValue } = config
   const trendIcon = trend === 'up' ? '↑' : trend === 'down' ? '↓' : ''
-  const trendColor =
-    trend === 'up' ? 'var(--color-positive)' : trend === 'down' ? 'var(--color-negative)' : ''
+  // Colors come from tokens/css/kpi.css (.daf-kpi__trend--up/--down)
+  const trendClass = trend === 'up' || trend === 'down' ? ` daf-kpi__trend--${trend}` : ''
 
   return `<div class="daf-kpi">
   <div class="daf-kpi__value">${value}${unit ? `<span class="daf-kpi__unit">${unit}</span>` : ''}</div>
   <div class="daf-kpi__label">${label}</div>
-  ${trend ? `<div class="daf-kpi__trend" style="color:${trendColor}">${trendIcon} ${trendValue ?? ''}</div>` : ''}
+  ${trend ? `<div class="daf-kpi__trend${trendClass}">${trendIcon} ${trendValue ?? ''}</div>` : ''}
 </div>`
 }

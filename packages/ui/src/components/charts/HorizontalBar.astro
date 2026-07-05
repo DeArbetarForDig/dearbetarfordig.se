@@ -57,18 +57,18 @@ function getBarColor(bar: Bar, value: number): string {
   return 'var(--color-primary)'
 }
 ---
-<div class:list={['daf-hbar grid gap-2', className]}>
+<div class:list={['daf-hbar grid gap-2', className]} style={`--hbar-label-w:${labelWidth};--hbar-h:${barHeight}px`}>
   {bars.map(bar => {
     const pct = (max - min) > 0 ? ((bar.value - min) / (max - min)) * 100 : 0
     const color = getBarColor(bar, bar.value)
     return (
       <div class="daf-hbar__row flex items-center gap-3">
-        <span class="text-sm font-semibold shrink-0 text-left" style={`width:${labelWidth}`}>{bar.label}</span>
-        {bar.subtitle && <span class="text-xs font-mono text-[var(--color-text-muted)] shrink-0 text-right" style="width:2rem">{bar.subtitle}</span>}
-        <div class="flex-1 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]" style={`height:${barHeight}px`}>
-          <div class="daf-hbar__fill rounded-full transition-all duration-300" style={`width:${pct}%;height:${barHeight}px;background:${color}`} />
+        <span class="text-sm font-semibold shrink-0 text-left w-(--hbar-label-w)">{bar.label}</span>
+        {bar.subtitle && <span class="text-xs font-mono text-[var(--color-text-muted)] shrink-0 text-right w-8">{bar.subtitle}</span>}
+        <div class="flex-1 rounded-full overflow-hidden bg-[var(--color-surface-sunken)] h-(--hbar-h)">
+          <div class="daf-hbar__fill rounded-full transition-all duration-300 w-(--w) h-(--hbar-h) bg-(--hbar-color)" style={`--w:${pct}%;--hbar-color:${color}`} />
         </div>
-        <span class="font-mono text-sm shrink-0 text-right" style="width:3.5rem">{bar.value}{unit && <span class="text-xs text-[var(--color-text-muted)] ml-0.5">{unit}</span>}</span>
+        <span class="font-mono text-sm shrink-0 text-right w-14">{bar.value}{unit && <span class="text-xs text-[var(--color-text-muted)] ml-0.5">{unit}</span>}</span>
       </div>
     )
   })}

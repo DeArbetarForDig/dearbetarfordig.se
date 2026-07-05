@@ -41,18 +41,8 @@ const {
   class: className,
 } = Astro.props
 
-const COLORS = [
-  '#2563eb',
-  '#7c3aed',
-  '#16a34a',
-  '#dc2626',
-  '#eab308',
-  '#0891b2',
-  '#db2777',
-  '#ea580c',
-  '#4f46e5',
-  '#059669',
-]
+// Categorical palette — tokens defined in tokens/css/global.css
+const COLORS = Array.from({ length: 10 }, (_, i) => `var(--chart-${i + 1})`)
 
 const margin = { top: 24, right: 16, bottom: 40, left: 56 }
 const chartWidth = 600
@@ -184,9 +174,9 @@ const chartData = JSON.stringify({
     {/* Stacked areas (bottom to top) */}
     <g class="daf-stacked-area__areas">
       {stacked.map((s, i) => (
-        <g class="daf-stacked-area__series" data-index={i}>
-          <path d={areaPath(s.lower, s.upper)} fill={s.color} class="daf-stacked-area__fill" />
-          <path d={linePath(s.upper)} stroke={s.color} class="daf-stacked-area__line" />
+        <g class="daf-stacked-area__series" data-index={i} style={`--series-color:${s.color}`}>
+          <path d={areaPath(s.lower, s.upper)} class="daf-stacked-area__fill" />
+          <path d={linePath(s.upper)} class="daf-stacked-area__line" />
         </g>
       ))}
     </g>
@@ -212,7 +202,7 @@ const chartData = JSON.stringify({
 
     {/* Tooltip circles */}
     {stacked.map((s) => (
-      <circle r="4" fill={s.color} stroke="var(--color-surface, #fff)" stroke-width="2" class="daf-stacked-area__dot" />
+      <circle r="4" stroke-width="2" class="daf-stacked-area__dot" style={`--series-color:${s.color}`} />
     ))}
   </svg>
 </div>
@@ -292,6 +282,7 @@ const chartData = JSON.stringify({
   }
 
   .daf-stacked-area__fill {
+    fill: var(--series-color);
     fill-opacity: 0.5;
     transition: fill-opacity 0.3s;
   }
@@ -310,6 +301,7 @@ const chartData = JSON.stringify({
 
   .daf-stacked-area__line {
     fill: none;
+    stroke: var(--series-color);
     stroke-width: 2;
     transition: stroke-opacity 0.3s;
   }
@@ -333,6 +325,8 @@ const chartData = JSON.stringify({
   }
 
   .daf-stacked-area__dot {
+    fill: var(--series-color);
+    stroke: var(--color-surface);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.15s;

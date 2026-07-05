@@ -42,7 +42,7 @@ const titleClasses = {
       {title && !tooltip && <div class={titleClasses[titleSize]}>{title}</div>}
       {title && tooltip && (
         <Tooltip text={tooltip} position={tooltipPosition}>
-          <div class:list={[titleClasses[titleSize], 'cursor-help inline-block']} style="text-decoration: underline dotted var(--color-text-subtle); text-underline-offset: 3px">{title}</div>
+          <div class:list={[titleClasses[titleSize], 'cursor-help inline-block underline decoration-dotted decoration-(--color-text-subtle) underline-offset-[3px]']}>{title}</div>
         </Tooltip>
       )}
       {subtitle && <div class="text-xs text-[var(--color-text-subtle)] mt-0.5">{subtitle}</div>}

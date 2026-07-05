@@ -78,7 +78,7 @@ const nämnder = [
         <button data-parti="alla" class="chip active">Alla</button>
         {parties.map(p => (
           <button data-parti={p} class="chip">
-            <span class="w-2.5 h-2.5 rounded-sm shrink-0" style={`background:var(--parti-${p.toLowerCase()})`} />
+            <span class="w-2.5 h-2.5 rounded-sm shrink-0 bg-(--parti-color)" style={`--parti-color:var(--parti-${p.toLowerCase()})`} />
             {p}
           </button>
         ))}

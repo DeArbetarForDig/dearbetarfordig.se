@@ -8,54 +8,14 @@
  * - Party colors as categorical palette
  */
 
-export const partyColors = {
-  S: '#ED1B34',
-  M: '#213A8F',
-  SD: '#FBC700',
-  C: '#114838',
-  V: '#DA291C',
-  KD: '#231977',
-  MP: '#4C983E',
-  L: '#0077C8',
-  D: '#1B1B1B',
-  '-': '#888888',
-} as const
+/**
+ * Color values live exclusively in CSS custom properties (tokens/css/*.css):
+ * --parti-*, --vote-*, --color-*, --chart-*. TS exports only the code lists
+ * and types so components can validate/enumerate without duplicating colors.
+ */
+export const partyCodes = ['S', 'M', 'SD', 'C', 'V', 'KD', 'MP', 'L', 'D', '-'] as const
 
-export const voteColors = {
-  ja: '#16A34A',
-  nej: '#DC2626',
-  avstår: '#EAB308',
-  frånvarande: '#64748B',
-} as const
-
-export const statusColors = {
-  positive: '#16A34A',
-  negative: '#DC2626',
-  warning: '#EAB308',
-  info: '#2563EB',
-  neutral: '#64748B',
-} as const
-
-export const theme = {
-  light: {
-    bg: '#F8FAFC',
-    surface: '#FFFFFF',
-    text: '#1E293B',
-    textMuted: '#64748B',
-    border: '#E2E8F0',
-    primary: '#2563EB',
-    accent: '#7C3AED',
-  },
-  dark: {
-    bg: '#0F172A',
-    surface: '#1E293B',
-    text: '#F1F5F9',
-    textMuted: '#94A3B8',
-    border: '#334155',
-    primary: '#60A5FA',
-    accent: '#A78BFA',
-  },
-} as const
+export const votePositions = ['ja', 'nej', 'avstår', 'frånvarande'] as const
 
 /** 8px spacing grid */
 export const spacing = {
@@ -77,5 +37,5 @@ export const fontSize = {
   kpi: '2.5rem',
 } as const
 
-export type PartyCode = keyof typeof partyColors
-export type VotePosition = keyof typeof voteColors
+export type PartyCode = (typeof partyCodes)[number]
+export type VotePosition = (typeof votePositions)[number]

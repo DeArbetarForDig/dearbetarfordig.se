@@ -19,17 +19,9 @@ const top = nämnder.slice(0, 10)
 const rest = nämnder.slice(10)
 const övrigtSum = rest.reduce((s: number, n: any) => s + n.kommunbidragMnkr, 0)
 
+// Categorical palette from tokens/css/global.css; last color = "Övrigt"
 const colors = [
-  'var(--color-primary)',
-  '#e67e22',
-  '#9b59b6',
-  '#2ecc71',
-  '#e74c3c',
-  '#3498db',
-  '#1abc9c',
-  '#f39c12',
-  '#8e44ad',
-  '#16a085',
+  ...Array.from({ length: 10 }, (_, i) => `var(--chart-${i + 1})`),
   'var(--color-text-subtle)',
 ]
 
@@ -50,16 +42,24 @@ const budgets = await Promise.all(years.map((y) => getBudgetYear(y)))
 
 // Gruppera nämnder i kategorier
 const kategorier: Record<string, { label: string; match: RegExp; color: string }> = {
-  skola: { label: 'Skola & förskola', match: /Förskole|Grundskole|Utbildnings/, color: '#2563eb' },
+  skola: {
+    label: 'Skola & förskola',
+    match: /Förskole|Grundskole|Utbildnings/,
+    color: 'var(--chart-1)',
+  },
   omsorg: {
     label: 'Omsorg & funktionsstöd',
     match: /Äldre|omsorg|funktionsstöd/i,
-    color: '#7c3aed',
+    color: 'var(--chart-2)',
   },
-  social: { label: 'Socialnämnderna', match: /Socialnämnd/, color: '#16a34a' },
-  stadsmiljö: { label: 'Stadsmiljö & trafik', match: /Stadsmiljö|Trafik|Park-/, color: '#ea580c' },
-  kultur: { label: 'Kultur & idrott', match: /Kultur|Idrotts/, color: '#0891b2' },
-  övrigt: { label: 'Övrigt', match: /.*/, color: '#64748b' },
+  social: { label: 'Socialnämnderna', match: /Socialnämnd/, color: 'var(--chart-3)' },
+  stadsmiljö: {
+    label: 'Stadsmiljö & trafik',
+    match: /Stadsmiljö|Trafik|Park-/,
+    color: 'var(--chart-8)',
+  },
+  kultur: { label: 'Kultur & idrott', match: /Kultur|Idrotts/, color: 'var(--chart-6)' },
+  övrigt: { label: 'Övrigt', match: /.*/, color: 'var(--color-neutral)' },
 }
 
 const katKeys = Object.keys(kategorier)

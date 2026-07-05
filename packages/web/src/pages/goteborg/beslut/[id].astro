@@ -150,24 +150,24 @@ const timeline = [
         <Card title="Votering (namnupprop)">
           <div class="flex gap-6 mb-3">
             <span class="flex items-center gap-2 text-sm">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-ja)" />
-              Ja: <strong class="font-mono" style="color:var(--vote-ja)">{detail.beslut.votering?.ja ?? jaCount}</strong>
+              <span class="w-3 h-3 rounded-sm bg-(--vote-ja)" />
+              Ja: <strong class="font-mono text-(--vote-ja)">{detail.beslut.votering?.ja ?? jaCount}</strong>
             </span>
             <span class="flex items-center gap-2 text-sm">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-nej)" />
-              Nej: <strong class="font-mono" style="color:var(--vote-nej)">{detail.beslut.votering?.nej ?? nejCount}</strong>
+              <span class="w-3 h-3 rounded-sm bg-(--vote-nej)" />
+              Nej: <strong class="font-mono text-(--vote-nej)">{detail.beslut.votering?.nej ?? nejCount}</strong>
             </span>
             {(detail.beslut.votering?.avstår || avstarCount > 0) && (
               <span class="flex items-center gap-2 text-sm">
-                <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstår)" />
-                Avstår: <strong class="font-mono" style="color:var(--vote-avstår)">{detail.beslut.votering?.avstår ?? avstarCount}</strong>
+                <span class="w-3 h-3 rounded-sm bg-(--vote-avstar)" />
+                Avstår: <strong class="font-mono text-(--vote-avstar)">{detail.beslut.votering?.avstår ?? avstarCount}</strong>
               </span>
             )}
           </div>
           <div class="flex h-3 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
-            <span style={`width:${Math.round(((detail.beslut.votering?.ja ?? jaCount) / ((detail.beslut.votering?.ja ?? jaCount) + (detail.beslut.votering?.nej ?? nejCount) + (detail.beslut.votering?.avstår ?? avstarCount))) * 100)}%;background:var(--vote-ja)`}></span>
-            <span style={`width:${Math.round(((detail.beslut.votering?.nej ?? nejCount) / ((detail.beslut.votering?.ja ?? jaCount) + (detail.beslut.votering?.nej ?? nejCount) + (detail.beslut.votering?.avstår ?? avstarCount))) * 100)}%;background:var(--vote-nej)`}></span>
-            <span class="flex-1" style="background:var(--vote-avstår)"></span>
+            <span class="w-(--w) bg-(--vote-ja)" style={`--w:${Math.round(((detail.beslut.votering?.ja ?? jaCount) / ((detail.beslut.votering?.ja ?? jaCount) + (detail.beslut.votering?.nej ?? nejCount) + (detail.beslut.votering?.avstår ?? avstarCount))) * 100)}%`}></span>
+            <span class="w-(--w) bg-(--vote-nej)" style={`--w:${Math.round(((detail.beslut.votering?.nej ?? nejCount) / ((detail.beslut.votering?.ja ?? jaCount) + (detail.beslut.votering?.nej ?? nejCount) + (detail.beslut.votering?.avstår ?? avstarCount))) * 100)}%`}></span>
+            <span class="flex-1 bg-(--vote-avstar)"></span>
           </div>
           <details class="mt-4">
             <summary class="text-sm font-semibold cursor-pointer text-[var(--color-primary)]">
@@ -190,7 +190,7 @@ const timeline = [
                     <div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-x-4 gap-y-1">
                       {g.members.map((r: any) => (
                         <div class="flex items-center gap-2 py-1">
-                          <span class="w-2.5 h-2.5 rounded-full shrink-0" style={`background:var(--vote-${r.röst === 'avstår' ? 'avstår' : r.röst})`}></span>
+                          <span class="w-2.5 h-2.5 rounded-full shrink-0 bg-(--vote-color)" style={`--vote-color:var(--vote-${r.röst === 'avstår' ? 'avstår' : r.röst})`}></span>
                           <PartyTag parti={r.parti} size="sm" />
                           <a href={`/goteborg/politiker/${r.politikerId || ''}`} class="truncate text-[var(--color-text)] hover:text-[var(--color-primary)]">{r.namn}</a>
                         </div>
@@ -210,25 +210,25 @@ const timeline = [
         <Card title="Votering (handuppräckning)">
           <div class="flex gap-6 mb-3">
             <span class="flex items-center gap-2 text-sm">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-ja)" />
-              Ja: <strong class="font-mono" style="color:var(--vote-ja)">{voteringSummary!.ja}</strong>
+              <span class="w-3 h-3 rounded-sm bg-(--vote-ja)" />
+              Ja: <strong class="font-mono text-(--vote-ja)">{voteringSummary!.ja}</strong>
             </span>
             <span class="flex items-center gap-2 text-sm">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-nej)" />
-              Nej: <strong class="font-mono" style="color:var(--vote-nej)">{voteringSummary!.nej}</strong>
+              <span class="w-3 h-3 rounded-sm bg-(--vote-nej)" />
+              Nej: <strong class="font-mono text-(--vote-nej)">{voteringSummary!.nej}</strong>
             </span>
             <span class="flex items-center gap-2 text-sm">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-avstår)" />
-              Avstår: <strong class="font-mono" style="color:var(--vote-avstår)">{voteringSummary!.avstår || 0}</strong>
+              <span class="w-3 h-3 rounded-sm bg-(--vote-avstar)" />
+              Avstår: <strong class="font-mono text-(--vote-avstar)">{voteringSummary!.avstår || 0}</strong>
             </span>
             <span class="flex items-center gap-2 text-sm">
-              <span class="w-3 h-3 rounded-sm" style="background:var(--vote-frånvarande)" />
-              Frånvarande: <strong class="font-mono" style="color:var(--vote-frånvarande)">{voteringSummary!.frånvarande || 0}</strong>
+              <span class="w-3 h-3 rounded-sm bg-(--vote-franvarande)" />
+              Frånvarande: <strong class="font-mono text-(--vote-franvarande)">{voteringSummary!.frånvarande || 0}</strong>
             </span>
           </div>
           <div class="flex h-3 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
-            <span style={`width:${Math.round(((voteringSummary!.ja || 0) / ((voteringSummary!.ja || 0) + (voteringSummary!.nej || 0))) * 100)}%;background:var(--vote-ja)`}></span>
-            <span style={`flex:1;background:var(--vote-nej)`}></span>
+            <span class="w-(--w) bg-(--vote-ja)" style={`--w:${Math.round(((voteringSummary!.ja || 0) / ((voteringSummary!.ja || 0) + (voteringSummary!.nej || 0))) * 100)}%`}></span>
+            <span class="flex-1 bg-(--vote-nej)"></span>
           </div>
           <p class="m-0 mt-3 text-xs text-[var(--color-text-muted)]">Poängen avgjordes genom handuppräckning. Individuella röster protokollförs inte vid denna typ av omröstning.</p>
           <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-[var(--color-warning)]">
@@ -285,7 +285,7 @@ const timeline = [
       <section class="mt-8 mb-8">
         <Card title={detail.beslut.handlingText ? 'Handling (fulltext)' : 'Protokollstext'}>
           <div class="handling-text">
-            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed" style="white-space:pre-line">{detail.beslut.handlingText || detail.beslut.fulltext}</p>
+            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed whitespace-pre-line">{detail.beslut.handlingText || detail.beslut.fulltext}</p>
           </div>
         </Card>
       </section>
@@ -332,7 +332,7 @@ const timeline = [
                 <div class="shrink-0 w-8 h-8 rounded-full bg-[var(--color-surface-sunken)] flex items-center justify-center">
                   <Icon name="user" size={16} class="text-[var(--color-text-subtle)]" />
                 </div>
-                <div style="min-width:0;flex:1">
+                <div class="min-w-0 flex-1">
                   <div class="flex items-center gap-2 mb-1">
                     {a.parti && <PartyTag parti={a.parti} size="sm" />}
                     {a.politikerId ? (
@@ -344,7 +344,7 @@ const timeline = [
                   </div>
                   {a.text ? (
                     <div class="anforande-text">
-                      <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed" style="white-space:pre-wrap">{a.text}</p>
+                      <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed whitespace-pre-wrap">{a.text}</p>
                     </div>
                   ) : (
                     <p class="m-0 text-xs text-[var(--color-text-subtle)] italic">Transkription saknas</p>

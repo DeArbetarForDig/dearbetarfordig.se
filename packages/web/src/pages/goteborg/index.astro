@@ -1,12 +1,12 @@
 ---
 import DecisionCard from '../../../../ui/src/components/cards/DecisionCard.astro'
+import OrgBlock from '../../../../ui/src/components/cards/OrgBlock.astro'
 import Chamber from '../../../../ui/src/components/charts/Chamber.astro'
 import Donut from '../../../../ui/src/components/charts/Donut.astro'
 import HorizontalBar from '../../../../ui/src/components/charts/HorizontalBar.astro'
 import Button from '../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../ui/src/components/core/Icon.astro'
-import PartyTag from '../../../../ui/src/components/core/PartyTag.astro'
 import { fetchApi, getBeslut, getBudget, getMetrics, getPolitiker, getStats } from '../../data/api'
 import Base from '../../layouts/Base.astro'
 
@@ -148,7 +148,7 @@ const senasteBeslut = beslutList
 
   <!-- KPI row -->
   <section class="mb-12">
-    <div class="grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+    <div class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
       <Card title="Politiker" titleSize="sm">
         <div class="font-mono text-[2.5rem] font-bold leading-none text-[var(--color-text)]">{stats.politiker}</div>
       </Card>
@@ -169,57 +169,26 @@ const senasteBeslut = beslutList
     <!-- Struktur -->
     <Card title="Hur styrs Göteborg?" titleSize="lg">
       <div class="flex flex-col gap-3">
-        <div class="p-4 rounded-lg bg-[var(--color-surface-sunken)] border-l-4 border-l-[var(--color-primary)]">
-          <h3 class="font-bold">Kommunfullmäktige (KF)</h3>
-          <p class="text-sm text-[var(--color-text-muted)] mb-2">"Riksdagen för Göteborg" — 81 ledamöter fattar alla stora beslut</p>
-          {kfLedamöter.length > 0 && (
-            <ul class="grid gap-1.5" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-              {kfLedamöter.map((p) => (
-                <li>
-                  <a href={`/goteborg/politiker/${p.id}`} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
-                    <PartyTag parti={p.parti} size="sm" />
-                    <span class="truncate">{p.namn}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div class="ml-6 p-4 rounded-lg bg-[var(--color-surface-sunken)] border-l-4 border-l-violet-500">
-          <h3 class="font-bold">Kommunstyrelsen (KS)</h3>
-          <p class="text-sm text-[var(--color-text-muted)] mb-2">"Regeringen" — 13 ledamöter leder det dagliga arbetet</p>
-          {ksLedamöter.length > 0 && (
-            <ul class="grid gap-1.5" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-              {ksLedamöter.map((p) => (
-                <li>
-                  <a href={`/goteborg/politiker/${p.id}`} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
-                    <PartyTag parti={p.parti} size="sm" />
-                    <span class="truncate">{p.namn}{p.ärKf && ' (KF)'}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div class="ml-12 grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-          {topNämnder.map((n: any) => (
-            <div class="p-3 rounded bg-[var(--color-surface-sunken)] text-sm">
-              <span class="font-semibold">{n.namn}</span>
-              {n.politiker.length > 0 && (
-                <ul class="mt-2 space-y-1">
-                  {n.politiker.map((p: any) => (
-                    <li>
-                      <a href={`/goteborg/politiker/${p.id}`} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
-                        <PartyTag parti={p.parti} size="sm" />
-                        <span class="truncate">{p.namn}{p.ärKf && ' (KF)'}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
+        <OrgBlock
+          title="Kommunfullmäktige (KF)"
+          description='"Riksdagen för Göteborg" — 81 ledamöter fattar alla stora beslut'
+          politiker={kfLedamöter.map((p) => ({ url: `/goteborg/politiker/${p.id}`, namn: p.namn, parti: p.parti }))}
+        />
+        <OrgBlock
+          title="Kommunstyrelsen (KS)"
+          description='"Regeringen" — 13 ledamöter leder det dagliga arbetet'
+          accent="var(--org-ks)"
+          class="ml-6"
+          politiker={ksLedamöter.map((p) => ({ url: `/goteborg/politiker/${p.id}`, namn: p.namn, parti: p.parti, ärKf: p.ärKf }))}
+        />
+        {topNämnder.map((n: any) => (
+          <OrgBlock
+            title={n.namn}
+            accent="var(--org-namnd)"
+            class="ml-12"
+            politiker={n.politiker.map((p: any) => ({ url: `/goteborg/politiker/${p.id}`, namn: p.namn, parti: p.parti, ärKf: p.ärKf }))}
+          />
+        ))}
       </div>
     </Card>
   </section>
@@ -228,13 +197,14 @@ const senasteBeslut = beslutList
   <section class="mb-12">
     <h2 class="text-2xl font-bold mb-4">Demokratisk hälsa</h2>
     <p class="text-sm text-[var(--color-text-muted)] mb-4">Vetenskapliga nyckeltal baserade på Legislative Studies-forskning</p>
-    <div class="grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    <div class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]">
       <Card title="Konsensus" subtitle="Ärenden utan votering" tooltip="Andel beslut som fattades utan formell omröstning — alla var överens. Över 85% kan tyda på att verklig debatt sker bakom stängda dörrar.">
-        <div class="font-mono text-[2.5rem] font-bold leading-none"
-          style={metrics.konsensus.konsensusgradProcent > 85 ? 'color:var(--color-warning)' : 'color:var(--color-text)'}
-        >{metrics.konsensus.konsensusgradProcent}<span class="text-base ml-1 text-[var(--color-text-muted)]">%</span></div>
+        <div class:list={[
+          'font-mono text-[2.5rem] font-bold leading-none',
+          metrics.konsensus.konsensusgradProcent > 85 ? 'text-(--color-warning)' : 'text-(--color-text)',
+        ]}>{metrics.konsensus.konsensusgradProcent}<span class="text-base ml-1 text-[var(--color-text-muted)]">%</span></div>
         {metrics.konsensus.konsensusgradProcent > 85 && (
-          <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-warning)">
+          <div class="mt-2 text-xs font-semibold flex items-center gap-1 text-(--color-warning)">
             <Icon name="triangle-alert" size={14} />
             Hög — kan dölja brist på debatt
           </div>
@@ -242,11 +212,12 @@ const senasteBeslut = beslutList
       </Card>
 
       <Card title="Debatt-Gini" subtitle="0 = jämnt, 1 = få dominerar" tooltip="Gini-koefficient som mäter hur ojämnt fördelat talartiden är. 0 = alla politiker talar lika mycket. 1 = en enda person tar all tid. Baserat på 16 476 registrerade anföranden.">
-        <div class="font-mono text-[2.5rem] font-bold leading-none"
-          style={metrics.debatt.giniKoefficient > 0.7 ? 'color:var(--color-negative)' : metrics.debatt.giniKoefficient > 0.5 ? 'color:var(--color-warning)' : 'color:var(--color-positive)'}
-        >{metrics.debatt.giniKoefficient}</div>
+        <div class:list={[
+          'font-mono text-[2.5rem] font-bold leading-none',
+          metrics.debatt.giniKoefficient > 0.7 ? 'text-(--color-negative)' : metrics.debatt.giniKoefficient > 0.5 ? 'text-(--color-warning)' : 'text-(--color-positive)',
+        ]}>{metrics.debatt.giniKoefficient}</div>
         {metrics.debatt.giniKoefficient > 0.7 && (
-          <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-negative)">
+          <div class="mt-2 text-xs font-semibold flex items-center gap-1 text-(--color-negative)">
             <Icon name="shield-alert" size={14} />
             Få politiker dominerar debatten
           </div>
@@ -258,8 +229,8 @@ const senasteBeslut = beslutList
       </Card>
 
       <Card title="Snitt närvarande" subtitle={`${metrics.närvaro.möten} möten (inkl. ersättare)`} tooltip="Genomsnittligt antal politiker som registrerats som närvarande per KF-sammanträde. Inkluderar både ordinarie ledamöter (81 st) och tjänstgörande ersättare." tooltipPosition="top-right">
-        <div class="font-mono text-[2.5rem] font-bold leading-none" style="color:var(--color-positive)">{metrics.närvaro.snittPerMöte}</div>
-        <div class="mt-2 text-xs font-semibold flex items-center gap-1" style="color:var(--color-positive)">
+        <div class="font-mono text-[2.5rem] font-bold leading-none text-(--color-positive)">{metrics.närvaro.snittPerMöte}</div>
+        <div class="mt-2 text-xs font-semibold flex items-center gap-1 text-(--color-positive)">
           <Icon name="circle-check" size={14} />
           Bra uppslutning
         </div>

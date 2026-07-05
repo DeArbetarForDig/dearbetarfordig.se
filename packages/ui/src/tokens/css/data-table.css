@@ -19,6 +19,8 @@
   border-bottom: 2px solid var(--color-border-strong);
   color: var(--color-text);
   user-select: none;
+  width: var(--col-width, auto);
+  min-width: var(--col-width, auto);
 }
 .daf-dt__th.is-sortable {
   cursor: pointer;

@@ -39,7 +39,7 @@ const data = ksBeslut.map((b) => {
     _titel_html: `<a href="/goteborg/beslut/${encodeURIComponent(b.id)}" class="text-[var(--color-text)] hover:text-[var(--color-primary)]">${titel}</a>`,
     _paragraf_html: b.paragraf ? `§ ${Number.parseInt(b.paragraf.replace('§ ', ''))}` : '',
     _status_html: statusColor
-      ? `<span style="color:${statusColor};font-weight:600">${status}</span>`
+      ? `<span class="font-semibold text-(--status-color)" style="--status-color:${statusColor}">${status}</span>`
       : status || '—',
   }
 })

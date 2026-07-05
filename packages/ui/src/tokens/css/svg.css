@@ -100,3 +100,61 @@ text {
     fill: var(--vote-avstår);
   }
 }
+
+/* Generated chamber SVG (components/chamber) */
+.seat-group {
+  transition: opacity 0.15s;
+}
+
+.seat.seat--outlined {
+  stroke: var(--seat-stroke);
+  stroke-width: 0.5;
+}
+
+.seat.seat--outlined:hover {
+  stroke: var(--system-white);
+  stroke-width: 2;
+  cursor: pointer;
+}
+
+.chamber-panel__bg {
+  fill: var(--chamber-panel-bg);
+  opacity: 0.9;
+}
+
+.chamber-panel__label {
+  fill: var(--gray-68);
+}
+
+.chamber-panel__muted {
+  fill: var(--gray-42);
+}
+
+.chamber-panel__ja {
+  fill: var(--vote-ja);
+}
+
+.chamber-panel__nej {
+  fill: var(--vote-nej);
+}
+
+.chamber-panel__avstår {
+  fill: var(--vote-avstår);
+}
+
+/* Generated structure tree SVG (components/structure-tree) */
+.daf-org-node__box {
+  opacity: 0.9;
+}
+
+.daf-org-node__box--0 {
+  fill: var(--chart-1);
+}
+
+.daf-org-node__box--1 {
+  fill: var(--chart-2);
+}
+
+.daf-org-node__box--2 {
+  fill: var(--color-neutral);
+}

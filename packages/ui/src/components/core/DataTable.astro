@@ -79,7 +79,7 @@ const {
               ]}
               data-key={col.key}
               data-sort-type={col.sort || 'default'}
-              style={col.width ? `width:${col.width};min-width:${col.width}` : ''}
+              style={col.width ? `--col-width:${col.width}` : ''}
             >
               {col.label}
               {sortable && col.sort !== false && <span class="daf-dt__sort-icon"></span>}
@@ -92,10 +92,9 @@ const {
               <td class="daf-dt__filter-cell">
                 <input
                   type="text"
-                  class="daf-dt__filter-input"
+                  class:list={['daf-dt__filter-input', col.align === 'right' && 'text-right']}
                   data-key={col.key}
                   placeholder={col.label}
-                  style={col.align === 'right' ? 'text-align:right' : ''}
                 />
               </td>
             ))}

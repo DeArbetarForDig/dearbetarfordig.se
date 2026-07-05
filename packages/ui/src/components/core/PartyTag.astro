@@ -35,8 +35,6 @@ const PARTY: Record<string, { color: string; name: string }> = {
 
 const { parti, full = false, size = 'md', class: className } = Astro.props
 const p = PARTY[parti] || { color: 'var(--parti-ovriga)', name: parti }
-const boxSize = size === 'sm' ? '18px' : '22px'
-const fontSize = size === 'sm' ? '11px' : '13px'
 ---
 <span
   class:list={['inline-flex items-center gap-1.5', full && 'bg-(--color-surface-sunken) rounded-sm pr-2', className]}
@@ -44,8 +42,11 @@ const fontSize = size === 'sm' ? '11px' : '13px'
 >
   <span
     aria-hidden="true"
-    class="inline-flex items-center justify-center rounded-sm text-white font-bold tracking-tight shrink-0"
-    style={`background:${p.color};width:${boxSize};height:${boxSize};font-size:${fontSize}`}
+    class:list={[
+      'inline-flex items-center justify-center rounded-sm text-white font-bold tracking-tight shrink-0 bg-(--parti-color)',
+      size === 'sm' ? 'w-[18px] h-[18px] text-[11px]' : 'w-[22px] h-[22px] text-[13px]',
+    ]}
+    style={`--parti-color:${p.color}`}
   >
     {parti}
   </span>

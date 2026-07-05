@@ -63,30 +63,28 @@ const dataJson = JSON.stringify(
   data-show-value={showValue ? 'true' : ''}
   data-show-absolute={showAbsoluteValue ? 'true' : ''}
 >
-  <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label="Fördelning" class="shrink-0">
+  <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label="Fördelning" class="shrink-0" style={`--donut-size:${size}px`}>
     <g class="daf-donut__ring" transform={`rotate(-90 ${cx} ${cy})`}>
       {arcs.map((a, i) => (
         <circle
           class="daf-donut__segment"
           data-index={i}
           cx={cx} cy={cy} r={r} fill="none"
-          stroke={a.color} stroke-width={thickness}
+          stroke-width={thickness}
           stroke-dasharray={`${a.dash} ${circ - a.dash}`}
           stroke-dashoffset={-a.offset}
+          style={`--seg-color:${a.color}`}
         />
       ))}
     </g>
     <g class="daf-donut__center">
-      <text class="daf-donut__value" x={cx} y={cy - (unit ? 4 : 0)} text-anchor="middle" dominant-baseline="central"
-        style={`font-family:var(--font-mono);font-weight:700;font-size:${size * 0.11}px;fill:var(--color-text)`}>
+      <text class="daf-donut__value" x={cx} y={cy - (unit ? 4 : 0)} text-anchor="middle" dominant-baseline="central">
         {showValue ? total : ''}
       </text>
-      <text class="daf-donut__unit" x={cx} y={cy + size * 0.09} text-anchor="middle" dominant-baseline="central"
-        style={`font-family:var(--font-sans);font-size:${size * 0.06}px;fill:var(--color-text-muted)`}>
+      <text class="daf-donut__unit" x={cx} y={cy + size * 0.09} text-anchor="middle" dominant-baseline="central">
         {showValue ? unit : ''}
       </text>
-      <text class="daf-donut__label" x={cx} y={cy + size * 0.17} text-anchor="middle" dominant-baseline="central"
-        style={`font-family:var(--font-sans);font-size:${size * 0.04}px;fill:var(--color-text-muted)`}>
+      <text class="daf-donut__label" x={cx} y={cy + size * 0.17} text-anchor="middle" dominant-baseline="central">
       </text>
     </g>
   </svg>
@@ -94,7 +92,7 @@ const dataJson = JSON.stringify(
     <ul class="daf-donut__legend list-none m-0 p-0 grid gap-1.5">
       {arcs.map((a, i) => (
         <li class="flex items-center gap-2 text-sm" data-index={i}>
-          <span class="w-3 h-3 rounded-sm shrink-0" style={`background:${a.color}`} />
+          <span class="w-3 h-3 rounded-sm shrink-0 bg-(--seg-color)" style={`--seg-color:${a.color}`} />
           <span class="text-(--color-text)">{a.label}</span>
           <span class="font-mono text-(--color-text-muted) ml-auto pl-3">
             {showAbsoluteValue ? `${a.value} ${unit}` : `${Math.round(a.frac * 100)}%`}
@@ -108,8 +106,25 @@ const dataJson = JSON.stringify(
 
 <style>
   .daf-donut__segment {
+    stroke: var(--seg-color);
     transition: opacity 0.3s, stroke-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+  }
+  .daf-donut__value {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: calc(var(--donut-size) * 0.11);
+    fill: var(--color-text);
+  }
+  .daf-donut__unit {
+    font-family: var(--font-sans);
+    font-size: calc(var(--donut-size) * 0.06);
+    fill: var(--color-text-muted);
+  }
+  .daf-donut__label {
+    font-family: var(--font-sans);
+    font-size: calc(var(--donut-size) * 0.04);
+    fill: var(--color-text-muted);
   }
   .daf-donut__segment.dimmed {
     opacity: 0.2;

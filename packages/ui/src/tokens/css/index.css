@@ -1,0 +1,16 @@
+/**
+ * @daf/ui — single CSS entry point.
+ *
+ * Import this file (or the "@daf/ui/css" package export) from the app's
+ * stylesheet. Order matters: tokens first, themes, then component styles.
+ */
+
+@import "./global.css";
+@import "./light.css";
+@import "./dark.css";
+@import "./base.css";
+@import "./svg.css";
+@import "./chart-tooltip.css";
+@import "./tooltip.css";
+@import "./data-table.css";
+@import "./kpi.css";

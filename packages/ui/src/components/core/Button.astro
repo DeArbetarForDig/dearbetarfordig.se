@@ -98,7 +98,7 @@ const linkProps = Tag === 'a' ? { href, role: 'button' } : { disabled }
 
   /* Primary */
   .btn--primary {
-    color: var(--color-primary-text, #fff);
+    color: var(--color-primary-text);
     background-color: var(--color-primary);
     border: 1px solid var(--color-primary);
   }
@@ -136,12 +136,12 @@ const linkProps = Tag === 'a' ? { href, role: 'button' } : { disabled }
     border: 1px solid var(--color-error);
   }
   .btn--warning:hover:not(.btn--disabled) {
-    color: #fff;
+    color: var(--system-white);
     background-color: var(--color-error);
     border-color: var(--color-error);
   }
   .btn--warning:active:not(.btn--disabled) {
-    color: #fff;
+    color: var(--system-white);
     background-color: var(--color-error);
     filter: brightness(0.9);
     transition: none;

@@ -33,10 +33,10 @@ const { namn, parti, foto, roll, aktivSedan, url = '#', class: className } = Ast
           <Icon name="user" size={26} class="text-[var(--color-text-subtle)]" />
         </span>
       )}
-      <div style="min-width:0;flex:1">
-        <div class="flex items-center gap-2 mb-0.5" style="overflow:hidden">
+      <div class="min-w-0 flex-1">
+        <div class="flex items-center gap-2 mb-0.5 overflow-hidden">
           <PartyTag parti={parti} size="sm" />
-          <span class="text-base font-semibold leading-tight" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{namn}</span>
+          <span class="text-base font-semibold leading-tight truncate">{namn}</span>
         </div>
         {roll && <p class="m-0 text-sm text-[var(--color-text-muted)]">{roll}</p>}
         {aktivSedan && (

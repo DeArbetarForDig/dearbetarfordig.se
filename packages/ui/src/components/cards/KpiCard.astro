@@ -23,7 +23,7 @@ const { label, value, unit, color, class: className } = Astro.props
 ---
 <div class:list={[className]}>
   <Card title={label} titleSize="sm">
-    <div class="font-mono text-2xl font-bold" style={color ? `color:${color}` : ''}>
+    <div class:list={['font-mono text-2xl font-bold', color && 'text-(--kpi-color)']} style={color ? `--kpi-color:${color}` : ''}>
       {value}{unit && <span class="text-sm text-[var(--color-text-muted)]"> {unit}</span>}
     </div>
   </Card>

@@ -50,7 +50,7 @@ const resultatMnkr = utfall?.resultatMnkr ?? null
     </section>
 
     <!-- KPI row -->
-    <section class="mb-8 grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+    <section class="mb-8 grid gap-4 grid-cols-[repeat(auto-fit,minmax(150px,1fr))]">
       <KpiCard label="Direktörslön" value={direktör.lön?.toLocaleString('sv-SE')} unit="kr/mån" />
       {budgetMnkr > 0 && (
         <KpiCard label="Kommunbidrag 2025" value={budgetMnkr.toLocaleString('sv-SE')} unit="mnkr" />
