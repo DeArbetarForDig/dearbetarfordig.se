@@ -27,6 +27,12 @@ const polPerNämndLower = new Map(
   Object.entries(polPerNämnd || {}).map(([k, v]) => [k.toLowerCase(), v]),
 )
 
+// Antal nämnder per politiker (ledamot_i, exkl. ersättare) — för (N:x)-suffixet
+const nämndAntal = new Map<string, number>()
+for (const pols of Object.values(polPerNämnd || {})) {
+  for (const p of pols) nämndAntal.set(p.id, (nämndAntal.get(p.id) || 0) + 1)
+}
+
 const topNämnder = budget.nämnder
   .filter((n: any) => n.kommunbidragMnkr > 200 && !n.namn.includes('Reavinster'))
   .slice(0, 12)
@@ -88,6 +94,9 @@ const ksLedamöter = politiker
       (partiRank.get(a.parti) ?? 99) - (partiRank.get(b.parti) ?? 99) ||
       a.namn.localeCompare(b.namn, 'sv'),
   )
+
+// KS-medlemskap för (KS)-suffixet i KF-listan
+const ksIds = new Set(ksLedamöter.map((p) => p.id))
 
 const seats = kfLedamöter.map((p, i) => ({
   nummer: i + 1,
@@ -187,21 +196,27 @@ const senasteBeslut = beslutList
         <OrgBlock
           title="Kommunfullmäktige (KF)"
           description='"Riksdagen för Göteborg" — 81 ledamöter fattar alla stora beslut'
-          politiker={kfLedamöter.map((p) => ({ url: `/goteborg/politiker/${p.id}`, namn: p.namn, parti: p.parti }))}
+          politiker={kfLedamöter.map((p) => ({ url: `/goteborg/politiker/${p.id}`, namn: p.namn, parti: p.parti, ärKs: ksIds.has(p.id), antalNämnder: nämndAntal.get(p.id) }))}
         />
         <OrgBlock
           title="Kommunstyrelsen (KS)"
           description='"Regeringen" — 13 ledamöter leder det dagliga arbetet'
           accent="var(--org-ks)"
           class="ml-6"
-          politiker={ksLedamöter.map((p) => ({ url: `/goteborg/politiker/${p.id}`, namn: p.namn, parti: p.parti, ärKf: p.ärKf }))}
+          politiker={ksLedamöter.map((p) => ({ url: `/goteborg/politiker/${p.id}`, namn: p.namn, parti: p.parti, ärKf: p.ärKf, antalNämnder: nämndAntal.get(p.id) }))}
         />
         {topNämnder.map((n: any) => (
           <OrgBlock
             title={n.namn}
             accent="var(--org-namnd)"
             class="ml-12"
-            politiker={n.politiker.map((p: any) => ({ url: `/goteborg/politiker/${p.id}`, namn: p.namn, parti: p.parti, ärKf: p.ärKf }))}
+            politiker={n.politiker.map((p: any) => ({
+              url: `/goteborg/politiker/${p.id}`,
+              namn: p.namn,
+              parti: p.parti,
+              ärKf: p.ärKf,
+              antalNämnder: nämndAntal.get(p.id),
+            }))}
           />
         ))}
       </div>

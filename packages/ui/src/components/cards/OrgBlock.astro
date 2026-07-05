@@ -11,7 +11,9 @@
  * - title: organ name
  * - description: one-line explanation shown under the title
  * - accent: CSS color for the left border, pass a var() token (default var(--org-kf))
- * - politiker: list of members; ärKf appends " (KF)" to the name
+ * - politiker: list of members, sorted by party — rendered as party groups
+ *   with separators; ärKf appends " (KF)", ärKs appends " (KS)", antalNämnder
+ *   appends " (N:x)" — how many nämnder the politician sits in (omit to hide)
  * - class: extra classes, e.g. ml-6/ml-12 for hierarchy indentation
  *
  * Slot renders after the politician list for extra content.
@@ -22,7 +24,14 @@ interface Props {
   title: string
   description?: string
   accent?: string
-  politiker?: { url: string; namn: string; parti: string; ärKf?: boolean }[]
+  politiker?: {
+    url: string
+    namn: string
+    parti: string
+    ärKf?: boolean
+    ärKs?: boolean
+    antalNämnder?: number
+  }[]
   class?: string
 }
 
@@ -33,6 +42,19 @@ const {
   politiker = [],
   class: className,
 } = Astro.props
+
+type Politiker = NonNullable<Props['politiker']>[number]
+
+// Consecutive party groups (list is expected to be sorted by party)
+const grupper: { parti: string; members: Politiker[] }[] = []
+let current: { parti: string; members: Politiker[] } | null = null
+for (const p of politiker) {
+  if (!current || current.parti !== p.parti) {
+    current = { parti: p.parti, members: [] }
+    grupper.push(current)
+  }
+  current.members.push(p)
+}
 ---
 <div
   class:list={['p-4 rounded-lg bg-(--color-surface-sunken) border-l-4 border-l-(--org-accent)', className]}
@@ -40,17 +62,20 @@ const {
 >
   <h3 class="font-bold">{title}</h3>
   {description && <p class="text-sm text-(--color-text-muted)">{description}</p>}
-  {politiker.length > 0 && (
-    <ul class="mt-2 grid gap-1.5 grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
-      {politiker.map((p) => (
-        <li>
-          <a href={p.url} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
-            <PartyTag parti={p.parti} size="sm" />
-            <span class="truncate">{p.namn}{p.ärKf && ' (KF)'}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  )}
+  {grupper.map((g, i) => (
+    <>
+      {i > 0 && <div class="border-t border-(--color-border) my-2"></div>}
+      <ul class="mt-2 grid gap-1.5 grid-cols-1 sm:grid-cols-3 lg:grid-cols-4">
+        {g.members.map((p) => (
+          <li>
+            <a href={p.url} class="flex items-center gap-2 text-xs hover:text-[var(--color-primary)] transition-colors">
+              <PartyTag parti={p.parti} size="sm" />
+              <span class="truncate">{p.namn}{p.ärKf && ' (KF)'}{p.ärKs && ' (KS)'}{p.antalNämnder ? ` (N:${p.antalNämnder})` : ''}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
+  ))}
   <slot />
 </div>
