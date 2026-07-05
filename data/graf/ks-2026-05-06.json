@@ -998,6 +998,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
+      "to": "ks-2026-05-06-§334",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "politiker-a75817be-37e6-474e-a0a8-94ba0aca8339",
       "to": "ks-2026-05-06-§334",
       "typ": "röstade_avstår"
@@ -1096,6 +1101,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
+      "to": "ks-2026-05-06-§340",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2026-05-06-§341",
       "to": "org-stadens-nämnd",
       "typ": "hänvisar_till"
@@ -1172,6 +1182,11 @@
     },
     {
       "from": "politiker-3893be8c-ed5e-4520-9f60-9c6c3aac9023",
+      "to": "ks-2026-05-06-§344",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
       "to": "ks-2026-05-06-§344",
       "typ": "röstade_nej"
     },
@@ -1436,7 +1451,17 @@
       "typ": "närvarade"
     },
     {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
+      "to": "möte-ks-2026-05-06",
+      "typ": "närvarade"
+    },
+    {
       "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
+      "to": "möte-ks-2026-05-06",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
       "to": "möte-ks-2026-05-06",
       "typ": "närvarade"
     },

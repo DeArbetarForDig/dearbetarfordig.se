@@ -1195,6 +1195,11 @@
       "typ": "röstade_ja"
     },
     {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
+      "to": "ks-2026-06-17-§444",
+      "typ": "röstade_ja"
+    },
+    {
       "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
       "to": "ks-2026-06-17-§444",
       "typ": "röstade_ja"
@@ -1221,6 +1226,11 @@
     },
     {
       "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2026-06-17-§444",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
       "to": "ks-2026-06-17-§444",
       "typ": "röstade_nej"
     },
@@ -1267,6 +1277,11 @@
       "typ": "röstade_ja"
     },
     {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
+      "to": "ks-2026-06-17-§449",
+      "typ": "röstade_ja"
+    },
+    {
       "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
       "to": "ks-2026-06-17-§449",
       "typ": "röstade_ja"
@@ -1293,6 +1308,11 @@
     },
     {
       "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2026-06-17-§449",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
       "to": "ks-2026-06-17-§449",
       "typ": "röstade_nej"
     },
@@ -1408,6 +1428,11 @@
       "typ": "röstade_ja"
     },
     {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
+      "to": "ks-2026-06-17-§478",
+      "typ": "röstade_ja"
+    },
+    {
       "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
       "to": "ks-2026-06-17-§478",
       "typ": "röstade_ja"
@@ -1434,6 +1459,11 @@
     },
     {
       "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2026-06-17-§478",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
       "to": "ks-2026-06-17-§478",
       "typ": "röstade_nej"
     },
@@ -1463,6 +1493,11 @@
       "typ": "röstade_ja"
     },
     {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
+      "to": "ks-2026-06-17-§480",
+      "typ": "röstade_ja"
+    },
+    {
       "from": "politiker-a68b8532-69d6-412f-8a23-076b00afecd5",
       "to": "ks-2026-06-17-§480",
       "typ": "röstade_ja"
@@ -1489,6 +1524,11 @@
     },
     {
       "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2026-06-17-§480",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
       "to": "ks-2026-06-17-§480",
       "typ": "röstade_nej"
     },
@@ -1859,6 +1899,16 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "möte-ks-2026-06-17",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
+      "to": "möte-ks-2026-06-17",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
       "to": "möte-ks-2026-06-17",
       "typ": "närvarade"
     },
