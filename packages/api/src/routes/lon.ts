@@ -35,7 +35,10 @@ lonRouter.openapi(direktörerRoute, async (c) => {
     // Fallback: read from file if not yet seeded
     const { readFileSync, existsSync } = await import('node:fs')
     const { join } = await import('node:path')
-    const filePath = join(import.meta.dirname, '../../../data/lon/forvaltningsdirektorer-2026.json')
+    const filePath = join(
+      import.meta.dirname,
+      '../../../../data/lon/forvaltningsdirektorer-2026.json',
+    )
     if (!existsSync(filePath)) return c.json({ antal: 0, direktörer: [] }, 200)
     const data = JSON.parse(readFileSync(filePath, 'utf-8'))
     return c.json(

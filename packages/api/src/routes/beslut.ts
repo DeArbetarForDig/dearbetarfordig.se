@@ -199,8 +199,11 @@ beslutRouter.openapi(anförandenRoute, async (c) => {
       const { readFileSync, existsSync } = await import('node:fs')
       const { join } = await import('node:path')
       // New format: kf-{datum}.json (from parse-yttrandeprotokoll)
-      const newPath = join(import.meta.dirname, `../../../data/debatter/kf-${datum}.json`)
-      const legacyPath = join(import.meta.dirname, `../../../data/debatter/speakers-${datum}.json`)
+      const newPath = join(import.meta.dirname, `../../../../data/debatter/kf-${datum}.json`)
+      const legacyPath = join(
+        import.meta.dirname,
+        `../../../../data/debatter/speakers-${datum}.json`,
+      )
       const path = existsSync(newPath) ? newPath : legacyPath
       if (existsSync(path)) {
         const file = JSON.parse(readFileSync(path, 'utf-8'))

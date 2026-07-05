@@ -196,7 +196,7 @@ motenRouter.openapi(moteAnforandenRoute, async (c) => {
   const { kommun, datum } = c.req.valid('param')
   const { readFileSync, existsSync } = await import('node:fs')
   const { join } = await import('node:path')
-  const path = join(import.meta.dirname, `../../../data/debatter/kf-${datum}.json`)
+  const path = join(import.meta.dirname, `../../../../data/debatter/kf-${datum}.json`)
   if (!existsSync(path)) return c.json({ error: 'Inget yttrandeprotokoll för detta datum' }, 404)
   const data = JSON.parse(readFileSync(path, 'utf-8'))
   const { talare, ärende, q } = c.req.valid('query')
