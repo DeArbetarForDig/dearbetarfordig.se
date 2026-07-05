@@ -56,6 +56,8 @@ const politikerMedUppdrag = politiker.map((p) => ({
   ...p,
   uppdragskategorier: uppdragskategorier(p.uppdrag),
 }))
+// Årschips genereras från förekommande "Aktiv sedan"-värden — exakt matchning
+const aktivSedanÅr = [...new Set(politiker.map((p) => p.aktivSedan).filter(Boolean))].sort()
 const nämnder = [
   ...new Set(
     politikerMedUppdrag.flatMap((p) =>
@@ -86,11 +88,9 @@ const nämnder = [
     </div>
     <div class="flex gap-1.5 flex-wrap">
       <button data-period="alla" class="chip chip--period active">Alla perioder</button>
-      <button data-period="2006" class="chip chip--period">sedan 2006</button>
-      <button data-period="2010" class="chip chip--period">sedan 2010</button>
-      <button data-period="2014" class="chip chip--period">sedan 2014</button>
-      <button data-period="2018" class="chip chip--period">sedan 2018</button>
-      <button data-period="2022" class="chip chip--period">sedan 2022</button>
+      {aktivSedanÅr.map((år) => (
+        <button data-period={år} class="chip chip--period">sedan {år}</button>
+      ))}
     </div>
     <div class="flex gap-1.5 flex-wrap">
       <button data-uppdrag="alla" class="chip chip--uppdrag active">Alla uppdrag</button>
@@ -106,7 +106,7 @@ const nämnder = [
 
   <div id="grid" class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
     {politikerMedUppdrag.map(p => (
-      <div class="politician-item" data-parti={p.parti} data-namn={p.namn.toLowerCase()} data-sedan={p.aktivSedan || '2022'} data-uppdrag={p.uppdragskategorier.join('|')}>
+      <div class="politician-item" data-parti={p.parti} data-namn={p.namn.toLowerCase()} data-sedan={p.aktivSedan || ''} data-uppdrag={p.uppdragskategorier.join('|')}>
         <PoliticianCard namn={p.namn} parti={p.parti} roll={`${p.antalUppdrag} uppdrag`} aktivSedan={p.aktivSedan} url={`/goteborg/politiker/${p.id}`} />
       </div>
     ))}
@@ -155,7 +155,8 @@ const nämnder = [
         const sedan = el.dataset.sedan
         const uppdrag = (el.dataset.uppdrag || '').split('|')
         const matchParti = activeParti === 'alla' || parti === activeParti
-        const matchPeriod = activePeriod === 'alla' || sedan <= activePeriod
+        // "sedan 2014" = "Aktiv sedan: 2014" — exakt år
+        const matchPeriod = activePeriod === 'alla' || sedan === activePeriod
         const matchUppdrag = activeUppdrag === 'alla' || uppdrag.includes(activeUppdrag)
         const show = matchParti && matchPeriod && matchUppdrag && namn.includes(q)
         el.classList.toggle('hidden', !show)
