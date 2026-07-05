@@ -191,6 +191,13 @@ metricsRouter.openapi(metricsRoute, async (c) => {
     await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'anförande'`
   const debateDepth = medVotering > 0 ? Math.round((totalAnföranden / medVotering) * 10) / 10 : 0
 
+  // Anföranden per år — for trend/sparkline (current year is partial)
+  const anförandenPerÅr = await sql`
+    SELECT substring(data->>'datum' from 1 for 4) as år, COUNT(*)::int as antal
+    FROM ${sql(schema)}.graf_nodes
+    WHERE typ = 'anförande' AND data->>'datum' IS NOT NULL
+    GROUP BY 1 ORDER BY 1`
+
   return c.json(
     {
       kommun: c.req.valid('param').kommun,
@@ -216,6 +223,7 @@ metricsRouter.openapi(metricsRoute, async (c) => {
         giniKoefficient: debateGini,
         anföranden: totalAnföranden,
         djupPerÄrende: debateDepth,
+        perÅr: anförandenPerÅr.map((r) => ({ år: r.år, antal: r.antal })),
       },
       partilojalitet: Object.fromEntries(
         Object.entries(partier).map(([parti, d]) => [

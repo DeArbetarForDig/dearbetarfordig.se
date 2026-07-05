@@ -1,0 +1,96 @@
+---
+/**
+ * KpiTrend — KPI value with trend indicator and sparkline.
+ * Renders inside a Card; the card provides title/subtitle/tooltip.
+ *
+ * Usage:
+ *   <KpiTrend
+ *     value="17 568"
+ *     trend={{ text: '+12% 2024→2025', direction: 'up', tone: 'positive' }}
+ *     points={[4932, 4664, 5209, 2763]}
+ *     pointLabels={['2023', '2026']}
+ *     note="2026 pågår"
+ *   />
+ *
+ * Props:
+ * - value/unit: the headline number
+ * - trend: arrow chip; direction sets the glyph (↑/↓/→), tone the color
+ *   (defaults: up=positive, down=negative, neutral=neutral)
+ * - points: sparkline series (omit to hide the sparkline)
+ * - pointLabels: labels under the sparkline's first/last point
+ * - note: small muted footnote after the labels
+ */
+import Sparkline from '../charts/Sparkline.astro'
+
+interface Trend {
+  text: string
+  direction: 'up' | 'down' | 'neutral'
+  tone?: 'positive' | 'negative' | 'neutral'
+}
+
+interface Props {
+  value: string | number
+  unit?: string
+  trend?: Trend
+  points?: number[]
+  pointLabels?: [string, string]
+  note?: string
+  class?: string
+}
+
+const { value, unit, trend, points = [], pointLabels, note, class: className } = Astro.props
+
+const ARROW = { up: '↑', down: '↓', neutral: '→' }
+const defaultTone = { up: 'positive', down: 'negative', neutral: 'neutral' } as const
+const tone = trend?.tone ?? (trend ? defaultTone[trend.direction] : 'neutral')
+---
+<div class:list={['flex flex-col gap-3', className]}>
+  <div class="flex items-baseline gap-3 flex-wrap">
+    <div class="font-mono text-[2.5rem] font-bold leading-none text-[var(--color-text)]">
+      {value}{unit && <span class="text-base ml-1 text-[var(--color-text-muted)]">{unit}</span>}
+    </div>
+    {trend && (
+      <span class:list={['daf-kpi-trend__chip', `daf-kpi-trend__chip--${tone}`]}>
+        <span aria-hidden="true">{ARROW[trend.direction]}</span>
+        {trend.text}
+      </span>
+    )}
+  </div>
+  {points.length > 1 && (
+    <div>
+      <Sparkline points={points} />
+      {(pointLabels || note) && (
+        <div class="flex justify-between font-mono text-xs text-[var(--color-text-subtle)] mt-1">
+          <span>{pointLabels?.[0]}</span>
+          <span>{pointLabels?.[1]}{note && <span class="font-sans"> · {note}</span>}</span>
+        </div>
+      )}
+    </div>
+  )}
+</div>
+
+<style>
+  .daf-kpi-trend__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    color: var(--trend-color);
+    background: color-mix(in srgb, var(--trend-color) 12%, transparent);
+  }
+
+  .daf-kpi-trend__chip--positive {
+    --trend-color: var(--color-positive);
+  }
+
+  .daf-kpi-trend__chip--negative {
+    --trend-color: var(--color-negative);
+  }
+
+  .daf-kpi-trend__chip--neutral {
+    --trend-color: var(--color-neutral);
+  }
+</style>

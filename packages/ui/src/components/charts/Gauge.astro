@@ -1,0 +1,169 @@
+---
+/**
+ * Gauge — semicircular (270°) gauge for a single metric with colored zones.
+ *
+ * Usage:
+ *   <Gauge value={87} unit="%" zones={[
+ *     { from: 0, to: 85, color: 'var(--color-positive)' },
+ *     { from: 85, to: 100, color: 'var(--color-warning)' },
+ *   ]} />
+ *
+ * Props:
+ * - value: current value (clamped to [min, max] for the arc, shown as-is)
+ * - min/max: scale bounds (default 0–100)
+ * - unit: shown under the value
+ * - decimals: decimals for the displayed value
+ * - zones: colored bands { from, to, color }; pass var() tokens as color.
+ *   The value arc takes the color of the zone the value falls into.
+ * - size: rendered width in px (default 200)
+ *
+ * Colors are consumed via --zone-color/--gauge-color custom properties;
+ * geometry is static SVG, no client JS.
+ */
+interface Zone {
+  from: number
+  to: number
+  color: string
+}
+
+interface Props {
+  value: number
+  min?: number
+  max?: number
+  unit?: string
+  decimals?: number
+  zones?: Zone[]
+  size?: number
+  class?: string
+}
+
+const {
+  value,
+  min = 0,
+  max = 100,
+  unit = '',
+  decimals = 0,
+  zones = [],
+  size = 200,
+  class: className,
+} = Astro.props
+
+const START = -135
+const END = 135
+const CX = 120
+const CY = 110
+
+function valueToAngle(v: number) {
+  const clamped = Math.min(Math.max(v, min), max)
+  return START + ((clamped - min) / (max - min || 1)) * (END - START)
+}
+
+// 0° points up, positive angles go clockwise
+function polar(r: number, angleDeg: number) {
+  const a = (angleDeg * Math.PI) / 180
+  return { x: CX + r * Math.sin(a), y: CY - r * Math.cos(a) }
+}
+
+// Annular sector path between angles a0→a1 (degrees), radii r0 (inner) < r1 (outer)
+function band(r0: number, r1: number, a0: number, a1: number) {
+  const largeArc = a1 - a0 > 180 ? 1 : 0
+  const o0 = polar(r1, a0)
+  const o1 = polar(r1, a1)
+  const i0 = polar(r0, a0)
+  const i1 = polar(r0, a1)
+  return [
+    `M${o0.x.toFixed(2)} ${o0.y.toFixed(2)}`,
+    `A${r1} ${r1} 0 ${largeArc} 1 ${o1.x.toFixed(2)} ${o1.y.toFixed(2)}`,
+    `L${i1.x.toFixed(2)} ${i1.y.toFixed(2)}`,
+    `A${r0} ${r0} 0 ${largeArc} 0 ${i0.x.toFixed(2)} ${i0.y.toFixed(2)}`,
+    'Z',
+  ].join(' ')
+}
+
+const valueAngle = valueToAngle(value)
+// Zone lookup uses the clamped value so out-of-scale readings keep the edge zone's color
+const clampedValue = Math.min(Math.max(value, min), max)
+const activeZone = zones.find((z) => clampedValue >= z.from && clampedValue <= z.to)
+const valueColor = activeZone?.color || 'var(--color-primary)'
+
+const fmt = (v: number) =>
+  v.toLocaleString('sv-SE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+
+const minLabelPos = polar(88, START - 8)
+const maxLabelPos = polar(88, END + 8)
+---
+<svg
+  width={size}
+  viewBox="0 0 240 205"
+  role="img"
+  aria-label={`${fmt(value)}${unit ? ` ${unit}` : ''} på skala ${fmt(min)}–${fmt(max)}`}
+  class:list={['daf-gauge', className]}
+>
+  {/* Track */}
+  <path d={band(95, 102, START, END)} class="daf-gauge__track" />
+
+  {/* Zone bands */}
+  {zones.map((z) => (
+    <path
+      d={band(84, 89, valueToAngle(z.from), valueToAngle(z.to))}
+      class="daf-gauge__zone"
+      style={`--zone-color:${z.color}`}
+    />
+  ))}
+
+  {/* Value arc */}
+  {valueAngle > START && (
+    <path d={band(95, 102, START, valueAngle)} class="daf-gauge__value-arc" style={`--gauge-color:${valueColor}`} />
+  )}
+
+  {/* Value + unit */}
+  <text x={CX} y={unit ? CY + 4 : CY + 14} class="daf-gauge__value" style={`--gauge-color:${valueColor}`}>{fmt(value)}</text>
+  {unit && <text x={CX} y={CY + 34} class="daf-gauge__unit">{unit}</text>}
+
+  {/* Scale bounds */}
+  <text x={minLabelPos.x.toFixed(1)} y={minLabelPos.y.toFixed(1)} class="daf-gauge__bound">{fmt(min)}</text>
+  <text x={maxLabelPos.x.toFixed(1)} y={maxLabelPos.y.toFixed(1)} class="daf-gauge__bound">{fmt(max)}</text>
+</svg>
+
+<style>
+  .daf-gauge {
+    display: block;
+    height: auto;
+  }
+
+  .daf-gauge__track {
+    fill: var(--color-surface-sunken);
+  }
+
+  .daf-gauge__zone {
+    fill: var(--zone-color);
+    opacity: 0.85;
+  }
+
+  .daf-gauge__value-arc {
+    fill: var(--gauge-color);
+  }
+
+  .daf-gauge__value {
+    font-family: var(--font-mono);
+    font-size: 44px;
+    font-weight: 700;
+    fill: var(--gauge-color);
+    text-anchor: middle;
+  }
+
+  .daf-gauge__unit {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    fill: var(--color-text-muted);
+    text-anchor: middle;
+  }
+
+  .daf-gauge__bound {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    fill: var(--color-text-subtle);
+    text-anchor: middle;
+    dominant-baseline: middle;
+  }
+</style>

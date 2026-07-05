@@ -1,0 +1,85 @@
+---
+/**
+ * Sparkline — minimal inline line chart for a KPI trend.
+ *
+ * Usage:
+ *   <Sparkline points={[4932, 4664, 5209, 2763]} />
+ *
+ * Props:
+ * - points: series values (2+)
+ * - width/height: viewBox size in px (rendered width is 100% of container)
+ * - color: line color, pass a var() token (default var(--color-primary))
+ *
+ * Static SVG: line + soft area fill + dot on the last point.
+ * Color is consumed via the --spark-color custom property.
+ */
+interface Props {
+  points: number[]
+  width?: number
+  height?: number
+  color?: string
+  class?: string
+}
+
+const {
+  points = [],
+  width = 140,
+  height = 36,
+  color = 'var(--color-primary)',
+  class: className,
+} = Astro.props
+
+const PAD = 3
+const min = Math.min(...points)
+const max = Math.max(...points)
+const span = max - min || 1
+
+const coords = points.map((v, i) => ({
+  x: PAD + (i / (points.length - 1 || 1)) * (width - PAD * 2),
+  y: PAD + (1 - (v - min) / span) * (height - PAD * 2),
+}))
+const line = coords
+  .map((c, i) => `${i === 0 ? 'M' : 'L'}${c.x.toFixed(1)} ${c.y.toFixed(1)}`)
+  .join(' ')
+const area = `${line} L${coords[coords.length - 1]?.x.toFixed(1)} ${height} L${coords[0]?.x.toFixed(1)} ${height} Z`
+const last = coords[coords.length - 1]
+---
+{points.length > 1 && (
+  <svg
+    viewBox={`0 0 ${width} ${height}`}
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    class:list={['daf-sparkline', className]}
+    style={`--spark-color:${color}`}
+  >
+    <path d={area} class="daf-sparkline__area" />
+    <path d={line} class="daf-sparkline__line" />
+    <circle cx={last.x.toFixed(1)} cy={last.y.toFixed(1)} r="2.5" class="daf-sparkline__dot" />
+  </svg>
+)}
+
+<style>
+  .daf-sparkline {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .daf-sparkline__area {
+    fill: var(--spark-color);
+    opacity: 0.12;
+  }
+
+  .daf-sparkline__line {
+    fill: none;
+    stroke: var(--spark-color);
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .daf-sparkline__dot {
+    fill: var(--spark-color);
+  }
+</style>
