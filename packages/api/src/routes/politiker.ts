@@ -214,11 +214,12 @@ politikerRouter.openapi(arvodesRoute, async (c) => {
 // returneras som `null` (inte 0 — annars ser "ingen data" ut som "sämst").
 const MIN_MÖTEN_FÖR_DEBATTAKTIVITET = 3
 const MIN_RÖSTER_FÖR_LOJALITET = 5
-// 90:e percentilen ligger kring 8-9 anföranden/möte (se docs/ANALYS-2026-07.md,
-// punkt 17) — några enstaka politiker (trolig ordförande-fallback i
-// anförande-parsern) har uppenbart orimliga tal (120-223/möte) som annars
-// skulle dominera både sin egen percentil och andras. Exkluderas som
-// otillförlitligt underlag snarare än att visas som "mest aktiv".
+// Debattaktivitet räknar bara talade_i-edges till möte-noder (den andra
+// representationen — edges till anforande-noder — beskriver samma inlägg och
+// dubblerade annars alla tal), och exkluderar procedurella mötesledar-inlägg
+// ("Tack X, ordet går till Y" — se mark-procedurella.ts och
+// docs/ANALYS-2026-07.md, punkt 17). Taket är kvar som säkerhetsnät: värden
+// över det behandlas som otillförlitligt underlag snarare än "mest aktiv".
 const MAX_RIMLIG_DEBATTAKTIVITET = 20
 
 const profilRoute = createRoute({
@@ -263,7 +264,7 @@ politikerRouter.openapi(profilRoute, async (c) => {
     SELECT
       n.id as politiker_id,
       COUNT(DISTINCT CASE WHEN e.typ = 'närvarade' THEN e.to_id END)::int as närvaro,
-      COUNT(CASE WHEN e.typ = 'talade_i' THEN 1 END)::int as anföranden,
+      COUNT(CASE WHEN e.typ = 'talade_i' AND e.to_id LIKE ${'möte-%'} AND COALESCE(e.data->>'procedurell', '') != 'true' THEN 1 END)::int as anföranden,
       COUNT(CASE WHEN e.typ IN ('inlämnade_motion', 'yrkat') THEN 1 END)::int as initiativ
     FROM ${sql(schema)}.graf_nodes n
     JOIN ${sql(schema)}.graf_edges e ON e.from_id = n.id
@@ -392,7 +393,9 @@ politikerRouter.openapi(profilRoute, async (c) => {
   )
 })
 
-// Anföranden per politiker (from talade_i edges)
+// Anföranden per politiker (from talade_i edges). Procedurella
+// mötesledar-inlägg ("Tack X, ordet går till Y") exkluderas — för presidiet
+// dränkte de annars de riktiga anförandena tusenfalt (se mark-procedurella.ts).
 politikerRouter.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
   const kommun = c.req.param('kommun')
   const schema = requireSchema(kommun)
@@ -404,12 +407,14 @@ politikerRouter.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
         FROM ${sql(schema)}.graf_edges e
         JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id
         WHERE e.from_id = ${`politiker-${id}`} AND e.typ = 'talade_i' AND e.data->>'datum' = ${datum}
+          AND COALESCE(e.data->>'procedurell', '') != 'true'
         ORDER BY (e.data->>'ordning')::int`
     : await sql`
         SELECT e.data, n.label as mote, n.data->>'datum' as datum
         FROM ${sql(schema)}.graf_edges e
         JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id
         WHERE e.from_id = ${`politiker-${id}`} AND e.typ = 'talade_i'
+          AND COALESCE(e.data->>'procedurell', '') != 'true'
         ORDER BY (e.data->>'datum') DESC, (e.data->>'ordning')::int`
   const items = rows.map((r) => {
     const d = (r.data as any) || {}

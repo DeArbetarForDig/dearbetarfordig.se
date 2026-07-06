@@ -361,6 +361,63 @@ async function main() {
     console.log(`   ✓ ${taladEdges} talade_i edges (anföranden→möten)`)
   }
 
+  // Mark procedurella (mötesledning) anföranden så debattmetriker kan
+  // exkludera dem — körs över BÅDA talade_i-representationerna:
+  // edges → anforande-*-noder (graf/anforanden.json) och edges → möte-*
+  // (debatter/kf-*.json). Se mark-procedurella.ts.
+  {
+    const { detectProcedurella } = await import('./mark-procedurella.js')
+
+    const anfRows = await client`
+      SELECT e.id as edge_id, e.from_id, n.id as node_id,
+             n.data->>'datum' as datum, n.data->>'ärendeNr' as ärende,
+             COALESCE((n.data->>'textLength')::int, 0) as text_len
+      FROM goteborg.graf_edges e
+      JOIN goteborg.graf_nodes n ON n.id = e.to_id AND n.typ = 'anförande'
+      WHERE e.typ = 'talade_i'`
+    const anfMarked = detectProcedurella(
+      anfRows.map((r) => ({
+        key: r.edge_id as string,
+        datum: (r.datum as string) || '',
+        ärende: (r.ärende as string) || '',
+        talare: r.from_id as string,
+        textLen: r.text_len as number,
+      })),
+    )
+    const nodeIdByEdgeId = new Map(anfRows.map((r) => [r.edge_id as string, r.node_id as string]))
+
+    const möteRows = await client`
+      SELECT e.id as edge_id, e.data->>'datum' as datum, e.data->>'ärende' as ärende,
+             e.data->>'talare' as talare, COALESCE(length(e.data->>'text'), 0) as text_len
+      FROM goteborg.graf_edges e
+      WHERE e.typ = 'talade_i' AND e.to_id LIKE 'möte-%'`
+    const möteMarked = detectProcedurella(
+      möteRows.map((r) => ({
+        key: r.edge_id as string,
+        datum: (r.datum as string) || '',
+        ärende: (r.ärende as string) || '',
+        talare: (r.talare as string) || '',
+        textLen: r.text_len as number,
+      })),
+    )
+
+    const edgeIds = [...anfMarked, ...möteMarked]
+    const nodeIds = [...anfMarked].map((id) => nodeIdByEdgeId.get(id)).filter(Boolean) as string[]
+    if (edgeIds.length > 0) {
+      await client`UPDATE goteborg.graf_edges
+        SET data = COALESCE(data, '{}'::jsonb) || '{"procedurell": true}'::jsonb
+        WHERE id = ANY(${edgeIds})`
+    }
+    if (nodeIds.length > 0) {
+      await client`UPDATE goteborg.graf_nodes
+        SET data = data || '{"procedurell": true}'::jsonb
+        WHERE id = ANY(${nodeIds})`
+    }
+    console.log(
+      `   ✓ ${edgeIds.length} procedurella anföranden markerade (mötesledning: ${anfMarked.size} anförande-noder, ${möteMarked.size} möte-edges)`,
+    )
+  }
+
   reportDroppedEdges()
   console.log('\n✅ Database seeded')
   await client.end()

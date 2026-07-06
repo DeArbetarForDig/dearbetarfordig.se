@@ -194,10 +194,12 @@ metricsRouter.openapi(metricsRoute, async (c) => {
   const snittNärvarande = totalMöten > 0 ? Math.round(totalNärvaro / totalMöten) : 0
 
   // --- Debate Participation Gini (from anförande nodes, grouped by politician name) ---
+  // Procedurella mötesledar-inlägg exkluderas (mark-procedurella.ts) — annars
+  // domineras fördelningen av presidiets "Tack X, ordet går till Y".
   const speechCounts = await sql`
     SELECT label, COUNT(*)::int as speeches
     FROM ${sql(schema)}.graf_nodes
-    WHERE typ = 'anförande'
+    WHERE typ = 'anförande' AND COALESCE(data->>'procedurell', '') != 'true'
     GROUP BY label
     ORDER BY speeches DESC`
 
@@ -225,7 +227,7 @@ metricsRouter.openapi(metricsRoute, async (c) => {
 
   // --- Debate Depth (anföranden per ärende med votering) ---
   const [{ total: totalAnföranden }] =
-    await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'anförande'`
+    await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'anförande' AND COALESCE(data->>'procedurell', '') != 'true'`
   const debateDepth = medVotering > 0 ? Math.round((totalAnföranden / medVotering) * 10) / 10 : 0
 
   // Anföranden per år — for trend/sparkline (current year is partial)
@@ -233,6 +235,7 @@ metricsRouter.openapi(metricsRoute, async (c) => {
     SELECT substring(data->>'datum' from 1 for 4) as år, COUNT(*)::int as antal
     FROM ${sql(schema)}.graf_nodes
     WHERE typ = 'anförande' AND data->>'datum' IS NOT NULL
+      AND COALESCE(data->>'procedurell', '') != 'true'
     GROUP BY 1 ORDER BY 1`
 
   return c.json(
