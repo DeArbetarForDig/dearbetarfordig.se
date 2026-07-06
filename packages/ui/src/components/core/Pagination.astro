@@ -1,0 +1,206 @@
+---
+/**
+ * Pagination — page-number strip usable both standalone (a plain list)
+ * and driving DataTable's own footer.
+ *
+ * Usage (standalone — page renders all items and toggles visibility itself):
+ *   <Pagination id="moten-pagination" totalItems={möten.length} pageSize={20} />
+ *   <script>
+ *     const items = document.querySelectorAll('#moten-list [data-idx]')
+ *     window.dafPagination['moten-pagination'].onChange(({ start, end }) => {
+ *       items.forEach((el) => {
+ *         const i = Number(el.dataset.idx)
+ *         el.style.display = i >= start && i < end ? '' : 'none'
+ *       })
+ *     })
+ *   </script>
+ *
+ * Props:
+ * - id: unique instance id — also the key under window.dafPagination
+ * - totalItems: initial item count
+ * - pageSize: rows per page (default 20)
+ * - pageSizeOptions: if given, renders a "Rader:" select for these values
+ * - showInfo: render the "Visar X–Y av Z" text (default true; DataTable
+ *   sets this false and renders its own info text elsewhere)
+ *
+ * Runtime API — window.dafPagination[id]:
+ * - update(totalItems, { resetPage? }) — call when the underlying item
+ *   count changes (e.g. after filtering); returns the new state
+ * - onChange(cb) — cb(state) on every page/page-size change, and once
+ *   immediately with the current state
+ * state = { page, pageSize, start, end, totalItems, totalPages }
+ */
+interface Props {
+  id: string
+  totalItems: number
+  pageSize?: number
+  pageSizeOptions?: number[]
+  showInfo?: boolean
+  class?: string
+}
+
+const { id, totalItems, pageSize = 20, pageSizeOptions, showInfo = true, class: className } = Astro.props
+---
+
+<div
+  class:list={['daf-pagination', className]}
+  id={id}
+  data-total={totalItems}
+  data-page-size={pageSize}
+>
+  {showInfo && <span class="daf-pagination__info"></span>}
+  <div class="daf-pagination__pages"></div>
+  {pageSizeOptions && pageSizeOptions.length > 0 && (
+    <label class="daf-pagination__page-size-label">
+      Rader:
+      <select class="daf-pagination__page-size-select">
+        {pageSizeOptions.map((n) => <option value={n}>{n}</option>)}
+      </select>
+    </label>
+  )}
+</div>
+
+<style>
+  .daf-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    font-size: var(--font-size-label);
+    color: var(--color-text-muted);
+  }
+
+  .daf-pagination__page-size-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .daf-pagination__page-size-select {
+    padding: 2px 6px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--font-size-small);
+  }
+
+  .daf-pagination__pages {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .daf-pagination__pages :global(button) {
+    min-width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--font-size-small);
+    cursor: pointer;
+  }
+
+  .daf-pagination__pages :global(button:hover:not(.active):not(.disabled)) {
+    background: var(--color-surface-sunken);
+  }
+
+  .daf-pagination__pages :global(button.active) {
+    background: var(--color-primary);
+    color: var(--system-white);
+    border-color: var(--color-primary);
+  }
+
+  .daf-pagination__pages :global(button.disabled) {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('.daf-pagination').forEach((el) => {
+    if (el.dataset.dafPaginationReady) return
+    el.dataset.dafPaginationReady = 'true'
+
+    const id = el.id
+    let pageSize = Number.parseInt(el.dataset.pageSize, 10) || 20
+    let totalItems = Number.parseInt(el.dataset.total, 10) || 0
+    let page = 0
+    let onChangeCb = null
+
+    const infoEl = el.querySelector('.daf-pagination__info')
+    const pagesEl = el.querySelector('.daf-pagination__pages')
+    const sizeSelect = el.querySelector('.daf-pagination__page-size-select')
+    if (sizeSelect) sizeSelect.value = String(pageSize)
+
+    function computeState() {
+      const totalPages = Math.max(1, Math.ceil(totalItems / pageSize))
+      if (page >= totalPages) page = totalPages - 1
+      if (page < 0) page = 0
+      const start = page * pageSize
+      const end = start + pageSize
+      return { page, pageSize, start, end, totalItems, totalPages }
+    }
+
+    function render() {
+      const s = computeState()
+      if (infoEl) {
+        infoEl.textContent = s.totalItems === 0
+          ? 'Inga resultat'
+          : `Visar ${s.start + 1}–${Math.min(s.end, s.totalItems)} av ${s.totalItems}`
+      }
+      if (pagesEl) {
+        let html = ''
+        if (s.totalPages > 1) {
+          html += `<button type="button" class="${s.page === 0 ? 'disabled' : ''}" data-p="${s.page - 1}">‹</button>`
+          for (let i = 0; i < s.totalPages; i++) {
+            if (s.totalPages > 7 && i > 1 && i < s.totalPages - 2 && Math.abs(i - s.page) > 1) {
+              if (!html.endsWith('…</span>')) html += '<span>…</span>'
+              continue
+            }
+            html += `<button type="button" class="${i === s.page ? 'active' : ''}" data-p="${i}">${i + 1}</button>`
+          }
+          html += `<button type="button" class="${s.page >= s.totalPages - 1 ? 'disabled' : ''}" data-p="${s.page + 1}">›</button>`
+        }
+        pagesEl.innerHTML = html
+        pagesEl.querySelectorAll('button:not(.disabled)').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            page = Number.parseInt(btn.dataset.p, 10)
+            render()
+          })
+        })
+      }
+      if (onChangeCb) onChangeCb(s)
+      return s
+    }
+
+    if (sizeSelect) {
+      sizeSelect.addEventListener('change', () => {
+        pageSize = Number.parseInt(sizeSelect.value, 10)
+        page = 0
+        render()
+      })
+    }
+
+    window.dafPagination = window.dafPagination || {}
+    window.dafPagination[id] = {
+      update(newTotal, opts) {
+        totalItems = newTotal
+        if (opts?.resetPage) page = 0
+        return render()
+      },
+      onChange(cb) {
+        onChangeCb = cb
+        cb(computeState())
+      },
+    }
+
+    render()
+  })
+</script>

@@ -1,5 +1,6 @@
 ---
 import Icon from '../../../../../../ui/src/components/core/Icon.astro'
+import Pagination from '../../../../../../ui/src/components/core/Pagination.astro'
 import { getMöten } from '../../../../data/api'
 import Base from '../../../../layouts/Base.astro'
 
@@ -7,6 +8,8 @@ const allMöten = await getMöten()
 const möten = allMöten
   .filter((m: any) => m.label?.includes('KF'))
   .sort((a: any, b: any) => b.datum.localeCompare(a.datum))
+
+const MOTEN_PAGE_SIZE = 20
 ---
 
 <Base title="KF Möten — Göteborg">
@@ -15,10 +18,11 @@ const möten = allMöten
     Kommunfullmäktige — {möten.length} sammanträden med beslut och debatt
   </p>
 
-  <div class="grid gap-2">
-    {möten.map((m: any) => (
+  <div class="grid gap-2" id="moten-list">
+    {möten.map((m: any, i: number) => (
       <a
         href={`/goteborg/kf/moten/${m.datum}`}
+        data-idx={i}
         class="flex items-center justify-between p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:border-[var(--color-primary)] transition-colors"
       >
         <div class="flex items-center gap-4">
@@ -35,4 +39,16 @@ const möten = allMöten
       </a>
     ))}
   </div>
+
+  <Pagination id="moten-pagination" totalItems={möten.length} pageSize={MOTEN_PAGE_SIZE} class="mt-4" />
 </Base>
+
+<script is:inline>
+  const items = document.querySelectorAll('#moten-list [data-idx]')
+  window.dafPagination['moten-pagination'].onChange(({ start, end }) => {
+    items.forEach((el) => {
+      const i = Number(el.dataset.idx)
+      el.style.display = i >= start && i < end ? '' : 'none'
+    })
+  })
+</script>

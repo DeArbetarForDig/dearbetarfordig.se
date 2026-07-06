@@ -37,6 +37,8 @@ interface Column {
   width?: string
 }
 
+import Pagination from './Pagination.astro'
+
 interface Props {
   columns: Column[]
   data: Record<string, any>[]
@@ -56,6 +58,8 @@ const {
   defaultSort,
   id = 'data-table',
 } = Astro.props
+
+const paginationId = `${id}-pagination`
 ---
 
 <div class="daf-table-wrapper" id={id} data-page-size={pageSize}>
@@ -117,44 +121,27 @@ const {
   </div>
 
   <!-- Pagination (bottom) -->
-  <div class="daf-dt__footer">
-    <div class="daf-dt__pages"></div>
-    <label class="daf-dt__page-size-label">
-      Rader:
-      <select class="daf-dt__page-size-select">
-        <option value="20">20</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-        <option value="500">500</option>
-      </select>
-    </label>
-  </div>
+  <Pagination id={paginationId} totalItems={data.length} pageSize={pageSize} pageSizeOptions={[20, 50, 100, 500]} showInfo={false} />
 </div>
 
 <style>
   @import '../../tokens/css/data-table.css';
 </style>
 
-<script is:inline define:vars={{ id, pageSize, defaultSort }}>
+<script is:inline define:vars={{ id, paginationId, defaultSort }}>
   (function() {
     const wrapper = document.getElementById(id)
     if (!wrapper) return
 
-    let currentPageSize = pageSize
-    let currentPage = 0
     let currentSort = []
     let currentFilter = {}
-    let currentSearch = ''
+    let currentFilteredRows = []
 
     const rows = Array.from(wrapper.querySelectorAll('.daf-dt__row'))
     const ths = wrapper.querySelectorAll('.daf-dt__th.is-sortable')
     const filters = wrapper.querySelectorAll('.daf-dt__filter-input')
     const showingEl = wrapper.querySelector('.daf-dt__showing')
-    const pagesEl = wrapper.querySelector('.daf-dt__pages')
-    const pageSizeSelect = wrapper.querySelector('.daf-dt__page-size-select')
-
-    // Set initial page size in select
-    if (pageSizeSelect) pageSizeSelect.value = String(currentPageSize)
+    const pagination = window.dafPagination[paginationId]
 
     function getRowData(row) {
       return JSON.parse(row.dataset.row)
@@ -192,42 +179,21 @@ const {
       return sorted
     }
 
-    function render() {
-      const filtered = sortRows(getFiltered())
-      const totalPages = Math.max(1, Math.ceil(filtered.length / currentPageSize))
-      if (currentPage >= totalPages) currentPage = totalPages - 1
-      const start = currentPage * currentPageSize
-      const end = start + currentPageSize
-
+    // Pagination drives which slice of currentFilteredRows is visible;
+    // filter/sort only recompute the rows and tell it the new total.
+    pagination.onChange(({ start, end, totalItems }) => {
       rows.forEach(r => r.style.display = 'none')
-      filtered.slice(start, end).forEach(r => r.style.display = '')
-
-      // Info
+      currentFilteredRows.slice(start, end).forEach(r => r.style.display = '')
       if (showingEl) {
-        showingEl.textContent = filtered.length === 0
+        showingEl.textContent = totalItems === 0
           ? 'Inga resultat'
-          : `Visar ${start + 1}–${Math.min(end, filtered.length)} av ${filtered.length}`
+          : `Visar ${start + 1}–${Math.min(end, totalItems)} av ${totalItems}`
       }
+    })
 
-      // Page numbers
-      if (pagesEl) {
-        let html = ''
-        if (totalPages > 1) {
-          html += `<button class="${currentPage === 0 ? 'disabled' : ''}" data-p="${currentPage - 1}">‹</button>`
-          for (let i = 0; i < totalPages; i++) {
-            if (totalPages > 7 && i > 1 && i < totalPages - 2 && Math.abs(i - currentPage) > 1) {
-              if (!html.endsWith('…</span>')) html += '<span>…</span>'
-              continue
-            }
-            html += `<button class="${i === currentPage ? 'active' : ''}" data-p="${i}">${i + 1}</button>`
-          }
-          html += `<button class="${currentPage >= totalPages - 1 ? 'disabled' : ''}" data-p="${currentPage + 1}">›</button>`
-        }
-        pagesEl.innerHTML = html
-        pagesEl.querySelectorAll('button:not(.disabled)').forEach(btn => {
-          btn.addEventListener('click', () => { currentPage = parseInt(btn.dataset.p); render() })
-        })
-      }
+    function applyFilterSort() {
+      currentFilteredRows = sortRows(getFiltered())
+      pagination.update(currentFilteredRows.length, { resetPage: true })
     }
 
     // Sort
@@ -243,8 +209,7 @@ const {
         // Remove sort from other columns
         ths.forEach(t => { if (t !== th) { t.classList.remove('asc', 'desc') } })
         currentSort = dir ? [{ key, type, dir }] : []
-        currentPage = 0
-        render()
+        applyFilterSort()
       })
     })
 
@@ -252,19 +217,9 @@ const {
     filters.forEach(input => {
       input.addEventListener('input', () => {
         currentFilter[input.dataset.key] = input.value
-        currentPage = 0
-        render()
+        applyFilterSort()
       })
     })
-
-    // Page size
-    if (pageSizeSelect) {
-      pageSizeSelect.addEventListener('change', () => {
-        currentPageSize = parseInt(pageSizeSelect.value)
-        currentPage = 0
-        render()
-      })
-    }
 
     // Apply default sort
     if (defaultSort) {
@@ -276,6 +231,6 @@ const {
       }
     }
 
-    render()
+    applyFilterSort()
   })()
 </script>
