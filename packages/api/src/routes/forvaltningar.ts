@@ -94,9 +94,16 @@ forvaltningarRouter.openapi(förvaltningDetailRoute, async (c) => {
     ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${lederEdge.to_id}`
     : [null]
 
-  // Ledamöter (politiker → nämnd via organisationsstruktur edges)
+  // Ledamöter (politiker → nämnd via ledamot_i). Only ledamot_i — after the
+  // org-alias merge every edge family (yrkat, talade_i, …) can reach the
+  // canonical nämnd node, and an untyped query returned duplicates and
+  // non-members.
   const ledamöter = nämnd
-    ? await sql`SELECT n.id, n.label, n.data FROM ${sql(schema)}.graf_edges e JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id WHERE e.to_id = ${nämnd.id} AND n.typ = 'politiker' LIMIT 50`
+    ? await sql`SELECT DISTINCT ON (n.id) n.id, n.label, n.data, e.data->>'roll' as roll
+        FROM ${sql(schema)}.graf_edges e
+        JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id
+        WHERE e.to_id = ${nämnd.id} AND e.typ = 'ledamot_i' AND n.typ = 'politiker'
+        ORDER BY n.id LIMIT 80`
     : []
 
   // Utfall
@@ -151,6 +158,7 @@ forvaltningarRouter.openapi(förvaltningDetailRoute, async (c) => {
         id: l.id,
         label: l.label,
         parti: l.data?.parti,
+        roll: l.roll,
         _links: { politiker: { href: `${baseUrl(kommun)}/politiker/${polId}` } },
       }
     }),

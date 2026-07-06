@@ -4,162 +4,389 @@
       "id": "direktör-anders-ramsby",
       "typ": "förvaltningsdirektör",
       "label": "Anders Ramsby — Stadsmiljöförvaltningen",
-      "data": { "namn": "Anders Ramsby", "lön": 130000, "förvaltning": "Stadsmiljöförvaltningen", "anställd": "2023-01-01" }
+      "data": {
+        "namn": "Anders Ramsby",
+        "lön": 130000,
+        "förvaltning": "Stadsmiljöförvaltningen",
+        "anställd": "2023-01-01"
+      }
     },
     {
       "id": "direktör-andreja-sarcevic",
       "typ": "förvaltningsdirektör",
       "label": "Andreja Sarcevic — Stadsrevisionen",
-      "data": { "namn": "Andreja Sarcevic", "lön": 116500, "förvaltning": "Stadsrevisionen", "anställd": "2024-09-01" }
+      "data": {
+        "namn": "Andreja Sarcevic",
+        "lön": 116500,
+        "förvaltning": "Stadsrevisionen",
+        "anställd": "2024-09-01"
+      }
     },
     {
       "id": "direktör-anna-rosengren",
       "typ": "förvaltningsdirektör",
       "label": "Anna Rosengren — Kulturförvaltningen",
-      "data": { "namn": "Anna Rosengren", "lön": 115600, "förvaltning": "Kulturförvaltningen", "anställd": "2015-03-16" }
+      "data": {
+        "namn": "Anna Rosengren",
+        "lön": 115600,
+        "förvaltning": "Kulturförvaltningen",
+        "anställd": "2015-03-16"
+      }
     },
     {
       "id": "direktör-annika-ljungh",
       "typ": "förvaltningsdirektör",
       "label": "Annika Ljungh — Socialförv Sydväst",
-      "data": { "namn": "Annika Ljungh", "lön": 116000, "förvaltning": "Socialförv Sydväst", "anställd": "2022-01-01" }
+      "data": {
+        "namn": "Annika Ljungh",
+        "lön": 116000,
+        "förvaltning": "Socialförv Sydväst",
+        "anställd": "2022-01-01"
+      }
     },
     {
       "id": "direktör-babbs-edberg",
       "typ": "förvaltningsdirektör",
       "label": "Babbs Edberg — Förvaltningen för äldre samt vård och omsorg",
-      "data": { "namn": "Babbs Edberg", "lön": 143300, "förvaltning": "Förvaltningen för äldre samt vård och omsorg", "anställd": "2021-01-01" }
+      "data": {
+        "namn": "Babbs Edberg",
+        "lön": 143300,
+        "förvaltning": "Förvaltningen för äldre samt vård och omsorg",
+        "anställd": "2021-01-01"
+      }
     },
     {
       "id": "direktör-birgitta-torgén",
       "typ": "förvaltningsdirektör",
       "label": "Birgitta Torgén — Arkivnämnden",
-      "data": { "namn": "Birgitta Torgén", "lön": 97000, "förvaltning": "Arkivnämnden", "anställd": "2014-09-01" }
+      "data": {
+        "namn": "Birgitta Torgén",
+        "lön": 97000,
+        "förvaltning": "Arkivnämnden",
+        "anställd": "2014-09-01"
+      }
     },
     {
       "id": "direktör-emma-hansryd",
       "typ": "förvaltningsdirektör",
       "label": "Emma Hansryd — Kretslopp och Vatten",
-      "data": { "namn": "Emma Hansryd", "lön": 116100, "förvaltning": "Kretslopp och Vatten", "anställd": "2025-10-01" }
+      "data": {
+        "namn": "Emma Hansryd",
+        "lön": 116100,
+        "förvaltning": "Kretslopp och Vatten",
+        "anställd": "2025-10-01"
+      }
     },
     {
       "id": "direktör-eva-englund",
       "typ": "förvaltningsdirektör",
       "label": "Eva Englund — Demokrati och medborgarservice",
-      "data": { "namn": "Eva Englund", "lön": 103400, "förvaltning": "Demokrati och medborgarservice", "anställd": "2023-04-24" }
+      "data": {
+        "namn": "Eva Englund",
+        "lön": 103400,
+        "förvaltning": "Demokrati och medborgarservice",
+        "anställd": "2023-04-24"
+      }
     },
     {
       "id": "direktör-fredrik-johansson",
       "typ": "förvaltningsdirektör",
       "label": "Fredrik Johansson — Socialförv Nordost",
-      "data": { "namn": "Fredrik Johansson", "lön": 116200, "förvaltning": "Socialförv Nordost", "anställd": "2022-11-01" }
+      "data": {
+        "namn": "Fredrik Johansson",
+        "lön": 116200,
+        "förvaltning": "Socialförv Nordost",
+        "anställd": "2022-11-01"
+      }
     },
     {
       "id": "direktör-henrik-kant",
       "typ": "förvaltningsdirektör",
       "label": "Henrik Kant — Stadsbyggnadsförvaltningen",
-      "data": { "namn": "Henrik Kant", "lön": 131900, "förvaltning": "Stadsbyggnadsförvaltningen", "anställd": "2023-01-01" }
+      "data": {
+        "namn": "Henrik Kant",
+        "lön": 131900,
+        "förvaltning": "Stadsbyggnadsförvaltningen",
+        "anställd": "2023-01-01"
+      }
     },
     {
       "id": "direktör-henrik-karlsson",
       "typ": "förvaltningsdirektör",
       "label": "Henrik Karlsson — Inköps- och upphandlingsförvaltningen",
-      "data": { "namn": "Henrik Karlsson", "lön": 101400, "förvaltning": "Inköps- och upphandlingsförvaltningen", "anställd": "2019-04-01" }
+      "data": {
+        "namn": "Henrik Karlsson",
+        "lön": 101400,
+        "förvaltning": "Inköps- och upphandlingsförvaltningen",
+        "anställd": "2019-04-01"
+      }
     },
     {
       "id": "direktör-johan-olofsson",
       "typ": "förvaltningsdirektör",
       "label": "Johan Olofsson — Förskoleförvaltningen",
-      "data": { "namn": "Johan Olofsson", "lön": 137600, "förvaltning": "Förskoleförvaltningen", "anställd": "2023-01-13" }
+      "data": {
+        "namn": "Johan Olofsson",
+        "lön": 137600,
+        "förvaltning": "Förskoleförvaltningen",
+        "anställd": "2023-01-13"
+      }
     },
     {
       "id": "direktör-johan-sävhage",
       "typ": "förvaltningsdirektör",
       "label": "Johan Sävhage — Idrott och förening",
-      "data": { "namn": "Johan Sävhage", "lön": 108300, "förvaltning": "Idrott och förening", "anställd": "2022-10-01" }
+      "data": {
+        "namn": "Johan Sävhage",
+        "lön": 108300,
+        "förvaltning": "Idrott och förening",
+        "anställd": "2022-10-01"
+      }
     },
     {
       "id": "direktör-kristina-lindfors",
       "typ": "förvaltningsdirektör",
       "label": "Kristina Lindfors — Exploateringsförvaltningen",
-      "data": { "namn": "Kristina Lindfors", "lön": 130000, "förvaltning": "Exploateringsförvaltningen", "anställd": "2023-01-01" }
+      "data": {
+        "namn": "Kristina Lindfors",
+        "lön": 130000,
+        "förvaltning": "Exploateringsförvaltningen",
+        "anställd": "2023-01-01"
+      }
     },
     {
       "id": "direktör-lars-durfeldt",
       "typ": "förvaltningsdirektör",
       "label": "Lars Durfeldt — Arbetsmarknads och vuxenutbildningsförvaltningen",
-      "data": { "namn": "Lars Durfeldt", "lön": 104200, "förvaltning": "Arbetsmarknads och vuxenutbildningsförvaltningen", "anställd": "2025-01-20" }
+      "data": {
+        "namn": "Lars Durfeldt",
+        "lön": 104200,
+        "förvaltning": "Arbetsmarknads och vuxenutbildningsförvaltningen",
+        "anställd": "2025-01-20"
+      }
     },
     {
       "id": "direktör-maria-andersson",
       "typ": "förvaltningsdirektör",
       "label": "Maria Andersson — Grundskoleförvaltningen",
-      "data": { "namn": "Maria Andersson", "lön": 148800, "förvaltning": "Grundskoleförvaltningen", "anställd": "2023-01-01" }
+      "data": {
+        "namn": "Maria Andersson",
+        "lön": 148800,
+        "förvaltning": "Grundskoleförvaltningen",
+        "anställd": "2023-01-01"
+      }
     },
     {
       "id": "direktör-maria-jacobsson",
       "typ": "förvaltningsdirektör",
       "label": "Maria Jacobsson — Miljöförvaltningen",
-      "data": { "namn": "Maria Jacobsson", "lön": 116200, "förvaltning": "Miljöförvaltningen", "anställd": "2024-10-07" }
+      "data": {
+        "namn": "Maria Jacobsson",
+        "lön": 116200,
+        "förvaltning": "Miljöförvaltningen",
+        "anställd": "2024-10-07"
+      }
     },
     {
       "id": "direktör-marie-larsson",
       "typ": "förvaltningsdirektör",
       "label": "Marie Larsson — Socialförv Hisingen",
-      "data": { "namn": "Marie Larsson", "lön": 116000, "förvaltning": "Socialförv Hisingen", "anställd": "2025-03-17" }
+      "data": {
+        "namn": "Marie Larsson",
+        "lön": 116000,
+        "förvaltning": "Socialförv Hisingen",
+        "anställd": "2025-03-17"
+      }
     },
     {
       "id": "direktör-martin-blixt",
       "typ": "förvaltningsdirektör",
       "label": "Martin Blixt — Stadsfastighetsförvaltningen",
-      "data": { "namn": "Martin Blixt", "lön": 130200, "förvaltning": "Stadsfastighetsförvaltningen", "anställd": "2023-01-01", "notering": "Anställd på SLK från 2022-03-01 för uppbyggnad av ny förvaltning" }
+      "data": {
+        "namn": "Martin Blixt",
+        "lön": 130200,
+        "förvaltning": "Stadsfastighetsförvaltningen",
+        "anställd": "2023-01-01",
+        "notering": "Anställd på SLK från 2022-03-01 för uppbyggnad av ny förvaltning"
+      }
     },
     {
       "id": "direktör-neri-samuelsson",
       "typ": "förvaltningsdirektör",
       "label": "Neri Samuelsson — Funktionsstöd",
-      "data": { "namn": "Neri Samuelsson", "lön": 135000, "förvaltning": "Funktionsstöd", "anställd": "2026-05-18" }
+      "data": {
+        "namn": "Neri Samuelsson",
+        "lön": 135000,
+        "förvaltning": "Funktionsstöd",
+        "anställd": "2026-05-18"
+      }
     },
     {
       "id": "direktör-peter-söderström",
       "typ": "förvaltningsdirektör",
       "label": "Peter Söderström — Intraservice",
-      "data": { "namn": "Peter Söderström", "lön": 127500, "förvaltning": "Intraservice", "anställd": "2019-04-01", "notering": "Tidsbegränsad tjänst från 2018-12-17, TV från 2019-04-01" }
+      "data": {
+        "namn": "Peter Söderström",
+        "lön": 127500,
+        "förvaltning": "Intraservice",
+        "anställd": "2019-04-01",
+        "notering": "Tidsbegränsad tjänst från 2018-12-17, TV från 2019-04-01"
+      }
     },
     {
       "id": "direktör-sandra-säljö",
       "typ": "förvaltningsdirektör",
       "label": "Sandra Säljö — Socialförv Centrum",
-      "data": { "namn": "Sandra Säljö", "lön": 116000, "förvaltning": "Socialförv Centrum", "anställd": "2024-10-07" }
+      "data": {
+        "namn": "Sandra Säljö",
+        "lön": 116000,
+        "förvaltning": "Socialförv Centrum",
+        "anställd": "2024-10-07"
+      }
     },
     {
       "id": "direktör-tomas-berndtsson",
       "typ": "förvaltningsdirektör",
       "label": "Tomas Berndtsson — Utbildningsförvaltningen",
-      "data": { "namn": "Tomas Berndtsson", "lön": 120600, "förvaltning": "Utbildningsförvaltningen", "anställd": "2015-03-09" }
+      "data": {
+        "namn": "Tomas Berndtsson",
+        "lön": 120600,
+        "förvaltning": "Utbildningsförvaltningen",
+        "anställd": "2015-03-09"
+      }
     }
   ],
   "edges": [
-    { "from": "direktör-anders-ramsby", "to": "nämnd-stadsmiljönämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-anna-rosengren", "to": "nämnd-kulturnämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-annika-ljungh", "to": "nämnd-socialnämnden-sydväst", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-babbs-edberg", "to": "nämnd-äldre-samt-vård-och-omsorgsnämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-birgitta-torgén", "to": "nämnd-arkivnämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-emma-hansryd", "to": "nämnd-kretslopp-och-vatten-västsvenska-paketet", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-eva-englund", "to": "nämnd-nämnden-för-demokrati-och-medborgarservice", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-fredrik-johansson", "to": "nämnd-socialnämnden-nordost", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-henrik-kant", "to": "nämnd-stadsbyggnadsnämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-henrik-karlsson", "to": "nämnd-inköps-och-upphandlingsnämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-johan-olofsson", "to": "nämnd-förskolenämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-johan-sävhage", "to": "nämnd-idrotts-och-föreningsnämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-kristina-lindfors", "to": "nämnd-exploateringsnämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-lars-durfeldt", "to": "nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-maria-andersson", "to": "nämnd-grundskolenämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-maria-jacobsson", "to": "nämnd-miljö-och-klimatnämnden", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-marie-larsson", "to": "nämnd-socialnämnden-hisingen", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-neri-samuelsson", "to": "nämnd-nämnden-för-funktionsstöd", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-peter-söderström", "to": "nämnd-nämnden-för-intraservice", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-sandra-säljö", "to": "nämnd-socialnämnden-centrum", "typ": "leder", "label": "förvaltningsdirektör" },
-    { "from": "direktör-tomas-berndtsson", "to": "nämnd-utbildningsnämnden", "typ": "leder", "label": "förvaltningsdirektör" }
+    {
+      "from": "direktör-anders-ramsby",
+      "to": "nämnd-stadsmiljönämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-anna-rosengren",
+      "to": "nämnd-kulturnämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-annika-ljungh",
+      "to": "nämnd-socialnämnden-sydväst",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-babbs-edberg",
+      "to": "nämnd-äldre-samt-vård-och-omsorgsnämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-birgitta-torgén",
+      "to": "nämnd-arkivnämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-emma-hansryd",
+      "to": "nämnd-kretslopp-och-vatten-västsvenska-paketet",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-eva-englund",
+      "to": "nämnd-nämnden-för-demokrati-och-medborgarservice",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-fredrik-johansson",
+      "to": "nämnd-socialnämnden-nordost",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-henrik-kant",
+      "to": "nämnd-stadsbyggnadsnämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-henrik-karlsson",
+      "to": "nämnd-inköps-och-upphandlingsnämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-johan-olofsson",
+      "to": "nämnd-förskolenämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-johan-sävhage",
+      "to": "nämnd-idrotts-och-föreningsnämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-kristina-lindfors",
+      "to": "nämnd-exploateringsnämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-lars-durfeldt",
+      "to": "nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-maria-andersson",
+      "to": "nämnd-grundskolenämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-maria-jacobsson",
+      "to": "nämnd-miljö-och-klimatnämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-marie-larsson",
+      "to": "nämnd-socialnämnden-hisingen",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-neri-samuelsson",
+      "to": "nämnd-nämnden-för-funktionsstöd",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-peter-söderström",
+      "to": "nämnd-nämnden-för-intraservice",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-sandra-säljö",
+      "to": "nämnd-socialnämnden-centrum",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-tomas-berndtsson",
+      "to": "nämnd-utbildningsnämnden",
+      "typ": "leder",
+      "label": "förvaltningsdirektör"
+    },
+    {
+      "from": "direktör-martin-blixt",
+      "to": "nämnd-stadsfastighetsnämnden",
+      "typ": "leder"
+    }
   ]
 }

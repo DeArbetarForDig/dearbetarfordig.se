@@ -208,15 +208,19 @@ async function main() {
       let polEdges = 0
       const nämndNodes =
         await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ IN ('organisation','nämnd') ORDER BY id`
+      // Prefer the canonical year-less nämnd node (merge-organisations.ts) —
+      // that's what direktör leder-edges point at, so ledamot_i must land on
+      // the same node for /forvaltning/* to see the members. org- nodes are
+      // next (unmerged nämnder from protocols); year-suffixed budget nodes
+      // (nämnd-...-2026) last.
+      const nämndPrio = (id: string) =>
+        id.match(/^nämnd-.*[^\d]$/) ? 3 : id.startsWith('org-') ? 2 : 1
       const nämndMap = new Map<string, string>()
       for (const n of nämndNodes) {
         const key = (n.label as string).toLowerCase().replace(/- och/g, ' och')
         const id = n.id as string
-        // Prefer org- nodes (from protocols) over nämnd-...-year nodes (from budget)
         const existing = nämndMap.get(key)
-        if (!existing || id.startsWith('org-') || (!existing.startsWith('org-') && id > existing)) {
-          nämndMap.set(key, id)
-        }
+        if (!existing || nämndPrio(id) > nämndPrio(existing)) nämndMap.set(key, id)
       }
 
       for (const p of polData.politiker) {
