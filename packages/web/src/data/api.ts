@@ -124,6 +124,25 @@ export async function getBudgetYear(år: number): Promise<BudgetYear> {
   }
 }
 
+export interface BudgetUtfallNämnd {
+  id: string
+  nämnd: string
+  år: number
+  intäkterMnkr: number
+  kostnaderMnkr: number
+  kommunbidragMnkr: number
+  resultatMnkr: number
+  budgetMnkr: number
+  avvikelseMnkr: number
+  status: 'i_balans' | 'överskott' | 'underskott'
+  kommentar?: string
+}
+
+export async function getBudgetUtfall(år: number): Promise<BudgetUtfallNämnd[]> {
+  const data = await fetchApi<HalCollection<BudgetUtfallNämnd>>(`/api/v1/goteborg/budget/utfall?%C3%A5r=${år}`)
+  return data._embedded.items
+}
+
 export async function getMöteAnföranden(datum: string, filters?: { talare?: string; ärende?: string; q?: string }) {
   const params = new URLSearchParams()
   if (filters?.talare) params.set('talare', filters.talare)

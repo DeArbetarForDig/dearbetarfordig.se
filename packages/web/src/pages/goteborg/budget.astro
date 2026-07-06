@@ -1,8 +1,9 @@
 ---
 import Donut from '../../../../ui/src/components/charts/Donut.astro'
+import ProgressBar from '../../../../ui/src/components/charts/ProgressBar.astro'
 import StackedAreaChart from '../../../../ui/src/components/charts/StackedAreaChart.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
-import { getBudget, getBudgetYear } from '../../data/api'
+import { type BudgetUtfallNämnd, getBudget, getBudgetUtfall, getBudgetYear } from '../../data/api'
 import Base from '../../layouts/Base.astro'
 
 const budget = await getBudget()
@@ -39,6 +40,27 @@ const segments = [
 // --- Stacked Area Chart: budget per kategori 2022-2026 ---
 const years = [2022, 2023, 2024, 2025, 2026]
 const budgets = await Promise.all(years.map((y) => getBudgetYear(y)))
+
+// --- Budgetutfall (senaste bokslutsår — 2026 är plan, inget utfall ännu) ---
+const utfallÅr = 2025
+const utfall = (await getBudgetUtfall(utfallÅr))
+  .filter((u) => u.kommunbidragMnkr > 0)
+  .sort((a, b) => b.kommunbidragMnkr - a.kommunbidragMnkr)
+
+const utfallColor: Record<string, string> = {
+  i_balans: 'var(--color-positive)',
+  överskott: 'var(--color-positive)',
+  stort_överskott: 'var(--color-positive)',
+  underskott: 'var(--color-negative)',
+  stort_underskott: 'var(--color-negative)',
+}
+
+// Nämnder finansieras av kommunbidrag + egna intäkter (avgifter m.m.) —
+// jämför kostnader mot summan av båda, inte bara kommunbidraget.
+function budgetutnyttjandeProcent(u: BudgetUtfallNämnd) {
+  const finansiering = u.kommunbidragMnkr + u.intäkterMnkr
+  return finansiering > 0 ? (Math.abs(u.kostnaderMnkr) / finansiering) * 100 : 0
+}
 
 // Gruppera nämnder i kategorier
 const kategorier: Record<string, { label: string; match: RegExp; color: string }> = {
@@ -93,6 +115,21 @@ const seriesData = katKeys.map((key) => {
     <Card title="Budget per kategori 2022–2026" titleSize="lg" subtitle="Kommunbidrag (mnkr) — utveckling över tid">
       <StackedAreaChart series={seriesData} categories={years.map(String)} unit="mnkr" />
     </Card>
+
+    {utfall.length > 0 && (
+      <Card title={`Budgetutfall ${utfallÅr}`} titleSize="lg" subtitle="Faktiska kostnader mot beviljat kommunbidrag — senaste bokslut">
+        <div class="grid gap-4">
+          {utfall.map((u) => (
+            <ProgressBar
+              label={u.nämnd}
+              value={budgetutnyttjandeProcent(u)}
+              valueLabel={`${Math.round(budgetutnyttjandeProcent(u))}% · ${u.resultatMnkr > 0 ? '+' : ''}${u.resultatMnkr} mnkr`}
+              color={utfallColor[u.status] || 'var(--color-primary)'}
+            />
+          ))}
+        </div>
+      </Card>
+    )}
 
     {öronmärkta.length > 0 && (
     <Card title="Öronmärkta poster" titleSize="lg" subtitle="Riktade satsningar och transfereringar">

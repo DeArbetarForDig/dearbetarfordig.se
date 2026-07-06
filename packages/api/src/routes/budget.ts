@@ -54,3 +54,32 @@ budgetRouter.openapi(budgetRoute, async (c) => {
   }))
   return c.json(halCollection(items, budgetLinks(kommun)), 200)
 })
+
+// --- Budgetutfall per nämnd (kommunbidrag vs faktiska kostnader) ---
+const budgetUtfallRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/budget/utfall',
+  tags: ['Budget'],
+  summary: 'Ekonomiskt utfall per nämnd för ett år (?år=2025) — kommunbidrag, kostnader, resultat, status',
+  request: {
+    params: z.object({ kommun: z.string() }),
+    query: z.object({ år: z.string() }),
+  },
+  responses: {
+    200: {
+      content: {
+        'application/json': { schema: z.object({}).passthrough().openapi('BudgetUtfall') },
+      },
+      description: 'OK',
+    },
+  },
+})
+budgetRouter.openapi(budgetUtfallRoute, async (c) => {
+  const { kommun } = c.req.valid('param')
+  const år = c.req.valid('query').år
+  const schema = requireSchema(kommun)
+  const rows =
+    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'} AND (data->>'år')::int = ${Number(år)} ORDER BY (data->>'kommunbidragMnkr')::float DESC NULLS LAST`
+  const nämnder = rows.map((r) => ({ id: r.id, ...(r.data as object) }))
+  return c.json(halCollection(nämnder, budgetLinks(kommun)), 200)
+})

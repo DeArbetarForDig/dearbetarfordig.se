@@ -1,0 +1,94 @@
+---
+/**
+ * ProgressBar — single labeled bar showing progress toward (or past) a goal.
+ *
+ * Usage:
+ *   <ProgressBar label="Mandatperiod 2022–2026" value={62} valueLabel="62%" />
+ *   <ProgressBar
+ *     label="Grundskolenämnden"
+ *     value={97.4}
+ *     valueLabel="97,4% av kommunbidraget"
+ *     color="var(--color-warning)"
+ *   />
+ *
+ * Props:
+ * - label: text above the bar
+ * - value: progress amount, in the same unit as max (can exceed max —
+ *   the fill clamps at 100% but the value stays in the corner label so
+ *   an overspend is still legible)
+ * - max: what 100% means (default 100, i.e. value is already a percent)
+ * - valueLabel: override the right-aligned text (default: rounded `value%`)
+ * - color: CSS color (var() token) for the fill — pick per-row so status
+ *   (e.g. över/underskott) can drive it (default var(--color-primary))
+ */
+interface Props {
+  label: string
+  value: number
+  max?: number
+  valueLabel?: string
+  color?: string
+  class?: string
+}
+
+const {
+  label,
+  value,
+  max = 100,
+  valueLabel = `${Math.round(value)}%`,
+  color = 'var(--color-primary)',
+  class: className,
+} = Astro.props
+
+const pct = Math.min(100, Math.max(0, (value / max) * 100))
+---
+
+<div class:list={['daf-progress-bar', className]}>
+  <div class="daf-progress-bar__header">
+    <span class="daf-progress-bar__label">{label}</span>
+    <span class="daf-progress-bar__value">{valueLabel}</span>
+  </div>
+  <div class="daf-progress-bar__track">
+    <div class="daf-progress-bar__fill" style={`--progress-pct:${pct};--progress-color:${color}`} />
+  </div>
+</div>
+
+<style>
+  .daf-progress-bar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.375rem;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-small);
+  }
+
+  .daf-progress-bar__label {
+    color: var(--color-text);
+    font-weight: 600;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .daf-progress-bar__value {
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    flex-shrink: 0;
+  }
+
+  .daf-progress-bar__track {
+    height: 8px;
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-sunken);
+    overflow: hidden;
+  }
+
+  .daf-progress-bar__fill {
+    height: 100%;
+    width: calc(var(--progress-pct) * 1%);
+    background: var(--progress-color);
+    border-radius: var(--radius-sm);
+  }
+</style>
