@@ -1,0 +1,84 @@
+---
+/**
+ * Breadcrumb — static trail of ancestor links for deep pages.
+ *
+ * Usage:
+ *   <Breadcrumb items={[
+ *     { label: 'Göteborg', href: '/goteborg' },
+ *     { label: 'Kommunfullmäktige', href: '/goteborg/kf/moten' },
+ *     { label: '2026-06-11' },
+ *   ]} />
+ *
+ * Props:
+ * - items: { label, href? }[] — the last item is rendered as the current
+ *   page (no link, aria-current="page")
+ */
+interface Item {
+  label: string
+  href?: string
+}
+
+interface Props {
+  items: Item[]
+  class?: string
+}
+
+const { items, class: className } = Astro.props
+---
+
+<nav class:list={['daf-breadcrumb', className]} aria-label="breadcrumb">
+  <ol class="daf-breadcrumb__list">
+    {items.map((item, i) => (
+      <li class="daf-breadcrumb__item">
+        {item.href && i !== items.length - 1 ? (
+          <a href={item.href} class="daf-breadcrumb__link">{item.label}</a>
+        ) : (
+          <span aria-current="page">{item.label}</span>
+        )}
+        {i < items.length - 1 && <span class="daf-breadcrumb__sep" aria-hidden="true">/</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .daf-breadcrumb__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.375rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-small);
+  }
+
+  .daf-breadcrumb__item {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-width: 0;
+  }
+
+  .daf-breadcrumb__item span[aria-current] {
+    color: var(--color-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 32ch;
+  }
+
+  .daf-breadcrumb__link {
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+
+  .daf-breadcrumb__link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .daf-breadcrumb__sep {
+    color: var(--color-text-subtle);
+  }
+</style>

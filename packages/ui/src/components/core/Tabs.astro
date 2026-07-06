@@ -1,0 +1,120 @@
+---
+/**
+ * Tabs — accessible tab strip with deep-linking via location.hash.
+ *
+ * Usage:
+ *   <Tabs tabs={[{ key: 'roster', label: 'Röster (42)' }, { key: 'tal', label: 'Anföranden (12)' }]}>
+ *     <Fragment slot="panel-roster">...</Fragment>
+ *     <Fragment slot="panel-tal">...</Fragment>
+ *   </Tabs>
+ *
+ * Props:
+ * - tabs: { key, label }[] — key becomes the panel/tab id and the #hash
+ * - default: initially active tab key (default: tabs[0].key; a matching
+ *   #hash on load takes priority so links like /politiker/x#roster work)
+ *
+ * One instance per page — tab/panel ids and the #hash aren't namespaced
+ * across multiple Tabs instances.
+ */
+interface Tab {
+  key: string
+  label: string
+}
+
+interface Props {
+  tabs: Tab[]
+  default?: string
+  class?: string
+}
+
+const { tabs, default: defaultTab = tabs[0]?.key, class: className } = Astro.props
+
+// Astro's <slot name> must be a static string, so dynamic per-tab slots
+// ("panel-{key}") are resolved here via Astro.slots.render() instead.
+const panels = await Promise.all(
+  tabs.map(async (t) => ({ key: t.key, html: await Astro.slots.render(`panel-${t.key}`) })),
+)
+---
+
+<div class:list={['daf-tabs', className]}>
+  <div class="daf-tabs__list" role="tablist">
+    {tabs.map((t) => (
+      <button
+        id={`tab-${t.key}`}
+        type="button"
+        class:list={['daf-tabs__tab', t.key === defaultTab && 'daf-tabs__tab--active']}
+        role="tab"
+        aria-selected={t.key === defaultTab ? 'true' : 'false'}
+        aria-controls={`panel-${t.key}`}
+        data-key={t.key}
+      >
+        {t.label}
+      </button>
+    ))}
+  </div>
+  {panels.map((p) => (
+    <div
+      id={`panel-${p.key}`}
+      class:list={['daf-tabs__panel', p.key !== defaultTab && 'hidden']}
+      role="tabpanel"
+      aria-labelledby={`tab-${p.key}`}
+      set:html={p.html}
+    />
+  ))}
+</div>
+
+<style>
+  .daf-tabs__list {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .daf-tabs__tab {
+    padding: 0.5rem 1rem;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+  }
+
+  .daf-tabs__tab:hover {
+    color: var(--color-text);
+  }
+
+  .daf-tabs__tab--active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .daf-tabs__panel.hidden {
+    display: none;
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('.daf-tabs').forEach((root) => {
+    const tabs = root.querySelectorAll('.daf-tabs__tab')
+    const panels = root.querySelectorAll('.daf-tabs__panel')
+
+    function activate(key, updateHash) {
+      tabs.forEach((t) => {
+        const active = t.dataset.key === key
+        t.classList.toggle('daf-tabs__tab--active', active)
+        t.setAttribute('aria-selected', active ? 'true' : 'false')
+      })
+      panels.forEach((p) => p.classList.toggle('hidden', p.id !== `panel-${key}`))
+      if (updateHash) history.replaceState(null, '', `#${key}`)
+    }
+
+    tabs.forEach((t) => t.addEventListener('click', () => activate(t.dataset.key, true)))
+
+    const hashKey = location.hash.slice(1)
+    if (hashKey && root.querySelector(`#tab-${hashKey}`)) activate(hashKey, false)
+  })
+</script>

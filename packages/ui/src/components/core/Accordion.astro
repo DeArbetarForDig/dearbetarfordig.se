@@ -1,0 +1,82 @@
+---
+/**
+ * Accordion — styled wrapper over native <details>/<summary>, no client JS.
+ *
+ * Usage:
+ *   <Accordion summary="Visa alla 42 röster">
+ *     ...content...
+ *   </Accordion>
+ *
+ * Props:
+ * - summary: text shown in the closed/open toggle row
+ * - open: start expanded (default false)
+ *
+ * Uses the native disclosure widget for free keyboard/AT support — the
+ * chevron rotation is pure CSS driven by the `details[open]` state.
+ */
+import Icon from './Icon.astro'
+
+interface Props {
+  summary: string
+  open?: boolean
+  class?: string
+}
+
+const { summary, open = false, class: className } = Astro.props
+---
+
+<details class:list={['daf-accordion', className]} open={open}>
+  <summary class="daf-accordion__summary">
+    <span>{summary}</span>
+    <Icon name="chevron-down" size={16} class="daf-accordion__chevron" />
+  </summary>
+  <div class="daf-accordion__content">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .daf-accordion {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+  }
+
+  .daf-accordion__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.625rem 0.875rem;
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    color: var(--color-primary);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .daf-accordion__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .daf-accordion__summary:hover {
+    text-decoration: underline;
+  }
+
+  .daf-accordion__chevron {
+    color: var(--color-text-muted);
+    transition: transform 0.15s ease;
+    flex-shrink: 0;
+  }
+
+  .daf-accordion[open] > .daf-accordion__summary .daf-accordion__chevron {
+    transform: rotate(180deg);
+  }
+
+  .daf-accordion__content {
+    padding: 0 0.875rem 0.875rem;
+    border-top: 1px solid var(--color-border);
+    padding-top: 0.875rem;
+  }
+</style>

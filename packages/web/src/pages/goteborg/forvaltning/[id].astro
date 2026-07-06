@@ -39,7 +39,14 @@ const budgetMnkr = utfall?.kommunbidragMnkr || budget?.kommunbidragMnkr || 0
 const resultatMnkr = utfall?.resultatMnkr ?? null
 ---
 
-<Base title={`${direktör.förvaltning} — Göteborg`}>
+<Base
+  title={`${direktör.förvaltning} — Göteborg`}
+  breadcrumbs={[
+    { label: 'Göteborg', href: '/goteborg' },
+    { label: 'Förvaltningar', href: '/goteborg/forvaltning' },
+    { label: direktör.förvaltning },
+  ]}
+>
   <div class="max-w-4xl mx-auto">
 
     <!-- Header -->

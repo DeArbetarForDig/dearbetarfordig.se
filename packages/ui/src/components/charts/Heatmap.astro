@@ -1,0 +1,180 @@
+---
+/**
+ * Heatmap — square matrix of a metric between pairs of the same axis
+ * (e.g. parti × parti röstöverensstämmelse).
+ *
+ * Usage:
+ *   <Heatmap
+ *     labels={['S', 'M', 'V', 'SD']}
+ *     matrix={[[1, 0.42, 0.81, 0.12], [0.42, 1, 0.2, 0.63], ...]}
+ *     colors={{ S: 'var(--parti-s)', M: 'var(--parti-m)', ... }}
+ *   />
+ *
+ * Props:
+ * - labels: axis labels, same order for rows and columns
+ * - matrix: labels.length × labels.length values in [0, 1] (or null when
+ *   there's not enough shared data for that pair) — diagonal is normally 1
+ *   but rendered as a neutral "—" cell regardless of its value
+ * - colors: optional label → CSS color (var() token) for a small swatch
+ *   next to each row/column label
+ * - unit: label used in the tooltip, e.g. "överensstämmelse"
+ * - formatValue: value → display string (default: rounded percent)
+ *
+ * Cell shade is driven by a numeric --cell-value custom property consumed
+ * via color-mix(), not a literal color — matches the token-only styling rule.
+ * Hover shows a11y-friendly tooltip via the shared window.dafChartTooltip.
+ */
+interface Props {
+  labels: string[]
+  matrix: (number | null)[][]
+  colors?: Record<string, string>
+  unit?: string
+  formatValue?: (v: number) => string
+  class?: string
+}
+
+const {
+  labels,
+  matrix,
+  colors = {},
+  unit = 'värde',
+  formatValue = (v: number) => `${Math.round(v * 100)}%`,
+  class: className,
+} = Astro.props
+---
+
+<div class:list={['daf-heatmap overflow-x-auto', className]}>
+  <table class="daf-heatmap__table border-collapse" role="table">
+    <thead>
+      <tr>
+        <th class="daf-heatmap__corner" aria-hidden="true"></th>
+        {labels.map((label) => (
+          <th class="daf-heatmap__axis-label" scope="col">
+            {colors[label] && (
+              <span class="daf-heatmap__swatch" style={`--swatch-color:${colors[label]}`} aria-hidden="true" />
+            )}
+            {label}
+          </th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {labels.map((rowLabel, i) => (
+        <tr>
+          <th class="daf-heatmap__axis-label" scope="row">
+            {colors[rowLabel] && (
+              <span class="daf-heatmap__swatch" style={`--swatch-color:${colors[rowLabel]}`} aria-hidden="true" />
+            )}
+            {rowLabel}
+          </th>
+          {labels.map((colLabel, j) => {
+            const value = matrix[i]?.[j] ?? null
+            const isSelf = i === j
+            if (isSelf) {
+              return (
+                <td class="daf-heatmap__cell daf-heatmap__cell--self" aria-label={`${rowLabel}`}>
+                  <span aria-hidden="true">—</span>
+                </td>
+              )
+            }
+            if (value === null) {
+              return (
+                <td class="daf-heatmap__cell daf-heatmap__cell--empty" aria-label={`${rowLabel} × ${colLabel}: ingen data`}>
+                  <span aria-hidden="true">–</span>
+                </td>
+              )
+            }
+            return (
+              <td
+                class:list={['daf-heatmap__cell', value >= 0.6 && 'daf-heatmap__cell--dark']}
+                style={`--cell-value:${value}`}
+                data-row={rowLabel}
+                data-col={colLabel}
+                data-value={formatValue(value)}
+                data-unit={unit}
+                aria-label={`${rowLabel} × ${colLabel}: ${formatValue(value)}`}
+              >
+                {formatValue(value)}
+              </td>
+            )
+          })}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .daf-heatmap__table {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-small);
+  }
+
+  .daf-heatmap__corner {
+    min-width: 2.5rem;
+  }
+
+  .daf-heatmap__axis-label {
+    padding: 0.375rem 0.625rem;
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  .daf-heatmap__swatch {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    margin-right: 0.375rem;
+    background: var(--swatch-color);
+  }
+
+  .daf-heatmap__cell {
+    width: 3rem;
+    height: 2.25rem;
+    min-width: 3rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    color: var(--color-text);
+    border: 1px solid var(--color-surface);
+    background: color-mix(in srgb, var(--color-primary) calc(var(--cell-value) * 100%), var(--color-surface));
+    cursor: default;
+  }
+
+  .daf-heatmap__cell--dark {
+    color: var(--system-white);
+  }
+
+  .daf-heatmap__cell--self {
+    background: var(--color-surface-sunken);
+    color: var(--color-text-subtle);
+  }
+
+  .daf-heatmap__cell--empty {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--color-surface-sunken),
+      var(--color-surface-sunken) 4px,
+      var(--color-surface) 4px,
+      var(--color-surface) 8px
+    );
+    color: var(--color-text-subtle);
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('.daf-heatmap__cell[data-row]').forEach((cell) => {
+    cell.addEventListener('mousemove', (e) => {
+      if (!window.dafChartTooltip) return
+      window.dafChartTooltip.show(e, {
+        title: `${cell.dataset.row} × ${cell.dataset.col}`,
+        items: [{ label: cell.dataset.unit, value: cell.dataset.value }],
+      })
+    })
+    cell.addEventListener('mouseleave', () => {
+      if (window.dafChartTooltip) window.dafChartTooltip.hide()
+    })
+  })
+</script>

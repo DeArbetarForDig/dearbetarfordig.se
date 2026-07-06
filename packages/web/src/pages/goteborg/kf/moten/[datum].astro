@@ -3,6 +3,7 @@ import Card from '../../../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../../ui/src/components/core/StatusBadge.astro'
+import Tabs from '../../../../../../ui/src/components/core/Tabs.astro'
 import { fetchApi, getMöteAnföranden, getMöten, getStats } from '../../../../data/api'
 import Base from '../../../../layouts/Base.astro'
 
@@ -83,7 +84,14 @@ for (const a of anföranden) {
 const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
 ---
 
-<Base title={`KF ${datum} — Göteborg`}>
+<Base
+  title={`KF ${datum} — Göteborg`}
+  breadcrumbs={[
+    { label: 'Göteborg', href: '/goteborg' },
+    { label: 'Kommunfullmäktige', href: '/goteborg/kf/moten' },
+    { label: datum! },
+  ]}
+>
   <div class="mb-6">
     <a href="/goteborg/kf/moten" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)]">
       ← Alla sammanträden
@@ -126,151 +134,123 @@ const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
     </a>
   )}
 
-  <!-- Tabs navigation -->
-  <div class="flex gap-2 mb-6 border-b border-[var(--color-border)]">
-    <button id="tab-beslut" class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-[var(--color-primary)] text-[var(--color-primary)]">
-      Beslut ({beslut.length})
-    </button>
-    <button id="tab-debatt" class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
-      Debatt ({anföranden.length})
-    </button>
-    <button id="tab-narvaro" class="tab-btn px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
-      Närvaro ({närvarande.length})
-    </button>
-  </div>
-
-  <!-- Beslut panel -->
-  <div id="panel-beslut" class="tab-panel">
-    <div class="flex flex-col gap-3">
-      {beslut.map((b: any) => (
-        <a href={`/goteborg/beslut/${encodeURIComponent(b.id)}`}
-          class="block p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:border-[var(--color-primary)] transition-colors">
-          <div class="flex items-start justify-between gap-4">
-            <div class="min-w-0">
-              <span class="text-xs font-mono text-[var(--color-text-muted)]">§{b.paragraf}</span>
-              <p class="font-semibold mt-1">{b.rubrik}</p>
-            </div>
-            {b.beslut && (
-              <StatusBadge
-                status={b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut}
-              />
-            )}
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
-
-  <!-- Debatt panel -->
-  <div id="panel-debatt" class="tab-panel hidden">
-    <!-- Party distribution -->
-    {topPartier.length > 0 && (
-      <div class="mb-6">
-        <p class="text-xs text-[var(--color-text-muted)] mb-2">Anföranden per parti:</p>
-        <div class="flex flex-wrap gap-2">
-          {topPartier.map(([parti, count]) => (
-            <span class="inline-flex items-center gap-1 text-xs">
-              <PartyTag parti={parti} size="sm" />
-              <span class="text-[var(--color-text-muted)]">{count}</span>
-            </span>
-          ))}
-        </div>
-      </div>
-    )}
-
-    <!-- Search -->
-    <div class="mb-6">
-      <input
-        id="search"
-        type="text"
-        placeholder="Sök i anföranden…"
-        class="w-full max-w-md px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] font-sans"
-      />
-    </div>
-
-    <!-- Anföranden grouped by ärende -->
-    <div id="anforanden-list" class="flex flex-col gap-6">
-      {[...byÄrende.entries()].map(([ärendeNr, anfs]) => (
-        <section>
-          {ärendeNr !== null && (
-            <h2 class="text-sm font-bold text-[var(--color-text-muted)] mb-3 pb-1 border-b border-[var(--color-border)]">
-              §{ärendeNr}. {anfs[0].ärendeTitel}
-            </h2>
-          )}
-          <div class="flex flex-col gap-3">
-            {anfs.map((a: any) => (
-              <div class="anforande p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
-                <div class="flex items-center gap-2 mb-2">
-                  <PartyTag parti={a.parti} size="sm" />
-                  {a.politikerId ? (
-                    <a href={`/goteborg/politiker/${a.politikerId}`} class="font-semibold text-sm hover:text-[var(--color-primary)]">
-                      {a.talare}
-                    </a>
-                  ) : (
-                    <span class="font-semibold text-sm">{a.talare}</span>
-                  )}
-                </div>
-                <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{a.text}</p>
+  <Tabs
+    tabs={[
+      { key: 'beslut', label: `Beslut (${beslut.length})` },
+      { key: 'debatt', label: `Debatt (${anföranden.length})` },
+      { key: 'narvaro', label: `Närvaro (${närvarande.length})` },
+    ]}
+  >
+    <Fragment slot="panel-beslut">
+      <div class="flex flex-col gap-3">
+        {beslut.map((b: any) => (
+          <a href={`/goteborg/beslut/${encodeURIComponent(b.id)}`}
+            class="block p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:border-[var(--color-primary)] transition-colors">
+            <div class="flex items-start justify-between gap-4">
+              <div class="min-w-0">
+                <span class="text-xs font-mono text-[var(--color-text-muted)]">§{b.paragraf}</span>
+                <p class="font-semibold mt-1">{b.rubrik}</p>
               </div>
+              {b.beslut && (
+                <StatusBadge
+                  status={b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut}
+                />
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    </Fragment>
+
+    <Fragment slot="panel-debatt">
+      <!-- Party distribution -->
+      {topPartier.length > 0 && (
+        <div class="mb-6">
+          <p class="text-xs text-[var(--color-text-muted)] mb-2">Anföranden per parti:</p>
+          <div class="flex flex-wrap gap-2">
+            {topPartier.map(([parti, count]) => (
+              <span class="inline-flex items-center gap-1 text-xs">
+                <PartyTag parti={parti} size="sm" />
+                <span class="text-[var(--color-text-muted)]">{count}</span>
+              </span>
             ))}
           </div>
-        </section>
-      ))}
-    </div>
-  </div>
-
-  <!-- Närvaro panel -->
-  <div id="panel-narvaro" class="tab-panel hidden">
-    <div class="flex flex-col gap-4">
-      {närvarandeByParti.map((group) => (
-        <div>
-          <div class="flex items-center gap-2 mb-2 pb-1 border-b border-[var(--color-border)]">
-            <PartyTag parti={group.parti} size="sm" />
-            <span class="text-sm text-[var(--color-text-muted)]">{group.members.length} ledamöter</span>
-          </div>
-          <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
-            {group.members.map((n: any) => {
-              const politikerId = n._links?.politiker?.href?.split('/').pop()
-              return (
-                <div class="flex items-center gap-2 p-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
-                  {politikerId ? (
-                    <a href={`/goteborg/politiker/${politikerId}`} class="text-sm truncate hover:text-[var(--color-primary)]">
-                      {n.namn}
-                    </a>
-                  ) : (
-                    <span class="text-sm truncate">{n.namn}</span>
-                  )}
-                </div>
-              )
-            })}
-          </div>
         </div>
-      ))}
-    </div>
-  </div>
+      )}
+
+      <!-- Search -->
+      <div class="mb-6">
+        <input
+          id="search"
+          type="text"
+          placeholder="Sök i anföranden…"
+          class="w-full max-w-md px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] font-sans"
+        />
+      </div>
+
+      <!-- Anföranden grouped by ärende -->
+      <div id="anforanden-list" class="flex flex-col gap-6">
+        {[...byÄrende.entries()].map(([ärendeNr, anfs]) => (
+          <section>
+            {ärendeNr !== null && (
+              <h2 class="text-sm font-bold text-[var(--color-text-muted)] mb-3 pb-1 border-b border-[var(--color-border)]">
+                §{ärendeNr}. {anfs[0].ärendeTitel}
+              </h2>
+            )}
+            <div class="flex flex-col gap-3">
+              {anfs.map((a: any) => (
+                <div class="anforande p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
+                  <div class="flex items-center gap-2 mb-2">
+                    <PartyTag parti={a.parti} size="sm" />
+                    {a.politikerId ? (
+                      <a href={`/goteborg/politiker/${a.politikerId}`} class="font-semibold text-sm hover:text-[var(--color-primary)]">
+                        {a.talare}
+                      </a>
+                    ) : (
+                      <span class="font-semibold text-sm">{a.talare}</span>
+                    )}
+                  </div>
+                  <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{a.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </Fragment>
+
+    <Fragment slot="panel-narvaro">
+      <div class="flex flex-col gap-4">
+        {närvarandeByParti.map((group) => (
+          <div>
+            <div class="flex items-center gap-2 mb-2 pb-1 border-b border-[var(--color-border)]">
+              <PartyTag parti={group.parti} size="sm" />
+              <span class="text-sm text-[var(--color-text-muted)]">{group.members.length} ledamöter</span>
+            </div>
+            <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+              {group.members.map((n: any) => {
+                const politikerId = n._links?.politiker?.href?.split('/').pop()
+                return (
+                  <div class="flex items-center gap-2 p-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+                    {politikerId ? (
+                      <a href={`/goteborg/politiker/${politikerId}`} class="text-sm truncate hover:text-[var(--color-primary)]">
+                        {n.namn}
+                      </a>
+                    ) : (
+                      <span class="text-sm truncate">{n.namn}</span>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </Fragment>
+  </Tabs>
 </Base>
 
 <script is:inline>
-  // Tab switching
-  const tabs = document.querySelectorAll('.tab-btn')
-  const panels = document.querySelectorAll('.tab-panel')
-
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const target = tab.id.replace('tab-', 'panel-')
-
-      tabs.forEach((t) => {
-        t.classList.remove('border-[var(--color-primary)]', 'text-[var(--color-primary)]')
-        t.classList.add('border-transparent', 'text-[var(--color-text-muted)]')
-      })
-      tab.classList.remove('border-transparent', 'text-[var(--color-text-muted)]')
-      tab.classList.add('border-[var(--color-primary)]', 'text-[var(--color-primary)]')
-
-      panels.forEach((p) => p.classList.add('hidden'))
-      document.getElementById(target)?.classList.remove('hidden')
-    })
-  })
-
   // Search in anföranden
   const input = document.getElementById('search')
   const items = document.querySelectorAll('.anforande')

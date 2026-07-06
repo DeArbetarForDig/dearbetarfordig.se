@@ -149,6 +149,43 @@ metricsRouter.openapi(metricsRoute, async (c) => {
     Object.entries(ricePerParti).map(([p, d]) => [p, Math.round((d.sum / d.count) * 100) / 100]),
   )
 
+  // --- Parti × parti röstöverensstämmelse (reuses riceData: ja/nej per parti per paragraf) ---
+  // Per paragraf: each party's majority position (ja/nej), skip ties (no clear position).
+  // Agreement between two parties = share of shared paragrafer where their majority matched.
+  const positionerPerParagraf: Record<string, Record<string, 'ja' | 'nej'>> = {}
+  for (const row of riceData) {
+    if (row.ja === row.nej) continue
+    if (!positionerPerParagraf[row.paragraf_id]) positionerPerParagraf[row.paragraf_id] = {}
+    positionerPerParagraf[row.paragraf_id][row.parti] = row.ja > row.nej ? 'ja' : 'nej'
+  }
+
+  const parPar: Record<string, { överens: number; totalt: number }> = {}
+  for (const positioner of Object.values(positionerPerParagraf)) {
+    const partier = Object.keys(positioner)
+    for (let i = 0; i < partier.length; i++) {
+      for (let j = i + 1; j < partier.length; j++) {
+        const [a, b] = [partier[i], partier[j]].sort()
+        const key = `${a}|${b}`
+        if (!parPar[key]) parPar[key] = { överens: 0, totalt: 0 }
+        parPar[key].totalt++
+        if (positioner[a] === positioner[b]) parPar[key].överens++
+      }
+    }
+  }
+
+  const röstÖverensstämmelsePartier = [...new Set(riceData.map((r) => r.parti))].sort()
+  const röstÖverensstämmelse = {
+    partier: röstÖverensstämmelsePartier,
+    matris: röstÖverensstämmelsePartier.map((a) =>
+      röstÖverensstämmelsePartier.map((b) => {
+        if (a === b) return 1
+        const [x, y] = [a, b].sort()
+        const cell = parPar[`${x}|${y}`]
+        return cell && cell.totalt > 0 ? Math.round((cell.överens / cell.totalt) * 100) / 100 : null
+      }),
+    ),
+  }
+
   // --- Attendance Rate (närvarade edges: politiker → möte) ---
   const [{ total: totalNärvaro }] =
     await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_edges WHERE typ = 'närvarade'`
@@ -218,6 +255,7 @@ metricsRouter.openapi(metricsRoute, async (c) => {
       },
       aktivitet: { jävsanmälningar: jävAntal, reservationer: resAntal, yrkanden: yrkAntal },
       riceIndex,
+      röstÖverensstämmelse,
       närvaro: { registreringar: totalNärvaro, möten: totalMöten, snittPerMöte: snittNärvarande },
       debatt: {
         giniKoefficient: debateGini,

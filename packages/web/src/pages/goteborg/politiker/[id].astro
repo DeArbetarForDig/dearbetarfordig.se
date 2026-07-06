@@ -6,7 +6,9 @@ import Card from '../../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
+import Accordion from '../../../../../ui/src/components/core/Accordion.astro'
 import Table from '../../../../../ui/src/components/core/Table.astro'
+import Tabs from '../../../../../ui/src/components/core/Tabs.astro'
 import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
 import {
   getMöten,
@@ -105,9 +107,23 @@ const earliestUppdrag =
       : null
 
 const namn = detail.namn
+
+const profilTabs = [
+  totalVotes > 0 && { key: 'roster', label: `Röster (${totalVotes})` },
+  { key: 'uppdrag', label: `Uppdrag (${uppdrag.length})` },
+  mandatperioder.length > 0 && { key: 'mandatperioder', label: 'Mandatperioder' },
+  anföranden.length > 0 && { key: 'anforanden', label: `Anföranden (${anföranden.length})` },
+].filter(Boolean) as { key: string; label: string }[]
 ---
 
-<Base title={`${namn} (${detail.parti})`}>
+<Base
+  title={`${namn} (${detail.parti})`}
+  breadcrumbs={[
+    { label: 'Göteborg', href: '/goteborg' },
+    { label: 'Politiker', href: '/goteborg/politiker' },
+    { label: namn },
+  ]}
+>
   <div class="max-w-4xl mx-auto">
 
     <!-- Header -->
@@ -157,35 +173,6 @@ const namn = detail.namn
       </Card>
     </section>
 
-    <!-- Voting breakdown -->
-    {totalVotes > 0 && (
-      <section class="mb-8">
-        <Card title="Röstningshistorik" titleSize="lg">
-          <StackedBar segments={[
-            { label: 'Ja', value: jaCount, color: 'var(--vote-ja)' },
-            { label: 'Nej', value: nejCount, color: 'var(--vote-nej)' },
-            { label: 'Avstår', value: avstarCount, color: 'var(--vote-avstår)' },
-            { label: 'Frånvarande', value: frånvarandeCount, color: 'var(--color-neutral)' },
-          ]} />
-
-          {voteDetails.length > 0 && (
-            <details class="mt-4">
-              <summary class="text-sm font-semibold cursor-pointer text-[var(--color-primary)] hover:underline">
-                Visa alla {voteDetails.length} voteringar
-              </summary>
-              <div class="mt-3">
-                <Table
-                  headers={['Datum', 'Ärende', 'Röst']}
-                  rows={voteDetails.map(v => [v.datum, { text: v.rubrik, href: `/goteborg/beslut/${encodeURIComponent(v.rubrikId)}` }, { text: v.rost, color: v.rostColor }])}
-                  variant="compact"
-                />
-              </div>
-            </details>
-          )}
-        </Card>
-      </section>
-    )}
-
     <!-- Arvode detail -->
     {arvode.total_ersättning_kr > 0 && (
       <section class="mb-8">
@@ -210,50 +197,76 @@ const namn = detail.namn
       </section>
     )}
 
-    <!-- Uppdrag (nuvarande mandatperiod) -->
+    <!-- Profil -->
     <section class="mb-8">
-      <Card title={`Uppdrag (${uppdrag.length})`} subtitle="Nuvarande mandatperiod 2022–2026" titleSize="lg">
-        <Table
-          headers={['Roll', 'Organisation', 'Period']}
-          rows={uppdrag.map((u: any) => [u.roll, u.organisation, u.från && u.till ? `${u.från.slice(0, 4)}–${u.till.slice(0, 4)}` : 'N/A'])}
-          variant="compact"
-          alignRight={[2]}
-        />
-      </Card>
-    </section>
+      <Tabs tabs={profilTabs}>
+        {totalVotes > 0 && (
+          <Fragment slot="panel-roster">
+            <Card title="Röstningshistorik" titleSize="lg">
+              <StackedBar segments={[
+                { label: 'Ja', value: jaCount, color: 'var(--vote-ja)' },
+                { label: 'Nej', value: nejCount, color: 'var(--vote-nej)' },
+                { label: 'Avstår', value: avstarCount, color: 'var(--vote-avstår)' },
+                { label: 'Frånvarande', value: frånvarandeCount, color: 'var(--color-neutral)' },
+              ]} />
 
-    <!-- Mandatperioder (historik) -->
-    {mandatperioder.length > 0 && (
-      <section class="mb-8">
-        <Card title="Mandatperioder" titleSize="lg">
-          <Timeline events={mandatperioder.map((m, i) => ({
-            datum: m.period,
-            titel: m.roll,
-            beskrivning: m.ansvarsområde || undefined,
-            status: i === mandatperioder.length - 1 ? 'active' as const : 'completed' as const,
-          }))} />
-        </Card>
-      </section>
-    )}
+              {voteDetails.length > 0 && (
+                <Accordion summary={`Visa alla ${voteDetails.length} voteringar`} class="mt-4">
+                  <Table
+                    headers={['Datum', 'Ärende', 'Röst']}
+                    rows={voteDetails.map(v => [v.datum, { text: v.rubrik, href: `/goteborg/beslut/${encodeURIComponent(v.rubrikId)}` }, { text: v.rost, color: v.rostColor }])}
+                    variant="compact"
+                  />
+                </Accordion>
+              )}
+            </Card>
+          </Fragment>
+        )}
+
+        <Fragment slot="panel-uppdrag">
+          <Card title={`Uppdrag (${uppdrag.length})`} subtitle="Nuvarande mandatperiod 2022–2026" titleSize="lg">
+            <Table
+              headers={['Roll', 'Organisation', 'Period']}
+              rows={uppdrag.map((u: any) => [u.roll, u.organisation, u.från && u.till ? `${u.från.slice(0, 4)}–${u.till.slice(0, 4)}` : 'N/A'])}
+              variant="compact"
+              alignRight={[2]}
+            />
+          </Card>
+        </Fragment>
+
+        {mandatperioder.length > 0 && (
+          <Fragment slot="panel-mandatperioder">
+            <Card title="Mandatperioder" titleSize="lg">
+              <Timeline events={mandatperioder.map((m, i) => ({
+                datum: m.period,
+                titel: m.roll,
+                beskrivning: m.ansvarsområde || undefined,
+                status: i === mandatperioder.length - 1 ? 'active' as const : 'completed' as const,
+              }))} />
+            </Card>
+          </Fragment>
+        )}
+
+        {anföranden.length > 0 && (
+          <Fragment slot="panel-anforanden">
+            <div class="flex flex-col gap-3">
+              {anföranden.slice(0, 20).map((a) => (
+                <div class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
+                  <div class="flex items-center gap-2 mb-2 text-xs text-[var(--color-text-muted)]">
+                    <a href={`/goteborg/kf/moten/${a.datum}`} class="font-mono hover:text-[var(--color-primary)]">{a.datum}</a>
+                    {a.ärende && <span>· Ärende {a.ärende}: {a.ärendeTitel?.slice(0, 50)}</span>}
+                  </div>
+                  <p class="text-sm text-[var(--color-text)] leading-relaxed">{a.text?.slice(0, 300)}{(a.text?.length || 0) > 300 ? '…' : ''}</p>
+                </div>
+              ))}
+              {anföranden.length > 20 && (
+                <p class="text-sm text-[var(--color-text-muted)] text-center">+{anföranden.length - 20} fler anföranden via <a href="/goteborg/kf/moten" class="hover:text-[var(--color-primary)]">sammanträden</a></p>
+              )}
+            </div>
+          </Fragment>
+        )}
+      </Tabs>
+    </section>
 
   </div>
-  {anföranden.length > 0 && (
-    <section class="mb-8">
-      <h2 class="text-xl font-bold mb-4">Anföranden ({anföranden.length})</h2>
-      <div class="flex flex-col gap-3">
-        {anföranden.slice(0, 20).map((a) => (
-          <div class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
-            <div class="flex items-center gap-2 mb-2 text-xs text-[var(--color-text-muted)]">
-              <a href={`/goteborg/kf/moten/${a.datum}`} class="font-mono hover:text-[var(--color-primary)]">{a.datum}</a>
-              {a.ärende && <span>· Ärende {a.ärende}: {a.ärendeTitel?.slice(0, 50)}</span>}
-            </div>
-            <p class="text-sm text-[var(--color-text)] leading-relaxed">{a.text?.slice(0, 300)}{(a.text?.length || 0) > 300 ? '…' : ''}</p>
-          </div>
-        ))}
-        {anföranden.length > 20 && (
-          <p class="text-sm text-[var(--color-text-muted)] text-center">+{anföranden.length - 20} fler anföranden via <a href="/goteborg/kf/moten" class="hover:text-[var(--color-primary)]">sammanträden</a></p>
-        )}
-      </div>
-    </section>
-  )}
 </Base>

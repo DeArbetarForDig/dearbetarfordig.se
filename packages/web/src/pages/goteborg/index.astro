@@ -5,6 +5,7 @@ import OrgBlock from '../../../../ui/src/components/cards/OrgBlock.astro'
 import Chamber from '../../../../ui/src/components/charts/Chamber.astro'
 import Donut from '../../../../ui/src/components/charts/Donut.astro'
 import Gauge from '../../../../ui/src/components/charts/Gauge.astro'
+import Heatmap from '../../../../ui/src/components/charts/Heatmap.astro'
 import HorizontalBar from '../../../../ui/src/components/charts/HorizontalBar.astro'
 import Button from '../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
@@ -126,6 +127,22 @@ const partiNamn: Record<string, string> = {
 const riceEntries = Object.entries(metrics.riceIndex || {}).sort(
   ([, a]: any, [, b]: any) => b - a,
 ) as [string, number][]
+
+// Parti × parti röstöverensstämmelse — samma partiordning (mandatstorlek) som resten av sidan
+const { partier: överensPartier, matris: överensMatris } = metrics.röstÖverensstämmelse || {
+  partier: [],
+  matris: [],
+}
+const överensOrdning = [...överensPartier].sort(
+  (a, b) => (partiRank.get(a) ?? 99) - (partiRank.get(b) ?? 99),
+)
+const överensIndex = new Map(överensPartier.map((p: string, i: number) => [p, i]))
+const överensMatrisSorterad = överensOrdning.map((a) =>
+  överensOrdning.map((b) => överensMatris[överensIndex.get(a)!][överensIndex.get(b)!]),
+)
+const partiFärger = Object.fromEntries(
+  överensOrdning.map((p) => [p, `var(--parti-${p.toLowerCase()})`]),
+)
 
 // Anföranden-trend: jämför de två senaste HELA åren (innevarande år pågår)
 const anförandenPerÅr: { år: string; antal: number }[] = metrics.debatt.perÅr || []
@@ -313,6 +330,17 @@ const senasteBeslut = beslutList
         max={1}
       />
     </div>
+
+    <!-- Röstöverensstämmelse parti × parti -->
+    {överensOrdning.length > 1 && (
+      <div class="mt-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4">
+        <h3 class="font-bold mb-3">Röstöverensstämmelse mellan partier</h3>
+        <p class="text-xs text-[var(--color-text-muted)] mb-3">
+          Andel voteringar där partiernas majoritet röstade lika — visar koalitionsmönster som inte syns i beslutslistan.
+        </p>
+        <Heatmap labels={överensOrdning} matrix={överensMatrisSorterad} colors={partiFärger} unit="överensstämmelse" />
+      </div>
+    )}
   </section>
 
   <!-- Decision feed -->

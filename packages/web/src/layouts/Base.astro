@@ -1,13 +1,19 @@
 ---
 import '../styles/global.css'
+import Breadcrumb from '../../../ui/src/components/core/Breadcrumb.astro'
 import ChartTooltip from '../../../ui/src/components/core/ChartTooltip.astro'
 
 interface Props {
   title: string
   description?: string
+  breadcrumbs?: { label: string; href?: string }[]
 }
 
-const { title, description = 'Öppen demokratiplattform för svenska kommuner' } = Astro.props
+const {
+  title,
+  description = 'Öppen demokratiplattform för svenska kommuner',
+  breadcrumbs,
+} = Astro.props
 ---
 
 <!doctype html>
@@ -58,6 +64,9 @@ const { title, description = 'Öppen demokratiplattform för svenska kommuner' }
 
     <!-- Content layer -->
     <main class="max-w-6xl mx-auto w-full flex-1 py-(--space-xl) px-(--space-md)">
+      {breadcrumbs && breadcrumbs.length > 0 && (
+        <Breadcrumb items={breadcrumbs} class="mb-4" />
+      )}
       <slot />
     </main>
 
