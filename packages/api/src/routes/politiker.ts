@@ -225,7 +225,8 @@ const profilRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/politiker/{id}/profil',
   tags: ['Politiker'],
-  summary: 'Percentil-normerad profil (närvaro, debattaktivitet, initiativ, partilojalitet) för radardiagram',
+  summary:
+    'Percentil-normerad profil (närvaro, debattaktivitet, initiativ, partilojalitet) för radardiagram',
   description: `Varje axel är en percentil (0–100) bland politiker med tillräckligt underlag:
 - Närvaro: andel av samtliga sammanträden (alla organ) med registrerad närvaro
 - Debattaktivitet: anföranden per sammanträde med närvaro (kräver ≥${MIN_MÖTEN_FÖR_DEBATTAKTIVITET} sammanträden)
@@ -234,7 +235,9 @@ const profilRoute = createRoute({
   request: { params: z.object({ kommun: z.string(), id: z.string().uuid() }) },
   responses: {
     200: {
-      content: { 'application/json': { schema: z.object({}).passthrough().openapi('PolitikerProfil') } },
+      content: {
+        'application/json': { schema: z.object({}).passthrough().openapi('PolitikerProfil') },
+      },
       description: 'OK',
     },
     404: {
@@ -322,8 +325,7 @@ politikerRouter.openapi(profilRoute, async (c) => {
           ? debattaktivitetRå
           : null,
       initiativ: row.närvaro > 0 ? row.initiativ : null,
-      lojalitetPct:
-        l && l.totalt >= MIN_RÖSTER_FÖR_LOJALITET ? (l.matchar / l.totalt) * 100 : null,
+      lojalitetPct: l && l.totalt >= MIN_RÖSTER_FÖR_LOJALITET ? (l.matchar / l.totalt) * 100 : null,
     }
   }
 

@@ -39,7 +39,14 @@ interface Props {
   class?: string
 }
 
-const { id, totalItems, pageSize = 20, pageSizeOptions, showInfo = true, class: className } = Astro.props
+const {
+  id,
+  totalItems,
+  pageSize = 20,
+  pageSizeOptions,
+  showInfo = true,
+  class: className,
+} = Astro.props
 ---
 
 <div

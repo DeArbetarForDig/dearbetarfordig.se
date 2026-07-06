@@ -1,11 +1,11 @@
 ---
 import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
+import Accordion from '../../../../../ui/src/components/core/Accordion.astro'
 import Button from '../../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
+import EmptyState from '../../../../../ui/src/components/core/EmptyState.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
-import Accordion from '../../../../../ui/src/components/core/Accordion.astro'
-import EmptyState from '../../../../../ui/src/components/core/EmptyState.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import Tabs from '../../../../../ui/src/components/core/Tabs.astro'
 import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
@@ -125,9 +125,15 @@ const harHandling = Boolean(detail.beslut.handlingText || detail.beslut.fulltext
 
 const beslutTabs = [
   (hasVotes || hasHandcount) && { key: 'votering', label: 'Votering' },
-  (inlämnare.length > 0 || yrkanden.length > 0) && { key: 'yrkanden', label: `Yrkanden (${inlämnare.length + yrkanden.length})` },
+  (inlämnare.length > 0 || yrkanden.length > 0) && {
+    key: 'yrkanden',
+    label: `Yrkanden (${inlämnare.length + yrkanden.length})`,
+  },
   detail.kopplingar.length > 0 && { key: 'kopplingar', label: 'Kopplingar' },
-  harHandling && { key: 'handling', label: detail.beslut.handlingText ? 'Handling' : 'Protokollstext' },
+  harHandling && {
+    key: 'handling',
+    label: detail.beslut.handlingText ? 'Handling' : 'Protokollstext',
+  },
   närvarande.length > 0 && { key: 'narvaro', label: `Närvaro (${närvarande.length})` },
   anförandenData.length > 0 && { key: 'debatt', label: `Debatt (${anförandenData.length})` },
 ].filter(Boolean) as { key: string; label: string }[]

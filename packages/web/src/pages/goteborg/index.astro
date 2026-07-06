@@ -164,7 +164,10 @@ const mandatStart = new Date('2022-10-15')
 const mandatSlut = new Date('2026-10-15')
 const mandatProcent = Math.min(
   100,
-  Math.max(0, ((Date.now() - mandatStart.getTime()) / (mandatSlut.getTime() - mandatStart.getTime())) * 100),
+  Math.max(
+    0,
+    ((Date.now() - mandatStart.getTime()) / (mandatSlut.getTime() - mandatStart.getTime())) * 100,
+  ),
 )
 
 const senasteBeslut = beslutList

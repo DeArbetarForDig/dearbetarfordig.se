@@ -60,7 +60,8 @@ const budgetUtfallRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/budget/utfall',
   tags: ['Budget'],
-  summary: 'Ekonomiskt utfall per nämnd för ett år (?år=2025) — kommunbidrag, kostnader, resultat, status',
+  summary:
+    'Ekonomiskt utfall per nämnd för ett år (?år=2025) — kommunbidrag, kostnader, resultat, status',
   request: {
     params: z.object({ kommun: z.string() }),
     query: z.object({ år: z.string() }),
