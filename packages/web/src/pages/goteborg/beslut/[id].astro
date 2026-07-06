@@ -5,6 +5,7 @@ import Card from '../../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import Accordion from '../../../../../ui/src/components/core/Accordion.astro'
+import EmptyState from '../../../../../ui/src/components/core/EmptyState.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import Tabs from '../../../../../ui/src/components/core/Tabs.astro'
 import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
@@ -362,7 +363,7 @@ const timeline = [
                       <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed whitespace-pre-wrap">{a.text}</p>
                     </div>
                   ) : (
-                    <p class="m-0 text-xs text-[var(--color-text-subtle)] italic">Transkription saknas</p>
+                    <EmptyState icon="file-x" title="Transkription saknas" size="sm" />
                   )}
                 </div>
               </div>

@@ -7,6 +7,7 @@ import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import PartyTag from '../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro'
 import Accordion from '../../../../../ui/src/components/core/Accordion.astro'
+import EmptyState from '../../../../../ui/src/components/core/EmptyState.astro'
 import Table from '../../../../../ui/src/components/core/Table.astro'
 import Tabs from '../../../../../ui/src/components/core/Tabs.astro'
 import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
@@ -109,7 +110,7 @@ const earliestUppdrag =
 const namn = detail.namn
 
 const profilTabs = [
-  totalVotes > 0 && { key: 'roster', label: `Röster (${totalVotes})` },
+  { key: 'roster', label: `Röster (${totalVotes})` },
   { key: 'uppdrag', label: `Uppdrag (${uppdrag.length})` },
   mandatperioder.length > 0 && { key: 'mandatperioder', label: 'Mandatperioder' },
   anföranden.length > 0 && { key: 'anforanden', label: `Anföranden (${anföranden.length})` },
@@ -200,28 +201,36 @@ const profilTabs = [
     <!-- Profil -->
     <section class="mb-8">
       <Tabs tabs={profilTabs}>
-        {totalVotes > 0 && (
-          <Fragment slot="panel-roster">
-            <Card title="Röstningshistorik" titleSize="lg">
-              <StackedBar segments={[
-                { label: 'Ja', value: jaCount, color: 'var(--vote-ja)' },
-                { label: 'Nej', value: nejCount, color: 'var(--vote-nej)' },
-                { label: 'Avstår', value: avstarCount, color: 'var(--vote-avstår)' },
-                { label: 'Frånvarande', value: frånvarandeCount, color: 'var(--color-neutral)' },
-              ]} />
+        <Fragment slot="panel-roster">
+          <Card title="Röstningshistorik" titleSize="lg">
+            {totalVotes > 0 ? (
+              <>
+                <StackedBar segments={[
+                  { label: 'Ja', value: jaCount, color: 'var(--vote-ja)' },
+                  { label: 'Nej', value: nejCount, color: 'var(--vote-nej)' },
+                  { label: 'Avstår', value: avstarCount, color: 'var(--vote-avstår)' },
+                  { label: 'Frånvarande', value: frånvarandeCount, color: 'var(--color-neutral)' },
+                ]} />
 
-              {voteDetails.length > 0 && (
-                <Accordion summary={`Visa alla ${voteDetails.length} voteringar`} class="mt-4">
-                  <Table
-                    headers={['Datum', 'Ärende', 'Röst']}
-                    rows={voteDetails.map(v => [v.datum, { text: v.rubrik, href: `/goteborg/beslut/${encodeURIComponent(v.rubrikId)}` }, { text: v.rost, color: v.rostColor }])}
-                    variant="compact"
-                  />
-                </Accordion>
-              )}
-            </Card>
-          </Fragment>
-        )}
+                {voteDetails.length > 0 && (
+                  <Accordion summary={`Visa alla ${voteDetails.length} voteringar`} class="mt-4">
+                    <Table
+                      headers={['Datum', 'Ärende', 'Röst']}
+                      rows={voteDetails.map(v => [v.datum, { text: v.rubrik, href: `/goteborg/beslut/${encodeURIComponent(v.rubrikId)}` }, { text: v.rost, color: v.rostColor }])}
+                      variant="compact"
+                    />
+                  </Accordion>
+                )}
+              </>
+            ) : (
+              <EmptyState
+                icon="inbox"
+                title="Inga registrerade röster"
+                description="Ingen namnupprop där politikern deltagit finns i underlaget för aktuell mandatperiod."
+              />
+            )}
+          </Card>
+        </Fragment>
 
         <Fragment slot="panel-uppdrag">
           <Card title={`Uppdrag (${uppdrag.length})`} subtitle="Nuvarande mandatperiod 2022–2026" titleSize="lg">

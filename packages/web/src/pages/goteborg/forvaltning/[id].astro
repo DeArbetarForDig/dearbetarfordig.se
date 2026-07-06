@@ -3,6 +3,7 @@ import KpiCard from '../../../../../ui/src/components/cards/KpiCard.astro'
 import PoliticianCard from '../../../../../ui/src/components/cards/PoliticianCard.astro'
 import Button from '../../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
+import EmptyState from '../../../../../ui/src/components/core/EmptyState.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import Pill from '../../../../../ui/src/components/core/Pill.astro'
 import Table from '../../../../../ui/src/components/core/Table.astro'
@@ -161,30 +162,38 @@ const resultatMnkr = utfall?.resultatMnkr ?? null
     </section>
 
     <!-- Ledamöter -->
-    {ledamöter.length > 0 && (
-      <section class="mb-8">
-        <Card title={`Nämndens ledamöter (${ledamöter.length})`} titleSize="lg">
-          <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
-            {ledamöter.slice(0, 20).map((l: any) => {
-              const namn = l.label?.replace(/\s*\([^)]+\)$/, '') || ''
-              const parti = l.parti || ''
-              const politikerId = l.id?.replace('politiker-', '') || ''
-              return (
-                <PoliticianCard
-                  namn={namn}
-                  parti={parti}
-                  roll="Ledamot"
-                  url={`/goteborg/politiker/${politikerId}`}
-                />
-              )
-            })}
-          </div>
-          {ledamöter.length > 20 && (
-            <p class="text-sm text-[var(--color-text-muted)] mt-3">+ {ledamöter.length - 20} till</p>
-          )}
-        </Card>
-      </section>
-    )}
+    <section class="mb-8">
+      <Card title={`Nämndens ledamöter (${ledamöter.length})`} titleSize="lg">
+        {ledamöter.length > 0 ? (
+          <>
+            <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+              {ledamöter.slice(0, 20).map((l: any) => {
+                const namn = l.label?.replace(/\s*\([^)]+\)$/, '') || ''
+                const parti = l.parti || ''
+                const politikerId = l.id?.replace('politiker-', '') || ''
+                return (
+                  <PoliticianCard
+                    namn={namn}
+                    parti={parti}
+                    roll="Ledamot"
+                    url={`/goteborg/politiker/${politikerId}`}
+                  />
+                )
+              })}
+            </div>
+            {ledamöter.length > 20 && (
+              <p class="text-sm text-[var(--color-text-muted)] mt-3">+ {ledamöter.length - 20} till</p>
+            )}
+          </>
+        ) : (
+          <EmptyState
+            icon="users"
+            title="Inga ledamöter registrerade"
+            description="Uppgifter om nämndens sammansättning saknas i underlaget."
+          />
+        )}
+      </Card>
+    </section>
 
   </div>
 </Base>

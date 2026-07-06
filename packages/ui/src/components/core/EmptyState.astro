@@ -1,0 +1,106 @@
+---
+/**
+ * EmptyState — replaces silent "nothing here" omissions with an
+ * explained gap: icon + title + optional description + optional action.
+ *
+ * Usage:
+ *   <EmptyState icon="inbox" title="Inga registrerade röster" />
+ *   <EmptyState icon="file-x" title="Transkription saknas" size="sm" />
+ *   <EmptyState
+ *     icon="users"
+ *     title="Inga ledamöter registrerade"
+ *     description="Uppgifter om nämndens sammansättning saknas i underlaget."
+ *     action={{ label: 'Visa nämnden', href: '/goteborg/forvaltning' }}
+ *   />
+ *
+ * Props:
+ * - icon: Lucide icon name (kebab-case)
+ * - title: short statement of what's missing
+ * - description: optional elaboration (only meaningful at size="md")
+ * - action: optional { label, href }
+ * - size: "md" (default) — centered block for empty sections/tabs;
+ *   "sm" — compact single-line form for inline use (e.g. one list item)
+ */
+interface Props {
+  icon: string
+  title: string
+  description?: string
+  action?: { label: string; href: string }
+  size?: 'sm' | 'md'
+  class?: string
+}
+
+import Icon from './Icon.astro'
+
+const { icon, title, description, action, size = 'md', class: className } = Astro.props
+---
+
+<div class:list={['daf-empty-state', `daf-empty-state--${size}`, className]}>
+  <Icon name={icon} size={size === 'sm' ? 16 : 32} class="daf-empty-state__icon" />
+  <div class="daf-empty-state__text">
+    <p class="daf-empty-state__title">{title}</p>
+    {description && size === 'md' && <p class="daf-empty-state__description">{description}</p>}
+  </div>
+  {action && size === 'md' && (
+    <a href={action.href} class="daf-empty-state__action">{action.label}</a>
+  )}
+</div>
+
+<style>
+  .daf-empty-state {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text-subtle);
+  }
+
+  .daf-empty-state--md {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .daf-empty-state--sm {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .daf-empty-state__icon {
+    color: var(--color-text-subtle);
+  }
+
+  .daf-empty-state--md .daf-empty-state__icon {
+    margin-bottom: 0.25rem;
+  }
+
+  .daf-empty-state__title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .daf-empty-state--sm .daf-empty-state__title {
+    font-size: var(--font-size-small);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .daf-empty-state__description {
+    margin: 0.375rem 0 0;
+    font-size: var(--font-size-small);
+    max-width: 40ch;
+  }
+
+  .daf-empty-state__action {
+    margin-top: 1rem;
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .daf-empty-state__action:hover {
+    text-decoration: underline;
+  }
+</style>
