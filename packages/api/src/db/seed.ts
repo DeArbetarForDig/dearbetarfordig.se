@@ -16,6 +16,36 @@ function loadJSON(path: string) {
   return JSON.parse(readFileSync(full, 'utf-8'))
 }
 
+// Every node id inserted into graf_nodes this run — edges are validated
+// against this set up front so a dangling edge is a reported data gap,
+// not a silently swallowed FK violation.
+const knownNodeIds = new Set<string>()
+const droppedEdges = new Map<string, { count: number; sample: string }>()
+
+function droppedEdge(typ: string, from: string, to: string) {
+  const missing = knownNodeIds.has(from) ? to : from
+  // Collapse per-paragraf/per-ärende ids so the report groups by source
+  // document instead of listing thousands of individual paragraphs.
+  const grupp = missing.replace(/-§\d+.*$/, '-§*').replace(/-ärende-\d+$/, '-ärende-*')
+  const key = `${typ} → ${grupp}`
+  const entry = droppedEdges.get(key)
+  if (entry) entry.count++
+  else droppedEdges.set(key, { count: 1, sample: `${from} → ${to}` })
+}
+
+function reportDroppedEdges() {
+  if (droppedEdges.size === 0) return
+  const total = [...droppedEdges.values()].reduce((s, e) => s + e.count, 0)
+  console.warn(
+    `\n   ⚠️  ${total} edges DROPPED — endpoint saknas i graf_nodes (data gap, se docs/ANALYS-2026-07.md):`,
+  )
+  const sorted = [...droppedEdges.entries()].sort((a, b) => b[1].count - a[1].count)
+  for (const [key, { count, sample }] of sorted.slice(0, 25)) {
+    console.warn(`      ${String(count).padStart(6)}  ${key}  (t.ex. ${sample})`)
+  }
+  if (sorted.length > 25) console.warn(`      … och ${sorted.length - 25} grupper till`)
+}
+
 async function main() {
   const client = postgres(connectionString, { max: 5 })
 
@@ -126,12 +156,34 @@ async function main() {
     for (const node of nodeMap.values()) {
       await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data) VALUES (${node.id}, ${node.typ}, ${node.label}, ${client.json(node.data)}) ON CONFLICT (id) DO UPDATE SET typ = EXCLUDED.typ, label = EXCLUDED.label, data = EXCLUDED.data`
       totalNodes++
+      knownNodeIds.add(node.id)
     }
+
+    // Politiker nodes from the roster must exist BEFORE edge insertion:
+    // röstade_*/talade_i edges reference politiker-<uuid> ids of which only
+    // a fraction appear as nodes in the graf files themselves (125 of 734),
+    // so inserting roster nodes after the edges silently dropped every edge
+    // pointing at the rest on FK violations.
+    if (polData) {
+      for (const p of polData.politiker) {
+        await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data)
+          VALUES (${`politiker-${p.id}`}, 'politiker', ${`${p.förnamn} ${p.efternamn}`}, ${client.json({ parti: p.parti, email: p.email })})
+          ON CONFLICT (id) DO UPDATE SET label = EXCLUDED.label, data = EXCLUDED.data`
+        knownNodeIds.add(`politiker-${p.id}`)
+      }
+      console.log(`   ✓ ${polData.politiker.length} politiker nodes (roster)`)
+    }
+
+    // Edges whose endpoints don't exist can't be inserted (FK) — collect and
+    // report them loudly instead of swallowing the violation. Any OTHER
+    // insert error now crashes the seed instead of being silently eaten.
     for (const edge of edges) {
-      try {
-        await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, label, data) VALUES (${edge.from}, ${edge.to}, ${edge.typ}, ${edge.label || null}, ${edge.data ? client.json(edge.data) : null})`
-        totalEdges++
-      } catch {}
+      if (!knownNodeIds.has(edge.from) || !knownNodeIds.has(edge.to)) {
+        droppedEdge(edge.typ, edge.from, edge.to)
+        continue
+      }
+      await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, label, data) VALUES (${edge.from}, ${edge.to}, ${edge.typ}, ${edge.label || null}, ${edge.data ? client.json(edge.data) : null})`
+      totalEdges++
     }
 
     console.log(`   ✓ ${totalNodes} graf nodes, ${totalEdges} edges (from ${files.length} files)`)
@@ -154,12 +206,6 @@ async function main() {
 
     if (polData) {
       let polEdges = 0
-      for (const p of polData.politiker) {
-        await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data)
-          VALUES (${`politiker-${p.id}`}, 'politiker', ${`${p.förnamn} ${p.efternamn}`}, ${client.json({ parti: p.parti, email: p.email })})
-          ON CONFLICT (id) DO UPDATE SET label = EXCLUDED.label, data = EXCLUDED.data`
-      }
-
       const nämndNodes =
         await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ IN ('organisation','nämnd') ORDER BY id`
       const nämndMap = new Map<string, string>()
@@ -186,11 +232,9 @@ async function main() {
           const edgeKey = `${p.id}:${nämndId}`
           if (allLedamotEdges.has(edgeKey)) continue
           allLedamotEdges.add(edgeKey)
-          try {
-            await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
-              VALUES (${`politiker-${p.id}`}, ${nämndId}, 'ledamot_i', ${client.json({ roll: u.roll, från: u.från, till: u.till })})`
-            polEdges++
-          } catch {}
+          await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
+            VALUES (${`politiker-${p.id}`}, ${nämndId}, 'ledamot_i', ${client.json({ roll: u.roll, från: u.från, till: u.till })})`
+          polEdges++
         }
       }
       console.log(`   ✓ ${polEdges} politiker→nämnd edges (KF-ledamöter)`)
@@ -246,26 +290,21 @@ async function main() {
           let bolagId = bolagByNamn.get(key)
           if (!bolagId) {
             bolagId = slugifyBolag(bolagNamn)
-            try {
-              await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data)
-                VALUES (${bolagId}, 'bolag', ${bolagNamn}, ${client.json({ källa: 'allabolag.se' })})
-                ON CONFLICT (id) DO NOTHING`
-              bolagByNamn.set(key, bolagId)
-              nyaBolagNoder++
-            } catch {
-              ejMatchade++
-              continue
-            }
+            await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data)
+              VALUES (${bolagId}, 'bolag', ${bolagNamn}, ${client.json({ källa: 'allabolag.se' })})
+              ON CONFLICT (id) DO NOTHING`
+            bolagByNamn.set(key, bolagId)
+            knownNodeIds.add(bolagId)
+            nyaBolagNoder++
           }
-          try {
-            await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
-              VALUES (${`politiker-${p.id}`}, ${bolagId}, 'bolagsuppdrag', ${client.json({ roll: b.roll, url: b.url || null })})`
-            bolagEdges++
-          } catch {
-            // FK violation (politiker no longer in graf_nodes) or other
-            // insert failure — skip and count rather than crash the seed.
+          if (!knownNodeIds.has(`politiker-${p.id}`)) {
+            droppedEdge('bolagsuppdrag', `politiker-${p.id}`, bolagId)
             ejMatchade++
+            continue
           }
+          await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
+            VALUES (${`politiker-${p.id}`}, ${bolagId}, 'bolagsuppdrag', ${client.json({ roll: b.roll, url: b.url || null })})`
+          bolagEdges++
         }
       }
       console.log(
@@ -301,6 +340,10 @@ async function main() {
       for (const a of data.anföranden || []) {
         if (!a.politikerId) continue
         const polId = `politiker-${a.politikerId}`
+        if (!knownNodeIds.has(polId) || !knownNodeIds.has(moteId)) {
+          droppedEdge('talade_i', polId, moteId)
+          continue
+        }
         const edgeData = {
           talare: a.talare,
           parti: a.parti,
@@ -310,18 +353,20 @@ async function main() {
           ordning: a.ordning,
           datum,
         }
-        try {
-          await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
-            VALUES (${polId}, ${moteId}, 'talade_i', ${client.json(edgeData)})`
-          taladEdges++
-        } catch {}
+        await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ, data)
+          VALUES (${polId}, ${moteId}, 'talade_i', ${client.json(edgeData)})`
+        taladEdges++
       }
     }
     console.log(`   ✓ ${taladEdges} talade_i edges (anföranden→möten)`)
   }
 
+  reportDroppedEdges()
   console.log('\n✅ Database seeded')
   await client.end()
 }
 
-main().catch(console.error)
+main().catch((err) => {
+  console.error('\n❌ Seed failed:', err)
+  process.exitCode = 1
+})
