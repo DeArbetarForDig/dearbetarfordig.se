@@ -1,176 +1,288 @@
 /**
- * parse-voteringar.ts — Dedicated parser for voteringsbilagor (individual votes).
+ * parse-voteringar.ts — regenerates individual röstade_* edges from KF
+ * voting bilagor (protocol appendices with namnupprop).
  *
- * Extracts individual votes (namn + parti + ja/nej/avstår) from KF protocol appendices.
- * Supports both 2023 and 2025+ formats (same column layout).
+ * Target resolution: a bilaga identifies its vote by AGENDA number
+ * ("Ärende: 15"), which is NOT the protocol § number — the earlier version
+ * of this script built targets as `kf-<datum>-§<ärende>`, which on most
+ * dates points at a nonexistent node (dropped at seed) or, worse, at a
+ * DIFFERENT paragraph that happens to have that § number (off-by-N vote
+ * corruption). See docs/ANALYS-2026-07.md, punkt 18.
  *
- * Input: KF protocol PDF with voteringsbilagor (Bilaga 2, 3, etc.)
- * Output: Updates data/graf/politiker-komplett.json with röstade_ja/nej/avstår edges
+ * The correct mapping goes via the bilaga's Ärendemening, matched against
+ * the § rubriker in data/graf/kf-<datum>.json (which must be freshly
+ * parsed — run batch-reparse-protokoll.ts first).
  *
- * Usage: npx tsx parse-voteringar.ts [path-to-pdf] [datum]
- *        npx tsx parse-voteringar.ts --all  (parse all .tmp/kf-protokoll-*.pdf)
+ * Sub-voteringar ("Ärende: 8:1", "8:2" — motförslagsvotering followed by
+ * huvudvotering) share one §: only the LAST (the huvudvotering, the vote
+ * that decides the ärende) becomes röstade_* edges.
+ *
+ * REPLACES all existing röstade_* edges in politiker-komplett.json.
+ *
+ * Usage: npx tsx parse-voteringar.ts
  */
 
 import { execSync } from 'node:child_process'
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../data')
+const TMP_DIR = join(import.meta.dirname, '../../../../.tmp')
 const KOMPLETT_PATH = join(DATA_DIR, 'graf/politiker-komplett.json')
 
-// Column-based vote line: "Aslan Akbas                  S               1    Ordförande   Ja"
+// Column-based vote line: "Aslan Akbas       S       1   Ordförande   Ja".
+// Column separators vary between protocol generations — some tables use a
+// single space ("… 1 Ordförande Ja") and long names get squeezed against the
+// parti column ("Robert Andersson Hammarstrand S") — so separators are \s+
+// and the line is anchored by parti + plats-number + röst instead.
 const VOTE_RE =
-  /^(.{15,42}?)\s{2,}(S|M|V|SD|L|MP|D|KD|C)\s{2,}\d+\s{2,}\S+\s{2,}(Ja|Nej|Avstår|Frånvarande)\s*$/
+  /^\s*(.{2,45}?)\s+(S|M|V|SD|L|MP|D|KD|C)\s+\d+\s+.+?\s+(Ja|Nej|Avstår|Frånvarande)\s*$/
 
-interface Röst {
-  namn: string
-  parti: string
-  röst: string
-  ärende: string
-  datum: string
+interface Votering {
+  ärende: string // full bilaga id incl. sub-votering, e.g. "8:2"
+  bas: string // base agenda number, e.g. "8"
+  mening: string
+  antal: { ja: number; nej: number; avstår: number; frånvarande: number }
+  röster: Array<{ namn: string; parti: string; röst: string }>
 }
 
-function parseVotesPdf(pdfPath: string, datum: string): Röst[] {
+function norm(s: string): string {
+  return s
+    .toLowerCase()
+    .replace(/[^a-zåäö0-9 ]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function parseBilagor(pdfPath: string): Votering[] {
   const text = execSync(`pdftotext -layout "${pdfPath}" -`, {
     encoding: 'utf-8',
     maxBuffer: 50 * 1024 * 1024,
   })
-  const röster: Röst[] = []
+  const voteringar: Votering[] = []
 
-  // Split on Bilaga headers
-  const bilagor = text.split(/(?=\n?Bilaga \d+\s*\n)/)
-
-  for (const bilaga of bilagor) {
-    const ärendeMatch = bilaga.match(/Ärende:\s*(\d+)/)
+  // Header form varies by protocol generation: 2023 uses an indented
+  // uppercase "BILAGA 2", 2025+ a line-start "Bilaga 2" — match both as an
+  // own-line header. A missed split glues ALL vote tables into one bilaga
+  // and attributes every vote of the meeting to its first ärende.
+  for (const bilaga of text.split(/(?=^[ \t]*BILAGA\s+\d+\s*$)/im)) {
+    const ärendeMatch = bilaga.match(/Ärende:\s*([\d:]+)/)
+    const meningMatch = bilaga.match(/Ärendemening:\s*([\s\S]+?)\s*\nAntal Ja/)
     const jaMatch = bilaga.match(/Antal Ja:\s*(\d+)/)
-    if (!ärendeMatch || !jaMatch) continue
+    if (!ärendeMatch || !meningMatch || !jaMatch) continue
 
-    const ärende = ärendeMatch[1]
     const resultatIdx = bilaga.indexOf('Resultat')
     if (resultatIdx === -1) continue
 
-    const lines = bilaga.slice(resultatIdx).split('\n').slice(1)
+    const röster: Votering['röster'] = []
     let pendingName = ''
-
-    for (const line of lines) {
+    for (const line of bilaga.slice(resultatIdx).split('\n').slice(1)) {
       const m = line.match(VOTE_RE)
       if (m) {
         const namn = `${pendingName} ${m[1]}`.trim()
         pendingName = ''
-        röster.push({ namn, parti: m[2], röst: m[3].toLowerCase(), ärende, datum })
+        röster.push({ namn, parti: m[2], röst: m[3].toLowerCase() })
       } else if (
         line.trim() &&
-        !line.match(/^\s*(Namn|Bilaga|\f|Göteborgs|Kommunfullmäktige|Protokoll|Sammanträdes)/)
+        !line.match(/^\s*(Namn|Bilaga|\f|Göteborgs|Kommunfullmäktige|Protokoll|Sammanträdes)/i)
       ) {
         pendingName += ` ${line.trim()}`
       } else {
         pendingName = ''
       }
     }
-  }
+    if (röster.length === 0) continue
 
-  return röster
+    const antal = {
+      ja: Number.parseInt(jaMatch[1]),
+      nej: Number.parseInt(bilaga.match(/Antal Nej:\s*(\d+)/)?.[1] || '0'),
+      avstår: Number.parseInt(bilaga.match(/Antal Avstår:\s*(\d+)/)?.[1] || '0'),
+      frånvarande: Number.parseInt(bilaga.match(/Antal Frånv\w*:\s*(\d+)/)?.[1] || '0'),
+    }
+    const förväntat = antal.ja + antal.nej + antal.avstår + antal.frånvarande
+    if (röster.length > förväntat) {
+      // More parsed vote rows than the bilaga's own tally — table glued or
+      // duplicated; refuse rather than seed corrupt votes.
+      throw new Error(
+        `${pdfPath}: ärende ${ärendeMatch[1]} har ${röster.length} rösträder men tally ${förväntat}`,
+      )
+    }
+
+    voteringar.push({
+      ärende: ärendeMatch[1],
+      bas: ärendeMatch[1].split(':')[0],
+      mening: meningMatch[1].replace(/\s+/g, ' ').trim(),
+      antal,
+      röster,
+    })
+  }
+  return voteringar
+}
+
+/** Match a bilaga's ärendemening against the date's § rubriker. */
+function findParagraf(
+  mening: string,
+  antal: Votering['antal'],
+  paragrafer: Array<{ id: string; rubrik: string; fulltext: string }>,
+): { id: string; ambiguous: boolean } | null {
+  // Compare the full overlap of the shorter string — the bilaga truncates
+  // meningen at ~70 chars, but a fixed shorter cap confused ärenden that
+  // share a long prefix ("Motion av Axel Darvik (L) och Eva Flyborg (L) om
+  // att skydda…" vs "…om att införa…"). Spaces are stripped before
+  // comparison: pdftotext drops hyphens over line breaks ("Sundén-Andersson"
+  // → "SundénAndersson"). Exact equality accepts short rubriker
+  // ("Frågestund") that the minimum-overlap rule would reject.
+  const a = norm(mening).replace(/ /g, '')
+  const candidates = paragrafer.filter((p) => {
+    const b = norm(p.rubrik).replace(/ /g, '')
+    if (b.length > 0 && a === b) return true
+    const n = Math.min(a.length, b.length)
+    return n >= 13 && a.slice(0, n) === b.slice(0, n)
+  })
+  if (candidates.length === 0) {
+    // Old-format procedural §§ can lack a rubrik entirely — fall back to the
+    // paragraph whose fulltext quotes the ärendemening, if unique. (Matching
+    // on the vote tally instead is tempting but two voteringar on the same
+    // date can share exact numbers — it mis-assigned 2023-10-12 ärende 13:2
+    // to §8.)
+    const iText = paragrafer.filter((p) => norm(p.fulltext).replace(/ /g, '').includes(a))
+    if (iText.length === 1) return { id: iText[0].id, ambiguous: false }
+    return null
+  }
+  if (candidates.length === 1) return { id: candidates[0].id, ambiguous: false }
+  // Same rubrik on several §§ (e.g. a bordlagd motion retaken): the protocol
+  // § quotes the tally — pick the candidate whose text carries this bilaga's
+  // exact result, else one that records an omröstning at all.
+  const medTal = candidates.filter((p) =>
+    p.fulltext.match(new RegExp(`${antal.ja}\\s*Ja\\s*mot\\s*${antal.nej}\\s*Nej`, 'i')),
+  )
+  if (medTal.length === 1) return { id: medTal[0].id, ambiguous: false }
+  const medOmröstning = candidates.filter((p) => /omröstning/i.test(p.fulltext))
+  const pick = medOmröstning.length === 1 ? medOmröstning[0] : candidates[0]
+  return { id: pick.id, ambiguous: medOmröstning.length !== 1 }
+}
+
+function getProtokollDatum(): string[] {
+  const dates: string[] = []
+  for (const year of ['2023', '2024', '2025', '2026']) {
+    const path = join(DATA_DIR, `beslut/kf-handlingar-${year}.json`)
+    if (!existsSync(path)) continue
+    const data = JSON.parse(readFileSync(path, 'utf-8'))
+    for (const s of data.sammanträden) {
+      if (
+        s.handlingar.some((h: { titel: string }) => h.titel.toLowerCase().includes('kf_protokoll'))
+      ) {
+        dates.push(s.datum)
+      }
+    }
+  }
+  return [...new Set(dates)].sort()
 }
 
 async function main() {
-  const arg = process.argv[2]
-  if (!arg) {
-    console.error('Usage: npx tsx parse-voteringar.ts <pdf> <datum>')
-    console.error('       npx tsx parse-voteringar.ts --all')
-    process.exit(1)
-  }
-
-  let allRöster: Röst[] = []
-
-  if (arg === '--all') {
-    // Parse all protocol PDFs
-    const pdfs = readdirSync('.tmp')
-      .filter((f) => f.match(/^kf-protokoll-\d+\.pdf$/))
-      .map((f) => `.tmp/${f}`)
-      .sort()
-    for (const pdf of pdfs) {
-      const datumMatch = pdf.match(/(\d{4})(\d{2})(\d{2})/)
-      if (!datumMatch) continue
-      const datum = `${datumMatch[1]}-${datumMatch[2]}-${datumMatch[3]}`
-      const votes = parseVotesPdf(pdf, datum)
-      if (votes.length > 0) {
-        console.log(`  ✅ ${datum}: ${votes.length} röster`)
-      }
-      allRöster.push(...votes)
-    }
-  } else {
-    const datum = process.argv[3] || '2025-01-01'
-    allRöster = parseVotesPdf(arg, datum)
-    console.log(`  ✅ ${datum}: ${allRöster.length} röster`)
-  }
-
-  if (allRöster.length === 0) {
-    console.log('   Inga voteringar hittade.')
-    return
-  }
-
-  // Load politiker for name matching
+  // Name → politiker node id
   const polData = JSON.parse(readFileSync(join(DATA_DIR, 'politiker/goteborg.json'), 'utf-8'))
-  const politiker = polData.politiker as Array<{
-    id: string
-    förnamn: string
-    efternamn: string
-    parti: string
-  }>
-
-  // Build name→id
   const nameToId: Record<string, string> = {}
-  for (const p of politiker) {
+  for (const p of polData.politiker) {
     const pid = `politiker-${p.id}`
-    const full = `${p.förnamn} ${p.efternamn}`.toLowerCase()
-    nameToId[full] = pid
+    nameToId[`${p.förnamn} ${p.efternamn}`.toLowerCase()] = pid
     const parts = p.efternamn.split(' ')
     if (parts.length > 1) {
       for (const part of parts) nameToId[`${p.förnamn} ${part}`.toLowerCase()] = pid
-      nameToId[`${p.förnamn} ${parts[0]}`.toLowerCase()] = pid
     }
   }
 
-  // Convert röster to edges
-  const newEdges = new Set<string>()
-  let matched = 0
-  for (const r of allRöster) {
-    const key = r.namn.trim().toLowerCase()
-    const pid = nameToId[key]
-    if (!pid) continue
-    matched++
+  const newEdges: Array<{ from: string; to: string; typ: string; data: Record<string, unknown> }> =
+    []
+  let totalVoteringar = 0
+  let totalHuvud = 0
+  let omatchadeParagrafer = 0
+  const omatchadeNamn = new Map<string, number>()
 
-    const paragrafId = `kf-${r.datum}-§${r.ärende}`
-    const typ =
-      r.röst === 'ja'
-        ? 'röstade_ja'
-        : r.röst === 'nej'
-          ? 'röstade_nej'
-          : r.röst === 'avstår'
-            ? 'röstade_avstår'
-            : 'röstade_frånvarande'
-    newEdges.add(JSON.stringify({ from: pid, to: paragrafId, typ }))
+  for (const datum of getProtokollDatum()) {
+    const pdfPath = join(TMP_DIR, `protokoll-${datum}.pdf`)
+    const grafPath = join(DATA_DIR, `graf/kf-${datum}.json`)
+    if (!existsSync(pdfPath) || !existsSync(grafPath)) {
+      console.log(`  ⚠️ ${datum}: pdf eller graf saknas — hoppar över`)
+      continue
+    }
+
+    const voteringar = parseBilagor(pdfPath)
+    if (voteringar.length === 0) continue
+    totalVoteringar += voteringar.length
+
+    const graf = JSON.parse(readFileSync(grafPath, 'utf-8'))
+    const paragrafer = graf.nodes
+      .filter((n: { typ: string }) => n.typ === 'paragraf')
+      .map((n: { id: string; data: { rubrik?: string; fulltext?: string } }) => ({
+        id: n.id,
+        rubrik: n.data.rubrik || '',
+        fulltext: n.data.fulltext || '',
+      }))
+
+    // Only the last sub-votering per base ärende (the huvudvotering) counts
+    const huvudPerBas = new Map<string, Votering>()
+    for (const v of voteringar) huvudPerBas.set(v.bas, v)
+
+    let matchadeRöster = 0
+    let döda = 0
+    for (const v of huvudPerBas.values()) {
+      totalHuvud++
+      const träff = findParagraf(v.mening, v.antal, paragrafer)
+      if (!träff) {
+        omatchadeParagrafer++
+        console.log(`  ⚠️ ${datum} ärende ${v.ärende}: ingen § matchar "${v.mening.slice(0, 60)}"`)
+        continue
+      }
+      if (träff.ambiguous) {
+        console.log(`  ⚠️ ${datum} ärende ${v.ärende}: flera §-kandidater, valde ${träff.id}`)
+      }
+      for (const r of v.röster) {
+        const pid = nameToId[r.namn.toLowerCase()]
+        if (!pid) {
+          omatchadeNamn.set(r.namn, (omatchadeNamn.get(r.namn) || 0) + 1)
+          döda++
+          continue
+        }
+        matchadeRöster++
+        newEdges.push({
+          from: pid,
+          to: träff.id,
+          typ: `röstade_${r.röst}`,
+          data: { mandatperiod: '2022-2026', datum, bilagaÄrende: v.ärende },
+        })
+      }
+    }
+    console.log(
+      `  ✅ ${datum}: ${voteringar.length} bilagor → ${huvudPerBas.size} huvudvoteringar, ${matchadeRöster} röster${döda ? ` (${döda} omatchade namn)` : ''}`,
+    )
   }
 
-  console.log(`\n📊 Totalt: ${allRöster.length} röster, ${matched} matchade till politiker`)
-  console.log(`   ${newEdges.size} unika edges att lägga till`)
+  console.log(`\n📊 ${totalVoteringar} bilagor, ${totalHuvud} huvudvoteringar`)
+  console.log(`   ${newEdges.length} röstade-edges genererade`)
+  if (omatchadeParagrafer > 0) console.log(`   ⚠️ ${omatchadeParagrafer} voteringar utan §-träff`)
+  if (omatchadeNamn.size > 0) {
+    console.log(`   ⚠️ omatchade namn (${omatchadeNamn.size}):`)
+    for (const [namn, antal] of [...omatchadeNamn.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)) {
+      console.log(`      ${antal}× ${JSON.stringify(namn)}`)
+    }
+  }
 
-  // Update politiker-komplett.json
+  // Replace all röstade_* edges in politiker-komplett.json
   const komplett = JSON.parse(readFileSync(KOMPLETT_PATH, 'utf-8'))
-  const existingSet = new Set(
-    komplett.edges.map((e: any) => JSON.stringify({ from: e.from, to: e.to, typ: e.typ })),
-  )
-
-  let added = 0
-  for (const edgeStr of newEdges) {
-    if (!existingSet.has(edgeStr)) {
-      komplett.edges.push(JSON.parse(edgeStr))
-      added++
-    }
-  }
-
+  const före = komplett.edges.length
+  komplett.edges = komplett.edges.filter((e: { typ: string }) => !e.typ.startsWith('röstade_'))
+  const borttagna = före - komplett.edges.length
+  komplett.edges.push(...newEdges)
   writeFileSync(KOMPLETT_PATH, JSON.stringify(komplett, null, 2))
-  console.log(`   ✅ ${added} nya edges tillagda i politiker-komplett.json`)
+  console.log(
+    `\n✅ politiker-komplett.json: ${borttagna} gamla röstade-edges ersatta med ${newEdges.length}`,
+  )
 }
 
-main()
+main().catch((err) => {
+  console.error(err)
+  process.exitCode = 1
+})

@@ -1427,9 +1427,9 @@
     },
     {
       "from": "kf-2025-11-27-§485",
-      "to": "kf-*-§475",
+      "to": "kf-2025-10-16-§475",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 475"
+      "label": "Bordlagd från 2025-10-16 § 475"
     },
     {
       "from": "kf-2025-11-27-§485",
@@ -1438,9 +1438,9 @@
     },
     {
       "from": "kf-2025-11-27-§486",
-      "to": "kf-*-§476",
+      "to": "kf-2025-10-16-§476",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 476"
+      "label": "Bordlagd från 2025-10-16 § 476"
     },
     {
       "from": "kf-2025-11-27-§486",
@@ -1454,9 +1454,9 @@
     },
     {
       "from": "kf-2025-11-27-§487",
-      "to": "kf-*-§443",
+      "to": "kf-2025-10-16-§443",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 443"
+      "label": "Bordlagd från 2025-10-16 § 443"
     },
     {
       "from": "kf-2025-11-27-§490",
@@ -2171,57 +2171,57 @@
     },
     {
       "from": "kf-2025-11-27-§516",
-      "to": "kf-*-§256",
+      "to": "kf-2025-04-24-§256",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 256"
+      "label": "Bordlagd från 2025-04-24 § 256"
     },
     {
       "from": "kf-2025-11-27-§517",
-      "to": "kf-*-§325",
+      "to": "kf-2025-05-22-§325",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 325"
+      "label": "Bordlagd från 2025-05-22 § 325"
     },
     {
       "from": "kf-2025-11-27-§518",
-      "to": "kf-*-§429",
+      "to": "kf-2025-09-11-§429",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 429"
+      "label": "Bordlagd från 2025-09-11 § 429"
     },
     {
       "from": "kf-2025-11-27-§519",
-      "to": "kf-*-§430",
+      "to": "kf-2025-09-11-§430",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 430"
+      "label": "Bordlagd från 2025-09-11 § 430"
     },
     {
       "from": "kf-2025-11-27-§520",
-      "to": "kf-*-§470",
+      "to": "kf-2025-10-16-§470",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 470"
+      "label": "Bordlagd från 2025-10-16 § 470"
     },
     {
       "from": "kf-2025-11-27-§521",
-      "to": "kf-*-§471",
+      "to": "kf-2025-10-16-§471",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 471"
+      "label": "Bordlagd från 2025-10-16 § 471"
     },
     {
       "from": "kf-2025-11-27-§522",
-      "to": "kf-*-§472",
+      "to": "kf-2025-10-16-§472",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 472"
+      "label": "Bordlagd från 2025-10-16 § 472"
     },
     {
       "from": "kf-2025-11-27-§523",
-      "to": "kf-*-§473",
+      "to": "kf-2025-10-16-§473",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 473"
+      "label": "Bordlagd från 2025-10-16 § 473"
     },
     {
       "from": "kf-2025-11-27-§524",
-      "to": "kf-*-§474",
+      "to": "kf-2025-10-16-§474",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 474"
+      "label": "Bordlagd från 2025-10-16 § 474"
     },
     {
       "from": "kf-2025-11-27-§532",
@@ -3061,6 +3061,18 @@
       "to": "möte-kf-2025-11-27",
       "typ": "närvarade",
       "label": "14:50–21:42"
+    },
+    {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
+      "to": "möte-kf-2025-11-27",
+      "typ": "närvarade",
+      "label": "15:37–21:42"
+    },
+    {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
+      "to": "möte-kf-2025-11-27",
+      "typ": "närvarade",
+      "label": "14:52–21:40"
     }
   ]
 }

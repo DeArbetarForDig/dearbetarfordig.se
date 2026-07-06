@@ -947,9 +947,9 @@
     },
     {
       "from": "kf-2026-02-26-§40",
-      "to": "kf-*-§532",
+      "to": "kf-2025-11-27-§532",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 532"
+      "label": "Bordlagd från 2025-11-27 § 532"
     },
     {
       "from": "kf-2026-02-26-§40",
@@ -958,9 +958,9 @@
     },
     {
       "from": "kf-2026-02-26-§41",
-      "to": "kf-*-§533",
+      "to": "kf-2025-11-27-§533",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 533"
+      "label": "Bordlagd från 2025-11-27 § 533"
     },
     {
       "from": "kf-2026-02-26-§41",
@@ -969,9 +969,9 @@
     },
     {
       "from": "kf-2026-02-26-§42",
-      "to": "kf-*-§34",
+      "to": "kf-2026-01-29-§34",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 34"
+      "label": "Bordlagd från 2026-01-29 § 34"
     },
     {
       "from": "kf-2026-02-26-§42",
@@ -985,9 +985,9 @@
     },
     {
       "from": "kf-2026-02-26-§43",
-      "to": "kf-*-§35",
+      "to": "kf-2026-01-29-§35",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 35"
+      "label": "Bordlagd från 2026-01-29 § 35"
     },
     {
       "from": "kf-2026-02-26-§43",
@@ -1356,9 +1356,9 @@
     },
     {
       "from": "kf-2026-02-26-§58",
-      "to": "kf-*-§474",
+      "to": "kf-2025-10-16-§474",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 474"
+      "label": "Bordlagd från 2025-10-16 § 474"
     },
     {
       "from": "kf-2026-02-26-§58",
@@ -1382,9 +1382,9 @@
     },
     {
       "from": "kf-2026-02-26-§59",
-      "to": "kf-*-§528",
+      "to": "kf-2025-11-27-§528",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 528"
+      "label": "Bordlagd från 2025-11-27 § 528"
     },
     {
       "from": "kf-2026-02-26-§59",
@@ -1413,9 +1413,9 @@
     },
     {
       "from": "kf-2026-02-26-§60",
-      "to": "kf-*-§530",
+      "to": "kf-2025-11-27-§530",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 530"
+      "label": "Bordlagd från 2025-11-27 § 530"
     },
     {
       "from": "kf-2026-02-26-§60",
@@ -1439,15 +1439,15 @@
     },
     {
       "from": "kf-2026-02-26-§61",
-      "to": "kf-*-§531",
+      "to": "kf-2025-11-27-§531",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 531"
+      "label": "Bordlagd från 2025-11-27 § 531"
     },
     {
       "from": "kf-2026-02-26-§62",
-      "to": "kf-*-§576",
+      "to": "kf-2025-12-11-§576",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 576"
+      "label": "Bordlagd från 2025-12-11 § 576"
     },
     {
       "from": "kf-2026-02-26-§62",
@@ -1476,9 +1476,9 @@
     },
     {
       "from": "kf-2026-02-26-§63",
-      "to": "kf-*-§577",
+      "to": "kf-2025-12-11-§577",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 577"
+      "label": "Bordlagd från 2025-12-11 § 577"
     },
     {
       "from": "kf-2026-02-26-§63",
@@ -1502,9 +1502,9 @@
     },
     {
       "from": "kf-2026-02-26-§65",
-      "to": "kf-*-§33",
+      "to": "kf-2026-01-29-§33",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 33"
+      "label": "Bordlagd från 2026-01-29 § 33"
     },
     {
       "from": "kf-2026-02-26-§71",
@@ -2101,7 +2101,7 @@
       "label": "14:42–21:49"
     },
     {
-      "from": "politiker-8bc9971e-58ea-442e-868f-bb40e29707d5",
+      "from": "politiker-117b4f3c-6085-4774-aaa7-ff706b0ae078",
       "to": "möte-kf-2026-02-26",
       "typ": "närvarade",
       "label": "14:46–21:48"
@@ -2275,6 +2275,12 @@
       "label": "14:41–21:49"
     },
     {
+      "from": "politiker-935df962-14cb-4eb4-aabf-04ca8b2fb6d9",
+      "to": "möte-kf-2026-02-26",
+      "typ": "närvarade",
+      "label": "15:05–18:19"
+    },
+    {
       "from": "politiker-fbea1ab5-5e32-475a-a6f8-6abe408c0ac4",
       "to": "möte-kf-2026-02-26",
       "typ": "närvarade",
@@ -2441,6 +2447,18 @@
       "to": "möte-kf-2026-02-26",
       "typ": "närvarade",
       "label": "15:39–21:49"
+    },
+    {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
+      "to": "möte-kf-2026-02-26",
+      "typ": "närvarade",
+      "label": "15:13–21:49"
+    },
+    {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
+      "to": "möte-kf-2026-02-26",
+      "typ": "närvarade",
+      "label": "14:56–21:48"
     }
   ]
 }

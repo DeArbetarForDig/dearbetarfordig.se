@@ -48,18 +48,30 @@ export interface KnowledgeGraph {
 }
 
 // --- Regex patterns ---
-// Two protocol formats:
+// Paragraph header formats (all at line start):
 // 2025+: "§ 491 Ärendenummer SLK-2025-00364"
-// 2023-2024: "§ 5 1339/22" or "§5" (without ärendenummer)
-const PARAGRAF_RE_NEW = /§\s*(\d+)\s*Ärendenummer\s*(SLK-\d{4}-\d+(?::\d+)?)/g
-const PARAGRAF_RE_OLD = /§\s*(\d+)\s+(\d{3,4}\/\d{2})/g
-const PARAGRAF_RE_BARE = /^§\s*(\d+)\s*$/gm // Just "§1" on its own line
+// 2023-2024: "§ 5 1339/22" — and procedural §§ as bare "§5"/"§ 14" on
+// their own line (interpellationer, frågestund, val, anmälningar)
 const LAG_REF_RE =
   /(\d+)\s*kap\.?\s*(\d+)\s*§\s*([\wäöåÅÄÖ-]+lagen|miljöbalken|[\wäöåÅÄÖ-]+förordningen)(?:\s*\((\d{4}:\d+)\))?/gi
 const SFS_RE = /\((\d{4}:\d+)\)/g
 const NÄMND_RE =
   /((?:socialnämnden|grundskolenämnden|exploateringsnämnden|kulturnämnden|stadsmiljönämnden|idrotts- och föreningsnämnden|inköps- och upphandlingsnämnden|kommunstyrelsen|stadsfastighetsnämnden|kretslopp och vattennämnden|miljö- och klimatnämnden|förskolenämnden|utbildningsnämnden|stadsbyggnadsnämnden)(?:\s+\w+)?)/gi
-const BORDLAGD_RE = /[Bb]ordlag[dt]\s+(?:den\s+)?\d+\s+\w+\s+\d{4},?\s*§\s*(\d+)/g
+const BORDLAGD_RE = /[Bb]ordlag[dt]\s+(?:den\s+)?(\d+)\s+(\w+)\s+(\d{4}),?\s*§\s*(\d+)/g
+const MÅNADER: Record<string, string> = {
+  januari: '01',
+  februari: '02',
+  mars: '03',
+  april: '04',
+  maj: '05',
+  juni: '06',
+  juli: '07',
+  augusti: '08',
+  september: '09',
+  oktober: '10',
+  november: '11',
+  december: '12',
+}
 const UPPDRAG_RE = /(?:får i uppdrag|uppdrag\s+\d{4}-\d{2}-\d{2}\s*§\s*(\d+))/gi
 
 function pdfToText(pdfPath: string): string {
@@ -73,23 +85,17 @@ function parseParagrafer(
   const nodes: GraphNode[] = []
   const edges: GraphEdge[] = []
 
-  // Detect protocol format by checking which pattern matches more
-  const newFormatCount = (text.match(/§\s*\d+\s*Ärendenummer\s*SLK-/g) || []).length
-  const oldFormatCount = (text.match(/^§\s*\d+\s+\d{3,4}\/\d{2}/gm) || []).length
-  const bareFormatCount = (text.match(/^§\s*\d+\s*$/gm) || []).length
+  // Page-break continuations ("§ 16 1379/22 forts.") are not new paragraphs —
+  // drop the header line so the content merges into the section it continues.
+  const cleanedText = text.replace(/^§\s*\d+[^\n]*?forts\.?\s*$/gm, '')
 
-  // Choose splitting strategy based on format
-  let sections: string[]
-  if (newFormatCount > 0) {
-    // 2025+ format: "§ 491 Ärendenummer SLK-2025-00364"
-    sections = text.split(/(?=§\s*\d+\s*Ärendenummer)/)
-  } else if (oldFormatCount > 0) {
-    // 2023-2024 format: "§ 5 1339/22"
-    sections = text.split(/(?=§\s*\d+\s+\d{3,4}\/\d{2})/)
-  } else {
-    // Bare format: "§1" or "§ 5" on own line — split on § at start of line
-    sections = text.split(/(?=^§\s*\d+)/m)
-  }
+  // Split on every paragraph header form at line start. All forms must split
+  // simultaneously: old-format protocols mix "§ 15 1435/22" with bare "§ 14"
+  // for procedural items — a format-wide choice glued every run of bare §§
+  // into one section, so only the first survived (§2–14 used to vanish).
+  const sections = cleanedText.split(
+    /(?=^§\s*\d+\s*$)|(?=^§\s*\d+\s+\d{3,4}\/\d{2})|(?=^§\s*\d+\s+Ärendenummer)/m,
+  )
 
   for (const section of sections) {
     // Try all header formats
@@ -195,31 +201,49 @@ function parseParagrafer(
     // Create paragraf node — trim bilagor from fulltext
     const bilagaIdx = section.search(/\bBILAGA\s+\d/i)
     const cleanSection = bilagaIdx > 0 ? section.slice(0, bilagaIdx) : section
+    const fulltext = cleanSection
+      .trim()
+      .replace(/\n{3,}/g, '\n\n')
+      .replace(/[ \t]+\n/g, '\n')
+      .replace(/Göteborgs\s+Stad\s+[Kk]ommunfullmäktige\s+protokoll[^\n]*/gi, '')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim()
 
-    nodes.push({
-      id: paragrafId,
-      typ: 'paragraf',
-      label: `§ ${paragrafNr} ${cleanRubrik}`,
-      data: {
-        paragrafNr,
-        ärendeNr,
-        rubrik: cleanRubrik,
-        fulltext: cleanSection
-          .trim()
-          .replace(/\n{3,}/g, '\n\n')
-          .replace(/[ \t]+\n/g, '\n')
-          .replace(/Göteborgs\s+Stad\s+[Kk]ommunfullmäktige\s+protokoll[^\n]*/gi, '')
-          .replace(/\n{3,}/g, '\n\n')
-          .trim(),
-        datum: möteDatum,
-        beslut,
-        bordläggningsorsak,
-        votering,
-        yrkanden,
-        reservationer,
-        jäv,
-      },
-    })
+    const existing = nodes.find((n) => n.id === paragrafId)
+    if (existing) {
+      // Repeated header without "forts."-marker (page break) — merge into the
+      // first section instead of emitting a duplicate node: at seed time the
+      // last duplicate wins, so a short justering stub used to overwrite the
+      // real paragraph.
+      existing.data.fulltext = `${existing.data.fulltext}\n\n${fulltext}`
+      if (!existing.data.beslut && beslut) {
+        existing.data.beslut = beslut
+        existing.data.bordläggningsorsak = bordläggningsorsak
+      }
+      if (!existing.data.votering && votering) existing.data.votering = votering
+      ;(existing.data.yrkanden as unknown[]).push(...yrkanden)
+      ;(existing.data.reservationer as unknown[]).push(...reservationer)
+      ;(existing.data.jäv as unknown[]).push(...jäv)
+    } else {
+      nodes.push({
+        id: paragrafId,
+        typ: 'paragraf',
+        label: `§ ${paragrafNr} ${cleanRubrik}`,
+        data: {
+          paragrafNr,
+          ärendeNr,
+          rubrik: cleanRubrik,
+          fulltext,
+          datum: möteDatum,
+          beslut,
+          bordläggningsorsak,
+          votering,
+          yrkanden,
+          reservationer,
+          jäv,
+        },
+      })
+    }
 
     // Find law references
     let match: RegExpExecArray | null
@@ -240,15 +264,20 @@ function parseParagrafer(
       })
     }
 
-    // Find references to other paragraphs (bordlagd)
+    // Find references to other paragraphs (bordlagd). The protocol names the
+    // meeting date ("bordlagt den 26 januari 2023, § 29") — resolve it to an
+    // exact node id; a wildcard "kf-*-§N" target can never be seeded.
     const bordRe = new RegExp(BORDLAGD_RE.source, 'g')
     while ((match = bordRe.exec(section)) !== null) {
-      const refParagraf = match[1]
+      const [, dag, månadNamn, år, refParagraf] = match
+      const månad = MÅNADER[månadNamn.toLowerCase()]
+      if (!månad) continue
+      const refDatum = `${år}-${månad}-${dag.padStart(2, '0')}`
       edges.push({
         from: paragrafId,
-        to: `kf-*-§${refParagraf}`,
+        to: `kf-${refDatum}-§${refParagraf}`,
         typ: 'bordlagd_från',
-        label: `Bordlagd från § ${refParagraf}`,
+        label: `Bordlagd från ${refDatum} § ${refParagraf}`,
       })
     }
 

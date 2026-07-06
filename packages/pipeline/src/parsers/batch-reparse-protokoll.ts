@@ -25,7 +25,8 @@ function getProtokollUrls(): Array<{ datum: string; url: string }> {
     const data = JSON.parse(readFileSync(path, 'utf-8'))
     for (const s of data.sammanträden as Sammanträde[]) {
       for (const h of s.handlingar) {
-        if (h.titel.includes('KF_protokoll')) {
+        // Case-insensitive: 2023-06-08 is published as "KF_Protokoll_20230608.pdf"
+        if (h.titel.toLowerCase().includes('kf_protokoll')) {
           urls.push({ datum: s.datum, url: h.url })
         }
       }

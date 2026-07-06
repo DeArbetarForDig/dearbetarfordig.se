@@ -900,9 +900,9 @@
   "edges": [
     {
       "from": "kf-2023-11-23-§36",
-      "to": "kf-*-§22",
+      "to": "kf-2023-10-12-§22",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 22"
+      "label": "Bordlagd från 2023-10-12 § 22"
     },
     {
       "from": "kf-2023-11-23-§36",
@@ -916,9 +916,9 @@
     },
     {
       "from": "kf-2023-11-23-§37",
-      "to": "kf-*-§23",
+      "to": "kf-2023-10-12-§23",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 23"
+      "label": "Bordlagd från 2023-10-12 § 23"
     },
     {
       "from": "kf-2023-11-23-§37",
@@ -1407,27 +1407,27 @@
     },
     {
       "from": "kf-2023-11-23-§63",
-      "to": "kf-*-§26",
+      "to": "kf-2023-10-12-§26",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 26"
+      "label": "Bordlagd från 2023-10-12 § 26"
     },
     {
       "from": "kf-2023-11-23-§64",
-      "to": "kf-*-§27",
+      "to": "kf-2023-10-12-§27",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 27"
+      "label": "Bordlagd från 2023-10-12 § 27"
     },
     {
       "from": "kf-2023-11-23-§65",
-      "to": "kf-*-§28",
+      "to": "kf-2023-10-12-§28",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 28"
+      "label": "Bordlagd från 2023-10-12 § 28"
     },
     {
       "from": "kf-2023-11-23-§66",
-      "to": "kf-*-§29",
+      "to": "kf-2023-11-23-§29",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 29"
+      "label": "Bordlagd från 2023-11-23 § 29"
     },
     {
       "from": "möte-kf-2023-11-23",
@@ -1908,6 +1908,12 @@
       "label": "15:59–21:58"
     },
     {
+      "from": "politiker-9808c9b2-cf19-424c-a7ac-2a06186321e8",
+      "to": "möte-kf-2023-11-23",
+      "typ": "närvarade",
+      "label": "17:47–21:58"
+    },
+    {
       "from": "politiker-9e3f5375-44d2-48bf-b608-8442f5e64050",
       "to": "möte-kf-2023-11-23",
       "typ": "närvarade",
@@ -2116,6 +2122,12 @@
       "to": "möte-kf-2023-11-23",
       "typ": "närvarade",
       "label": "17:17–21:58"
+    },
+    {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
+      "to": "möte-kf-2023-11-23",
+      "typ": "närvarade",
+      "label": "15:56–21:58"
     }
   ]
 }

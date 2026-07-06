@@ -1155,9 +1155,9 @@
     },
     {
       "from": "kf-2026-03-26-§74",
-      "to": "kf-*-§532",
+      "to": "kf-2025-11-27-§532",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 532"
+      "label": "Bordlagd från 2025-11-27 § 532"
     },
     {
       "from": "kf-2026-03-26-§74",
@@ -1166,9 +1166,9 @@
     },
     {
       "from": "kf-2026-03-26-§75",
-      "to": "kf-*-§533",
+      "to": "kf-2025-11-27-§533",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 533"
+      "label": "Bordlagd från 2025-11-27 § 533"
     },
     {
       "from": "kf-2026-03-26-§75",
@@ -1177,9 +1177,9 @@
     },
     {
       "from": "kf-2026-03-26-§76",
-      "to": "kf-*-§69",
+      "to": "kf-2026-02-26-§69",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 69"
+      "label": "Bordlagd från 2026-02-26 § 69"
     },
     {
       "from": "kf-2026-03-26-§79",
@@ -1733,33 +1733,33 @@
     },
     {
       "from": "kf-2026-03-26-§102",
-      "to": "kf-*-§531",
+      "to": "kf-2025-11-27-§531",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 531"
+      "label": "Bordlagd från 2025-11-27 § 531"
     },
     {
       "from": "kf-2026-03-26-§103",
-      "to": "kf-*-§33",
+      "to": "kf-2026-01-29-§33",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 33"
+      "label": "Bordlagd från 2026-01-29 § 33"
     },
     {
       "from": "kf-2026-03-26-§104",
-      "to": "kf-*-§66",
+      "to": "kf-2026-02-26-§66",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 66"
+      "label": "Bordlagd från 2026-02-26 § 66"
     },
     {
       "from": "kf-2026-03-26-§105",
-      "to": "kf-*-§67",
+      "to": "kf-2026-02-26-§67",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 67"
+      "label": "Bordlagd från 2026-02-26 § 67"
     },
     {
       "from": "kf-2026-03-26-§106",
-      "to": "kf-*-§68",
+      "to": "kf-2026-02-26-§68",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 68"
+      "label": "Bordlagd från 2026-02-26 § 68"
     },
     {
       "from": "kf-2026-03-26-§115",
@@ -2494,6 +2494,18 @@
       "to": "möte-kf-2026-03-26",
       "typ": "närvarade",
       "label": "15:00–21:45"
+    },
+    {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
+      "to": "möte-kf-2026-03-26",
+      "typ": "närvarade",
+      "label": "15:00–21:45"
+    },
+    {
+      "from": "politiker-f1bbbcfb-698d-48e0-a4c2-d913d7994cca",
+      "to": "möte-kf-2026-03-26",
+      "typ": "närvarade",
+      "label": "15:01–21:42"
     }
   ]
 }

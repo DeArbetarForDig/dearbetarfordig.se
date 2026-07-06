@@ -946,9 +946,9 @@
   "edges": [
     {
       "from": "kf-2023-12-07-§74",
-      "to": "kf-*-§61",
+      "to": "kf-2023-11-23-§61",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 61"
+      "label": "Bordlagd från 2023-11-23 § 61"
     },
     {
       "from": "kf-2023-12-07-§74",
@@ -1012,9 +1012,9 @@
     },
     {
       "from": "kf-2023-12-07-§75",
-      "to": "kf-*-§62",
+      "to": "kf-2023-11-23-§62",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 62"
+      "label": "Bordlagd från 2023-11-23 § 62"
     },
     {
       "from": "kf-2023-12-07-§75",
@@ -1213,9 +1213,9 @@
     },
     {
       "from": "kf-2023-12-07-§87",
-      "to": "kf-*-§57",
+      "to": "kf-2023-11-23-§57",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 57"
+      "label": "Bordlagd från 2023-11-23 § 57"
     },
     {
       "from": "kf-2023-12-07-§87",
@@ -1444,9 +1444,9 @@
     },
     {
       "from": "kf-2023-12-07-§94",
-      "to": "kf-*-§26",
+      "to": "kf-2023-10-12-§26",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 26"
+      "label": "Bordlagd från 2023-10-12 § 26"
     },
     {
       "from": "kf-2023-12-07-§94",
@@ -1480,9 +1480,9 @@
     },
     {
       "from": "kf-2023-12-07-§95",
-      "to": "kf-*-§27",
+      "to": "kf-2023-10-12-§27",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 27"
+      "label": "Bordlagd från 2023-10-12 § 27"
     },
     {
       "from": "kf-2023-12-07-§95",
@@ -1531,39 +1531,39 @@
     },
     {
       "from": "kf-2023-12-07-§97",
-      "to": "kf-*-§28",
+      "to": "kf-2023-10-12-§28",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 28"
+      "label": "Bordlagd från 2023-10-12 § 28"
     },
     {
       "from": "kf-2023-12-07-§98",
-      "to": "kf-*-§29",
+      "to": "kf-2023-11-23-§29",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 29"
+      "label": "Bordlagd från 2023-11-23 § 29"
     },
     {
       "from": "kf-2023-12-07-§99",
-      "to": "kf-*-§67",
+      "to": "kf-2023-11-23-§67",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 67"
+      "label": "Bordlagd från 2023-11-23 § 67"
     },
     {
       "from": "kf-2023-12-07-§100",
-      "to": "kf-*-§68",
+      "to": "kf-2023-11-23-§68",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 68"
+      "label": "Bordlagd från 2023-11-23 § 68"
     },
     {
       "from": "kf-2023-12-07-§101",
-      "to": "kf-*-§69",
+      "to": "kf-2023-11-23-§69",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 69"
+      "label": "Bordlagd från 2023-11-23 § 69"
     },
     {
       "from": "kf-2023-12-07-§102",
-      "to": "kf-*-§70",
+      "to": "kf-2023-11-23-§70",
       "typ": "bordlagd_från",
-      "label": "Bordlagd från § 70"
+      "label": "Bordlagd från 2023-11-23 § 70"
     },
     {
       "from": "kf-2023-12-07-§105",
@@ -2012,6 +2012,18 @@
       "label": "12:59–19:50"
     },
     {
+      "from": "politiker-9808c9b2-cf19-424c-a7ac-2a06186321e8",
+      "to": "möte-kf-2023-12-07",
+      "typ": "närvarade",
+      "label": "13:02–14:18"
+    },
+    {
+      "from": "politiker-9808c9b2-cf19-424c-a7ac-2a06186321e8",
+      "to": "möte-kf-2023-12-07",
+      "typ": "närvarade",
+      "label": "14:18–19:50"
+    },
+    {
       "from": "politiker-9e3f5375-44d2-48bf-b608-8442f5e64050",
       "to": "möte-kf-2023-12-07",
       "typ": "närvarade",
@@ -2208,6 +2220,12 @@
       "to": "möte-kf-2023-12-07",
       "typ": "närvarade",
       "label": "12:55–19:50"
+    },
+    {
+      "from": "politiker-97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53",
+      "to": "möte-kf-2023-12-07",
+      "typ": "närvarade",
+      "label": "12:59–19:50"
     }
   ]
 }
