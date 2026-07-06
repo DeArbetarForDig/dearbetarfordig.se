@@ -1,6 +1,7 @@
 ---
 import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
 import HorizontalBar from '../../../../../ui/src/components/charts/HorizontalBar.astro'
+import RadarChart from '../../../../../ui/src/components/charts/RadarChart.astro'
 import StackedBar from '../../../../../ui/src/components/charts/StackedBar.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../../ui/src/components/core/Icon.astro'
@@ -18,6 +19,7 @@ import {
   getPolitikerArvode,
   getPolitikerDetail,
   getPolitikerGraf,
+  getPolitikerProfil,
 } from '../../../data/api'
 /**
  * Politician profile page — full portfolio with voting, speeches, arvode.
@@ -35,6 +37,8 @@ const id = Astro.params.id as string
 const detail = await getPolitikerDetail(id)
 const arvode = await getPolitikerArvode(id)
 const anförandenData = await getPolitikerAnföranden(id)
+const profilAxlar = await getPolitikerProfil(id)
+const harProfilData = profilAxlar.some((a) => a.percentile !== null)
 const anföranden = anförandenData?.anföranden || []
 const uppdrag = detail.uppdrag || []
 const mandatperioder = (detail.sociala?.mandatperioder || []) as {
@@ -110,6 +114,7 @@ const earliestUppdrag =
 const namn = detail.namn
 
 const profilTabs = [
+  { key: 'profil', label: 'Profil' },
   { key: 'roster', label: `Röster (${totalVotes})` },
   { key: 'uppdrag', label: `Uppdrag (${uppdrag.length})` },
   mandatperioder.length > 0 && { key: 'mandatperioder', label: 'Mandatperioder' },
@@ -201,6 +206,30 @@ const profilTabs = [
     <!-- Profil -->
     <section class="mb-8">
       <Tabs tabs={profilTabs}>
+        <Fragment slot="panel-profil">
+          <Card title="Percentilprofil" titleSize="lg" tooltip="Varje axel visar var politikern ligger jämfört med andra politiker med tillräckligt underlag — 100 = högst i Göteborgs Stad, inte 100% av något. En axel utan tillräckligt underlag ritas mot centrum med streckad linje, inte som lägst.">
+            {harProfilData ? (
+              <div class="flex flex-col items-center">
+                <RadarChart axes={profilAxlar} />
+                <ul class="mt-2 grid grid-cols-2 gap-x-6 gap-y-1 text-xs text-[var(--color-text-muted)]">
+                  {profilAxlar.map((a) => (
+                    <li class="flex justify-between gap-3">
+                      <span>{a.label}</span>
+                      <span class="font-mono">{a.rawLabel}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <EmptyState
+                icon="radar"
+                title="Otillräckligt underlag för percentilprofil"
+                description="Kräver registrerad närvaro, röster eller anföranden i grafen för den här politikern."
+              />
+            )}
+          </Card>
+        </Fragment>
+
         <Fragment slot="panel-roster">
           <Card title="Röstningshistorik" titleSize="lg">
             {totalVotes > 0 ? (

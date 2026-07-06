@@ -164,6 +164,21 @@ export async function getPolitikerDetail(id: string) {
   }
 }
 
+export interface PolitikerProfilAxis {
+  key: string
+  label: string
+  percentile: number | null
+  rawLabel: string
+  populationSize: number
+}
+
+export async function getPolitikerProfil(id: string): Promise<PolitikerProfilAxis[]> {
+  const data = await fetchApi<HalResource<{ axes: PolitikerProfilAxis[] }>>(
+    `/api/v1/goteborg/politiker/${id}/profil`,
+  )
+  return data._embedded.item.axes
+}
+
 export async function getPolitikerArvode(id: string) {
   const data = await fetchApi<HalResource<any>>(`/api/v1/goteborg/politiker/${id}/arvode`)
   return data._embedded.item

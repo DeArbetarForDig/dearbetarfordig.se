@@ -205,6 +205,191 @@ politikerRouter.openapi(arvodesRoute, async (c) => {
   return c.json(halResource(item, arvodesLinks, { detaljer: data.detaljer || [] }), 200)
 })
 
+// --- Profil (percentil-normerade nyckeltal för radar-diagrammet) ---
+// Metodik: varje axel jämförs mot ALLA politiker med tillräckligt underlag
+// för just den axeln (se MIN-trösklarna) — inte mot hela rostret på 734
+// personer, där de flesta saknar graf-noder helt (se docs/ANALYS-2026-07.md,
+// punkt 14). Perceniler räknas som andel av populationen med lägre-eller-lika
+// råvärde, så en axel utan tillräckligt underlag för politikern själv
+// returneras som `null` (inte 0 — annars ser "ingen data" ut som "sämst").
+const MIN_MÖTEN_FÖR_DEBATTAKTIVITET = 3
+const MIN_RÖSTER_FÖR_LOJALITET = 5
+// 90:e percentilen ligger kring 8-9 anföranden/möte (se docs/ANALYS-2026-07.md,
+// punkt 17) — några enstaka politiker (trolig ordförande-fallback i
+// anförande-parsern) har uppenbart orimliga tal (120-223/möte) som annars
+// skulle dominera både sin egen percentil och andras. Exkluderas som
+// otillförlitligt underlag snarare än att visas som "mest aktiv".
+const MAX_RIMLIG_DEBATTAKTIVITET = 20
+
+const profilRoute = createRoute({
+  method: 'get',
+  path: '/api/v1/{kommun}/politiker/{id}/profil',
+  tags: ['Politiker'],
+  summary: 'Percentil-normerad profil (närvaro, debattaktivitet, initiativ, partilojalitet) för radardiagram',
+  description: `Varje axel är en percentil (0–100) bland politiker med tillräckligt underlag:
+- Närvaro: andel av samtliga sammanträden (alla organ) med registrerad närvaro
+- Debattaktivitet: anföranden per sammanträde med närvaro (kräver ≥${MIN_MÖTEN_FÖR_DEBATTAKTIVITET} sammanträden)
+- Initiativ: antal inlämnade motioner + yrkanden (rått antal — gynnar längre mandattid)
+- Partilojalitet: andel egna ja/nej-röster som matchar partiets majoritet per paragraf (kräver ≥${MIN_RÖSTER_FÖR_LOJALITET} röster)`,
+  request: { params: z.object({ kommun: z.string(), id: z.string().uuid() }) },
+  responses: {
+    200: {
+      content: { 'application/json': { schema: z.object({}).passthrough().openapi('PolitikerProfil') } },
+      description: 'OK',
+    },
+    404: {
+      content: { 'application/json': { schema: z.object({ error: z.string() }) } },
+      description: 'Ej hittad',
+    },
+  },
+})
+politikerRouter.openapi(profilRoute, async (c) => {
+  const { id } = c.req.valid('param')
+  const { kommun } = c.req.valid('param')
+  const schema = requireSchema(kommun)
+  const nodeId = `politiker-${id}`
+
+  const [person] = await sql`SELECT * FROM ${sql(schema)}.politiker WHERE id = ${id}`
+  if (!person) return c.json({ error: 'Politiker inte hittad' }, 404)
+
+  const [{ n: totalMöten }] =
+    await sql`SELECT count(*)::int as n FROM ${sql(schema)}.graf_nodes WHERE typ = 'möte'`
+
+  // Per-politiker råtal: närvaro (distinkta möten), anföranden, initiativ
+  const perPolitiker = await sql`
+    SELECT
+      n.id as politiker_id,
+      COUNT(DISTINCT CASE WHEN e.typ = 'närvarade' THEN e.to_id END)::int as närvaro,
+      COUNT(CASE WHEN e.typ = 'talade_i' THEN 1 END)::int as anföranden,
+      COUNT(CASE WHEN e.typ IN ('inlämnade_motion', 'yrkat') THEN 1 END)::int as initiativ
+    FROM ${sql(schema)}.graf_nodes n
+    JOIN ${sql(schema)}.graf_edges e ON e.from_id = n.id
+    WHERE n.typ = 'politiker'
+    GROUP BY n.id`
+
+  // Partiets majoritet per paragraf (samma metodik som röstöverensstämmelse i metrics.ts)
+  const riceData = await sql`
+    SELECT
+      n.data->>'parti' as parti,
+      e.to_id as paragraf_id,
+      SUM(CASE WHEN e.typ = 'röstade_ja' THEN 1 ELSE 0 END)::int as ja,
+      SUM(CASE WHEN e.typ = 'röstade_nej' THEN 1 ELSE 0 END)::int as nej
+    FROM ${sql(schema)}.graf_edges e
+    JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
+    WHERE e.typ LIKE 'röstade_%' AND e.typ != 'röstade_avstår'
+    GROUP BY n.data->>'parti', e.to_id
+    HAVING SUM(CASE WHEN e.typ IN ('röstade_ja','röstade_nej') THEN 1 ELSE 0 END) > 0`
+
+  const majoritetPerParagraf: Record<string, Record<string, 'ja' | 'nej'>> = {}
+  for (const row of riceData) {
+    if (row.ja === row.nej) continue
+    if (!majoritetPerParagraf[row.paragraf_id]) majoritetPerParagraf[row.paragraf_id] = {}
+    majoritetPerParagraf[row.paragraf_id][row.parti] = row.ja > row.nej ? 'ja' : 'nej'
+  }
+
+  // Individuella röster → jämför mot partiets majoritet för lojalitet
+  const individuellaRöster = await sql`
+    SELECT n.id as politiker_id, n.data->>'parti' as parti, e.to_id as paragraf_id, e.typ as röst
+    FROM ${sql(schema)}.graf_edges e
+    JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
+    WHERE e.typ IN ('röstade_ja', 'röstade_nej')`
+
+  const lojalitetAgg: Record<string, { matchar: number; totalt: number }> = {}
+  for (const row of individuellaRöster) {
+    const majoritet = majoritetPerParagraf[row.paragraf_id]?.[row.parti as string]
+    if (!majoritet) continue
+    const mittRöst = row.röst === 'röstade_ja' ? 'ja' : 'nej'
+    if (!lojalitetAgg[row.politiker_id]) lojalitetAgg[row.politiker_id] = { matchar: 0, totalt: 0 }
+    lojalitetAgg[row.politiker_id].totalt++
+    if (mittRöst === majoritet) lojalitetAgg[row.politiker_id].matchar++
+  }
+
+  interface Raw {
+    närvaroRate: number | null
+    debattaktivitet: number | null
+    initiativ: number | null
+    lojalitetPct: number | null
+  }
+  const rawByPolitiker: Record<string, Raw> = {}
+  for (const row of perPolitiker) {
+    const l = lojalitetAgg[row.politiker_id]
+    const debattaktivitetRå =
+      row.närvaro >= MIN_MÖTEN_FÖR_DEBATTAKTIVITET ? row.anföranden / row.närvaro : null
+    rawByPolitiker[row.politiker_id] = {
+      närvaroRate: totalMöten > 0 ? row.närvaro / totalMöten : null,
+      debattaktivitet:
+        debattaktivitetRå !== null && debattaktivitetRå <= MAX_RIMLIG_DEBATTAKTIVITET
+          ? debattaktivitetRå
+          : null,
+      initiativ: row.närvaro > 0 ? row.initiativ : null,
+      lojalitetPct:
+        l && l.totalt >= MIN_RÖSTER_FÖR_LOJALITET ? (l.matchar / l.totalt) * 100 : null,
+    }
+  }
+
+  function percentilAv(värden: number[], v: number) {
+    if (värden.length === 0) return null
+    const lägre = värden.filter((x) => x < v).length
+    const lika = värden.filter((x) => x === v).length
+    return Math.round(((lägre + lika / 2) / värden.length) * 100)
+  }
+
+  const axelNycklar = ['närvaroRate', 'debattaktivitet', 'initiativ', 'lojalitetPct'] as const
+  const populationer: Record<(typeof axelNycklar)[number], number[]> = {
+    närvaroRate: [],
+    debattaktivitet: [],
+    initiativ: [],
+    lojalitetPct: [],
+  }
+  for (const raw of Object.values(rawByPolitiker)) {
+    for (const key of axelNycklar) {
+      const v = raw[key]
+      if (v !== null) populationer[key].push(v)
+    }
+  }
+
+  const målRaw = rawByPolitiker[nodeId] || {
+    närvaroRate: null,
+    debattaktivitet: null,
+    initiativ: null,
+    lojalitetPct: null,
+  }
+
+  const axelMeta: Record<
+    (typeof axelNycklar)[number],
+    { label: string; format: (v: number) => string }
+  > = {
+    närvaroRate: { label: 'Närvaro', format: (v) => `${Math.round(v * 100)}%` },
+    debattaktivitet: { label: 'Debattaktivitet', format: (v) => `${v.toFixed(1)} anf./möte` },
+    initiativ: { label: 'Initiativ', format: (v) => `${v} motioner/yrkanden` },
+    lojalitetPct: { label: 'Partilojalitet', format: (v) => `${Math.round(v)}%` },
+  }
+
+  const axes = axelNycklar.map((key) => {
+    const raw = målRaw[key]
+    const percentile = raw !== null ? percentilAv(populationer[key], raw) : null
+    return {
+      key,
+      label: axelMeta[key].label,
+      percentile,
+      rawLabel: raw !== null ? axelMeta[key].format(raw) : 'Otillräckligt underlag',
+      populationSize: populationer[key].length,
+    }
+  })
+
+  const item = {
+    politiker: { id, namn: `${person.fornamn} ${person.efternamn}`, parti: person.parti },
+    axes,
+  }
+  return c.json(
+    halResource(item, {
+      self: { href: `${baseUrl(kommun)}/politiker/${id}/profil` },
+      politiker: { href: `${baseUrl(kommun)}/politiker/${id}` },
+    }),
+    200,
+  )
+})
+
 // Anföranden per politiker (from talade_i edges)
 politikerRouter.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
   const kommun = c.req.param('kommun')

@@ -1,0 +1,172 @@
+---
+/**
+ * RadarChart — percentile profile across N axes (e.g. a politician's
+ * närvaro/debattaktivitet/initiativ/partilojalitet vs. everyone else).
+ *
+ * Each axis MUST already be a percentile in [0, 100] — this component
+ * does no normalization itself. An axis with no reliable underlying data
+ * is `percentile: null`: its vertex is drawn at the center with a dashed
+ * spoke and a muted label, visually distinct from an actual low score,
+ * so "no data" is never mistaken for "worst in Göteborg".
+ *
+ * Usage:
+ *   <RadarChart axes={[
+ *     { label: 'Närvaro', percentile: 92, rawLabel: '45%' },
+ *     { label: 'Debattaktivitet', percentile: null, rawLabel: 'Otillräckligt underlag' },
+ *     { label: 'Initiativ', percentile: 13, rawLabel: '0 motioner/yrkanden' },
+ *     { label: 'Partilojalitet', percentile: 62, rawLabel: '100%' },
+ *   ]} />
+ *
+ * Props:
+ * - axes: { label, percentile: number|null, rawLabel: string }[] — 3+ axes
+ * - size: SVG viewport in px (default 280)
+ * - color: CSS color (var() token) for the data polygon (default var(--color-primary))
+ */
+interface Axis {
+  label: string
+  percentile: number | null
+  rawLabel: string
+}
+
+interface Props {
+  axes: Axis[]
+  size?: number
+  color?: string
+  class?: string
+}
+
+const { axes, size = 280, color = 'var(--color-primary)', class: className } = Astro.props
+
+const cx = size / 2
+const cy = size / 2
+const labelPad = 44
+const r = size / 2 - labelPad
+const n = axes.length
+const angleStep = (2 * Math.PI) / n
+const angleFor = (i: number) => -Math.PI / 2 + i * angleStep
+
+const gridLevels = [25, 50, 75, 100]
+const gridPolygons = gridLevels.map((level) => {
+  const gr = (level / 100) * r
+  return axes
+    .map((_, i) => {
+      const a = angleFor(i)
+      return `${cx + gr * Math.cos(a)},${cy + gr * Math.sin(a)}`
+    })
+    .join(' ')
+})
+
+const points = axes.map((axis, i) => {
+  const a = angleFor(i)
+  const hasData = axis.percentile !== null
+  const pr = hasData ? ((axis.percentile as number) / 100) * r : 0
+  return {
+    x: cx + pr * Math.cos(a),
+    y: cy + pr * Math.sin(a),
+    labelX: cx + (r + labelPad * 0.62) * Math.cos(a),
+    labelY: cy + (r + labelPad * 0.62) * Math.sin(a),
+    spokeX: cx + r * Math.cos(a),
+    spokeY: cy + r * Math.sin(a),
+    hasData,
+    axis,
+  }
+})
+
+const dataPolygon = points.map((p) => `${p.x},${p.y}`).join(' ')
+---
+
+<div class:list={['daf-radar', className]} style={`--radar-color:${color}`}>
+  <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label="Percentilprofil">
+    {gridPolygons.map((poly) => (
+      <polygon class="daf-radar__grid" points={poly} />
+    ))}
+    {points.map((p) => (
+      <line class:list={['daf-radar__spoke', !p.hasData && 'daf-radar__spoke--empty']} x1={cx} y1={cy} x2={p.spokeX} y2={p.spokeY} />
+    ))}
+    <polygon class="daf-radar__area" points={dataPolygon} />
+    {points.map((p) => (
+      <circle
+        class:list={['daf-radar__point', !p.hasData && 'daf-radar__point--empty']}
+        cx={p.x}
+        cy={p.y}
+        r={5}
+        data-label={p.axis.label}
+        data-value={p.axis.rawLabel}
+        data-percentile={p.hasData ? `${p.axis.percentile}:e percentilen` : 'Otillräckligt underlag'}
+      />
+    ))}
+    {points.map((p) => (
+      <text
+        class:list={['daf-radar__label', !p.hasData && 'daf-radar__label--empty']}
+        x={p.labelX}
+        y={p.labelY}
+        text-anchor="middle"
+        dominant-baseline="central"
+      >
+        {p.axis.label}
+      </text>
+    ))}
+  </svg>
+</div>
+
+<style>
+  .daf-radar__grid {
+    fill: none;
+    stroke: var(--color-border);
+  }
+
+  .daf-radar__spoke {
+    stroke: var(--color-border);
+  }
+
+  .daf-radar__spoke--empty {
+    stroke-dasharray: 2 3;
+  }
+
+  .daf-radar__area {
+    fill: color-mix(in srgb, var(--radar-color) 25%, transparent);
+    stroke: var(--radar-color);
+    stroke-width: 2;
+  }
+
+  .daf-radar__point {
+    fill: var(--radar-color);
+    stroke: var(--color-surface);
+    stroke-width: 1.5;
+    cursor: default;
+  }
+
+  .daf-radar__point--empty {
+    fill: var(--color-surface);
+    stroke: var(--color-text-subtle);
+    stroke-dasharray: 1.5 1.5;
+  }
+
+  .daf-radar__label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    fill: var(--color-text-muted);
+  }
+
+  .daf-radar__label--empty {
+    fill: var(--color-text-subtle);
+    font-weight: 400;
+    font-style: italic;
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('.daf-radar__point').forEach((point) => {
+    point.addEventListener('mousemove', (e) => {
+      if (!window.dafChartTooltip) return
+      window.dafChartTooltip.show(e, {
+        title: point.dataset.label,
+        items: [{ label: point.dataset.percentile, value: point.dataset.value }],
+      })
+    })
+    point.addEventListener('mouseleave', () => {
+      if (window.dafChartTooltip) window.dafChartTooltip.hide()
+    })
+  })
+</script>
