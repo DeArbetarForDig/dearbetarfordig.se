@@ -53,7 +53,7 @@ interface Votering {
 
 /** Deterministiskt uuid (v5-format) ur ett namn — samma person får samma id
  *  vid varje körning, så syntetiserade poster är stabila över omkörningar. */
-function syntetisktId(namn: string): string {
+export function syntetisktId(namn: string): string {
   const h = createHash('sha1').update(`dearbetarfordig-historisk:${namn.toLowerCase()}`).digest()
   h[6] = (h[6] & 0x0f) | 0x50
   h[8] = (h[8] & 0x3f) | 0x80
@@ -74,6 +74,10 @@ function parseBilagor(pdfPath: string): Votering[] {
     encoding: 'utf-8',
     maxBuffer: 50 * 1024 * 1024,
   })
+  return parseBilagorText(text, pdfPath)
+}
+
+export function parseBilagorText(text: string, källa = '<text>'): Votering[] {
   const voteringar: Votering[] = []
 
   // Header form varies by protocol generation: 2023 uses an indented
@@ -119,7 +123,7 @@ function parseBilagor(pdfPath: string): Votering[] {
       // More parsed vote rows than the bilaga's own tally — table glued or
       // duplicated; refuse rather than seed corrupt votes.
       throw new Error(
-        `${pdfPath}: ärende ${ärendeMatch[1]} har ${röster.length} rösträder men tally ${förväntat}`,
+        `${källa}: ärende ${ärendeMatch[1]} har ${röster.length} rösträder men tally ${förväntat}`,
       )
     }
 
@@ -135,7 +139,7 @@ function parseBilagor(pdfPath: string): Votering[] {
 }
 
 /** Match a bilaga's ärendemening against the date's § rubriker. */
-function findParagraf(
+export function findParagraf(
   mening: string,
   antal: Votering['antal'],
   paragrafer: Array<{ id: string; rubrik: string; fulltext: string }>,
@@ -398,7 +402,9 @@ async function main() {
   )
 }
 
-main().catch((err) => {
-  console.error(err)
-  process.exitCode = 1
-})
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((err) => {
+    console.error(err)
+    process.exitCode = 1
+  })
+}

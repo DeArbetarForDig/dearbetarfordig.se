@@ -103,7 +103,7 @@
       "to": "budgetpost-socialnämnden-nordost-summa",
       "typ": "fördelat_till",
       "data": {
-        "mnkr": 41070.0
+        "mnkr": 41070
       }
     },
     {
@@ -111,7 +111,7 @@
       "to": "budgetpost-socialnämnden-nordost-tkr",
       "typ": "fördelat_till",
       "data": {
-        "mnkr": 20252026.0
+        "mnkr": 20252026
       }
     },
     {
@@ -119,7 +119,7 @@
       "to": "budgetpost-socialnämnden-nordost-intäkter",
       "typ": "fördelat_till",
       "data": {
-        "mnkr": 242150251404.0
+        "mnkr": 242150251404
       }
     },
     {
@@ -127,63 +127,63 @@
       "to": "budgetpost-socialnämnden-nordost-kommunbidrag",
       "typ": "fördelat_till",
       "data": {
-        "mnkr": 18301401931460.0
+        "mnkr": 18301401931460
       }
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-intäkter",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-intäkter"
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-kostnader",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-kostnader"
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-kommunbidrag",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-kommunbidrag"
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-vuxen",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-vuxen"
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-försörjningsstöd",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-försörjningsstöd"
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-barn-och-unga",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-barn-och-unga"
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-familjemottagning-och-resurs-barn-och-vu",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-familjemottagning-och-resurs-barn-och-vu"
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-familjehemsvård-interna-boenden-samt-pla",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-familjehemsvård-interna-boenden-samt-pla"
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-stadsområde-välfärd-och-fritid",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-stadsområde-välfärd-och-fritid"
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-stöd-och-förvaltningsgemensamt",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-stöd-och-förvaltningsgemensamt"
     },
     {
-      "from_id": "namnd-socialnämnden-nordost-budget-2026",
-      "to_id": "budgetpost-social-nordost-total-ram",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-nordost-budget-2026",
+      "to": "budgetpost-social-nordost-total-ram"
     }
   ]
 }

@@ -23,7 +23,7 @@
       "typ": "budgetpost",
       "label": "Kommunbidrag",
       "data": {
-        "mnkr": 1733.0,
+        "mnkr": 1733,
         "tkr": 1733010
       }
     },
@@ -41,7 +41,7 @@
       "typ": "budgetpost",
       "label": "Kommuncentrala medel för avropp",
       "data": {
-        "mnkr": 11.0,
+        "mnkr": 11,
         "tkr": 11008
       }
     },
@@ -301,49 +301,49 @@
       }
     },
     {
-      "from_id": "namnd-stadsmiljönämnden-budget-2026",
-      "to_id": "budgetpost-stadsmiljo-verksamhetens-intäkter",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljo-verksamhetens-intäkter"
     },
     {
-      "from_id": "namnd-stadsmiljönämnden-budget-2026",
-      "to_id": "budgetpost-stadsmiljo-kommunbidrag",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljo-kommunbidrag"
     },
     {
-      "from_id": "namnd-stadsmiljönämnden-budget-2026",
-      "to_id": "budgetpost-stadsmiljo-kommuncentrala-medel-kapitaltjänst",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljo-kommuncentrala-medel-kapitaltjänst"
     },
     {
-      "from_id": "namnd-stadsmiljönämnden-budget-2026",
-      "to_id": "budgetpost-stadsmiljo-kommuncentrala-medel-för-avropp",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljo-kommuncentrala-medel-för-avropp"
     },
     {
-      "from_id": "namnd-stadsmiljönämnden-budget-2026",
-      "to_id": "budgetpost-stadsmiljo-summa-intäkter",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljo-summa-intäkter"
     },
     {
-      "from_id": "namnd-stadsmiljönämnden-budget-2026",
-      "to_id": "budgetpost-stadsmiljo-personalkostnader",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljo-personalkostnader"
     },
     {
-      "from_id": "namnd-stadsmiljönämnden-budget-2026",
-      "to_id": "budgetpost-stadsmiljo-övriga-verksamhetskostnader",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljo-övriga-verksamhetskostnader"
     },
     {
-      "from_id": "namnd-stadsmiljönämnden-budget-2026",
-      "to_id": "budgetpost-stadsmiljo-kapitaltjänst-(avskrivningar-+-ränta)",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljo-kapitaltjänst-(avskrivningar-+-ränta)"
     },
     {
-      "from_id": "namnd-stadsmiljönämnden-budget-2026",
-      "to_id": "budgetpost-stadsmiljo-summa-kostnader",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-stadsmiljönämnden-budget-2026",
+      "to": "budgetpost-stadsmiljo-summa-kostnader"
     }
   ]
 }

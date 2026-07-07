@@ -78,7 +78,7 @@ function pdfToText(pdfPath: string): string {
   return execSync(`pdftotext "${pdfPath}" -`, { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 })
 }
 
-function parseParagrafer(
+export function parseParagrafer(
   text: string,
   möteDatum: string,
 ): { nodes: GraphNode[]; edges: GraphEdge[] } {
@@ -587,4 +587,6 @@ async function main() {
   console.log(`\n✅ ${outPath}`)
 }
 
-main().catch(console.error)
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch(console.error)
+}

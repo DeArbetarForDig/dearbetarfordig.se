@@ -111,7 +111,7 @@
       "to": "budgetpost-socialnämnden-centrum-tkr",
       "typ": "fördelat_till",
       "data": {
-        "mnkr": 20252026.0
+        "mnkr": 20252026
       }
     },
     {
@@ -119,68 +119,68 @@
       "to": "budgetpost-socialnämnden-centrum-intäkter",
       "typ": "fördelat_till",
       "data": {
-        "mnkr": 139150.0
+        "mnkr": 139150
       }
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-intäkter",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-intäkter"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-kostnader",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-kostnader"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-kommunbidrag",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-kommunbidrag"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-förvaltningsgemensamma-kostnader-och-stö",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-förvaltningsgemensamma-kostnader-och-stö"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-barn-och-unga",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-barn-och-unga"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-vuxen-och-försörjningsstöd",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-vuxen-och-försörjningsstöd"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-stadsområde-välfärd-och-fritid",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-stadsområde-välfärd-och-fritid"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-stadenövergripande-uppdrag-—-barn-familj",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-stadenövergripande-uppdrag-—-barn-familj"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-stadenövergripande-verksamheter",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-stadenövergripande-verksamheter"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-nämndreserv",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-nämndreserv"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-total-ram",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-total-ram"
     },
     {
-      "from_id": "namnd-socialnämnden-centrum-budget-2026",
-      "to_id": "budgetpost-social-centrum-ram-till-studieförbunden",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-socialnämnden-centrum-budget-2026",
+      "to": "budgetpost-social-centrum-ram-till-studieförbunden"
     }
   ]
 }

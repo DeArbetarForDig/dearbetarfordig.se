@@ -103,3 +103,67 @@ export const DebattSchema = z.object({
 })
 export type Debatt = z.infer<typeof DebattSchema>
 export type Anförande = z.infer<typeof AnförandeSchema>
+
+// --- Datafiler (data/*.json) — de FAKTISKA formaten på disk. Valideras
+// blockande i CI (packages/pipeline/src/tests/validate-data.test.ts) så att
+// scraper-/parserdrift inte tyst kan skriva trasiga filer. Schemana ovan
+// (PolitikerSchema m.fl.) beskriver API-domänmodellen, inte filerna. ---
+
+export const RosterUppdragSchema = z.object({
+  organisation: z.string(),
+  organisationId: z.string().optional(),
+  roll: z.string(),
+  från: z.string(),
+  till: z.string().nullable(),
+})
+
+export const RosterMandatperiodSchema = z.object({
+  period: z.string().regex(/^\d{4}-\d{4}$/),
+  roll: z.string(),
+  källa: z.string(),
+})
+
+export const RosterPolitikerSchema = z.object({
+  id: z.string().uuid(),
+  förnamn: z.string().min(1),
+  efternamn: z.string(),
+  parti: z.string().min(1),
+  email: z.string().nullable(),
+  uppdrag: z.array(RosterUppdragSchema),
+  mandatperioder: z.array(RosterMandatperiodSchema),
+  närstående: z.unknown().optional(),
+  historisk: z.boolean().optional(),
+})
+
+export const RosterSchema = z.object({
+  kommun: z.string(),
+  källa: z.string(),
+  hämtad: z.string(),
+  mandatperiod: z.object({ från: z.string(), till: z.string() }).optional(),
+  antal: z.number().int(),
+  politiker: z.array(RosterPolitikerSchema),
+})
+export type Roster = z.infer<typeof RosterSchema>
+
+export const GrafNodSchema = z.object({
+  id: z.string().min(1),
+  typ: z.string().min(1),
+  label: z.string(),
+  data: z.record(z.unknown()),
+})
+
+export const GrafEdgeSchema = z.object({
+  from: z.string().min(1),
+  to: z.string().min(1),
+  typ: z.string().min(1),
+  label: z.string().optional(),
+  data: z.unknown().optional(),
+})
+
+export const GrafFilSchema = z
+  .object({
+    nodes: z.array(GrafNodSchema),
+    edges: z.array(GrafEdgeSchema),
+  })
+  .passthrough()
+export type GrafFil = z.infer<typeof GrafFilSchema>

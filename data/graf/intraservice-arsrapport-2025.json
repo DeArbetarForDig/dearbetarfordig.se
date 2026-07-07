@@ -38,7 +38,7 @@
           "konsultkostnader": -110.7,
           "it_program": -438.8,
           "hyra_leasing_it": -238.5,
-          "övriga_kostnader": -146.0,
+          "övriga_kostnader": -146,
           "finansnetto": -0.7,
           "totala_kostnader": -1486.4
         },
@@ -63,9 +63,9 @@
   ],
   "edges": [
     {
-      "from_id": "doc-intraservice-arsrapport-2025",
-      "to_id": "utfall-intraservice-2025",
-      "typ": "beskriver"
+      "typ": "beskriver",
+      "from": "doc-intraservice-arsrapport-2025",
+      "to": "utfall-intraservice-2025"
     }
   ]
 }

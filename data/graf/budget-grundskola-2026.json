@@ -765,109 +765,109 @@
       }
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-ram",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-ram"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-kompletteringsbudget",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-kompletteringsbudget"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-summa-kommunbidrag",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-summa-kommunbidrag"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-intäkter",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-intäkter"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-kostnader",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-kostnader"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-kommunbidrag",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-kommunbidrag"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-förvaltningscentrala-poster",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-förvaltningscentrala-poster"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-ram-att-fördela",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-ram-att-fördela"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-kulturskola",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-kulturskola"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-anpassad-grundskola",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-anpassad-grundskola"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-grundskola-inklusive-förskoleklass-och-fritidshem",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-grundskola-inklusive-förskoleklass-och-fritidshem"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-riktat-särskilt-stöd-och-tilläggsbelopp",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-riktat-särskilt-stöd-och-tilläggsbelopp"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-ersättning-till/från-andra-huvudmän",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-ersättning-till/från-andra-huvudmän"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-schablonersättning-nyanlända-elever",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-schablonersättning-nyanlända-elever"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-statsbidrag",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-statsbidrag"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-summa-grundbelopp-att-fördela-per-elev",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-summa-grundbelopp-att-fördela-per-elev"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-verksamhetskostnader-(personalkostnader)",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-verksamhetskostnader-(personalkostnader)"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-lokalkostnader-inkl.-lokalvård",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-lokalkostnader-inkl.-lokalvård"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-inventarier",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-inventarier"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-ledning-och-administrationskostnader",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-ledning-och-administrationskostnader"
     },
     {
-      "from_id": "namnd-grundskola-budget-2026",
-      "to_id": "budgetpost-grundskola-total-bruttokostnad-per-elev-(tkr)",
-      "typ": "innehåller"
+      "typ": "innehåller",
+      "from": "namnd-grundskola-budget-2026",
+      "to": "budgetpost-grundskola-total-bruttokostnad-per-elev-(tkr)"
     }
   ]
 }
