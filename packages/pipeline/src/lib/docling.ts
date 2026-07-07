@@ -32,6 +32,15 @@ function resolvePython(): string {
   return 'python3'
 }
 
+/**
+ * Docling (torch/transformers m.fl.) är för tungt att provisionera i CI —
+ * tester som kräver riktig extraktion ska gatea sig mot detta och skippa
+ * sig själva där venv:n saknas, istället för att krascha byggen.
+ */
+export function isDoclingAvailable(): boolean {
+  return existsSync(VENV_PYTHON)
+}
+
 export function extractWithDocling(pdfPath: string): DoclingResult {
   const python = resolvePython()
   const output = execFileSync(python, [EXTRACT_SCRIPT, pdfPath], {
