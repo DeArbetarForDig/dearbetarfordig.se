@@ -96,3 +96,70 @@ jobs:
             ghcr.io/dearbetarfordig/dearbetarfordig.se:${{ steps.meta.outputs.sha_tag }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  # Publishes the static Astro site (packages/web) to GitHub Pages —
+  # fully automatic, no server involved. Separate from build-and-push (API
+  # image, requires manual deploy.yml dispatch to go live): the site is
+  # pre-rendered public HTML with no personal-data risk from auto-publishing,
+  # and GitHub's CDN (Fastly) gives it global edge caching + keeps it up even
+  # if the Hetzner box hosting the API goes down.
+  #
+  # `astro build` calls getStaticPaths, which fetches from a LIVE API server
+  # at build time (packages/web/src/data/api.ts, defaults to
+  # http://localhost:3000) — confirmed by an actual local build failing with
+  # "fetch failed" once the dev stack was torn down. Needs the same
+  # Postgres-service + seed + running-API setup as the `test` job, not just
+  # `pnpm --filter @daf/web build` on its own.
+  deploy-pages:
+    needs: [lint, test]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: daf
+          POSTGRES_USER: daf
+          POSTGRES_PASSWORD: daf_local
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgresql://daf:daf_local@localhost:5432/daf
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: corepack enable && corepack prepare pnpm@9 --activate
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @daf/api db:seed
+      - name: Start API server
+        run: |
+          pnpm --filter @daf/api exec tsx src/index.ts &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3000/healthz && break
+            sleep 1
+          done
+      - run: pnpm --filter @daf/web build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: packages/web/dist
+      - id: deployment
+        uses: actions/deploy-pages@v4
