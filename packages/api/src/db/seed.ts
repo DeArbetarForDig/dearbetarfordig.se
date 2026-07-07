@@ -16,6 +16,15 @@ function loadJSON(path: string) {
   return JSON.parse(readFileSync(full, 'utf-8'))
 }
 
+// Publiceringsgräns (docs/ANALYS-2026-07.md punkt 20): endast tjänsteadresser
+// publiceras. Privata adresser (gmail m.fl.) finns i källfilerna eftersom
+// kommunen listar dem som kontakt, men dataminimering säger att det publika
+// API:t klarar sig med de officiella.
+function publiceradEmail(email: string | null): string | null {
+  if (!email) return null
+  return /@(politiker\.)?goteborg\.se$/i.test(email.trim()) ? email : null
+}
+
 // Every node id inserted into graf_nodes this run — edges are validated
 // against this set up front so a dangling edge is a reported data gap,
 // not a silently swallowed FK violation.
@@ -124,7 +133,7 @@ async function main() {
     for (const p of polData.politiker) {
       await client`
         INSERT INTO goteborg.politiker (id, fornamn, efternamn, parti, email, uppdrag, sociala)
-        VALUES (${p.id}, ${p.förnamn}, ${p.efternamn}, ${p.parti}, ${p.email}, ${client.json(p.uppdrag)}, ${client.json({ mandatperioder: p.mandatperioder || [], närstående: p.närstående || null })})
+        VALUES (${p.id}, ${p.förnamn}, ${p.efternamn}, ${p.parti}, ${publiceradEmail(p.email)}, ${client.json(p.uppdrag)}, ${client.json({ mandatperioder: p.mandatperioder || [], närstående: null })})
         ON CONFLICT (id) DO UPDATE SET
           fornamn = EXCLUDED.fornamn, efternamn = EXCLUDED.efternamn,
           parti = EXCLUDED.parti, email = EXCLUDED.email, uppdrag = EXCLUDED.uppdrag, sociala = EXCLUDED.sociala`
@@ -149,8 +158,25 @@ async function main() {
     }
     const { nodes, edges, mergeCount } = mergeOrganisations(allNodes, allEdges)
     console.log(`   ✓ Merged ${mergeCount} duplicate org nodes`)
+
+    // Publiceringsgräns (GDPR/redaktionellt beslut, docs/ANALYS-2026-07.md
+    // punkt 20): jäv-kontroller av anhöriga SAMLAS i datafilerna men
+    // PUBLICERAS inte förrän det finns ett fynd av allmänintresse (och
+    // utgivningsbevis). Anhöriga är privatpersoner — "kontrollerad: ren" om
+    // en namngiven make/maka hör inte hemma i ett publikt API.
+    const undanhållnaNoder = nodes.filter((n) => n.typ === 'närstående').length
+    const undanhållnaEdges = edges.filter((e) => e.typ === 'gift_med').length
+    if (undanhållnaNoder + undanhållnaEdges > 0) {
+      console.log(
+        `   ◦ ${undanhållnaNoder} närstående-noder + ${undanhållnaEdges} gift_med-edges undanhållna (publiceringsgräns, ANALYS punkt 20)`,
+      )
+    }
+
     const nodeMap = new Map<string, any>()
-    for (const node of nodes) nodeMap.set(node.id, node)
+    for (const node of nodes) {
+      if (node.typ === 'närstående') continue
+      nodeMap.set(node.id, node)
+    }
     let totalNodes = 0
     let totalEdges = 0
     for (const node of nodeMap.values()) {
@@ -167,7 +193,7 @@ async function main() {
     if (polData) {
       for (const p of polData.politiker) {
         await client`INSERT INTO goteborg.graf_nodes (id, typ, label, data)
-          VALUES (${`politiker-${p.id}`}, 'politiker', ${`${p.förnamn} ${p.efternamn}`}, ${client.json({ parti: p.parti, email: p.email })})
+          VALUES (${`politiker-${p.id}`}, 'politiker', ${`${p.förnamn} ${p.efternamn}`}, ${client.json({ parti: p.parti, email: publiceradEmail(p.email) })})
           ON CONFLICT (id) DO UPDATE SET label = EXCLUDED.label, data = EXCLUDED.data`
         knownNodeIds.add(`politiker-${p.id}`)
       }
@@ -178,6 +204,7 @@ async function main() {
     // report them loudly instead of swallowing the violation. Any OTHER
     // insert error now crashes the seed instead of being silently eaten.
     for (const edge of edges) {
+      if (edge.typ === 'gift_med') continue // publiceringsgräns, se ovan
       if (!knownNodeIds.has(edge.from) || !knownNodeIds.has(edge.to)) {
         droppedEdge(edge.typ, edge.from, edge.to)
         continue

@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro'
+---
+
+<Base
+  title="Integritet och personuppgifter"
+  description="Hur De Arbetar För Dig behandlar personuppgifter: källor, ändamål, rättslig grund och hur du begär rättelse."
+>
+  <article class="max-w-3xl mx-auto prose-daf">
+    <h1 class="text-3xl font-bold mb-6">Integritet och personuppgifter</h1>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold mb-3">Vad plattformen gör</h2>
+      <p class="text-[var(--color-text-muted)] leading-relaxed">
+        De Arbetar För Dig sammanställer och publicerar offentliga uppgifter om förtroendevalda
+        politiker i deras offentliga roll: närvaro, voteringar, anföranden, uppdrag, arvoden och
+        beslut. Ändamålet är demokratisk granskning — att göra det enkelt för väljare att se vad
+        deras valda företrädare gör med mandatet och skattemedlen.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold mb-3">Källor</h2>
+      <ul class="list-disc pl-6 text-[var(--color-text-muted)] leading-relaxed">
+        <li>Göteborgs Stads förtroendemannaregister (politiker.goteborg.se)</li>
+        <li>Kommunfullmäktiges och kommunstyrelsens protokoll med bilagor (goteborg.se)</li>
+        <li>Yttrandeprotokoll (fullständiga anförandetexter, publicerade av kommunen)</li>
+        <li>Kommunens budget- och årsredovisningshandlingar</li>
+        <li>Bolagsverkets uppgifter om styrelseuppdrag (via allabolag.se)</li>
+        <li>Internet Archive (Wayback Machine) för historiska mandatperioder</li>
+      </ul>
+      <p class="mt-3 text-[var(--color-text-muted)] leading-relaxed">
+        Samtliga källor är offentliga. Plattformen tillför ingen egen insamling om enskilda —
+        den strukturerar det som kommunen och myndigheter redan publicerat.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold mb-3">Rättslig grund</h2>
+      <p class="text-[var(--color-text-muted)] leading-relaxed">
+        Behandlingen sker för journalistiska ändamål och med stöd av det allmänintresse som
+        granskning av offentlig maktutövning utgör (dataskyddsförordningen art. 6.1 f och art. 85,
+        med svensk tillämpning i dataskyddslagen). Uppgifterna avser förtroendevalda i deras
+        offentliga roll — inte deras privatliv.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold mb-3">Vad som medvetet inte publiceras</h2>
+      <ul class="list-disc pl-6 text-[var(--color-text-muted)] leading-relaxed">
+        <li>
+          <strong>Anhöriga:</strong> uppgifter om politikers familjemedlemmar publiceras inte,
+          även när de är offentligt tillgängliga, om det inte finns ett konkret
+          granskningsresultat av allmänintresse (t.ex. en dokumenterad jävssituation).
+        </li>
+        <li>
+          <strong>Privata kontaktuppgifter:</strong> endast tjänsteadresser
+          (@politiker.goteborg.se) visas — privata e-postadresser filtreras bort även när
+          kommunen listar dem.
+        </li>
+        <li>
+          <strong>Besökare:</strong> webbplatsen använder inga kakor, inga spårare och ingen
+          tredjepartsanalys. Ingen besöksdata knyts till person.
+        </li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold mb-3">Rättelse och invändning</h2>
+      <p class="text-[var(--color-text-muted)] leading-relaxed">
+        Ser du en felaktig uppgift — en röst som tillskrivits fel person, ett uppdrag som
+        upphört, ett namn som stavats fel — hör av dig via
+        <a
+          href="https://github.com/YOUR_ORG/dearbetarfordig.se/issues"
+          class="text-[var(--color-primary)] hover:underline">projektets ärendehantering</a
+        >. Felaktigheter rättas i källdatan så att korrigeringen består. All data är versionerad —
+        vad som ändrats, och när, är öppet granskningsbart.
+      </p>
+    </section>
+  </article>
+</Base>
