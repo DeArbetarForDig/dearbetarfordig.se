@@ -34,6 +34,9 @@ jobs:
       - name: Scrape politiker
         run: pnpm scrape:alla-fortroendevalda
 
+      - name: Enrich mandatperioder (Wayback Machine)
+        run: npx tsx packages/pipeline/src/scrapers/enrich-mandatperioder.ts
+
       - name: Scrape handlingar
         run: pnpm scrape:handlingar
 
@@ -48,6 +51,12 @@ jobs:
             echo "Parsing: $pdf ($datum)"
             npx tsx packages/pipeline/src/parsers/parse-protokoll.ts "$pdf" "$datum"
           done
+
+      # Regenerates ALL röstade_* edges from the voting bilagor (downloads
+      # protocol PDFs it doesn't have; refuses to write if the parse yields
+      # <90% of the existing edge count, so a bad run can't wipe the votes).
+      - name: Regenerate röstade edges (voteringar)
+        run: npx tsx packages/pipeline/src/parsers/parse-voteringar.ts
 
       - name: Check for changes
         id: changes

@@ -23,7 +23,7 @@
  */
 
 import { execSync } from 'node:child_process'
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../data')
@@ -162,24 +162,41 @@ function findParagraf(
   return { id: pick.id, ambiguous: medOmröstning.length !== 1 }
 }
 
-function getProtokollDatum(): string[] {
-  const dates: string[] = []
+function getProtokoll(): Array<{ datum: string; url: string }> {
+  const found = new Map<string, string>()
   for (const year of ['2023', '2024', '2025', '2026']) {
     const path = join(DATA_DIR, `beslut/kf-handlingar-${year}.json`)
     if (!existsSync(path)) continue
     const data = JSON.parse(readFileSync(path, 'utf-8'))
     for (const s of data.sammanträden) {
-      if (
-        s.handlingar.some((h: { titel: string }) => h.titel.toLowerCase().includes('kf_protokoll'))
-      ) {
-        dates.push(s.datum)
-      }
+      const h = s.handlingar.find((h: { titel: string }) =>
+        h.titel.toLowerCase().includes('kf_protokoll'),
+      )
+      if (h && !found.has(s.datum)) found.set(s.datum, h.url)
     }
   }
-  return [...new Set(dates)].sort()
+  return [...found.entries()].sort().map(([datum, url]) => ({ datum, url }))
+}
+
+/** Download the protocol PDF if it isn't cached (fresh CI runner). */
+function ensurePdf(datum: string, url: string): string | null {
+  const pdfPath = join(TMP_DIR, `protokoll-${datum}.pdf`)
+  if (!existsSync(pdfPath)) {
+    try {
+      execSync(`curl -sL '${url}' -o "${pdfPath}"`, { timeout: 60000 })
+    } catch {
+      return null
+    }
+  }
+  if (!existsSync(pdfPath) || !readFileSync(pdfPath).subarray(0, 5).toString().startsWith('%PDF')) {
+    return null
+  }
+  return pdfPath
 }
 
 async function main() {
+  mkdirSync(TMP_DIR, { recursive: true })
+
   // Name → politiker node id
   const polData = JSON.parse(readFileSync(join(DATA_DIR, 'politiker/goteborg.json'), 'utf-8'))
   const nameToId: Record<string, string> = {}
@@ -199,10 +216,10 @@ async function main() {
   let omatchadeParagrafer = 0
   const omatchadeNamn = new Map<string, number>()
 
-  for (const datum of getProtokollDatum()) {
-    const pdfPath = join(TMP_DIR, `protokoll-${datum}.pdf`)
+  for (const { datum, url } of getProtokoll()) {
+    const pdfPath = ensurePdf(datum, url)
     const grafPath = join(DATA_DIR, `graf/kf-${datum}.json`)
-    if (!existsSync(pdfPath) || !existsSync(grafPath)) {
+    if (!pdfPath || !existsSync(grafPath)) {
       console.log(`  ⚠️ ${datum}: pdf eller graf saknas — hoppar över`)
       continue
     }
@@ -273,8 +290,19 @@ async function main() {
   // Replace all röstade_* edges in politiker-komplett.json
   const komplett = JSON.parse(readFileSync(KOMPLETT_PATH, 'utf-8'))
   const före = komplett.edges.length
-  komplett.edges = komplett.edges.filter((e: { typ: string }) => !e.typ.startsWith('röstade_'))
-  const borttagna = före - komplett.edges.length
+  const behållna = komplett.edges.filter((e: { typ: string }) => !e.typ.startsWith('röstade_'))
+  const borttagna = före - behållna.length
+
+  // Full replacement: a run that parsed drastically fewer votes than the file
+  // already holds (unreachable PDFs on a fresh CI runner, site down, format
+  // drift) must not silently wipe the dataset.
+  if (newEdges.length < borttagna * 0.9) {
+    throw new Error(
+      `vägrar ersätta: ${borttagna} befintliga röstade-edges men bara ${newEdges.length} nya parsade (<90%)`,
+    )
+  }
+
+  komplett.edges = behållna
   komplett.edges.push(...newEdges)
   writeFileSync(KOMPLETT_PATH, JSON.stringify(komplett, null, 2))
   console.log(
