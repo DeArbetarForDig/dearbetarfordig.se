@@ -1,10 +1,22 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
-import { budgetLinks, halCollection, halResource } from '../hal.js'
+import {
+  budgetLinks,
+  halCollection,
+  halCollectionSchema,
+  halResource,
+  halResourceWithRelatedSchema,
+} from '../hal.js'
 import { requireSchema, sql } from '../lib/db.js'
 
 export const budgetRouter = new OpenAPIHono()
 
 // --- Budget ---
+// Med ?år ger endpointen en HAL-RESOURCE (ett budgetår + dess nämnder som
+// related); utan ?år en HAL-COLLECTION (lista av budgetår). Samma path,
+// två olika envelopes — svaret typas som union av båda.
+const BudgetÅrItem = z.object({ år: z.number(), totalMnkr: z.any(), styre: z.any() })
+const BudgetÅrSummary = z.object({ år: z.any(), totalMnkr: z.any(), styre: z.any() })
+
 const budgetRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/budget',
@@ -18,7 +30,10 @@ const budgetRoute = createRoute({
     200: {
       content: {
         'application/json': {
-          schema: z.object({ kommun: z.string(), nämnder: z.array(z.unknown()) }),
+          schema: z.union([
+            halResourceWithRelatedSchema(BudgetÅrItem, z.object({ nämnder: z.array(z.any()) })),
+            halCollectionSchema(BudgetÅrSummary),
+          ]),
         },
       },
       description: 'OK',
@@ -69,7 +84,7 @@ const budgetUtfallRoute = createRoute({
   responses: {
     200: {
       content: {
-        'application/json': { schema: z.object({}).passthrough().openapi('BudgetUtfall') },
+        'application/json': { schema: halCollectionSchema(z.any()).openapi('BudgetUtfall') },
       },
       description: 'OK',
     },

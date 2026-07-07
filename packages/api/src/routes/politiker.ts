@@ -3,7 +3,10 @@ import {
   anförandenLinks,
   baseUrl,
   halCollection,
+  halCollectionSchema,
   halResource,
+  halResourceSchema,
+  halResourceWithRelatedSchema,
   politikerLinks,
   politikerListLinks,
 } from '../hal.js'
@@ -22,9 +25,7 @@ const PolitikerSummary = z
     antalUppdrag: z.number(),
   })
   .openapi('PolitikerSummary')
-const PolitikerList = z
-  .object({ kommun: z.string(), antal: z.number(), politiker: z.array(PolitikerSummary) })
-  .openapi('PolitikerList')
+const PolitikerList = halCollectionSchema(PolitikerSummary).openapi('PolitikerList')
 
 const politikerRoute = createRoute({
   method: 'get',
@@ -66,6 +67,17 @@ politikerRouter.openapi(politikerRoute, async (c) => {
   return c.json(halCollection(items, politikerListLinks(kommun)), 200)
 })
 
+const PolitikerDetail = z.object({
+  id: z.string(),
+  namn: z.string(),
+  parti: z.string(),
+  email: z.string().nullable(),
+  foto: z.any(),
+  sociala: z.any(),
+  uppdrag: z.any(),
+})
+const PolitikerDetailRelated = z.object({ möten: z.array(z.any()) })
+
 const politikerDetailRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/politiker/{id}',
@@ -75,7 +87,11 @@ const politikerDetailRoute = createRoute({
   responses: {
     200: {
       content: {
-        'application/json': { schema: z.object({}).passthrough().openapi('PolitikerDetail') },
+        'application/json': {
+          schema: halResourceWithRelatedSchema(PolitikerDetail, PolitikerDetailRelated).openapi(
+            'PolitikerDetail',
+          ),
+        },
       },
       description: 'OK',
     },
@@ -131,6 +147,16 @@ politikerRouter.openapi(politikerDetailRoute, async (c) => {
 //      baserat på registrerade röster (= närvaro vid votering).
 //   3. Total ersättning = fast arvode/mån + ackumulerat förrättningsarvode.
 // Källa: Göteborgs Stads regler för arvoden och ersättningar (KS 2025-12-10 §946)
+const ArvodeItem = z.object({
+  politiker: z.object({ id: z.string(), namn: z.string(), parti: z.string() }),
+  grundarvode_kr: z.number(),
+  fast_arvode_kr: z.number(),
+  förrättningsarvode_kr: z.number(),
+  antal_möten_deltog: z.number(),
+  total_ersättning_kr: z.number(),
+  källa: z.string(),
+})
+
 const arvodesRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/politiker/{id}/arvode',
@@ -143,7 +169,9 @@ const arvodesRoute = createRoute({
   request: { params: z.object({ kommun: z.string(), id: z.string().uuid() }) },
   responses: {
     200: {
-      content: { 'application/json': { schema: z.object({}).passthrough().openapi('Arvode') } },
+      content: {
+        'application/json': { schema: halResourceSchema(ArvodeItem).openapi('Arvode') },
+      },
       description: 'OK',
     },
     404: {
@@ -222,6 +250,18 @@ const MIN_RÖSTER_FÖR_LOJALITET = 5
 // över det behandlas som otillförlitligt underlag snarare än "mest aktiv".
 const MAX_RIMLIG_DEBATTAKTIVITET = 20
 
+const ProfilAxis = z.object({
+  key: z.string(),
+  label: z.string(),
+  percentile: z.number().nullable(),
+  rawLabel: z.string(),
+  populationSize: z.number(),
+})
+const PolitikerProfil = z.object({
+  politiker: z.object({ id: z.string(), namn: z.string(), parti: z.string() }),
+  axes: z.array(ProfilAxis),
+})
+
 const profilRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/politiker/{id}/profil',
@@ -237,7 +277,9 @@ const profilRoute = createRoute({
   responses: {
     200: {
       content: {
-        'application/json': { schema: z.object({}).passthrough().openapi('PolitikerProfil') },
+        'application/json': {
+          schema: halResourceSchema(PolitikerProfil).openapi('PolitikerProfil'),
+        },
       },
       description: 'OK',
     },

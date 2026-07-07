@@ -9,7 +9,8 @@
     "scrape:webbtv": "tsx src/scrapers/webbtv-kf.ts",
     "scrape:handlingar": "tsx src/scrapers/handlingar.ts",
     "scrape:all": "tsx src/scrapers/politiker.ts && tsx src/scrapers/webbtv-kf.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@daf/shared": "workspace:*",

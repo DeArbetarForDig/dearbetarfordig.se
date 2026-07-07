@@ -6,6 +6,7 @@
  * - Collections: { _embedded: { items: [...] }, _links, total }
  * - Resources: { _embedded: { item: {...}, related?: {...} }, _links }
  */
+import { z } from '@hono/zod-openapi'
 
 export interface HalLink {
   href: string
@@ -63,6 +64,44 @@ export function halResource<T, R = Record<string, unknown>>(
     response._embedded.related = related
   }
   return response
+}
+
+// --- OpenAPI response schemas for the HAL envelopes above ---
+//
+// NOT z.record()/z.object().passthrough()/z.unknown(): under this zod
+// (3.23.8) + @hono/zod-openapi (0.19.x) combination, any of those forms in a
+// route response schema makes @hono/zod-openapi's ExtractContent type infer
+// the whole response as `never`, and every handler mismatches with an
+// opaque "TypedResponse<never, ...>" error (confirmed by isolated repro).
+// _links only needs `self` declared — HalLinks' extra optional keys are
+// still assignable to the narrower schema type since it's never checked as
+// an object literal here.
+export const HalLinkSchema = z.object({ href: z.string(), title: z.string().optional() })
+export const HalLinksSchema = z.object({ self: HalLinkSchema })
+
+export function halCollectionSchema<T extends z.ZodTypeAny>(item: T) {
+  return z.object({
+    _embedded: z.object({ items: z.array(item) }),
+    _links: HalLinksSchema,
+    total: z.number(),
+  })
+}
+
+export function halResourceSchema<T extends z.ZodTypeAny>(item: T) {
+  return z.object({
+    _embedded: z.object({ item }),
+    _links: HalLinksSchema,
+  })
+}
+
+export function halResourceWithRelatedSchema<T extends z.ZodTypeAny, R extends z.ZodTypeAny>(
+  item: T,
+  related: R,
+) {
+  return z.object({
+    _embedded: z.object({ item, related: related.optional() }),
+    _links: HalLinksSchema,
+  })
 }
 
 // Base URL builder

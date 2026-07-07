@@ -4,11 +4,22 @@ import {
   förvaltningLinks,
   förvaltningarListLinks,
   halCollection,
+  halCollectionSchema,
   halResource,
+  halResourceWithRelatedSchema,
 } from '../hal.js'
 import { requireSchema, sql } from '../lib/db.js'
 
 export const forvaltningarRouter = new OpenAPIHono()
+
+const FörvaltningSummary = z.object({
+  id: z.any(),
+  nämndId: z.any(),
+  direktör: z.any(),
+  nämnd: z.any(),
+  utfall: z.any(),
+  revision: z.any(),
+})
 
 const förvaltningarRoute = createRoute({
   method: 'get',
@@ -19,7 +30,9 @@ const förvaltningarRoute = createRoute({
   responses: {
     200: {
       content: {
-        'application/json': { schema: z.object({}).passthrough().openapi('Förvaltningar') },
+        'application/json': {
+          schema: halCollectionSchema(FörvaltningSummary).openapi('Förvaltningar'),
+        },
       },
       description: 'OK',
     },
@@ -57,6 +70,13 @@ forvaltningarRouter.openapi(förvaltningarRoute, async (c) => {
   return c.json(halCollection(results, förvaltningarListLinks(kommun)), 200)
 })
 
+const FörvaltningDetail = z.object({ direktör: z.any(), nämnd: z.any(), budget: z.any() })
+const FörvaltningRelated = z.object({
+  utfall: z.array(z.any()),
+  revision: z.array(z.any()),
+  ledamöter: z.array(z.any()),
+})
+
 const förvaltningDetailRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/forvaltningar/{id}',
@@ -66,7 +86,11 @@ const förvaltningDetailRoute = createRoute({
   responses: {
     200: {
       content: {
-        'application/json': { schema: z.object({}).passthrough().openapi('FörvaltningDetail') },
+        'application/json': {
+          schema: halResourceWithRelatedSchema(FörvaltningDetail, FörvaltningRelated).openapi(
+            'FörvaltningDetail',
+          ),
+        },
       },
       description: 'OK',
     },

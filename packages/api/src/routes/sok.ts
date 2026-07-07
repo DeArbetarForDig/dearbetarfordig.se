@@ -14,7 +14,7 @@ const sökRoute = createRoute({
     200: {
       content: {
         'application/json': {
-          schema: z.object({ query: z.string(), resultat: z.array(z.unknown()) }),
+          schema: z.object({ query: z.string(), resultat: z.array(z.any()) }),
         },
       },
       description: 'OK',
@@ -38,5 +38,6 @@ sokRouter.openapi(sökRoute, async (c) => {
     LIMIT 10`
   const nodes =
     await sql`SELECT id, label, typ FROM ${sql(schema)}.graf_nodes WHERE label ILIKE ${`%${q}%`} LIMIT 20`
-  return c.json({ query: q, resultat: [...politiker, ...dokument, ...nodes] }, 200)
+  const resultat: unknown[] = [...politiker, ...dokument, ...nodes]
+  return c.json({ query: q, resultat }, 200)
 })

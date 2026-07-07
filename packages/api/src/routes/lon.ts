@@ -15,7 +15,18 @@ const direktörerRoute = createRoute({
   },
   responses: {
     200: {
-      content: { 'application/json': { schema: z.object({}).passthrough().openapi('Direktörer') } },
+      content: {
+        'application/json': {
+          schema: z
+            .object({
+              kommun: z.string().optional(),
+              datum: z.string().optional(),
+              antal: z.number(),
+              direktörer: z.array(z.any()),
+            })
+            .openapi('Direktörer'),
+        },
+      },
       description: 'OK',
     },
   },
@@ -73,7 +84,16 @@ const direktörResultatRoute = createRoute({
   responses: {
     200: {
       content: {
-        'application/json': { schema: z.object({}).passthrough().openapi('DirektörResultat') },
+        'application/json': {
+          schema: z
+            .object({
+              direktör: z.any(),
+              nämnd: z.any(),
+              utfall: z.array(z.any()),
+              revision: z.array(z.any()),
+            })
+            .openapi('DirektörResultat'),
+        },
       },
       description: 'OK',
     },

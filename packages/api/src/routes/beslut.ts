@@ -5,7 +5,9 @@ import {
   beslutLinks,
   beslutListLinks,
   halCollection,
+  halCollectionSchema,
   halResource,
+  halResourceWithRelatedSchema,
 } from '../hal.js'
 import { requireSchema, sql } from '../lib/db.js'
 import { capLimit } from '../lib/helpers.js'
@@ -13,6 +15,18 @@ import { capLimit } from '../lib/helpers.js'
 export const beslutRouter = new OpenAPIHono()
 
 // --- Beslut ---
+const BeslutSummary = z.object({
+  id: z.string(),
+  organ: z.string(),
+  paragraf: z.string().nullable(),
+  rubrik: z.string(),
+  datum: z.any(),
+  beslut: z.any(),
+  votering: z.any(),
+  namnupprop: z.boolean(),
+  ärendeNr: z.any(),
+})
+
 const beslutRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/beslut',
@@ -31,9 +45,7 @@ const beslutRoute = createRoute({
   responses: {
     200: {
       content: {
-        'application/json': {
-          schema: z.object({ kommun: z.string(), beslut: z.array(z.unknown()) }),
-        },
+        'application/json': { schema: halCollectionSchema(BeslutSummary) },
       },
       description: 'OK',
     },
@@ -82,6 +94,12 @@ beslutRouter.openapi(beslutRoute, async (c) => {
   return c.json(halCollection(items, beslutListLinks(kommun)), 200)
 })
 
+const KopplingItem = z.object({
+  typ: z.string(),
+  riktning: z.string(),
+  nod: z.object({ id: z.any(), typ: z.any(), label: z.any() }).nullable(),
+})
+
 const beslutDetailRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/beslut/{id}',
@@ -92,7 +110,10 @@ const beslutDetailRoute = createRoute({
     200: {
       content: {
         'application/json': {
-          schema: z.object({ beslut: z.unknown(), kopplingar: z.array(z.unknown()) }),
+          schema: halResourceWithRelatedSchema(
+            z.any(),
+            z.object({ kopplingar: z.array(KopplingItem) }),
+          ),
         },
       },
       description: 'OK',
@@ -160,6 +181,14 @@ beslutRouter.openapi(beslutDetailRoute, async (c) => {
 })
 
 // --- Anföranden per beslut ---
+const AnförandeItem = z.object({
+  id: z.any(),
+  talare: z.string(),
+  parti: z.string(),
+  politikerId: z.string().nullable(),
+  text: z.any(),
+})
+
 const anförandenRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/beslut/{id}/anforanden',
@@ -168,7 +197,9 @@ const anförandenRoute = createRoute({
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
   responses: {
     200: {
-      content: { 'application/json': { schema: z.object({}).passthrough().openapi('Anföranden') } },
+      content: {
+        'application/json': { schema: halCollectionSchema(AnförandeItem).openapi('Anföranden') },
+      },
       description: 'OK',
     },
   },

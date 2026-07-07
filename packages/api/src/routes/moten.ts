@@ -3,7 +3,9 @@ import {
   baseUrl,
   beslutLinks,
   halCollection,
+  halCollectionSchema,
   halResource,
+  halResourceWithRelatedSchema,
   möteLinks,
   mötenListLinks,
 } from '../hal.js'
@@ -12,6 +14,14 @@ import { requireSchema, sql } from '../lib/db.js'
 export const motenRouter = new OpenAPIHono()
 
 // --- Möten (fixed N+1) ---
+const MöteSummary = z.object({
+  datum: z.any(),
+  label: z.any(),
+  antalBeslut: z.number(),
+  närvarande: z.number(),
+  videoUrl: z.any().optional(),
+})
+
 const mötenRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/möten',
@@ -24,9 +34,7 @@ const mötenRoute = createRoute({
   responses: {
     200: {
       content: {
-        'application/json': {
-          schema: z.object({ kommun: z.string(), möten: z.array(z.unknown()) }),
-        },
+        'application/json': { schema: halCollectionSchema(MöteSummary) },
       },
       description: 'OK',
     },
@@ -80,6 +88,18 @@ motenRouter.openapi(mötenRoute, async (c) => {
 })
 
 // --- Möte (enskilt) ---
+const MoteItem = z.object({
+  datum: z.any(),
+  label: z.any(),
+  antalBeslut: z.number(),
+  videoUrl: z.any().optional(),
+})
+const MoteRelated = z.object({
+  beslut: z.array(z.any()),
+  närvarande: z.array(z.any()),
+  anföranden: z.array(z.any()),
+})
+
 const moteRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/möten/{datum}',
@@ -88,7 +108,11 @@ const moteRoute = createRoute({
   request: { params: z.object({ kommun: z.string(), datum: z.string() }) },
   responses: {
     200: {
-      content: { 'application/json': { schema: z.object({}).passthrough().openapi('Mote') } },
+      content: {
+        'application/json': {
+          schema: halResourceWithRelatedSchema(MoteItem, MoteRelated).openapi('Mote'),
+        },
+      },
       description: 'OK',
     },
     404: {
@@ -182,7 +206,9 @@ const moteAnforandenRoute = createRoute({
   responses: {
     200: {
       content: {
-        'application/json': { schema: z.object({}).passthrough().openapi('MoteAnforanden') },
+        'application/json': {
+          schema: halCollectionSchema(z.any()).openapi('MoteAnforanden'),
+        },
       },
       description: 'OK',
     },

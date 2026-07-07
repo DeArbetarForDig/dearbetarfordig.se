@@ -74,7 +74,18 @@ const dokumentSökRoute = createRoute({
     200: {
       content: {
         'application/json': {
-          schema: z.object({ query: z.string(), resultat: z.array(z.unknown()) }),
+          schema: z.object({
+            query: z.string(),
+            resultat: z.array(
+              z.object({
+                id: z.any(),
+                titel: z.any(),
+                typ: z.any(),
+                datum: z.any(),
+                utdrag: z.any(),
+              }),
+            ),
+          }),
         },
       },
       description: 'OK',
@@ -90,7 +101,14 @@ dokumentRouter.openapi(dokumentSökRoute, async (c) => {
     WHERE to_tsvector('swedish', titel || ' ' || innehall) @@ plainto_tsquery('swedish', ${q})
     ORDER BY ts_rank(to_tsvector('swedish', titel || ' ' || innehall), plainto_tsquery('swedish', ${q})) DESC
     LIMIT 20`
-  return c.json({ query: q, resultat: results }, 200)
+  const resultat = results.map((r) => ({
+    id: r.id,
+    titel: r.titel,
+    typ: r.typ,
+    datum: r.datum,
+    utdrag: r.utdrag,
+  }))
+  return c.json({ query: q, resultat }, 200)
 })
 
 const dokumentDetailRoute = createRoute({

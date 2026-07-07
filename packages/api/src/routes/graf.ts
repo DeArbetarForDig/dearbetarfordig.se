@@ -4,8 +4,11 @@ import { requireSchema, sql } from '../lib/db.js'
 export const grafRouter = new OpenAPIHono()
 
 // --- Schemas ---
+// data: z.any() — NOT z.record()/.passthrough()/z.unknown(): under this
+// zod+@hono/zod-openapi combination those forms make the whole response
+// infer as `never` (see hal.ts for the confirmed repro).
 const GraphNode = z
-  .object({ id: z.string(), typ: z.string(), label: z.string(), data: z.record(z.unknown()) })
+  .object({ id: z.string(), typ: z.string(), label: z.string(), data: z.any() })
   .openapi('GraphNode')
 const GraphEdge = z
   .object({
@@ -14,7 +17,7 @@ const GraphEdge = z
     to_id: z.string(),
     typ: z.string(),
     label: z.string().nullable().optional(),
-    data: z.record(z.unknown()).nullable().optional(),
+    data: z.any(),
   })
   .openapi('GraphEdge')
 
@@ -98,7 +101,16 @@ const grafRoute = createRoute({
   responses: {
     200: {
       content: {
-        'application/json': { schema: z.object({ nodes: z.unknown(), edges: z.unknown() }) },
+        // Three genuinely different shapes depending on which query param is
+        // set (?datum=, ?typ=, or neither) — all fields optional to
+        // accommodate whichever branch actually runs.
+        'application/json': {
+          schema: z.object({
+            nodes: z.any().optional(),
+            edges: z.any().optional(),
+            antal: z.number().optional(),
+          }),
+        },
       },
       description: 'OK',
     },

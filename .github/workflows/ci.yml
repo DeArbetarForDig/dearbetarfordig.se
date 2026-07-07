@@ -21,13 +21,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
-      # Non-blocking for now: packages/api/src/index.ts has ~18 pre-existing
-      # Hono route-response-typing errors (a separate refactor, tracked in
-      # docs/ANALYS-2026-07.md §6/§10 item 4). Still runs on every push/PR so
-      # regressions elsewhere are visible, just doesn't fail the build yet.
-      - name: Typecheck (non-blocking, see known issues in docs/ANALYS-2026-07.md)
-        run: pnpm -r typecheck
-        continue-on-error: true
+      - run: pnpm -r typecheck
 
   test:
     runs-on: ubuntu-latest

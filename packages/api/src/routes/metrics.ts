@@ -18,7 +18,7 @@ const statsRoute = createRoute({
             .object({
               kommun: z.string(),
               politiker: z.number(),
-              partier: z.record(z.number()),
+              partier: z.any(),
               graf: z.object({ nodes: z.number(), edges: z.number() }),
             })
             .openapi('Stats'),
@@ -67,7 +67,51 @@ const metricsRoute = createRoute({
   request: { params: z.object({ kommun: z.string() }) },
   responses: {
     200: {
-      content: { 'application/json': { schema: z.object({}).passthrough().openapi('Metrics') } },
+      content: {
+        'application/json': {
+          schema: z
+            .object({
+              kommun: z.string(),
+              period: z.string(),
+              beslutskraft: z.object({
+                totalt: z.number(),
+                bifall: z.number(),
+                bordläggning: z.number(),
+                beslutskraftProcent: z.number(),
+                bordläggningsorsaker: z.any(),
+              }),
+              konsensus: z.object({
+                totaltÄrenden: z.number(),
+                utanVotering: z.number(),
+                medVotering: z.number(),
+                konsensusgradProcent: z.number(),
+              }),
+              aktivitet: z.object({
+                jävsanmälningar: z.number(),
+                reservationer: z.number(),
+                yrkanden: z.number(),
+              }),
+              riceIndex: z.any(),
+              röstÖverensstämmelse: z.object({
+                partier: z.array(z.any()),
+                matris: z.array(z.array(z.number().nullable())),
+              }),
+              närvaro: z.object({
+                registreringar: z.number(),
+                möten: z.number(),
+                snittPerMöte: z.number(),
+              }),
+              debatt: z.object({
+                giniKoefficient: z.number(),
+                anföranden: z.number(),
+                djupPerÄrende: z.number(),
+                perÅr: z.array(z.any()),
+              }),
+              partilojalitet: z.any(),
+            })
+            .openapi('Metrics'),
+        },
+      },
       description: 'OK',
     },
   },
