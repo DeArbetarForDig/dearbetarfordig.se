@@ -1176,6 +1176,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-02-21-§164",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2024-02-21-§171",
       "to": "org-kommunstyrelsen",
       "typ": "hänvisar_till"
@@ -1502,6 +1507,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "möte-ks-2024-02-21",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "möte-ks-2024-02-21",
       "typ": "närvarade"
     },

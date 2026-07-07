@@ -1067,6 +1067,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-01-24-§69",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2024-01-24-§69",
       "to": "org-kommunstyrelsen",
       "typ": "hänvisar_till"
@@ -1128,6 +1133,11 @@
     },
     {
       "from": "politiker-bed0053f-81bc-4181-9445-f2ec4ebe5b64",
+      "to": "ks-2024-01-24-§70",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "ks-2024-01-24-§70",
       "typ": "röstade_nej"
     },
@@ -1403,6 +1413,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "möte-ks-2024-01-24",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "möte-ks-2024-01-24",
       "typ": "närvarade"
     },

@@ -970,6 +970,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-03-06-§201",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2024-03-06-§201",
       "to": "org-göteborg-energi-ab",
       "typ": "hänvisar_till"
@@ -1041,6 +1046,11 @@
       "typ": "röstade_ja"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-03-06-§204",
+      "typ": "röstade_ja"
+    },
+    {
       "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
       "to": "ks-2024-03-06-§204",
       "typ": "röstade_ja"
@@ -1077,6 +1087,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-03-06-§205",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "ks-2024-03-06-§205",
       "typ": "röstade_ja"
     },
@@ -1166,6 +1181,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-03-06-§206",
+      "typ": "röstade_avstår"
+    },
+    {
       "from": "ks-2024-03-06-§206",
       "to": "org-årsstämma-i-göteborgs-stadshus-ab",
       "typ": "hänvisar_till"
@@ -1221,6 +1241,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-03-06-§208",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "politiker-79df7a05-ddd0-4984-8b0c-c0066c2d9615",
       "to": "ks-2024-03-06-§208",
       "typ": "röstade_avstår"
@@ -1271,6 +1296,11 @@
       "typ": "röstade_ja"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-03-06-§210",
+      "typ": "röstade_ja"
+    },
+    {
       "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
       "to": "ks-2024-03-06-§210",
       "typ": "röstade_ja"
@@ -1307,6 +1337,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-03-06-§211",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "ks-2024-03-06-§211",
       "typ": "röstade_ja"
     },
@@ -1569,6 +1604,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "möte-ks-2024-03-06",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "möte-ks-2024-03-06",
       "typ": "närvarade"
     },

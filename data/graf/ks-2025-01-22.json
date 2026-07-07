@@ -993,6 +993,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2025-01-22-§56",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2025-01-22-§57",
       "to": "kf-handling-2025-7",
       "typ": "hänvisar_till",
@@ -1045,6 +1050,11 @@
       "typ": "röstade_ja"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2025-01-22-§62",
+      "typ": "röstade_ja"
+    },
+    {
       "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
       "to": "ks-2025-01-22-§62",
       "typ": "röstade_ja"
@@ -1100,6 +1110,11 @@
       "typ": "röstade_ja"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2025-01-22-§63",
+      "typ": "röstade_ja"
+    },
+    {
       "from": "politiker-1066b779-9b54-4285-9063-9f2d52568e5b",
       "to": "ks-2025-01-22-§63",
       "typ": "röstade_ja"
@@ -1146,6 +1161,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2025-01-22-§69",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "ks-2025-01-22-§69",
       "typ": "röstade_ja"
     },
@@ -1446,6 +1466,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "möte-ks-2025-01-22",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "möte-ks-2025-01-22",
       "typ": "närvarade"
     },

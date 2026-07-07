@@ -1413,6 +1413,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-12-11-§1053",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "politiker-54c7f824-76d1-4be8-bdfa-8ba8c6859b1c",
       "to": "ks-2024-12-11-§1054",
       "typ": "röstade_ja"
@@ -1434,6 +1439,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-12-11-§1054",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "ks-2024-12-11-§1054",
       "typ": "röstade_ja"
     },
@@ -1875,6 +1885,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "möte-ks-2024-12-11",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "möte-ks-2024-12-11",
       "typ": "närvarade"
     },

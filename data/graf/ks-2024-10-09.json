@@ -1221,6 +1221,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-10-09-§803",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2024-10-09-§805",
       "to": "org-kommunstyrelsen",
       "typ": "hänvisar_till"
@@ -1311,6 +1316,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-10-09-§808",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "ks-2024-10-09-§808",
       "to": "kf-handling-2024-187",
       "typ": "hänvisar_till",
@@ -1368,6 +1378,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "ks-2024-10-09-§809",
+      "typ": "röstade_ja"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "ks-2024-10-09-§809",
       "typ": "röstade_ja"
     },
@@ -1469,6 +1484,11 @@
       "typ": "röstade_nej"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-10-09-§815",
+      "typ": "röstade_nej"
+    },
+    {
       "from": "politiker-2f9e4ab7-cb74-4fa4-a888-6748b3a16efa",
       "to": "ks-2024-10-09-§816",
       "typ": "röstade_ja"
@@ -1525,6 +1545,11 @@
     },
     {
       "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-10-09-§816",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "ks-2024-10-09-§816",
       "typ": "röstade_nej"
     },
@@ -1589,6 +1614,11 @@
       "typ": "röstade_avstår"
     },
     {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
+      "to": "ks-2024-10-09-§817",
+      "typ": "röstade_avstår"
+    },
+    {
       "from": "politiker-6b40b549-feaf-4b0b-a6ce-587309908bb3",
       "to": "ks-2024-10-09-§818",
       "typ": "röstade_ja"
@@ -1645,6 +1675,11 @@
     },
     {
       "from": "politiker-9987b4ed-8689-42b8-bf8c-445b0673bd86",
+      "to": "ks-2024-10-09-§818",
+      "typ": "röstade_nej"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "ks-2024-10-09-§818",
       "typ": "röstade_nej"
     },
@@ -1950,6 +1985,11 @@
     },
     {
       "from": "politiker-50c3f501-388c-4be0-874a-6ca6951b0e91",
+      "to": "möte-ks-2024-10-09",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-aca09995-baef-4f28-8639-117e4f3fffc7",
       "to": "möte-ks-2024-10-09",
       "typ": "närvarade"
     },
