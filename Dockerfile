@@ -13,5 +13,11 @@ COPY packages/shared packages/shared
 COPY packages/api packages/api
 COPY data data
 
+# WORKDIR must be packages/api, not /app: pnpm gives each workspace package
+# its own node_modules (no hoisting to root), so `tsx` — a devDependency of
+# @daf/api only — resolves solely from here. Running from /app crash-loops
+# with ERR_MODULE_NOT_FOUND on 'tsx' (caught by an actual container smoke
+# test, not just a syntax read — see docs/HOSTING.md deploy checklist).
+WORKDIR /app/packages/api
 EXPOSE 3000
-CMD ["node", "--import", "tsx", "packages/api/src/index.ts"]
+CMD ["node", "--import", "tsx", "src/index.ts"]

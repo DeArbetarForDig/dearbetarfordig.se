@@ -1,0 +1,7 @@
+# Caddy reverse proxy — automatic HTTPS (Let's Encrypt) for the API.
+# The root domain (static Astro site) isn't served from this VPS yet — see
+# docs/DEPLOY-CHECKLIST.md for that open question.
+
+api.dearbetarfordig.se {
+	reverse_proxy api:3000
+}
