@@ -75,6 +75,11 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v5
+      # Required for cache-from/to: type=gha — the runner's default buildx
+      # builder uses the plain "docker" driver, which can't export to the
+      # GHA cache backend at all ("Cache export is not supported for the
+      # docker driver"). This switches to the docker-container driver.
+      - uses: docker/setup-buildx-action@v3
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
