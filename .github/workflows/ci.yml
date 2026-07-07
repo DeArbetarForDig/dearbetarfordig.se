@@ -63,9 +63,12 @@ jobs:
           done
       - run: pnpm --filter @daf/api test
 
+  # Builds and publishes the image on every push to main — this is CI, it
+  # only produces an artifact. It never touches the server; see deploy.yml
+  # (manual workflow_dispatch) for that step.
   build-and-push:
     needs: [lint, test]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && vars.DEPLOY_ENABLED == 'true'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -77,29 +80,14 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - id: meta
+        run: echo "sha_tag=sha-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
       - uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          tags: ghcr.io/dearbetarfordig/dearbetarfordig.se:latest
+          tags: |
+            ghcr.io/dearbetarfordig/dearbetarfordig.se:latest
+            ghcr.io/dearbetarfordig/dearbetarfordig.se:${{ steps.meta.outputs.sha_tag }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    steps:
-      # No checkout needed — the server already has the repo (for
-      # docker-compose.yml/Caddyfile) and pulls the pre-built image below
-      # instead of rebuilding on a resource-constrained VPS.
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.DEPLOY_SSH_KEY }}
-          script: |
-            cd /opt/daf
-            git pull origin main
-            docker compose pull
-            docker compose up -d

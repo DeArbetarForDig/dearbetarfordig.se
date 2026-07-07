@@ -1,0 +1,41 @@
+name: Deploy
+
+# Manual only — never triggered by push/PR. Building and publishing the
+# image (ci.yml's build-and-push job) is automatic; putting a new image
+# live on the server is a deliberate, separate action taken from the
+# Actions tab ("Run workflow"), so a merge to main never pushes straight
+# to production.
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Image tag to deploy — "latest" or "sha-xxxxxxx" (from a build-and-push run) to roll back to a specific commit'
+        required: false
+        default: latest
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Optional: configure this environment in repo Settings → Environments
+    # with required reviewers to add an approval gate on top of the manual
+    # trigger. Works fine with zero setup too — it's just a label until then.
+    environment: production
+    steps:
+      # No checkout of the build — the server already has its own clone
+      # (for docker-compose.yml/Caddyfile) and only pulls the pre-built
+      # image below; it never runs pnpm install/build.
+      - name: Deploy ${{ inputs.image_tag }} to server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          envs: IMAGE_TAG
+          script: |
+            cd /opt/daf
+            git pull origin main
+            IMAGE_TAG="${IMAGE_TAG:-latest}" docker compose pull
+            IMAGE_TAG="${IMAGE_TAG:-latest}" docker compose up -d
+        env:
+          IMAGE_TAG: ${{ inputs.image_tag }}

@@ -1,7 +1,9 @@
 services:
   api:
     build: .
-    image: ghcr.io/dearbetarfordig/dearbetarfordig.se:latest
+    # IMAGE_TAG lets deploy.yml (manual workflow_dispatch) pick a specific
+    # sha-tagged build to roll back to; defaults to latest for local/dev use.
+    image: ghcr.io/dearbetarfordig/dearbetarfordig.se:${IMAGE_TAG:-latest}
     # No host port — only Caddy is internet-facing. Other services on the
     # default compose network reach it at http://api:3000.
     expose:
@@ -34,7 +36,7 @@ services:
     restart: unless-stopped
 
   # Only public-facing service: terminates TLS (automatic Let's Encrypt via
-  # Caddyfile) and reverse-proxies to api. See docs/DEPLOY-CHECKLIST.md.
+  # Caddyfile) and reverse-proxies to api. See docs/HOSTING.md deploy checklist.
   caddy:
     image: caddy:2-alpine
     ports:
