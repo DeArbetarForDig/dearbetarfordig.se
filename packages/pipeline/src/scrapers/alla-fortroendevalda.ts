@@ -192,7 +192,7 @@ async function main() {
     } catch {}
   }
 
-  const finalResults = detaljer.map((p) => {
+  const finalResults: any[] = detaljer.map((p) => {
     const prev = existingById.get(p.id)
     return {
       id: p.id,
@@ -205,6 +205,19 @@ async function main() {
       närstående: prev?.närstående ?? null,
     }
   })
+
+  // Personer som försvunnit från sajten (avgångna under mandatperioden)
+  // behålls med historisk-flagga i stället för att tyst raderas — deras
+  // röster i voteringsbilagorna refererar deras uuid:n
+  // (historisk-roster.ts, docs/ANALYS-2026-07.md punkt 19).
+  const scrapade = new Set(detaljer.map((p) => p.id))
+  let behållna = 0
+  for (const [id, prev] of existingById) {
+    if (scrapade.has(id)) continue
+    finalResults.push({ ...prev, historisk: true })
+    behållna++
+  }
+  if (behållna > 0) console.log(`\n   ${behållna} avgångna personer behållna (historisk: true)`)
 
   mkdirSync(OUTPUT_DIR, { recursive: true })
   const output = {

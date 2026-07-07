@@ -23,6 +23,7 @@
  */
 
 import { execSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
@@ -43,7 +44,21 @@ interface Votering {
   bas: string // base agenda number, e.g. "8"
   mening: string
   antal: { ja: number; nej: number; avstår: number; frånvarande: number }
-  röster: Array<{ namn: string; parti: string; röst: string }>
+  // namn = raden inkl. ev. föregående namnfortsättningsrad; bara = raden
+  // ensam. Ett efternamn kan radbrytas EFTER sin röstrad ("Robert Andersson
+  // S 22 … Ja\nHammarstrand") — då hör fortsättningen till FÖRRA personen
+  // och "bara" är rätt nyckel för denna.
+  röster: Array<{ namn: string; bara: string; parti: string; röst: string }>
+}
+
+/** Deterministiskt uuid (v5-format) ur ett namn — samma person får samma id
+ *  vid varje körning, så syntetiserade poster är stabila över omkörningar. */
+function syntetisktId(namn: string): string {
+  const h = createHash('sha1').update(`dearbetarfordig-historisk:${namn.toLowerCase()}`).digest()
+  h[6] = (h[6] & 0x0f) | 0x50
+  h[8] = (h[8] & 0x3f) | 0x80
+  const hex = h.subarray(0, 16).toString('hex')
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20, 32)}`
 }
 
 function norm(s: string): string {
@@ -81,7 +96,7 @@ function parseBilagor(pdfPath: string): Votering[] {
       if (m) {
         const namn = `${pendingName} ${m[1]}`.trim()
         pendingName = ''
-        röster.push({ namn, parti: m[2], röst: m[3].toLowerCase() })
+        röster.push({ namn, bara: m[1].trim(), parti: m[2], röst: m[3].toLowerCase() })
       } else if (
         line.trim() &&
         !line.match(/^\s*(Namn|Bilaga|\f|Göteborgs|Kommunfullmäktige|Protokoll|Sammanträdes)/i)
@@ -197,15 +212,22 @@ function ensurePdf(datum: string, url: string): string | null {
 async function main() {
   mkdirSync(TMP_DIR, { recursive: true })
 
-  // Name → politiker node id
+  // Name → politiker node id. Keys are space-collapsed lowercase so bilaga
+  // spellings like "AnnaSara Perslow" hit roster "Anna Sara Hansson Perslow";
+  // multi-part för-/efternamn generate one key per token combination.
   const polData = JSON.parse(readFileSync(join(DATA_DIR, 'politiker/goteborg.json'), 'utf-8'))
+  const nameKey = (s: string) => s.toLowerCase().replace(/[\s-]+/g, '')
   const nameToId: Record<string, string> = {}
   for (const p of polData.politiker) {
     const pid = `politiker-${p.id}`
-    nameToId[`${p.förnamn} ${p.efternamn}`.toLowerCase()] = pid
-    const parts = p.efternamn.split(' ')
-    if (parts.length > 1) {
-      for (const part of parts) nameToId[`${p.förnamn} ${part}`.toLowerCase()] = pid
+    const förnamn: string[] = [p.förnamn, p.förnamn.split(/\s+/)[0]]
+    const efternamn: string[] = [p.efternamn, ...p.efternamn.split(/\s+/)]
+    for (const f of förnamn) {
+      for (const e of efternamn) {
+        const key = nameKey(`${f} ${e}`)
+        // Först skrivna (fullständigast) vinner vid kollision
+        if (!nameToId[key]) nameToId[key] = pid
+      }
     }
   }
 
@@ -215,6 +237,14 @@ async function main() {
   let totalHuvud = 0
   let omatchadeParagrafer = 0
   const omatchadeNamn = new Map<string, number>()
+  const obundnaRöster: Array<{
+    namn: string
+    parti: string
+    röst: string
+    paragrafId: string
+    datum: string
+    ärende: string
+  }> = []
 
   for (const { datum, url } of getProtokoll()) {
     const pdfPath = ensurePdf(datum, url)
@@ -255,9 +285,17 @@ async function main() {
         console.log(`  ⚠️ ${datum} ärende ${v.ärende}: flera §-kandidater, valde ${träff.id}`)
       }
       for (const r of v.röster) {
-        const pid = nameToId[r.namn.toLowerCase()]
+        const pid = nameToId[nameKey(r.namn)] || nameToId[nameKey(r.bara)]
         if (!pid) {
           omatchadeNamn.set(r.namn, (omatchadeNamn.get(r.namn) || 0) + 1)
+          obundnaRöster.push({
+            namn: r.namn,
+            parti: r.parti,
+            röst: r.röst,
+            paragrafId: träff.id,
+            datum,
+            ärende: v.ärende,
+          })
           döda++
           continue
         }
@@ -275,14 +313,64 @@ async function main() {
     )
   }
 
+  // Personer som röstat men varken finns på levande sajten eller i något
+  // Wayback-snapshot (avgångna före första crawlen): voteringsbilagan är i
+  // sig ett officiellt belägg för att personen tjänstgjorde — syntetisera en
+  // historisk roster-post (deterministiskt uuid ur namnet) och ta rösterna.
+  // Tröskeln filtrerar bort enstaka OCR-/radbrytningsartefakter.
+  const MIN_RÖSTER_FÖR_SYNTES = 5
+  const perNamn = new Map<string, typeof obundnaRöster>()
+  for (const r of obundnaRöster) {
+    const grupp = perNamn.get(r.namn)
+    if (grupp) grupp.push(r)
+    else perNamn.set(r.namn, [r])
+  }
+  let syntetiserade = 0
+  let räddadeRöster = 0
+  for (const [namn, röster] of perNamn) {
+    if (röster.length < MIN_RÖSTER_FÖR_SYNTES) continue
+    const id = syntetisktId(namn)
+    if (!polData.politiker.some((p: { id: string }) => p.id === id)) {
+      const delar = namn.split(/\s+/)
+      polData.politiker.push({
+        id,
+        förnamn: delar[0],
+        efternamn: delar.slice(1).join(' '),
+        parti: röster[0].parti,
+        email: null,
+        uppdrag: [],
+        mandatperioder: [{ period: '2022-2026', roll: 'förtroendevald', källa: 'voteringsbilaga' }],
+        närstående: null,
+        historisk: true,
+      })
+      syntetiserade++
+    }
+    for (const r of röster) {
+      omatchadeNamn.set(namn, (omatchadeNamn.get(namn) || 0) - 1)
+      räddadeRöster++
+      newEdges.push({
+        from: `politiker-${id}`,
+        to: r.paragrafId,
+        typ: `röstade_${r.röst}`,
+        data: { mandatperiod: '2022-2026', datum: r.datum, bilagaÄrende: r.ärende },
+      })
+    }
+  }
+  if (syntetiserade > 0 || räddadeRöster > 0) {
+    polData.antal = polData.politiker.length
+    writeFileSync(join(DATA_DIR, 'politiker/goteborg.json'), JSON.stringify(polData, null, 2))
+    console.log(
+      `\n   🏛  ${syntetiserade} historiska personer syntetiserade ur voteringsbilagor (${räddadeRöster} röster räddade) → rostret: ${polData.antal}`,
+    )
+  }
+
   console.log(`\n📊 ${totalVoteringar} bilagor, ${totalHuvud} huvudvoteringar`)
   console.log(`   ${newEdges.length} röstade-edges genererade`)
   if (omatchadeParagrafer > 0) console.log(`   ⚠️ ${omatchadeParagrafer} voteringar utan §-träff`)
-  if (omatchadeNamn.size > 0) {
-    console.log(`   ⚠️ omatchade namn (${omatchadeNamn.size}):`)
-    for (const [namn, antal] of [...omatchadeNamn.entries()]
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10)) {
+  const kvarOmatchade = [...omatchadeNamn.entries()].filter(([, antal]) => antal > 0)
+  if (kvarOmatchade.length > 0) {
+    console.log(`   ⚠️ omatchade namn (${kvarOmatchade.length}):`)
+    for (const [namn, antal] of kvarOmatchade.sort((a, b) => b[1] - a[1]).slice(0, 10)) {
       console.log(`      ${antal}× ${JSON.stringify(namn)}`)
     }
   }
