@@ -32,7 +32,10 @@ describe('Smoke tests — alla endpoints svarar', () => {
 
   it('GET /api/v1/goteborg/politiker → har politiker', async () => {
     const { data } = await get('/api/v1/goteborg/politiker?limit=125')
-    expect(data.total).toBe(125)
+    // total ska vara det verkliga antalet i databasen (count(*)), inte bara
+    // sidans längd — annars ser en paginerad klient aldrig hela bilden.
+    expect(data._embedded.items).toHaveLength(125)
+    expect(data.total).toBeGreaterThan(125)
     expect(data._embedded.items[0]).toHaveProperty('id')
     expect(data._embedded.items[0]).toHaveProperty('namn')
     expect(data._embedded.items[0]).toHaveProperty('parti')

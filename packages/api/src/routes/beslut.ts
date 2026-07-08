@@ -57,18 +57,27 @@ beslutRouter.openapi(beslutRoute, async (c) => {
   const lim = capLimit(limit, 2000)
   const schema = requireSchema(kommun)
   let rows
+  let total: number
   if (datum) {
     rows =
       await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
+    ;[{ total }] =
+      await sql`SELECT count(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``}`
   } else if (år) {
     rows =
       await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' LIKE ${`${år}-%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int LIMIT ${lim}`
+    ;[{ total }] =
+      await sql`SELECT count(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' LIKE ${`${år}-%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``}`
   } else if (sök) {
     rows =
       await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC LIMIT ${lim}`
+    ;[{ total }] =
+      await sql`SELECT count(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``}`
   } else {
     rows =
       await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int DESC LIMIT ${lim}`
+    ;[{ total }] =
+      await sql`SELECT count(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``}`
   }
 
   // Check which beslut have namnupprop (röstade-edges)
@@ -91,7 +100,7 @@ beslutRouter.openapi(beslutRoute, async (c) => {
     ärendeNr: (r.data as any).ärendeNr,
     _links: beslutLinks(kommun, r.id, (r.data as any).datum),
   }))
-  return c.json(halCollection(items, beslutListLinks(kommun)), 200)
+  return c.json(halCollection(items, beslutListLinks(kommun), total), 200)
 })
 
 const KopplingItem = z.object({

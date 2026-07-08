@@ -48,6 +48,9 @@ politikerRouter.openapi(politikerRoute, async (c) => {
   const rows = parti
     ? await sql`SELECT * FROM ${sql(schema)}.politiker WHERE parti = ${parti.toUpperCase()} ORDER BY efternamn LIMIT ${lim}`
     : await sql`SELECT * FROM ${sql(schema)}.politiker ORDER BY efternamn LIMIT ${lim}`
+  const [{ total }] = parti
+    ? await sql`SELECT count(*)::int as total FROM ${sql(schema)}.politiker WHERE parti = ${parti.toUpperCase()}`
+    : await sql`SELECT count(*)::int as total FROM ${sql(schema)}.politiker`
   const items = rows.map((p) => ({
     id: p.id,
     namn: `${p.fornamn} ${p.efternamn}`,
@@ -64,7 +67,7 @@ politikerRouter.openapi(politikerRoute, async (c) => {
       }, null),
     _links: politikerLinks(kommun, p.id),
   }))
-  return c.json(halCollection(items, politikerListLinks(kommun)), 200)
+  return c.json(halCollection(items, politikerListLinks(kommun), total), 200)
 })
 
 const PolitikerDetail = z.object({
