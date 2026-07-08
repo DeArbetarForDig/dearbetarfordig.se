@@ -1,6 +1,17 @@
 # Hosting — jämförelse
 
-> Detta dokument gäller endast **backend** (`packages/api`, Hono + Postgres, den enda delen som behöver en riktig server). `packages/web` (Astro) bygger statiska filer — de behöver ingen Node-process, bara nånstans att ligga (CDN/static host). Nuvarande `Dockerfile`/`docker-compose.yml`/`ci.yml` bygger och deployar bara API+Postgres; var Astro-bygget ska publiceras är fortfarande olöst (se `docs/SAAS.md`s arkitekturskiss: Cloudflare framför Astro, separat från API-lagret — sannolikt gratis/billig static-host, inte samma server som API:et).
+> Detta dokument gäller **backend** (`packages/api`, Hono + Postgres — den enda delen som behöver en riktig server). `packages/web` (Astro) bygger statiska filer och publiceras separat via GitHub Pages, se "Statisk sajt" nedan.
+
+## Status: LIVE ✅ (2026-07-08)
+
+| Vad | Var | Status |
+|---|---|---|
+| API + Postgres + Caddy | Hetzner CX23, Helsinki (FI), IP `62.238.20.174` | ✅ `https://api.dearbetarfordig.se` — verkligt Let's Encrypt-cert, `/healthz` → `200 {"status":"ok","db":"connected"}` |
+| Databas | Samma server, seedad | 971 politiker, 23 429 grafnoder, 122 504 grafkanter |
+| Statisk sajt (Astro) | GitHub Pages | ✅ `https://dearbetarfordig.se` — eget cert (`approved`, giltigt t.o.m. 2026-10-06), `www.` redirectar till apex |
+| Repository | GitHub, `DeArbetarForDig/dearbetarfordig.se` | ✅ Publikt (AGPL-3.0, "public money, public code") |
+| CI/CD | `.github/workflows/ci.yml` | ✅ Grönt — `lint`, `test`, `build-and-push` (GHCR), `deploy-pages` (GitHub Pages), alla auto på push till `main` |
+| Manuell serverdeploy | `.github/workflows/deploy.yml` | Konfigurerad (`workflow_dispatch` + `DEPLOY_HOST`/`DEPLOY_USER`/`DEPLOY_SSH_KEY`-secrets), ännu inte kört skarpt en gång |
 
 ## Krav
 
@@ -105,27 +116,44 @@ Genomgång 2026-07-07 hittade att `docker-compose.yml` exponerade Postgres (5432
 - ⚠️ **Fallgrop hittad under samma test:** Postgres sätter bara `POSTGRES_PASSWORD` vid **första** starten på en tom volym — byter man lösenord i `.env` efter att `pgdata`-volymen redan finns ändras inget, `api` får `password authentication failed`. Vid en verklig lösenordsrotation: antingen döp om/nollställ volymen (dataförlust) eller kör `ALTER USER daf WITH PASSWORD '...'` inne i den körande `db`-containern.
 - ⚠️ **Generera lösenordet med `openssl rand -hex 32`, inte `-base64`:** base64 kan innehålla `/` och `+`, vilket korrumperar `postgresql://`-URL:en lösenordet klistras in i rått (ingen URL-encoding sker). Redan uppdaterat i `.env.example`.
 
-**Kvarstår — manuella steg på servern, kan inte göras från kodrepot:**
-1. **GHCR-paketets synlighet:** gör `ghcr.io/dearbetarfordig/dearbetarfordig.se` publikt (Package settings på GitHub) så `docker compose pull` funkar utan extra login på servern — rimligt val för ett AGPL-projekt. Annars: `docker login ghcr.io` på servern med ett PAT som har `read:packages`.
-2. **Dedikerad deploy-SSH-nyckel:** separat nyckel enbart för CI, gärna begränsad via `command=` i `authorized_keys` eller en egen `deploy`-användare utan full sudo — inte samma nyckel som används för annat.
-3. **Brandvägg (`ufw`):** endast 22 (SSH), 80, 443 öppna. `ufw default deny incoming && ufw allow 22,80,443/tcp && ufw enable`.
-4. **SSH-hårdning:** stäng av lösenordsinloggning (`PasswordAuthentication no` i `sshd_config`), bara nyckel.
-5. **DNS:** peka `api.dearbetarfordig.se` mot serverns IP innan Caddy kan hämta ett certifikat.
-6. **Rotera GitHub-token:** `git remote -v` lokalt visade en PAT i klartext i remote-URL:en — byt ut mot SSH-remote eller en credential helper, och återkalla den gamla token i GitHub-inställningarna.
-7. **Backup** (pg_dump → Storage Box/restic, planerat i Fas 1 nedan) — inte påbörjat än.
+**Klart (server provisionerad 2026-07-07/08 — Hetzner CX23, Helsinki, `62.238.20.174`):**
+1. ✅ **GHCR-paketets synlighet:** `ghcr.io/dearbetarfordig/dearbetarfordig.se` är publikt — `docker compose pull` funkar utan login på servern.
+2. ✅ **Två separata SSH-nycklar, olika riktning** (lätt att blanda ihop, så här skiljer de sig):
+   - `id_ed25519_daf_deploy` — GitHub Actions → server. Privat halva i secret `DEPLOY_SSH_KEY`, publik i serverns `authorized_keys` med `command="eval \"$SSH_ORIGINAL_COMMAND\"",no-pty,no-X11-forwarding,no-agent-forwarding,no-port-forwarding` (tillåter `deploy.yml`s multi-steg `&&`-kommandon men blockerar interaktiv shell/port-forwarding om nyckeln läcker).
+   - `id_ed25519_daf_github_deploykey` — server → GitHub (för `git pull` av privat/publik repo). Privat halva bara på servern (`~/.ssh/github_deploy_key` + `~/.ssh/config`), publik som read-only Deploy key i GitHub-inställningarna.
+3. ✅ **Brandvägg (`ufw`):** aktiv, endast 22/80/443 (v4+v6). **Fallgrop:** cloud-init körde `runcmd` (ufw+SSH-hårdning) aldrig automatiskt vid första boot — fastnade i en oändlig retry-loop mot Hetzners metadata-endpoint (`169.254.169.254`, "Network is unreachable"). Löst genom att köra samma kommandon manuellt via SSH, med verifiering (ny anslutning) efter varje steg innan nästa. Värt att dubbelkolla `cloud-init status --long` manuellt på framtida servrar istället för att lita blint på att `runcmd` körts.
+4. ✅ **SSH-hårdning:** `PasswordAuthentication no`, bara nyckel.
+5. ✅ **DNS:** `api.dearbetarfordig.se` → serverns IP via LoopiaDNS (10 SEK/mån-uppgradering, krävdes för att DNS-editorn skulle låsas upp).
+6. ⚠️ **Rotera GitHub-token:** fortfarande inte bekräftat gjort — samma PAT i klartext i lokal `git remote -v` som flaggades tidigare. Kvarstår.
+7. ⬜ **Backup** (pg_dump → Storage Box/restic) — inte påbörjat.
 
-**Öppen fråga, oavsett server:** var Astro-statiken (`packages/web`) ska publiceras — `Caddyfile` hanterar bara `api.`-subdomänen just nu, se anmärkning överst i dokumentet.
+## Statisk sajt (`packages/web`, Astro) — GitHub Pages
+
+Löst 2026-07-08, se `Status`-tabellen ovan för slutresultat.
+
+- **`ci.yml`s `deploy-pages`-jobb** bygger och publicerar på varje push till `main`. Kräver *exakt* samma uppstartssekvens som `test`-jobbet (Postgres-service + `db:seed` + starta API + vänta på `/healthz`) — upptäckt av en riktig lokal `astro build`-krasch: `getStaticPaths` i `[id].astro`-sidor gör `fetch()` mot en **levande** API-server vid byggtiden (`packages/web/src/data/api.ts`, default `http://localhost:3000`), inte bara mot statiska data-filer.
+- **`packages/web/public/CNAME`** (innehåll: `dearbetarfordig.se`) — kopieras till `dist/CNAME` av Astro, men **gör ingenting automatiskt** när Pages byggs via `build_type: "workflow"` (GitHub Actions). Det automatiska CNAME-igenkänningen gäller bara legacy-metoden "Deploy from a branch". Custom domain måste sättas explicit i Settings → Pages → Custom domain (eller via `PUT /repos/{owner}/{repo}/pages`-API, som dock kräver högre repo-rättigheter än en vanlig `repo`-scope PAT från ett collaborator-konto gav — fick göras via UI).
+- **Privat repo blockerar Pages helt** ("Upgrade or make this repository public to enable Pages") — inte bara en begränsning, en hård spärr på gratisplan för org-repos. Löstes av att göra repot publikt (se nedan), inte av att betala för GitHub Team.
+- **`bad_authz`-fallgrop:** om custom domain sätts *innan* DNS hunnit peka rätt (A-poster mot GitHub: `185.199.108/109/110/111.153`), fastnar ACME-auktoriseringen i `bad_authz` och läker inte av sig själv ("We need to start over"). Fix: rensa Custom domain-fältet, spara, vänta ~15 sek, fyll i domänen igen — startar om cert-utfärdandet mot nu-korrekt DNS.
+- **`www`-subdomän:** CNAME mot `dearbetarfordig.github.io.` (inte A-poster) — redirectar till apex.
+
+## Repository-synlighet: publikt (2026-07-08)
+
+Motivering: AGPL-3.0-licensen och projektets "public money, public code"-hållning gjorde publikt repo till en naturlig, inte påtvingad, förändring — och det var samtidigt enda gratisvägen att låsa upp GitHub Pages och Rulesets (båda kräver antingen publikt repo eller betald GitHub Team-plan för org-repos).
+
+- **`docs/ANALYS-2026-07.md` borttagen ur *hela* git-historiken** (inte bara nuvarande state) innan publicering — filen var skriven på ryska, projektets övriga dokumentation/kod är på svenska/engelska. Gjort med `git filter-repo --path docs/ANALYS-2026-07.md --invert-paths --force` på en färsk klon (inte arbetskopian), verifierat med blob-sökning över hela historiken (0 träffar) innan force push. Lokal kopia sparad i `.tmp/` (gitignorad).
+- Ett enda commit-meddelande innehöll ett ryskt ord (`typecheck-долг`) — fixat separat med `git filter-repo --message-callback` → `typecheck-debt`.
+- **Konsekvens av båda filter-repo-körningarna:** alla 303 commit-hashar skrevs om (oundvikligt — filter-repo skriver om varje commit som är barn av en ändrad commit). Fullständig mirror-backup av historiken innan varje omskrivning sparades lokalt, ifall något behöver hämtas därifrån.
+- **Rulesets** (`main`-branch, Settings → Rules): kräver PR + `lint`/`test`-status-checks, linjär historik (squash/rebase only, ingen merge-commit), blockerar force push/deletions. Repository-admin på bypass-listan för att inte blockera egna direkta pushar. **Observera:** rulesets på org-repo tillämpas inte alls förrän repot är publikt (eller kontot uppgraderas till Team) — samma spärr som Pages.
 
 ## Rekommendation
 
-**Fas 1 (MVP, nu):** one.com Cloud Server S (2 vCPU/4 GB/100 GB, 59 kr/mån) — Hetzner CX23 är samma spec men **slut i lager utan ETA** sedan 2026-06-26, se tabellen. STRATO VPS M kvarstår som alternativ om ni redan pratar med STRATO-kontakten och vill ha fler kärnor.
+**Fas 1 (MVP) — genomförd 2026-07-07/08:** Hetzner CX23 (Helsinki) kom tillbaka i lager och användes, se `Status`-tabellen överst. one.com/STRATO kvarstår som dokumenterade alternativ om Hetzner tar slut igen, men är inte längre aktuella att agera på.
 
-**Fas 2 (public launch):** GleSYS Falkenberg — "helt svenskt" narrativ viktig för civic tech.
+**Fas 2 (public launch):** GleSYS Falkenberg — "helt svenskt" narrativ viktig för civic tech. Fortfarande bara en idé, ej påbörjad.
 
 **Fas 3 (SaaS/enterprise):** Eventuellt City Network om kommuner blir kunder (compliance-krav).
 
-**Öppen fråga, oavsett fas:** var Astro-statikens build ska publiceras (se anmärkning överst) — inte bråttom, men olöst.
-
 ---
 
-*Senast uppdaterad: 2026-07-07 (Hetzner CX23 slut i lager → one.com ny rekommendation; docker-compose/Caddy-säkerhetsfix + GHCR-build implementerade; deploy-checklista tillagd)*
+*Senast uppdaterad: 2026-07-08 (Hetzner-servern live: API+Postgres+Caddy med riktigt Let's Encrypt-cert; Astro-sajten publicerad via GitHub Pages med eget cert; repot publikt med Rulesets; kvarstående punkt: rotera exponerad GitHub-token)*
