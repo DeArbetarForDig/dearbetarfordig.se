@@ -11,7 +11,7 @@
   "dependencies": {
     "@daf/shared": "workspace:*",
     "@daf/ui": "workspace:*",
-    "astro": "5.9.4"
+    "astro": "6.4.8"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.1.8",
