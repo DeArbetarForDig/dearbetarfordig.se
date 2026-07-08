@@ -17,7 +17,14 @@ const rateMapCleanupTimer = setInterval(() => {
 rateMapCleanupTimer.unref?.()
 
 export const rateLimitMiddleware: MiddlewareHandler = async (c, next) => {
-  const ip = c.req.header('x-forwarded-for') || 'unknown'
+  // Caddy appends the real client IP as the LAST hop when proxying — but a
+  // client can prepend arbitrary fake entries of their own before that. Using
+  // the raw header as the bucket key lets anyone bypass the limit entirely by
+  // sending a different fake prefix on every request (each becomes a fresh,
+  // never-limited bucket). Only the trusted, proxy-appended last hop is safe
+  // to key on.
+  const forwardedFor = c.req.header('x-forwarded-for')
+  const ip = forwardedFor?.split(',').pop()?.trim() || 'unknown'
   // Direct access without proxy header = local dev / SSG build — skip limiting
   if (ip === 'unknown' && process.env.NODE_ENV !== 'production') {
     await next()
