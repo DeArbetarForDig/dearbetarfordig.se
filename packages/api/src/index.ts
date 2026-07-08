@@ -69,7 +69,7 @@ app.doc('/openapi.json', {
   info: {
     title: 'De Arbetar För Dig — API',
     version: '0.4.0',
-    description: `Öppen demokrati-API för Göteborgs Stad.
+    description: `Öppen demokrati-API — gör svensk kommunalpolitik tillgänglig, sökbar och begriplig. Sverige har 290 kommuner; API:t är strukturerat per kommun (\`/api/v1/{kommun}/...\`) för att kunna växa bortom den första, **Göteborg**, som just nu är den enda med data.
 
 **HAL Format (Hypertext Application Language):**
 
@@ -101,7 +101,7 @@ Alla svar följer HAL-standarden för hypermedia API:er.
 **Endpoints:**
 - \`/möten?år=\` — Lista sammanträden (KF+KS) med url per möte
 - \`/möten/{datum}\` — Enskilt möte: beslut, närvaro, anföranden
-- \`/politiker\` — 125 KF-ledamöter med uppdrag och möten
+- \`/politiker\` — Förtroendevalda (KF-ledamöter, nämnder, bolagsstyrelser) med uppdrag och möten
 - \`/politiker/{id}\` — Detaljprofil inkl. lista över möten där politikern talade
 - \`/politiker/{id}/anforanden?datum=\` — Anföranden (tal) per möte
 - \`/beslut\` — KF/KS-beslut med voteringar och ärendenummer
@@ -120,7 +120,10 @@ Alla svar följer HAL-standarden för hypermedia API:er.
       url: 'https://github.com/DeArbetarForDig/dearbetarfordig.se',
     },
   },
-  servers: [{ url: 'http://localhost:3000', description: 'Local' }],
+  servers: [
+    { url: 'https://api.dearbetarfordig.se', description: 'Produktion' },
+    { url: 'http://localhost:3000', description: 'Lokal utveckling' },
+  ],
 })
 app.get('/docs', swaggerUI({ url: '/openapi.json' }))
 app.get('/', (c) => c.redirect('/docs'))
