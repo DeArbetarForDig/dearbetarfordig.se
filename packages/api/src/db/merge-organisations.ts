@@ -60,6 +60,9 @@ function normalize(label: string): string | null {
     .trim()
     .toLowerCase()
   if (name.match(/nämnd$/) && !name.endsWith('nämnden')) name += 'en'
+  // "Göteborgs Stads nämnd för X" — the suffix rule above only fixes a
+  // trailing "nämnd"; four canonical nämnder have it mid-label.
+  name = name.replace(/^nämnd för /, 'nämnden för ')
 
   if (CANONICAL[name]) return name
   for (const key of Object.keys(CANONICAL)) {
