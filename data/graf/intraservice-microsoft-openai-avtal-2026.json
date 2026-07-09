@@ -1,0 +1,137 @@
+{
+  "nodes": [
+    {
+      "id": "doc-intraservice-microsoft-openai-avtal-2026",
+      "typ": "dokument",
+      "label": "Intraservice — Microsoft- och OpenAI-licensavtal, svar 2026-07-09",
+      "data": {
+        "källa": "begäran",
+        "mottaget": "2026-07-09",
+        "från": "Intraservice, intraservice@intraservice.goteborg.se",
+        "innehåll": "EES (Microsoft skolavtal) registrering + SCE (server/cloud) registrering + inköpsorder + ChatGPT OpenAI-licenssvar"
+      }
+    },
+    {
+      "id": "leverantör-atea-sverige-ab",
+      "typ": "leverantör",
+      "label": "Atea Sverige AB",
+      "data": { "org_typ": "IT-återförsäljare" }
+    },
+    {
+      "id": "leverantör-microsoft-ab",
+      "typ": "leverantör",
+      "label": "Microsoft AB",
+      "data": { "org_typ": "mjukvarutillverkare" }
+    },
+    {
+      "id": "leverantör-openai",
+      "typ": "leverantör",
+      "label": "OpenAI",
+      "data": { "org_typ": "mjukvarutillverkare" }
+    },
+    {
+      "id": "avtal-atea-microsoft-ees-2025",
+      "typ": "avtal",
+      "label": "Enrollment for Education Solutions (EES) — Microsoft M365 skolavtal",
+      "data": {
+        "registreringsnummer": "58639563",
+        "föregående_registreringsnummer": "67575939",
+        "värde_sek": 13780605.59,
+        "start": "2025-05-01",
+        "slut": "2026-04-30",
+        "avtalstid_mån": 12,
+        "härledd_datum": true,
+        "kommentar": "Start ej tryckt direkt i registreringen — härlett från: (1) föregående registrering (67575939) hade tryckt slutdatum 2025-04-30, (2) avtalets egen text: ikraftträdande är dagen efter att föregående registrering löper ut. Giltighetstid 12 hela kalendermånader enligt ikryssat alternativ i registreringen (oberoende av signeringsdatum).",
+        "omfattning": {
+          "utbildning_kvalificerade_användare": 22300,
+          "studenter": 100000
+        },
+        "periodiseringsmodell": "linjär",
+        "periodisering": [
+          { "år": 2025, "belopp": 9249995.53, "dagar": 245 },
+          { "år": 2026, "belopp": 4530610.06, "dagar": 120 }
+        ],
+        "budget": [
+          { "år": 2025, "budgeterat": null, "utfall": null },
+          { "år": 2026, "budgeterat": null, "utfall": null }
+        ]
+      }
+    },
+    {
+      "id": "avtal-atea-microsoft-sce-2025",
+      "typ": "avtal",
+      "label": "Server and Cloud-registrering (indirekt) — Microsoft server-/molninfrastruktur",
+      "data": {
+        "registreringsnummer": "77746552",
+        "föregående_registreringsnummer": "80403278",
+        "avtalsnummer_inköpsorder": "IK20343-01",
+        "inköpsorder": "AA3365800",
+        "orderdatum": "2025-05-05",
+        "värde_sek_år1": 7090245.00,
+        "värde_sek_3år": 21270733.95,
+        "start": "2025-05-05",
+        "slut": "2028-05-04",
+        "avtalstid_mån": 36,
+        "härledd_datum": true,
+        "kommentar": "Inget tryckt kontraktuellt startdatum hittat i registreringsformuläret (SCE20241Enr) för denna period. 'start' = inköpsorderns tryckta orderdatum (2025-05-05, 'Fakturering för år 1'), inte ett bekräftat ikraftträdandedatum — kan skilja sig något från faktiskt avtalsdatum. 'slut' är beräknat som start + 36 månader, inte tryckt i källan.",
+        "fakturering": "årsvis",
+        "innehåll": {
+          "azure_prepayment": true,
+          "windows_server_datacenter_core_sa": 805,
+          "windows_server_standard_core_sa": 240,
+          "sql_server_enterprise_core_sa": 96,
+          "sql_server_standard_core_sa": 32,
+          "windows_rds_cal_sa": 2277
+        },
+        "periodiseringsmodell": "linjär",
+        "periodisering": [
+          { "år": 2025, "belopp": 4677232.56, "dagar": 241 },
+          { "år": 2026, "belopp": 7083775.45, "dagar": 365 },
+          { "år": 2027, "belopp": 7083775.45, "dagar": 365 },
+          { "år": 2028, "belopp": 2425950.49, "dagar": 125 }
+        ],
+        "budget": [
+          { "år": 2025, "budgeterat": null, "utfall": null },
+          { "år": 2026, "budgeterat": null, "utfall": null },
+          { "år": 2027, "budgeterat": null, "utfall": null },
+          { "år": 2028, "budgeterat": null, "utfall": null }
+        ]
+      }
+    },
+    {
+      "id": "avtal-atea-openai-chatgpt-2024",
+      "typ": "avtal",
+      "label": "ChatGPT OpenAI-licenser (förnyelse)",
+      "data": {
+        "inköpsorder": "AA3092353",
+        "värde_sek": 3438.24,
+        "antal_licenser": 12,
+        "pris_per_licens_sek": 286.52,
+        "leverans_datum": "2024-08-15",
+        "status": "fullständigt inlevererad",
+        "fristående_avtal": false,
+        "period_okänd": true,
+        "kommentar": "Enligt Intraservices svar finns inga separata avtal för AI-systemlösningar — beställt via stadens befintliga ramavtal Licenspartner. Källdokumentet anger endast ordervärde och leveransdatum, ingen avtalsperiod (månad/år) — värdet ska INTE tolkas som en årskostnad utan verifiering."
+      }
+    }
+  ],
+  "edges": [
+    { "from": "doc-intraservice-microsoft-openai-avtal-2026", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "tillhör" },
+    { "from": "doc-intraservice-microsoft-openai-avtal-2026", "to": "avtal-atea-microsoft-ees-2025", "typ": "nämner" },
+    { "from": "doc-intraservice-microsoft-openai-avtal-2026", "to": "avtal-atea-microsoft-sce-2025", "typ": "nämner" },
+    { "from": "doc-intraservice-microsoft-openai-avtal-2026", "to": "avtal-atea-openai-chatgpt-2024", "typ": "nämner" },
+    { "from": "avtal-atea-microsoft-ees-2025", "to": "utfall-intraservice-2026-q1", "typ": "löser_öppen_punkt", "data": { "öppen_punkt": "Microsoft365 avtalsförhandling avslutad, kontrakt ej skrivet" } },
+
+    { "from": "avtal-atea-microsoft-ees-2025", "to": "leverantör-atea-sverige-ab", "typ": "levererar_till" },
+    { "from": "avtal-atea-microsoft-ees-2025", "to": "leverantör-microsoft-ab", "typ": "produkt_från" },
+    { "from": "avtal-atea-microsoft-ees-2025", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" },
+
+    { "from": "avtal-atea-microsoft-sce-2025", "to": "leverantör-atea-sverige-ab", "typ": "levererar_till" },
+    { "from": "avtal-atea-microsoft-sce-2025", "to": "leverantör-microsoft-ab", "typ": "produkt_från" },
+    { "from": "avtal-atea-microsoft-sce-2025", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" },
+
+    { "from": "avtal-atea-openai-chatgpt-2024", "to": "leverantör-atea-sverige-ab", "typ": "levererar_till" },
+    { "from": "avtal-atea-openai-chatgpt-2024", "to": "leverantör-openai", "typ": "produkt_från" },
+    { "from": "avtal-atea-openai-chatgpt-2024", "to": "org-göteborgs-stads-nämnd-för-intraservice", "typ": "upphandlat_av" }
+  ]
+}

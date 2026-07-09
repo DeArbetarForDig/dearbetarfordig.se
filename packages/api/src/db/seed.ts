@@ -342,6 +342,109 @@ async function main() {
         `   ✓ ${bolagEdges} politiker→bolag edges (bolagsuppdrag), ${nyaBolagNoder} nya bolagsnoder${ejMatchade ? `, ${ejMatchade} ej matchade/hoppade över` : ''}`,
       )
     }
+
+    // Add revisionsrapport → nämnd/bolag edges (avser), from the mottagare
+    // (recipient) named in each rekommendation (parse-revisionsrapport.ts,
+    // docs/ANALYS-2026-07.md). The parser only extracts raw text — it has
+    // no graf-node-id knowledge — so the name→id matching happens here,
+    // reusing the same lookup approach as the ledamot_i/bolagsuppdrag edges
+    // above (independent per-block lookups is the established pattern in
+    // this function, not something to unify).
+    const revisionNodes =
+      await client`SELECT id, data FROM goteborg.graf_nodes WHERE typ = 'revisionsrapport'`
+    if (revisionNodes.length > 0) {
+      const nämndNodesForRevision =
+        await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ IN ('organisation','nämnd') ORDER BY id`
+      const nämndPrioForRevision = (id: string) =>
+        id.match(/^nämnd-.*[^\d]$/) ? 3 : id.startsWith('org-') ? 2 : 1
+      const nämndMapForRevision = new Map<string, string>()
+      for (const n of nämndNodesForRevision) {
+        const key = (n.label as string).toLowerCase().replace(/- och/g, ' och')
+        const id = n.id as string
+        const existing = nämndMapForRevision.get(key)
+        if (!existing || nämndPrioForRevision(id) > nämndPrioForRevision(existing)) {
+          nämndMapForRevision.set(key, id)
+        }
+      }
+      const bolagNodesForRevision =
+        await client`SELECT id, label FROM goteborg.graf_nodes WHERE typ = 'bolag'`
+      const normalizeBolagNamnForRevision = (namn: string) =>
+        namn
+          .toLowerCase()
+          .replace(/\(publ\)/g, '')
+          .replace(/\b(aktiebolag|ekonomisk förening|ideell förening)\b/g, '')
+          .replace(/\bab\b\.?/g, '')
+          .replace(/[.,]/g, '')
+          .replace(/\s+/g, ' ')
+          .trim()
+      const bolagMapForRevision = new Map<string, string>()
+      for (const n of bolagNodesForRevision) {
+        bolagMapForRevision.set(normalizeBolagNamnForRevision(n.label as string), n.id as string)
+      }
+
+      const lookupOrgan = (namn: string): string | undefined => {
+        const nämndKey = namn
+          .toLowerCase()
+          .replace(/nämnd\b(?!\w)/gi, 'nämnden')
+          .replace(/- och/g, ' och')
+          .trim()
+        return (
+          nämndMapForRevision.get(nämndKey) ||
+          bolagMapForRevision.get(normalizeBolagNamnForRevision(namn))
+        )
+      }
+
+      // Splits a mottagare segment on " och " into individual organ names —
+      // but "kretslopp och vattennämnden" IS one nämnd's full name, so a
+      // naive split breaks it into "kretslopp" + "vattennämnden" (neither
+      // resolves). Scans left to right for the first " och "-delimited
+      // prefix that resolves to a known organ, consumes it, and recurses on
+      // the remainder — so "kretslopp och vattennämnden och Gryaab AB"
+      // correctly yields two entities instead of three garbled fragments.
+      function splitEntities(text: string): string[] {
+        if (lookupOrgan(text)) return [text]
+        const marker = ' och '
+        let searchFrom = 0
+        while (true) {
+          const idx = text.indexOf(marker, searchFrom)
+          if (idx === -1) break
+          const prefix = text.slice(0, idx)
+          if (lookupOrgan(prefix))
+            return [prefix, ...splitEntities(text.slice(idx + marker.length))]
+          searchFrom = idx + marker.length
+        }
+        return [text]
+      }
+
+      let revisionEdges = 0
+      let revisionOmatchade = 0
+      for (const node of revisionNodes) {
+        const rekommendationer = ((node.data as any)?.rekommendationer || []) as Array<{
+          mottagare: string
+        }>
+        const organNamn = new Set<string>()
+        for (const { mottagare } of rekommendationer) {
+          for (const del of mottagare.split(',')) {
+            const trimmed = del.trim()
+            if (!trimmed) continue
+            for (const entity of splitEntities(trimmed)) organNamn.add(entity)
+          }
+        }
+        for (const namn of organNamn) {
+          const organId = lookupOrgan(namn)
+          if (!organId) {
+            revisionOmatchade++
+            continue
+          }
+          await client`INSERT INTO goteborg.graf_edges (from_id, to_id, typ)
+            VALUES (${node.id}, ${organId}, 'avser')`
+          revisionEdges++
+        }
+      }
+      console.log(
+        `   ✓ ${revisionEdges} revisionsrapport→nämnd/bolag edges (avser)${revisionOmatchade ? `, ${revisionOmatchade} mottagare ej matchade` : ''}`,
+      )
+    }
   }
 
   // Seed dokument (full-text parsed documents)

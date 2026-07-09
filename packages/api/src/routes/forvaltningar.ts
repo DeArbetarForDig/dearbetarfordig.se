@@ -74,6 +74,9 @@ const FörvaltningDetail = z.object({ direktör: z.any(), nämnd: z.any(), budge
 const FörvaltningRelated = z.object({
   utfall: z.array(z.any()),
   revision: z.array(z.any()),
+  revisionsrapporter: z.array(z.any()),
+  leverantörsutfall: z.array(z.any()),
+  avtal: z.array(z.any()),
   ledamöter: z.array(z.any()),
 })
 
@@ -81,7 +84,8 @@ const förvaltningDetailRoute = createRoute({
   method: 'get',
   path: '/api/v1/{kommun}/forvaltningar/{id}',
   tags: ['Förvaltningar'],
-  summary: 'Enskild förvaltning — direktör, nämnd, budget, utfall, revision, ledamöter',
+  summary:
+    'Enskild förvaltning — direktör, nämnd, budget, utfall, revision, revisionsrapporter, leverantörsutfall, avtal, ledamöter',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
   responses: {
     200: {
@@ -152,6 +156,56 @@ forvaltningarRouter.openapi(förvaltningDetailRoute, async (c) => {
       ? await sql`SELECT e.from_id, e.typ, e.label, n.id as nod_id, n.label as nod_label, n.data->>'datum' as datum FROM ${sql(schema)}.graf_edges e JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id WHERE e.from_id = ANY(${revisionIds}) AND e.typ IN ('hänvisar_till','behandlad_i')`
       : []
 
+  // Revisionsrapporter (Stadsrevisionens rapportsammandrag, se
+  // parse-revisionsrapport.ts / docs/ANALYS-2026-07.md) — de detaljerade
+  // enskilda granskningsrapporterna, kopplade via 'avser'-edges till nämnden.
+  // Ett separat koncept från `revision`/`riktas_mot` ovan (kurerade
+  // anmärkningar ur årsredogörelsen); de två visas som skilda sektioner.
+  const revisionsrapporter = nämnd
+    ? await sql`SELECT n.id, n.label, n.data FROM ${sql(schema)}.graf_edges e
+        JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id
+        WHERE e.to_id = ${nämnd.id} AND e.typ = 'avser' AND n.typ = 'revisionsrapport'
+        ORDER BY n.label`
+    : []
+
+  // Leverantörsutfall (psidata leverantörsfakturor, se
+  // parse-leverantorsfakturor-namnd.ts / docs/ANALYS-2026-07.md) — totala
+  // leverantörsutgifter, största leverantörer och utgiftskategorier per år.
+  // Täcker bara externa inköp (inte löner) — kan därför överstiga 100% av
+  // kommunbidraget för avgiftsfinansierade nämnder (VA, stadsmiljö) som har
+  // stora intäkter utöver kommunbidraget.
+  const leverantörsutfall = nämnd
+    ? await sql`SELECT n.id, n.label, n.data FROM ${sql(schema)}.graf_edges e
+        JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id
+        WHERE e.to_id = ${nämnd.id} AND e.typ = 'avser' AND n.typ = 'leverantörsutfall'
+        ORDER BY n.data->>'år' DESC`
+    : []
+  // Månadsfakta för samma nämnd — bara total + antal (inget plan att jämföra
+  // mot, se leverantorsfakturor-namnd.ts), grupperat per år på webben.
+  const leverantörsutfallMånad = nämnd
+    ? await sql`SELECT n.data FROM ${sql(schema)}.graf_edges e
+        JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id
+        WHERE e.to_id = ${nämnd.id} AND e.typ = 'avser' AND n.typ = 'leverantörsutfall-månad'
+        ORDER BY (n.data->>'år')::int, (n.data->>'månad')::int`
+    : []
+
+  // Avtal (upphandlingar och inköp ur allmänna handlingar, se
+  // docs/ANALYS-2026-07.md punkt 21) — avtal-noder kopplade via
+  // upphandlat_av till nämnden; leverantör (återförsäljare) och tillverkare
+  // hämtas via avtalets egna levererar_till/produkt_från-edges.
+  const avtal = nämnd
+    ? await sql`SELECT n.id, n.label, n.data FROM ${sql(schema)}.graf_edges e
+        JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id
+        WHERE e.to_id = ${nämnd.id} AND e.typ = 'upphandlat_av' AND n.typ = 'avtal'
+        ORDER BY n.data->>'start' DESC NULLS LAST, n.id`
+    : []
+  const avtalParter =
+    avtal.length > 0
+      ? await sql`SELECT e.from_id, e.typ, n.label FROM ${sql(schema)}.graf_edges e
+          JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id
+          WHERE e.from_id = ANY(${avtal.map((n) => n.id)}) AND e.typ IN ('levererar_till', 'produkt_från') AND n.typ = 'leverantör'`
+      : []
+
   // Budget (nämnd data has kommunbidragMnkr)
   const budget = nämnd?.data || {}
 
@@ -176,6 +230,24 @@ forvaltningarRouter.openapi(förvaltningDetailRoute, async (c) => {
         }))
       return { id: n.id, label: n.label, ...n.data, kopplingar: links }
     }),
+    revisionsrapporter: revisionsrapporter.map((n) => ({ id: n.id, label: n.label, ...n.data })),
+    leverantörsutfall: leverantörsutfall.map((n) => ({
+      id: n.id,
+      label: n.label,
+      ...n.data,
+      månadstrend: leverantörsutfallMånad
+        .filter((m) => m.data.år === n.data.år)
+        .map((m) => ({ månad: m.data.månad, totalTkr: m.data.totalTkr })),
+    })),
+    avtal: avtal.map((n) => ({
+      id: n.id,
+      label: n.label,
+      ...n.data,
+      leverantör:
+        avtalParter.find((p) => p.from_id === n.id && p.typ === 'levererar_till')?.label || null,
+      tillverkare:
+        avtalParter.find((p) => p.from_id === n.id && p.typ === 'produkt_från')?.label || null,
+    })),
     ledamöter: ledamöter.map((l) => {
       const polId = (l.id as string).replace('politiker-', '')
       return {

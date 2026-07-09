@@ -1,6 +1,7 @@
 ---
 import KpiCard from '../../../../../ui/src/components/cards/KpiCard.astro'
 import PoliticianCard from '../../../../../ui/src/components/cards/PoliticianCard.astro'
+import Sparkline from '../../../../../ui/src/components/charts/Sparkline.astro'
 import Button from '../../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
 import EmptyState from '../../../../../ui/src/components/core/EmptyState.astro'
@@ -23,8 +24,16 @@ const direktör = data.direktör
 const nämnd = data.nämnd
 const utfall = data.utfall?.sort((a: any, b: any) => (b.år || 0) - (a.år || 0))?.[0] || null
 const revision = data.revision || []
+const revisionsrapporter = data.revisionsrapporter || []
+const leverantörsutfallHistorik = (data.leverantörsutfall || []).sort(
+  (a: any, b: any) => (b.år || 0) - (a.år || 0),
+)
+const leverantörsutfall = leverantörsutfallHistorik[0] || null
+const avtal = data.avtal || []
 const ledamöter = data.ledamöter || []
 const budget = data.budget
+
+const avtalVärdeSek = (a: any): number | null => a.värde_sek ?? a.värde_sek_3år ?? null
 
 const hasAnmärkning = revision.some((r: any) => r.typ === 'anmärkning')
 const ansvarsfrihetAvstyrkt = revision.some((r: any) => r.ansvarsfrihet === 'avstyrkt')
@@ -160,6 +169,148 @@ const resultatMnkr = utfall?.resultatMnkr ?? null
         )}
       </Card>
     </section>
+
+    <!-- Revisionsrapporter -->
+    {revisionsrapporter.length > 0 && (
+      <section class="mb-8">
+        <Card title={`Revisionsrapporter (${revisionsrapporter.length})`} titleSize="lg">
+          <div class="space-y-4">
+            {revisionsrapporter.map((r: any) => (
+              <div class="p-3 rounded-lg bg-[var(--color-surface-sunken)]">
+                <p class="font-semibold text-sm mb-1">{r.label}</p>
+                {r.sammanfattning && (
+                  <p class="text-xs text-[var(--color-text-muted)] line-clamp-3">{r.sammanfattning}</p>
+                )}
+                {r.rekommendationer?.length > 0 && (
+                  <p class="text-xs font-semibold mt-2">
+                    {r.rekommendationer.length} rekommendation{r.rekommendationer.length === 1 ? '' : 'er'}
+                  </p>
+                )}
+                {r.källaUrl && (
+                  <Button variant="ghost" size="sm" href={r.källaUrl} class="mt-1">
+                    <Icon name="file-text" size={14} />
+                    {r.källa}
+                  </Button>
+                )}
+              </div>
+            ))}
+          </div>
+        </Card>
+      </section>
+    )}
+
+    <!-- Leverantörsutfall -->
+    {leverantörsutfall && (
+      <section class="mb-8">
+        <Card title={`Leverantörsutfall ${leverantörsutfall.år}`} titleSize="lg">
+          <div class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(150px,1fr))] mb-4">
+            <KpiCard
+              label="Till leverantörer"
+              value={Math.round(leverantörsutfall.totalTkr / 1000).toLocaleString('sv-SE')}
+              unit="mnkr"
+            />
+            {leverantörsutfall.andelAvKommunbidragProcent !== null && (
+              <KpiCard
+                label="Andel av kommunbidrag"
+                value={leverantörsutfall.andelAvKommunbidragProcent}
+                unit="%"
+              />
+            )}
+            <KpiCard label="Antal fakturor" value={leverantörsutfall.fakturaAntal.toLocaleString('sv-SE')} />
+          </div>
+          {leverantörsutfall.månadstrend?.length > 1 && (
+            <div class="mb-4">
+              <p class="text-xs text-[var(--color-text-muted)] mb-1">
+                Utgift per månad {leverantörsutfall.år} (mnkr) — inget månadsvis plan finns att jämföra
+                mot, se not nedan
+              </p>
+              <Sparkline
+                points={leverantörsutfall.månadstrend.map((m: any) => m.totalTkr / 1000)}
+                width={400}
+                height={48}
+              />
+            </div>
+          )}
+          <p class="text-xs text-[var(--color-text-muted)] mb-4 italic">
+            Avser bara externa leverantörsfakturor (varor, tjänster, entreprenader) — inte löner, som ofta
+            är nämndens största kostnad. Andelen kan överstiga 100 % för avgiftsfinansierade nämnder (t.ex.
+            VA, stadsmiljö) med stora intäkter utöver kommunbidraget. Månader är ojämnt fördelade (stora
+            entreprenadfakturor kan komma i en enda betalning) — en topp är inte automatiskt en avvikelse.
+          </p>
+
+          {leverantörsutfall.topLeverantörer?.length > 0 && (
+            <>
+              <p class="font-semibold text-sm mb-2">Största leverantörer</p>
+              <Table
+                headers={['Leverantör', 'Belopp', 'Fakturor', 'Nämnd i beslut']}
+                rows={leverantörsutfall.topLeverantörer.map((l: any) => [
+                  l.namn,
+                  `${(l.sumTkr / 1000).toLocaleString('sv-SE', { maximumFractionDigits: 1 })} mnkr`,
+                  String(l.fakturaAntal),
+                  l.omnämndIBeslut?.length > 0
+                    ? {
+                        text: `${l.omnämndIBeslut.length} beslut →`,
+                        href: `/goteborg/beslut/${encodeURIComponent(l.omnämndIBeslut[0].beslutId)}`,
+                      }
+                    : '—',
+                ])}
+                variant="compact"
+              />
+              <p class="text-[10px] text-[var(--color-text-muted)] mt-2">
+                "Nämnd i beslut" är ett fynd, inte en orsak — de flesta fakturor är rutinköp under redan
+                gällande avtal utan ett enskilt beslut per betalning. Länken går till beslutet där namnet
+                hittades i texten.
+              </p>
+            </>
+          )}
+
+          {leverantörsutfall.utgiftskategorier?.length > 0 && (
+            <>
+              <p class="font-semibold text-sm mt-4 mb-2">Utgiftskategorier</p>
+              <Table
+                headers={['Kategori', 'Belopp', 'Fakturor']}
+                rows={leverantörsutfall.utgiftskategorier.map((k: any) => [
+                  k.kontotext,
+                  `${(k.sumTkr / 1000).toLocaleString('sv-SE', { maximumFractionDigits: 1 })} mnkr`,
+                  String(k.fakturaAntal),
+                ])}
+                variant="compact"
+              />
+            </>
+          )}
+
+          <p class="text-[10px] text-[var(--color-text-muted)] mt-3">
+            Källa: Göteborgs Stads öppna data (leverantörsfakturor, catalog.goteborg.se).
+          </p>
+        </Card>
+      </section>
+    )}
+
+    <!-- Upphandlingar & avtal -->
+    {avtal.length > 0 && (
+      <section class="mb-8">
+        <Card title={`Upphandlingar & avtal (${avtal.length})`} titleSize="lg">
+          <Table
+            headers={['Avtal', 'Leverantör', 'Värde', 'Period']}
+            rows={avtal.map((a: any) => [
+              a.label,
+              a.tillverkare && a.leverantör && a.tillverkare !== a.leverantör
+                ? `${a.tillverkare} via ${a.leverantör}`
+                : a.leverantör || a.tillverkare || '—',
+              avtalVärdeSek(a) !== null
+                ? `${Math.round(avtalVärdeSek(a) as number).toLocaleString('sv-SE')} kr`
+                : '—',
+              a.start && a.slut ? `${a.start} – ${a.slut}` : a.leverans_datum || '—',
+            ])}
+            variant="compact"
+          />
+          <p class="text-[10px] text-[var(--color-text-muted)] mt-3">
+            Källa: allmänna handlingar begärda från förvaltningen (offentlighetsprincipen). Värdet
+            avser hela avtalsperioden, inte per år.
+          </p>
+        </Card>
+      </section>
+    )}
 
     <!-- Ledamöter -->
     <section class="mb-8">
