@@ -1,0 +1,15 @@
+# De Arbetar För Dig
+
+Öppen demokratiplattform för svenska kommuner. Just nu: Göteborgs kommunfullmäktige och kommunstyrelse — beslut, voteringar, politikerprofiler, budget, arvoden.
+
+## API (maskinläsbart, AI-agent-ready)
+
+- OpenAPI-spec (JSON): https://api.dearbetarfordig.se/openapi.json
+- Interaktiv dokumentation: https://api.dearbetarfordig.se/docs
+- Exempel-endpoint: https://api.dearbetarfordig.se/api/v1/goteborg/politiker
+
+Svaren följer HAL (Hypertext Application Language) — varje resurs länkar sina relaterade resurser i `_links`.
+
+## Licens
+
+AGPL-3.0. Källkod: https://github.com/YOUR_ORG/dearbetarfordig.se

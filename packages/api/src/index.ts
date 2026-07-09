@@ -128,7 +128,31 @@ Alla svar följer HAL-standarden för hypermedia API:er.
   ],
 })
 app.get('/docs', swaggerUI({ url: '/openapi.json' }))
-app.get('/', (c) => c.redirect('/docs'))
+
+// '/' was a redirect into the JS-rendered Swagger UI, which crawlers and
+// AI agents that don't execute JS can't read. This is a static, fully
+// server-rendered page instead, so the API is discoverable without JS —
+// '/openapi.json' is the machine-readable entry point, '/docs' remains for
+// interactive human browsing.
+app.get('/', (c) =>
+  c.html(`<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>De Arbetar För Dig — API</title>
+<meta name="description" content="Öppen demokrati-API för svensk kommunalpolitik. Maskinläsbart, AI-agent-ready.">
+</head>
+<body>
+<h1>De Arbetar För Dig — API</h1>
+<p>Öppen demokrati-API — gör svensk kommunalpolitik tillgänglig, sökbar och begriplig. HAL + OpenAPI 3.1, AGPL-3.0.</p>
+<ul>
+<li><a href="/openapi.json">OpenAPI-spec (JSON)</a> — maskinläsbar, för AI-agenter och verktyg</li>
+<li><a href="/docs">Interaktiv dokumentation (Swagger UI)</a> — för utforskning i webbläsare</li>
+<li><a href="/api/v1/goteborg/politiker">/api/v1/goteborg/politiker</a> — exempel-endpoint</li>
+</ul>
+</body>
+</html>`),
+)
 
 serve({ fetch: app.fetch, port: 3000 }, (info) => {
   console.log(`🚀 API v0.4.0 at http://localhost:${info.port}`)

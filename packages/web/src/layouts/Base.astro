@@ -26,6 +26,12 @@ const {
     <meta property="og:locale" content="sv_SE" />
     <title>{title} — De Arbetar För Dig</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="service-desc"
+      type="application/vnd.oai.openapi+json"
+      href="https://api.dearbetarfordig.se/openapi.json"
+      title="API (OpenAPI)"
+    />
     <script is:inline>
       // Theme: restore from localStorage or use system preference
       const t = localStorage.getItem('theme')
@@ -74,7 +80,7 @@ const {
     <ChartTooltip />
     <footer class="site-footer">
       <p>Public money, public code. Public decisions, public data.</p>
-      <p class="mt-(--space-sm)">AGPL-3.0 · <a href="https://github.com/YOUR_ORG/dearbetarfordig.se">Källkod</a> · <a href="/integritet">Integritet</a></p>
+      <p class="mt-(--space-sm)">AGPL-3.0 · <a href="https://github.com/YOUR_ORG/dearbetarfordig.se">Källkod</a> · <a href="https://api.dearbetarfordig.se/openapi.json">API</a> · <a href="/integritet">Integritet</a></p>
     </footer>
 
     <script is:inline>
