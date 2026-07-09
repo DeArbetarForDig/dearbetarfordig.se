@@ -104,7 +104,15 @@ const seriesData = katKeys.map((key) => {
   <h1 class="text-[2rem] font-bold mb-2">Budget 2026</h1>
   <p class="text-sm text-[var(--color-text-muted)] mb-8">
     Göteborgs Stads kommunbidrag — totalt <strong class="font-mono">{budget.totalMnkr.toLocaleString('sv-SE')}</strong> mnkr.
-    Antagen av KF (S+V+MP).
+    Antagen av KF ({budget.styre}){budget.beslut && (
+      <>
+        {' '}
+        —{' '}
+        <a href={budget.beslut._links.self.href} class="underline hover:no-underline">
+          {budget.beslut.label} ({budget.beslut.datum})
+        </a>
+      </>
+    )}.
   </p>
 
   <div class="grid gap-8">

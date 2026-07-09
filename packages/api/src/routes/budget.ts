@@ -1,5 +1,6 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import {
+  baseUrl,
   budgetLinks,
   halCollection,
   halCollectionSchema,
@@ -14,7 +15,12 @@ export const budgetRouter = new OpenAPIHono()
 // Med ?år ger endpointen en HAL-RESOURCE (ett budgetår + dess nämnder som
 // related); utan ?år en HAL-COLLECTION (lista av budgetår). Samma path,
 // två olika envelopes — svaret typas som union av båda.
-const BudgetÅrItem = z.object({ år: z.number(), totalMnkr: z.any(), styre: z.any() })
+const BudgetÅrItem = z.object({
+  år: z.number(),
+  totalMnkr: z.any(),
+  styre: z.any(),
+  beslut: z.any(),
+})
 const BudgetÅrSummary = z.object({ år: z.any(), totalMnkr: z.any(), styre: z.any() })
 
 const budgetRoute = createRoute({
@@ -48,13 +54,28 @@ budgetRouter.openapi(budgetRoute, async (c) => {
     const budgetNode =
       await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${`budget-${år}`} AND typ = 'budget'`
     if (budgetNode.length === 0) {
-      const item = { år: Number(år), totalMnkr: 0, styre: null }
+      const item = { år: Number(år), totalMnkr: 0, styre: null, beslut: null }
       return c.json(halResource(item, budgetLinks(kommun, år), { nämnder: [] }), 200)
     }
     const meta = budgetNode[0].data as any
     const rows =
       await sql`SELECT n.* FROM ${sql(schema)}.graf_nodes n JOIN ${sql(schema)}.graf_edges e ON e.to_id = n.id WHERE e.from_id = ${`budget-${år}`} AND e.typ = 'finansierar' ORDER BY (n.data->>'kommunbidragMnkr')::float DESC NULLS LAST`
-    const item = { år: Number(år), totalMnkr: meta.totalMnkr, styre: meta.styre }
+    // Beslutet som antog budgeten (KF-§, 'antagen_genom'-edge) — finns bara
+    // för budgetår vars antagande-möte täcks av KF-korpusen (från 2023-01-26;
+    // 2022/2023 antogs på möten före dess och saknar därför beslut här).
+    const [beslutRow] =
+      await sql`SELECT n.id, n.label, n.data->>'datum' as datum FROM ${sql(schema)}.graf_edges e JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id WHERE e.from_id = ${`budget-${år}`} AND e.typ = 'antagen_genom'`
+    const beslut = beslutRow
+      ? {
+          id: beslutRow.id,
+          label: beslutRow.label,
+          datum: beslutRow.datum,
+          _links: {
+            self: { href: `${baseUrl(kommun)}/beslut/${encodeURIComponent(beslutRow.id)}` },
+          },
+        }
+      : null
+    const item = { år: Number(år), totalMnkr: meta.totalMnkr, styre: meta.styre, beslut }
     const nämnder = rows.map((r) => ({ id: r.id, namn: r.label, ...(r.data as object) }))
     return c.json(halResource(item, budgetLinks(kommun, år), { nämnder }), 200)
   }

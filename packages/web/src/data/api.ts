@@ -101,15 +101,25 @@ export interface BudgetNämnd {
   investeringMnkr?: number
 }
 
+export interface BudgetBeslut {
+  id: string
+  label: string
+  datum: string
+  _links: { self: { href: string } }
+}
+
 export interface BudgetYear {
   år: number
   totalMnkr: number
   styre?: string
+  beslut: BudgetBeslut | null
   nämnder: BudgetNämnd[]
 }
 
+type BudgetItem = { år: number; totalMnkr: number; styre?: string; beslut: BudgetBeslut | null }
+
 export async function getBudget(): Promise<BudgetYear> {
-  const data = await fetchApi<HalResource<{ år: number; totalMnkr: number; styre?: string }, { nämnder: BudgetNämnd[] }>>('/api/v1/goteborg/budget?%C3%A5r=2026')
+  const data = await fetchApi<HalResource<BudgetItem, { nämnder: BudgetNämnd[] }>>('/api/v1/goteborg/budget?%C3%A5r=2026')
   return {
     ...data._embedded.item,
     nämnder: data._embedded.related?.nämnder || [],
@@ -117,7 +127,7 @@ export async function getBudget(): Promise<BudgetYear> {
 }
 
 export async function getBudgetYear(år: number): Promise<BudgetYear> {
-  const data = await fetchApi<HalResource<{ år: number; totalMnkr: number; styre?: string }, { nämnder: BudgetNämnd[] }>>(`/api/v1/goteborg/budget?%C3%A5r=${år}`)
+  const data = await fetchApi<HalResource<BudgetItem, { nämnder: BudgetNämnd[] }>>(`/api/v1/goteborg/budget?%C3%A5r=${år}`)
   return {
     ...data._embedded.item,
     nämnder: data._embedded.related?.nämnder || [],
