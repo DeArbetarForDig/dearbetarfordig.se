@@ -1,0 +1,392 @@
+{
+  "kpis": [
+    {
+      "id": "N15504",
+      "namn": "Meritvärde åk 9 (genomsnitt, 17 ämnen)",
+      "kategori": "Skola",
+      "enhet": "poäng",
+      "nämndId": "nämnd-grundskolenämnden",
+      "nämndNamn": "Grundskolenämnden",
+      "göteborg": [
+        {
+          "år": 2020,
+          "värde": 231.6
+        },
+        {
+          "år": 2021,
+          "värde": 232.1
+        },
+        {
+          "år": 2022,
+          "värde": 230.6
+        },
+        {
+          "år": 2023,
+          "värde": 227.5
+        },
+        {
+          "år": 2024,
+          "värde": 228.8
+        },
+        {
+          "år": 2025,
+          "värde": 232.2
+        }
+      ],
+      "utfallÄndring": {
+        "från": 231.6,
+        "till": 232.2,
+        "procent": 0.3
+      },
+      "budget": [
+        {
+          "år": 2022,
+          "värde": 8881
+        },
+        {
+          "år": 2023,
+          "värde": 9344
+        },
+        {
+          "år": 2024,
+          "värde": 9930
+        },
+        {
+          "år": 2025,
+          "värde": 10209
+        },
+        {
+          "år": 2026,
+          "värde": 10547
+        }
+      ],
+      "budgetÄndring": {
+        "från": 8881,
+        "till": 10547,
+        "procent": 18.8
+      }
+    },
+    {
+      "id": "N00531",
+      "namn": "Medborgarundersökning: grundskolan fungerar bra",
+      "kategori": "Skola",
+      "enhet": "%",
+      "nämndId": "nämnd-grundskolenämnden",
+      "nämndNamn": "Grundskolenämnden",
+      "göteborg": [
+        {
+          "år": 2021,
+          "värde": 65.6
+        },
+        {
+          "år": 2022,
+          "värde": 63.3
+        },
+        {
+          "år": 2023,
+          "värde": 61.8
+        },
+        {
+          "år": 2024,
+          "värde": 61.8
+        },
+        {
+          "år": 2025,
+          "värde": 67.8
+        }
+      ],
+      "utfallÄndring": {
+        "från": 65.6,
+        "till": 67.8,
+        "procent": 3.4
+      },
+      "budget": [
+        {
+          "år": 2022,
+          "värde": 8881
+        },
+        {
+          "år": 2023,
+          "värde": 9344
+        },
+        {
+          "år": 2024,
+          "värde": 9930
+        },
+        {
+          "år": 2025,
+          "värde": 10209
+        },
+        {
+          "år": 2026,
+          "värde": 10547
+        }
+      ],
+      "budgetÄndring": {
+        "från": 8881,
+        "till": 10547,
+        "procent": 18.8
+      }
+    },
+    {
+      "id": "U23463",
+      "namn": "Brukarbedömning särskilt boende: alltid bra bemötande",
+      "kategori": "Äldreomsorg",
+      "enhet": "%",
+      "nämndId": "nämnd-äldre-samt-vård-och-omsorgsnämnden",
+      "nämndNamn": "Äldre samt vård- och omsorgsnämnden",
+      "göteborg": [
+        {
+          "år": 2020,
+          "värde": 54
+        },
+        {
+          "år": 2022,
+          "värde": 49
+        },
+        {
+          "år": 2023,
+          "värde": 49
+        },
+        {
+          "år": 2024,
+          "värde": 49.55070603
+        },
+        {
+          "år": 2025,
+          "värde": 50.59366755
+        }
+      ],
+      "utfallÄndring": {
+        "från": 54,
+        "till": 50.59366755,
+        "procent": -6.3
+      },
+      "budget": [
+        {
+          "år": 2023,
+          "värde": 6209
+        },
+        {
+          "år": 2024,
+          "värde": 6624
+        },
+        {
+          "år": 2025,
+          "värde": 6836
+        },
+        {
+          "år": 2026,
+          "värde": 7219
+        }
+      ],
+      "budgetÄndring": {
+        "från": 6209,
+        "till": 7219,
+        "procent": 16.3
+      }
+    },
+    {
+      "id": "N00401",
+      "namn": "Utsläpp växthusgaser per invånare",
+      "kategori": "Miljö",
+      "enhet": "ton CO2-ekv/inv",
+      "nämndId": "nämnd-miljö-och-klimatnämnden",
+      "nämndNamn": "Miljö- och klimatnämnden",
+      "göteborg": [
+        {
+          "år": 2020,
+          "värde": 3.68268948
+        },
+        {
+          "år": 2021,
+          "värde": 3.86418995
+        },
+        {
+          "år": 2022,
+          "värde": 3.79419292
+        },
+        {
+          "år": 2023,
+          "värde": 3.47538045
+        },
+        {
+          "år": 2024,
+          "värde": 3.6990685
+        }
+      ],
+      "utfallÄndring": {
+        "från": 3.68268948,
+        "till": 3.6990685,
+        "procent": 0.4
+      },
+      "budget": [
+        {
+          "år": 2022,
+          "värde": 105
+        },
+        {
+          "år": 2023,
+          "värde": 105
+        },
+        {
+          "år": 2024,
+          "värde": 128
+        },
+        {
+          "år": 2025,
+          "värde": 143
+        },
+        {
+          "år": 2026,
+          "värde": 145
+        }
+      ],
+      "budgetÄndring": {
+        "från": 105,
+        "till": 145,
+        "procent": 38.1
+      }
+    },
+    {
+      "id": "N01720",
+      "namn": "Arbetslösa eller i åtgärd, 16–64 år",
+      "kategori": "Arbetsmarknad",
+      "enhet": "%",
+      "nämndId": "nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning",
+      "nämndNamn": "Nämnden för arbetsmarknad och vuxenutbildning",
+      "göteborg": [
+        {
+          "år": 2020,
+          "värde": 17.26236
+        },
+        {
+          "år": 2021,
+          "värde": 16.421856
+        },
+        {
+          "år": 2022,
+          "värde": 13.67001
+        },
+        {
+          "år": 2023,
+          "värde": 13.296271
+        },
+        {
+          "år": 2024,
+          "värde": 14.324549
+        },
+        {
+          "år": 2025,
+          "värde": 14.630871
+        }
+      ],
+      "utfallÄndring": {
+        "från": 17.26236,
+        "till": 14.630871,
+        "procent": -15.2
+      },
+      "budget": [
+        {
+          "år": 2022,
+          "värde": 740
+        },
+        {
+          "år": 2023,
+          "värde": 747
+        },
+        {
+          "år": 2024,
+          "värde": 808
+        },
+        {
+          "år": 2025,
+          "värde": 845
+        },
+        {
+          "år": 2026,
+          "värde": 847
+        }
+      ],
+      "budgetÄndring": {
+        "från": 740,
+        "till": 847,
+        "procent": 14.5
+      }
+    },
+    {
+      "id": "N00901",
+      "namn": "Skattesats till kommun",
+      "kategori": "Ekonomi",
+      "enhet": "%",
+      "göteborg": [
+        {
+          "år": 2020,
+          "värde": 21.12
+        },
+        {
+          "år": 2021,
+          "värde": 21.12
+        },
+        {
+          "år": 2022,
+          "värde": 21.12
+        },
+        {
+          "år": 2023,
+          "värde": 21.12
+        },
+        {
+          "år": 2024,
+          "värde": 21.12
+        },
+        {
+          "år": 2025,
+          "värde": 21.12
+        }
+      ],
+      "utfallÄndring": {
+        "från": 21.12,
+        "till": 21.12,
+        "procent": 0
+      }
+    },
+    {
+      "id": "N00090",
+      "namn": "Sjukfrånvaro bland anställda",
+      "kategori": "Personal",
+      "enhet": "%",
+      "göteborg": [
+        {
+          "år": 2020,
+          "värde": 9.6
+        },
+        {
+          "år": 2021,
+          "värde": 8.6
+        },
+        {
+          "år": 2022,
+          "värde": 8.8
+        },
+        {
+          "år": 2023,
+          "värde": 8.5
+        },
+        {
+          "år": 2024,
+          "värde": 8.4
+        },
+        {
+          "år": 2025,
+          "värde": 7.8
+        }
+      ],
+      "utfallÄndring": {
+        "från": 9.6,
+        "till": 7.8,
+        "procent": -18.7
+      }
+    }
+  ]
+}

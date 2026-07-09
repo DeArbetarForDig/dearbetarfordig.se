@@ -1,0 +1,99 @@
+---
+import Sparkline from '../../../../ui/src/components/charts/Sparkline.astro'
+import Card from '../../../../ui/src/components/core/Card.astro'
+import { getTrender } from '../../data/api'
+import Base from '../../layouts/Base.astro'
+
+const trender = await getTrender()
+const kategorier = [...new Set(trender.kpis.map((k) => k.kategori))]
+
+function poäng(serie: Array<{ år: number; värde: number | null }>) {
+  return serie.filter((p) => p.värde !== null).map((p) => p.värde as number)
+}
+
+function tecken(procent: number) {
+  return procent >= 0 ? '+' : ''
+}
+---
+
+<Base title="Trender — Göteborg" breadcrumbs={[{ label: 'Göteborg', href: '/goteborg' }, { label: 'Trender' }]}>
+  <div class="max-w-4xl mx-auto">
+    <section class="mb-8">
+      <h1 class="text-3xl font-bold mb-2">Göteborgs trender över tid</h1>
+      <p class="text-sm text-[var(--color-text-muted)]">
+        Källa: <a href="https://www.kolada.se" class="underline hover:no-underline">Kolada</a> (SKR/RKA:s
+        öppna kommunstatistik), parat mot motsvarande nämnds kommunbidrag. Frågan är inte "hur ligger
+        Göteborg till mot andra kommuner" utan "rör sig resultat och budget åt samma håll, eller isär" —
+        t.ex. om skolans budget ökar samtidigt som resultaten står stilla.
+      </p>
+      <p class="text-xs text-[var(--color-text-muted)] mt-2 italic">
+        Ett samband här är inte ett bevis på orsak-verkan. En nämnds budget är sällan den enda faktorn
+        bakom ett utfall (arbetslöshet och utsläpp styrs t.ex. till stor del av sådant en enskild nämnd
+        inte rår över), och Kolada rapporterar årsvis — ingen månadsdata finns för dessa nyckeltal.
+      </p>
+    </section>
+
+    {kategorier.map((kategori) => (
+      <section class="mb-8">
+        <h2 class="text-lg font-bold mb-4">{kategori}</h2>
+        <div class="grid gap-4">
+          {trender.kpis
+            .filter((k) => k.kategori === kategori)
+            .map((kpi) => {
+              const utfallPoäng = poäng(kpi.göteborg)
+              const budgetPoäng = kpi.budget ? poäng(kpi.budget) : []
+              const förstaÅr = kpi.göteborg.find((p) => p.värde !== null)?.år
+              const sistaÅr = [...kpi.göteborg].reverse().find((p) => p.värde !== null)?.år
+
+              return (
+                <Card title={kpi.namn} titleSize="md">
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <p class="text-xs text-[var(--color-text-muted)] mb-1">
+                        Utfall {förstaÅr}–{sistaÅr} ({kpi.enhet})
+                      </p>
+                      {utfallPoäng.length > 1 ? (
+                        <Sparkline points={utfallPoäng} width={200} height={40} />
+                      ) : (
+                        <p class="text-sm text-[var(--color-text-muted)]">Otillräcklig data</p>
+                      )}
+                      {kpi.utfallÄndring && (
+                        <p class="text-sm font-mono mt-1">
+                          {kpi.utfallÄndring.från} → {kpi.utfallÄndring.till} (
+                          {tecken(kpi.utfallÄndring.procent)}
+                          {kpi.utfallÄndring.procent}%)
+                        </p>
+                      )}
+                    </div>
+                    {kpi.nämndNamn && kpi.budget ? (
+                      <div>
+                        <p class="text-xs text-[var(--color-text-muted)] mb-1">
+                          Kommunbidrag {kpi.nämndNamn} (mnkr)
+                        </p>
+                        {budgetPoäng.length > 1 ? (
+                          <Sparkline points={budgetPoäng} width={200} height={40} color="var(--color-warning)" />
+                        ) : (
+                          <p class="text-sm text-[var(--color-text-muted)]">Otillräcklig data</p>
+                        )}
+                        {kpi.budgetÄndring && (
+                          <p class="text-sm font-mono mt-1">
+                            {kpi.budgetÄndring.från} → {kpi.budgetÄndring.till} (
+                            {tecken(kpi.budgetÄndring.procent)}
+                            {kpi.budgetÄndring.procent}%)
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <p class="text-xs text-[var(--color-text-muted)] self-center">
+                        Ingen tydlig enskild-nämnd-koppling för det här nyckeltalet.
+                      </p>
+                    )}
+                  </div>
+                </Card>
+              )
+            })}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>

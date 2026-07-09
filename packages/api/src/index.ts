@@ -14,6 +14,7 @@ import { metricsRouter } from './routes/metrics.js'
 import { motenRouter } from './routes/moten.js'
 import { politikerRouter } from './routes/politiker.js'
 import { sokRouter } from './routes/sok.js'
+import { trenderRouter } from './routes/trender.js'
 
 const app = new OpenAPIHono()
 
@@ -62,6 +63,7 @@ app.route('/', metricsRouter)
 app.route('/', dokumentRouter)
 app.route('/', lonRouter)
 app.route('/', forvaltningarRouter)
+app.route('/', trenderRouter)
 
 // --- OpenAPI + Swagger ---
 app.doc('/openapi.json', {

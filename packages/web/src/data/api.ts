@@ -220,3 +220,35 @@ export async function getPolitikerAnföranden(politikerId: string, datum?: strin
     anföranden: data._embedded.items,
   }
 }
+
+export interface TrendDataPunkt {
+  år: number
+  värde: number | null
+}
+
+export interface TrendÄndring {
+  från: number
+  till: number
+  procent: number
+}
+
+export interface TrendKpi {
+  id: string
+  namn: string
+  kategori: string
+  enhet: string
+  nämndId?: string
+  nämndNamn?: string
+  göteborg: TrendDataPunkt[]
+  utfallÄndring: TrendÄndring | null
+  budget?: TrendDataPunkt[]
+  budgetÄndring?: TrendÄndring | null
+}
+
+export interface Trender {
+  kpis: TrendKpi[]
+}
+
+export async function getTrender(): Promise<Trender> {
+  return fetchApi<Trender>('/api/v1/goteborg/trender')
+}
