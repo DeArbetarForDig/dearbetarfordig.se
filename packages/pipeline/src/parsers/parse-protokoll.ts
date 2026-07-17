@@ -198,8 +198,13 @@ export function parseParagrafer(
       jäv.push({ namn: jävMatch[1].trim(), parti: jävMatch[2] })
     }
 
-    // Create paragraf node — trim bilagor from fulltext
-    const bilagaIdx = section.search(/\bBILAGA\s+\d/i)
+    // Create paragraf node — trim bilagor from fulltext.
+    // BILAGA-headers are all-caps and stand alone on their own line
+    // ("BILAGA 1") — matching case-insensitively also caught inline mentions
+    // like "framgår av bilaga 5." mid-sentence, truncating fulltext right
+    // after the huvudvotering result and dropping Reservation/Protokolls-
+    // utdrag that follows in the same paragraf.
+    const bilagaIdx = section.search(/^BILAGA\s+\d+\s*$/m)
     const cleanSection = bilagaIdx > 0 ? section.slice(0, bilagaIdx) : section
     const fulltext = cleanSection
       .trim()
