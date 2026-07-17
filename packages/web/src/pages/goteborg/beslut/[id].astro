@@ -1,6 +1,5 @@
 ---
 import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
-import Accordion from '../../../../../ui/src/components/core/Accordion.astro'
 import Button from '../../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
 import EmptyState from '../../../../../ui/src/components/core/EmptyState.astro'
@@ -10,7 +9,7 @@ import StatusBadge from '../../../../../ui/src/components/core/StatusBadge.astro
 import Tabs from '../../../../../ui/src/components/core/Tabs.astro'
 import Tooltip from '../../../../../ui/src/components/core/Tooltip.astro'
 import { fetchApi, getAnföranden, getBeslut, getBeslutDetail } from '../../../data/api'
-import Base from '../../../layouts/Base.astro'
+import Kommun from '../../../layouts/Kommun.astro'
 
 export async function getStaticPaths() {
   const allBeslut = await getBeslut(2000)
@@ -68,7 +67,12 @@ const voteringSummary = detail.beslut.votering as {
 } | null
 const hasHandcount = !hasVotes && voteringSummary && (voteringSummary.ja || voteringSummary.nej)
 
-const status = detail.beslut.beslut === 'bordläggning' ? 'bordlagd' : detail.beslut.beslut || 'info'
+const status =
+  detail.beslut.beslut === 'bordläggning'
+    ? 'bordlagd'
+    : detail.beslut.beslut === 'beslut'
+      ? 'antecknad'
+      : detail.beslut.beslut || 'info'
 const rubrik = detail.beslut.rubrik.replace(/^§ \d+ /, '')
 // data.organ är opålitligt (KF-parsern sätter det aldrig på paragraf-nivå) —
 // id-prefixet är källan till sanning, samma mönster som listendpointen
@@ -123,6 +127,48 @@ const inlämnare = detail.kopplingar.filter(
 const yrkanden = detail.beslut.yrkanden || []
 const harHandling = Boolean(detail.beslut.handlingText || detail.beslut.fulltext)
 
+// pdftotext bryter rader efter PDF-sidans fysiska radbredd, inte efter
+// meningar/stycken — rått fulltext (använt internt av regex-parsers för
+// voteringar/yrkanden) har därför radbrytningar mitt i meningar. Slå ihop
+// sådana rader till stycken innan visning, men bevara tomrader (styckedelare)
+// och rader som inleder en ny strukturell del (rubriker, punktlistor).
+function joinWrappedLines(text: string): string {
+  const lines = text.split('\n')
+  const out: string[] = []
+  for (const rawLine of lines) {
+    const line = rawLine.trimEnd()
+    const prev = out[out.length - 1]
+    const isBlank = line.trim() === ''
+    const startsNewBlock =
+      isBlank ||
+      /^(§|Beslut|Handling|Yrkanden?|Propositionsordning|Huvudvotering|Omröstning|Protokollsutdrag|Reservation|Protokollsanteckning|Information)\b/.test(
+        line.trim(),
+      ) ||
+      /^\d+[.)]\s/.test(line.trim()) ||
+      /^[-•]\s/.test(line.trim())
+    const prevEndsSentence =
+      prev !== undefined && (/[.!?:”"]\s*$/.test(prev) || /^§\b/.test(prev.trim()))
+    if (
+      out.length > 0 &&
+      !isBlank &&
+      !startsNewBlock &&
+      prev !== undefined &&
+      prev.trim() !== '' &&
+      !prevEndsSentence
+    ) {
+      out[out.length - 1] = `${prev} ${line.trim()}`
+    } else {
+      out.push(line)
+    }
+  }
+  return out.join('\n')
+}
+const protokollText = detail.beslut.handlingText
+  ? detail.beslut.handlingText
+  : detail.beslut.fulltext
+    ? joinWrappedLines(detail.beslut.fulltext)
+    : ''
+
 const beslutTabs = [
   (hasVotes || hasHandcount) && { key: 'votering', label: 'Votering' },
   (inlämnare.length > 0 || yrkanden.length > 0) && {
@@ -149,13 +195,13 @@ const timeline = [
     .slice(0, 5),
   {
     datum: detail.beslut.datum,
-    titel: `${organ} beslut — ${status === 'bifall' ? 'Bifall' : status === 'avslag' ? 'Avslag' : status === 'bordlagd' ? 'Bordlagd' : 'Behandling'}`,
+    titel: `${organ} beslut — ${status === 'bifall' ? 'Bifall' : status === 'avslag' ? 'Avslag' : status === 'bordlagd' ? 'Bordlagd' : status === 'antecknad' ? 'Antecknad' : 'Behandling'}`,
     status: 'active' as const,
   },
 ]
 ---
 
-<Base
+<Kommun
   title={`${rubrik} — Göteborg`}
   breadcrumbs={[
     { label: 'Göteborg', href: '/goteborg' },
@@ -201,35 +247,33 @@ const timeline = [
             <span class="w-(--w) bg-(--vote-nej)" style={`--w:${Math.round(((detail.beslut.votering?.nej ?? nejCount) / ((detail.beslut.votering?.ja ?? jaCount) + (detail.beslut.votering?.nej ?? nejCount) + (detail.beslut.votering?.avstår ?? avstarCount))) * 100)}%`}></span>
             <span class="flex-1 bg-(--vote-avstar)"></span>
           </div>
-          <Accordion summary={`Visa alla ${detail.beslut.röster.length} röster`} class="mt-4">
-            <div class="text-sm">
-              {(() => {
-                const groups: { parti: string; members: any[] }[] = []
-                let current: { parti: string; members: any[] } | null = null
-                for (const r of sortedRöster) {
-                  if (!current || current.parti !== r.parti) {
-                    current = { parti: r.parti, members: [] }
-                    groups.push(current)
-                  }
-                  current.members.push(r)
+          <div class="text-sm mt-4">
+            {(() => {
+              const groups: { parti: string; members: any[] }[] = []
+              let current: { parti: string; members: any[] } | null = null
+              for (const r of sortedRöster) {
+                if (!current || current.parti !== r.parti) {
+                  current = { parti: r.parti, members: [] }
+                  groups.push(current)
                 }
-                return groups.map((g, i) => (
-                  <>
-                    {i > 0 && <div class="border-t border-[var(--color-border)] my-2"></div>}
-                    <div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-x-4 gap-y-1">
-                      {g.members.map((r: any) => (
-                        <div class="flex items-center gap-2 py-1">
-                          <span class="w-2.5 h-2.5 rounded-full shrink-0 bg-(--vote-color)" style={`--vote-color:var(--vote-${r.röst === 'avstår' ? 'avstår' : r.röst})`}></span>
-                          <PartyTag parti={r.parti} size="sm" />
-                          <a href={`/goteborg/politiker/${r.politikerId || ''}`} class="truncate text-[var(--color-text)] hover:text-[var(--color-primary)]">{r.namn}</a>
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                ))
-              })()}
-            </div>
-          </Accordion>
+                current.members.push(r)
+              }
+              return groups.map((g, i) => (
+                <>
+                  {i > 0 && <div class="border-t border-[var(--color-border)] my-2"></div>}
+                  <div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-x-4 gap-y-1">
+                    {g.members.map((r: any) => (
+                      <div class="flex items-center gap-2 py-1">
+                        <span class="w-2.5 h-2.5 rounded-full shrink-0 bg-(--vote-color)" style={`--vote-color:var(--vote-${r.röst === 'avstår' ? 'avstår' : r.röst})`}></span>
+                        <PartyTag parti={r.parti} size="sm" />
+                        <a href={`/goteborg/politiker/${r.politikerId || ''}`} class="truncate text-[var(--color-text)] hover:text-[var(--color-primary)]">{r.namn}</a>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              ))
+            })()}
+          </div>
         </Card>
       </Fragment>
     )}
@@ -314,7 +358,7 @@ const timeline = [
       <Fragment slot="panel-handling">
         <Card title={detail.beslut.handlingText ? 'Handling (fulltext)' : 'Protokollstext'}>
           <div class="handling-text">
-            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed whitespace-pre-line">{detail.beslut.handlingText || detail.beslut.fulltext}</p>
+            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed whitespace-pre-line">{protokollText}</p>
           </div>
         </Card>
       </Fragment>
@@ -323,24 +367,22 @@ const timeline = [
     {närvarande.length > 0 && (
       <Fragment slot="panel-narvaro">
         <Card title="Närvaro" subtitle={`${närvarande.length} ledamöter/ersättare vid sammanträdet ${detail.beslut.datum}`}>
-          <Accordion summary={`Visa alla ${närvarande.length} närvarande`}>
-            <div class="text-sm">
-              {närvarandeByParti.map((g, i) => (
-                <>
-                  {i > 0 && <div class="border-t border-[var(--color-border)] my-2"></div>}
-                  <div class="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-x-4 gap-y-1">
-                    {g.members.map((n) => (
-                      <div class="flex items-center gap-2 py-1">
-                        <PartyTag parti={n.parti} size="sm" />
-                        <span class="truncate text-[var(--color-text)]">{n.namn}</span>
-                        <span class="text-xs text-[var(--color-text-subtle)] font-mono ml-auto shrink-0">{n.tid}</span>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              ))}
-            </div>
-          </Accordion>
+          <div class="text-sm">
+            {närvarandeByParti.map((g, i) => (
+              <>
+                {i > 0 && <div class="border-t border-[var(--color-border)] my-2"></div>}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
+                  {g.members.map((n) => (
+                    <div class="flex items-center gap-2 py-1">
+                      <PartyTag parti={n.parti} size="sm" />
+                      <span class="truncate text-[var(--color-text)]">{n.namn}</span>
+                      <span class="text-xs text-[var(--color-text-subtle)] font-mono ml-auto shrink-0">{n.tid}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ))}
+          </div>
         </Card>
       </Fragment>
     )}
@@ -380,7 +422,7 @@ const timeline = [
     )}
     </Tabs>
   </div>
-</Base>
+</Kommun>
 
 <style is:global>
   .handling-text {

@@ -8,7 +8,7 @@
  *   <StatusBadge status="ja" label="Custom text" />
  *
  * Props:
- * - status: bifall | avslag | remitterad | bordlagd | ja | nej | avstar | franvarande | info
+ * - status: bifall | avslag | remitterad | bordlagd | antecknad | ja | nej | avstar | franvarande | info
  * - label: override the default Swedish label
  * - solid: filled background instead of tinted
  *
@@ -27,6 +27,7 @@ const META: Record<string, { color: string; label: string; dot: string }> = {
   avslag: { color: 'var(--color-negative)', label: 'Avslag', dot: '●' },
   remitterad: { color: 'var(--color-neutral)', label: 'Remitterad', dot: '◐' },
   bordlagd: { color: 'var(--color-warning)', label: 'Bordlagd', dot: '◑' },
+  antecknad: { color: 'var(--color-neutral)', label: 'Antecknad', dot: '●' },
   ja: { color: 'var(--vote-ja)', label: 'Ja', dot: '●' },
   nej: { color: 'var(--vote-nej)', label: 'Nej', dot: '●' },
   avstar: { color: 'var(--vote-avstår)', label: 'Avstår', dot: '●' },

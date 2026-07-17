@@ -176,7 +176,8 @@ const senasteBeslut = beslutList
   .map((b) => ({
     titel: b.rubrik.replace(/^§ \d+ /, ''),
     datum: b.datum,
-    status: b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut,
+    status:
+      b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut === 'beslut' ? 'antecknad' : b.beslut,
     paragraf: b.paragraf ? `KF ${b.paragraf}` : undefined,
     ja: b.votering?.ja,
     nej: b.votering?.nej,

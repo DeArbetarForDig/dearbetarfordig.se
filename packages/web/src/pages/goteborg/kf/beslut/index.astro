@@ -14,7 +14,9 @@ const data = kfBeslut.map((b) => {
         ? 'Bifall'
         : b.beslut === 'avslag'
           ? 'Avslag'
-          : ''
+          : b.beslut === 'beslut'
+            ? 'Antecknad'
+            : ''
   const statusColor =
     b.beslut === 'bifall'
       ? 'var(--color-positive)'
@@ -22,7 +24,9 @@ const data = kfBeslut.map((b) => {
         ? 'var(--color-negative)'
         : b.beslut === 'bordläggning'
           ? 'var(--color-warning)'
-          : ''
+          : b.beslut === 'beslut'
+            ? 'var(--color-neutral)'
+            : ''
   const titel = b.rubrik?.replace(/^§ \d+ /, '') || ''
   const votering = b.votering ? `${b.votering.ja}/${b.votering.nej}` : ''
   return {
