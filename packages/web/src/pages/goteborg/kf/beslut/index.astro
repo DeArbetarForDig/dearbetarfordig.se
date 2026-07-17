@@ -1,7 +1,7 @@
 ---
 import DataTable from '../../../../../../ui/src/components/core/DataTable.astro'
 import { getBeslut } from '../../../../data/api'
-import Base from '../../../../layouts/Base.astro'
+import Kommun from '../../../../layouts/Kommun.astro'
 
 const allBeslut = await getBeslut(2000)
 const kfBeslut = allBeslut.filter((b: any) => !b.organ || b.organ === 'KF')
@@ -53,8 +53,8 @@ const columns = [
 ]
 ---
 
-<Base title="KF Beslut — Göteborg">
+<Kommun title="KF Beslut — Göteborg">
   <h1 class="text-[2rem] font-bold mb-2">KF Beslut</h1>
   <p class="text-sm text-[var(--color-text-muted)] mb-6">Kommunfullmäktige — {data.length} ärenden</p>
   <DataTable columns={columns} data={data} pageSize={20} defaultSort={{ key: 'datum', dir: 'desc' }} />
-</Base>
+</Kommun>

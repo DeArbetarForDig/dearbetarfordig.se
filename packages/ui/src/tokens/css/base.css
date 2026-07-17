@@ -105,6 +105,86 @@ h3 {
   background: var(--color-surface-sunken);
 }
 
+/* App shell: navigation rail + content column below the sysbar */
+.app {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.app__nav {
+  width: 248px;
+  flex-shrink: 0;
+  padding: var(--space-md) var(--space-sm);
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  align-self: flex-start;
+}
+
+.app__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hamburger — mobile only */
+.sysbar__menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+}
+.sysbar__menu-btn:hover {
+  background: var(--color-surface-sunken);
+}
+
+.app__scrim {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .sysbar__menu-btn {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Off-canvas drawer, slides in over a scrim */
+  .app__nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 40;
+    height: 100dvh;
+    max-height: none;
+    transform: translateX(-100%);
+    transition: transform var(--transition);
+    box-shadow: var(--shadow-lg);
+  }
+  [data-nav-open] .app__nav {
+    transform: translateX(0);
+  }
+
+  [data-nav-open] .app__scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background: var(--color-overlay);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
 /* Theme toggle icons */
 [data-theme="light"] .theme-icon-dark {
   display: none;

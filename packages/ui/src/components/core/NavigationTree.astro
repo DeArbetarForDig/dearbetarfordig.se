@@ -1,0 +1,203 @@
+---
+/**
+ * NavigationTree — sidebar navigation with collapsible groups.
+ *
+ * Same philosophy as Accordion: groups are native <details>/<summary>
+ * disclosures (keyboard/AT support for free, zero client JS), with the
+ * `name` attribute making sibling groups exclusive — opening one closes
+ * the others. Leaves are plain links.
+ *
+ * Active state is resolved server-side from `currentPath` by longest
+ * href-prefix match, so detail pages (/politiker/{id}) highlight their
+ * section. The chain of groups holding the active leaf renders open; the
+ * leaf itself gets aria-current="page". A closed group holding the active
+ * page is marked with bold + an inset bar.
+ *
+ * Usage (only `items` + `currentPath` — the rest is recursion plumbing):
+ *   <NavigationTree items={nav} currentPath={Astro.url.pathname} />
+ *
+ * items: { label, href } leaves and { label, children } groups, any depth.
+ */
+import Icon from './Icon.astro'
+
+interface NavTreeItem {
+  label: string
+  href?: string
+  children?: NavTreeItem[]
+}
+
+interface Props {
+  items: NavTreeItem[]
+  currentPath?: string
+  /** internal recursion plumbing ↓ */
+  root?: boolean
+  level?: number
+  activeHref?: string | null
+  name?: string
+}
+
+const {
+  items,
+  currentPath = '',
+  root = true,
+  level = 0,
+  activeHref: activeHrefProp = null,
+  name = 'nav',
+} = Astro.props
+
+const strip = (p: string) => p.replace(/\/+$/, '') || '/'
+
+// Longest matching href in the whole tree wins — computed once at the root,
+// passed down so '/goteborg' does not swallow '/goteborg/politiker/abc'.
+let activeHref = activeHrefProp
+if (root) {
+  const path = strip(currentPath)
+  const hrefs: string[] = []
+  const walk = (list: NavTreeItem[]) => {
+    for (const item of list) {
+      if (item.href) hrefs.push(strip(item.href))
+      if (item.children) walk(item.children)
+    }
+  }
+  walk(items)
+  activeHref =
+    hrefs
+      .filter((h) => path === h || path.startsWith(`${h}/`))
+      .sort((a, b) => b.length - a.length)[0] ?? null
+}
+
+const isActive = (item: NavTreeItem) => item.href != null && strip(item.href) === activeHref
+const containsActive = (item: NavTreeItem): boolean =>
+  isActive(item) || (item.children?.some(containsActive) ?? false)
+---
+
+{
+  root ? (
+    <nav class="nav-tree" aria-label="Huvudnavigation">
+      <Astro.self items={items} root={false} level={0} activeHref={activeHref} name={name} />
+    </nav>
+  ) : (
+    <ul class="nav-tree__list">
+      {items.map((item, i) => (
+        <li>
+          {item.children ? (
+            <details
+              class="nav-tree__group"
+              name={name}
+              open={containsActive(item) || undefined}
+            >
+              <summary
+                class:list={['nav-tree__row', { 'nav-tree__row--has-active': containsActive(item) }]}
+                style={`--nav-indent: ${12 + level * 14}px`}
+              >
+                <span class="nav-tree__label">{item.label}</span>
+                <Icon name="chevron-right" size={16} class="nav-tree__chevron" />
+              </summary>
+              <Astro.self
+                items={item.children}
+                root={false}
+                level={level + 1}
+                activeHref={activeHref}
+                name={`${name}-${i}`}
+              />
+            </details>
+          ) : (
+            <a
+              class="nav-tree__row nav-tree__link"
+              href={item.href}
+              style={`--nav-indent: ${12 + level * 14}px`}
+              aria-current={isActive(item) ? 'page' : undefined}
+            >
+              <span class="nav-tree__label">{item.label}</span>
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  .nav-tree {
+    font-size: var(--font-size-label);
+    user-select: none;
+  }
+
+  .nav-tree__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-tree__row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    min-height: 40px;
+    padding: 0 var(--space-sm) 0 var(--nav-indent, 12px);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    cursor: pointer;
+    transition:
+      background-color var(--transition),
+      color var(--transition);
+  }
+
+  .nav-tree__row:hover {
+    background: var(--color-surface-sunken);
+  }
+
+  .nav-tree__link {
+    text-decoration: none;
+  }
+  .nav-tree__link:hover {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .nav-tree__link[aria-current='page'] {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+  }
+  .nav-tree__link[aria-current='page']:hover {
+    background: var(--color-primary-hover);
+    color: var(--color-primary-text);
+  }
+
+  .nav-tree__label {
+    flex: 1;
+    line-height: 1.3;
+    padding: var(--space-sm) 0;
+  }
+
+  /* Native disclosure: hide the default marker, rotate our chevron. */
+  .nav-tree__row::-webkit-details-marker {
+    display: none;
+  }
+  summary.nav-tree__row {
+    list-style: none;
+  }
+
+  /* Icon renders in a child component — scoped selectors don't reach it
+     (attribute scoping does not propagate through class props), hence
+     :global() under a scoped parent. */
+  .nav-tree__group > summary :global(.nav-tree__chevron) {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+    transition: transform var(--transition);
+  }
+  .nav-tree__group[open] > summary :global(.nav-tree__chevron) {
+    transform: rotate(90deg);
+  }
+
+  /* Closed group holding the current page: bold + inset accent bar. */
+  .nav-tree__group:not([open]) > .nav-tree__row--has-active {
+    font-weight: 700;
+    box-shadow: inset 3px 0 0 var(--color-primary);
+  }
+
+  .nav-tree__row:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: -2px;
+  }
+</style>

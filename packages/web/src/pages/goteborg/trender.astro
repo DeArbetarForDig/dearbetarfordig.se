@@ -2,7 +2,7 @@
 import Sparkline from '../../../../ui/src/components/charts/Sparkline.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
 import { getTrender } from '../../data/api'
-import Base from '../../layouts/Base.astro'
+import Kommun from '../../layouts/Kommun.astro'
 
 const trender = await getTrender()
 const kategorier = [...new Set(trender.kpis.map((k) => k.kategori))]
@@ -16,7 +16,7 @@ function tecken(procent: number) {
 }
 ---
 
-<Base title="Trender — Göteborg" breadcrumbs={[{ label: 'Göteborg', href: '/goteborg' }, { label: 'Trender' }]}>
+<Kommun title="Trender — Göteborg" breadcrumbs={[{ label: 'Göteborg', href: '/goteborg' }, { label: 'Trender' }]}>
   <div class="max-w-4xl mx-auto">
     <section class="mb-8">
       <h1 class="text-3xl font-bold mb-2">Göteborgs trender över tid</h1>
@@ -96,4 +96,4 @@ function tecken(procent: number) {
       </section>
     ))}
   </div>
-</Base>
+</Kommun>

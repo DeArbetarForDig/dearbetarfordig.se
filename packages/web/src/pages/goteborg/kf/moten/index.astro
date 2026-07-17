@@ -2,7 +2,7 @@
 import Icon from '../../../../../../ui/src/components/core/Icon.astro'
 import Pagination from '../../../../../../ui/src/components/core/Pagination.astro'
 import { getMöten } from '../../../../data/api'
-import Base from '../../../../layouts/Base.astro'
+import Kommun from '../../../../layouts/Kommun.astro'
 
 const allMöten = await getMöten()
 const möten = allMöten
@@ -12,7 +12,7 @@ const möten = allMöten
 const MOTEN_PAGE_SIZE = 20
 ---
 
-<Base title="KF Möten — Göteborg">
+<Kommun title="KF Möten — Göteborg">
   <h1 class="text-[2rem] font-bold mb-2">KF Sammanträden</h1>
   <p class="text-sm text-[var(--color-text-muted)] mb-8">
     Kommunfullmäktige — {möten.length} sammanträden med beslut och debatt
@@ -41,7 +41,7 @@ const MOTEN_PAGE_SIZE = 20
   </div>
 
   <Pagination id="moten-pagination" totalItems={möten.length} pageSize={MOTEN_PAGE_SIZE} class="mt-4" />
-</Base>
+</Kommun>
 
 <script is:inline>
   const items = document.querySelectorAll('#moten-list [data-idx]')

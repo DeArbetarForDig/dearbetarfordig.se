@@ -1,7 +1,20 @@
 ---
+/**
+ * Base — generic page chrome: sysbar (brand + theme), content column, footer.
+ *
+ * Knows nothing about any kommun. Pages inside a kommun use the Kommun
+ * layout, which fills the named slots here:
+ * - "location": context chip in the sysbar (e.g. "Göteborg")
+ * - "nav": sidebar content; when present, Base renders the nav rail
+ *   (mobile: off-canvas drawer + hamburger + scrim, wired up below)
+ *
+ * Without a "nav" slot (landing page, /integritet) there is no sidebar and
+ * the content column takes the full width.
+ */
 import '../styles/global.css'
 import Breadcrumb from '../../../ui/src/components/core/Breadcrumb.astro'
 import ChartTooltip from '../../../ui/src/components/core/ChartTooltip.astro'
+import Icon from '../../../ui/src/components/core/Icon.astro'
 
 interface Props {
   title: string
@@ -15,6 +28,7 @@ const {
   breadcrumbs,
 } = Astro.props
 
+const hasNav = Astro.slots.has('nav')
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
 ---
 
@@ -60,42 +74,57 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
     <!-- Sysbar -->
     <header class="sysbar">
       <div class="sysbar__left">
+        {hasNav && (
+          <button
+            id="nav-toggle"
+            class="sysbar__menu-btn"
+            aria-label="Öppna menyn"
+            aria-controls="app-nav"
+            aria-expanded="false"
+          >
+            <Icon name="menu" size={18} />
+          </button>
+        )}
         <a href="/" class="sysbar__brand">
           <span class="sysbar__product">DeArbetarFörDig</span>
         </a>
-        <span class="sysbar__location">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          Göteborg
-        </span>
+        <slot name="location" />
       </div>
       <div class="sysbar__right">
-        <a href="/goteborg" class="sysbar__item">Översikt</a>
-        <a href="/goteborg/politiker" class="sysbar__item">Politiker</a>
-        <a href="/goteborg/forvaltning" class="sysbar__item">Förvaltningar</a>
-        <a href="/goteborg/kf" class="sysbar__item">KF Beslut</a>
-        <a href="/goteborg/ks" class="sysbar__item">KS Beslut</a>
-        <a href="/goteborg/budget" class="sysbar__item">Budget</a>
-        <a href="/goteborg/trender" class="sysbar__item">Trender</a>
         <button id="theme-toggle" class="sysbar__item sysbar__theme-btn" aria-label="Byt tema">
-          <span class="theme-icon-light"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
-          <span class="theme-icon-dark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+          <span class="theme-icon-light"><Icon name="sun" size={16} /></span>
+          <span class="theme-icon-dark"><Icon name="moon" size={16} /></span>
         </button>
       </div>
     </header>
 
-    <!-- Content layer -->
-    <main class="max-w-6xl mx-auto w-full flex-1 py-(--space-xl) px-(--space-md)">
-      {breadcrumbs && breadcrumbs.length > 0 && (
-        <Breadcrumb items={breadcrumbs} class="mb-4" />
+    <!-- App shell: optional nav rail + content -->
+    <div class="app">
+      {hasNav && (
+        <>
+          <aside class="app__nav" id="app-nav">
+            <slot name="nav" />
+          </aside>
+          <button class="app__scrim" id="nav-scrim" aria-label="Stäng menyn" tabindex="-1"></button>
+        </>
       )}
-      <slot />
-    </main>
+
+      <div class="app__content">
+        <main class="max-w-6xl mx-auto w-full flex-1 py-(--space-xl) px-(--space-md)">
+          {breadcrumbs && breadcrumbs.length > 0 && (
+            <Breadcrumb items={breadcrumbs} class="mb-4" />
+          )}
+          <slot />
+        </main>
+
+        <footer class="site-footer">
+          <p>Public money, public code. Public decisions, public data.</p>
+          <p class="mt-(--space-sm)">AGPL-3.0 · <a href="https://github.com/DeArbetarForDig/dearbetarfordig.se">Källkod</a> · <a href="https://api.dearbetarfordig.se/openapi.json">API</a> · <a href="/integritet">Integritet</a></p>
+        </footer>
+      </div>
+    </div>
 
     <ChartTooltip />
-    <footer class="site-footer">
-      <p>Public money, public code. Public decisions, public data.</p>
-      <p class="mt-(--space-sm)">AGPL-3.0 · <a href="https://github.com/DeArbetarForDig/dearbetarfordig.se">Källkod</a> · <a href="https://api.dearbetarfordig.se/openapi.json">API</a> · <a href="/integritet">Integritet</a></p>
-    </footer>
 
     <script is:inline>
       document.getElementById('theme-toggle').addEventListener('click', () => {
@@ -104,6 +133,22 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
         document.documentElement.setAttribute('data-theme', next)
         localStorage.setItem('theme', next)
       })
+
+      // Mobile nav drawer — only wired when the page has a nav rail
+      const navToggle = document.getElementById('nav-toggle')
+      if (navToggle) {
+        const setNavOpen = (open) => {
+          document.documentElement.toggleAttribute('data-nav-open', open)
+          navToggle.setAttribute('aria-expanded', String(open))
+        }
+        navToggle.addEventListener('click', () =>
+          setNavOpen(!document.documentElement.hasAttribute('data-nav-open')),
+        )
+        document.getElementById('nav-scrim').addEventListener('click', () => setNavOpen(false))
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') setNavOpen(false)
+        })
+      }
     </script>
   </body>
 </html>

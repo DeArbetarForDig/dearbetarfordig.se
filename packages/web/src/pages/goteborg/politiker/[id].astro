@@ -24,7 +24,7 @@ import {
 /**
  * Politician profile page — full portfolio with voting, speeches, arvode.
  */
-import Base from '../../../layouts/Base.astro'
+import Kommun from '../../../layouts/Kommun.astro'
 
 export async function getStaticPaths() {
   const politiker = await getPolitiker()
@@ -122,7 +122,7 @@ const profilTabs = [
 ].filter(Boolean) as { key: string; label: string }[]
 ---
 
-<Base
+<Kommun
   title={`${namn} (${detail.parti})`}
   breadcrumbs={[
     { label: 'Göteborg', href: '/goteborg' },
@@ -307,4 +307,4 @@ const profilTabs = [
     </section>
 
   </div>
-</Base>
+</Kommun>

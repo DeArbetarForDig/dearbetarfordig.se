@@ -1,0 +1,66 @@
+---
+/**
+ * Kommun — layout for pages inside a kommun (/goteborg/...).
+ *
+ * Wraps Base and fills its slots with the kommun context: the location
+ * chip in the sysbar and the sidebar NavigationTree. The nav config lives
+ * here — one place to add menu items — and builds hrefs from the kommun
+ * slug, so a second kommun reuses the same layout with different props.
+ */
+import Icon from '../../../ui/src/components/core/Icon.astro'
+import NavigationTree from '../../../ui/src/components/core/NavigationTree.astro'
+import Base from './Base.astro'
+
+interface Props {
+  title: string
+  description?: string
+  breadcrumbs?: { label: string; href?: string }[]
+  kommun?: string
+  kommunNamn?: string
+}
+
+const {
+  title,
+  description,
+  breadcrumbs,
+  kommun = 'goteborg',
+  kommunNamn = 'Göteborg',
+} = Astro.props
+
+const bas = `/${kommun}`
+const nav = [
+  { label: 'Översikt', href: bas },
+  { label: 'Politiker', href: `${bas}/politiker` },
+  { label: 'Förvaltningar', href: `${bas}/forvaltning` },
+  {
+    label: 'Beslut & möten',
+    children: [
+      {
+        label: 'Kommunfullmäktige',
+        children: [
+          { label: 'Översikt', href: `${bas}/kf` },
+          { label: 'Beslut', href: `${bas}/kf/beslut` },
+          { label: 'Möten', href: `${bas}/kf/moten` },
+        ],
+      },
+      { label: 'Kommunstyrelsen', href: `${bas}/ks` },
+    ],
+  },
+  {
+    label: 'Ekonomi',
+    children: [
+      { label: 'Budget', href: `${bas}/budget` },
+      { label: 'Trender', href: `${bas}/trender` },
+    ],
+  },
+]
+---
+
+<Base title={title} description={description} breadcrumbs={breadcrumbs}>
+  <span slot="location" class="sysbar__location">
+    <Icon name="map-pin" size={14} />
+    {kommunNamn}
+  </span>
+  <NavigationTree slot="nav" items={nav} currentPath={Astro.url.pathname} />
+  <slot />
+</Base>

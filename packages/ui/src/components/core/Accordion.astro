@@ -64,13 +64,16 @@ const { summary, open = false, class: className } = Astro.props
     text-decoration: underline;
   }
 
-  .daf-accordion__chevron {
+  /* Icon renders in a child component — scoped selectors don't reach it
+     (attribute scoping does not propagate through class props), hence
+     :global() under a scoped parent. */
+  .daf-accordion__summary :global(.daf-accordion__chevron) {
     color: var(--color-text-muted);
     transition: transform 0.15s ease;
     flex-shrink: 0;
   }
 
-  .daf-accordion[open] > .daf-accordion__summary .daf-accordion__chevron {
+  .daf-accordion[open] > .daf-accordion__summary :global(.daf-accordion__chevron) {
     transform: rotate(180deg);
   }
 

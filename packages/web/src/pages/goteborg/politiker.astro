@@ -1,7 +1,7 @@
 ---
 import PoliticianCard from '../../../../ui/src/components/cards/PoliticianCard.astro'
 import { type Politiker, getPolitiker } from '../../data/api'
-import Base from '../../layouts/Base.astro'
+import Kommun from '../../layouts/Kommun.astro'
 
 const politiker = await getPolitiker()
 const parties = [...new Set(politiker.map((p) => p.parti))].sort()
@@ -67,7 +67,7 @@ const nämnder = [
 ].sort((a, b) => a.localeCompare(b, 'sv'))
 ---
 
-<Base title="Politiker — Göteborg">
+<Kommun title="Politiker — Göteborg">
   <h1 class="text-[2rem] font-bold mb-6">Politiker</h1>
 
   <div id="filter-bar" class="flex flex-col gap-3 mb-6">
@@ -191,4 +191,4 @@ const nämnder = [
       })
     })
   </script>
-</Base>
+</Kommun>

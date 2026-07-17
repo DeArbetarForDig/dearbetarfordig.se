@@ -12,7 +12,7 @@ import Button from '../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../ui/src/components/core/Icon.astro'
 import { fetchApi, getBeslut, getBudget, getMetrics, getPolitiker, getStats } from '../../data/api'
-import Base from '../../layouts/Base.astro'
+import Kommun from '../../layouts/Kommun.astro'
 
 const stats = await getStats()
 const metrics = await getMetrics()
@@ -185,7 +185,7 @@ const senasteBeslut = beslutList
   }))
 ---
 
-<Base title="Göteborg">
+<Kommun title="Göteborg">
 
   <!-- Header -->
   <section class="mb-12">
@@ -384,4 +384,4 @@ const senasteBeslut = beslutList
     </div>
   </section>
 
-</Base>
+</Kommun>

@@ -2,7 +2,7 @@
 import Card from '../../../../../ui/src/components/core/Card.astro'
 import Pill from '../../../../../ui/src/components/core/Pill.astro'
 import { getFörvaltningar } from '../../../data/api'
-import Base from '../../../layouts/Base.astro'
+import Kommun from '../../../layouts/Kommun.astro'
 
 const förvaltningar = await getFörvaltningar()
 
@@ -12,7 +12,7 @@ const sorted = förvaltningar.sort(
 )
 ---
 
-<Base title="Förvaltningar — Göteborg">
+<Kommun title="Förvaltningar — Göteborg">
   <h1 class="text-[2rem] font-bold mb-2">Förvaltningar</h1>
   <p class="text-sm text-[var(--color-text-muted)] mb-6">{sorted.length} förvaltningar · Löner per 2026-04-01 · Utfall 2025</p>
 
@@ -61,4 +61,4 @@ const sorted = förvaltningar.sort(
       )
     })}
   </div>
-</Base>
+</Kommun>

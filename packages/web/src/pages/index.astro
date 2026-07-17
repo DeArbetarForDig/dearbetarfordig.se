@@ -1,14 +1,20 @@
 ---
+import Button from '../../../ui/src/components/core/Button.astro'
 import Base from '../layouts/Base.astro'
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Dataset',
   name: 'De Arbetar För Dig',
-  description: 'Öppna data om svensk kommunalpolitik — politiker, beslut, voteringar, budget och arvoden, strukturerat per kommun.',
+  description:
+    'Öppna data om svensk kommunalpolitik — politiker, beslut, voteringar, budget och arvoden, strukturerat per kommun.',
   url: 'https://dearbetarfordig.se',
   license: 'https://www.gnu.org/licenses/agpl-3.0.html',
-  creator: { '@type': 'Organization', name: 'De Arbetar För Dig', url: 'https://github.com/DeArbetarForDig' },
+  creator: {
+    '@type': 'Organization',
+    name: 'De Arbetar För Dig',
+    url: 'https://github.com/DeArbetarForDig',
+  },
   distribution: [
     {
       '@type': 'DataDownload',
@@ -23,10 +29,8 @@ const jsonLd = {
 <Base title="Hem">
   <div class="text-center py-20">
     <h1 class="text-4xl font-bold mb-4">De Arbetar För Dig</h1>
-    <p class="text-xl text-slate-500 dark:text-slate-400 mb-8">Dina politiker. Deras beslut. Dina pengar. Öppet för alla.</p>
-    <a href="/goteborg" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-      Göteborg →
-    </a>
+    <p class="text-xl text-[var(--color-text-muted)] mb-8">Dina politiker. Deras beslut. Dina pengar. Öppet för alla.</p>
+    <Button variant="primary" size="lg" href="/goteborg">Göteborg →</Button>
   </div>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </Base>

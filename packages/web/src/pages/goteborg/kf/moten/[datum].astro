@@ -5,7 +5,7 @@ import PartyTag from '../../../../../../ui/src/components/core/PartyTag.astro'
 import StatusBadge from '../../../../../../ui/src/components/core/StatusBadge.astro'
 import Tabs from '../../../../../../ui/src/components/core/Tabs.astro'
 import { fetchApi, getMöteAnföranden, getMöten, getStats } from '../../../../data/api'
-import Base from '../../../../layouts/Base.astro'
+import Kommun from '../../../../layouts/Kommun.astro'
 
 export async function getStaticPaths() {
   const möten = await getMöten()
@@ -84,7 +84,7 @@ for (const a of anföranden) {
 const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
 ---
 
-<Base
+<Kommun
   title={`KF ${datum} — Göteborg`}
   breadcrumbs={[
     { label: 'Göteborg', href: '/goteborg' },
@@ -153,7 +153,7 @@ const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
               </div>
               {b.beslut && (
                 <StatusBadge
-                  status={b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut}
+                  status={b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut === 'beslut' ? 'antecknad' : b.beslut}
                 />
               )}
             </div>
@@ -248,7 +248,7 @@ const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
       </div>
     </Fragment>
   </Tabs>
-</Base>
+</Kommun>
 
 <script is:inline>
   // Search in anföranden

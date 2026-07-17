@@ -4,7 +4,7 @@ import ProgressBar from '../../../../ui/src/components/charts/ProgressBar.astro'
 import StackedAreaChart from '../../../../ui/src/components/charts/StackedAreaChart.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
 import { type BudgetUtfallNämnd, getBudget, getBudgetUtfall, getBudgetYear } from '../../data/api'
-import Base from '../../layouts/Base.astro'
+import Kommun from '../../layouts/Kommun.astro'
 
 const budget = await getBudget()
 const allPoster = budget.nämnder
@@ -100,7 +100,7 @@ const seriesData = katKeys.map((key) => {
 })
 ---
 
-<Base title="Budget — Göteborg">
+<Kommun title="Budget — Göteborg">
   <h1 class="text-[2rem] font-bold mb-2">Budget 2026</h1>
   <p class="text-sm text-[var(--color-text-muted)] mb-8">
     Göteborgs Stads kommunbidrag — totalt <strong class="font-mono">{budget.totalMnkr.toLocaleString('sv-SE')}</strong> mnkr.
@@ -153,4 +153,4 @@ const seriesData = katKeys.map((key) => {
     </Card>
     )}
   </div>
-</Base>
+</Kommun>

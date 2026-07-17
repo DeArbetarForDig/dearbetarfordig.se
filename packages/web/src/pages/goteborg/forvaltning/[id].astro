@@ -9,7 +9,7 @@ import Icon from '../../../../../ui/src/components/core/Icon.astro'
 import Pill from '../../../../../ui/src/components/core/Pill.astro'
 import Table from '../../../../../ui/src/components/core/Table.astro'
 import { getFörvaltningDetail, getFörvaltningar } from '../../../data/api'
-import Base from '../../../layouts/Base.astro'
+import Kommun from '../../../layouts/Kommun.astro'
 
 export async function getStaticPaths() {
   const förvaltningar = await getFörvaltningar()
@@ -49,7 +49,7 @@ const budgetMnkr = utfall?.kommunbidragMnkr || budget?.kommunbidragMnkr || 0
 const resultatMnkr = utfall?.resultatMnkr ?? null
 ---
 
-<Base
+<Kommun
   title={`${direktör.förvaltning} — Göteborg`}
   breadcrumbs={[
     { label: 'Göteborg', href: '/goteborg' },
@@ -347,4 +347,4 @@ const resultatMnkr = utfall?.resultatMnkr ?? null
     </section>
 
   </div>
-</Base>
+</Kommun>
