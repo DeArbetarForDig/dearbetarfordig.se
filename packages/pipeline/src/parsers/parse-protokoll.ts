@@ -399,16 +399,23 @@ function parseNärvarolista(text: string, möteDatum: string, möteId: string): 
   if (existsSync(polPath)) {
     const polData = JSON.parse(readFileSync(polPath, 'utf-8'))
     politikerList = polData.politiker
+    // Först skrivna vinner vid kollision — levande poster står tidigare i
+    // filen än syntetiserade historisk-poster, så en historisk dubblett med
+    // längre efternamn ("Höij Risberg") kan inte kapa en levande politikers
+    // exakta nyckel ("höij", "ternegren") via sin part-nyckel.
+    const set = (key: string, id: string) => {
+      if (!nameToId.has(key)) nameToId.set(key, id)
+    }
     for (const p of polData.politiker) {
       // Exact matches
-      nameToId.set(`${p.efternamn}, ${p.förnamn}`.toLowerCase(), p.id)
-      nameToId.set(`${p.förnamn} ${p.efternamn}`.toLowerCase(), p.id)
+      set(`${p.efternamn}, ${p.förnamn}`.toLowerCase(), p.id)
+      set(`${p.förnamn} ${p.efternamn}`.toLowerCase(), p.id)
       // Parts of double surnames: "Andersson Broang" → also match "Broang"
       const parts = p.efternamn.split(/\s+/)
       if (parts.length > 1) {
         for (const part of parts) {
-          nameToId.set(`${part}, ${p.förnamn}`.toLowerCase(), p.id)
-          nameToId.set(`${p.förnamn} ${part}`.toLowerCase(), p.id)
+          set(`${part}, ${p.förnamn}`.toLowerCase(), p.id)
+          set(`${p.förnamn} ${part}`.toLowerCase(), p.id)
         }
       }
     }
@@ -430,8 +437,15 @@ function parseNärvarolista(text: string, möteDatum: string, möteId: string): 
     const parts = flipped.toLowerCase().split(/\s+/)
     for (const p of politikerList) {
       const pParts = `${p.förnamn} ${p.efternamn}`.toLowerCase().split(/\s+/)
-      // All parts of the raw name must appear in the full name
-      if (parts.every((part) => pParts.includes(part))) return p.id
+      // Either direction: raw is an abbreviation of the roster name ("Andersson"
+      // ⊂ "Andersson Broang"), OR the roster name is an abbreviation of raw
+      // (roster "Mariette Höij" ⊂ protocol's "Mariette Höij Risberg" — some
+      // years' närvarolista spell the full name, roster only holds the short form).
+      if (
+        parts.every((part) => pParts.includes(part)) ||
+        pParts.every((part) => parts.includes(part))
+      )
+        return p.id
     }
     return undefined
   }

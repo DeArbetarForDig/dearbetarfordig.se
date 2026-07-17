@@ -333,8 +333,21 @@ async function main() {
   let räddadeRöster = 0
   for (const [namn, röster] of perNamn) {
     if (röster.length < MIN_RÖSTER_FÖR_SYNTES) continue
-    const id = syntetisktId(namn)
-    if (!polData.politiker.some((p: { id: string }) => p.id === id)) {
+    const parti = röster[0].parti
+    const bilagaTokens = norm(namn).split(' ')
+    // Bilagan kan stava ett existerande namn längre ("Eva Ann-Mari
+    // Ternegren" för rostrets "Eva Ternegren") — om alla tokens i en
+    // befintlig posts fulla namn ryms i bilaga-namnet, återanvänd dess id
+    // i stället för att syntetisera en dubblett.
+    const träff = polData.politiker.find(
+      (p: { förnamn: string; efternamn: string; parti: string }) =>
+        p.parti === parti &&
+        norm(`${p.förnamn} ${p.efternamn}`)
+          .split(' ')
+          .every((t) => bilagaTokens.includes(t)),
+    )
+    const id = träff ? träff.id : syntetisktId(namn)
+    if (!träff && !polData.politiker.some((p: { id: string }) => p.id === id)) {
       const delar = namn.split(/\s+/)
       polData.politiker.push({
         id,
