@@ -27,6 +27,8 @@ Första året blir trafiken låg (utveckling + uppstart) — det är **inte** an
 
 **✅ Implementerad 2026-07-07:** `ci.yml` bygger nu Docker-imagen i GitHub Actions och pushar till GHCR (`ghcr.io/dearbetarfordig/dearbetarfordig.se`); deploy-steget gör bara `docker compose pull && docker compose up -d` — ingen kompilering på servern längre, deploy på sekunder istället för minuter. Med den fixen på plats duger även de billigaste VPS-alternativen (se STRATO nedan).
 
+**✅ Implementerad 2026-07-17 — förseedad databas som artefakt:** databasen är ren härledd data ur `data/*.json`, så `ci.yml` seedar nu en engångs-Postgres i CI, kör `pg_dump` och bakar dumpen i en egen image (`ghcr.io/dearbetarfordig/dearbetarfordig.se-db`, `Dockerfile.db`). `PGDATA` ligger utanför basimagens volym → varje omskapat container-exemplar kör initdb + dumpen — databasen är alltid ny och ren, ingen volym, ingen seed på servern. API-imagen skeppar bara de tre `data/`-kataloger som routes läser i runtime (`debatter`, `kolada`, `lon`). Servern behöver inget repo längre: `deploy.yml` scp:ar `docker-compose.yml` + `Caddyfile` till `/opt/daf` och kör `pull && up -d` — allt utom `.env` (`POSTGRES_PASSWORD`) kommer från GHCR. Lokalt: `docker compose up db` drar db-imagen från GHCR (kräver publikt package eller `docker login ghcr.io`); alternativt kör en vanlig postgres och `pnpm --filter @daf/api db:seed` som förr.
+
 ## Varför inte vanligt webhotell (delat/managed hosting)?
 
 Utvärderat och avfärdat, oavsett leverantör — det är en annan produktkategori:

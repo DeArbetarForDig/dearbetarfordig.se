@@ -1,0 +1,12 @@
+# Pre-seeded Postgres image. CI (ci.yml build-and-push) seeds a scratch
+# database from data/*.json, pg_dumps it and bakes the dump into this image;
+# the official entrypoint loads /docker-entrypoint-initdb.d/*.sql.gz on first
+# init. PGDATA points outside the base image's declared VOLUME, so the
+# cluster lives in the container layer: recreating the container re-runs
+# initdb + the dump. The database is rebuilt fresh on every deploy and no
+# state survives — by design, the DB is a pure derived artifact of data/.
+# Roles/passwords are not in the dump (--no-owner --no-privileges); they come
+# from POSTGRES_* env at container start, so secrets stay on the server.
+FROM postgres:16-alpine
+ENV PGDATA=/pgdata
+COPY seed.sql.gz /docker-entrypoint-initdb.d/

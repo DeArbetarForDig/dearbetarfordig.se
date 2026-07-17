@@ -66,9 +66,16 @@ jobs:
           done
       - run: pnpm --filter @daf/api test
 
-  # Builds and publishes the image on every push to main — this is CI, it
-  # only produces an artifact. It never touches the server; see deploy.yml
+  # Builds and publishes both images on every push to main — this is CI, it
+  # only produces artifacts. It never touches the server; see deploy.yml
   # (manual workflow_dispatch) for that step.
+  #
+  # Two images per commit:
+  # - dearbetarfordig.se     — the API server (Dockerfile)
+  # - dearbetarfordig.se-db  — Postgres pre-seeded from data/*.json
+  #   (Dockerfile.db): this job seeds a scratch service container, pg_dumps
+  #   it and bakes the dump in. The server never sees the repo, the JSON
+  #   files or a seed step — it just pulls the ready-made database.
   build-and-push:
     needs: [lint, test]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -76,8 +83,44 @@ jobs:
     permissions:
       contents: read
       packages: write
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: daf
+          POSTGRES_USER: daf
+          POSTGRES_PASSWORD: daf_local
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgresql://daf:daf_local@localhost:5432/daf
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: corepack enable && corepack prepare pnpm@9 --activate
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @daf/api db:seed
+      # pg_dump runs inside the service container — the runner's own
+      # postgresql-client may lag the server's major version and refuse.
+      # gzip -n keeps the artifact byte-stable for identical data.
+      - name: Dump seeded database
+        # The dump goes into its own build context so the db-image build
+        # doesn't upload the whole repo (data/ alone is ~300 MB).
+        run: |
+          mkdir db-image
+          docker exec ${{ job.services.postgres.id }} pg_dump -U daf --no-owner --no-privileges daf | gzip -n > db-image/seed.sql.gz
+          cp Dockerfile.db db-image/
       # Required for cache-from/to: type=gha — the runner's default buildx
       # builder uses the plain "docker" driver, which can't export to the
       # GHA cache backend at all ("Cache export is not supported for the
@@ -99,6 +142,14 @@ jobs:
             ghcr.io/dearbetarfordig/dearbetarfordig.se:${{ steps.meta.outputs.sha_tag }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      - uses: docker/build-push-action@v6
+        with:
+          context: db-image
+          file: db-image/Dockerfile.db
+          push: true
+          tags: |
+            ghcr.io/dearbetarfordig/dearbetarfordig.se-db:latest
+            ghcr.io/dearbetarfordig/dearbetarfordig.se-db:${{ steps.meta.outputs.sha_tag }}
 
   # Publishes the static Astro site (packages/web) to GitHub Pages —
   # fully automatic, no server involved. Separate from build-and-push (API

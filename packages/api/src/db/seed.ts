@@ -60,7 +60,10 @@ async function main() {
 
   console.log('🌱 Seeding database...\n')
 
-  // Create schema
+  // Fresh schema every run — the DB is a pure derived artifact of data/,
+  // and prod re-seeds on every container start, so stale tables or column
+  // shapes must never survive a deploy.
+  await client`DROP SCHEMA IF EXISTS goteborg CASCADE`
   await client`CREATE SCHEMA IF NOT EXISTS goteborg`
   console.log('   ✓ Schema goteborg')
 
@@ -559,5 +562,7 @@ async function main() {
 
 main().catch((err) => {
   console.error('\n❌ Seed failed:', err)
-  process.exitCode = 1
+  // Hard exit: open postgres sockets would otherwise keep the process
+  // alive, hanging the container instead of letting restart-policy retry.
+  process.exit(1)
 })

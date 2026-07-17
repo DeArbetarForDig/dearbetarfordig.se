@@ -17,7 +17,11 @@ services:
     restart: unless-stopped
 
   db:
-    image: postgres:16-alpine
+    # Pre-seeded image baked in CI (ci.yml build-and-push, Dockerfile.db):
+    # the dump of data/*.json loads via initdb when the container is
+    # (re)created. No volume on purpose — the DB is a pure derived artifact,
+    # PGDATA lives in the container layer, every deploy starts clean.
+    image: ghcr.io/dearbetarfordig/dearbetarfordig.se-db:${IMAGE_TAG:-latest}
     environment:
       POSTGRES_DB: daf
       POSTGRES_USER: daf
@@ -26,10 +30,11 @@ services:
     # Use `docker compose exec db psql -U daf` for a shell when needed.
     expose:
       - "5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U daf']
+      # -h 127.0.0.1 forces TCP: while the entrypoint loads the baked dump
+      # it runs a temporary socket-only server, and a socket pg_isready
+      # would report healthy before the data exists.
+      test: ['CMD-SHELL', 'pg_isready -U daf -h 127.0.0.1']
       interval: 10s
       timeout: 5s
       retries: 5
@@ -51,6 +56,5 @@ services:
     restart: unless-stopped
 
 volumes:
-  pgdata:
   caddy_data:
   caddy_config:

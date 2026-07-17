@@ -1,10 +1,16 @@
 name: Deploy
 
 # Manual only — never triggered by push/PR. Building and publishing the
-# image (ci.yml's build-and-push job) is automatic; putting a new image
+# images (ci.yml's build-and-push job) is automatic; putting new images
 # live on the server is a deliberate, separate action taken from the
 # Actions tab ("Run workflow"), so a merge to main never pushes straight
 # to production.
+#
+# The server holds no repo clone: everything it needs is the two GHCR
+# images (API + pre-seeded DB), docker-compose.yml, Caddyfile and its
+# local .env (POSTGRES_PASSWORD). This workflow ships the two config
+# files and restarts the stack; the DB container re-initializes from the
+# baked dump, so data updates need no seed step.
 on:
   workflow_dispatch:
     inputs:
@@ -22,9 +28,15 @@ jobs:
     # trigger. Works fine with zero setup too — it's just a label until then.
     environment: production
     steps:
-      # No checkout of the build — the server already has its own clone
-      # (for docker-compose.yml/Caddyfile) and only pulls the pre-built
-      # image below; it never runs pnpm install/build.
+      - uses: actions/checkout@v5
+      - name: Ship compose config
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          source: 'docker-compose.yml,Caddyfile'
+          target: /opt/daf
       - name: Deploy ${{ inputs.image_tag }} to server
         uses: appleboy/ssh-action@v1
         with:
@@ -34,8 +46,12 @@ jobs:
           envs: IMAGE_TAG
           script: |
             cd /opt/daf
-            git pull origin main
             IMAGE_TAG="${IMAGE_TAG:-latest}" docker compose pull
-            IMAGE_TAG="${IMAGE_TAG:-latest}" docker compose up -d
+            IMAGE_TAG="${IMAGE_TAG:-latest}" docker compose up -d --remove-orphans
+            # Old images pile up fast when every deploy ships a ~fresh DB
+            # image; anonymous volumes are the empty stubs postgres's
+            # declared VOLUME leaves behind (PGDATA lives elsewhere).
+            docker image prune -f
+            docker volume prune -f
         env:
           IMAGE_TAG: ${{ inputs.image_tag }}

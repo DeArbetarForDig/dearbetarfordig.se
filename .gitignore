@@ -19,3 +19,7 @@ data/inbox/*.pdf
 # Docling Python env (packages/pipeline/python) — install via requirements.txt
 packages/pipeline/python/.venv/
 packages/pipeline/python/__pycache__/
+
+# CI artifacts of the baked DB image (ci.yml build-and-push)
+/db-image/
+/seed.sql.gz
