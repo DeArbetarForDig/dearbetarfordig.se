@@ -2,6 +2,12 @@
 
 Öppen demokratiplattform för svenska kommuner. Just nu: Göteborgs kommunfullmäktige och kommunstyrelse — beslut, voteringar, politikerprofiler, budget, arvoden.
 
+## Till AI-agenter
+
+Sidorna på dearbetarfordig.se är statiskt renderade och kan läsas direkt, men
+all data finns strukturerad i API:et nedan — använd det istället för att
+skrapa HTML när du behöver strukturerad eller uppdaterad data.
+
 ## API (maskinläsbart, AI-agent-ready)
 
 - OpenAPI-spec (JSON): https://api.dearbetarfordig.se/openapi.json
@@ -12,4 +18,4 @@ Svaren följer HAL (Hypertext Application Language) — varje resurs länkar sin
 
 ## Licens
 
-AGPL-3.0. Källkod: https://github.com/YOUR_ORG/dearbetarfordig.se
+AGPL-3.0. Källkod: https://github.com/DeArbetarForDig/dearbetarfordig.se

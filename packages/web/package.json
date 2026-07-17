@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "@daf/shared": "workspace:*",
     "@daf/ui": "workspace:*",
     "astro": "6.4.8"

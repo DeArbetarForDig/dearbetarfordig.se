@@ -1,5 +1,23 @@
 ---
 import Base from '../layouts/Base.astro'
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'De Arbetar För Dig',
+  description: 'Öppna data om svensk kommunalpolitik — politiker, beslut, voteringar, budget och arvoden, strukturerat per kommun.',
+  url: 'https://dearbetarfordig.se',
+  license: 'https://www.gnu.org/licenses/agpl-3.0.html',
+  creator: { '@type': 'Organization', name: 'De Arbetar För Dig', url: 'https://github.com/DeArbetarForDig' },
+  distribution: [
+    {
+      '@type': 'DataDownload',
+      name: 'OpenAPI-specifikation',
+      encodingFormat: 'application/vnd.oai.openapi+json',
+      contentUrl: 'https://api.dearbetarfordig.se/openapi.json',
+    },
+  ],
+}
 ---
 
 <Base title="Hem">
@@ -10,4 +28,5 @@ import Base from '../layouts/Base.astro'
       Göteborg →
     </a>
   </div>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </Base>
