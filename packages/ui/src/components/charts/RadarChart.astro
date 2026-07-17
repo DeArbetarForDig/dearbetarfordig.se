@@ -76,7 +76,7 @@ const dataPolygon = points.map((p) => `${p.x},${p.y}`).join(' ')
 ---
 
 <div class:list={['daf-radar', className]} style={`--radar-color:${color}`}>
-  <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label="Percentilprofil">
+  <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} overflow="visible" role="img" aria-label="Percentilprofil">
     {gridPolygons.map((poly) => (
       <polygon class="daf-radar__grid" points={poly} />
     ))}
