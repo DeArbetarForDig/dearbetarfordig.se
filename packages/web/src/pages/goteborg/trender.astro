@@ -1,7 +1,8 @@
 ---
 import Sparkline from '../../../../ui/src/components/charts/Sparkline.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
-import { getTrender } from '../../data/api'
+import Icon from '../../../../ui/src/components/core/Icon.astro'
+import { divergens, divergensLabel, getTrender } from '../../data/api'
 import Kommun from '../../layouts/Kommun.astro'
 
 const trender = await getTrender()
@@ -39,6 +40,14 @@ function tecken(procent: number) {
         <div class="grid gap-4">
           {trender.kpis
             .filter((k) => k.kategori === kategori)
+            .sort((a, b) => {
+              const da = divergens(a)
+              const db = divergens(b)
+              if (da === null && db === null) return 0
+              if (da === null) return 1
+              if (db === null) return -1
+              return Math.abs(db) - Math.abs(da)
+            })
             .map((kpi) => {
               const utfallPoäng = poäng(kpi.göteborg)
               const budgetPoäng = kpi.budget ? poäng(kpi.budget) : []
@@ -82,6 +91,12 @@ function tecken(procent: number) {
                             {kpi.budgetÄndring.procent}%)
                           </p>
                         )}
+                        {kpi.budgetÄndring?.procentReellt !== undefined && (
+                          <p class="text-xs font-mono text-[var(--color-text-muted)]">
+                            Realt: {tecken(kpi.budgetÄndring.procentReellt)}
+                            {kpi.budgetÄndring.procentReellt}%
+                          </p>
+                        )}
                       </div>
                     ) : (
                       <p class="text-xs text-[var(--color-text-muted)] self-center">
@@ -89,6 +104,17 @@ function tecken(procent: number) {
                       </p>
                     )}
                   </div>
+                  {kpi.budgetÄndring && kpi.utfallÄndring && (() => {
+                    const d = divergens(kpi)!
+                    const { text, tone } = divergensLabel(d)
+                    const iconName = tone === 'negative' ? 'shield-alert' : tone === 'warning' ? 'triangle-alert' : 'check'
+                    return (
+                      <div class:list={['mt-2 text-xs font-semibold flex items-center gap-1', `text-(--color-${tone})`]}>
+                        <Icon name={iconName} size={14} />
+                        {text}
+                      </div>
+                    )
+                  })()}
                 </Card>
               )
             })}

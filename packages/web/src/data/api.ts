@@ -240,6 +240,7 @@ export interface TrendÄndring {
   från: number
   till: number
   procent: number
+  procentReellt?: number
 }
 
 export interface TrendKpi {
@@ -259,6 +260,86 @@ export interface Trender {
   kpis: TrendKpi[]
 }
 
+// SCB, inte Riksbanken, publicerar KPI-serien — Riksbanken bara targetar den.
+// KPI2020M = tabellen med basår 2020, ska användas (1980=100-tabellen slutade uppdateras 2025M12).
+const SCB_KPI_URL = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/PR/PR0101/PR0101A/KPI2020M'
+// "KPI, fastställda tal" (00000808) är null före 2026M01 i den här tabellen — historiken finns
+// bara i "KPI, skuggindex" (00000807), vilket SCB:s egen tabellnot anger som konsistent för jämförelser.
+const SCB_KPI_CONTENTSCODE = '00000807'
+
+async function fetchScbKpi(): Promise<Record<number, number>> {
+  const sistaÅr = new Date().getFullYear()
+  const förstaÅr = sistaÅr - 15
+  const månader = Array.from({ length: sistaÅr - förstaÅr + 1 }, (_, i) => `${förstaÅr + i}M01`)
+
+  const res = await fetch(SCB_KPI_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      query: [
+        { code: 'ContentsCode', selection: { filter: 'item', values: [SCB_KPI_CONTENTSCODE] } },
+        { code: 'Tid', selection: { filter: 'item', values: månader } },
+      ],
+      response: { format: 'json-stat2' },
+    }),
+  })
+  if (!res.ok) throw new Error(`SCB KPI ${res.status}`)
+  const data = (await res.json()) as { dimension: { Tid: { category: { index: Record<string, number> } } }; value: (number | null)[] }
+
+  const index: Record<number, number> = {}
+  for (const [tid, i] of Object.entries(data.dimension.Tid.category.index)) {
+    const värde = data.value[i]
+    if (värde !== null) index[Number(tid.slice(0, 4))] = värde
+  }
+  return index
+}
+
+// Räknar om ett nominellt belopp i "årKPI"-prisnivå till "basårKPI"-prisnivå (reellt värde).
+function reellt(nominalMnkr: number, årKPI: number, basårKPI: number): number {
+  return nominalMnkr * (basårKPI / årKPI)
+}
+
+function beräknaProcentReellt(budget: TrendDataPunkt[] | undefined, kpiIndex: Record<number, number>): number | undefined {
+  if (!budget) return undefined
+  const punkter = budget.filter((p) => p.värde !== null)
+  if (punkter.length < 2) return undefined
+  const första = punkter[0]
+  const sista = punkter[punkter.length - 1]
+  const kpiFrån = kpiIndex[första.år]
+  const kpiTill = kpiIndex[sista.år]
+  if (!kpiFrån || !kpiTill) return undefined
+
+  const förstaReellt = reellt(första.värde as number, kpiFrån, kpiTill)
+  return Math.round(((sista.värde! - förstaReellt) / förstaReellt) * 1000) / 10
+}
+
+export function divergens(kpi: TrendKpi): number | null {
+  if (!kpi.budgetÄndring || !kpi.utfallÄndring) return null
+  return kpi.budgetÄndring.procent - kpi.utfallÄndring.procent
+}
+
+export function divergensLabel(d: number): { text: string; tone: 'warning' | 'negative' | 'positive' } {
+  if (d > 10) return { text: 'Stor divergens — resultat följer inte budgetökning', tone: 'negative' }
+  if (d > 5) return { text: 'Måttlig divergens', tone: 'warning' }
+  if (d < -5) return { text: 'Resultat överträffar budgettillväxt', tone: 'positive' }
+  return { text: 'Proportionellt — resultat följer budget', tone: 'positive' }
+}
+
 export async function getTrender(): Promise<Trender> {
-  return fetchApi<Trender>('/api/v1/goteborg/trender')
+  const trender = await fetchApi<Trender>('/api/v1/goteborg/trender')
+
+  let kpiIndex: Record<number, number> = {}
+  try {
+    kpiIndex = await fetchScbKpi()
+  } catch (err) {
+    console.warn('SCB KPI-uppslagning misslyckades, visar nominella tal utan realt värde:', err)
+  }
+
+  for (const kpi of trender.kpis) {
+    if (kpi.budgetÄndring) {
+      kpi.budgetÄndring.procentReellt = beräknaProcentReellt(kpi.budget, kpiIndex)
+    }
+  }
+
+  return trender
 }

@@ -11,7 +11,17 @@ import ProgressBar from '../../../../ui/src/components/charts/ProgressBar.astro'
 import Button from '../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
 import Icon from '../../../../ui/src/components/core/Icon.astro'
-import { fetchApi, getBeslut, getBudget, getMetrics, getPolitiker, getStats } from '../../data/api'
+import {
+  divergens,
+  divergensLabel,
+  fetchApi,
+  getBeslut,
+  getBudget,
+  getMetrics,
+  getPolitiker,
+  getStats,
+  getTrender,
+} from '../../data/api'
 import Kommun from '../../layouts/Kommun.astro'
 
 const stats = await getStats()
@@ -19,6 +29,12 @@ const metrics = await getMetrics()
 const politiker = await getPolitiker()
 const beslutList = await getBeslut(200)
 const budget = await getBudget()
+const trender = await getTrender()
+
+// Störst budget/utfall-divergens med negativ tolkning — teaser till /goteborg/trender
+const störstaDivergens = trender.kpis
+  .filter((k) => divergens(k) !== null && divergensLabel(divergens(k)!).tone === 'negative')
+  .sort((a, b) => Math.abs(divergens(b)!) - Math.abs(divergens(a)!))[0]
 
 // Politiker per nämnd — från grafen (ledamot_i edges)
 const polPerNämnd = await fetchApi<
@@ -339,6 +355,25 @@ const senasteBeslut = beslutList
           </div>
         )}
       </Card>
+
+      {störstaDivergens && (() => {
+        const d = divergens(störstaDivergens)!
+        const budgetProcent = störstaDivergens.budgetÄndring!.procent
+        const utfallProcent = störstaDivergens.utfallÄndring!.procent
+        return (
+          <Card title="Budget vs resultat" subtitle={störstaDivergens.namn} tooltip="Nämnden med störst gap mellan budgetökning och faktiskt utfall bland nyckeltalen på /goteborg/trender.">
+            <KpiTrend
+              value={`${d > 0 ? '+' : ''}${d}`}
+              unit="p.e. divergens"
+              trend={{
+                text: `Budget ${budgetProcent > 0 ? '+' : ''}${budgetProcent}% · Utfall ${utfallProcent > 0 ? '+' : ''}${utfallProcent}%`,
+                direction: 'neutral',
+              }}
+            />
+            <Button variant="ghost" href="/goteborg/trender" class="mt-2">Se alla trender →</Button>
+          </Card>
+        )
+      })()}
     </div>
 
     <!-- Rice Index per parti -->
