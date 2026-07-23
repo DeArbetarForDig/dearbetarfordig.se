@@ -65,7 +65,7 @@ Vetenskapligt grundade metrics för utvärdering av kommunfullmäktige.
 ## API
 
 ```bash
-curl localhost:3000/api/v1/goteborg/metrics
+curl localhost:3000/v1/goteborg/metrics
 ```
 
 Returnerar samtliga metrics i JSON-format.

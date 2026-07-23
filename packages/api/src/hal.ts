@@ -106,7 +106,7 @@ export function halResourceWithRelatedSchema<T extends z.ZodTypeAny, R extends z
 
 // Base URL builder
 export function baseUrl(kommun: string): string {
-  return `/api/v1/${kommun}`
+  return `/v1/${kommun}`
 }
 
 // Politiker links

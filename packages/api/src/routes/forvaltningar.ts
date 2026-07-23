@@ -23,7 +23,7 @@ const FörvaltningSummary = z.object({
 
 const förvaltningarRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/forvaltningar',
+  path: '/v1/{kommun}/forvaltningar',
   tags: ['Förvaltningar'],
   summary: 'Lista alla förvaltningar med direktör, budget och utfall',
   request: { params: z.object({ kommun: z.string() }) },
@@ -82,7 +82,7 @@ const FörvaltningRelated = z.object({
 
 const förvaltningDetailRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/forvaltningar/{id}',
+  path: '/v1/{kommun}/forvaltningar/{id}',
   tags: ['Förvaltningar'],
   summary:
     'Enskild förvaltning — direktör, nämnd, budget, utfall, revision, revisionsrapporter, leverantörsutfall, avtal, ledamöter',

@@ -64,17 +64,17 @@ export interface Möte {
 }
 
 export async function getPolitiker(): Promise<Politiker[]> {
-  const data = await fetchApi<HalCollection<Politiker>>('/api/v1/goteborg/politiker?limit=1000')
+  const data = await fetchApi<HalCollection<Politiker>>('/v1/goteborg/politiker?limit=1000')
   return data._embedded.items
 }
 
 export async function getBeslut(limit = 200): Promise<Beslut[]> {
-  const data = await fetchApi<HalCollection<Beslut>>(`/api/v1/goteborg/beslut?limit=${limit}`)
+  const data = await fetchApi<HalCollection<Beslut>>(`/v1/goteborg/beslut?limit=${limit}`)
   return data._embedded.items
 }
 
 export async function getBeslutDetail(id: string): Promise<{ beslut: BeslutDetail; kopplingar: any[] }> {
-  const data = await fetchApi<HalResource<BeslutDetail, { kopplingar: any[] }>>(`/api/v1/goteborg/beslut/${encodeURIComponent(id)}`)
+  const data = await fetchApi<HalResource<BeslutDetail, { kopplingar: any[] }>>(`/v1/goteborg/beslut/${encodeURIComponent(id)}`)
   return {
     beslut: data._embedded.item,
     kopplingar: data._embedded.related?.kopplingar || [],
@@ -82,16 +82,16 @@ export async function getBeslutDetail(id: string): Promise<{ beslut: BeslutDetai
 }
 
 export async function getStats(): Promise<Stats> {
-  return fetchApi<Stats>('/api/v1/goteborg/stats')
+  return fetchApi<Stats>('/v1/goteborg/stats')
 }
 
 export async function getMöten(): Promise<Möte[]> {
-  const data = await fetchApi<HalCollection<Möte>>('/api/v1/goteborg/möten')
+  const data = await fetchApi<HalCollection<Möte>>('/v1/goteborg/möten')
   return data._embedded.items
 }
 
 export async function getMetrics() {
-  return fetchApi<any>('/api/v1/goteborg/metrics')
+  return fetchApi<any>('/v1/goteborg/metrics')
 }
 
 export interface BudgetNämnd {
@@ -119,7 +119,7 @@ export interface BudgetYear {
 type BudgetItem = { år: number; totalMnkr: number; styre?: string; beslut: BudgetBeslut | null }
 
 export async function getBudget(): Promise<BudgetYear> {
-  const data = await fetchApi<HalResource<BudgetItem, { nämnder: BudgetNämnd[] }>>('/api/v1/goteborg/budget?%C3%A5r=2026')
+  const data = await fetchApi<HalResource<BudgetItem, { nämnder: BudgetNämnd[] }>>('/v1/goteborg/budget?%C3%A5r=2026')
   return {
     ...data._embedded.item,
     nämnder: data._embedded.related?.nämnder || [],
@@ -127,7 +127,7 @@ export async function getBudget(): Promise<BudgetYear> {
 }
 
 export async function getBudgetYear(år: number): Promise<BudgetYear> {
-  const data = await fetchApi<HalResource<BudgetItem, { nämnder: BudgetNämnd[] }>>(`/api/v1/goteborg/budget?%C3%A5r=${år}`)
+  const data = await fetchApi<HalResource<BudgetItem, { nämnder: BudgetNämnd[] }>>(`/v1/goteborg/budget?%C3%A5r=${år}`)
   return {
     ...data._embedded.item,
     nämnder: data._embedded.related?.nämnder || [],
@@ -149,7 +149,7 @@ export interface BudgetUtfallNämnd {
 }
 
 export async function getBudgetUtfall(år: number): Promise<BudgetUtfallNämnd[]> {
-  const data = await fetchApi<HalCollection<BudgetUtfallNämnd>>(`/api/v1/goteborg/budget/utfall?%C3%A5r=${år}`)
+  const data = await fetchApi<HalCollection<BudgetUtfallNämnd>>(`/v1/goteborg/budget/utfall?%C3%A5r=${år}`)
   return data._embedded.items
 }
 
@@ -159,7 +159,7 @@ export async function getMöteAnföranden(datum: string, filters?: { talare?: st
   if (filters?.ärende) params.set('ärende', filters.ärende)
   if (filters?.q) params.set('q', filters.q)
   const query = params.toString() ? `?${params.toString()}` : ''
-  const data = await fetchApi<HalCollection<any>>(`/api/v1/goteborg/möten/${datum}/anföranden${query}`)
+  const data = await fetchApi<HalCollection<any>>(`/v1/goteborg/möten/${datum}/anföranden${query}`)
   return {
     antal: data.total,
     anföranden: data._embedded.items,
@@ -167,7 +167,7 @@ export async function getMöteAnföranden(datum: string, filters?: { talare?: st
 }
 
 export async function getPolitikerDetail(id: string) {
-  const data = await fetchApi<HalResource<any, { möten?: any[] }>>(`/api/v1/goteborg/politiker/${id}`)
+  const data = await fetchApi<HalResource<any, { möten?: any[] }>>(`/v1/goteborg/politiker/${id}`)
   return {
     ...data._embedded.item,
     möten: data._embedded.related?.möten || [],
@@ -184,27 +184,27 @@ export interface PolitikerProfilAxis {
 
 export async function getPolitikerProfil(id: string): Promise<PolitikerProfilAxis[]> {
   const data = await fetchApi<HalResource<{ axes: PolitikerProfilAxis[] }>>(
-    `/api/v1/goteborg/politiker/${id}/profil`,
+    `/v1/goteborg/politiker/${id}/profil`,
   )
   return data._embedded.item.axes
 }
 
 export async function getPolitikerArvode(id: string) {
-  const data = await fetchApi<HalResource<any>>(`/api/v1/goteborg/politiker/${id}/arvode`)
+  const data = await fetchApi<HalResource<any>>(`/v1/goteborg/politiker/${id}/arvode`)
   return data._embedded.item
 }
 
 export async function getPolitikerGraf(id: string) {
-  return fetchApi<{ node: any; edges: any[]; related: any[] }>(`/api/v1/goteborg/graf/node/politiker-${id}`)
+  return fetchApi<{ node: any; edges: any[]; related: any[] }>(`/v1/goteborg/graf/node/politiker-${id}`)
 }
 
 export async function getFörvaltningar() {
-  const data = await fetchApi<HalCollection<any>>('/api/v1/goteborg/forvaltningar')
+  const data = await fetchApi<HalCollection<any>>('/v1/goteborg/forvaltningar')
   return data._embedded.items
 }
 
 export async function getFörvaltningDetail(id: string) {
-  const data = await fetchApi<HalResource<any, any>>(`/api/v1/goteborg/forvaltningar/${id}`)
+  const data = await fetchApi<HalResource<any, any>>(`/v1/goteborg/forvaltningar/${id}`)
   return {
     ...data._embedded.item,
     ...data._embedded.related,
@@ -212,7 +212,7 @@ export async function getFörvaltningDetail(id: string) {
 }
 
 export async function getAnföranden(beslutId: string) {
-  const data = await fetchApi<HalCollection<any>>(`/api/v1/goteborg/beslut/${encodeURIComponent(beslutId)}/anforanden`)
+  const data = await fetchApi<HalCollection<any>>(`/v1/goteborg/beslut/${encodeURIComponent(beslutId)}/anforanden`)
   return {
     beslutId,
     antal: data.total,
@@ -222,8 +222,8 @@ export async function getAnföranden(beslutId: string) {
 
 export async function getPolitikerAnföranden(politikerId: string, datum?: string) {
   const url = datum
-    ? `/api/v1/goteborg/politiker/${politikerId}/anforanden?datum=${datum}`
-    : `/api/v1/goteborg/politiker/${politikerId}/anforanden`
+    ? `/v1/goteborg/politiker/${politikerId}/anforanden?datum=${datum}`
+    : `/v1/goteborg/politiker/${politikerId}/anforanden`
   const data = await fetchApi<HalCollection<any>>(url)
   return {
     antal: data.total,
@@ -326,7 +326,7 @@ export function divergensLabel(d: number): { text: string; tone: 'warning' | 'ne
 }
 
 export async function getTrender(): Promise<Trender> {
-  const trender = await fetchApi<Trender>('/api/v1/goteborg/trender')
+  const trender = await fetchApi<Trender>('/v1/goteborg/trender')
 
   let kpiIndex: Record<number, number> = {}
   try {

@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 const { datum } = Astro.params
 
 // Fetch meeting details from API
-const möteData = await fetchApi<any>(`/api/v1/goteborg/möten/${datum}`)
+const möteData = await fetchApi<any>(`/v1/goteborg/möten/${datum}`)
 const möte = möteData._embedded?.item || {}
 const beslut = möteData._embedded?.related?.beslut || []
 

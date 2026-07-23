@@ -22,16 +22,16 @@ describe('Smoke tests — alla endpoints svarar', () => {
     expect(data.db).toBe('connected')
   })
 
-  it('GET /api/v1/goteborg/stats → har politiker och graf', async () => {
-    const { status, data } = await get('/api/v1/goteborg/stats')
+  it('GET /v1/goteborg/stats → har politiker och graf', async () => {
+    const { status, data } = await get('/v1/goteborg/stats')
     expect(status).toBe(200)
     expect(data.politiker).toBeGreaterThan(100)
     expect(data.graf.nodes).toBeGreaterThan(100)
     expect(data.graf.edges).toBeGreaterThan(1000)
   })
 
-  it('GET /api/v1/goteborg/politiker → har politiker', async () => {
-    const { data } = await get('/api/v1/goteborg/politiker?limit=125')
+  it('GET /v1/goteborg/politiker → har politiker', async () => {
+    const { data } = await get('/v1/goteborg/politiker?limit=125')
     // total ska vara det verkliga antalet i databasen (count(*)), inte bara
     // sidans längd — annars ser en paginerad klient aldrig hela bilden.
     expect(data._embedded.items).toHaveLength(125)
@@ -39,51 +39,51 @@ describe('Smoke tests — alla endpoints svarar', () => {
     expect(data._embedded.items[0]).toHaveProperty('id')
     expect(data._embedded.items[0]).toHaveProperty('namn')
     expect(data._embedded.items[0]).toHaveProperty('parti')
-    expect(data._links.self.href).toBe('/api/v1/goteborg/politiker')
+    expect(data._links.self.href).toBe('/v1/goteborg/politiker')
   })
 
-  it('GET /api/v1/goteborg/politiker?parti=S → filtrerar', async () => {
+  it('GET /v1/goteborg/politiker?parti=S → filtrerar', async () => {
     // Not a hardcoded count: how many S-affiliated ledamöter/ersättare exist
     // grows with every scrape (e.g. e58417a's comprehensive scraper alone took
     // this from 33 to 222+ by covering nämnder/bolag/stiftelser, not just KF).
     // Assert filter correctness + plausibility instead, so this doesn't rot
     // on the next legitimate data update.
-    const { data: alla } = await get('/api/v1/goteborg/politiker?limit=2000')
-    const { data } = await get('/api/v1/goteborg/politiker?parti=S&limit=2000')
+    const { data: alla } = await get('/v1/goteborg/politiker?limit=2000')
+    const { data } = await get('/v1/goteborg/politiker?parti=S&limit=2000')
     expect(data.total).toBeGreaterThan(0)
     expect(data.total).toBeLessThan(alla.total)
     data._embedded.items.forEach((p: any) => expect(p.parti).toBe('S'))
   })
 
-  it('GET /api/v1/goteborg/möten → har sammanträden', async () => {
-    const { data } = await get('/api/v1/goteborg/m%C3%B6ten')
+  it('GET /v1/goteborg/möten → har sammanträden', async () => {
+    const { data } = await get('/v1/goteborg/m%C3%B6ten')
     expect(data.total).toBeGreaterThan(10)
     expect(data._embedded.items[0]).toHaveProperty('datum')
     expect(data._embedded.items[0]).toHaveProperty('antalBeslut')
   })
 
-  it('GET /api/v1/goteborg/beslut → har beslut', async () => {
-    const { data } = await get('/api/v1/goteborg/beslut')
+  it('GET /v1/goteborg/beslut → har beslut', async () => {
+    const { data } = await get('/v1/goteborg/beslut')
     expect(data.total).toBeGreaterThan(0)
     expect(data._embedded.items[0]).toHaveProperty('rubrik')
     expect(data._embedded.items[0]).toHaveProperty('datum')
   })
 
-  it('GET /api/v1/goteborg/budget → lista budgetår', async () => {
-    const { data } = await get('/api/v1/goteborg/budget')
+  it('GET /v1/goteborg/budget → lista budgetår', async () => {
+    const { data } = await get('/v1/goteborg/budget')
     expect(data.total).toBeGreaterThan(0)
     expect(data._embedded.items[0]).toHaveProperty('år')
     expect(data._embedded.items[0]).toHaveProperty('totalMnkr')
   })
 
-  it('GET /api/v1/goteborg/budget?år=2025 → organisationer med belopp', async () => {
-    const { data } = await get('/api/v1/goteborg/budget?%C3%A5r=2025')
+  it('GET /v1/goteborg/budget?år=2025 → organisationer med belopp', async () => {
+    const { data } = await get('/v1/goteborg/budget?%C3%A5r=2025')
     expect(data._embedded.item.totalMnkr).toBeGreaterThan(30000)
     expect(data._embedded.related.nämnder.length).toBeGreaterThan(20)
   })
 
-  it('GET /api/v1/goteborg/metrics → beslutskraft och partilojalitet', async () => {
-    const { data } = await get('/api/v1/goteborg/metrics')
+  it('GET /v1/goteborg/metrics → beslutskraft och partilojalitet', async () => {
+    const { data } = await get('/v1/goteborg/metrics')
     expect(data.beslutskraft).toHaveProperty('bifall')
     expect(data.beslutskraft).toHaveProperty('bordläggning')
     expect(data.aktivitet.jävsanmälningar).toBeGreaterThanOrEqual(2)
@@ -91,32 +91,32 @@ describe('Smoke tests — alla endpoints svarar', () => {
     expect(data.partilojalitet.S.jaProcent).toBeGreaterThan(50)
   })
 
-  it('GET /api/v1/goteborg/sök?q=budget → hittar resultat', async () => {
-    const { data } = await get('/api/v1/goteborg/s%C3%B6k?q=budget')
+  it('GET /v1/goteborg/sök?q=budget → hittar resultat', async () => {
+    const { data } = await get('/v1/goteborg/s%C3%B6k?q=budget')
     expect(data.resultat.length).toBeGreaterThan(0)
   })
 
-  it('GET /api/v1/goteborg/sök?q=cybersäkerhet → hittar dokument (FTS)', async () => {
-    const { data } = await get('/api/v1/goteborg/s%C3%B6k?q=cybers%C3%A4kerhet')
+  it('GET /v1/goteborg/sök?q=cybersäkerhet → hittar dokument (FTS)', async () => {
+    const { data } = await get('/v1/goteborg/s%C3%B6k?q=cybers%C3%A4kerhet')
     const dokumentTräffar = data.resultat.filter((r: any) => r.typ === 'dokument')
     expect(dokumentTräffar.length).toBeGreaterThan(0)
   })
 
-  it('GET /api/v1/goteborg/dokument/sök?q=cybersäkerhet → rankade träffar med utdrag', async () => {
-    const { data } = await get('/api/v1/goteborg/dokument/s%C3%B6k?q=cybers%C3%A4kerhet')
+  it('GET /v1/goteborg/dokument/sök?q=cybersäkerhet → rankade träffar med utdrag', async () => {
+    const { data } = await get('/v1/goteborg/dokument/s%C3%B6k?q=cybers%C3%A4kerhet')
     expect(data.resultat.length).toBeGreaterThan(0)
     expect(data.resultat[0]).toHaveProperty('utdrag')
     expect(data.resultat[0].utdrag.toLowerCase()).toContain('cybersäkerhet')
   })
 
-  it('GET /api/v1/goteborg/graf → visar nodtyper', async () => {
-    const { data } = await get('/api/v1/goteborg/graf')
+  it('GET /v1/goteborg/graf → visar nodtyper', async () => {
+    const { data } = await get('/v1/goteborg/graf')
     expect(data.nodes.length).toBeGreaterThan(5)
     expect(data.edges).toBeGreaterThan(1000)
   })
 
   it('404 för okänd kommun', async () => {
-    const res = await fetch(`${BASE}/api/v1/stockholm/politiker`)
+    const res = await fetch(`${BASE}/v1/stockholm/politiker`)
     expect(res.status).toBe(404)
     const data = await res.json()
     expect(data.error).toContain('finns inte')
@@ -125,7 +125,7 @@ describe('Smoke tests — alla endpoints svarar', () => {
 
 describe('Investigation: Vem röstar med vem?', () => {
   it('C röstar med styret (S+V+MP) oftare än oppositionen', async () => {
-    const { data } = await get('/api/v1/goteborg/metrics')
+    const { data } = await get('/v1/goteborg/metrics')
     const c = data.partilojalitet.C
     const m = data.partilojalitet.M
     // C should have higher ja% than M (opposition)
@@ -133,7 +133,7 @@ describe('Investigation: Vem röstar med vem?', () => {
   })
 
   it('SD reserverar sig oftast', async () => {
-    const { data } = await get('/api/v1/goteborg/metrics')
+    const { data } = await get('/v1/goteborg/metrics')
     // SD should have 0% ja (always votes against styre)
     expect(data.partilojalitet.SD.jaProcent).toBeLessThan(5)
   })
@@ -141,7 +141,7 @@ describe('Investigation: Vem röstar med vem?', () => {
 
 describe('Investigation: Jäv och konflikter', () => {
   it('Kan hitta alla jävsanmälningar', async () => {
-    const { data } = await get('/api/v1/goteborg/metrics')
+    const { data } = await get('/v1/goteborg/metrics')
     expect(data.aktivitet.jävsanmälningar).toBeGreaterThanOrEqual(2)
   })
 
@@ -152,7 +152,7 @@ describe('Investigation: Jäv och konflikter', () => {
   // already-known issue. Un-skip once the underlying node/lookup is fixed.
   it('Kan traversera graf — se vem som sitter var', async () => {
     // Find Kommunledningen (merged canonical node) and check its members
-    const { data } = await get('/api/v1/goteborg/graf/node/nämnd-kommunledningen')
+    const { data } = await get('/v1/goteborg/graf/node/nämnd-kommunledningen')
     expect(data.node).toBeDefined()
     expect(data.related.length).toBeGreaterThan(3)
     // Should contain politicians from multiple parties
@@ -168,10 +168,10 @@ describe('Investigation: Jäv och konflikter', () => {
     // comprehensive scraper now returns — so an arbitrary top-5 alphabetical
     // slice of parti=L isn't guaranteed to hit someone with bolagsuppdrag.
     // Search the whole party instead of a narrow slice.
-    const { data: polList } = await get('/api/v1/goteborg/politiker?parti=L&limit=100')
+    const { data: polList } = await get('/v1/goteborg/politiker?parti=L&limit=100')
     let found = false
     for (const pol of polList._embedded.items) {
-      const { data: node } = await get(`/api/v1/goteborg/graf/node/politiker-${pol.id}`)
+      const { data: node } = await get(`/v1/goteborg/graf/node/politiker-${pol.id}`)
       const bolagEdges = node.edges.filter((e: any) => e.typ === 'bolagsuppdrag')
       if (bolagEdges.length > 0) {
         found = true
@@ -188,7 +188,7 @@ describe('Investigation: Jäv och konflikter', () => {
 
 describe('Investigation: Bordläggning — varför fattas ej beslut?', () => {
   it('Majoriteten av bordläggningar beror på tidsbrist', async () => {
-    const { data } = await get('/api/v1/goteborg/metrics')
+    const { data } = await get('/v1/goteborg/metrics')
     const orsaker = data.beslutskraft.bordläggningsorsaker || {}
     const tid = orsaker.tid || 0
     const total = Object.values(orsaker).reduce((s: number, v: any) => s + v, 0) as number
@@ -200,13 +200,13 @@ describe('Investigation: Bordläggning — varför fattas ej beslut?', () => {
 describe('Integration: полный путь по графу (politiker → beslut → organisation → politiker)', () => {
   it('Kan gå från politiker → votering → beslut → nämnd → annan politiker', async () => {
     // 1. Hämta en politiker (Jonas Attenius, S)
-    const { data: polList } = await get('/api/v1/goteborg/politiker?parti=S')
+    const { data: polList } = await get('/v1/goteborg/politiker?parti=S')
     expect(polList.total).toBeGreaterThan(0)
     const jonas = polList._embedded.items.find((p: any) => p.namn.includes('Attenius'))
     expect(jonas).toBeDefined()
 
     // 2. Hämta politikerns graf-nod med alla kopplingar
-    const { data: polNode } = await get(`/api/v1/goteborg/graf/node/politiker-${jonas.id}`)
+    const { data: polNode } = await get(`/v1/goteborg/graf/node/politiker-${jonas.id}`)
     expect(polNode.node).toBeDefined()
     expect(polNode.edges.length).toBeGreaterThan(5)
 
@@ -216,9 +216,7 @@ describe('Integration: полный путь по графу (politiker → besl
     const beslutId = jaEdge.to_id
 
     // 4. Hämta beslutet och se vilka organisationer det berör
-    const { data: beslutNode } = await get(
-      `/api/v1/goteborg/graf/node/${encodeURIComponent(beslutId)}`,
-    )
+    const { data: beslutNode } = await get(`/v1/goteborg/graf/node/${encodeURIComponent(beslutId)}`)
     expect(beslutNode.node).toBeDefined()
     expect(beslutNode.node.typ).toBe('paragraf')
     expect(beslutNode.edges.length).toBeGreaterThan(0)
@@ -230,7 +228,7 @@ describe('Integration: полный путь по графу (politiker → besl
     if (orgEdge) {
       const orgId = orgEdge.to_id || orgEdge.from_id
       // 6. Hämta organisationen och se vilka politiker som sitter där
-      const { data: orgNode } = await get(`/api/v1/goteborg/graf/node/${encodeURIComponent(orgId)}`)
+      const { data: orgNode } = await get(`/v1/goteborg/graf/node/${encodeURIComponent(orgId)}`)
       expect(orgNode.node).toBeDefined()
       // Should have politiker connected via ledamot_i
       const politikerEdges = orgNode.edges.filter((e: any) => e.typ === 'ledamot_i')
@@ -248,14 +246,14 @@ describe('Integration: полный путь по графу (politiker → besl
     // imperfect for a few nämnder whose graf-node label carries a suffix like
     // "arvoden", e.g. Överförmyndarnämnden — that's a separate matching gap,
     // not what this test is guarding against).
-    const { data: polList } = await get('/api/v1/goteborg/politiker?parti=M&limit=30')
+    const { data: polList } = await get('/v1/goteborg/politiker?parti=M&limit=30')
     const medNämnd = polList._embedded.items.filter((p: any) =>
       p.uppdrag.some((u: any) => (u.organisation || '').toLowerCase().includes('nämnd')),
     )
     expect(medNämnd.length).toBeGreaterThan(0)
     let found = false
     for (const pol of medNämnd) {
-      const { data: node } = await get(`/api/v1/goteborg/graf/node/politiker-${pol.id}`)
+      const { data: node } = await get(`/v1/goteborg/graf/node/politiker-${pol.id}`)
       expect(node.node).toBeDefined()
       const ledamotI = node.edges.filter((e: any) => e.typ === 'ledamot_i')
       if (ledamotI.length > 0) {
@@ -267,9 +265,9 @@ describe('Integration: полный путь по графу (politiker → besl
   })
 
   it('Beslut-noder har kopplingar till möte', async () => {
-    const { data: beslut } = await get('/api/v1/goteborg/beslut?datum=2025-11-27&limit=3')
+    const { data: beslut } = await get('/v1/goteborg/beslut?datum=2025-11-27&limit=3')
     for (const b of beslut._embedded.items) {
-      const { data: node } = await get(`/api/v1/goteborg/graf/node/${encodeURIComponent(b.id)}`)
+      const { data: node } = await get(`/v1/goteborg/graf/node/${encodeURIComponent(b.id)}`)
       expect(node.node).toBeDefined()
       const mötesEdge = node.edges.find((e: any) => e.typ === 'beslut_av')
       expect(mötesEdge).toBeDefined() // Every beslut belongs to a möte
@@ -279,7 +277,7 @@ describe('Integration: полный путь по графу (politiker → besl
 
 describe('Investigation: Budget — vart går pengarna?', () => {
   it('Största budgetposten är grundskola', async () => {
-    const { data } = await get('/api/v1/goteborg/budget?%C3%A5r=2025')
+    const { data } = await get('/v1/goteborg/budget?%C3%A5r=2025')
     const nämnder = data._embedded.related.nämnder
     const sorted = nämnder.sort(
       (a: any, b: any) => (b.kommunbidragMnkr || 0) - (a.kommunbidragMnkr || 0),
@@ -288,7 +286,7 @@ describe('Investigation: Budget — vart går pengarna?', () => {
   })
 
   it('Kan se koppling nämnd ↔ beslut via graf', async () => {
-    const { data } = await get('/api/v1/goteborg/s%C3%B6k?q=Socialnämnden')
+    const { data } = await get('/v1/goteborg/s%C3%B6k?q=Socialnämnden')
     expect(data.resultat.length).toBeGreaterThan(0)
   })
 })

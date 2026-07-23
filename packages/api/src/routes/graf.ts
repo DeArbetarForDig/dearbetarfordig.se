@@ -22,7 +22,7 @@ const GraphEdge = z
   .openapi('GraphEdge')
 
 // --- Uppdrag per nämnd ---
-grafRouter.get('/api/v1/:kommun/graf/uppdrag-per-nämnd', async (c) => {
+grafRouter.get('/v1/:kommun/graf/uppdrag-per-nämnd', async (c) => {
   const schema = requireSchema(c.req.param('kommun'))
   const rows =
     await sql`SELECT n.label as namn, COUNT(*)::int as count FROM ${sql(schema)}.graf_edges e JOIN ${sql(schema)}.graf_nodes n ON n.id = e.to_id WHERE e.typ = 'uppdrag_till' GROUP BY n.label ORDER BY count DESC`
@@ -30,7 +30,7 @@ grafRouter.get('/api/v1/:kommun/graf/uppdrag-per-nämnd', async (c) => {
 })
 
 // Politiker per nämnd via graf — returnerar politiker med API-länk
-grafRouter.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
+grafRouter.get('/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
   const schema = requireSchema(c.req.param('kommun'))
   const rows =
     await sql`SELECT e.to_id as namnd_id, n.label as namnd, gp.id as pol_id, gp.label as namn, gp.data->>'parti' as parti, e.data->>'roll' as roll,
@@ -56,7 +56,7 @@ grafRouter.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
       parti: r.parti,
       roll: r.roll,
       ärKf: r.ar_kf,
-      url: `/api/v1/${c.req.param('kommun')}/politiker/${uuid}`,
+      url: `/v1/${c.req.param('kommun')}/politiker/${uuid}`,
     })
   }
 
@@ -91,7 +91,7 @@ grafRouter.get('/api/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
 // --- Graf ---
 const grafRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/graf',
+  path: '/v1/{kommun}/graf',
   tags: ['Knowledge Graph'],
   summary: 'Graf översikt eller filtrering',
   request: {
@@ -149,7 +149,7 @@ grafRouter.openapi(grafRoute, async (c) => {
 
 const grafNodeRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/graf/node/{id}',
+  path: '/v1/{kommun}/graf/node/{id}',
   tags: ['Knowledge Graph'],
   summary: 'Traversera graf — enskild nod med alla kopplingar',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },

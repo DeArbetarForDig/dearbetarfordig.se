@@ -82,7 +82,7 @@ const organ = (detail.beslut.id as string).startsWith('ks-') ? 'KS' : 'KF'
 // Fetch närvarande from meeting detail API (merge time ranges)
 let närvarande: Array<{ namn: string; parti: string; tid: string }> = []
 try {
-  const möteData = await fetchApi<any>(`/api/v1/goteborg/möten/${detail.beslut.datum}`)
+  const möteData = await fetchApi<any>(`/v1/goteborg/möten/${detail.beslut.datum}`)
   const närvarandeRaw = möteData._embedded?.related?.närvarande || []
   const närvarandeMap = new Map<string, any>()
   for (const n of närvarandeRaw) {

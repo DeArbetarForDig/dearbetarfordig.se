@@ -39,7 +39,7 @@ const störstaDivergens = trender.kpis
 // Politiker per nämnd — från grafen (ledamot_i edges)
 const polPerNämnd = await fetchApi<
   Record<string, { id: string; namn: string; parti: string; roll: string; url: string }[]>
->('/api/v1/goteborg/graf/politiker-per-nämnd')
+>('/v1/goteborg/graf/politiker-per-nämnd')
 // Case-insensitive lookup map
 const polPerNämndLower = new Map(
   Object.entries(polPerNämnd || {}).map(([k, v]) => [k.toLowerCase(), v]),
@@ -57,7 +57,7 @@ const topNämnder = budget.nämnder
   .map((n: any) => ({ ...n, politiker: polPerNämndLower.get(n.namn.toLowerCase()) || [] }))
 
 // Samma partirankning (2022 KF-mandat, Valmyndigheten 2022-09-11) som
-// /api/v1/goteborg/graf/politiker-per-nämnd använder för att sortera nämnd-listorna.
+// /v1/goteborg/graf/politiker-per-nämnd använder för att sortera nämnd-listorna.
 const officialSeats: Record<string, number> = {
   S: 21,
   M: 14,

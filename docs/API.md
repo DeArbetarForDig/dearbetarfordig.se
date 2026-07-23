@@ -24,7 +24,7 @@ curl localhost:3000/
 ### Lista alla politiker
 
 ```
-GET /api/v1/{kommun}/politiker
+GET /v1/{kommun}/politiker
 ```
 
 | Parameter | Typ | Beskrivning |
@@ -34,7 +34,7 @@ GET /api/v1/{kommun}/politiker
 
 **Exempel:**
 ```bash
-curl localhost:3000/api/v1/goteborg/politiker?parti=M
+curl localhost:3000/v1/goteborg/politiker?parti=M
 ```
 
 **Svar:**
@@ -57,7 +57,7 @@ curl localhost:3000/api/v1/goteborg/politiker?parti=M
 ### Enskild politiker
 
 ```
-GET /api/v1/{kommun}/politiker/{id}
+GET /v1/{kommun}/politiker/{id}
 ```
 
 **Svar:** Full profil med alla uppdrag (organisation, roll, tidsperiod).
@@ -69,7 +69,7 @@ GET /api/v1/{kommun}/politiker/{id}
 ### Översikt
 
 ```
-GET /api/v1/{kommun}/graf
+GET /v1/{kommun}/graf
 ```
 
 **Svar:**
@@ -87,7 +87,7 @@ GET /api/v1/{kommun}/graf
 ### Graf per datum
 
 ```
-GET /api/v1/{kommun}/graf?datum=2025-11-27
+GET /v1/{kommun}/graf?datum=2025-11-27
 ```
 
 Returnerar alla noder och kanter relaterade till ett KF-sammanträde.
@@ -95,7 +95,7 @@ Returnerar alla noder och kanter relaterade till ett KF-sammanträde.
 ### Graf per typ
 
 ```
-GET /api/v1/{kommun}/graf?typ=nämnd
+GET /v1/{kommun}/graf?typ=nämnd
 ```
 
 Returnerar alla noder av angiven typ.
@@ -103,7 +103,7 @@ Returnerar alla noder av angiven typ.
 ### Traversera graf — enskild nod
 
 ```
-GET /api/v1/{kommun}/graf/node/{id}
+GET /v1/{kommun}/graf/node/{id}
 ```
 
 | Parameter | Typ | Beskrivning |
@@ -112,7 +112,7 @@ GET /api/v1/{kommun}/graf/node/{id}
 
 **Exempel:**
 ```bash
-curl localhost:3000/api/v1/goteborg/graf/node/kf-2025-11-27-§491
+curl localhost:3000/v1/goteborg/graf/node/kf-2025-11-27-§491
 ```
 
 **Svar:**
@@ -153,10 +153,10 @@ Budget-data finns i grafen som noder av typ `nämnd` och `budget`.
 
 ```bash
 # Alla nämnder med belopp
-curl localhost:3000/api/v1/goteborg/graf?typ=nämnd
+curl localhost:3000/v1/goteborg/graf?typ=nämnd
 
 # Specifik nämnd — visa alla kopplingar (budget + beslut)
-curl localhost:3000/api/v1/goteborg/graf/node/nämnd-grundskolenämnden
+curl localhost:3000/v1/goteborg/graf/node/nämnd-grundskolenämnden
 ```
 
 ---
@@ -164,7 +164,7 @@ curl localhost:3000/api/v1/goteborg/graf/node/nämnd-grundskolenämnden
 ## Statistik
 
 ```
-GET /api/v1/{kommun}/stats
+GET /v1/{kommun}/stats
 ```
 
 **Svar:**
@@ -211,7 +211,7 @@ GET /api/v1/{kommun}/stats
 ## Metrics (demokratiska nyckeltal)
 
 ```
-GET /api/v1/{kommun}/metrics
+GET /v1/{kommun}/metrics
 ```
 
 Automatiskt beräknade KPI:er baserat på alla analyserade sammanträden.

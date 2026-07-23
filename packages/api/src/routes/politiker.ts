@@ -29,7 +29,7 @@ const PolitikerList = halCollectionSchema(PolitikerSummary).openapi('PolitikerLi
 
 const politikerRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/politiker',
+  path: '/v1/{kommun}/politiker',
   tags: ['Politiker'],
   summary: 'Lista alla politiker',
   request: {
@@ -83,7 +83,7 @@ const PolitikerDetailRelated = z.object({ möten: z.array(z.any()) })
 
 const politikerDetailRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/politiker/{id}',
+  path: '/v1/{kommun}/politiker/{id}',
   tags: ['Politiker'],
   summary: 'Enskild politiker med alla uppdrag',
   request: { params: z.object({ kommun: z.string(), id: z.string().uuid() }) },
@@ -123,8 +123,8 @@ politikerRouter.openapi(politikerDetailRoute, async (c) => {
     datum: r.datum,
     möte: r.mote,
     _links: {
-      anforanden: { href: `/api/v1/${kommun}/politiker/${id}/anforanden?datum=${r.datum}` },
-      möte: { href: `/api/v1/${kommun}/möten/${r.datum}` },
+      anforanden: { href: `/v1/${kommun}/politiker/${id}/anforanden?datum=${r.datum}` },
+      möte: { href: `/v1/${kommun}/möten/${r.datum}` },
     },
   }))
 
@@ -162,7 +162,7 @@ const ArvodeItem = z.object({
 
 const arvodesRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/politiker/{id}/arvode',
+  path: '/v1/{kommun}/politiker/{id}/arvode',
   tags: ['Politiker'],
   summary: 'Ersättning för förtroendevald — fast arvode + förrättningsarvode',
   description: `Beräknar total ersättning baserat på:
@@ -267,7 +267,7 @@ const PolitikerProfil = z.object({
 
 const profilRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/politiker/{id}/profil',
+  path: '/v1/{kommun}/politiker/{id}/profil',
   tags: ['Politiker'],
   summary:
     'Percentil-normerad profil (närvaro, debattaktivitet, initiativ, partilojalitet) för radardiagram',
@@ -441,7 +441,7 @@ politikerRouter.openapi(profilRoute, async (c) => {
 // Anföranden per politiker (from talade_i edges). Procedurella
 // mötesledar-inlägg ("Tack X, ordet går till Y") exkluderas — för presidiet
 // dränkte de annars de riktiga anförandena tusenfalt (se mark-procedurella.ts).
-politikerRouter.get('/api/v1/:kommun/politiker/:id/anforanden', async (c) => {
+politikerRouter.get('/v1/:kommun/politiker/:id/anforanden', async (c) => {
   const kommun = c.req.param('kommun')
   const schema = requireSchema(kommun)
   const id = c.req.param('id')

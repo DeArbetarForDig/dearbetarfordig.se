@@ -6,7 +6,7 @@ export const dokumentRouter = new OpenAPIHono()
 // --- Dokument (full-text parsed documents for AI/research) ---
 const dokumentListRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/dokument',
+  path: '/v1/{kommun}/dokument',
   tags: ['Dokument'],
   summary: 'Lista alla dokument med metadata',
   request: {
@@ -66,7 +66,7 @@ dokumentRouter.openapi(dokumentListRoute, async (c) => {
 // /dokument/sök mot /dokument/{id} (id="sök") och söket blir aldrig nått.
 const dokumentSökRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/dokument/sök',
+  path: '/v1/{kommun}/dokument/sök',
   tags: ['Dokument'],
   summary: 'Sök i dokumentinnehåll (fulltext)',
   request: { params: z.object({ kommun: z.string() }), query: z.object({ q: z.string() }) },
@@ -113,7 +113,7 @@ dokumentRouter.openapi(dokumentSökRoute, async (c) => {
 
 const dokumentDetailRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/dokument/{id}',
+  path: '/v1/{kommun}/dokument/{id}',
   tags: ['Dokument'],
   summary: 'Hämta dokument med full text',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },

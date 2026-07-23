@@ -6,7 +6,7 @@ export const metricsRouter = new OpenAPIHono()
 // --- Stats ---
 const statsRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/stats',
+  path: '/v1/{kommun}/stats',
   tags: ['Statistik'],
   summary: 'Övergripande statistik',
   request: { params: z.object({ kommun: z.string() }) },
@@ -59,7 +59,7 @@ metricsRouter.openapi(statsRoute, async (c) => {
 // --- Metrics ---
 const metricsRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/metrics',
+  path: '/v1/{kommun}/metrics',
   tags: ['Statistik'],
   summary: 'Demokratiska nyckeltal',
   description:

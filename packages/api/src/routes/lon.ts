@@ -6,7 +6,7 @@ export const lonRouter = new OpenAPIHono()
 // --- Förvaltningsdirektörer (löner) ---
 const direktörerRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/lon/direktorer',
+  path: '/v1/{kommun}/lon/direktorer',
   tags: ['Löner'],
   summary: 'Löner för förvaltningsdirektörer',
   request: {
@@ -76,7 +76,7 @@ lonRouter.openapi(direktörerRoute, async (c) => {
 
 const direktörResultatRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/lon/direktorer/{id}/resultat',
+  path: '/v1/{kommun}/lon/direktorer/{id}/resultat',
   tags: ['Löner'],
   summary: 'Förvaltningsdirektörs resultat — budget, utfall, revision',
   description: 'Sammanställer ekonomiskt utfall, revisionskritik och kopplingar för en direktör.',

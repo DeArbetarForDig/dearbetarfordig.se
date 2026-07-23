@@ -25,7 +25,7 @@ const BudgetÅrSummary = z.object({ år: z.any(), totalMnkr: z.any(), styre: z.a
 
 const budgetRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/budget',
+  path: '/v1/{kommun}/budget',
   tags: ['Budget'],
   summary: 'Kommunbudget per nämnd (filtrera på år med ?år=2024)',
   request: {
@@ -94,7 +94,7 @@ budgetRouter.openapi(budgetRoute, async (c) => {
 // --- Budgetutfall per nämnd (kommunbidrag vs faktiska kostnader) ---
 const budgetUtfallRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/budget/utfall',
+  path: '/v1/{kommun}/budget/utfall',
   tags: ['Budget'],
   summary:
     'Ekonomiskt utfall per nämnd för ett år (?år=2025) — kommunbidrag, kostnader, resultat, status',

@@ -29,7 +29,7 @@ const TrendKpi = z.object({
 
 const trenderRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/trender',
+  path: '/v1/{kommun}/trender',
   tags: ['Trender'],
   summary:
     'Göteborgs trender över tid (Kolada) parat mot nämndbudget — skola, äldreomsorg, miljö m.fl.',

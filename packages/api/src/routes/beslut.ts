@@ -29,7 +29,7 @@ const BeslutSummary = z.object({
 
 const beslutRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/beslut',
+  path: '/v1/{kommun}/beslut',
   tags: ['Beslut'],
   summary: 'Lista/sök beslut',
   request: {
@@ -111,7 +111,7 @@ const KopplingItem = z.object({
 
 const beslutDetailRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/beslut/{id}',
+  path: '/v1/{kommun}/beslut/{id}',
   tags: ['Beslut'],
   summary: 'Enskilt beslut med kopplingar',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
@@ -200,7 +200,7 @@ const AnförandeItem = z.object({
 
 const anförandenRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/beslut/{id}/anforanden',
+  path: '/v1/{kommun}/beslut/{id}/anforanden',
   tags: ['Beslut'],
   summary: 'Anföranden (debattinlägg) kopplade till ett beslut',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },

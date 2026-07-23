@@ -55,7 +55,7 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 - **Oberoende** — 100% eget open source, inga proprietära beroenden
 - **Suveränt** — EU-hostat (Hetzner), ingen US-cloud, inga trackers
 - **Maskinläsbart** — API-first, knowledge graph, AI-agent-ready
-- **Curl-friendly** — `curl localhost:3000/api/v1/goteborg/stats` → JSON
+- **Curl-friendly** — `curl localhost:3000/v1/goteborg/stats` → JSON
 
 ## Kom igång
 
@@ -96,28 +96,28 @@ pnpm lint:fix             # Autofix
 
 ```bash
 # Alla politiker
-curl localhost:3000/api/v1/goteborg/politiker
+curl localhost:3000/v1/goteborg/politiker
 
 # Filtrera på parti
-curl localhost:3000/api/v1/goteborg/politiker?parti=S
+curl localhost:3000/v1/goteborg/politiker?parti=S
 
 # Enskild politiker (med alla uppdrag)
-curl localhost:3000/api/v1/goteborg/politiker/{id}
+curl localhost:3000/v1/goteborg/politiker/{id}
 
 # Sammanträden + dokument
-curl localhost:3000/api/v1/goteborg/beslut?år=2025
+curl localhost:3000/v1/goteborg/beslut?år=2025
 
 # Sammanträden (med webb-TV-länk per möte)
-curl localhost:3000/api/v1/goteborg/möten
+curl localhost:3000/v1/goteborg/möten
 
 # Statistik
-curl localhost:3000/api/v1/goteborg/stats
+curl localhost:3000/v1/goteborg/stats
 
 # Knowledge Graph — alla beslut som noder + relationer
-curl localhost:3000/api/v1/goteborg/graf?datum=2025-11-27
+curl localhost:3000/v1/goteborg/graf?datum=2025-11-27
 
 # Traversera grafen — enskild nod med alla kopplingar
-curl localhost:3000/api/v1/goteborg/graf/node/kf-2025-11-27-§491
+curl localhost:3000/v1/goteborg/graf/node/kf-2025-11-27-§491
 ```
 
 ## Anföranden & Speaker Attribution

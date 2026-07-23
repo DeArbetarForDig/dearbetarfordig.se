@@ -119,7 +119,7 @@ Jörgen Fogelklou (SD), Axel Darvik (L) och Dan-Ove Marcelind (KD) röstar Nej (
 1. `batch-reparse-protokoll-ks.ts` по всем 51 PDF: ≥ 220 из 224 voteringar распарсены с `verified: true`; остальные перечислены warning-ами (не молча)
 2. Сумма `ja+nej+avstår` каждой votering совпадает с числами в скобках из PDF
 3. 100% имён замачены на `politiker-{uuid}` (КС — известные политики)
-4. После seed: `curl localhost:3000/api/v1/goteborg/beslut/ks-2026-06-17-§478` содержит votering и röster
+4. После seed: `curl localhost:3000/v1/goteborg/beslut/ks-2026-06-17-§478` содержит votering и röster
 5. Страница beslut для KS-решения показывает поимённые голоса (как уже умеет для КФ) и правильную метку «KS»
 6. Golden-тесты зелёные; `pnpm lint` и полный `pnpm build` проходят
 7. В голосах хранится и сырой Ja/Nej, и betydelse — фактчекинг «кто был за/против yrkandet» не инвертирован

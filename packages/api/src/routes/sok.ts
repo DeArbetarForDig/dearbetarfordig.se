@@ -6,7 +6,7 @@ export const sokRouter = new OpenAPIHono()
 // --- Sök ---
 const sökRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/sök',
+  path: '/v1/{kommun}/sök',
   tags: ['Sök'],
   summary: 'Fritextsökning',
   request: { params: z.object({ kommun: z.string() }), query: z.object({ q: z.string() }) },

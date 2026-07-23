@@ -24,7 +24,7 @@ const MöteSummary = z.object({
 
 const mötenRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/möten',
+  path: '/v1/{kommun}/möten',
   tags: ['Möten'],
   summary: 'Lista alla sammanträden',
   request: {
@@ -102,7 +102,7 @@ const MoteRelated = z.object({
 
 const moteRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/möten/{datum}',
+  path: '/v1/{kommun}/möten/{datum}',
   tags: ['Möten'],
   summary: 'Enskilt sammanträde — beslut, närvaro och anföranden',
   request: { params: z.object({ kommun: z.string(), datum: z.string() }) },
@@ -192,7 +192,7 @@ motenRouter.openapi(moteRoute, async (c) => {
 // --- Möte anföranden (yttrandeprotokoll) ---
 const moteAnforandenRoute = createRoute({
   method: 'get',
-  path: '/api/v1/{kommun}/möten/{datum}/anföranden',
+  path: '/v1/{kommun}/möten/{datum}/anföranden',
   tags: ['Möten'],
   summary: 'Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)',
   request: {
