@@ -14,6 +14,7 @@ docs/reference/*/
 package-lock.json
 /.secrets/
 data/inbox/*.pdf
+data/beslut/protokoll/*.pdf
 .vscode/*
 
 # Docling Python env (packages/pipeline/python) — install via requirements.txt

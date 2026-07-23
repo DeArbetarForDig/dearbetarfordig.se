@@ -34,11 +34,25 @@ jobs:
       - name: Scrape politiker
         run: pnpm scrape:alla-fortroendevalda
 
+      # Historical enrichment only (2017/2020 archive snapshots) — unrelated
+      # to this week's documents. archive.org's CDX API 503s often enough
+      # that it must not block the actually time-sensitive steps below
+      # (confirmed by a real run: 2026-07-20, CDX HTTP 503, whole job aborted
+      # before Scrape handlingar ever ran).
       - name: Enrich mandatperioder (Wayback Machine)
+        continue-on-error: true
         run: npx tsx packages/pipeline/src/scrapers/enrich-mandatperioder.ts
 
       - name: Scrape handlingar
         run: pnpm scrape:handlingar
+
+      # scrape:handlingar only writes an index of document URLs — nothing
+      # downloaded the actual PDFs, so "Parse new protokoll" below always
+      # globbed an empty directory (confirmed: both past successful runs
+      # only ever touched the roster + handlingar timestamp, never
+      # data/graf/kf-*.json). This step is the missing link.
+      - name: Download protokoll PDFs
+        run: pnpm download:protokoll
 
       - name: Parse new protokoll
         run: |

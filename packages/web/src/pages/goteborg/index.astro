@@ -356,6 +356,10 @@ const senasteBeslut = beslutList
         )}
       </Card>
 
+    </div>
+
+    <!-- Budget vs resultat + Rice Index i samma rad -->
+    <div class="mt-6 grid gap-4 md:grid-cols-[1fr_3fr]">
       {störstaDivergens && (() => {
         const d = divergens(störstaDivergens)!
         const budgetProcent = störstaDivergens.budgetÄndring!.procent
@@ -370,20 +374,19 @@ const senasteBeslut = beslutList
                 direction: 'neutral',
               }}
             />
-            <Button variant="ghost" href="/goteborg/trender" class="mt-2">Se alla trender →</Button>
+            <Button variant="secondary" size="sm" href="/goteborg/trender" class="mt-2">Se alla trender</Button>
           </Card>
         )
       })()}
-    </div>
 
-    <!-- Rice Index per parti -->
-    <div class="mt-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4">
-      <h3 class="font-bold mb-3">Parti-sammanhållning (Rice Index)</h3>
-      <p class="text-xs text-[var(--color-text-muted)] mb-3">1.0 = alla röstar lika, 0.5 = splittrat. Källa: Rice (1924)</p>
-      <HorizontalBar
-        bars={riceEntries.map(([parti, rice]) => ({ label: partiNamn[parti] || parti, subtitle: String(stats.partier[parti] || ''), value: rice, color: `var(--parti-${parti.toLowerCase()})` }))}
-        max={1}
-      />
+      <div class:list={['bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-4', !störstaDivergens && 'md:col-span-full']}>
+        <h3 class="font-bold mb-3">Parti-sammanhållning (Rice Index)</h3>
+        <p class="text-xs text-[var(--color-text-muted)] mb-3">1.0 = alla röstar lika, 0.5 = splittrat. Källa: Rice (1924)</p>
+        <HorizontalBar
+          bars={riceEntries.map(([parti, rice]) => ({ label: partiNamn[parti] || parti, subtitle: String(stats.partier[parti] || ''), value: rice, color: `var(--parti-${parti.toLowerCase()})` }))}
+          max={1}
+        />
+      </div>
     </div>
 
     <!-- Röstöverensstämmelse parti × parti -->

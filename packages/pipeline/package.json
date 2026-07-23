@@ -8,6 +8,7 @@
     "scrape:alla-fortroendevalda": "tsx src/scrapers/alla-fortroendevalda.ts",
     "scrape:webbtv": "tsx src/scrapers/webbtv-kf.ts",
     "scrape:handlingar": "tsx src/scrapers/handlingar.ts",
+    "download:protokoll": "tsx src/scrapers/download-protokoll.ts",
     "scrape:all": "tsx src/scrapers/politiker.ts && tsx src/scrapers/webbtv-kf.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"

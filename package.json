@@ -17,6 +17,7 @@
     "scrape:alla-fortroendevalda": "pnpm --filter @daf/pipeline scrape:alla-fortroendevalda",
     "scrape:webbtv": "pnpm --filter @daf/pipeline scrape:webbtv",
     "scrape:handlingar": "pnpm --filter @daf/pipeline scrape:handlingar",
+    "download:protokoll": "pnpm --filter @daf/pipeline download:protokoll",
     "pipeline": "pnpm scrape:alla-fortroendevalda && pnpm scrape:webbtv && pnpm scrape:handlingar",
     "lint": "biome check .",
     "lint:fix": "biome check --fix .",
