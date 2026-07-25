@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v5
 
@@ -83,10 +84,24 @@ jobs:
             echo "$(git diff --staged --stat)"
           fi
 
-      - name: Commit and push
+      # main-protection ruleset (added 2026-07-08) blocks direct pushes to
+      # main from github-actions[bot] — it's not a bypass-eligible actor,
+      # unlike repo admins (confirmed by a real run: 2026-07-24, "GH013:
+      # Repository rule violations... Changes must be made through a pull
+      # request"). Route through a branch + PR + auto-merge instead, so the
+      # required lint/test checks still gate it like any other change.
+      - name: Open PR and enable auto-merge
         if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          branch="data-update-$(date +%Y-%m-%d)-${{ github.run_id }}"
+          git checkout -b "$branch"
           git commit -m "data: weekly update $(date +%Y-%m-%d)"
-          git push
+          git push origin "$branch"
+          gh pr create --base main --head "$branch" \
+            --title "data: weekly update $(date +%Y-%m-%d)" \
+            --body "Automated weekly data update — auto-merges once lint+test pass."
+          gh pr merge "$branch" --auto --squash
