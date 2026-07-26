@@ -1,9 +1,9 @@
 ---
 import DataTable from '../../../../../../ui/src/components/core/DataTable.astro'
-import { getBeslut } from '../../../../data/api'
+import { getAllBeslut } from '../../../../data/api'
 import Kommun from '../../../../layouts/Kommun.astro'
 
-const allBeslut = await getBeslut(2000)
+const allBeslut = await getAllBeslut()
 const kfBeslut = allBeslut.filter((b: any) => !b.organ || b.organ === 'KF')
 
 const data = kfBeslut.map((b) => {

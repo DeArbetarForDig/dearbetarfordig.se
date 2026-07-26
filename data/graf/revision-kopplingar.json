@@ -1,4 +1,10 @@
 {
+  "metadata": {
+    "källa": "hand-curated",
+    "beskrivning": "Kopplingar mellan revisionsrapporter och kommunfullmäktigebeslut",
+    "uppdatering": "manuellt när nya revisionsrapporter publiceras",
+    "notering": "11 kanter länkande audit-fynd till KF-beslut; aktivt använd av forvaltningar.ts:156"
+  },
   "nodes": [],
   "edges": [
     { "from": "revision-inkop-2024-anmärkning", "to": "kf-2024-06-19-§297", "typ": "hänvisar_till", "label": "Interpellation om bojkottbeslutet (6 dagar efter)" },
