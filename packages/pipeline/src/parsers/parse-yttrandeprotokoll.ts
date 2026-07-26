@@ -65,7 +65,11 @@ export function normalizeForMatching(name: string): string {
   // Folda diakritiska tecken (ä→a, ö→o, å→a, etc.)
   const normalized = name
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '') // Ta bort diakritiska kombinationstecken
+    // \p{M} = alla kombinationstecken; efter NFD blir ä → a + U+0308, som faller bort här.
+    // Unicode-egenskap i stället för ett literalt [U+0300-U+036F]-intervall, som Biome
+    // (noMisleadingCharacterClass) flaggar eftersom en teckenklass inte kan matcha
+    // bastecken och kombinationstecken som en enhet.
+    .replace(/\p{M}/gu, '')
     .toLowerCase()
     .replace(/\s+/g, ' ') // Kollapsa flera mellanslag till ett
     .trim()

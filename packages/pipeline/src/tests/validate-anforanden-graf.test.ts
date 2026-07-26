@@ -6,9 +6,9 @@
  * must FAIL on the corrupt file and PASS on the regenerated version in .tmp/.
  */
 
-import { readFileSync, readdirSync, existsSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../data')
 const TMP_DIR = join(import.meta.dirname, '../../../../.tmp')
@@ -56,9 +56,10 @@ interface DebatteFile {
  * Load a single debatte file and index its anföranden by their zero-based ordinal.
  * Returns { anföranden, nullPolikerIdIndexes } for the date.
  */
-function loadDebatteFile(
-  datum: string,
-): { anföranden: (Anforande | undefined)[]; nullPolitikerIdIndexes: Set<number> } {
+function loadDebatteFile(datum: string): {
+  anföranden: (Anforande | undefined)[]
+  nullPolitikerIdIndexes: Set<number>
+} {
   const path = join(DATA_DIR, `debatter/kf-${datum}.json`)
   if (!existsSync(path)) {
     return { anföranden: [], nullPolitikerIdIndexes: new Set() }
@@ -126,7 +127,11 @@ function validateAnforandenGraf(grafPath: string): {
   const grafContent = readFileSync(grafPath, 'utf-8')
   const graf = JSON.parse(grafContent) as GrafFile
 
-  const attributionMismatches = { count: 0, examples: [] as string[], byDate: new Map<string, number>() }
+  const attributionMismatches = {
+    count: 0,
+    examples: [] as string[],
+    byDate: new Map<string, number>(),
+  }
   const nullNodes = { count: 0, examples: [] as string[] }
   const edgeTargetMismatches = { count: 0, examples: [] as string[] }
 
@@ -145,7 +150,7 @@ function validateAnforandenGraf(grafPath: string): {
     if (!match) continue
 
     const [, datum, idxStr] = match
-    const idx = parseInt(idxStr)
+    const idx = Number.parseInt(idxStr)
     const debatte = debatteCache.get(datum)
 
     if (!debatte) {
@@ -175,7 +180,13 @@ function validateAnforandenGraf(grafPath: string): {
       if (attributionMismatches.examples.length < 5) {
         const taladIEdge = graf.edges.find((e) => e.to === node.id && e.typ === 'talade_i')
         attributionMismatches.examples.push(
-          describeMismatch(node.id, sourceRow.text, sourceRow.politikerId, node.data.textLength, taladIEdge?.from),
+          describeMismatch(
+            node.id,
+            sourceRow.text,
+            sourceRow.politikerId,
+            node.data.textLength,
+            taladIEdge?.from,
+          ),
         )
       }
       continue
@@ -203,7 +214,7 @@ function validateAnforandenGraf(grafPath: string): {
     if (!match) continue
 
     const [, datum, idxStr] = match
-    const idx = parseInt(idxStr)
+    const idx = Number.parseInt(idxStr)
     const debatte = debatteCache.get(datum)
 
     if (!debatte) continue
@@ -258,7 +269,9 @@ function validateAnforandenGraf(grafPath: string): {
       if (!validNodeIds.has(target)) {
         edgeTargetMismatches.count++
         if (edgeTargetMismatches.examples.length < 5) {
-          edgeTargetMismatches.examples.push(`talade_i edge from ${edge.from} to ${target} — target anforande node not found`)
+          edgeTargetMismatches.examples.push(
+            `talade_i edge from ${edge.from} to ${target} — target anforande node not found`,
+          )
         }
       }
     } else if (edge.typ === 'vid_möte') {
@@ -266,7 +279,9 @@ function validateAnforandenGraf(grafPath: string): {
       if (!validMoten.has(target)) {
         edgeTargetMismatches.count++
         if (edgeTargetMismatches.examples.length < 5) {
-          edgeTargetMismatches.examples.push(`vid_møte edge from ${edge.from} to ${target} — invalid møte target`)
+          edgeTargetMismatches.examples.push(
+            `vid_møte edge from ${edge.from} to ${target} — invalid møte target`,
+          )
         }
       }
     } else if (edge.typ === 'diskuterade') {
@@ -278,20 +293,26 @@ function validateAnforandenGraf(grafPath: string): {
         if (!validIds || !validIds.has(target)) {
           edgeTargetMismatches.count++
           if (edgeTargetMismatches.examples.length < 5) {
-            edgeTargetMismatches.examples.push(`diskuterade edge from ${edge.from} to ${target} — target not found in kf-${datum}.json`)
+            edgeTargetMismatches.examples.push(
+              `diskuterade edge from ${edge.from} to ${target} — target not found in kf-${datum}.json`,
+            )
           }
         }
       } else if (target.startsWith('votering-')) {
         // These are dead targets — votering nodes don't exist anywhere
         edgeTargetMismatches.count++
         if (edgeTargetMismatches.examples.length < 5) {
-          edgeTargetMismatches.examples.push(`diskuterade edge from ${edge.from} to ${target} — votering target does not exist`)
+          edgeTargetMismatches.examples.push(
+            `diskuterade edge from ${edge.from} to ${target} — votering target does not exist`,
+          )
         }
       } else {
         // Unknown diskuterade target format
         edgeTargetMismatches.count++
         if (edgeTargetMismatches.examples.length < 5) {
-          edgeTargetMismatches.examples.push(`diskuterade edge from ${edge.from} to ${target} — unknown target format`)
+          edgeTargetMismatches.examples.push(
+            `diskuterade edge from ${edge.from} to ${target} — unknown target format`,
+          )
         }
       }
     }
@@ -335,21 +356,14 @@ describe('data/graf/anforanden.json validation', () => {
           .map(([d, count]) => `${d} (${count} mismatches)`)
           .join(', ')
 
-        const msg =
-          `${results.attributionMismatches} nodes have mismatched attribution (text length or politikerId).\n` +
-          `Worst affected dates: ${worstDates}\n` +
-          `Examples:\n` +
-          results.attributionExamples.join('\n')
+        const msg = `${results.attributionMismatches} nodes have mismatched attribution (text length or politikerId).\nWorst affected dates: ${worstDates}\nExamples:\n${results.attributionExamples.join('\n')}`
         expect.fail(msg)
       }
     })
 
     it('all edge targets exist', () => {
       if (results.edgeTargetMismatches > 0) {
-        const msg =
-          `${results.edgeTargetMismatches} edges point to nonexistent targets.\n` +
-          `Examples:\n` +
-          results.deadEdgeExamples.join('\n')
+        const msg = `${results.edgeTargetMismatches} edges point to nonexistent targets.\nExamples:\n${results.deadEdgeExamples.join('\n')}`
         expect.fail(msg)
       }
     })
@@ -370,7 +384,9 @@ describe('.tmp/anforanden-generated.json validation (regenerated file)', () => {
 
     it('no anföranden nodes with null politikerId', () => {
       if (results.nullNodeCount > 0) {
-        expect.fail(`Found ${results.nullNodeCount} invalid null-politikerId nodes (should all be clean in regenerated)`)
+        expect.fail(
+          `Found ${results.nullNodeCount} invalid null-politikerId nodes (should all be clean in regenerated)`,
+        )
       }
     })
 

@@ -673,7 +673,7 @@ async function main() {
     ownerChanges,
   })
 
-  console.log(`\n=== GENERATION COMPLETE ===`)
+  console.log('\n=== GENERATION COMPLETE ===')
   console.log(`Output: ${ANFORANDEN_OUT}`)
   console.log(`Report: ${REPORT_OUT}`)
   console.log(`\nBar 1 (Attribution): ${bar1_errors}/${bar1_totalChecked} errors (expect 0)`)

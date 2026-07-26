@@ -9,12 +9,16 @@
  * 5. Special case: 2023-06-19 with all "okänd" yields no nodes
  */
 
-import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { describe, expect, it } from 'vitest'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../../data')
-const TMP_DIR = join(import.meta.dirname, '../../../../../.tmp')
+// parse-anforanden-graf.ts writes its graph to data/graf/anforanden.json (ANFORANDEN_OUT),
+// so the committed file *is* the regenerated output these assertions describe. Reading a
+// scratch copy under .tmp/ instead made the suite pass only on the machine that had just
+// run the generator, and fail in CI where .tmp/ is gitignored and absent.
+const GRAF_PATH = join(DATA_DIR, 'graf/anforanden.json')
 
 interface Anforande {
   talare: string
@@ -65,8 +69,7 @@ describe('parse-anforanden-graf', () => {
       const debattePath = join(DATA_DIR, 'debatter', `kf-${datum}.json`)
       const debatteData: DebatteFil = JSON.parse(readFileSync(debattePath, 'utf-8'))
 
-      const generatedPath = join(TMP_DIR, 'anforanden-generated.json')
-      const generatedData: GrafFil = JSON.parse(readFileSync(generatedPath, 'utf-8'))
+      const generatedData: GrafFil = JSON.parse(readFileSync(GRAF_PATH, 'utf-8'))
 
       expect(debatteData).toBeDefined()
       expect(generatedData).toBeDefined()
@@ -79,8 +82,7 @@ describe('parse-anforanden-graf', () => {
       const debattePath = join(DATA_DIR, 'debatter', `kf-${datum}.json`)
       const debatteData: DebatteFil = JSON.parse(readFileSync(debattePath, 'utf-8'))
 
-      const generatedPath = join(TMP_DIR, 'anforanden-generated.json')
-      const generatedData: GrafFil = JSON.parse(readFileSync(generatedPath, 'utf-8'))
+      const generatedData: GrafFil = JSON.parse(readFileSync(GRAF_PATH, 'utf-8'))
 
       // Find the first anförande with ordning=1
       const sourceAnf = debatteData.anföranden.find((a) => a.ordning === 1)
@@ -99,17 +101,14 @@ describe('parse-anforanden-graf', () => {
       const debattePath = join(DATA_DIR, 'debatter', `kf-${datum}.json`)
       const debatteData: DebatteFil = JSON.parse(readFileSync(debattePath, 'utf-8'))
 
-      const generatedPath = join(TMP_DIR, 'anforanden-generated.json')
-      const generatedData: GrafFil = JSON.parse(readFileSync(generatedPath, 'utf-8'))
+      const generatedData: GrafFil = JSON.parse(readFileSync(GRAF_PATH, 'utf-8'))
 
       const sourceAnf = debatteData.anföranden.find((a) => a.ordning === 1)
       expect(sourceAnf).toBeDefined()
       expect(sourceAnf!.politikerId).toBeDefined()
 
       const nodeId = `anforande-${datum}-0`
-      const taladeiEdge = generatedData.edges.find(
-        (e) => e.typ === 'talade_i' && e.to === nodeId,
-      )
+      const taladeiEdge = generatedData.edges.find((e) => e.typ === 'talade_i' && e.to === nodeId)
       expect(taladeiEdge).toBeDefined()
 
       const expectedFrom = `politiker-${sourceAnf!.politikerId}`
@@ -123,8 +122,7 @@ describe('parse-anforanden-graf', () => {
       const debattePath = join(DATA_DIR, 'debatter', `kf-${datum}.json`)
       const debatteData: DebatteFil = JSON.parse(readFileSync(debattePath, 'utf-8'))
 
-      const generatedPath = join(TMP_DIR, 'anforanden-generated.json')
-      const generatedData: GrafFil = JSON.parse(readFileSync(generatedPath, 'utf-8'))
+      const generatedData: GrafFil = JSON.parse(readFileSync(GRAF_PATH, 'utf-8'))
 
       const sourceAnf = debatteData.anföranden.find((a) => a.ordning === 1)
       expect(sourceAnf).toBeDefined()
@@ -149,8 +147,7 @@ describe('parse-anforanden-graf', () => {
       expect(allUnknown).toBe(true)
 
       // Verify no nodes are generated for this date
-      const generatedPath = join(TMP_DIR, 'anforanden-generated.json')
-      const generatedData: GrafFil = JSON.parse(readFileSync(generatedPath, 'utf-8'))
+      const generatedData: GrafFil = JSON.parse(readFileSync(GRAF_PATH, 'utf-8'))
 
       const nodesForDate = generatedData.nodes.filter((n) => n.id.includes(`anforande-${datum}-`))
       expect(nodesForDate).toHaveLength(0)
