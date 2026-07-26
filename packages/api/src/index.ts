@@ -9,6 +9,7 @@ import { budgetRouter } from './routes/budget.js'
 import { dokumentRouter } from './routes/dokument.js'
 import { forvaltningarRouter } from './routes/forvaltningar.js'
 import { grafRouter } from './routes/graf.js'
+import { kandidaterRouter } from './routes/kandidater.js'
 import { lonRouter } from './routes/lon.js'
 import { metricsRouter } from './routes/metrics.js'
 import { motenRouter } from './routes/moten.js'
@@ -54,6 +55,7 @@ app.get('/healthz', async (c) => {
 // registration order), except where a module's own comments call out a
 // specific ordering requirement (see routes/dokument.ts).
 app.route('/', politikerRouter)
+app.route('/', kandidaterRouter)
 app.route('/', motenRouter)
 app.route('/', beslutRouter)
 app.route('/', budgetRouter)
@@ -106,6 +108,7 @@ Alla svar följer HAL-standarden för hypermedia API:er.
 - \`/politiker\` — Förtroendevalda (KF-ledamöter, nämnder, bolagsstyrelser) med uppdrag och möten
 - \`/politiker/{id}\` — Detaljprofil inkl. lista över möten där politikern talade
 - \`/politiker/{id}/anforanden?datum=\` — Anföranden (tal) per möte
+- \`/kandidater\` — Kandidater till KF, val 2026 (Valmyndigheten), länkade till sittande politiker där matchning finns
 - \`/beslut\` — KF/KS-beslut med voteringar och ärendenummer
 - \`/möten/{datum}/anföranden\` — Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)
 - \`/budget?år=\` — Kommunbudget per nämnd (2022–2026)

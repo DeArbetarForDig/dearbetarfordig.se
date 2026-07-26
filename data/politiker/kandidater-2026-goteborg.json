@@ -1,0 +1,5290 @@
+{
+  "val": "2026",
+  "kommun": "goteborg",
+  "valtyp": "kommunfullmäktige",
+  "källa": "https://data.val.se/filer/val2026/parti/kandidaturer.csv",
+  "hämtad": "2026-07-26T08:23:10.759Z",
+  "antal": 528,
+  "kandidater": [
+    {
+      "id": "899",
+      "namn": "Mikael Jansson",
+      "parti": "AFS",
+      "listplats": 1,
+      "ålder": 61,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "894",
+      "namn": "Christopher Bergman",
+      "parti": "AFS",
+      "listplats": 2,
+      "ålder": 35,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "895",
+      "namn": "Emil Boström",
+      "parti": "AFS",
+      "listplats": 3,
+      "ålder": 52,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "2191",
+      "namn": "Emmyly Bönfors",
+      "parti": "C",
+      "listplats": 1,
+      "ålder": 38,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "edf21e66-d2ab-4162-922b-a291a2a566ee"
+    },
+    {
+      "id": "1946",
+      "namn": "Hans Arby",
+      "parti": "C",
+      "listplats": 2,
+      "ålder": 64,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "065d02f2-77bf-4902-83b2-9913ba068926"
+    },
+    {
+      "id": "4845",
+      "namn": "Olle Andersson",
+      "parti": "C",
+      "listplats": 3,
+      "ålder": 20,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "8edeb654-42b0-4bdf-acaa-f13ea369fd7f"
+    },
+    {
+      "id": "6894",
+      "namn": "Anna Belfrage",
+      "parti": "C",
+      "listplats": 4,
+      "ålder": 41,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "3ef0afe4-c278-4b46-a3a2-cebb5037a178"
+    },
+    {
+      "id": "2065",
+      "namn": "John Harfouche",
+      "parti": "C",
+      "listplats": 5,
+      "ålder": 39,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "8663613e-4cf9-489b-a6e8-aee787d09623"
+    },
+    {
+      "id": "2026",
+      "namn": "Daniel Augustsson",
+      "parti": "C",
+      "listplats": 6,
+      "ålder": 33,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "df920aa5-76da-444b-9ded-b51b93c47055"
+    },
+    {
+      "id": "6895",
+      "namn": "Elise-Marianne Åberg",
+      "parti": "C",
+      "listplats": 7,
+      "ålder": 43,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "9adbed26-c2a5-4abc-9415-994fd8c8ea6e"
+    },
+    {
+      "id": "6896",
+      "namn": "Anette Ihrelius",
+      "parti": "C",
+      "listplats": 8,
+      "ålder": 62,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "e8fdd415-9532-4bc9-8160-d84adfe3ca4b"
+    },
+    {
+      "id": "6897",
+      "namn": "Lars Gelander",
+      "parti": "C",
+      "listplats": 9,
+      "ålder": 69,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "2063",
+      "namn": "Maria Granath",
+      "parti": "C",
+      "listplats": 10,
+      "ålder": 65,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "5eeeb2d3-0325-42f0-9809-8bffe9bbbde2"
+    },
+    {
+      "id": "1951",
+      "namn": "Victor Rundström",
+      "parti": "C",
+      "listplats": 11,
+      "ålder": 31,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "160000e4-0bf5-4bdd-aea9-81e027954117"
+    },
+    {
+      "id": "2022",
+      "namn": "Ajsela Bruncevic",
+      "parti": "C",
+      "listplats": 12,
+      "ålder": 64,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "da39c84a-026d-4400-bfaa-cb4167aae5e7"
+    },
+    {
+      "id": "2138",
+      "namn": "Johan Radix",
+      "parti": "C",
+      "listplats": 13,
+      "ålder": 39,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "6ab0877f-6c04-465a-83d7-a8a7e2ff5a72"
+    },
+    {
+      "id": "2133",
+      "namn": "Eva Palmgren",
+      "parti": "C",
+      "listplats": 14,
+      "ålder": 61,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "88d0e3d2-79e2-4af3-b131-028887c02e8f"
+    },
+    {
+      "id": "4848",
+      "namn": "Charlie Arby",
+      "parti": "C",
+      "listplats": 15,
+      "ålder": 21,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "2186",
+      "namn": "Paris Nilsson",
+      "parti": "C",
+      "listplats": 16,
+      "ålder": 21,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "6898",
+      "namn": "Maria Nilsson",
+      "parti": "C",
+      "listplats": 17,
+      "ålder": 71,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "f3e51da8-9e0e-45ae-ab37-89a291bce23b"
+    },
+    {
+      "id": "2158",
+      "namn": "Mikael Jäverby",
+      "parti": "C",
+      "listplats": 18,
+      "ålder": 38,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "3e27130b-fe95-48dd-a000-f0f289410881"
+    },
+    {
+      "id": "2016",
+      "namn": "Natalie Johansson",
+      "parti": "C",
+      "listplats": 19,
+      "ålder": 25,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "d03f202e-7338-41e2-92a0-3f7b70260110"
+    },
+    {
+      "id": "2053",
+      "namn": "Kristoffer Filipsson",
+      "parti": "C",
+      "listplats": 20,
+      "ålder": 39,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5c55c640-5c82-4ada-acaf-eeaf88127eb7"
+    },
+    {
+      "id": "6899",
+      "namn": "Karin Östring Bergman",
+      "parti": "C",
+      "listplats": 21,
+      "ålder": 55,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "31459036-3ed2-4ed2-8030-f19109875f94"
+    },
+    {
+      "id": "6900",
+      "namn": "Emina Music",
+      "parti": "C",
+      "listplats": 22,
+      "ålder": 38,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "7748f925-7c19-4255-a1d7-0c9028878909"
+    },
+    {
+      "id": "2020",
+      "namn": "David Bernardi",
+      "parti": "C",
+      "listplats": 23,
+      "ålder": 39,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "70f73add-88c9-459d-a661-f3a9c4110af3"
+    },
+    {
+      "id": "4847",
+      "namn": "Katarina Lundin",
+      "parti": "C",
+      "listplats": 24,
+      "ålder": 61,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "20fde5d4-d640-4d62-a3f7-471572ad2d3f"
+    },
+    {
+      "id": "6901",
+      "namn": "Daniel Falkemo",
+      "parti": "C",
+      "listplats": 25,
+      "ålder": 53,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "49d468c4-cb98-4722-98c8-1830c27814ba"
+    },
+    {
+      "id": "6902",
+      "namn": "Irene Nettéus",
+      "parti": "C",
+      "listplats": 26,
+      "ålder": 55,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "79ad5470-a620-4895-b98c-a4f7d557140e"
+    },
+    {
+      "id": "6903",
+      "namn": "Malte Barron Schöning",
+      "parti": "C",
+      "listplats": 27,
+      "ålder": 18,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "6904",
+      "namn": "Sima Ali",
+      "parti": "C",
+      "listplats": 28,
+      "ålder": 22,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "6905",
+      "namn": "Tomas Fransson",
+      "parti": "C",
+      "listplats": 29,
+      "ålder": 65,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "2094",
+      "namn": "Christina Sundbeck Larsson",
+      "parti": "C",
+      "listplats": 30,
+      "ålder": 47,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "2095",
+      "namn": "Carlos Andersson",
+      "parti": "C",
+      "listplats": 31,
+      "ålder": 50,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "4850",
+      "namn": "Gunne Steen",
+      "parti": "C",
+      "listplats": 32,
+      "ålder": 68,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "26c5c57b-41d0-46b1-94c9-229c3fb4f867"
+    },
+    {
+      "id": "1927",
+      "namn": "Emma Dolderer",
+      "parti": "C",
+      "listplats": 33,
+      "ålder": 35,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "314ae337-060f-4c98-9aae-7ac2f04b9c33"
+    },
+    {
+      "id": "1994",
+      "namn": "Patrik Norinder",
+      "parti": "C",
+      "listplats": 34,
+      "ålder": 54,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "4849",
+      "namn": "Linda Mathiasson",
+      "parti": "C",
+      "listplats": 35,
+      "ålder": 52,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "6906",
+      "namn": "Dan Öjvind Gasstorp",
+      "parti": "C",
+      "listplats": 36,
+      "ålder": 82,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "2198",
+      "namn": "Esfandiar Amiri Jah",
+      "parti": "C",
+      "listplats": 37,
+      "ålder": 69,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "20064",
+      "namn": "Maja Lagerstedt",
+      "parti": "C",
+      "listplats": 38,
+      "ålder": 24,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "20905",
+      "namn": "Jonny Bergman",
+      "parti": "C",
+      "listplats": 39,
+      "ålder": 68,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "2150",
+      "namn": "Maria Abrahamsson",
+      "parti": "C",
+      "listplats": 40,
+      "ålder": 51,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "0f7295f0-6f9f-4155-99fb-9f6b3bd5f743"
+    },
+    {
+      "id": "54278",
+      "namn": "Martin Wannholt",
+      "parti": "D",
+      "listplats": 1,
+      "ålder": 59,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "a75817be-37e6-474e-a0a8-94ba0aca8339"
+    },
+    {
+      "id": "54292",
+      "namn": "Jessica Blixt",
+      "parti": "D",
+      "listplats": 2,
+      "ålder": 55,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "18fba0c6-e65a-492d-b833-0b38e99e5848"
+    },
+    {
+      "id": "54291",
+      "namn": "Patrik Höstmad",
+      "parti": "D",
+      "listplats": 3,
+      "ålder": 52,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "947ccace-c66b-4e7e-9d4b-472f46440fc2"
+    },
+    {
+      "id": "54274",
+      "namn": "Mariette Höij",
+      "parti": "D",
+      "listplats": 4,
+      "ålder": 58,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "0179a237-2131-424f-9de3-973d38be7f68"
+    },
+    {
+      "id": "54302",
+      "namn": "Lars Kérla",
+      "parti": "D",
+      "listplats": 5,
+      "ålder": 59,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "2d31c094-0ad1-4c32-b1cd-53a11fc2d8e6"
+    },
+    {
+      "id": "54298",
+      "namn": "Veronica Öjeskär",
+      "parti": "D",
+      "listplats": 6,
+      "ålder": 53,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "8cb8e430-ea86-4c1b-b1fa-5a0dc5cf5f0a"
+    },
+    {
+      "id": "54303",
+      "namn": "Anders Torwald",
+      "parti": "D",
+      "listplats": 7,
+      "ålder": 48,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "2964de28-c0b5-4de1-8e2e-331c38cf6b6d"
+    },
+    {
+      "id": "54295",
+      "namn": "Lillemor Williamsson",
+      "parti": "D",
+      "listplats": 8,
+      "ålder": 71,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "01c39ed5-fba7-4e61-b571-c8a75e29d4e4"
+    },
+    {
+      "id": "54304",
+      "namn": "Jonas Stenberg",
+      "parti": "D",
+      "listplats": 9,
+      "ålder": 57,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "a12c8e3c-7607-4658-b57c-fb71fbd6ae7a"
+    },
+    {
+      "id": "54296",
+      "namn": "Camilla Harrysson",
+      "parti": "D",
+      "listplats": 10,
+      "ålder": 57,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "90d78736-6767-4333-9bea-d6b994ad67c9"
+    },
+    {
+      "id": "54293",
+      "namn": "Mattias Arvidsson",
+      "parti": "D",
+      "listplats": 11,
+      "ålder": 35,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "77463566-96e4-42f2-b015-47fde2debfe3"
+    },
+    {
+      "id": "54305",
+      "namn": "Jonas Bergstedt",
+      "parti": "D",
+      "listplats": 12,
+      "ålder": 60,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "54306",
+      "namn": "Eva-Li Saarväli",
+      "parti": "D",
+      "listplats": 13,
+      "ålder": 63,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "42da53eb-208d-4115-a950-4688710a27f3"
+    },
+    {
+      "id": "54280",
+      "namn": "Carl Heldtander",
+      "parti": "D",
+      "listplats": 14,
+      "ålder": 51,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "a6177ff9-a4cb-427b-8bf2-54bb4adfc56a"
+    },
+    {
+      "id": "54307",
+      "namn": "Torbjörn Christensson",
+      "parti": "D",
+      "listplats": 15,
+      "ålder": 65,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f87ed17c-5a40-42dd-8093-ef668d0091e1"
+    },
+    {
+      "id": "54308",
+      "namn": "Yvonne Staberg",
+      "parti": "D",
+      "listplats": 16,
+      "ålder": 56,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "17c3cc28-4d53-4d75-b6e2-99db13baaeb3"
+    },
+    {
+      "id": "54309",
+      "namn": "Gunnar Barrvik",
+      "parti": "D",
+      "listplats": 17,
+      "ålder": 62,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "87668393-0cce-4637-93e5-28bdd99d9fbd"
+    },
+    {
+      "id": "54310",
+      "namn": "Kristina Carlsson Gunér",
+      "parti": "D",
+      "listplats": 18,
+      "ålder": 68,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "10ad3d1c-08fc-4421-97f1-25d56619fe74"
+    },
+    {
+      "id": "54311",
+      "namn": "Magnus Emilsson",
+      "parti": "D",
+      "listplats": 19,
+      "ålder": 60,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "845d72ec-f022-4160-b53c-5cb654d53ca4"
+    },
+    {
+      "id": "54312",
+      "namn": "Lars Andréasson",
+      "parti": "D",
+      "listplats": 20,
+      "ålder": 54,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "774a0837-2622-4a87-874c-8d30900baef0"
+    },
+    {
+      "id": "54313",
+      "namn": "Peter Svanberg",
+      "parti": "D",
+      "listplats": 21,
+      "ålder": 71,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "45bfc28b-4cad-48c0-b428-9fbdfb7dda5a"
+    },
+    {
+      "id": "54314",
+      "namn": "Gabriel Bake",
+      "parti": "D",
+      "listplats": 22,
+      "ålder": 46,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "437feb60-124a-4d44-8c8a-43cc80524c04"
+    },
+    {
+      "id": "54289",
+      "namn": "Pierre Hallberg",
+      "parti": "D",
+      "listplats": 23,
+      "ålder": 56,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "54284",
+      "namn": "Christina Fält",
+      "parti": "D",
+      "listplats": 24,
+      "ålder": 71,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "8f345ac4-b6f5-4e78-80eb-7963d065d6e0"
+    },
+    {
+      "id": "54276",
+      "namn": "Thomas Hedberg",
+      "parti": "D",
+      "listplats": 25,
+      "ålder": 73,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "54315",
+      "namn": "Marianne Qvick Stoltz",
+      "parti": "D",
+      "listplats": 26,
+      "ålder": 77,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "54273",
+      "namn": "Jörgen Isgaard",
+      "parti": "D",
+      "listplats": 27,
+      "ålder": 67,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "7ccc0206-e614-40cd-95f0-b98615c5a108"
+    },
+    {
+      "id": "54316",
+      "namn": "Ing-Marie Fredér",
+      "parti": "D",
+      "listplats": 28,
+      "ålder": 74,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "81295b5e-6c15-4d80-8530-c1008bcaff82"
+    },
+    {
+      "id": "54317",
+      "namn": "Bernt Nielsen",
+      "parti": "D",
+      "listplats": 29,
+      "ålder": 86,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "26e70c28-c86d-4e07-8225-c72b4e009746"
+    },
+    {
+      "id": "54277",
+      "namn": "Ulla Nathorst Westfelt",
+      "parti": "D",
+      "listplats": 30,
+      "ålder": 73,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "a176c6db-a55f-42f1-a0ee-fff9e9a773a6"
+    },
+    {
+      "id": "54318",
+      "namn": "Arne Brorsson",
+      "parti": "D",
+      "listplats": 31,
+      "ålder": 66,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "636a1c22-0f4c-49ca-8ac4-0f85e35faea4"
+    },
+    {
+      "id": "54319",
+      "namn": "Claes Annerstedt",
+      "parti": "D",
+      "listplats": 32,
+      "ålder": 72,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f9f40e0c-b9d0-41fb-b6eb-6a4ad0425982"
+    },
+    {
+      "id": "54320",
+      "namn": "Anders Åkvist",
+      "parti": "D",
+      "listplats": 33,
+      "ålder": 63,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "a4604272-7020-4f44-ae7e-1ff8ab798ed7"
+    },
+    {
+      "id": "54321",
+      "namn": "Bengt-Åke Harrysson",
+      "parti": "D",
+      "listplats": 34,
+      "ålder": 64,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "d974c142-1890-430b-8eb6-3e378febdd07"
+    },
+    {
+      "id": "57711",
+      "namn": "Berit Bornecrantz Dias",
+      "parti": "DD",
+      "listplats": null,
+      "ålder": 69,
+      "kön": "K",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57666",
+      "namn": "Anders Karlstam",
+      "parti": "DD",
+      "listplats": null,
+      "ålder": 57,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "47796",
+      "namn": "Pia Jacobsen",
+      "parti": "K",
+      "listplats": 1,
+      "ålder": 51,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47797",
+      "namn": "Simon Hedelin",
+      "parti": "K",
+      "listplats": 2,
+      "ålder": 36,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47798",
+      "namn": "Max Popovski",
+      "parti": "K",
+      "listplats": 3,
+      "ålder": 26,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47799",
+      "namn": "Ingrid Frejd",
+      "parti": "K",
+      "listplats": 4,
+      "ålder": 41,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47800",
+      "namn": "Povel Johansson",
+      "parti": "K",
+      "listplats": 5,
+      "ålder": 38,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47801",
+      "namn": "Leonora Lundvall",
+      "parti": "K",
+      "listplats": 6,
+      "ålder": 39,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47802",
+      "namn": "Love Puke",
+      "parti": "K",
+      "listplats": 7,
+      "ålder": 38,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47803",
+      "namn": "Björn Åkerman",
+      "parti": "K",
+      "listplats": 8,
+      "ålder": 36,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47804",
+      "namn": "Jonatan Fahlén",
+      "parti": "K",
+      "listplats": 9,
+      "ålder": 35,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47805",
+      "namn": "Heidi Jensen",
+      "parti": "K",
+      "listplats": 10,
+      "ålder": 58,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47806",
+      "namn": "Henrik Källén",
+      "parti": "K",
+      "listplats": 11,
+      "ålder": 41,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47807",
+      "namn": "Agnes Johansson",
+      "parti": "K",
+      "listplats": 12,
+      "ålder": 37,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47808",
+      "namn": "Gabriel Olaurim",
+      "parti": "K",
+      "listplats": 13,
+      "ålder": 47,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47809",
+      "namn": "Sri Nimpuno",
+      "parti": "K",
+      "listplats": 14,
+      "ålder": 87,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47810",
+      "namn": "José Romero Jaldin",
+      "parti": "K",
+      "listplats": 15,
+      "ålder": 71,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47811",
+      "namn": "Nora Rapo",
+      "parti": "K",
+      "listplats": 16,
+      "ålder": 20,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47812",
+      "namn": "Tor Härnqvist",
+      "parti": "K",
+      "listplats": 17,
+      "ålder": 42,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47813",
+      "namn": "Agneta Samuelsson",
+      "parti": "K",
+      "listplats": 18,
+      "ålder": 64,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47814",
+      "namn": "Jonas Hjelm-Smith",
+      "parti": "K",
+      "listplats": 19,
+      "ålder": 34,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47815",
+      "namn": "Matilda Storbacka",
+      "parti": "K",
+      "listplats": 20,
+      "ålder": 33,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47816",
+      "namn": "Hannah Ascher",
+      "parti": "K",
+      "listplats": 21,
+      "ålder": 37,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47817",
+      "namn": "Thomas Dahlén",
+      "parti": "K",
+      "listplats": 22,
+      "ålder": 70,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47818",
+      "namn": "Alexandra Nätteldal Nylund",
+      "parti": "K",
+      "listplats": 23,
+      "ålder": 40,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47819",
+      "namn": "Lina Widén",
+      "parti": "K",
+      "listplats": 24,
+      "ålder": 28,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47820",
+      "namn": "Torgny Johansson",
+      "parti": "K",
+      "listplats": 25,
+      "ålder": 83,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47821",
+      "namn": "Inga-Lill Atterlöf",
+      "parti": "K",
+      "listplats": 26,
+      "ålder": 70,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47822",
+      "namn": "Joakim Olfsson",
+      "parti": "K",
+      "listplats": 27,
+      "ålder": 43,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "34955",
+      "namn": "Dan-Ove Marcelind",
+      "parti": "KD",
+      "listplats": 1,
+      "ålder": 49,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f1bbbcfb-698d-48e0-a4c2-d913d7994cca"
+    },
+    {
+      "id": "9966",
+      "namn": "Kalle Bäck",
+      "parti": "KD",
+      "listplats": 2,
+      "ålder": 41,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5079dc21-51b6-42cf-a742-2b51ab285d95"
+    },
+    {
+      "id": "9961",
+      "namn": "Lina Lindh",
+      "parti": "KD",
+      "listplats": 3,
+      "ålder": 26,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "15b2e6e0-0f0e-4397-8eaf-21ded7b2e3ca"
+    },
+    {
+      "id": "9963",
+      "namn": "Bertil Pevantus",
+      "parti": "KD",
+      "listplats": 4,
+      "ålder": 57,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9960",
+      "namn": "Johanna Holmdahl",
+      "parti": "KD",
+      "listplats": 5,
+      "ålder": 44,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "433e32c1-e565-4270-b6f8-49c2366f30d5"
+    },
+    {
+      "id": "1017",
+      "namn": "Max Pelin",
+      "parti": "KD",
+      "listplats": 6,
+      "ålder": 24,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "ea18b1e9-f4c6-406c-bfd7-a9854ddded54"
+    },
+    {
+      "id": "9962",
+      "namn": "Samuel Bråse",
+      "parti": "KD",
+      "listplats": 7,
+      "ålder": 33,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "03241b20-7714-43b7-8b13-a93e26a5b157"
+    },
+    {
+      "id": "8823",
+      "namn": "Hanna Maria Verdonck Pihlström",
+      "parti": "KD",
+      "listplats": 8,
+      "ålder": 52,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9967",
+      "namn": "Adam Govik",
+      "parti": "KD",
+      "listplats": 9,
+      "ålder": 29,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "3b51c41c-86d2-46bd-b477-db38271bf4b6"
+    },
+    {
+      "id": "10044",
+      "namn": "Anna Wennskär",
+      "parti": "KD",
+      "listplats": 10,
+      "ålder": 51,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9968",
+      "namn": "Pernilla Paijkull",
+      "parti": "KD",
+      "listplats": 11,
+      "ålder": 36,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "df7e4509-dee9-49d1-8d5a-a3d4e45cbbb6"
+    },
+    {
+      "id": "36970",
+      "namn": "Andreas Fock",
+      "parti": "KD",
+      "listplats": 12,
+      "ålder": 37,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "380bc1a4-0056-4302-9b50-8402e74edc99"
+    },
+    {
+      "id": "10031",
+      "namn": "Elisabeth Viking",
+      "parti": "KD",
+      "listplats": 13,
+      "ålder": 62,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "b69a5827-512f-4a06-bacd-a9390bf2dc31"
+    },
+    {
+      "id": "9970",
+      "namn": "Pernilla Wendesten",
+      "parti": "KD",
+      "listplats": 14,
+      "ålder": 57,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "5adb0d49-e34d-4a56-94b9-59974ba423ca"
+    },
+    {
+      "id": "10032",
+      "namn": "Khimm Lipardo",
+      "parti": "KD",
+      "listplats": 15,
+      "ålder": 51,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "96dd7d06-c8c0-4780-b5c6-ff3afe39b850"
+    },
+    {
+      "id": "49756",
+      "namn": "Mathias Axelsson",
+      "parti": "KD",
+      "listplats": 16,
+      "ålder": 35,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "1553ff70-dabf-42a5-b20a-f3f13516a1cd"
+    },
+    {
+      "id": "9974",
+      "namn": "Kim Kronberg",
+      "parti": "KD",
+      "listplats": 17,
+      "ålder": 24,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "36972",
+      "namn": "Peter Hedberg",
+      "parti": "KD",
+      "listplats": 18,
+      "ålder": 54,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "8bb4f7f1-4303-4817-bab0-85c321a5eed0"
+    },
+    {
+      "id": "10035",
+      "namn": "Cristina Boccia",
+      "parti": "KD",
+      "listplats": 19,
+      "ålder": 44,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "d290371b-8bdf-40e7-b477-7c69a2f15eca"
+    },
+    {
+      "id": "10034",
+      "namn": "Kristian Peders",
+      "parti": "KD",
+      "listplats": 20,
+      "ålder": 55,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "dc70573f-ff10-4b83-ac82-fd19f1709e6d"
+    },
+    {
+      "id": "9978",
+      "namn": "Sören Runsteen",
+      "parti": "KD",
+      "listplats": 21,
+      "ålder": 65,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5afdc33b-d98f-4e71-b579-71719012e8a1"
+    },
+    {
+      "id": "10045",
+      "namn": "Makda Tafesse",
+      "parti": "KD",
+      "listplats": 22,
+      "ålder": 27,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "10043",
+      "namn": "Thore Hagman",
+      "parti": "KD",
+      "listplats": 23,
+      "ålder": 74,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "158d06fc-b01b-46ec-ab24-9254c6e256a2"
+    },
+    {
+      "id": "10042",
+      "namn": "Mariana Lundaby",
+      "parti": "KD",
+      "listplats": 24,
+      "ålder": 65,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "1eddcd5e-8d2d-4fa4-bd9e-b03cf512b91e"
+    },
+    {
+      "id": "10041",
+      "namn": "Elisabeth Praetorius",
+      "parti": "KD",
+      "listplats": 25,
+      "ålder": 59,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "10037",
+      "namn": "Birgitta Natanaelsson",
+      "parti": "KD",
+      "listplats": 26,
+      "ålder": 71,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "10040",
+      "namn": "Pontus Fransson",
+      "parti": "KD",
+      "listplats": 27,
+      "ålder": 32,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "36973",
+      "namn": "Maj-Britt Lax",
+      "parti": "KD",
+      "listplats": 28,
+      "ålder": 67,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "36974",
+      "namn": "Erik Wickstrand",
+      "parti": "KD",
+      "listplats": 29,
+      "ålder": 44,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9977",
+      "namn": "Oscar Hultgren",
+      "parti": "KD",
+      "listplats": 30,
+      "ålder": 20,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "10038",
+      "namn": "Göran Holmberg",
+      "parti": "KD",
+      "listplats": 31,
+      "ålder": 76,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "10039",
+      "namn": "Henrik Orrbeck",
+      "parti": "KD",
+      "listplats": 32,
+      "ålder": 70,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1011",
+      "namn": "Per Landgren",
+      "parti": "KD",
+      "listplats": 33,
+      "ålder": 68,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "56276",
+      "namn": "Charbel Rizk",
+      "parti": "KVp",
+      "listplats": 1,
+      "ålder": 34,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "56274",
+      "namn": "Annette Westöö",
+      "parti": "KVp",
+      "listplats": 2,
+      "ålder": 49,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "56362",
+      "namn": "Stefan Persson",
+      "parti": "KVp",
+      "listplats": 3,
+      "ålder": 66,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "bb364a47-5bae-4bd6-b31f-9941c62b820d"
+    },
+    {
+      "id": "56363",
+      "namn": "Hannah Navarrete",
+      "parti": "KVp",
+      "listplats": 4,
+      "ålder": 53,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "56365",
+      "namn": "Stefan Paradis",
+      "parti": "KVp",
+      "listplats": 5,
+      "ålder": 41,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "56314",
+      "namn": "Elias Brunzell",
+      "parti": "KVp",
+      "listplats": 6,
+      "ålder": 35,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1495",
+      "namn": "Axel Darvik",
+      "parti": "L",
+      "listplats": 1,
+      "ålder": 44,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "9987b4ed-8689-42b8-bf8c-445b0673bd86"
+    },
+    {
+      "id": "1496",
+      "namn": "Eva Flyborg",
+      "parti": "L",
+      "listplats": 2,
+      "ålder": 63,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "5b7d8dfa-508b-44ea-abb6-bd23287fa491"
+    },
+    {
+      "id": "1497",
+      "namn": "Pär Gustafsson",
+      "parti": "L",
+      "listplats": 3,
+      "ålder": 43,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "3893be8c-ed5e-4520-9f60-9c6c3aac9023"
+    },
+    {
+      "id": "1498",
+      "namn": "Kristina Bergman Alme",
+      "parti": "L",
+      "listplats": 4,
+      "ålder": 53,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "39fdc094-49ae-47fc-a510-e9b3733640f7"
+    },
+    {
+      "id": "1499",
+      "namn": "Henric Widén",
+      "parti": "L",
+      "listplats": 5,
+      "ålder": 57,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "7ee6c513-da0d-403c-a57c-e9d1767183c9"
+    },
+    {
+      "id": "1500",
+      "namn": "Lotta Nachemson",
+      "parti": "L",
+      "listplats": 6,
+      "ålder": 64,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "4aa110af-33e9-4bfe-abd8-f85abfaca99d"
+    },
+    {
+      "id": "1503",
+      "namn": "Jonathan Ahlström",
+      "parti": "L",
+      "listplats": 7,
+      "ålder": 27,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "2fcdd769-dc04-4223-895b-1fb49d8102d7"
+    },
+    {
+      "id": "1505",
+      "namn": "Sivert Aronsson",
+      "parti": "L",
+      "listplats": 8,
+      "ålder": 46,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1506",
+      "namn": "Maria Carlsson Wedell",
+      "parti": "L",
+      "listplats": 9,
+      "ålder": 57,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "f46ddd5b-7fc4-497c-bb41-4b4acb9d35a3"
+    },
+    {
+      "id": "1507",
+      "namn": "Patrik Krantz",
+      "parti": "L",
+      "listplats": 10,
+      "ålder": 58,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f0e04192-a1fd-4318-97eb-6b4e49ee819c"
+    },
+    {
+      "id": "1509",
+      "namn": "Björn Jedvert",
+      "parti": "L",
+      "listplats": 11,
+      "ålder": 70,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "0e1c197a-59fb-4dfc-9b69-1eeb15117af6"
+    },
+    {
+      "id": "1510",
+      "namn": "Ann-Sofie Lagerstedt",
+      "parti": "L",
+      "listplats": 12,
+      "ålder": 64,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "284c90e1-fba9-4b46-badd-1c7ca6b16d3c"
+    },
+    {
+      "id": "1511",
+      "namn": "Karl Vilén",
+      "parti": "L",
+      "listplats": 13,
+      "ålder": 36,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "7a4b1e39-92cc-4b9e-8d7d-195929e91206"
+    },
+    {
+      "id": "1512",
+      "namn": "Gunilla Almgren",
+      "parti": "L",
+      "listplats": 14,
+      "ålder": 70,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1513",
+      "namn": "Mats Rahmberg",
+      "parti": "L",
+      "listplats": 15,
+      "ålder": 61,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "90599115-e570-4bb0-ab28-c0f06f1872ff"
+    },
+    {
+      "id": "1514",
+      "namn": "Harriet Andreasson",
+      "parti": "L",
+      "listplats": 16,
+      "ålder": 80,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "8bd0fcde-a337-4605-8a1a-38ddcabdb0a5"
+    },
+    {
+      "id": "1515",
+      "namn": "Birgitta Jakosjin",
+      "parti": "L",
+      "listplats": 17,
+      "ålder": 80,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "b10d784b-3649-434f-af6b-a95fe154a505"
+    },
+    {
+      "id": "1516",
+      "namn": "Karin Veres",
+      "parti": "L",
+      "listplats": 18,
+      "ålder": 73,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1519",
+      "namn": "Kent Wetterskog",
+      "parti": "L",
+      "listplats": 19,
+      "ålder": 65,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5c1d93d9-fdab-4a92-bdd5-d6309adfafa4"
+    },
+    {
+      "id": "1521",
+      "namn": "Henrik von Mentzer",
+      "parti": "L",
+      "listplats": 20,
+      "ålder": 61,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1522",
+      "namn": "Anna Thunes",
+      "parti": "L",
+      "listplats": 21,
+      "ålder": 66,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1524",
+      "namn": "Martin Karlsson",
+      "parti": "L",
+      "listplats": 22,
+      "ålder": 52,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1526",
+      "namn": "Anders Jonell",
+      "parti": "L",
+      "listplats": 23,
+      "ålder": 69,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5c16f735-0749-48b4-b7d0-6ad2468f5ec6"
+    },
+    {
+      "id": "1527",
+      "namn": "Annette Granéli",
+      "parti": "L",
+      "listplats": 24,
+      "ålder": 53,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1528",
+      "namn": "Jan Lenander",
+      "parti": "L",
+      "listplats": 25,
+      "ålder": 67,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1529",
+      "namn": "Ericka Pereira Avilés",
+      "parti": "L",
+      "listplats": 26,
+      "ålder": 53,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "bca73745-1286-47ca-9201-9ed1af776b95"
+    },
+    {
+      "id": "1530",
+      "namn": "Sven Söderström",
+      "parti": "L",
+      "listplats": 27,
+      "ålder": 59,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "076107ed-1465-4f13-9307-15ecb4278908"
+    },
+    {
+      "id": "1531",
+      "namn": "Johanna Törnebohm",
+      "parti": "L",
+      "listplats": 28,
+      "ålder": 44,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "9a627f71-a3d7-4cd3-81fe-c9e79c9c1c52"
+    },
+    {
+      "id": "1532",
+      "namn": "Julio Colombo",
+      "parti": "L",
+      "listplats": 29,
+      "ålder": 73,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1535",
+      "namn": "Ditte Nörby",
+      "parti": "L",
+      "listplats": 30,
+      "ålder": 70,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "ca5e7a87-0f47-4fe6-8cb7-aea4f6449c23"
+    },
+    {
+      "id": "1537",
+      "namn": "Svante Adolfsson",
+      "parti": "L",
+      "listplats": 31,
+      "ålder": 60,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1538",
+      "namn": "Torbjörn Brandhill",
+      "parti": "L",
+      "listplats": 32,
+      "ålder": 33,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "047396f3-a075-423c-bb4e-00ed8e2aa4b4"
+    },
+    {
+      "id": "1539",
+      "namn": "Bodil Bergman",
+      "parti": "L",
+      "listplats": 33,
+      "ålder": 86,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1540",
+      "namn": "Adam Landberg",
+      "parti": "L",
+      "listplats": 34,
+      "ålder": 29,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "1541",
+      "namn": "Sven Ohde",
+      "parti": "L",
+      "listplats": 35,
+      "ålder": 71,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "4f091c3a-f1be-453a-b9a0-722372302f8b"
+    },
+    {
+      "id": "1542",
+      "namn": "Allan Stutzinsky",
+      "parti": "L",
+      "listplats": 36,
+      "ålder": 70,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "fbea1ab5-5e32-475a-a6f8-6abe408c0ac4"
+    },
+    {
+      "id": "1543",
+      "namn": "Ann Catrine Fogelgren",
+      "parti": "L",
+      "listplats": 37,
+      "ålder": 72,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "bed0053f-81bc-4181-9445-f2ec4ebe5b64"
+    },
+    {
+      "id": "19362",
+      "namn": "Axel Josefson",
+      "parti": "M",
+      "listplats": 1,
+      "ålder": 55,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "6b40b549-feaf-4b0b-a6ce-587309908bb3"
+    },
+    {
+      "id": "19363",
+      "namn": "Hampus Magnusson",
+      "parti": "M",
+      "listplats": 2,
+      "ålder": 42,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "8eee926c-a802-4a4c-a93b-8145f4c80f55"
+    },
+    {
+      "id": "19364",
+      "namn": "Sarah Ullmark",
+      "parti": "M",
+      "listplats": 3,
+      "ålder": 31,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "1aafbc3c-79a7-428d-bc26-d4868d271603"
+    },
+    {
+      "id": "19365",
+      "namn": "Mattias Tykesson",
+      "parti": "M",
+      "listplats": 4,
+      "ålder": 35,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "48cab936-9022-4047-a523-80ee2efebc39"
+    },
+    {
+      "id": "19366",
+      "namn": "Jeta Ibishi",
+      "parti": "M",
+      "listplats": 5,
+      "ålder": 30,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "bc255b85-cccc-4cd6-943d-d17c3fb2e796"
+    },
+    {
+      "id": "19367",
+      "namn": "Wilhelm Warborn",
+      "parti": "M",
+      "listplats": 6,
+      "ålder": 25,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "7a1b4632-4c29-4646-8675-5cae55fceb72"
+    },
+    {
+      "id": "19368",
+      "namn": "Sofie Gyllenwaldt",
+      "parti": "M",
+      "listplats": 7,
+      "ålder": 41,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "f01780bf-7033-406d-99c0-c3c76b258026"
+    },
+    {
+      "id": "19369",
+      "namn": "Anders Svensson",
+      "parti": "M",
+      "listplats": 8,
+      "ålder": 48,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f1c53a6f-34fe-4b24-9075-48fd2e73aff1"
+    },
+    {
+      "id": "19370",
+      "namn": "Lena Olinder",
+      "parti": "M",
+      "listplats": 9,
+      "ålder": 74,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "fb7e06b8-1e05-47c2-9572-800b5db0c27c"
+    },
+    {
+      "id": "19371",
+      "namn": "Joel Wickman",
+      "parti": "M",
+      "listplats": 10,
+      "ålder": 42,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "8751e394-5416-4ad8-8987-1823e36b1c66"
+    },
+    {
+      "id": "19372",
+      "namn": "Jonas Schönemann",
+      "parti": "M",
+      "listplats": 11,
+      "ålder": 43,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "aaf9777a-504d-4b0a-8f58-a4f419f08045"
+    },
+    {
+      "id": "19373",
+      "namn": "Hakan Önal",
+      "parti": "M",
+      "listplats": 12,
+      "ålder": 53,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f4c6ccbd-4784-442f-ab30-3bf1593a94e7"
+    },
+    {
+      "id": "19374",
+      "namn": "Zagros Hama Aga",
+      "parti": "M",
+      "listplats": 13,
+      "ålder": 27,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5e359e13-a84e-411d-a9c5-b7b542c5c2ec"
+    },
+    {
+      "id": "19375",
+      "namn": "Margareta Broang",
+      "parti": "M",
+      "listplats": 14,
+      "ålder": 63,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "18d651c0-574f-4793-b1ee-ebf32dd66f76"
+    },
+    {
+      "id": "19376",
+      "namn": "Nicklas Gretzer",
+      "parti": "M",
+      "listplats": 15,
+      "ålder": 41,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "d73a9c1e-0745-4ac1-bcf3-33f2ae2ae5bd"
+    },
+    {
+      "id": "19377",
+      "namn": "Elin Chorzynski",
+      "parti": "M",
+      "listplats": 16,
+      "ålder": 44,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "398ad400-8ba7-4a5b-a956-e528c63777ca"
+    },
+    {
+      "id": "19378",
+      "namn": "Stéphanie Jurzysta",
+      "parti": "M",
+      "listplats": 17,
+      "ålder": 45,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "b23194e6-f826-4937-9ff3-2f55522fcd82"
+    },
+    {
+      "id": "19379",
+      "namn": "Ola Persson",
+      "parti": "M",
+      "listplats": 18,
+      "ålder": 58,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19380",
+      "namn": "Toni Orsulic",
+      "parti": "M",
+      "listplats": 19,
+      "ålder": 52,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "876e99db-25aa-419a-ae14-daa438b504fb"
+    },
+    {
+      "id": "19381",
+      "namn": "Hannah Björnerhag",
+      "parti": "M",
+      "listplats": 20,
+      "ålder": 28,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "ac7a07eb-3e9d-4efb-a4ac-e5e70461351c"
+    },
+    {
+      "id": "19382",
+      "namn": "My Ståhl",
+      "parti": "M",
+      "listplats": 21,
+      "ålder": 21,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "f6bd6734-1546-45b1-92f7-94eff0a55577"
+    },
+    {
+      "id": "19383",
+      "namn": "Peter Iwers",
+      "parti": "M",
+      "listplats": 22,
+      "ålder": 51,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f30cc645-d3e4-483a-b7c4-e0f794c32c6f"
+    },
+    {
+      "id": "19384",
+      "namn": "Bartek Rosinski",
+      "parti": "M",
+      "listplats": 23,
+      "ålder": 61,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "53d6a545-e1fb-401c-884b-05727155d68f"
+    },
+    {
+      "id": "19385",
+      "namn": "Fredrik Biörnerud",
+      "parti": "M",
+      "listplats": 24,
+      "ålder": 44,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "0421596f-5766-4e32-adfc-e224c2ae1120"
+    },
+    {
+      "id": "19386",
+      "namn": "Henrik Sjöstrand",
+      "parti": "M",
+      "listplats": 25,
+      "ålder": 63,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "c451ce76-fb96-4448-9492-eb37811f9ec4"
+    },
+    {
+      "id": "19387",
+      "namn": "Claes Björling",
+      "parti": "M",
+      "listplats": 26,
+      "ålder": 61,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "e70d7eb1-54d7-4bc8-9dbd-6db97685d473"
+    },
+    {
+      "id": "19388",
+      "namn": "Nina Miskovsky",
+      "parti": "M",
+      "listplats": 27,
+      "ålder": 53,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "3de5a108-95d1-4065-9101-8dae5b326e50"
+    },
+    {
+      "id": "19389",
+      "namn": "Anneli Rhedin",
+      "parti": "M",
+      "listplats": 28,
+      "ålder": 61,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "10c253de-1f09-431e-abe0-9f75e4d3f545"
+    },
+    {
+      "id": "19390",
+      "namn": "Vincent Mehmeti",
+      "parti": "M",
+      "listplats": 29,
+      "ålder": 31,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19391",
+      "namn": "Simon Hultström",
+      "parti": "M",
+      "listplats": 30,
+      "ålder": 30,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "4479e37d-01a3-426e-b252-0f631fa42638"
+    },
+    {
+      "id": "19392",
+      "namn": "Peter Ljunggren",
+      "parti": "M",
+      "listplats": 31,
+      "ålder": 50,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "76c1e230-eae9-44d9-be49-8568b7c9d562"
+    },
+    {
+      "id": "19393",
+      "namn": "Boby Ghosh Dastidar",
+      "parti": "M",
+      "listplats": 32,
+      "ålder": 69,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "7cabb1ce-81f1-40a3-a717-f14b1a740d4e"
+    },
+    {
+      "id": "19394",
+      "namn": "Erjola Poci",
+      "parti": "M",
+      "listplats": 33,
+      "ålder": 48,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "41f04e41-bd79-4088-bb6e-16720caa2e0a"
+    },
+    {
+      "id": "19395",
+      "namn": "Sofia Dyfverman Brinkhoff",
+      "parti": "M",
+      "listplats": 34,
+      "ålder": 32,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "75dc3d62-dc5f-457d-8d93-b7dd62c72ea8"
+    },
+    {
+      "id": "19396",
+      "namn": "Alexander Andersson",
+      "parti": "M",
+      "listplats": 35,
+      "ålder": 43,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "25f8f173-34f1-4753-bed8-01f9c9ff691f"
+    },
+    {
+      "id": "19397",
+      "namn": "Sanel Hamzic",
+      "parti": "M",
+      "listplats": 36,
+      "ålder": 43,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "268e2850-d123-4a7c-b102-f5959417afc2"
+    },
+    {
+      "id": "19398",
+      "namn": "Emelie Liljeroth",
+      "parti": "M",
+      "listplats": 37,
+      "ålder": 43,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "c1f509a8-6478-4532-8e88-f52d8a229972"
+    },
+    {
+      "id": "19399",
+      "namn": "Bruno Tiozzo",
+      "parti": "M",
+      "listplats": 38,
+      "ålder": 53,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "e9ab4ecf-35cc-446a-9c95-479b0dbb8f51"
+    },
+    {
+      "id": "19400",
+      "namn": "Elias Granqvist",
+      "parti": "M",
+      "listplats": 39,
+      "ålder": 54,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "2fea876e-356e-4b0a-bd9a-8a9da8f3c9ce"
+    },
+    {
+      "id": "19401",
+      "namn": "Tim Strand",
+      "parti": "M",
+      "listplats": 40,
+      "ålder": 22,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "edb7db57-d8f9-468e-ac1a-545d8e6cfe5f"
+    },
+    {
+      "id": "19402",
+      "namn": "Vidar Berntsson",
+      "parti": "M",
+      "listplats": 41,
+      "ålder": 18,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19403",
+      "namn": "Pierre Alpstranden",
+      "parti": "M",
+      "listplats": 42,
+      "ålder": 53,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "8b3a1642-60b3-44a7-bb66-b25f7ab63a05"
+    },
+    {
+      "id": "19404",
+      "namn": "Rexhep Ademaj",
+      "parti": "M",
+      "listplats": 43,
+      "ålder": 63,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19405",
+      "namn": "Sverker Cassberg",
+      "parti": "M",
+      "listplats": 44,
+      "ålder": 65,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5e8db09f-cd6b-4528-bfd1-07946b1602e3"
+    },
+    {
+      "id": "19406",
+      "namn": "Johan Gente",
+      "parti": "M",
+      "listplats": 45,
+      "ålder": 61,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "67708d6e-a70a-406e-ada3-b6bee02d0e63"
+    },
+    {
+      "id": "19407",
+      "namn": "Anders Hyllander",
+      "parti": "M",
+      "listplats": 46,
+      "ålder": 72,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5883b9cc-2971-4413-8d4a-56ae900c9c72"
+    },
+    {
+      "id": "19408",
+      "namn": "Hannes Vedin",
+      "parti": "M",
+      "listplats": 47,
+      "ålder": 54,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "7e1882c8-cb20-4e32-a28a-a9097146c37b"
+    },
+    {
+      "id": "19409",
+      "namn": "Anita Karlmark",
+      "parti": "M",
+      "listplats": 48,
+      "ålder": 81,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "8be33758-14d1-4907-9a73-e4755b8933ec"
+    },
+    {
+      "id": "19410",
+      "namn": "Jan Blohm",
+      "parti": "M",
+      "listplats": 49,
+      "ålder": 74,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19411",
+      "namn": "Lali Dvali",
+      "parti": "M",
+      "listplats": 50,
+      "ålder": 43,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "765b0477-f4b9-4b99-bec5-7e2501359056"
+    },
+    {
+      "id": "19412",
+      "namn": "Magnus Palmlöf",
+      "parti": "M",
+      "listplats": 51,
+      "ålder": 64,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "420e6767-3abe-4d28-847b-0a914b4ca37b"
+    },
+    {
+      "id": "19413",
+      "namn": "Hugo Möller",
+      "parti": "M",
+      "listplats": 52,
+      "ålder": 26,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19414",
+      "namn": "Johnnie Pettersson",
+      "parti": "M",
+      "listplats": 53,
+      "ålder": 60,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19415",
+      "namn": "Åke Hjalmarsson",
+      "parti": "M",
+      "listplats": 54,
+      "ålder": 43,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "313a9212-7e30-40a3-8965-785232c1e588"
+    },
+    {
+      "id": "19416",
+      "namn": "Fredrik Lundberg",
+      "parti": "M",
+      "listplats": 55,
+      "ålder": 37,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19417",
+      "namn": "Magnus Nylander",
+      "parti": "M",
+      "listplats": 56,
+      "ålder": 53,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "c425ea8f-2985-4147-bd35-47c8784fbd9b"
+    },
+    {
+      "id": "19418",
+      "namn": "Fredrik Berner",
+      "parti": "M",
+      "listplats": 57,
+      "ålder": 38,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19419",
+      "namn": "Benjamin Larsson",
+      "parti": "M",
+      "listplats": 58,
+      "ålder": 22,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19420",
+      "namn": "Alexander Sandström",
+      "parti": "M",
+      "listplats": 59,
+      "ålder": 27,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "0efde321-410a-43c8-86f9-fb04840b54da"
+    },
+    {
+      "id": "19421",
+      "namn": "Daniel Brath",
+      "parti": "M",
+      "listplats": 60,
+      "ålder": 37,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19422",
+      "namn": "Peter Bryngelsson",
+      "parti": "M",
+      "listplats": 61,
+      "ålder": 58,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19423",
+      "namn": "Joakim Dahl",
+      "parti": "M",
+      "listplats": 62,
+      "ålder": 56,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "b54e1faa-5a32-42e9-80b4-e972b87026fb"
+    },
+    {
+      "id": "19424",
+      "namn": "Eva Engert",
+      "parti": "M",
+      "listplats": 63,
+      "ålder": 63,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "c6f5844d-4ba4-4ae3-b514-6b1a9e2f2d68"
+    },
+    {
+      "id": "19425",
+      "namn": "Mohammed Abo Daya",
+      "parti": "M",
+      "listplats": 64,
+      "ålder": 48,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19426",
+      "namn": "Lars Lorentzon",
+      "parti": "M",
+      "listplats": 65,
+      "ålder": 67,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "359adc00-138c-445b-aecc-67f758953c83"
+    },
+    {
+      "id": "19427",
+      "namn": "Anton Hydén",
+      "parti": "M",
+      "listplats": 66,
+      "ålder": 18,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19428",
+      "namn": "Leif Mogren",
+      "parti": "M",
+      "listplats": 67,
+      "ålder": 63,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19429",
+      "namn": "Christer Petersson",
+      "parti": "M",
+      "listplats": 68,
+      "ålder": 64,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "19430",
+      "namn": "Cecilia Magnusson",
+      "parti": "M",
+      "listplats": 69,
+      "ålder": 64,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "113b455a-4341-48bc-aa54-50c3d44cfaa1"
+    },
+    {
+      "id": "47560",
+      "namn": "Åke Andersson",
+      "parti": "MED",
+      "listplats": 1,
+      "ålder": 29,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47561",
+      "namn": "Vasile Sirbu",
+      "parti": "MED",
+      "listplats": 2,
+      "ålder": 57,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47562",
+      "namn": "Maurits Rannevid",
+      "parti": "MED",
+      "listplats": 3,
+      "ålder": 20,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47563",
+      "namn": "Per Frost",
+      "parti": "MED",
+      "listplats": 4,
+      "ålder": 41,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47564",
+      "namn": "Gunne Grankvist",
+      "parti": "MED",
+      "listplats": 5,
+      "ålder": 62,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47565",
+      "namn": "Mikael Larsson",
+      "parti": "MED",
+      "listplats": 6,
+      "ålder": 34,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47566",
+      "namn": "Iréne Dahlby",
+      "parti": "MED",
+      "listplats": 7,
+      "ålder": 56,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "51121",
+      "namn": "Samuel Andersson",
+      "parti": "MED",
+      "listplats": 8,
+      "ålder": 24,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47568",
+      "namn": "Sofia Moran",
+      "parti": "MED",
+      "listplats": 9,
+      "ålder": 35,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47569",
+      "namn": "Jan-Olof Sandgren",
+      "parti": "MED",
+      "listplats": 10,
+      "ålder": 69,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47570",
+      "namn": "Fredrik Dellby",
+      "parti": "MED",
+      "listplats": 11,
+      "ålder": 37,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "47571",
+      "namn": "Eric Grönlund",
+      "parti": "MED",
+      "listplats": 12,
+      "ålder": 38,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32406",
+      "namn": "Klara Holmin",
+      "parti": "MP",
+      "listplats": 1,
+      "ålder": 34,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "ec761d5f-c0f2-4ed9-b5e3-359a4187db11"
+    },
+    {
+      "id": "32404",
+      "namn": "Petra Elf",
+      "parti": "MP",
+      "listplats": 2,
+      "ålder": 30,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "7596fa93-7b07-4097-a98b-a03ab7b74c15"
+    },
+    {
+      "id": "33559",
+      "namn": "Johanna Azar",
+      "parti": "MP",
+      "listplats": 3,
+      "ålder": 44,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "9f9233e0-05a1-4327-8716-f93e407f79f8"
+    },
+    {
+      "id": "33558",
+      "namn": "Leon McManus",
+      "parti": "MP",
+      "listplats": 4,
+      "ålder": 26,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "a7031f03-465f-4b9f-a749-498232b64e6a"
+    },
+    {
+      "id": "44943",
+      "namn": "Ingrid Bexell",
+      "parti": "MP",
+      "listplats": 5,
+      "ålder": 59,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "e83f4f20-aa73-4c81-a420-e856be508976"
+    },
+    {
+      "id": "32387",
+      "namn": "Jonas Svensson",
+      "parti": "MP",
+      "listplats": 6,
+      "ålder": 47,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "e953ed2a-895d-46b2-b117-892eaac0a6b3"
+    },
+    {
+      "id": "32323",
+      "namn": "Amanda Andersson",
+      "parti": "MP",
+      "listplats": 7,
+      "ålder": 33,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "ac0774ac-c20e-4222-87de-11ef97f2705e"
+    },
+    {
+      "id": "33557",
+      "namn": "Bo Norrman",
+      "parti": "MP",
+      "listplats": 8,
+      "ålder": 69,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "993aacf1-f70b-42bf-848d-540498093c50"
+    },
+    {
+      "id": "33560",
+      "namn": "Helena Norin",
+      "parti": "MP",
+      "listplats": 9,
+      "ålder": 61,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "902612ce-b7ca-45b5-9b8d-dd233067a728"
+    },
+    {
+      "id": "44944",
+      "namn": "Klas Forsberg",
+      "parti": "MP",
+      "listplats": 10,
+      "ålder": 70,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "fe14a8bc-3a5f-4173-a06c-5a71f799ab41"
+    },
+    {
+      "id": "32319",
+      "namn": "Nora Axberg",
+      "parti": "MP",
+      "listplats": 11,
+      "ålder": 23,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32389",
+      "namn": "Saga Pilblad Hjerpe",
+      "parti": "MP",
+      "listplats": 12,
+      "ålder": 30,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32320",
+      "namn": "Oskar Luvö",
+      "parti": "MP",
+      "listplats": 13,
+      "ålder": 41,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "a5edac1c-e9dc-4c91-897f-5368f18f166c"
+    },
+    {
+      "id": "33561",
+      "namn": "Eva Ternegren",
+      "parti": "MP",
+      "listplats": 14,
+      "ålder": 74,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "f09d3f1f-2300-4308-afe3-16624e2d27ea"
+    },
+    {
+      "id": "32327",
+      "namn": "Martin Jordö",
+      "parti": "MP",
+      "listplats": 15,
+      "ålder": 52,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "bef0c9e7-7a0a-4e02-8b39-94b1b676c51c"
+    },
+    {
+      "id": "44945",
+      "namn": "Lisa Östman",
+      "parti": "MP",
+      "listplats": 16,
+      "ålder": 67,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32405",
+      "namn": "Jan Longnell",
+      "parti": "MP",
+      "listplats": 17,
+      "ålder": 60,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "d42144f8-1f8f-4f3e-b331-82d3eeb6669b"
+    },
+    {
+      "id": "29677",
+      "namn": "Sara Sivre",
+      "parti": "MP",
+      "listplats": 18,
+      "ålder": 46,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "824f2697-82a3-4843-83e8-e651ac30dfd7"
+    },
+    {
+      "id": "44946",
+      "namn": "Björn Siesjö",
+      "parti": "MP",
+      "listplats": 19,
+      "ålder": 65,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32401",
+      "namn": "Eva Abeto",
+      "parti": "MP",
+      "listplats": 20,
+      "ålder": 42,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32395",
+      "namn": "Erik Mägi",
+      "parti": "MP",
+      "listplats": 21,
+      "ålder": 49,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "991dbb19-a031-4f32-b410-e25679bc7885"
+    },
+    {
+      "id": "32399",
+      "namn": "Diana Ghinea",
+      "parti": "MP",
+      "listplats": 22,
+      "ålder": 52,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "742677b7-5a39-449e-a109-2074f0f7f340"
+    },
+    {
+      "id": "32402",
+      "namn": "Sahal Haamud",
+      "parti": "MP",
+      "listplats": 23,
+      "ålder": 24,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32394",
+      "namn": "Cornelia Wennberg",
+      "parti": "MP",
+      "listplats": 24,
+      "ålder": 31,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "3ec83bec-fad3-4dc6-b4aa-8acd98409d8a"
+    },
+    {
+      "id": "32328",
+      "namn": "Filip Magnusson Diurlin",
+      "parti": "MP",
+      "listplats": 25,
+      "ålder": 25,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "44947",
+      "namn": "Sofia Hagman",
+      "parti": "MP",
+      "listplats": 26,
+      "ålder": 50,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32392",
+      "namn": "Mohamed Hasan Mohammed",
+      "parti": "MP",
+      "listplats": 27,
+      "ålder": 28,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "44948",
+      "namn": "Louise Wismeier Thörnqvist",
+      "parti": "MP",
+      "listplats": 28,
+      "ålder": 39,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "44949",
+      "namn": "Anders T Carlsson",
+      "parti": "MP",
+      "listplats": 29,
+      "ålder": 60,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "44950",
+      "namn": "Felicia Rydberg",
+      "parti": "MP",
+      "listplats": 30,
+      "ålder": 27,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "44951",
+      "namn": "Leo Elmstedt Pettersson",
+      "parti": "MP",
+      "listplats": 31,
+      "ålder": 22,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "29675",
+      "namn": "Anna Siitam Wadman",
+      "parti": "MP",
+      "listplats": 32,
+      "ålder": 41,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "5cce8c12-b4d7-417a-b229-951116cd0774"
+    },
+    {
+      "id": "32386",
+      "namn": "Christin Lindström",
+      "parti": "MP",
+      "listplats": 33,
+      "ålder": 59,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "79298507-51b9-43b4-af84-dc8e4c74c9b6"
+    },
+    {
+      "id": "32654",
+      "namn": "Mahmoud Chini",
+      "parti": "MP",
+      "listplats": 34,
+      "ålder": 64,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32407",
+      "namn": "Ingela Jangne",
+      "parti": "MP",
+      "listplats": 35,
+      "ålder": 66,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "6ec6af4e-b547-42ec-88b0-87e568c6d95a"
+    },
+    {
+      "id": "44952",
+      "namn": "Gunnar Persson",
+      "parti": "MP",
+      "listplats": 36,
+      "ålder": 73,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "cb547778-1a6a-48ee-9129-9ccaf5415d5d"
+    },
+    {
+      "id": "32309",
+      "namn": "Tina Wallenius",
+      "parti": "MP",
+      "listplats": 37,
+      "ålder": 57,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "1904350a-6daa-48f2-8b52-6abc4d67d705"
+    },
+    {
+      "id": "32396",
+      "namn": "Axel Lundholm Ericson",
+      "parti": "MP",
+      "listplats": 38,
+      "ålder": 23,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32388",
+      "namn": "Linda von Corswant",
+      "parti": "MP",
+      "listplats": 39,
+      "ålder": 55,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "d9cb33cc-df40-401f-8484-5120f1aac543"
+    },
+    {
+      "id": "32409",
+      "namn": "Thomas Larsson",
+      "parti": "MP",
+      "listplats": 40,
+      "ålder": 47,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "41da29fe-8f66-4579-a78d-608c757fb23f"
+    },
+    {
+      "id": "32398",
+      "namn": "Erik Sönegård",
+      "parti": "MP",
+      "listplats": 41,
+      "ålder": 37,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "325f5de6-910d-48bd-b573-d26a3560d03a"
+    },
+    {
+      "id": "29678",
+      "namn": "Mattias Hammenfors",
+      "parti": "MP",
+      "listplats": 42,
+      "ålder": 51,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "fde7e3eb-acb0-41e2-b9c9-2585ede050bb"
+    },
+    {
+      "id": "32657",
+      "namn": "Alexander Engelin",
+      "parti": "MP",
+      "listplats": 43,
+      "ålder": 34,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32659",
+      "namn": "Joakim Larsson",
+      "parti": "MP",
+      "listplats": 44,
+      "ålder": 38,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "79f49421-517b-4a78-946f-72501cb68ffc"
+    },
+    {
+      "id": "44953",
+      "namn": "Calle Jershed",
+      "parti": "MP",
+      "listplats": 45,
+      "ålder": 55,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "32325",
+      "namn": "Karl-Johan Nordensten",
+      "parti": "MP",
+      "listplats": 46,
+      "ålder": 42,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "df176fe1-0a96-4a94-a600-c4ffa1c65327"
+    },
+    {
+      "id": "32393",
+      "namn": "Bosse Parbring",
+      "parti": "MP",
+      "listplats": 47,
+      "ålder": 59,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "818e0d41-28eb-4443-89d9-7a78cc35fc40"
+    },
+    {
+      "id": "44954",
+      "namn": "Bengt Vänerhall",
+      "parti": "MP",
+      "listplats": 48,
+      "ålder": 42,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "48386",
+      "namn": "Mikail Yüksel",
+      "parti": "PNy",
+      "listplats": 1,
+      "ålder": 44,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "48386",
+      "namn": "Mikail Yüksel",
+      "parti": "PNy",
+      "listplats": 1,
+      "ålder": 44,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "48410",
+      "namn": "Amjad Khan",
+      "parti": "PNy",
+      "listplats": 2,
+      "ålder": 31,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "48410",
+      "namn": "Amjad Khan",
+      "parti": "PNy",
+      "listplats": 2,
+      "ålder": 31,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "48393",
+      "namn": "Amel Olevic",
+      "parti": "PNy",
+      "listplats": 3,
+      "ålder": 47,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57558",
+      "namn": "Mikael Ucar",
+      "parti": "PNy",
+      "listplats": 3,
+      "ålder": 44,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57589",
+      "namn": "Enver Cakir",
+      "parti": "PNy",
+      "listplats": 4,
+      "ålder": 50,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "48393",
+      "namn": "Amel Olevic",
+      "parti": "PNy",
+      "listplats": 5,
+      "ålder": 47,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "9539",
+      "namn": "Jonas Attenius",
+      "parti": "S",
+      "listplats": 1,
+      "ålder": 58,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "a68b8532-69d6-412f-8a23-076b00afecd5"
+    },
+    {
+      "id": "9540",
+      "namn": "Blerta Hoti Singh",
+      "parti": "S",
+      "listplats": 2,
+      "ålder": 40,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "9628c524-9710-471b-9f59-743cb62753f8"
+    },
+    {
+      "id": "9541",
+      "namn": "Johannes Hulter",
+      "parti": "S",
+      "listplats": 3,
+      "ålder": 51,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "97bbf0fc-a6b3-4daa-9ef3-24f5e4926f53"
+    },
+    {
+      "id": "9542",
+      "namn": "Viktoria Tryggvadottir Rolka",
+      "parti": "S",
+      "listplats": 4,
+      "ålder": 40,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "54c7f824-76d1-4be8-bdfa-8ba8c6859b1c"
+    },
+    {
+      "id": "9543",
+      "namn": "Aslan Akbas",
+      "parti": "S",
+      "listplats": 5,
+      "ålder": 62,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5c5b5cac-c19f-4e74-8ae4-bb359d2a5348"
+    },
+    {
+      "id": "9544",
+      "namn": "Marina Johansson",
+      "parti": "S",
+      "listplats": 6,
+      "ålder": 55,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "88786a94-ffef-40d9-856b-8e204db9a1be"
+    },
+    {
+      "id": "9545",
+      "namn": "Alfred Ekman",
+      "parti": "S",
+      "listplats": 7,
+      "ålder": 33,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "7acca744-8ded-487c-99e0-9ec3b6e83e49"
+    },
+    {
+      "id": "9110",
+      "namn": "Camilla Widman",
+      "parti": "S",
+      "listplats": 8,
+      "ålder": 48,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "ed1b711d-9bf8-44a3-89da-4b299d8f234b"
+    },
+    {
+      "id": "9433",
+      "namn": "Andreas Sjöö",
+      "parti": "S",
+      "listplats": 9,
+      "ålder": 40,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "529cc992-d514-4336-977c-1f1da1ac9bc2"
+    },
+    {
+      "id": "9546",
+      "namn": "Gunilla Carlsson",
+      "parti": "S",
+      "listplats": 10,
+      "ålder": 60,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "876c4272-bbc9-484f-ab9a-0794c7c8f017"
+    },
+    {
+      "id": "9547",
+      "namn": "Roshan Yigit",
+      "parti": "S",
+      "listplats": 11,
+      "ålder": 34,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "6a7b7060-793c-490e-93dd-58a6c2a9ab06"
+    },
+    {
+      "id": "9548",
+      "namn": "Parisa Rezaeivar",
+      "parti": "S",
+      "listplats": 12,
+      "ålder": 53,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "0518c852-f23b-4678-bb7a-6e835d0d97f5"
+    },
+    {
+      "id": "9549",
+      "namn": "Håkan Hallengren",
+      "parti": "S",
+      "listplats": 13,
+      "ålder": 59,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "63e898b8-b7cf-4209-8c56-8c8b6576ff35"
+    },
+    {
+      "id": "9550",
+      "namn": "Felicia Hermann",
+      "parti": "S",
+      "listplats": 14,
+      "ålder": 22,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "120a6cf0-15c4-4af4-88c4-5dd8000f29c4"
+    },
+    {
+      "id": "9551",
+      "namn": "Mikael Lindmark",
+      "parti": "S",
+      "listplats": 15,
+      "ålder": 44,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "d69503e6-0136-47ae-a850-32664d030229"
+    },
+    {
+      "id": "9470",
+      "namn": "Lena Landén Olsson",
+      "parti": "S",
+      "listplats": 16,
+      "ålder": 75,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "53be3a5b-74d8-4ad6-b3b2-e2f2446c8b0e"
+    },
+    {
+      "id": "9552",
+      "namn": "Gustaf Engbusk",
+      "parti": "S",
+      "listplats": 17,
+      "ålder": 34,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f37b8f8c-9fc5-4c3c-9459-4c4b71771aa0"
+    },
+    {
+      "id": "9553",
+      "namn": "Salam Kaskas",
+      "parti": "S",
+      "listplats": 18,
+      "ålder": 44,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "15cfe396-3c6e-4a33-8fa0-2e674e918c86"
+    },
+    {
+      "id": "9554",
+      "namn": "Dario Espiga Corbo",
+      "parti": "S",
+      "listplats": 19,
+      "ålder": 74,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "35ae69db-361e-400d-9f08-c98fedf28ce7"
+    },
+    {
+      "id": "9555",
+      "namn": "Annelie Schagerström",
+      "parti": "S",
+      "listplats": 20,
+      "ålder": 59,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "c085a88e-8464-4b58-b71d-1cc43363d418"
+    },
+    {
+      "id": "9556",
+      "namn": "Jim Tellefsdal",
+      "parti": "S",
+      "listplats": 21,
+      "ålder": 34,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "3e4e841e-b25b-4a0d-89ce-d8423a3d5438"
+    },
+    {
+      "id": "9095",
+      "namn": "Claudia Nistor-Pedrini",
+      "parti": "S",
+      "listplats": 22,
+      "ålder": 49,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "a0721d13-609b-4626-a247-b0720b12c05d"
+    },
+    {
+      "id": "9108",
+      "namn": "Adam Jallow",
+      "parti": "S",
+      "listplats": 23,
+      "ålder": 33,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "e8c4791c-5a41-4a9e-b063-21cbb534e8d2"
+    },
+    {
+      "id": "9105",
+      "namn": "Hanan Baalbaki",
+      "parti": "S",
+      "listplats": 24,
+      "ålder": 50,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "8bd8e45c-98d4-4c9f-8600-f57e7dbeae62"
+    },
+    {
+      "id": "9557",
+      "namn": "Felix Oderth",
+      "parti": "S",
+      "listplats": 25,
+      "ålder": 26,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "8c1e8c30-a7fb-4108-abc5-3263eee4c4af"
+    },
+    {
+      "id": "9558",
+      "namn": "Elisabet Linde",
+      "parti": "S",
+      "listplats": 26,
+      "ålder": 69,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "a5779a7b-da03-4eaf-b506-9921a66c6c51"
+    },
+    {
+      "id": "9559",
+      "namn": "Roland Dahlström",
+      "parti": "S",
+      "listplats": 27,
+      "ålder": 68,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "d34fce1d-1608-4f23-9fb7-b4d7cfb999dc"
+    },
+    {
+      "id": "9107",
+      "namn": "Jennie Östlund",
+      "parti": "S",
+      "listplats": 28,
+      "ålder": 39,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "169bfa45-cf7e-4afd-879d-7320ee669e48"
+    },
+    {
+      "id": "9560",
+      "namn": "Leif Blomqvist",
+      "parti": "S",
+      "listplats": 29,
+      "ålder": 78,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "42157a83-fda0-4ce7-a5cc-ca856d726a46"
+    },
+    {
+      "id": "9561",
+      "namn": "Pia-Marie Wehrling",
+      "parti": "S",
+      "listplats": 30,
+      "ålder": 59,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9562",
+      "namn": "Bahman Esmail Nejad",
+      "parti": "S",
+      "listplats": 31,
+      "ålder": 63,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "71acf89f-72a6-494a-9801-e08e53c074db"
+    },
+    {
+      "id": "9563",
+      "namn": "Märta Alnebratt",
+      "parti": "S",
+      "listplats": 32,
+      "ålder": 25,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "799dcf4a-ce26-4456-9316-f16f3b681189"
+    },
+    {
+      "id": "9564",
+      "namn": "Claes Söderling",
+      "parti": "S",
+      "listplats": 33,
+      "ålder": 59,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "1468ed11-9efe-4cba-9b83-33b6cb52bc29"
+    },
+    {
+      "id": "9565",
+      "namn": "Linnea Tellefsdal",
+      "parti": "S",
+      "listplats": 34,
+      "ålder": 32,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "d989fa9d-e90f-471b-9c8b-e2a556161bd7"
+    },
+    {
+      "id": "9566",
+      "namn": "Pontus Norman",
+      "parti": "S",
+      "listplats": 35,
+      "ålder": 36,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "6fc4fed4-a8f1-40e0-88a3-936d5e52ad1e"
+    },
+    {
+      "id": "9567",
+      "namn": "Kochar Wallad Begi",
+      "parti": "S",
+      "listplats": 36,
+      "ålder": 43,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "7ba3b52a-1005-4925-a17c-1f5ad3a68a12"
+    },
+    {
+      "id": "9568",
+      "namn": "Kjell Söderberg",
+      "parti": "S",
+      "listplats": 37,
+      "ålder": 78,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9569",
+      "namn": "Maria Melin",
+      "parti": "S",
+      "listplats": 38,
+      "ålder": 66,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "dc318a3a-df2b-4342-868f-3b159bca119f"
+    },
+    {
+      "id": "9570",
+      "namn": "Oscar Linde Svedestad",
+      "parti": "S",
+      "listplats": 39,
+      "ålder": 26,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "2f709a7d-b24e-4a1f-9bf3-834c1424b60d"
+    },
+    {
+      "id": "9571",
+      "namn": "Åsa Kramér",
+      "parti": "S",
+      "listplats": 40,
+      "ålder": 56,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "1d77afa2-cc0c-4851-8635-86df8c72d184"
+    },
+    {
+      "id": "9493",
+      "namn": "Johan Svensk",
+      "parti": "S",
+      "listplats": 41,
+      "ålder": 35,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "86914023-874f-43e6-9267-0fd139cf7bfa"
+    },
+    {
+      "id": "9442",
+      "namn": "Lejla Grebic",
+      "parti": "S",
+      "listplats": 42,
+      "ålder": 24,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "cf9faf5d-8635-41a5-b765-c76d3dd94d22"
+    },
+    {
+      "id": "9573",
+      "namn": "Sayed Abbas Almoosavi",
+      "parti": "S",
+      "listplats": 43,
+      "ålder": 74,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9574",
+      "namn": "Gisela Kilder",
+      "parti": "S",
+      "listplats": 44,
+      "ålder": 53,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9435",
+      "namn": "Staffan Lindroos",
+      "parti": "S",
+      "listplats": 45,
+      "ålder": 66,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9575",
+      "namn": "Karin Beskow",
+      "parti": "S",
+      "listplats": 46,
+      "ålder": 65,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "ef4718d2-57f5-4e74-8089-84be6dac3774"
+    },
+    {
+      "id": "9576",
+      "namn": "Kim Son Ngo",
+      "parti": "S",
+      "listplats": 47,
+      "ålder": 22,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5b609b08-838b-4940-80cb-7c53ac3e68fd"
+    },
+    {
+      "id": "9577",
+      "namn": "Carina Söderström",
+      "parti": "S",
+      "listplats": 48,
+      "ålder": 65,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "15c7a98e-3e30-438f-96a7-e113d4560fa4"
+    },
+    {
+      "id": "9578",
+      "namn": "Simon Olander",
+      "parti": "S",
+      "listplats": 49,
+      "ålder": 25,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9579",
+      "namn": "Birgitta Fransson",
+      "parti": "S",
+      "listplats": 50,
+      "ålder": 86,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "b4dcac34-e972-45db-a2c1-edba3efa0961"
+    },
+    {
+      "id": "9580",
+      "namn": "Jesper Hallén",
+      "parti": "S",
+      "listplats": 51,
+      "ålder": 42,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "90c59586-42af-48cf-a500-2e73ec3b7de8"
+    },
+    {
+      "id": "9581",
+      "namn": "Klara Larsson",
+      "parti": "S",
+      "listplats": 52,
+      "ålder": 22,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9582",
+      "namn": "Sten Berg",
+      "parti": "S",
+      "listplats": 53,
+      "ålder": 20,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9583",
+      "namn": "Moa Andersen",
+      "parti": "S",
+      "listplats": 54,
+      "ålder": 26,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "8b814f0a-d960-4242-8440-c09917b36b5b"
+    },
+    {
+      "id": "9584",
+      "namn": "Lars Sjöberg",
+      "parti": "S",
+      "listplats": 55,
+      "ålder": 61,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f5036ba0-8ba1-4822-8100-06aeb55188d2"
+    },
+    {
+      "id": "9585",
+      "namn": "Azita Miakhel",
+      "parti": "S",
+      "listplats": 56,
+      "ålder": 48,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "1283e470-b7b3-4063-bc21-a912b2476729"
+    },
+    {
+      "id": "9586",
+      "namn": "David Sundelius",
+      "parti": "S",
+      "listplats": 57,
+      "ålder": 39,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9587",
+      "namn": "Katinka Ernstsson",
+      "parti": "S",
+      "listplats": 58,
+      "ålder": 36,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9588",
+      "namn": "Qadar Hassan Gedi",
+      "parti": "S",
+      "listplats": 59,
+      "ålder": 34,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "2bcfb6d8-c42a-4e2b-8702-c1884720d557"
+    },
+    {
+      "id": "9589",
+      "namn": "Melissa Camdzic",
+      "parti": "S",
+      "listplats": 60,
+      "ålder": 18,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9590",
+      "namn": "Kojo Ansah-Pewudie",
+      "parti": "S",
+      "listplats": 61,
+      "ålder": 66,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9591",
+      "namn": "Eva-Lena Fransson",
+      "parti": "S",
+      "listplats": 62,
+      "ålder": 75,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "8cb0ac1e-55d9-4a91-bd77-8138491a4f75"
+    },
+    {
+      "id": "9592",
+      "namn": "Edin Osmancevic",
+      "parti": "S",
+      "listplats": 63,
+      "ålder": 63,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "ba658602-07de-45d9-b904-013488818d76"
+    },
+    {
+      "id": "9593",
+      "namn": "Milyon Tekle-Haile",
+      "parti": "S",
+      "listplats": 64,
+      "ålder": 46,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "d06cf92c-52b1-4e40-88ce-22a7f3928d69"
+    },
+    {
+      "id": "9594",
+      "namn": "Conny Källström",
+      "parti": "S",
+      "listplats": 65,
+      "ålder": 59,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "c9c78d07-de1b-45f7-862c-6e08ef48f806"
+    },
+    {
+      "id": "9595",
+      "namn": "Nsryn Joamir",
+      "parti": "S",
+      "listplats": 66,
+      "ålder": 62,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9596",
+      "namn": "Stefan Hasselfors",
+      "parti": "S",
+      "listplats": 67,
+      "ålder": 69,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f4d2edda-6171-4e23-a404-e99fb093a018"
+    },
+    {
+      "id": "9597",
+      "namn": "Carina Abréu",
+      "parti": "S",
+      "listplats": 68,
+      "ålder": 68,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "8d049f9c-1810-4ae6-ab4c-469d98526d63"
+    },
+    {
+      "id": "9598",
+      "namn": "Abo Moradi",
+      "parti": "S",
+      "listplats": 69,
+      "ålder": 61,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "614279a7-64a1-47a0-9169-a80776263768"
+    },
+    {
+      "id": "9599",
+      "namn": "Golzar Blomkvist",
+      "parti": "S",
+      "listplats": 70,
+      "ålder": 65,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "9600",
+      "namn": "Markus Svensson",
+      "parti": "S",
+      "listplats": 71,
+      "ålder": 28,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "cb61501d-6864-4c6e-bd5d-eb9493fbf895"
+    },
+    {
+      "id": "9601",
+      "namn": "Margareta Åvall",
+      "parti": "S",
+      "listplats": 72,
+      "ålder": 69,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "9f62993e-bcec-4c55-a1db-90e022c28d60"
+    },
+    {
+      "id": "57145",
+      "namn": "Jonas Olausson",
+      "parti": "SB",
+      "listplats": null,
+      "ålder": 55,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57310",
+      "namn": "Karl Jonas Nättorp",
+      "parti": "SB",
+      "listplats": null,
+      "ålder": 46,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "17027",
+      "namn": "Jörgen Fogelklou",
+      "parti": "SD",
+      "listplats": 1,
+      "ålder": 53,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "79df7a05-ddd0-4984-8b0c-c0066c2d9615"
+    },
+    {
+      "id": "17022",
+      "namn": "Agneta Kjaerbeck",
+      "parti": "SD",
+      "listplats": 2,
+      "ålder": 56,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "0c4ae698-d9c8-44a4-8a2b-49e56c0b2645"
+    },
+    {
+      "id": "17026",
+      "namn": "Rasmus Ragnarsson",
+      "parti": "SD",
+      "listplats": 3,
+      "ålder": 32,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "a1a4469d-24d5-4e3b-95a2-627fa03b9f7a"
+    },
+    {
+      "id": "17023",
+      "namn": "Sanda Anton Henriksson",
+      "parti": "SD",
+      "listplats": 4,
+      "ålder": 55,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "00a89f21-5b5e-40c6-a6a1-0052fbe71c20"
+    },
+    {
+      "id": "23777",
+      "namn": "Tony Liljendahl",
+      "parti": "SD",
+      "listplats": 5,
+      "ålder": 64,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "9e3f5375-44d2-48bf-b608-8442f5e64050"
+    },
+    {
+      "id": "23778",
+      "namn": "Yvonne Stafrén",
+      "parti": "SD",
+      "listplats": 6,
+      "ålder": 76,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "e60466db-23ac-4d3e-9043-4ba15ce39d79"
+    },
+    {
+      "id": "23779",
+      "namn": "Daniel Frostlin",
+      "parti": "SD",
+      "listplats": 7,
+      "ålder": 37,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "30e3be6e-efb4-4168-afeb-e038e2faefc7"
+    },
+    {
+      "id": "17025",
+      "namn": "Lisa Håglund",
+      "parti": "SD",
+      "listplats": 8,
+      "ålder": 26,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "17019",
+      "namn": "Björn Tidland",
+      "parti": "SD",
+      "listplats": 9,
+      "ålder": 63,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23780",
+      "namn": "Ludvig Heldevik",
+      "parti": "SD",
+      "listplats": 10,
+      "ålder": 27,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "c06e3597-2c4a-42be-b528-f8c5dc3922e4"
+    },
+    {
+      "id": "23781",
+      "namn": "Anna Silvén",
+      "parti": "SD",
+      "listplats": 11,
+      "ålder": 56,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "3905e7f1-dcef-4238-b9bf-48a29c83e29b"
+    },
+    {
+      "id": "23782",
+      "namn": "Musa Amairi",
+      "parti": "SD",
+      "listplats": 12,
+      "ålder": 19,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "0e0279cc-cd6e-433b-98c3-bf479fc9d7df"
+    },
+    {
+      "id": "23783",
+      "namn": "Lovisa Olofsson",
+      "parti": "SD",
+      "listplats": 13,
+      "ålder": 22,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23784",
+      "namn": "Sirod Serbest Kalash",
+      "parti": "SD",
+      "listplats": 14,
+      "ålder": 20,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "48662",
+      "namn": "Henrik Lernfelt",
+      "parti": "SD",
+      "listplats": 15,
+      "ålder": 48,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "3cd53319-96dc-4907-88fb-4008a7e43f88"
+    },
+    {
+      "id": "23785",
+      "namn": "Peter Löfgren",
+      "parti": "SD",
+      "listplats": 16,
+      "ålder": 72,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "21acdc23-f583-4f4f-957f-43d922814f72"
+    },
+    {
+      "id": "23786",
+      "namn": "Anita Gustafsson",
+      "parti": "SD",
+      "listplats": 17,
+      "ålder": 74,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "ba41dd4f-1a2e-4743-a89f-f11913795f7b"
+    },
+    {
+      "id": "5153",
+      "namn": "Emma Altenhammar",
+      "parti": "SD",
+      "listplats": 18,
+      "ålder": 28,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "22e4ced2-511f-4d65-9b45-8a781560fe47"
+    },
+    {
+      "id": "23787",
+      "namn": "Christin Berglöf Jörnbratt",
+      "parti": "SD",
+      "listplats": 19,
+      "ålder": 71,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23788",
+      "namn": "Göran Svensson",
+      "parti": "SD",
+      "listplats": 20,
+      "ålder": 72,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5d0be69e-6a7e-409f-b5fc-9fd74fb23015"
+    },
+    {
+      "id": "23789",
+      "namn": "Ann Charlotte Jakobsson",
+      "parti": "SD",
+      "listplats": 21,
+      "ålder": 60,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "99a09b4d-92e2-4c2f-8260-43770343f069"
+    },
+    {
+      "id": "23791",
+      "namn": "Björn Martinsson",
+      "parti": "SD",
+      "listplats": 22,
+      "ålder": 72,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23792",
+      "namn": "Nina Rothausen",
+      "parti": "SD",
+      "listplats": 23,
+      "ålder": 53,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "307d2fb7-dd61-442e-b631-e3d626d36cf6"
+    },
+    {
+      "id": "23793",
+      "namn": "Leslie Thorén",
+      "parti": "SD",
+      "listplats": 24,
+      "ålder": 71,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "b6888086-768f-49e7-b04d-b4bbd63d4b29"
+    },
+    {
+      "id": "23794",
+      "namn": "Rebecca Brännström",
+      "parti": "SD",
+      "listplats": 25,
+      "ålder": 34,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23795",
+      "namn": "Bertil Lundberg",
+      "parti": "SD",
+      "listplats": 26,
+      "ålder": 86,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23796",
+      "namn": "Maria Lejon",
+      "parti": "SD",
+      "listplats": 27,
+      "ålder": 43,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23797",
+      "namn": "Magnus Marelius",
+      "parti": "SD",
+      "listplats": 28,
+      "ålder": 71,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "eaa68098-f488-463d-b76b-ff55f1f4470b"
+    },
+    {
+      "id": "23798",
+      "namn": "Roger Andrén",
+      "parti": "SD",
+      "listplats": 29,
+      "ålder": 58,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23799",
+      "namn": "Mikael Sandberg",
+      "parti": "SD",
+      "listplats": 30,
+      "ålder": 64,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "e6ed823c-7206-4852-9b8c-74776f53062c"
+    },
+    {
+      "id": "23800",
+      "namn": "Pedram Shirin Bolaghi",
+      "parti": "SD",
+      "listplats": 31,
+      "ålder": 39,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "01e249d0-c3a9-4ac5-8a7d-b7b42bfe3b38"
+    },
+    {
+      "id": "23801",
+      "namn": "Lars Hedman",
+      "parti": "SD",
+      "listplats": 32,
+      "ålder": 65,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "50f9af7d-5f12-4ac5-831b-103d7dc43532"
+    },
+    {
+      "id": "23802",
+      "namn": "Margareth Lewestam",
+      "parti": "SD",
+      "listplats": 33,
+      "ålder": 69,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23803",
+      "namn": "Birgitta Thörn",
+      "parti": "SD",
+      "listplats": 34,
+      "ålder": 72,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "530c66a3-788e-4ea0-b5be-9e72e7f4a7cf"
+    },
+    {
+      "id": "23804",
+      "namn": "Joakim Strannerdahl",
+      "parti": "SD",
+      "listplats": 35,
+      "ålder": 52,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "17020",
+      "namn": "Caroline Nordengrip",
+      "parti": "SD",
+      "listplats": 36,
+      "ålder": 46,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23805",
+      "namn": "Hans Olof Lind",
+      "parti": "SD",
+      "listplats": 37,
+      "ålder": 74,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23806",
+      "namn": "Lilian Håkansson",
+      "parti": "SD",
+      "listplats": 38,
+      "ålder": 68,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23807",
+      "namn": "Andreas Hilding",
+      "parti": "SD",
+      "listplats": 39,
+      "ålder": 46,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23808",
+      "namn": "Victor Gadderus",
+      "parti": "SD",
+      "listplats": 40,
+      "ålder": 76,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23809",
+      "namn": "Lisen Forssell",
+      "parti": "SD",
+      "listplats": 41,
+      "ålder": 45,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23810",
+      "namn": "Christian Abrahamsson",
+      "parti": "SD",
+      "listplats": 42,
+      "ålder": 52,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "99e62da9-ce70-4305-88e9-ebd6915808a7"
+    },
+    {
+      "id": "23811",
+      "namn": "Gabriella Thunderlight",
+      "parti": "SD",
+      "listplats": 43,
+      "ålder": 61,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23812",
+      "namn": "Ricardo Rodriguez",
+      "parti": "SD",
+      "listplats": 44,
+      "ålder": 71,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23813",
+      "namn": "Marcus Silverbåge",
+      "parti": "SD",
+      "listplats": 45,
+      "ålder": 45,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23814",
+      "namn": "Ingrid Lindberg",
+      "parti": "SD",
+      "listplats": 46,
+      "ålder": 65,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23815",
+      "namn": "Bengt Erland Terborn",
+      "parti": "SD",
+      "listplats": 47,
+      "ålder": 79,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23817",
+      "namn": "Jan M. Hermfelt",
+      "parti": "SD",
+      "listplats": 48,
+      "ålder": 75,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "6e7e33b9-fc64-45d0-95d4-bb33fda3fb9c"
+    },
+    {
+      "id": "23818",
+      "namn": "Oscar Wåhlstedt",
+      "parti": "SD",
+      "listplats": 49,
+      "ålder": 38,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23820",
+      "namn": "Jacob Klarqvist",
+      "parti": "SD",
+      "listplats": 51,
+      "ålder": 29,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23821",
+      "namn": "Mikael Olsson",
+      "parti": "SD",
+      "listplats": 52,
+      "ålder": 61,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23822",
+      "namn": "Thomas Gustafsson",
+      "parti": "SD",
+      "listplats": 53,
+      "ålder": 62,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23823",
+      "namn": "Carl Jansson",
+      "parti": "SD",
+      "listplats": 54,
+      "ålder": 76,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23824",
+      "namn": "Magnus Bernelid",
+      "parti": "SD",
+      "listplats": 55,
+      "ålder": 50,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23826",
+      "namn": "Martin Thelin",
+      "parti": "SD",
+      "listplats": 56,
+      "ålder": 40,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23827",
+      "namn": "Arne Willberg",
+      "parti": "SD",
+      "listplats": 57,
+      "ålder": 76,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23828",
+      "namn": "Mikael Larsen",
+      "parti": "SD",
+      "listplats": 58,
+      "ålder": 63,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23829",
+      "namn": "Eva Grimes",
+      "parti": "SD",
+      "listplats": 59,
+      "ålder": 61,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "997fb2c5-c8b4-43e2-85cd-71e04bc69925"
+    },
+    {
+      "id": "17030",
+      "namn": "Glenn Ottosson",
+      "parti": "SD",
+      "listplats": 60,
+      "ålder": 68,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "51b2e017-6738-49ae-bd31-c2e18f3e73be"
+    },
+    {
+      "id": "17024",
+      "namn": "Håkan Lösnitz",
+      "parti": "SD",
+      "listplats": 61,
+      "ålder": 62,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23830",
+      "namn": "Krista Femrell",
+      "parti": "SD",
+      "listplats": 62,
+      "ålder": 74,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "ee872df3-5278-41e3-a1c3-bee3febc7275"
+    },
+    {
+      "id": "23831",
+      "namn": "Lena Ferm",
+      "parti": "SD",
+      "listplats": 63,
+      "ålder": 54,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "8bc9971e-58ea-442e-868f-bb40e29707d5"
+    },
+    {
+      "id": "23832",
+      "namn": "Mikael Westerlund",
+      "parti": "SD",
+      "listplats": 64,
+      "ålder": 59,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "24b75abc-a230-4813-92a0-d95eb99cca11"
+    },
+    {
+      "id": "17028",
+      "namn": "Pernilla Börjesson",
+      "parti": "SD",
+      "listplats": 65,
+      "ålder": 36,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "23834",
+      "namn": "Martina Lundquist",
+      "parti": "SD",
+      "listplats": 66,
+      "ålder": 54,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "f9c785aa-917d-40a7-9322-8b73a2286817"
+    },
+    {
+      "id": "17029",
+      "namn": "Vera Samuelsson",
+      "parti": "SD",
+      "listplats": 67,
+      "ålder": 37,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "f1e982a5-de70-4f5f-8861-0d87fc56f92b"
+    },
+    {
+      "id": "23835",
+      "namn": "Alf Hast",
+      "parti": "SD",
+      "listplats": 68,
+      "ålder": 78,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "56624",
+      "namn": "Christer Möller",
+      "parti": "SEN",
+      "listplats": 1,
+      "ålder": 87,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "55867",
+      "namn": "Erik Brindbergs",
+      "parti": "SKP",
+      "listplats": 1,
+      "ålder": 30,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "55868",
+      "namn": "Heidar Kadkhoda",
+      "parti": "SKP",
+      "listplats": 2,
+      "ålder": 43,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57333",
+      "namn": "Jonathan Ågård Fagman",
+      "parti": "SOC",
+      "listplats": null,
+      "ålder": 35,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "37043",
+      "namn": "Marie Brynolfsson",
+      "parti": "V",
+      "listplats": 1,
+      "ålder": 46,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "1066b779-9b54-4285-9063-9f2d52568e5b"
+    },
+    {
+      "id": "37044",
+      "namn": "Jenny Broman",
+      "parti": "V",
+      "listplats": 2,
+      "ålder": 49,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "086446b9-bc31-4ce5-891c-a18706fba3fa"
+    },
+    {
+      "id": "37045",
+      "namn": "Tony Haddou",
+      "parti": "V",
+      "listplats": 3,
+      "ålder": 37,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37046",
+      "namn": "Jonas Nilsson Wirdemo",
+      "parti": "V",
+      "listplats": 4,
+      "ålder": 41,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "81efbaa1-e66d-4f3e-af8f-c6403ae9a5b6"
+    },
+    {
+      "id": "37047",
+      "namn": "Hannah Klang",
+      "parti": "V",
+      "listplats": 5,
+      "ålder": 43,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "5f8aa345-8425-4366-b63d-67f963e0b502"
+    },
+    {
+      "id": "37048",
+      "namn": "Frida Tånghag",
+      "parti": "V",
+      "listplats": 6,
+      "ålder": 37,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "34f2a948-6475-474e-961a-4ddac94f7a48"
+    },
+    {
+      "id": "37049",
+      "namn": "Bettan Andersson",
+      "parti": "V",
+      "listplats": 7,
+      "ålder": 62,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "7111ccc4-a6cb-4900-b35e-d75e5f6ca56d"
+    },
+    {
+      "id": "37050",
+      "namn": "Grith Fjeldmose",
+      "parti": "V",
+      "listplats": 8,
+      "ålder": 73,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "3fa38ad8-5d11-4003-b5f6-c95b2a603e3b"
+    },
+    {
+      "id": "37051",
+      "namn": "Karin Karlsson",
+      "parti": "V",
+      "listplats": 9,
+      "ålder": 34,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "8228634a-46e6-4c17-9a65-f965d84d0de3"
+    },
+    {
+      "id": "37052",
+      "namn": "Johan Zandin",
+      "parti": "V",
+      "listplats": 10,
+      "ålder": 50,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "3dad8ab5-1622-42b4-87ea-417f05337f5d"
+    },
+    {
+      "id": "37053",
+      "namn": "Håkan Eriksson",
+      "parti": "V",
+      "listplats": 11,
+      "ålder": 41,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "f543ed57-420e-40d4-b6cb-35fc9c7d25c4"
+    },
+    {
+      "id": "37054",
+      "namn": "Maria Wåhlin",
+      "parti": "V",
+      "listplats": 12,
+      "ålder": 59,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "483b5067-fe3f-4a62-9b17-0e926e97dc52"
+    },
+    {
+      "id": "37055",
+      "namn": "Emma Svensson",
+      "parti": "V",
+      "listplats": 13,
+      "ålder": 26,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "29d356af-fc32-4315-aef6-f456a785a0e2"
+    },
+    {
+      "id": "37056",
+      "namn": "Jesper Berglund",
+      "parti": "V",
+      "listplats": 14,
+      "ålder": 46,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "810c04af-5426-4167-ba44-89380480edf8"
+    },
+    {
+      "id": "37057",
+      "namn": "Emelie Wandel",
+      "parti": "V",
+      "listplats": 15,
+      "ålder": 35,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37058",
+      "namn": "Rebar Alnazar",
+      "parti": "V",
+      "listplats": 16,
+      "ålder": 34,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "13167754-c095-434c-b527-e48bdc6f00f5"
+    },
+    {
+      "id": "37059",
+      "namn": "Özlem Sigirci",
+      "parti": "V",
+      "listplats": 17,
+      "ålder": 37,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "3066b844-6db8-4cf2-af3e-179956cc07fb"
+    },
+    {
+      "id": "37060",
+      "namn": "Joakim Byvik",
+      "parti": "V",
+      "listplats": 18,
+      "ålder": 33,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "5d9b714e-4cdd-48bd-86d4-d252ec9ae9e8"
+    },
+    {
+      "id": "37061",
+      "namn": "Sofia Bryngelsson",
+      "parti": "V",
+      "listplats": 19,
+      "ålder": 35,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "75b29fec-c224-4186-8448-24b097fbfd36"
+    },
+    {
+      "id": "37062",
+      "namn": "Theo Tsesmatzoglou",
+      "parti": "V",
+      "listplats": 20,
+      "ålder": 36,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "787c4fdd-9a9d-4fdb-88e9-28b9a8d69547"
+    },
+    {
+      "id": "37063",
+      "namn": "Sofia Blommenhag",
+      "parti": "V",
+      "listplats": 21,
+      "ålder": 31,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "65716cec-fadc-47e3-9a29-85e92a44a4fe"
+    },
+    {
+      "id": "37064",
+      "namn": "Sebastian Rinvall",
+      "parti": "V",
+      "listplats": 22,
+      "ålder": 38,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "e67b72d1-7979-4819-82d8-365b056c7c0e"
+    },
+    {
+      "id": "37065",
+      "namn": "Jack Vahnberg",
+      "parti": "V",
+      "listplats": 23,
+      "ålder": 29,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "abd26604-ea3b-4815-b637-55af730ea7f2"
+    },
+    {
+      "id": "37066",
+      "namn": "Walter Hornfelt",
+      "parti": "V",
+      "listplats": 24,
+      "ålder": 24,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "dfa7a1ac-dd49-4fe1-874c-cb59368217f6"
+    },
+    {
+      "id": "37008",
+      "namn": "Maria Andersson",
+      "parti": "V",
+      "listplats": 25,
+      "ålder": 33,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "e5ff606a-42f3-478b-806a-62c09e1c196e"
+    },
+    {
+      "id": "37067",
+      "namn": "Emma Öman",
+      "parti": "V",
+      "listplats": 26,
+      "ålder": 45,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "83b8553e-84f4-49ec-b02e-1f4708471335"
+    },
+    {
+      "id": "37068",
+      "namn": "Johannes Weiberg",
+      "parti": "V",
+      "listplats": 27,
+      "ålder": 38,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "3930d43b-291c-4c9f-9a36-96fef9697fb3"
+    },
+    {
+      "id": "37010",
+      "namn": "Yasmine Posio",
+      "parti": "V",
+      "listplats": 28,
+      "ålder": 52,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "69ef4445-fefc-4e83-9b6c-3054d3ab6d27"
+    },
+    {
+      "id": "37069",
+      "namn": "Paul Hedman",
+      "parti": "V",
+      "listplats": 29,
+      "ålder": 37,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "40dc83a9-01b9-4cf4-abd9-47c35f104ac0"
+    },
+    {
+      "id": "37070",
+      "namn": "Erik Helgeson",
+      "parti": "V",
+      "listplats": 30,
+      "ålder": 43,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37071",
+      "namn": "Martha Zoura",
+      "parti": "V",
+      "listplats": 31,
+      "ålder": 54,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "b26c3e0b-d045-4ea9-9e42-126111ba641f"
+    },
+    {
+      "id": "37072",
+      "namn": "Max Norén",
+      "parti": "V",
+      "listplats": 32,
+      "ålder": 27,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37073",
+      "namn": "Azra Sumar Mustafic",
+      "parti": "V",
+      "listplats": 33,
+      "ålder": 27,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "7e386773-0804-421e-8505-84c426f29d6c"
+    },
+    {
+      "id": "37019",
+      "namn": "Christian de Souza",
+      "parti": "V",
+      "listplats": 34,
+      "ålder": 48,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "94f413ef-8b62-4917-9611-33ae37679a2b"
+    },
+    {
+      "id": "37074",
+      "namn": "Agneta Thomasin Svensson",
+      "parti": "V",
+      "listplats": 35,
+      "ålder": 67,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37075",
+      "namn": "Karin Jeppsson",
+      "parti": "V",
+      "listplats": 36,
+      "ålder": 65,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37021",
+      "namn": "Anna Hildesson Munthe",
+      "parti": "V",
+      "listplats": 37,
+      "ålder": 33,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "21eb6762-a97d-4138-b358-4d37adb91da5"
+    },
+    {
+      "id": "37039",
+      "namn": "Hermineh Hourdad",
+      "parti": "V",
+      "listplats": 38,
+      "ålder": 51,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37076",
+      "namn": "Anna H Stoltz",
+      "parti": "V",
+      "listplats": 39,
+      "ålder": 72,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "cee8c0b1-7e5a-4e79-9536-582544016f35"
+    },
+    {
+      "id": "37013",
+      "namn": "Josephine Nissinen",
+      "parti": "V",
+      "listplats": 40,
+      "ålder": 25,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37077",
+      "namn": "Gunilla Eneroth",
+      "parti": "V",
+      "listplats": 41,
+      "ålder": 61,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "224a59fb-70a8-4106-8b3c-4e58ad49b08b"
+    },
+    {
+      "id": "37078",
+      "namn": "Madeleine Holst",
+      "parti": "V",
+      "listplats": 42,
+      "ålder": 52,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "c617a377-2a89-45c0-a28d-e1c746636684"
+    },
+    {
+      "id": "37079",
+      "namn": "Zebastian Björkqvist",
+      "parti": "V",
+      "listplats": 43,
+      "ålder": 29,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "8f9dbd5e-4279-4821-a814-9956a704393a"
+    },
+    {
+      "id": "37080",
+      "namn": "Victoria Alasuutari",
+      "parti": "V",
+      "listplats": 44,
+      "ålder": 49,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37081",
+      "namn": "Erik Fernsund",
+      "parti": "V",
+      "listplats": 45,
+      "ålder": 32,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "8373e552-e183-424d-8f8d-4280e9ab7f89"
+    },
+    {
+      "id": "37082",
+      "namn": "Tove Wikehult",
+      "parti": "V",
+      "listplats": 46,
+      "ålder": 37,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "16ab9c9b-a601-47a0-a108-b3e4949adb11"
+    },
+    {
+      "id": "37083",
+      "namn": "Michaela Joselid",
+      "parti": "V",
+      "listplats": 47,
+      "ålder": 28,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "7d65854d-38e8-4e52-898b-8c8c691816bf"
+    },
+    {
+      "id": "37037",
+      "namn": "Dan Ljung",
+      "parti": "V",
+      "listplats": 48,
+      "ålder": 73,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": "cd473c88-f487-474d-a135-dca396534a24"
+    },
+    {
+      "id": "37084",
+      "namn": "Katt Marmin",
+      "parti": "V",
+      "listplats": 49,
+      "ålder": 39,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "a263f2e3-5243-472e-93af-480b9e757924"
+    },
+    {
+      "id": "37085",
+      "namn": "Linda Adolfsson-Stattin",
+      "parti": "V",
+      "listplats": 50,
+      "ålder": 49,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37014",
+      "namn": "Lene Gonzague",
+      "parti": "V",
+      "listplats": 51,
+      "ålder": 58,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "d1274fc8-030e-4c65-83ad-1c49ac08d97b"
+    },
+    {
+      "id": "37086",
+      "namn": "Homeira Tari",
+      "parti": "V",
+      "listplats": 52,
+      "ålder": 60,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37087",
+      "namn": "Ingemar Savonen",
+      "parti": "V",
+      "listplats": 53,
+      "ålder": 74,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "37088",
+      "namn": "Ellinor Karlsson",
+      "parti": "V",
+      "listplats": 54,
+      "ålder": 50,
+      "kön": "K",
+      "fastställd": true,
+      "politikerId": "e5f1f4b3-c1dc-4414-bf73-268061e28110"
+    },
+    {
+      "id": "37089",
+      "namn": "Eric Sandbling",
+      "parti": "V",
+      "listplats": 55,
+      "ålder": 42,
+      "kön": "M",
+      "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "44940",
+      "namn": "Nexhat Murati",
+      "parti": "VIS",
+      "listplats": 1,
+      "ålder": 46,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "44635",
+      "namn": "Hassan Khan",
+      "parti": "VIS",
+      "listplats": 2,
+      "ålder": 41,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "45103",
+      "namn": "Rami Raim",
+      "parti": "VIS",
+      "listplats": 3,
+      "ålder": 52,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57126",
+      "namn": "Adel Sadat",
+      "parti": "VIS",
+      "listplats": null,
+      "ålder": 35,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "45518",
+      "namn": "Sead Busuladzic",
+      "parti": "VIS",
+      "listplats": null,
+      "ålder": 44,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "856",
+      "namn": "Victor Bohman Lind",
+      "parti": "Volt",
+      "listplats": null,
+      "ålder": 21,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57356",
+      "namn": "Daniel Buvarp",
+      "parti": "Volt",
+      "listplats": null,
+      "ålder": 37,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "3078",
+      "namn": "Edwin Bertilsson",
+      "parti": "Volt",
+      "listplats": null,
+      "ålder": 24,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "143",
+      "namn": "Willy Tiger",
+      "parti": "WT",
+      "listplats": null,
+      "ålder": 55,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    }
+  ]
+}

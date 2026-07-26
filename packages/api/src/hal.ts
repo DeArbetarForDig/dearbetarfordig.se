@@ -129,6 +129,14 @@ export function politikerListLinks(kommun: string): HalLinks {
   }
 }
 
+// Kandidater (val 2026) list links
+export function kandidaterListLinks(kommun: string): HalLinks {
+  const base = baseUrl(kommun)
+  return {
+    self: { href: `${base}/kandidater` },
+  }
+}
+
 // Möte links
 export function möteLinks(kommun: string, datum: string): HalLinks {
   const base = baseUrl(kommun)

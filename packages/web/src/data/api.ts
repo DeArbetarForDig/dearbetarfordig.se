@@ -64,13 +64,69 @@ export interface Möte {
 }
 
 export async function getPolitiker(): Promise<Politiker[]> {
-  const data = await fetchApi<HalCollection<Politiker>>('/v1/goteborg/politiker?limit=1000')
+  const data = await fetchApi<HalCollection<Politiker>>('/v1/goteborg/politiker?limit=2000')
+
+  // Guard: fail loudly if we didn't get all politicians.
+  if (data._embedded.items.length !== data.total) {
+    throw new Error(
+      `Politiker truncation detected: collected ${data._embedded.items.length} but API reports ${data.total} total. ` +
+      `Increase limit or API cap to fix. Build will not continue silently with missing pages.`
+    )
+  }
+
+  return data._embedded.items
+}
+
+export interface Kandidat {
+  id: string
+  namn: string
+  parti: string
+  listplats: number | null
+  ålder: number | null
+  kön: string | null
+  fastställd: boolean
+  politikerId: string | null
+}
+
+export async function getKandidater(): Promise<Kandidat[]> {
+  const data = await fetchApi<HalCollection<Kandidat>>('/v1/goteborg/kandidater')
   return data._embedded.items
 }
 
 export async function getBeslut(limit = 200): Promise<Beslut[]> {
   const data = await fetchApi<HalCollection<Beslut>>(`/v1/goteborg/beslut?limit=${limit}`)
   return data._embedded.items
+}
+
+export async function getAllBeslut(): Promise<Beslut[]> {
+  // Fetch the total count for all decisions (no year filter)
+  const totalCheck = await fetchApi<HalCollection<Beslut>>(`/v1/goteborg/beslut?limit=1`)
+  const totalExpected = totalCheck.total
+
+  // Fetch decisions per year to avoid truncation from API limit cap.
+  // The API caps at 2000 rows; fetching per year (typically 300–1600 per year)
+  // ensures we collect every decision without hitting the limit.
+  const items: Beslut[] = []
+  const now = new Date().getFullYear()
+  const earliestYear = 2023 // Data starts 2023; adjust if historical data added
+
+  for (let år = now; år >= earliestYear; år--) {
+    const data = await fetchApi<HalCollection<Beslut>>(`/v1/goteborg/beslut?år=${år}&limit=2000`)
+    items.push(...data._embedded.items)
+  }
+
+  // Guard: fail loudly if we didn't get all decisions.
+  // The site links to every decision that exists; silently shipping fewer
+  // pages is worse than failing the build.
+  const totalCollected = items.length
+  if (totalCollected !== totalExpected) {
+    throw new Error(
+      `Beslut truncation detected: collected ${totalCollected} but API reports ${totalExpected} total. ` +
+      `Increase year range or API limit to fix. Build will not continue silently with missing pages.`
+    )
+  }
+
+  return items
 }
 
 export async function getBeslutDetail(id: string): Promise<{ beslut: BeslutDetail; kopplingar: any[] }> {
