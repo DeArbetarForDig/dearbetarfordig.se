@@ -181,9 +181,15 @@ const paginationId = `${id}-pagination`
 
     // Pagination drives which slice of currentFilteredRows is visible;
     // filter/sort only recompute the rows and tell it the new total.
+    // Raderna flyttas i DOM:en i sorterad ordning — annars skulle sorteringen
+    // bara välja VILKA rader som syns, medan ordningen låg kvar som i källan.
+    const tbody = wrapper.querySelector('.daf-dt__body')
     pagination.onChange(({ start, end, totalItems }) => {
       rows.forEach(r => r.style.display = 'none')
-      currentFilteredRows.slice(start, end).forEach(r => r.style.display = '')
+      currentFilteredRows.slice(start, end).forEach(r => {
+        r.style.display = ''
+        tbody.appendChild(r)
+      })
       if (showingEl) {
         showingEl.textContent = totalItems === 0
           ? 'Inga resultat'

@@ -13,6 +13,7 @@ export * from './components/chamber'
 export * from './components/kpi'
 export * from './components/politician-card'
 export * from './components/decision-card'
+export * from './components/party-tag'
 export * from './components/structure-tree'
 export * from './components/timeline'
 

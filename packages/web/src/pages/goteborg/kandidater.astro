@@ -1,77 +1,226 @@
 ---
-import Card from '../../../../ui/src/components/core/Card.astro'
+import DataTable from '../../../../ui/src/components/core/DataTable.astro'
 import EmptyState from '../../../../ui/src/components/core/EmptyState.astro'
-import PartyTag from '../../../../ui/src/components/core/PartyTag.astro'
-import Table from '../../../../ui/src/components/core/Table.astro'
-import { type Kandidat, getKandidater } from '../../data/api'
+import { generatePartyTagHTML, partyName } from '../../../../ui/src/components/party-tag/index.ts'
+import {
+  type Kandidat,
+  type Politiker,
+  fetchApi,
+  getKandidater,
+  getPolitiker,
+} from '../../data/api'
 import Kommun from '../../layouts/Kommun.astro'
 
-const kandidater = await getKandidater()
-const antalLänkade = kandidater.filter((k) => k.politikerId).length
+const [kandidater, politiker, polPerNämnd] = await Promise.all([
+  getKandidater(),
+  getPolitiker(),
+  // Samma källa som (N:x)-suffixet på /goteborg: ledamot_i-kanter i grafen,
+  // exkl. ersättare. Nycklarna är nämndnamn, värdet politiker i nämnden.
+  fetchApi<Record<string, { id: string }[]>>('/v1/goteborg/graf/politiker-per-nämnd'),
+])
 
-const grupper = new Map<string, Kandidat[]>()
-for (const k of kandidater) {
-  const lista = grupper.get(k.parti) || []
-  lista.push(k)
-  grupper.set(k.parti, lista)
+// Antal nämnder per politiker (samma beräkning som startsidan)
+const nämndAntal = new Map<string, number>()
+for (const pols of Object.values(polPerNämnd || {})) {
+  for (const p of pols) nämndAntal.set(p.id, (nämndAntal.get(p.id) || 0) + 1)
 }
-const partiOrdning = [...grupper.entries()].sort((a, b) => b[1].length - a[1].length)
-const partier = partiOrdning.map(([p]) => p)
+
+// "Ledamot" / "Ersättare" i ett givet organ, eller null om inget uppdrag finns.
+// Presidie-/ordföranderoller heter "Ledamot och ordförande" o.s.v. i källan.
+function rollI(
+  uppdrag: Politiker['uppdrag'],
+  matchOrg: (org: string) => boolean,
+): 'Ledamot' | 'Ersättare' | null {
+  const träffar = (uppdrag || []).filter((u) => matchOrg(u.organisation || ''))
+  if (träffar.length === 0) return null
+  if (träffar.some((u) => /^Ledamot\b/i.test(u.roll))) return 'Ledamot'
+  if (träffar.some((u) => /^Ersättare\b/i.test(u.roll))) return 'Ersättare'
+  return null
+}
+
+// Ordförandeskap i nämnd — "Ledamot och ordförande" (vice ordförande räknas inte)
+function ärNämndordförande(uppdrag: Politiker['uppdrag']): boolean {
+  return (uppdrag || []).some(
+    (u) =>
+      /nämnd/i.test(u.organisation || '') &&
+      /\bordförande\b/i.test(u.roll) &&
+      !/vice ordförande/i.test(u.roll),
+  )
+}
+
+// Uppdragsprofil per sittande politiker, uppslagen på politikerId från kandidatlistan
+const profiler = new Map(
+  politiker.map((p) => [
+    p.id,
+    {
+      aktivSedan: p.aktivSedan,
+      kf: rollI(p.uppdrag, (org) => /^Kommunfullmäktige,/i.test(org)),
+      ks: rollI(p.uppdrag, (org) => org === 'Kommunstyrelsen'),
+      antalNämnder: nämndAntal.get(p.id) || 0,
+      nämndordförande: ärNämndordförande(p.uppdrag),
+    },
+  ]),
+)
+
+type Rad = Kandidat & {
+  aktivSedan: string | null
+  kf: 'Ledamot' | 'Ersättare' | null
+  ks: 'Ledamot' | 'Ersättare' | null
+  antalNämnder: number
+  nämndordförande: boolean
+}
+
+const rader: Rad[] = kandidater.map((k) => {
+  const profil = k.politikerId ? profiler.get(k.politikerId) : undefined
+  return {
+    ...k,
+    aktivSedan: profil?.aktivSedan ?? null,
+    kf: profil?.kf ?? null,
+    ks: profil?.ks ?? null,
+    antalNämnder: profil?.antalNämnder ?? 0,
+    nämndordförande: profil?.nämndordförande ?? false,
+  }
+})
+
+const antalLänkade = rader.filter((k) => k.politikerId).length
+const antalKf = rader.filter((k) => k.kf).length
+
+function status(k: Rad): { text: string; color: string } {
+  if (k.kf === 'Ledamot') return { text: 'KF-ledamot', color: 'var(--color-positive)' }
+  if (k.kf === 'Ersättare') return { text: 'KF-ersättare', color: 'var(--color-info)' }
+  if (k.nämndordförande) return { text: 'Nämndordförande', color: 'var(--color-info)' }
+  if (k.politikerId) return { text: 'Har uppdrag', color: 'var(--color-info)' }
+  return { text: 'Ny kandidat', color: 'var(--color-neutral)' }
+}
+
+// Etablerade partier har sajtgemensamma namn (PARTY_NAMES i @daf/ui); småpartier
+// och lokala listor får sin registrerade partibeteckning från Valmyndigheten.
+const partiNamn = (k: Rad) => partyName(k.parti, k.partiNamn ?? undefined)
+
+// Partier sorterade på antal kandidater — ordningen i chip-raden
+const antalPerParti = new Map<string, number>()
+for (const k of rader) antalPerParti.set(k.parti, (antalPerParti.get(k.parti) || 0) + 1)
+const partier = [...antalPerParti.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .map(([kod]) => ({
+    kod,
+    namn: partiNamn(rader.find((r) => r.parti === kod) as Rad),
+    antal: antalPerParti.get(kod) || 0,
+  }))
+
+// Utgångsordning i tabellen: största parti först, listplats inom partiet —
+// samma logik som chip-raden. Sortering på kolumnrubrik tar över därefter.
+rader.sort(
+  (a, b) =>
+    (antalPerParti.get(b.parti) || 0) - (antalPerParti.get(a.parti) || 0) ||
+    a.parti.localeCompare(b.parti, 'sv') ||
+    (a.listplats ?? 9999) - (b.listplats ?? 9999),
+)
+
+const dot = (färg: string) =>
+  `<span class="inline-block w-2.5 h-2.5 rounded-full shrink-0 bg-(--dot-color)" style="--dot-color:${färg}"></span>`
+
+const data = rader.map((k) => {
+  const st = status(k)
+  const namn = partiNamn(k)
+  return {
+    // Filtervärdet innehåller partikoden i hakparentes så att chip-knapparna
+    // kan matcha exakt ("[S]") — DataTables filter är substring-baserat och
+    // "S" skulle annars träffa SD, SKP, VIS m.fl.
+    parti: `[${k.parti}] ${namn}`,
+    listplats: k.listplats ?? 0,
+    namn: k.namn,
+    ålder: k.ålder ?? 0,
+    sedan: k.aktivSedan ? Number(k.aktivSedan) : 0,
+    kf: k.kf ?? '',
+    ks: k.ks ?? '',
+    nämnder: k.antalNämnder,
+    status: st.text,
+    _parti_html: generatePartyTagHTML({ parti: k.parti, namn, full: true, size: 'sm' }),
+    _listplats_html: k.listplats ? String(k.listplats) : '–',
+    _namn_html: k.politikerId
+      ? `<a href="/goteborg/politiker/${k.politikerId}" class="text-(--color-text) hover:text-(--color-primary)">${k.namn}</a>`
+      : k.namn,
+    _ålder_html: k.ålder ? String(k.ålder) : '–',
+    _sedan_html: k.aktivSedan || '–',
+    _kf_html: k.kf || '–',
+    _ks_html: k.ks || '–',
+    _nämnder_html: k.antalNämnder ? String(k.antalNämnder) : '–',
+    _status_html: `<span class="inline-flex items-center gap-1.5">${dot(st.color)}${st.text}</span>`,
+  }
+})
+
+const columns = [
+  { key: 'parti', label: 'Parti', sort: 'default' as const, nowrap: true, width: '220px' },
+  {
+    key: 'listplats',
+    label: '#',
+    sort: 'number' as const,
+    align: 'right' as const,
+    nowrap: true,
+    width: '60px',
+  },
+  { key: 'namn', label: 'Namn', sort: 'default' as const },
+  {
+    key: 'ålder',
+    label: 'Ålder',
+    sort: 'number' as const,
+    align: 'right' as const,
+    nowrap: true,
+    width: '80px',
+  },
+  {
+    key: 'sedan',
+    label: 'I politiken sedan',
+    sort: 'number' as const,
+    align: 'right' as const,
+    nowrap: true,
+    width: '130px',
+  },
+  { key: 'kf', label: 'KF', sort: 'default' as const, nowrap: true, width: '100px' },
+  { key: 'ks', label: 'KS', sort: 'default' as const, nowrap: true, width: '100px' },
+  {
+    key: 'nämnder',
+    label: 'Nämnder',
+    sort: 'number' as const,
+    align: 'right' as const,
+    nowrap: true,
+    width: '90px',
+  },
+  { key: 'status', label: 'Status', sort: 'default' as const, nowrap: true, width: '150px' },
+]
 ---
 
 <Kommun title="Kandidater till kommunfullmäktige — Göteborg" breadcrumbs={[{ label: 'Göteborg', href: '/goteborg' }, { label: 'Kandidater' }]}>
   <h1 class="text-[2rem] font-bold mb-2">Kandidater till kommunfullmäktige</h1>
-  <p class="text-sm text-(--color-text-muted) mb-6">
-    Val 2026 (13 september) · {kandidater.length} kandidater, {antalLänkade} redan sittande ledamöter i KF ·
+  <p class="text-sm text-(--color-text-muted) mb-4">
+    Val 2026 (13 september) · {rader.length} kandidater, {antalLänkade} har uppdrag i staden idag varav {antalKf} i kommunfullmäktige ·
     Källa: <a href="https://www.val.se" class="underline hover:text-(--color-primary)">Valmyndigheten</a>, uppdateras varje timme fram till valet
   </p>
 
-  {kandidater.length === 0 ? (
+  {rader.length === 0 ? (
     <EmptyState icon="users" title="Inga kandidater hämtade ännu" description="Kör pnpm scrape:kandidater för att hämta rådata från Valmyndigheten." />
   ) : (
     <>
-      <div id="filter-bar" class="flex flex-wrap gap-4 items-center mb-6">
-        <div class="flex items-center gap-2 bg-(--color-surface) border border-(--color-border) rounded-[--radius-sm] px-3 py-1.5 flex-1 min-w-[220px]">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-(--color-text-muted) shrink-0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <input id="search-input" type="text" placeholder="Sök kandidat…" class="border-none outline-none bg-transparent text-(--color-text) font-sans text-base w-full" />
-        </div>
-        <div class="flex gap-1.5 flex-wrap">
-          <button data-parti="alla" class="chip active">Alla</button>
-          {partier.map(p => (
-            <button data-parti={p} class="chip">
-              <span class="w-2.5 h-2.5 rounded-sm shrink-0 bg-(--parti-color)" style={`--parti-color:var(--parti-${p.toLowerCase()}, var(--parti-ovriga))`} />
-              {p}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div id="grupper" class="flex flex-col gap-6">
-        {partiOrdning.map(([parti, lista]) => (
-          <div class="parti-group" data-parti={parti}>
-            <Card>
-              <div class="flex items-center justify-between mb-3">
-                <PartyTag parti={parti} full size="md" />
-                <span class="text-xs text-(--color-text-subtle)">
-                  {lista.length} kandidater{lista.filter(k => k.politikerId).length > 0 && ` · ${lista.filter(k => k.politikerId).length} sittande`}
-                </span>
-              </div>
-              <Table
-                headers={['#', 'Namn', 'Ålder', 'Status']}
-                alignRight={[0, 2]}
-                rows={lista.map(k => [
-                  k.listplats ?? '–',
-                  k.politikerId ? { text: k.namn, href: `/goteborg/politiker/${k.politikerId}` } : k.namn,
-                  k.ålder ?? '–',
-                  { text: k.politikerId ? 'Sittande ledamot' : 'Ny kandidat', color: k.politikerId ? 'var(--color-positive)' : 'var(--color-neutral)' },
-                ])}
-                variant="compact"
-              />
-            </Card>
-          </div>
+      <div id="parti-chips" class="flex gap-1.5 flex-wrap mb-4">
+        <button data-filter="" class="chip active">Alla</button>
+        {partier.map(p => (
+          <button data-filter={`[${p.kod}]`} class="chip" title={`${p.namn} — ${p.antal} kandidater`}>
+            <span class="w-2.5 h-2.5 rounded-sm shrink-0 bg-(--parti-color)" style={`--parti-color:var(--parti-${p.kod.toLowerCase()}, var(--parti-ovriga))`} />
+            {p.kod}
+          </button>
         ))}
       </div>
-      <p id="empty-filter" class="hidden text-sm text-(--color-text-muted) text-center py-8">Inga kandidater matchar filtret.</p>
+
+      <p class="text-xs text-(--color-text-subtle) mb-4">
+        <strong>I politiken sedan</strong> = första året med registrerat uppdrag enligt politiker.goteborg.se ·
+        <strong>KF/KS</strong> = ledamot eller ersättare i kommunfullmäktige respektive kommunstyrelsen idag ·
+        <strong>Nämnder</strong> = antal nämnder personen sitter i som ledamot (ersättaruppdrag räknas inte) ·
+        <strong>–</strong> = inget känt uppdrag i Göteborgs Stad ·
+        klicka på en kolumnrubrik för att sortera, sök per kolumn i fälten under rubrikerna
+      </p>
+
+      <DataTable id="kandidater" columns={columns} data={data} pageSize={50} />
     </>
   )}
 
@@ -99,41 +248,24 @@ const partier = partiOrdning.map(([p]) => p)
   </style>
 
   <script is:inline>
-    const input = document.getElementById('search-input')
-    const partiChips = document.querySelectorAll('.chip')
-    const groups = document.querySelectorAll('.parti-group')
-    const emptyMsg = document.getElementById('empty-filter')
-    let activeParti = 'alla'
+    // Chip-raden styr DataTables egna parti-filter (substring-matchning mot
+    // "[KOD] Partinamn"), så sortering/paginering hanteras av komponenten.
+    const chips = document.querySelectorAll('#parti-chips .chip')
+    const partiFilter = document.querySelector('#kandidater .daf-dt__filter-input[data-key="parti"]')
 
-    function filter() {
-      const q = (input?.value || '').toLowerCase()
-      let anyVisible = false
-      groups.forEach(group => {
-        const parti = group.dataset.parti
-        const matchParti = activeParti === 'alla' || parti === activeParti
-        const rows = group.querySelectorAll('tbody tr')
-        let visibleRows = 0
-        rows.forEach(row => {
-          const namn = (row.children[1]?.textContent || '').toLowerCase()
-          const show = matchParti && namn.includes(q)
-          row.classList.toggle('hidden', !show)
-          if (show) visibleRows++
-        })
-        const show = matchParti && visibleRows > 0
-        group.classList.toggle('hidden', !show)
-        if (show) anyVisible = true
-      })
-      emptyMsg?.classList.toggle('hidden', anyVisible)
-    }
-
-    input?.addEventListener('input', filter)
-    partiChips.forEach(chip => {
+    chips.forEach((chip) => {
       chip.addEventListener('click', () => {
-        partiChips.forEach(c => c.classList.remove('active'))
+        chips.forEach((c) => c.classList.remove('active'))
         chip.classList.add('active')
-        activeParti = chip.dataset.parti
-        filter()
+        if (!partiFilter) return
+        partiFilter.value = chip.dataset.filter
+        partiFilter.dispatchEvent(new Event('input', { bubbles: true }))
       })
+    })
+
+    // Skriver användaren direkt i parti-fältet ska chip-markeringen släppa
+    partiFilter?.addEventListener('input', (e) => {
+      if (e.isTrusted) chips.forEach((c) => c.classList.remove('active'))
     })
   </script>
 </Kommun>

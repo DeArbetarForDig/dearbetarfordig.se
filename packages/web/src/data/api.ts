@@ -81,6 +81,7 @@ export interface Kandidat {
   id: string
   namn: string
   parti: string
+  partiNamn: string | null
   listplats: number | null
   ålder: number | null
   kön: string | null

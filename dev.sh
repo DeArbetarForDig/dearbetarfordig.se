@@ -40,14 +40,18 @@ until $COMPOSE exec -T db pg_isready -U daf -h 127.0.0.1 > /dev/null 2>&1; do
   sleep 1
 done
 
-# pg_isready above proves the server is up, not that our password works:
-# initdb's default pg_hba grants `127.0.0.1/32 trust`, so an in-container
-# loopback connection succeeds with any password. Probe over the container's
-# own routable IP instead, which matches the appended
-# `host all all all scram-sha-256` rule — same path the host API takes.
-if ! $COMPOSE exec -T db sh -c \
-  'PGPASSWORD="$POSTGRES_PASSWORD" psql -h "$(hostname -i)" -U daf -d daf -tAc "select 1"' \
-  > /dev/null 2>&1; then
+# Runs SQL from stdin inside the db container. -h "$(hostname -i)" targets the
+# container's own routable IP, which matches the appended
+# `host all all all scram-sha-256` rule — the same auth path the host API
+# takes. An in-container loopback connection would instead hit initdb's
+# default `127.0.0.1/32 trust` and succeed with any password.
+db_psql() {
+  $COMPOSE exec -T db sh -c \
+    'PGPASSWORD="$POSTGRES_PASSWORD" psql -h "$(hostname -i)" -U daf -d daf -tA'
+}
+
+# pg_isready above proves the server is up, not that our password works.
+if ! echo 'select 1' | db_psql > /dev/null 2>&1; then
   cat >&2 <<EOF
 ❌ DB rejects POSTGRES_PASSWORD from .env.
 
@@ -65,6 +69,37 @@ EOF
   exit 1
 fi
 echo "✓ PostgreSQL ready"
+
+# The db image is a CI-baked snapshot of data/ (Dockerfile.db), so a pulled
+# `:latest` can predate a table added to src/db/seed.ts — the API then 500s
+# with `relation "goteborg.<table>" does not exist` and the affected page
+# breaks. Compare the tables seed.ts creates against the running DB and
+# re-seed on drift. Row-level staleness is not detectable this way: after
+# changing data/, re-seed explicitly with `SEED=1 ./dev.sh`.
+seed_db() {
+  echo "🌱 Seeding from data/ (~1 min)..."
+  (cd "$DIR/packages/api" && npx tsx src/db/seed.ts) || {
+    echo "❌ Seed failed — see the error above" >&2
+    exit 1
+  }
+}
+
+expected_tables=$(
+  grep -o 'CREATE TABLE IF NOT EXISTS goteborg\.[a-z_]*' \
+    "$DIR/packages/api/src/db/seed.ts" | sed 's/.*\.//' | sort -u
+)
+actual_tables=$(
+  echo "select table_name from information_schema.tables where table_schema = 'goteborg'" |
+    db_psql | tr -d '\r' | sort -u
+)
+missing_tables=$(comm -23 <(echo "$expected_tables") <(echo "$actual_tables"))
+
+if [ "${SEED:-0}" = "1" ]; then
+  seed_db
+elif [ -n "$missing_tables" ]; then
+  echo "⚠️  Baked dump is stale — missing: $(echo "$missing_tables" | tr '\n' ' ')"
+  seed_db
+fi
 
 lsof -ti:3000 | xargs kill 2>/dev/null || true
 lsof -ti:4321 | xargs kill 2>/dev/null || true

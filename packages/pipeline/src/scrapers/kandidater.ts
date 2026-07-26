@@ -59,6 +59,7 @@ interface Kandidat {
   id: string
   namn: string
   parti: string
+  partiNamn: string
   listplats: number | null
   ålder: number | null
   kön: string | null
@@ -94,7 +95,8 @@ async function main() {
     if (col(row, 'GILTIG') !== 'J') continue
 
     const namn = normaliseraNamn(col(row, 'NAMN'))
-    const parti = partiKod(col(row, 'PARTIFÖRKORTNING'), col(row, 'PARTIBETECKNING'))
+    const partiBeteckning = col(row, 'PARTIBETECKNING')
+    const parti = partiKod(col(row, 'PARTIFÖRKORTNING'), partiBeteckning)
     const ordning = col(row, 'ORDNING')
     const ålder = col(row, 'ÅLDER_PÅ_VALDAGEN')
 
@@ -102,6 +104,9 @@ async function main() {
       id: col(row, 'KANDIDATNUMMER'),
       namn,
       parti,
+      // Registrerad partibeteckning — enda källan till läsbara namn för de
+      // småpartier som saknar etablerad förkortning ("SOC" → Socialliberalerna)
+      partiNamn: partiBeteckning,
       listplats: ordning ? Number(ordning) : null,
       ålder: ålder ? Number(ålder) : null,
       kön: col(row, 'KÖN') || null,

@@ -86,6 +86,7 @@ async function main() {
       id TEXT PRIMARY KEY,
       namn TEXT NOT NULL,
       parti TEXT NOT NULL,
+      parti_namn TEXT,
       listplats INT,
       alder INT,
       kon TEXT,
@@ -93,6 +94,10 @@ async function main() {
       politiker_id UUID REFERENCES goteborg.politiker(id) ON DELETE SET NULL,
       created_at TIMESTAMPTZ DEFAULT now()
     )`
+
+  // Befintliga databaser saknar parti_namn (tillagd när småpartiernas
+  // registrerade partibeteckning började visas i UI:t)
+  await client`ALTER TABLE goteborg.kandidater ADD COLUMN IF NOT EXISTS parti_namn TEXT`
 
   await client`
     CREATE TABLE IF NOT EXISTS goteborg.graf_nodes (
@@ -166,10 +171,11 @@ async function main() {
     await client`DELETE FROM goteborg.kandidater`
     for (const k of kandData.kandidater) {
       await client`
-        INSERT INTO goteborg.kandidater (id, namn, parti, listplats, alder, kon, faststalld, politiker_id)
-        VALUES (${k.id}, ${k.namn}, ${k.parti}, ${k.listplats}, ${k.ålder}, ${k.kön}, ${k.fastställd}, ${k.politikerId})
+        INSERT INTO goteborg.kandidater (id, namn, parti, parti_namn, listplats, alder, kon, faststalld, politiker_id)
+        VALUES (${k.id}, ${k.namn}, ${k.parti}, ${k.partiNamn ?? null}, ${k.listplats}, ${k.ålder}, ${k.kön}, ${k.fastställd}, ${k.politikerId})
         ON CONFLICT (id) DO UPDATE SET
-          namn = EXCLUDED.namn, parti = EXCLUDED.parti, listplats = EXCLUDED.listplats,
+          namn = EXCLUDED.namn, parti = EXCLUDED.parti, parti_namn = EXCLUDED.parti_namn,
+          listplats = EXCLUDED.listplats,
           alder = EXCLUDED.alder, kon = EXCLUDED.kon, faststalld = EXCLUDED.faststalld,
           politiker_id = EXCLUDED.politiker_id`
     }

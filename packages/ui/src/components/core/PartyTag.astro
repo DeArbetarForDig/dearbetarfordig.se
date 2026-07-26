@@ -5,9 +5,12 @@
  * Usage:
  *   <PartyTag parti="S" />         → small colored box with "S"
  *   <PartyTag parti="MP" full />   → box + "Miljöpartiet" text
+ *   <PartyTag parti="SOC" full namn="Socialliberalerna" />
  *
  * Props:
  * - parti: party code (S, M, SD, V, MP, C, L, KD, D)
+ * - namn: visningsnamn för koder utanför PARTY (småpartier, lokala listor) —
+ *   de etablerade partierna behåller sitt sajtgemensamma namn
  * - full: show full party name alongside the code
  * - size: sm | md
  *
@@ -16,6 +19,7 @@
  */
 interface Props {
   parti: string
+  namn?: string
   full?: boolean
   size?: 'sm' | 'md'
   class?: string
@@ -33,8 +37,10 @@ const PARTY: Record<string, { color: string; name: string }> = {
   D: { color: 'var(--parti-d)', name: 'Demokraterna' },
 }
 
-const { parti, full = false, size = 'md', class: className } = Astro.props
-const p = PARTY[parti] || { color: 'var(--parti-ovriga)', name: parti }
+const { parti, namn, full = false, size = 'md', class: className } = Astro.props
+// Namnet på partier utanför listan (småpartier, lokala valsedlar) kommer från
+// datakällan — se partyName() i @daf/ui components/party-tag
+const p = PARTY[parti] || { color: 'var(--parti-ovriga)', name: namn?.trim() || parti }
 ---
 <span
   class:list={['inline-flex items-center gap-1.5', full && 'bg-(--color-surface-sunken) rounded-sm pr-2', className]}
