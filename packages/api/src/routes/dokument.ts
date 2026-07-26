@@ -1,12 +1,14 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { requireSchema, sql } from '../lib/db.js'
+import { standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const dokumentRouter = new OpenAPIHono()
+export const dokumentRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 // --- Dokument (full-text parsed documents for AI/research) ---
 const dokumentListRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/dokument',
+  operationId: 'listDokument',
   tags: ['Dokument'],
   summary: 'Lista alla dokument med metadata',
   request: {
@@ -14,6 +16,7 @@ const dokumentListRoute = createRoute({
     query: z.object({ typ: z.string().optional() }),
   },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -67,10 +70,20 @@ dokumentRouter.openapi(dokumentListRoute, async (c) => {
 const dokumentSökRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/dokument/sök',
+  operationId: 'searchDokument',
   tags: ['Dokument'],
-  summary: 'Sök i dokumentinnehåll (fulltext)',
-  request: { params: z.object({ kommun: z.string() }), query: z.object({ q: z.string() }) },
+  summary: 'Sök i dokumentinnehåll (fulltext) — DEPRECERAD, använd /sök?typ=dokument',
+  deprecated: true,
+  description: `**Deprecerad.** \`/v1/{kommun}/sök?typ=dokument\` gör samma sak och
+mer: typade träffar, filter på organ/datum, paginering, \`_links\` och utdrag
+utan HTML. Den här routen fanns före den generella sökningen och är nu en
+delmängd av den.
+
+Svaret bär \`Deprecation\`- och \`Link\`-headers enligt RFC 8594. Routen tas
+bort tidigast 2027-01-01 (\`Sunset\`).`,
+  request: { params: z.object({ kommun: z.string() }), query: z.object({ q: z.string().min(2) }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -94,9 +107,12 @@ const dokumentSökRoute = createRoute({
 })
 dokumentRouter.openapi(dokumentSökRoute, async (c) => {
   const q = c.req.valid('query').q
-  const schema = requireSchema(c.req.valid('param').kommun)
+  const kommun = c.req.valid('param').kommun
+  const schema = requireSchema(kommun)
+  // StartSel/StopSel tomma: den gamla varianten returnerade <b>-taggar i
+  // JSON — HTML som klienten inte bett om och måste strippa själv.
   const results = await sql`
-    SELECT id, titel, typ, datum, ts_headline('swedish', innehall, plainto_tsquery('swedish', ${q}), 'MaxWords=60,MinWords=20') as utdrag
+    SELECT id, titel, typ, datum, ts_headline('swedish', innehall, plainto_tsquery('swedish', ${q}), 'MaxWords=60,MinWords=20,StartSel="",StopSel=""') as utdrag
     FROM ${sql(schema)}.dokument
     WHERE to_tsvector('swedish', titel || ' ' || innehall) @@ plainto_tsquery('swedish', ${q})
     ORDER BY ts_rank(to_tsvector('swedish', titel || ' ' || innehall), plainto_tsquery('swedish', ${q})) DESC
@@ -108,16 +124,28 @@ dokumentRouter.openapi(dokumentSökRoute, async (c) => {
     datum: r.datum,
     utdrag: r.utdrag,
   }))
+  // RFC 8594: maskinläsbar deprecation. Sunset ligger långt fram — routen är
+  // dokumenterad och kan finnas i klienter vi inte känner till.
+  c.header('Deprecation', 'true')
+  c.header('Sunset', 'Fri, 01 Jan 2027 00:00:00 GMT')
+  // Header-värden måste vara ASCII (Node avvisar annars hela svaret och
+  // klienten får tom body) — därför procent-kodad sökväg här.
+  c.header(
+    'Link',
+    `</v1/${kommun}/s%C3%B6k?typ=dokument>; rel="successor-version"; title="Generell fritextsokning"`,
+  )
   return c.json({ query: q, resultat }, 200)
 })
 
 const dokumentDetailRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/dokument/{id}',
+  operationId: 'getDokument',
   tags: ['Dokument'],
   summary: 'Hämta dokument med full text',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {

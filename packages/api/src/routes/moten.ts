@@ -10,8 +10,9 @@ import {
   mötenListLinks,
 } from '../hal.js'
 import { requireSchema, sql } from '../lib/db.js'
+import { standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const motenRouter = new OpenAPIHono()
+export const motenRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 // --- Möten (fixed N+1) ---
 const MöteSummary = z.object({
@@ -25,6 +26,7 @@ const MöteSummary = z.object({
 const mötenRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/möten',
+  operationId: 'listMoten',
   tags: ['Möten'],
   summary: 'Lista alla sammanträden',
   request: {
@@ -32,6 +34,7 @@ const mötenRoute = createRoute({
     query: z.object({ år: z.string().optional() }),
   },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': { schema: halCollectionSchema(MöteSummary) },
@@ -103,10 +106,12 @@ const MoteRelated = z.object({
 const moteRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/möten/{datum}',
+  operationId: 'getMote',
   tags: ['Möten'],
   summary: 'Enskilt sammanträde — beslut, närvaro och anföranden',
   request: { params: z.object({ kommun: z.string(), datum: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -126,7 +131,7 @@ motenRouter.openapi(moteRoute, async (c) => {
   const schema = requireSchema(kommun)
 
   const [mote] =
-    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'möte' AND data->>'datum' = ${datum}`
+    await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'möte' AND data->>'datum' = ${datum}`
   if (!mote) return c.json({ error: 'Sammanträde ej hittat' }, 404)
 
   const beslutRows =
@@ -193,6 +198,7 @@ motenRouter.openapi(moteRoute, async (c) => {
 const moteAnforandenRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/möten/{datum}/anföranden',
+  operationId: 'listAnforandenForMote',
   tags: ['Möten'],
   summary: 'Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)',
   request: {
@@ -204,6 +210,7 @@ const moteAnforandenRoute = createRoute({
     }),
   },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {

@@ -1,0 +1,355 @@
+---
+/**
+ * Sök — fritextsökning över hela kommunens material.
+ *
+ * Sidan är statiskt genererad som resten av sajten, men själva sökningen körs
+ * i klienten mot /v1/{kommun}/sök: frågan är inte känd vid byggtid, och att
+ * bygga 4 900 sidor plus en sökindexfil i klienten (Pagefind/Lunr) hade
+ * dubblerat datan när API:t redan gör jobbet bättre — det söker även i
+ * anförandenas ordagranna text.
+ *
+ * Formuläret är ett vanligt GET-formulär, så frågan ligger i URL:en och går
+ * att dela och bokmärka. Utan JavaScript visas formuläret och en direktlänk
+ * till API-anropet (noscript nedan).
+ */
+import Icon from '../../../../ui/src/components/core/Icon.astro'
+import Kommun from '../../layouts/Kommun.astro'
+
+// Klientens API-bas. PUBLIC_-prefixet krävs för att Astro ska exponera värdet
+// i klienten. API_URL används INTE som reserv i produktionsbyggen: den pekar
+// på byggtidens API (http://localhost:3000 i CI), och en sida som ber
+// besökarens webbläsare anropa localhost hade varit trasig i tysthet.
+const apiBas = import.meta.env.PUBLIC_API_URL
+  ? import.meta.env.PUBLIC_API_URL
+  : import.meta.env.PROD
+    ? 'https://api.dearbetarfordig.se'
+    : import.meta.env.API_URL || 'http://localhost:3000'
+
+const kommun = 'goteborg'
+---
+
+<Kommun
+  title="Sök"
+  description="Sök i beslut, politiker, förvaltningar, dokument och anföranden — inklusive vad som sagts i kommunfullmäktige."
+  breadcrumbs={[{ label: 'Göteborg', href: '/goteborg' }, { label: 'Sök' }]}
+>
+  <h1>Sök</h1>
+  <p class="lead">
+    Ett fält över allt material: beslut och protokolltext, politiker, förvaltningar med
+    revisionsanmärkningar, allmänna handlingar och anförandenas ordagranna text.
+  </p>
+
+  <form class="sokform" method="get" action={`/${kommun}/sok`} role="search">
+    <div class="fritext">
+      <label for="q">Sökord</label>
+      <input
+        type="search"
+        id="q"
+        name="q"
+        minlength="2"
+        maxlength="200"
+        required
+        placeholder="t.ex. bojkott, cykelbana, Attenius"
+        autocomplete="off"
+      />
+    </div>
+    <div class="filter">
+      <div>
+        <label for="typ">Träfftyp</label>
+        <select id="typ" name="typ">
+          <option value="">Alla</option>
+          <option value="beslut">Beslut</option>
+          <option value="anforande">Anföranden</option>
+          <option value="politiker">Politiker</option>
+          <option value="forvaltning">Förvaltningar</option>
+          <option value="dokument">Dokument</option>
+        </select>
+      </div>
+      <div>
+        <label for="organ">Organ</label>
+        <select id="organ" name="organ">
+          <option value="">Alla</option>
+          <option value="kf">Kommunfullmäktige</option>
+          <option value="ks">Kommunstyrelsen</option>
+          <option value="namnd">Nämnd/förvaltning</option>
+        </select>
+      </div>
+      <div>
+        <label for="parti">Parti</label>
+        <input type="text" id="parti" name="parti" size="4" placeholder="t.ex. C" autocomplete="off" />
+      </div>
+      <div>
+        <label for="fran">Från</label>
+        <input type="date" id="fran" name="fran" />
+      </div>
+      <div>
+        <label for="till">Till</label>
+        <input type="date" id="till" name="till" />
+      </div>
+      <button type="submit">
+        <Icon name="search" size={16} /> Sök
+      </button>
+    </div>
+  </form>
+
+  <noscript>
+    <p class="noscript">
+      Sökningen kräver JavaScript eftersom den frågar API:t direkt. Utan JavaScript kan du
+      använda API:t: <code>{apiBas}/v1/{kommun}/sök?q=DITT+SÖKORD</code>
+    </p>
+  </noscript>
+
+  <p id="status" class="status" aria-live="polite"></p>
+  <ol id="resultat" class="resultat"></ol>
+  <nav id="paginering" class="paginering" aria-label="Sidor" hidden>
+    <button type="button" id="prev">← Föregående</button>
+    <span id="sidinfo"></span>
+    <button type="button" id="next">Nästa →</button>
+  </nav>
+</Kommun>
+
+<script is:inline define:vars={{ apiBas, kommun }}>
+  const TYP_ETIKETT = {
+    beslut: 'Beslut',
+    anforande: 'Anförande',
+    politiker: 'Politiker',
+    forvaltning: 'Förvaltning',
+    dokument: 'Dokument',
+  }
+  const PER_SIDA = 20
+
+  const form = document.querySelector('.sokform')
+  const statusEl = document.getElementById('status')
+  const listaEl = document.getElementById('resultat')
+  const pagineringEl = document.getElementById('paginering')
+  const prevEl = document.getElementById('prev')
+  const nextEl = document.getElementById('next')
+  const sidinfoEl = document.getElementById('sidinfo')
+
+  function params() {
+    return new URLSearchParams(location.search)
+  }
+
+  /** Fyll formuläret från URL:en så att en delad länk visar sina filter. */
+  function återställFormulär(p) {
+    for (const namn of ['q', 'typ', 'organ', 'parti', 'fran', 'till']) {
+      const fält = document.getElementById(namn)
+      if (fält) fält.value = p.get(namn) || ''
+    }
+  }
+
+  function apiUrl(p, offset) {
+    const u = new URLSearchParams()
+    u.set('q', p.get('q') || '')
+    for (const namn of ['typ', 'organ', 'parti', 'fran', 'till']) {
+      const v = p.get(namn)
+      if (v) u.set(namn, v)
+    }
+    u.set('limit', String(PER_SIDA))
+    if (offset) u.set('offset', String(offset))
+    // /sök i sökvägen måste kodas — encodeURI gör det åt oss här.
+    return `${apiBas}/v1/${kommun}/${encodeURIComponent('sök')}?${u.toString()}`
+  }
+
+  function radElement(träff) {
+    const li = document.createElement('li')
+    li.className = 'traff'
+
+    const typ = document.createElement('span')
+    typ.className = `typ typ-${träff.typ}`
+    typ.textContent = TYP_ETIKETT[träff.typ] || träff.typ
+    li.append(typ)
+
+    const rubrik = document.createElement('h2')
+    // Alltid textContent, aldrig innerHTML: titel och utdrag kommer från
+    // protokoll och anföranden och ska inte kunna injicera markup.
+    if (träff.url) {
+      const a = document.createElement('a')
+      a.href = träff.url
+      a.textContent = träff.titel
+      rubrik.append(a)
+    } else {
+      rubrik.textContent = träff.titel
+    }
+    li.append(rubrik)
+
+    const meta = []
+    if (träff.datum) meta.push(träff.datum)
+    if (träff.parti) meta.push(träff.parti)
+    if (träff.organ) meta.push(träff.organ.toUpperCase())
+    if (träff.via) meta.push(`hittad via ${träff.via.relation.replace('_', ' ')}`)
+    if (meta.length > 0) {
+      const m = document.createElement('p')
+      m.className = 'meta'
+      m.textContent = meta.join(' · ')
+      li.append(m)
+    }
+
+    if (träff.utdrag) {
+      const u = document.createElement('p')
+      u.className = 'utdrag'
+      u.textContent = träff.utdrag
+      li.append(u)
+    }
+
+    const api = document.createElement('a')
+    api.className = 'apilänk'
+    api.href = `${apiBas}${träff._links.self.href}`
+    api.textContent = 'Rådata (API)'
+    li.append(api)
+    return li
+  }
+
+  async function sök(offset = 0) {
+    const p = params()
+    const q = (p.get('q') || '').trim()
+    listaEl.replaceChildren()
+    pagineringEl.hidden = true
+    if (q.length < 2) {
+      statusEl.textContent = ''
+      return
+    }
+    statusEl.textContent = `Söker efter "${q}" …`
+    try {
+      const res = await fetch(apiUrl(p, offset))
+      const data = await res.json()
+      if (!res.ok) {
+        statusEl.textContent = data.error || `Sökningen misslyckades (${res.status})`
+        return
+      }
+      if (data.total === 0) {
+        statusEl.textContent = `Inga träffar för "${q}".`
+        return
+      }
+      const första = offset + 1
+      const sista = Math.min(offset + PER_SIDA, data.total)
+      statusEl.textContent = `${data.total} träffar för "${q}" — visar ${första}–${sista}.`
+      listaEl.replaceChildren(...data.resultat.map(radElement))
+      pagineringEl.hidden = data.total <= PER_SIDA
+      prevEl.disabled = offset === 0
+      nextEl.disabled = sista >= data.total
+      sidinfoEl.textContent = `${första}–${sista} av ${data.total}`
+      prevEl.onclick = () => sök(Math.max(offset - PER_SIDA, 0))
+      nextEl.onclick = () => sök(offset + PER_SIDA)
+    } catch (err) {
+      statusEl.textContent = `Kunde inte nå API:t (${err instanceof Error ? err.message : err}).`
+    }
+  }
+
+  återställFormulär(params())
+  sök(0)
+  // Tomma fält ska inte hamna i URL:en som ?typ=&organ=
+  form.addEventListener('submit', () => {
+    for (const fält of form.querySelectorAll('input, select')) {
+      if (!fält.value) fält.disabled = true
+    }
+  })
+</script>
+
+<style>
+  .lead {
+    color: var(--color-text-muted, #555);
+    max-width: 60ch;
+  }
+  .sokform {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+  .fritext {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .fritext input {
+    font-size: 1.1rem;
+    padding: 0.6rem 0.75rem;
+  }
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+  .filter > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  input,
+  select {
+    border: 1px solid var(--color-border, #ccc);
+    border-radius: 4px;
+    padding: 0.4rem 0.5rem;
+  }
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 4px;
+    background: var(--color-primary, #2563eb);
+    color: #fff;
+    cursor: pointer;
+  }
+  button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .status {
+    font-weight: 600;
+  }
+  .noscript {
+    padding: 0.75rem;
+    border-left: 3px solid var(--color-primary, #2563eb);
+    background: var(--color-surface, #f6f7f9);
+  }
+  .resultat {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .traff {
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--color-border, #e2e4e8);
+    border-radius: 6px;
+  }
+  .traff h2 {
+    font-size: 1rem;
+    margin: 0.35rem 0;
+  }
+  .typ {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: var(--color-surface, #eef1f5);
+  }
+  .meta,
+  .utdrag {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+  }
+  .meta {
+    color: var(--color-text-muted, #666);
+  }
+  .apilänk {
+    font-size: 0.8rem;
+  }
+  .paginering {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+</style>

@@ -1,8 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
+import { standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const trenderRouter = new OpenAPIHono()
+export const trenderRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 // Kolada (api.kolada.se/v3, SKR/RKA:s öppna kommunstatistik) — Göteborgs
 // egna trender över tid (skola, äldreomsorg, arbetsmarknad, miljö, ekonomi,
@@ -30,11 +31,13 @@ const TrendKpi = z.object({
 const trenderRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/trender',
+  operationId: 'getTrender',
   tags: ['Trender'],
   summary:
     'Göteborgs trender över tid (Kolada) parat mot nämndbudget — skola, äldreomsorg, miljö m.fl.',
   request: { params: z.object({ kommun: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {

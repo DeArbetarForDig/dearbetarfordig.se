@@ -8,8 +8,9 @@ import {
   halResourceWithRelatedSchema,
 } from '../hal.js'
 import { requireSchema, sql } from '../lib/db.js'
+import { standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const budgetRouter = new OpenAPIHono()
+export const budgetRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 // --- Budget ---
 // Med ?år ger endpointen en HAL-RESOURCE (ett budgetår + dess nämnder som
@@ -26,6 +27,7 @@ const BudgetÅrSummary = z.object({ år: z.any(), totalMnkr: z.any(), styre: z.a
 const budgetRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/budget',
+  operationId: 'getBudget',
   tags: ['Budget'],
   summary: 'Kommunbudget per nämnd (filtrera på år med ?år=2024)',
   request: {
@@ -33,6 +35,7 @@ const budgetRoute = createRoute({
     query: z.object({ år: z.string().optional() }),
   },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -52,14 +55,14 @@ budgetRouter.openapi(budgetRoute, async (c) => {
   const schema = requireSchema(kommun)
   if (år) {
     const budgetNode =
-      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${`budget-${år}`} AND typ = 'budget'`
+      await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ${`budget-${år}`} AND typ = 'budget'`
     if (budgetNode.length === 0) {
       const item = { år: Number(år), totalMnkr: 0, styre: null, beslut: null }
       return c.json(halResource(item, budgetLinks(kommun, år), { nämnder: [] }), 200)
     }
     const meta = budgetNode[0].data as any
     const rows =
-      await sql`SELECT n.* FROM ${sql(schema)}.graf_nodes n JOIN ${sql(schema)}.graf_edges e ON e.to_id = n.id WHERE e.from_id = ${`budget-${år}`} AND e.typ = 'finansierar' ORDER BY (n.data->>'kommunbidragMnkr')::float DESC NULLS LAST`
+      await sql`SELECT n.id, n.typ, n.label, n.data FROM ${sql(schema)}.graf_nodes n JOIN ${sql(schema)}.graf_edges e ON e.to_id = n.id WHERE e.from_id = ${`budget-${år}`} AND e.typ = 'finansierar' ORDER BY (n.data->>'kommunbidragMnkr')::float DESC NULLS LAST`
     // Beslutet som antog budgeten (KF-§, 'antagen_genom'-edge) — finns bara
     // för budgetår vars antagande-möte täcks av KF-korpusen (från 2023-01-26;
     // 2022/2023 antogs på möten före dess och saknar därför beslut här).
@@ -81,7 +84,7 @@ budgetRouter.openapi(budgetRoute, async (c) => {
   }
   // Utan år: returnera alla tillgängliga budgetår med summary
   const years =
-    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'budget' AND id LIKE 'budget-20%' AND data ? 'totalMnkr' ORDER BY (data->>'år')::int`
+    await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'budget' AND id LIKE 'budget-20%' AND data ? 'totalMnkr' ORDER BY (data->>'år')::int`
   const items = years.map((y) => ({
     år: (y.data as any).år,
     totalMnkr: (y.data as any).totalMnkr,
@@ -95,6 +98,7 @@ budgetRouter.openapi(budgetRoute, async (c) => {
 const budgetUtfallRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/budget/utfall',
+  operationId: 'getBudgetUtfall',
   tags: ['Budget'],
   summary:
     'Ekonomiskt utfall per nämnd för ett år (?år=2025) — kommunbidrag, kostnader, resultat, status',
@@ -103,6 +107,7 @@ const budgetUtfallRoute = createRoute({
     query: z.object({ år: z.string() }),
   },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': { schema: halCollectionSchema(z.any()).openapi('BudgetUtfall') },
@@ -116,7 +121,7 @@ budgetRouter.openapi(budgetUtfallRoute, async (c) => {
   const år = c.req.valid('query').år
   const schema = requireSchema(kommun)
   const rows =
-    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'} AND (data->>'år')::int = ${Number(år)} ORDER BY (data->>'kommunbidragMnkr')::float DESC NULLS LAST`
+    await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'} AND (data->>'år')::int = ${Number(år)} ORDER BY (data->>'kommunbidragMnkr')::float DESC NULLS LAST`
   const nämnder = rows.map((r) => ({ id: r.id, ...(r.data as object) }))
   return c.json(halCollection(nämnder, budgetLinks(kommun)), 200)
 })

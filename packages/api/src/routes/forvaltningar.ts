@@ -9,8 +9,9 @@ import {
   halResourceWithRelatedSchema,
 } from '../hal.js'
 import { requireSchema, sql } from '../lib/db.js'
+import { standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const forvaltningarRouter = new OpenAPIHono()
+export const forvaltningarRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 const FörvaltningSummary = z.object({
   id: z.any(),
@@ -24,10 +25,12 @@ const FörvaltningSummary = z.object({
 const förvaltningarRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/forvaltningar',
+  operationId: 'listForvaltningar',
   tags: ['Förvaltningar'],
   summary: 'Lista alla förvaltningar med direktör, budget och utfall',
   request: { params: z.object({ kommun: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -43,30 +46,34 @@ forvaltningarRouter.openapi(förvaltningarRoute, async (c) => {
   const schema = requireSchema(kommun)
   const direktörer =
     await sql`SELECT id, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'förvaltningsdirektör' ORDER BY data->>'namn'`
-  const results = []
-  for (const d of direktörer) {
-    const [lederEdge] =
-      await sql`SELECT to_id FROM ${sql(schema)}.graf_edges WHERE from_id = ${d.id} AND typ = 'leder' LIMIT 1`
-    const nämndId = lederEdge?.to_id || null
-    const [nämnd] = nämndId
-      ? await sql`SELECT id, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ${nämndId}`
-      : [null]
-    const [utfall] = nämndId
-      ? await sql`SELECT data FROM ${sql(schema)}.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'} AND data->>'nämnd' = ${(nämnd?.label || '').replace(/^Göteborgs Stads /, '')}`
-      : [null]
-    const [revision] = nämndId
-      ? await sql`SELECT n.data FROM ${sql(schema)}.graf_edges e JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id WHERE e.to_id = ${nämndId} AND e.typ = 'riktas_mot' LIMIT 1`
-      : [null]
-    results.push({
-      id: d.id,
-      nämndId,
-      direktör: d.data,
-      nämnd: nämnd ? { id: nämnd.id, label: nämnd.label, ...nämnd.data } : null,
-      utfall: utfall?.data || null,
-      revision: revision?.data || null,
-      _links: förvaltningLinks(kommun, d.id),
-    })
-  }
+  // En direktör i taget, men de 23 direktörernas uppslag körs parallellt:
+  // sekventiellt blev det ~90 tur-och-retur mot databasen i serie, och
+  // frågorna är oberoende av varandra.
+  const results = await Promise.all(
+    direktörer.map(async (d) => {
+      const [lederEdge] =
+        await sql`SELECT to_id FROM ${sql(schema)}.graf_edges WHERE from_id = ${d.id} AND typ = 'leder' LIMIT 1`
+      const nämndId = lederEdge?.to_id || null
+      const [nämnd] = nämndId
+        ? await sql`SELECT id, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ${nämndId}`
+        : [null]
+      const [[utfall], [revision]] = nämndId
+        ? await Promise.all([
+            sql`SELECT data FROM ${sql(schema)}.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'} AND data->>'nämnd' = ${(nämnd?.label || '').replace(/^Göteborgs Stads /, '')}`,
+            sql`SELECT n.data FROM ${sql(schema)}.graf_edges e JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id WHERE e.to_id = ${nämndId} AND e.typ = 'riktas_mot' LIMIT 1`,
+          ])
+        : [[null], [null]]
+      return {
+        id: d.id,
+        nämndId,
+        direktör: d.data,
+        nämnd: nämnd ? { id: nämnd.id, label: nämnd.label, ...nämnd.data } : null,
+        utfall: utfall?.data || null,
+        revision: revision?.data || null,
+        _links: förvaltningLinks(kommun, d.id),
+      }
+    }),
+  )
   return c.json(halCollection(results, förvaltningarListLinks(kommun)), 200)
 })
 
@@ -83,11 +90,13 @@ const FörvaltningRelated = z.object({
 const förvaltningDetailRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/forvaltningar/{id}',
+  operationId: 'getForvaltning',
   tags: ['Förvaltningar'],
   summary:
     'Enskild förvaltning — direktör, nämnd, budget, utfall, revision, revisionsrapporter, leverantörsutfall, avtal, ledamöter',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -110,7 +119,7 @@ forvaltningarRouter.openapi(förvaltningDetailRoute, async (c) => {
   const direktörId = id.startsWith('direktör-') ? id : `direktör-${id}`
 
   const [direktör] =
-    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${direktörId} AND typ = 'förvaltningsdirektör'`
+    await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ${direktörId} AND typ = 'förvaltningsdirektör'`
   if (!direktör) return c.json({ error: 'Förvaltning inte hittad' }, 404)
 
   const edges =
@@ -119,7 +128,7 @@ forvaltningarRouter.openapi(förvaltningDetailRoute, async (c) => {
   // Nämnd
   const lederEdge = edges.find((e) => e.from_id === direktörId && e.typ === 'leder')
   const [nämnd] = lederEdge
-    ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${lederEdge.to_id}`
+    ? await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ${lederEdge.to_id}`
     : [null]
 
   // Ledamöter (politiker → nämnd via ledamot_i). Only ledamot_i — after the
@@ -136,7 +145,7 @@ forvaltningarRouter.openapi(förvaltningDetailRoute, async (c) => {
 
   // Utfall
   const utfallNodes =
-    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'}`
+    await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'utfall' AND id LIKE ${'utfall-nämnd-%'}`
   const utfall = utfallNodes.filter((n) =>
     edges.some((e) => e.from_id === n.id && e.to_id === direktörId),
   )
@@ -147,7 +156,7 @@ forvaltningarRouter.openapi(förvaltningDetailRoute, async (c) => {
     .map((e) => e.from_id)
   const revision =
     revisionIds.length > 0
-      ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${revisionIds})`
+      ? await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${revisionIds})`
       : []
 
   // Linked KF decisions per revision node

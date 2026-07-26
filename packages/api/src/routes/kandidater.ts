@@ -1,8 +1,9 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { baseUrl, halCollection, halCollectionSchema, kandidaterListLinks } from '../hal.js'
 import { requireSchema, sql } from '../lib/db.js'
+import { standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const kandidaterRouter = new OpenAPIHono()
+export const kandidaterRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 const Kandidat = z
   .object({
@@ -22,6 +23,7 @@ const KandidatList = halCollectionSchema(Kandidat).openapi('KandidatList')
 const kandidaterRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/kandidater',
+  operationId: 'listKandidater',
   tags: ['Kandidater'],
   summary: 'Kandidater till kommunfullmäktige, val 2026',
   description:
@@ -31,6 +33,7 @@ const kandidaterRoute = createRoute({
     query: z.object({ parti: z.string().optional() }),
   },
   responses: {
+    ...standardFel,
     200: { content: { 'application/json': { schema: KandidatList } }, description: 'OK' },
   },
 })

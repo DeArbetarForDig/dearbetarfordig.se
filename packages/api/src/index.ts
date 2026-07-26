@@ -2,6 +2,7 @@ import { serve } from '@hono/node-server'
 import { swaggerUI } from '@hono/swagger-ui'
 import { OpenAPIHono } from '@hono/zod-openapi'
 import { cors } from 'hono/cors'
+import { etag } from 'hono/etag'
 import { ALLOWED_KOMMUNER, sql } from './lib/db.js'
 import { rateLimitMiddleware } from './lib/rate-limit.js'
 import { beslutRouter } from './routes/beslut.js'
@@ -36,6 +37,45 @@ app.use('/v1/:kommun/*', async (c, next) => {
 
 app.use('/*', rateLimitMiddleware)
 
+// Bara GET finns; utan detta matchade t.ex. POST /v1/goteborg/sök ingen route
+// och Hono svarade 404, vilket felaktigt säger "resursen finns inte".
+app.on(['POST', 'PUT', 'PATCH', 'DELETE'], '/v1/*', (c) =>
+  c.json({ error: `Metoden ${c.req.method} stöds inte — API:t är läsbart via GET` }, 405, {
+    Allow: 'GET, OPTIONS',
+  }),
+)
+
+// ETag + Cache-Control tillsammans: max-age gör att klienten inte frågar alls
+// på fem minuter, ETag gör att frågan därefter kan besvaras med 304 utan att
+// kroppen skickas igen (datan ändras bara när scrapers körs, veckovis).
+// Middlewaret buffrar svaret för att hasha det — därav /graf-bantningen i
+// routes/graf.ts, som tog största svaret från 113 MB till ett par hundra kB.
+app.use('/v1/*', etag())
+
+// Cache-Control: datan uppdateras av veckovisa scrapers, så svaren är i
+// praktiken statiska mellan körningarna. Fem minuter ger CDN/klientcache
+// effekt utan att en färsk scrape blir osynlig särskilt länge. /healthz och
+// felsvar ska aldrig cachas — de beskriver ögonblicket, inte datan.
+app.use('/v1/*', async (c, next) => {
+  await next()
+  if (c.req.method === 'GET' && c.res.status === 200 && !c.res.headers.has('Cache-Control')) {
+    c.res.headers.set('Cache-Control', 'public, max-age=300')
+  }
+})
+
+// Honos standard-404 är text/plain ("404 Not Found") — samma JSON-problem som
+// onError nedan.
+app.notFound((c) => c.json({ error: `Ingen route matchar ${c.req.method} ${c.req.path}` }, 404))
+
+// Ohanterade fel gav Honos standardsvar: text/plain "Internal Server Error".
+// Klienter som (rimligen) parsar JSON på alla svar kraschade då på felfallet i
+// stället för att läsa felmeddelandet. Loggen behåller stacken; svaret säger
+// inget om internals.
+app.onError((err, c) => {
+  console.error('Unhandled error:', err)
+  return c.json({ error: 'Internt serverfel' }, 500)
+})
+
 // --- Health ---
 app.get('/healthz', async (c) => {
   try {
@@ -68,7 +108,11 @@ app.route('/', forvaltningarRouter)
 app.route('/', trenderRouter)
 
 // --- OpenAPI + Swagger ---
-app.doc('/openapi.json', {
+// doc31, inte doc: med doc() serialiseras zods nullable-fält som
+// `nullable: true`, vilket är OpenAPI 3.0-syntax och inte finns i 3.1 —
+// spec-versionen vi deklarerar. Validerare och SDK-generatorer läser då
+// fälten som icke-nullbara. doc31 skriver `type: [x, "null"]` i stället.
+app.doc31('/openapi.json', {
   openapi: '3.1.0',
   info: {
     title: 'De Arbetar För Dig — API',
@@ -112,11 +156,17 @@ Alla svar följer HAL-standarden för hypermedia API:er.
 - \`/beslut\` — KF/KS-beslut med voteringar och ärendenummer
 - \`/möten/{datum}/anföranden\` — Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)
 - \`/budget?år=\` — Kommunbudget per nämnd (2022–2026)
-- \`/graf\` — Knowledge graph (noder + kanter)
+- \`/graf?typ=&datum=&limit=&offset=\` — Knowledge graph (noder + kanter). Paragrafernas tunga texter (\`fulltext\`, \`handlingText\`) utelämnas som standard — \`?fulltext=true\` eller \`/beslut/{id}\` ger dem
 - \`/graf/node/{id}\` — Graf-nod med relaterade noder och kanter
 - \`/stats\` — Demokratisk hälsa (Rice-index, Gini, konsensusgrad)
 - \`/metrics\` — Beslutskraft och partilojalitet
-- \`/sök?q=\` — Fulltextsökning över alla resurser
+- \`/sök?q=\` — Fulltextsökning över alla resurser: typade träffar (\`beslut\`, \`politiker\`, \`dokument\`, \`forvaltning\`, \`anforande\`) med utdrag, score och frontend-URL. Filter: \`typ\`, \`organ\` (kf/ks/namnd), \`parti\`, \`från\`/\`till\`, \`limit\`/\`offset\`
+
+**Svarsheaders:** lyckade GET-svar under \`/v1\` cachas fem minuter
+(\`Cache-Control: public, max-age=300\`) och har \`ETag\` — skicka
+\`If-None-Match\` för att få \`304\` i stället för kroppen. Datan uppdateras av
+veckovisa scrapers. Rate limit är 200 anrop/minut per IP (\`429\`). Alla fel svarar
+JSON (\`{ "error": "..." }\`), även 404, 405 och 500.
 
 **Datakällor:** Nämndhandlingar (goteborg.se), Yttrandeprotokoll PDF, Valmyndigheten`,
     license: { name: 'AGPL-3.0', url: 'https://www.gnu.org/licenses/agpl-3.0.html' },
@@ -178,7 +228,10 @@ app.get('/', (c) =>
 </html>`),
 )
 
-serve({ fetch: app.fetch, port: 3000 }, (info) => {
+// PORT gör det möjligt att köra en andra instans parallellt med dev.sh:s
+// (som äger 3000) — t.ex. för att testa en ändring utan att stoppa dev-miljön.
+const port = Number(process.env.PORT || 3000)
+serve({ fetch: app.fetch, port }, (info) => {
   console.log(`🚀 API v0.4.0 at http://localhost:${info.port}`)
   console.log(`📖 Docs: http://localhost:${info.port}/docs`)
 })

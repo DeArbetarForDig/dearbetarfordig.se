@@ -210,7 +210,12 @@ jobs:
             curl -sf http://localhost:3000/healthz && break
             sleep 1
           done
+      # PUBLIC_API_URL bakas in i sökssidans klientkod (den frågar API:t direkt
+      # i webbläsaren). Utan den skulle bygget falla tillbaka på defaulten —
+      # rätt värde i dag, men explicit är bättre än en default som kan ändras.
       - run: pnpm --filter @daf/web build
+        env:
+          PUBLIC_API_URL: https://api.dearbetarfordig.se
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

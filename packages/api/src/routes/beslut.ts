@@ -11,8 +11,9 @@ import {
 } from '../hal.js'
 import { requireSchema, sql } from '../lib/db.js'
 import { capLimit } from '../lib/helpers.js'
+import { heltalParam, standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const beslutRouter = new OpenAPIHono()
+export const beslutRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 // --- Beslut ---
 const BeslutSummary = z.object({
@@ -30,6 +31,7 @@ const BeslutSummary = z.object({
 const beslutRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/beslut',
+  operationId: 'listBeslut',
   tags: ['Beslut'],
   summary: 'Lista/sök beslut',
   request: {
@@ -39,10 +41,11 @@ const beslutRoute = createRoute({
       år: z.string().optional(),
       sök: z.string().optional(),
       organ: z.enum(['kf', 'ks', 'all']).optional(),
-      limit: z.string().optional(),
+      limit: heltalParam('Max antal beslut, default 50, max 2000', 1),
     }),
   },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': { schema: halCollectionSchema(BeslutSummary) },
@@ -60,22 +63,22 @@ beslutRouter.openapi(beslutRoute, async (c) => {
   let total: number
   if (datum) {
     rows =
-      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
+      await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY (data->>'paragrafNr')::int LIMIT ${lim}`
     ;[{ total }] =
       await sql`SELECT count(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' = ${datum} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``}`
   } else if (år) {
     rows =
-      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' LIKE ${`${år}-%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int LIMIT ${lim}`
+      await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' LIKE ${`${år}-%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int LIMIT ${lim}`
     ;[{ total }] =
       await sql`SELECT count(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'datum' LIKE ${`${år}-%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``}`
   } else if (sök) {
     rows =
-      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC LIMIT ${lim}`
+      await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC LIMIT ${lim}`
     ;[{ total }] =
       await sql`SELECT count(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND label ILIKE ${`%${sök}%`} ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``}`
   } else {
     rows =
-      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int DESC LIMIT ${lim}`
+      await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``} ORDER BY data->>'datum' DESC, (data->>'paragrafNr')::int DESC LIMIT ${lim}`
     ;[{ total }] =
       await sql`SELECT count(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' ${organ === 'kf' ? sql`AND id LIKE 'kf-%'` : organ === 'ks' ? sql`AND id LIKE 'ks-%'` : sql``}`
   }
@@ -112,10 +115,12 @@ const KopplingItem = z.object({
 const beslutDetailRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/beslut/{id}',
+  operationId: 'getBeslut',
   tags: ['Beslut'],
   summary: 'Enskilt beslut med kopplingar',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -137,14 +142,15 @@ beslutRouter.openapi(beslutDetailRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const id = decodeURIComponent(c.req.valid('param').id)
   const schema = requireSchema(kommun)
-  const [node] = await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${id}`
+  const [node] =
+    await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ${id}`
   if (!node) return c.json({ error: 'Beslut inte hittat' }, 404)
   const edges =
     await sql`SELECT * FROM ${sql(schema)}.graf_edges WHERE from_id = ${id} OR to_id = ${id}`
   const relatedIds = [...new Set(edges.map((e) => (e.from_id === id ? e.to_id : e.from_id)))]
   const related =
     relatedIds.length > 0
-      ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${relatedIds})`
+      ? await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${relatedIds})`
       : []
 
   // Build röster from edges if not in node data
@@ -201,10 +207,12 @@ const AnförandeItem = z.object({
 const anförandenRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/beslut/{id}/anforanden',
+  operationId: 'listAnforandenForBeslut',
   tags: ['Beslut'],
   summary: 'Anföranden (debattinlägg) kopplade till ett beslut',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': { schema: halCollectionSchema(AnförandeItem).openapi('Anföranden') },

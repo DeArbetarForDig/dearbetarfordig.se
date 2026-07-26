@@ -44,6 +44,7 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 | Sociala medier-scraping | 🔜 Nästa |
 | PixelRAG (visual PDF parsing) | 🔜 Nästa |
 | Frontend (Astro) | ✅ Klar |
+| Söksida (/goteborg/sok) | ✅ Klar |
 | Design System (16 components) | ✅ Klar |
 | Politiker-profiler (125 st) | ✅ Klar |
 | Demokratisk hälsa (Rice, Gini, Consensus) | ✅ Klar |
@@ -105,13 +106,26 @@ curl localhost:3000/v1/goteborg/politiker?parti=S
 curl localhost:3000/v1/goteborg/politiker/{id}
 
 # Sammanträden + dokument
-curl localhost:3000/v1/goteborg/beslut?år=2025
+# OBS: curl kodar sökvägen men inte query-parametrarna — svenska tecken i
+# parameternamn måste procent-kodas (år → %C3%A5r), annars svarar Node 400.
+curl "localhost:3000/v1/goteborg/beslut?%C3%A5r=2025"
 
 # Sammanträden (med webb-TV-länk per möte)
 curl localhost:3000/v1/goteborg/möten
 
 # Statistik
 curl localhost:3000/v1/goteborg/stats
+
+# Fritextsökning — typade träffar med utdrag, score och frontend-URL
+# Söker även i anförandenas ordagranna text (utdraget blir ett citat)
+curl "localhost:3000/v1/goteborg/sök?q=Israel+bojkott"
+
+# Filtrera sökningen (typ, organ, parti, datum, paginering)
+# organ: kf → beslut+anföranden, ks → beslut, namnd → förvaltningar+dokument
+curl "localhost:3000/v1/goteborg/sök?q=bojkott&organ=namnd"
+curl "localhost:3000/v1/goteborg/sök?q=bojkott&parti=C"
+# fran är ASCII-alias för från (slipper procent-kodning i skalet)
+curl "localhost:3000/v1/goteborg/sök?q=budget&fran=2025-01-01&till=2025-12-31&limit=50"
 
 # Knowledge Graph — alla beslut som noder + relationer
 curl localhost:3000/v1/goteborg/graf?datum=2025-11-27

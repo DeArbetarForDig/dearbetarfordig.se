@@ -12,8 +12,9 @@ import {
 } from '../hal.js'
 import { requireSchema, sql } from '../lib/db.js'
 import { capLimit } from '../lib/helpers.js'
+import { heltalParam, standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const politikerRouter = new OpenAPIHono()
+export const politikerRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 // --- Schemas ---
 const PolitikerSummary = z
@@ -30,13 +31,18 @@ const PolitikerList = halCollectionSchema(PolitikerSummary).openapi('PolitikerLi
 const politikerRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/politiker',
+  operationId: 'listPolitiker',
   tags: ['Politiker'],
   summary: 'Lista alla politiker',
   request: {
     params: z.object({ kommun: z.string() }),
-    query: z.object({ parti: z.string().optional(), limit: z.string().optional() }),
+    query: z.object({
+      parti: z.string().optional(),
+      limit: heltalParam('Max antal politiker, default 50, max 2000', 1),
+    }),
   },
   responses: {
+    ...standardFel,
     200: { content: { 'application/json': { schema: PolitikerList } }, description: 'OK' },
   },
 })
@@ -84,10 +90,12 @@ const PolitikerDetailRelated = z.object({ möten: z.array(z.any()) })
 const politikerDetailRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/politiker/{id}',
+  operationId: 'getPolitiker',
   tags: ['Politiker'],
   summary: 'Enskild politiker med alla uppdrag',
   request: { params: z.object({ kommun: z.string(), id: z.string().uuid() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -163,6 +171,7 @@ const ArvodeItem = z.object({
 const arvodesRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/politiker/{id}/arvode',
+  operationId: 'getPolitikerArvode',
   tags: ['Politiker'],
   summary: 'Ersättning för förtroendevald — fast arvode + förrättningsarvode',
   description: `Beräknar total ersättning baserat på:
@@ -171,6 +180,7 @@ const arvodesRoute = createRoute({
 - Källa: Göteborgs Stads regler för arvoden (KS 2025-12-10 §946, Bilaga 2)`,
   request: { params: z.object({ kommun: z.string(), id: z.string().uuid() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': { schema: halResourceSchema(ArvodeItem).openapi('Arvode') },
@@ -268,6 +278,7 @@ const PolitikerProfil = z.object({
 const profilRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/politiker/{id}/profil',
+  operationId: 'getPolitikerProfil',
   tags: ['Politiker'],
   summary:
     'Percentil-normerad profil (närvaro, debattaktivitet, initiativ, partilojalitet) för radardiagram',
@@ -278,6 +289,7 @@ const profilRoute = createRoute({
 - Partilojalitet: andel egna ja/nej-röster som matchar partiets majoritet per paragraf (kräver ≥${MIN_RÖSTER_FÖR_LOJALITET} röster)`,
   request: { params: z.object({ kommun: z.string(), id: z.string().uuid() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {

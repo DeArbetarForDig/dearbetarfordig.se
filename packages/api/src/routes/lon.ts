@@ -1,12 +1,14 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { requireSchema, sql } from '../lib/db.js'
+import { standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const lonRouter = new OpenAPIHono()
+export const lonRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 // --- Förvaltningsdirektörer (löner) ---
 const direktörerRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/lon/direktorer',
+  operationId: 'listDirektorer',
   tags: ['Löner'],
   summary: 'Löner för förvaltningsdirektörer',
   request: {
@@ -14,6 +16,7 @@ const direktörerRoute = createRoute({
     query: z.object({ sort: z.enum(['namn', 'lön', 'anställd']).optional() }),
   },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -77,11 +80,13 @@ lonRouter.openapi(direktörerRoute, async (c) => {
 const direktörResultatRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/lon/direktorer/{id}/resultat',
+  operationId: 'getDirektorResultat',
   tags: ['Löner'],
   summary: 'Förvaltningsdirektörs resultat — budget, utfall, revision',
   description: 'Sammanställer ekonomiskt utfall, revisionskritik och kopplingar för en direktör.',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -109,7 +114,7 @@ lonRouter.openapi(direktörResultatRoute, async (c) => {
   const direktörId = id.startsWith('direktör-') ? id : `direktör-${id}`
 
   const [direktör] =
-    await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${direktörId} AND typ = 'förvaltningsdirektör'`
+    await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ${direktörId} AND typ = 'förvaltningsdirektör'`
   if (!direktör) return c.json({ error: 'Direktör inte hittad' }, 404)
 
   const edges =
@@ -121,7 +126,7 @@ lonRouter.openapi(direktörResultatRoute, async (c) => {
     .map((e) => e.from_id)
   const utfallNodes =
     utfallIds.length > 0
-      ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${utfallIds})`
+      ? await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${utfallIds})`
       : []
 
   // Revision nodes
@@ -130,13 +135,13 @@ lonRouter.openapi(direktörResultatRoute, async (c) => {
     .map((e) => e.from_id)
   const revisionNodes =
     revisionIds.length > 0
-      ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${revisionIds})`
+      ? await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${revisionIds})`
       : []
 
   // Nämnd
   const lederEdge = edges.find((e) => e.from_id === direktörId && e.typ === 'leder')
   const [nämnd] = lederEdge
-    ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${lederEdge.to_id}`
+    ? await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ${lederEdge.to_id}`
     : [null]
 
   return c.json(

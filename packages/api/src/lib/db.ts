@@ -9,7 +9,18 @@ if (!DATABASE_URL) {
   process.exit(1)
 }
 
-export const sql = postgres(DATABASE_URL, { max: 20, idle_timeout: 30, connect_timeout: 10 })
+export const sql = postgres(DATABASE_URL, {
+  max: 20,
+  idle_timeout: 30,
+  connect_timeout: 10,
+  // Fritextsökningen skickar ett plainto_tsquery per ord, och stoppord ("och",
+  // "att") ger NOTICE "text-search query contains only stop words" — förväntat
+  // och ointressant, men det dränkte loggen. Övriga notiser släpps igenom.
+  onnotice: (notice) => {
+    if (notice.message?.includes('only stop words')) return
+    console.warn('postgres notice:', notice.message)
+  },
+})
 
 // --- Multi-tenancy allowlist ---
 export const ALLOWED_KOMMUNER = ['goteborg'] // expand as we add more

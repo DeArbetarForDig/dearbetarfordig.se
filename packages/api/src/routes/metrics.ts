@@ -1,16 +1,19 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { requireSchema, sql } from '../lib/db.js'
+import { standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const metricsRouter = new OpenAPIHono()
+export const metricsRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 // --- Stats ---
 const statsRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/stats',
+  operationId: 'getStats',
   tags: ['Statistik'],
   summary: 'Övergripande statistik',
   request: { params: z.object({ kommun: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -60,12 +63,14 @@ metricsRouter.openapi(statsRoute, async (c) => {
 const metricsRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/metrics',
+  operationId: 'getMetrics',
   tags: ['Statistik'],
   summary: 'Demokratiska nyckeltal',
   description:
     'Automatiskt beräknade KPI:er för kommunfullmäktige: beslutskraft, konsensus, partilojalitet, aktivitet.',
   request: { params: z.object({ kommun: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -118,39 +123,103 @@ const metricsRoute = createRoute({
 })
 metricsRouter.openapi(metricsRoute, async (c) => {
   const schema = requireSchema(c.req.valid('param').kommun)
-  // All metrics computed from edges — no JSONB scanning
+  // All metrics computed from edges — no JSONB scanning.
+  //
+  // Frågorna är oberoende av varandra och kördes tidigare i serie: femton
+  // sekventiella round-trips, var och en en aggregering över 105 000 kanter
+  // eller 24 000 noder, gav 1,45 s svarstid trots att ingen enskild fråga tog
+  // mer än ~60 ms. Promise.all i stället — beräkningarna nedan är rena
+  // JS-transformationer av resultaten.
+  const [
+    beslutTyper,
+    bordOrsaker,
+    [{ total: totalParagrafer }],
+    [{ antal: medVotering }],
+    partiStats,
+    [{ antal: jävAntal }],
+    [{ antal: resAntal }],
+    [{ antal: yrkAntal }],
+    riceData,
+    [{ total: totalNärvaro }],
+    [{ total: totalMöten }],
+    speechCounts,
+    [{ total: totalAnföranden }],
+    anförandenPerÅr,
+  ] = await Promise.all([
+    sql`SELECT data->>'beslut' as typ, COUNT(*)::int as antal FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' IS NOT NULL GROUP BY data->>'beslut'`,
+    sql`SELECT data->>'bordläggningsorsak' as orsak, COUNT(*)::int as antal FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' = 'bordläggning' AND data->>'bordläggningsorsak' IS NOT NULL GROUP BY data->>'bordläggningsorsak'`,
+    sql<
+      { total: number }[]
+    >`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf'`,
+    sql<
+      { antal: number }[]
+    >`SELECT COUNT(DISTINCT to_id)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ LIKE 'röstade_%'`,
+    // Parti-statistik (partilojalitet)
+    sql`
+      SELECT
+        n.data->>'parti' as parti,
+        e.typ,
+        COUNT(*)::int as antal
+      FROM ${sql(schema)}.graf_edges e
+      JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
+      WHERE e.typ LIKE 'röstade_%'
+      GROUP BY n.data->>'parti', e.typ
+      ORDER BY parti`,
+    sql<
+      { antal: number }[]
+    >`SELECT COUNT(*)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ = 'jävsanmälan'`,
+    sql<
+      { antal: number }[]
+    >`SELECT COUNT(*)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ = 'reserverade_sig'`,
+    sql<
+      { antal: number }[]
+    >`SELECT COUNT(*)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ = 'yrkat'`,
+    // Rice-index: ja/nej per parti per votering
+    sql`
+      SELECT
+        n.data->>'parti' as parti,
+        e.to_id as paragraf_id,
+        SUM(CASE WHEN e.typ = 'röstade_ja' THEN 1 ELSE 0 END)::int as ja,
+        SUM(CASE WHEN e.typ = 'röstade_nej' THEN 1 ELSE 0 END)::int as nej
+      FROM ${sql(schema)}.graf_edges e
+      JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
+      WHERE e.typ LIKE 'röstade_%' AND e.typ != 'röstade_avstår'
+      GROUP BY n.data->>'parti', e.to_id
+      HAVING SUM(CASE WHEN e.typ IN ('röstade_ja','röstade_nej') THEN 1 ELSE 0 END) > 0`,
+    sql<
+      { total: number }[]
+    >`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_edges WHERE typ = 'närvarade'`,
+    sql<
+      { total: number }[]
+    >`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'möte'`,
+    // Debattfördelning (Gini) — procedurella mötesledar-inlägg exkluderas
+    // (mark-procedurella.ts), annars domineras fördelningen av presidiets
+    // "Tack X, ordet går till Y".
+    sql`
+      SELECT label, COUNT(*)::int as speeches
+      FROM ${sql(schema)}.graf_nodes
+      WHERE typ = 'anförande' AND COALESCE(data->>'procedurell', '') != 'true'
+      GROUP BY label
+      ORDER BY speeches DESC`,
+    sql<
+      { total: number }[]
+    >`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'anförande' AND COALESCE(data->>'procedurell', '') != 'true'`,
+    // Anföranden per år — for trend/sparkline (current year is partial)
+    sql`
+      SELECT substring(data->>'datum' from 1 for 4) as år, COUNT(*)::int as antal
+      FROM ${sql(schema)}.graf_nodes
+      WHERE typ = 'anförande' AND data->>'datum' IS NOT NULL
+        AND COALESCE(data->>'procedurell', '') != 'true'
+      GROUP BY 1 ORDER BY 1`,
+  ])
 
   // Beslutskraft
-  const beslutTyper =
-    await sql`SELECT data->>'beslut' as typ, COUNT(*)::int as antal FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' IS NOT NULL GROUP BY data->>'beslut'`
   const totalBeslut = beslutTyper.reduce((s, r) => s + r.antal, 0)
   const bifall = beslutTyper.find((r) => r.typ === 'bifall')?.antal || 0
   const bordlagd = beslutTyper.find((r) => r.typ === 'bordläggning')?.antal || 0
-
-  // Bordläggningsorsaker
-  const bordOrsaker =
-    await sql`SELECT data->>'bordläggningsorsak' as orsak, COUNT(*)::int as antal FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' AND data->>'beslut' = 'bordläggning' AND data->>'bordläggningsorsak' IS NOT NULL GROUP BY data->>'bordläggningsorsak'`
-
-  // Konsensus (paragraf nodes without any röstade edges = decided without vote)
-  const [{ total: totalParagrafer }] =
-    await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf'`
-  const [{ antal: medVotering }] =
-    await sql`SELECT COUNT(DISTINCT to_id)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ LIKE 'röstade_%'`
   const utanVotering = totalParagrafer - medVotering
 
-  // Parti-statistik from edges (SQL aggregation)
-  const partiStats = await sql`
-    SELECT
-      n.data->>'parti' as parti,
-      e.typ,
-      COUNT(*)::int as antal
-    FROM ${sql(schema)}.graf_edges e
-    JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
-    WHERE e.typ LIKE 'röstade_%'
-    GROUP BY n.data->>'parti', e.typ
-    ORDER BY parti`
-
-  // Aggregate per party
+  // Partilojalitet per parti
   const partier: Record<string, { ja: number; nej: number; avstår: number; total: number }> = {}
   for (const row of partiStats) {
     if (!partier[row.parti]) partier[row.parti] = { ja: 0, nej: 0, avstår: 0, total: 0 }
@@ -160,28 +229,8 @@ metricsRouter.openapi(metricsRoute, async (c) => {
     else if (row.typ === 'röstade_avstår') partier[row.parti].avstår += row.antal
   }
 
-  // Jäv och reservationer
-  const [{ antal: jävAntal }] =
-    await sql`SELECT COUNT(*)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ = 'jävsanmälan'`
-  const [{ antal: resAntal }] =
-    await sql`SELECT COUNT(*)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ = 'reserverade_sig'`
-  const [{ antal: yrkAntal }] =
-    await sql`SELECT COUNT(*)::int as antal FROM ${sql(schema)}.graf_edges WHERE typ = 'yrkat'`
-
   // --- Rice Index per parti (avg across all voteringar) ---
   // For each votering, Rice = abs(ja - nej) / (ja + nej) per party
-  const riceData = await sql`
-    SELECT
-      n.data->>'parti' as parti,
-      e.to_id as paragraf_id,
-      SUM(CASE WHEN e.typ = 'röstade_ja' THEN 1 ELSE 0 END)::int as ja,
-      SUM(CASE WHEN e.typ = 'röstade_nej' THEN 1 ELSE 0 END)::int as nej
-    FROM ${sql(schema)}.graf_edges e
-    JOIN ${sql(schema)}.graf_nodes n ON n.id = e.from_id AND n.typ = 'politiker'
-    WHERE e.typ LIKE 'röstade_%' AND e.typ != 'röstade_avstår'
-    GROUP BY n.data->>'parti', e.to_id
-    HAVING SUM(CASE WHEN e.typ IN ('röstade_ja','röstade_nej') THEN 1 ELSE 0 END) > 0`
-
   const ricePerParti: Record<string, { sum: number; count: number }> = {}
   for (const row of riceData) {
     const rice = row.ja + row.nej > 0 ? Math.abs(row.ja - row.nej) / (row.ja + row.nej) : 1
@@ -231,22 +280,9 @@ metricsRouter.openapi(metricsRoute, async (c) => {
   }
 
   // --- Attendance Rate (närvarade edges: politiker → möte) ---
-  const [{ total: totalNärvaro }] =
-    await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_edges WHERE typ = 'närvarade'`
-  const [{ total: totalMöten }] =
-    await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'möte'`
   const snittNärvarande = totalMöten > 0 ? Math.round(totalNärvaro / totalMöten) : 0
 
   // --- Debate Participation Gini (from anförande nodes, grouped by politician name) ---
-  // Procedurella mötesledar-inlägg exkluderas (mark-procedurella.ts) — annars
-  // domineras fördelningen av presidiets "Tack X, ordet går till Y".
-  const speechCounts = await sql`
-    SELECT label, COUNT(*)::int as speeches
-    FROM ${sql(schema)}.graf_nodes
-    WHERE typ = 'anförande' AND COALESCE(data->>'procedurell', '') != 'true'
-    GROUP BY label
-    ORDER BY speeches DESC`
-
   // Extract politician name from label "Name (Party) — ..."
   const speakerCounts: Record<string, number> = {}
   for (const row of speechCounts) {
@@ -270,17 +306,7 @@ metricsRouter.openapi(metricsRoute, async (c) => {
   }
 
   // --- Debate Depth (anföranden per ärende med votering) ---
-  const [{ total: totalAnföranden }] =
-    await sql`SELECT COUNT(*)::int as total FROM ${sql(schema)}.graf_nodes WHERE typ = 'anförande' AND COALESCE(data->>'procedurell', '') != 'true'`
   const debateDepth = medVotering > 0 ? Math.round((totalAnföranden / medVotering) * 10) / 10 : 0
-
-  // Anföranden per år — for trend/sparkline (current year is partial)
-  const anförandenPerÅr = await sql`
-    SELECT substring(data->>'datum' from 1 for 4) as år, COUNT(*)::int as antal
-    FROM ${sql(schema)}.graf_nodes
-    WHERE typ = 'anförande' AND data->>'datum' IS NOT NULL
-      AND COALESCE(data->>'procedurell', '') != 'true'
-    GROUP BY 1 ORDER BY 1`
 
   return c.json(
     {

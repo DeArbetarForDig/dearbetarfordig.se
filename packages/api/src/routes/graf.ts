@@ -1,7 +1,8 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { requireSchema, sql } from '../lib/db.js'
+import { heltalParam, standardFel, valideringsHook } from '../lib/openapi.js'
 
-export const grafRouter = new OpenAPIHono()
+export const grafRouter = new OpenAPIHono({ defaultHook: valideringsHook })
 
 // --- Schemas ---
 // data: z.any() — NOT z.record()/.passthrough()/z.unknown(): under this
@@ -88,17 +89,51 @@ grafRouter.get('/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
   return c.json(Object.fromEntries(byNämnd))
 })
 
+// Paragrafnodernas texter dominerar helt storleken på grafsvaren:
+// handlingText (ärendets underlag) är 102 MB över alla noder och fulltext
+// 4,7 MB, vilket gjorde /graf?typ=paragraf till ett 113 MB-svar och
+// /graf/node/{möte} till 5,6 MB — oanvändbart för en klient och en billig väg
+// att belasta servern. Texterna utelämnas därför som standard; `<fält>Tecken`
+// visar att de finns och hur långa de är. Hämta dem med ?fulltext=true eller,
+// hellre, via /beslut/{id} som är gjord för det.
+const TUNGA_TEXTFÄLT = ['fulltext', 'handlingText'] as const
+
+function nodUtanTungText(nod: { id: string; typ: string; label: string; data: unknown }) {
+  const data = (nod.data || {}) as Record<string, unknown>
+  if (!TUNGA_TEXTFÄLT.some((f) => typeof data[f] === 'string')) return nod
+  const kvar: Record<string, unknown> = {}
+  for (const [nyckel, värde] of Object.entries(data)) {
+    if (TUNGA_TEXTFÄLT.includes(nyckel as (typeof TUNGA_TEXTFÄLT)[number])) {
+      kvar[`${nyckel}Tecken`] = (värde as string).length
+    } else {
+      kvar[nyckel] = värde
+    }
+  }
+  return { ...nod, data: kvar }
+}
+
 // --- Graf ---
 const grafRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/graf',
+  operationId: 'getGraf',
   tags: ['Knowledge Graph'],
   summary: 'Graf översikt eller filtrering',
   request: {
     params: z.object({ kommun: z.string() }),
-    query: z.object({ datum: z.string().optional(), typ: z.string().optional() }),
+    query: z.object({
+      datum: z.string().optional(),
+      typ: z.string().optional(),
+      limit: heltalParam('Max antal noder, default 500, max 5000', 1),
+      offset: heltalParam('Paginering, default 0'),
+      fulltext: z.enum(['true', 'false']).optional().openapi({
+        description:
+          'true tar med paragrafernas fulltext (stora svar — 3 900 paragrafer är ~113 MB). Default false, då `data.fulltextTecken` visar hur lång texten är.',
+      }),
+    }),
   },
   responses: {
+    ...standardFel,
     200: {
       content: {
         // Three genuinely different shapes depending on which query param is
@@ -109,6 +144,7 @@ const grafRoute = createRoute({
             nodes: z.any().optional(),
             edges: z.any().optional(),
             antal: z.number().optional(),
+            total: z.number().optional(),
           }),
         },
       },
@@ -118,11 +154,21 @@ const grafRoute = createRoute({
 })
 grafRouter.openapi(grafRoute, async (c) => {
   const { kommun } = c.req.valid('param')
-  const { datum, typ } = c.req.valid('query')
+  const { datum, typ, limit, offset, fulltext } = c.req.valid('query')
   const schema = requireSchema(kommun)
+  const lim = Math.min(Number.parseInt(limit || '500') || 500, 5000)
+  const off = Number.parseInt(offset || '0') || 0
+  const medFulltext = fulltext === 'true'
+  const banta = (noder: { id: string; typ: string; label: string; data: unknown }[]) =>
+    medFulltext ? noder : noder.map(nodUtanTungText)
+
   if (datum) {
-    const nodes =
-      await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE data->>'datum' = ${datum} OR id = ${`möte-kf-${datum}`}`
+    const nodes = await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes
+      WHERE data->>'datum' = ${datum} OR id = ${`möte-kf-${datum}`}
+      ORDER BY id LIMIT ${lim} OFFSET ${off}`
+    const [{ total }] = await sql<{ total: number }[]>`SELECT count(*)::int AS total
+      FROM ${sql(schema)}.graf_nodes
+      WHERE data->>'datum' = ${datum} OR id = ${`möte-kf-${datum}`}`
     const allIds = nodes.map((n) => n.id)
     const edges =
       allIds.length > 0
@@ -133,13 +179,24 @@ grafRouter.openapi(grafRoute, async (c) => {
     ]
     const relatedNodes =
       relatedIds.length > 0
-        ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${relatedIds})`
+        ? await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${relatedIds})`
         : []
-    return c.json({ nodes: [...nodes, ...relatedNodes], edges }, 200)
+    return c.json(
+      {
+        nodes: banta([...nodes, ...relatedNodes] as never),
+        edges,
+        total,
+      },
+      200,
+    )
   }
   if (typ) {
-    const nodes = await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE typ = ${typ}`
-    return c.json({ antal: nodes.length, nodes }, 200)
+    const nodes = await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes
+      WHERE typ = ${typ} ORDER BY id LIMIT ${lim} OFFSET ${off}`
+    const [{ total }] = await sql<
+      { total: number }[]
+    >`SELECT count(*)::int AS total FROM ${sql(schema)}.graf_nodes WHERE typ = ${typ}`
+    return c.json({ antal: nodes.length, total, nodes: banta(nodes as never) }, 200)
   }
   const counts =
     await sql`SELECT typ, COUNT(*)::int as antal FROM ${sql(schema)}.graf_nodes GROUP BY typ ORDER BY antal DESC`
@@ -150,10 +207,12 @@ grafRouter.openapi(grafRoute, async (c) => {
 const grafNodeRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/graf/node/{id}',
+  operationId: 'getGrafNode',
   tags: ['Knowledge Graph'],
   summary: 'Traversera graf — enskild nod med alla kopplingar',
   request: { params: z.object({ kommun: z.string(), id: z.string() }) },
   responses: {
+    ...standardFel,
     200: {
       content: {
         'application/json': {
@@ -175,15 +234,22 @@ const grafNodeRoute = createRoute({
 grafRouter.openapi(grafNodeRoute, async (c) => {
   const { kommun } = c.req.valid('param')
   const id = decodeURIComponent(c.req.valid('param').id)
+  const medFulltext = c.req.query('fulltext') === 'true'
   const schema = requireSchema(kommun)
-  const [node] = await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ${id}`
+  const [node] =
+    await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ${id}`
   if (!node) return c.json({ error: 'Node not found' }, 404)
   const edges =
     await sql`SELECT * FROM ${sql(schema)}.graf_edges WHERE from_id = ${id} OR to_id = ${id}`
   const relatedIds = [...new Set(edges.map((e) => (e.from_id === id ? e.to_id : e.from_id)))]
   const related =
     relatedIds.length > 0
-      ? await sql`SELECT * FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${relatedIds})`
+      ? await sql`SELECT id, typ, label, data FROM ${sql(schema)}.graf_nodes WHERE id = ANY(${relatedIds})`
       : []
-  return c.json({ node, edges, related } as any, 200)
+  // Den efterfrågade noden behåller sin fulltext (det är den man bad om);
+  // grannarna bantas, annars blir ett mötes 90 paragrafer 5,6 MB kontext.
+  return c.json(
+    { node, edges, related: medFulltext ? related : related.map(nodUtanTungText as never) } as any,
+    200,
+  )
 })

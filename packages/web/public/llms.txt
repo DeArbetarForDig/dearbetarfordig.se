@@ -13,6 +13,18 @@ skrapa HTML när du behöver strukturerad eller uppdaterad data.
 - OpenAPI-spec (JSON): https://api.dearbetarfordig.se/openapi.json
 - Interaktiv dokumentation: https://api.dearbetarfordig.se/docs
 - Exempel-endpoint: https://api.dearbetarfordig.se/v1/goteborg/politiker
+- Fritextsökning (börja här): https://api.dearbetarfordig.se/v1/goteborg/sök?q=Israel+bojkott
+  Ett anrop söker över beslut (rubrik + protokollets fulltext), politiker,
+  dokument (fulltext), förvaltningar (inkl. revisionsanmärkningar) och
+  anföranden — inklusive talens ordagranna text, där `utdrag` blir ett citat
+  ur inlägget.
+  Varje träff har `typ`, `utdrag` (max 300 tecken), `score` och `url` till
+  frontend-sidan — navigera inte sidstrukturen manuellt för att hitta ett ärende.
+  Filter: `typ`, `organ` (kf/ks/namnd), `parti`, `från`/`till` (ASCII-alias
+  `fran`), `limit`/`offset`. `total` är exakt antal träffar för frågan, och
+  `_links.next` leder genom hela resultatet.
+- Hela anföranden per möte: https://api.dearbetarfordig.se/v1/goteborg/möten/{datum}/anföranden?q=
+  Full text och talarkoppling för ett enskilt sammanträde.
 
 Svaren följer HAL (Hypertext Application Language) — varje resurs länkar sina relaterade resurser i `_links`.
 

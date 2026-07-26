@@ -104,7 +104,14 @@ async function main() {
       id TEXT PRIMARY KEY,
       typ TEXT NOT NULL,
       label TEXT NOT NULL,
-      data JSONB NOT NULL DEFAULT '{}'
+      data JSONB NOT NULL DEFAULT '{}',
+      -- Materialiserad sökvektor för /v1/{kommun}/sök (routes/sok.ts).
+      -- Att räkna to_tsvector() per rad i frågan kostade ~700 ms för breda
+      -- prefixsökningar ('kommun:*' träffar tusentals paragrafer med långa
+      -- fulltexter); som lagrad kolumn läses den direkt i stället.
+      fts tsvector GENERATED ALWAYS AS (
+        to_tsvector('swedish', label || ' ' || coalesce(data->>'fulltext', ''))
+      ) STORED
     )`
 
   await client`
@@ -146,6 +153,14 @@ async function main() {
   await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_typ ON goteborg.graf_edges(typ)`
   await client`CREATE INDEX IF NOT EXISTS idx_politiker_fts ON goteborg.politiker USING GIN (to_tsvector('swedish', fornamn || ' ' || efternamn))`
   await client`CREATE INDEX IF NOT EXISTS idx_dokument_fts ON goteborg.dokument USING GIN (to_tsvector('swedish', titel || ' ' || innehall))`
+  // Fritextsökning (/v1/{kommun}/sök, routes/sok.ts). Politiker-uttrycket
+  // måste vara identiskt med sökfrågans, annars kan planeraren inte använda
+  // indexet — ändra på båda ställena samtidigt. Graf-indexen går mot den
+  // lagrade fts-kolumnen och är partiella per nodtyp, eftersom sökningen
+  // alltid filtrerar på typ (paragraf = beslut, anförande = talare/ärende).
+  await client`CREATE INDEX IF NOT EXISTS idx_politiker_sok_fts ON goteborg.politiker USING GIN (to_tsvector('swedish', fornamn || ' ' || efternamn || ' ' || parti || ' ' || coalesce(uppdrag::text, '')))`
+  await client`CREATE INDEX IF NOT EXISTS idx_graf_paragraf_fts ON goteborg.graf_nodes USING GIN (fts) WHERE typ = 'paragraf'`
+  await client`CREATE INDEX IF NOT EXISTS idx_graf_anforande_fts ON goteborg.graf_nodes USING GIN (fts) WHERE typ = 'anförande'`
   console.log('   ✓ Indexes created')
 
   // Seed politiker
@@ -592,6 +607,11 @@ async function main() {
       `   ✓ ${edgeIds.length} procedurella anföranden markerade (mötesledning: ${anfMarked.size} anförande-noder, ${möteMarked.size} möte-edges)`,
     )
   }
+
+  // Anförandetexten (yttrandeprotokollen) — måste ligga efter graf-noderna,
+  // tabellen har FK mot dem.
+  const { seedAnförandeText } = await import('./seed-anforande-text.js')
+  await seedAnförandeText(client, DATA_DIR)
 
   reportDroppedEdges()
   console.log('\n✅ Database seeded')
