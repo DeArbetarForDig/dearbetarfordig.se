@@ -82,6 +82,19 @@ async function main() {
     )`
 
   await client`
+    CREATE TABLE IF NOT EXISTS goteborg.kandidater (
+      id TEXT PRIMARY KEY,
+      namn TEXT NOT NULL,
+      parti TEXT NOT NULL,
+      listplats INT,
+      alder INT,
+      kon TEXT,
+      faststalld BOOLEAN NOT NULL DEFAULT false,
+      politiker_id UUID REFERENCES goteborg.politiker(id) ON DELETE SET NULL,
+      created_at TIMESTAMPTZ DEFAULT now()
+    )`
+
+  await client`
     CREATE TABLE IF NOT EXISTS goteborg.graf_nodes (
       id TEXT PRIMARY KEY,
       typ TEXT NOT NULL,
@@ -120,6 +133,7 @@ async function main() {
 
   // Create indexes
   await client`CREATE INDEX IF NOT EXISTS idx_politiker_parti ON goteborg.politiker(parti)`
+  await client`CREATE INDEX IF NOT EXISTS idx_kandidater_parti ON goteborg.kandidater(parti)`
   await client`CREATE INDEX IF NOT EXISTS idx_graf_nodes_typ ON goteborg.graf_nodes(typ)`
   await client`CREATE INDEX IF NOT EXISTS idx_graf_nodes_datum ON goteborg.graf_nodes((data->>'datum')) WHERE typ = 'paragraf'`
   await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_from ON goteborg.graf_edges(from_id)`
@@ -142,6 +156,24 @@ async function main() {
           parti = EXCLUDED.parti, email = EXCLUDED.email, uppdrag = EXCLUDED.uppdrag, sociala = EXCLUDED.sociala`
     }
     console.log(`   ✓ ${polData.politiker.length} politiker`)
+  }
+
+  // Seed kandidater 2026 (Valmyndighetens rådata, se scrapers/kandidater.ts).
+  // politiker_id är redan matchad vid nedladdning — FK:t kräver bara att
+  // politiker seedas innan kandidater, vilket blocket ovan garanterar.
+  const kandData = loadJSON('politiker/kandidater-2026-goteborg.json')
+  if (kandData) {
+    await client`DELETE FROM goteborg.kandidater`
+    for (const k of kandData.kandidater) {
+      await client`
+        INSERT INTO goteborg.kandidater (id, namn, parti, listplats, alder, kon, faststalld, politiker_id)
+        VALUES (${k.id}, ${k.namn}, ${k.parti}, ${k.listplats}, ${k.ålder}, ${k.kön}, ${k.fastställd}, ${k.politikerId})
+        ON CONFLICT (id) DO UPDATE SET
+          namn = EXCLUDED.namn, parti = EXCLUDED.parti, listplats = EXCLUDED.listplats,
+          alder = EXCLUDED.alder, kon = EXCLUDED.kon, faststalld = EXCLUDED.faststalld,
+          politiker_id = EXCLUDED.politiker_id`
+    }
+    console.log(`   ✓ ${kandData.kandidater.length} kandidater (val 2026)`)
   }
 
   // Seed graph nodes + edges (with organisation merge)

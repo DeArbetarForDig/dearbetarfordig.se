@@ -1,0 +1,10 @@
+# Local-only overrides for dev.sh — never used on the host deploy.
+# docker-compose.yml intentionally keeps db off the host network (prod
+# security); dev.sh runs the API directly on the host, so it needs 5432
+# reachable at localhost. platform pin works around CI only publishing
+# linux/amd64 images, which have no manifest for Apple Silicon.
+services:
+  db:
+    platform: linux/amd64
+    ports:
+      - "127.0.0.1:5432:5432"

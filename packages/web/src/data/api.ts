@@ -77,6 +77,22 @@ export async function getPolitiker(): Promise<Politiker[]> {
   return data._embedded.items
 }
 
+export interface Kandidat {
+  id: string
+  namn: string
+  parti: string
+  listplats: number | null
+  ålder: number | null
+  kön: string | null
+  fastställd: boolean
+  politikerId: string | null
+}
+
+export async function getKandidater(): Promise<Kandidat[]> {
+  const data = await fetchApi<HalCollection<Kandidat>>('/v1/goteborg/kandidater')
+  return data._embedded.items
+}
+
 export async function getBeslut(limit = 200): Promise<Beslut[]> {
   const data = await fetchApi<HalCollection<Beslut>>(`/v1/goteborg/beslut?limit=${limit}`)
   return data._embedded.items
