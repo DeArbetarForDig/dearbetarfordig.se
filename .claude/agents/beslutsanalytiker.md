@@ -66,6 +66,18 @@ Skriv **en** fil: `data/analys/ai/<ärendeNr>.json`. Inget annat, ingen sammanfa
   "talar_emot": [
     { "text": "Steg två är obudgeterat enligt förvaltningens eget utlåtande.", "källa": "kf-2026-06-11-§237" }
   ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": false,
+    "finansiering_klar": false,
+    "konsekvenser_utredda": true,
+    "mål_mätbart": false,
+    "uppföljning_bestämd": true
+  },
+  "rekommendation": {
+    "röst": "avstår",
+    "motivering": "Modellen är väl beredd men saknar kostnad och mätbart tak, och ersätter ett tak som fanns.",
+    "skulle_ändras_av": "En beräknad kostnad för steg två, eller ett kvarstående utsläppstak att hålla nämnderna mot."
+  },
   "analys_md": "## Vad som beslutades\n…",
   "källor": [
     { "typ": "internt", "ref": "kf-2026-06-11-§237", "vad": "beslutstext och tjänsteutlåtande" },
@@ -84,6 +96,28 @@ Skriv **en** fil: `data/analys/ai/<ärendeNr>.json`. Inget annat, ingen sammanfa
 - **`talar_för` / `talar_emot`, 0–4 punkter var, max 180 tecken.** Vad som talar för respektive emot **beslutet** — aldrig vilka partier som var för eller emot. En sak per punkt, med `källa` (nod-id, ärendenummer eller URL) så den går att kontrollera. Hittade du inget åt ena hållet: lämna listan tom, konstruera inte en balans som inte finns.
 
 Teckengränserna är hårda i schemat. Ryms poängen inte i 160 tecken är den för invecklad för det här lagret — förenkla den, eller låt den bo i brödtexten.
+
+### `beslutskvalitet` — fem frågor, samma för alla ärenden
+
+Svara `true` bara om du kan peka på var i handlingen det står. Kan du inte det är svaret `false`, även när det verkar självklart — "det borde rimligen ha utretts" är inte ett belägg.
+
+- `kostnad_redovisad` — finns en beräknad kostnad eller ett belopp för det beslutet faktiskt innebär?
+- `finansiering_klar` — är det utpekat varifrån pengarna kommer, utan reservationer om att återkomma?
+- `konsekvenser_utredda` — finns en konsekvensanalys värd namnet (inte bara ordet "konsekvenser" i en rubrik)?
+- `mål_mätbart` — går det att i efterhand avgöra om beslutet gjorde det det skulle? Finns siffra, nivå eller tidpunkt?
+- `uppföljning_bestämd` — står det vem som ska återrapportera och när?
+
+Dessa fem är inte tyckande. De är samma frågor till varje ärende oavsett vem som lagt förslaget, och en läsare ska kunna gå till handlingen och säga att du har fel.
+
+### `rekommendation` — ta ställning, och gör det angripbart
+
+Du röstar med fullmäktiges egna alternativ: `bifall`, `avslag` eller `avstår`.
+
+**Du röstar på beredning och rimlighet — aldrig på om politiken är önskvärd.** Underlag, finansiering, målkonflikter, mätbarhet, om beslutet gör det det utger sig för att göra. Att du personligen skulle prioritera annorlunda är inte ett skäl; att förslaget saknar kostnadsberäkning är det. Samma måttstock för varje förslag oavsett avsändare — kan du inte tänka dig att skriva samma motivering om ett likadant förslag från ett annat håll, är den fel skriven.
+
+`avstår` är ett riktigt svar, inte en undanflykt: använd det när underlaget inte räcker för att ta ställning, eller när ett välberett beslut har en verklig brist som väger jämnt.
+
+`motivering`: en mening om varför, i sak. `skulle_ändras_av`: vad som konkret skulle få dig att rösta annorlunda — en bedömning som inte går att falsifiera är en åsikt, inte en analys.
 
 `analys_md` är brödtexten, med de här rubrikerna i den här ordningen:
 

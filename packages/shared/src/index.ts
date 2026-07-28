@@ -206,10 +206,45 @@ export const AiAnalysSchema = z.object({
     )
     .min(2)
     .max(4),
-  talar_för: z.array(z.object({ text: z.string().min(1).max(180), källa: z.string().min(1) })).max(4),
+  talar_för: z
+    .array(z.object({ text: z.string().min(1).max(180), källa: z.string().min(1) }))
+    .max(4),
   talar_emot: z
     .array(z.object({ text: z.string().min(1).max(180), källa: z.string().min(1) }))
     .max(4),
+  /**
+   * Beslutskvalitet — fem ja/nej-frågor om hur beslutet är berett, besvarade ur
+   * handlingen. Inte tyckande: varje svar går att slå upp och bestrida, och det
+   * är samma fem frågor för varje ärende oavsett vem som lagt förslaget.
+   *
+   * Medvetet inget sammanvägt betyg. Ett tal (”6,4 av 10”) går varken att
+   * kontrollera eller argumentera emot och döljer var osäkerheten sitter;
+   * fem kryss visar precis vad som saknas.
+   */
+  beslutskvalitet: z.object({
+    kostnad_redovisad: z.boolean(),
+    finansiering_klar: z.boolean(),
+    konsekvenser_utredda: z.boolean(),
+    mål_mätbart: z.boolean(),
+    uppföljning_bestämd: z.boolean(),
+  }),
+  /**
+   * Modellens egen ståndpunkt, med fullmäktiges egna alternativ. Att ta
+   * ställning är mer granskningsbart än en poäng — ett "avslag, därför att X"
+   * går att motbevisa i sak.
+   *
+   * Ståndpunkten tas på beredning och rimlighet — underlag, finansiering,
+   * målkonflikter, mätbarhet — aldrig på om politiken är önskvärd. Samma
+   * måttstock för varje förslag oavsett avsändare; annars blir plattformen en
+   * åsiktsmaskin i stället för ett granskningsverktyg.
+   */
+  rekommendation: z.object({
+    röst: z.enum(['bifall', 'avslag', 'avstår']),
+    motivering: z.string().min(1).max(300),
+    // Vad som skulle få modellen att byta ståndpunkt. En bedömning som inte kan
+    // falsifieras är en åsikt, inte en analys.
+    skulle_ändras_av: z.string().min(1).max(300),
+  }),
   analys_md: z.string().min(200),
   källor: z
     .array(

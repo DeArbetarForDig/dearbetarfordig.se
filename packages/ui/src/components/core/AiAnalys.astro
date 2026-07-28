@@ -3,18 +3,22 @@
  * AI-analys av ett beslut, byggd för att skummas.
  *
  * Ordningen är avsiktlig: en invånare som lägger tjugo sekunder på fliken ska
- * ändå gå därifrån med det väsentliga. Först vem som skrivit texten, sedan en
- * mening om vad beslutet innebär, sedan nyckelpunkterna med färg, sedan för och
- * emot sida vid sida. Hela analysen ligger hopfälld under — den är källan till
- * allt ovanför, inte det man måste ta sig igenom först.
+ * ändå gå därifrån med det väsentliga. Först vem som skrivit texten, sedan vad
+ * beslutet innebär och nyckelpunkterna, sedan hur väl beslutet är berett, sedan
+ * modellens egen ståndpunkt, sedan för och emot. Hela analysen ligger hopfälld
+ * under — den är källan till allt ovanför, inte det man måste ta sig igenom
+ * först.
  *
- * Märkningen står överst och kan inte fällas ihop: den som läser ska veta exakt
- * vad hen läser och kunna gå till källan själv.
+ * Byggd på designsystemets komponenter: Card, Pill, StatusBadge, Accordion,
+ * Icon. Ingen egen färgsättning — Pill och StatusBadge bär redan färg, glyf och
+ * text tillsammans, så färgen är aldrig enda signalen.
  */
 import { renderaMarkdown } from '@daf/shared'
 import Accordion from './Accordion.astro'
 import Card from './Card.astro'
 import Icon from './Icon.astro'
+import Pill from './Pill.astro'
+import StatusBadge from './StatusBadge.astro'
 
 interface Props {
   analys: {
@@ -28,6 +32,18 @@ interface Props {
     nyckelpunkter: { ton: 'varning' | 'styrka' | 'fakta'; text: string }[]
     talar_för: { text: string; källa: string }[]
     talar_emot: { text: string; källa: string }[]
+    beslutskvalitet: {
+      kostnad_redovisad: boolean
+      finansiering_klar: boolean
+      konsekvenser_utredda: boolean
+      mål_mätbart: boolean
+      uppföljning_bestämd: boolean
+    }
+    rekommendation: {
+      röst: 'bifall' | 'avslag' | 'avstår'
+      motivering: string
+      skulle_ändras_av: string
+    }
     analys_md: string
     källor: { typ: 'internt' | 'webb'; ref: string; vad: string }[]
   }
@@ -36,9 +52,9 @@ interface Props {
 const { analys } = Astro.props
 
 const TON = {
-  varning: { ikon: 'alert-triangle', etikett: 'Se upp med' },
-  styrka: { ikon: 'check-circle', etikett: 'Håller' },
-  fakta: { ikon: 'info', etikett: 'Att veta' },
+  varning: { severity: 'warning', etikett: 'Se upp med' },
+  styrka: { severity: 'success', etikett: 'Håller' },
+  fakta: { severity: 'info', etikett: 'Att veta' },
 } as const
 
 const RIKTNING = {
@@ -50,44 +66,95 @@ const RIKTNING = {
 
 const SÄKERHET = { low: 'Låg', medium: 'Medelhög', high: 'Hög' } as const
 
+// Frågorna ställs likadant till varje ärende. Formuleringarna är läsarens,
+// inte förvaltningens: "Vet vi vad det kostar?" i stället för "kostnadskalkyl".
+const KVALITET = [
+  ['kostnad_redovisad', 'Vet vi vad det kostar?'],
+  ['finansiering_klar', 'Är pengarna utpekade?'],
+  ['konsekvenser_utredda', 'Är konsekvenserna utredda?'],
+  ['mål_mätbart', 'Går resultatet att mäta?'],
+  ['uppföljning_bestämd', 'Är uppföljning bestämd?'],
+] as const
+
+// StatusBadge har redan fullmäktiges röstalternativ som statusar — samma
+// färg, glyf och etikett som i voteringsfliken.
+const RÖST_STATUS = { bifall: 'bifall', avslag: 'avslag', avstår: 'avstar' } as const
+const RÖST_ETIKETT = {
+  bifall: 'Skulle rösta bifall',
+  avslag: 'Skulle rösta avslag',
+  avstår: 'Skulle avstå',
+} as const
+
 const brödtext = renderaMarkdown(analys.analys_md)
 const interna = analys.källor.filter((k) => k.typ === 'internt')
 const webb = analys.källor.filter((k) => k.typ === 'webb')
 ---
 
 <div class="daf-ai space-y-4">
-  <p class="daf-ai__markning">
-    <Icon name="bot" size={16} />
-    <span>
-      <strong>Skriven av en AI-modell ({analys.modell}), inte av en människa.</strong>
-      Bygger på stadens egna handlingar och öppna källor — varje påstående har en källa
-      längst ned som du kan gå till själv.
-      {
-        analys.granskad_av ? (
-          <> Granskad av {analys.granskad_av} den {analys.granskad_datum}.</>
-        ) : (
-          <> <strong>Ännu inte granskad av en människa.</strong></>
-        )
-      }
-    </span>
-  </p>
+  <Card>
+    <p class="daf-ai__markning">
+      <Icon name="bot" size={16} />
+      <span>
+        <strong>Skriven av en AI-modell ({analys.modell}), inte av en människa.</strong>
+        Bygger på stadens egna handlingar och öppna källor — varje påstående har en källa
+        längst ned som du kan gå till själv.
+        {
+          analys.granskad_av ? (
+            <> Granskad av {analys.granskad_av} den {analys.granskad_datum}.</>
+          ) : (
+            <> <strong>Ännu inte granskad av en människa.</strong></>
+          )
+        }
+      </span>
+    </p>
+  </Card>
 
   <Card title="Det viktigaste" subtitle={`${RIKTNING[analys.riktning]} · Säkerhet i bedömningen: ${SÄKERHET[analys.confidence]}`}>
     <p class="daf-ai__sammanfattning">{analys.sammanfattning}</p>
-    <ul class="daf-ai__punkter">
+    <ul class="daf-ai__lista">
       {analys.nyckelpunkter.map((p) => (
-        <li class:list={['daf-ai__punkt', `daf-ai__punkt--${p.ton}`]}>
-          <Icon name={TON[p.ton].ikon} size={18} />
-          <span><b>{TON[p.ton].etikett}:</b> {p.text}</span>
+        <li>
+          <Pill severity={TON[p.ton].severity}>{TON[p.ton].etikett}</Pill>
+          <span>{p.text}</span>
         </li>
       ))}
     </ul>
   </Card>
 
+  <Card
+    title="Hur väl är beslutet berett?"
+    subtitle="Fem frågor som ställs likadant till varje ärende — svaren går att slå upp i handlingen"
+  >
+    <ul class="daf-ai__lista">
+      {KVALITET.map(([nyckel, fråga]) => (
+        <li>
+          <Pill severity={analys.beslutskvalitet[nyckel] ? 'success' : 'critical'}>
+            {analys.beslutskvalitet[nyckel] ? 'Ja' : 'Nej'}
+          </Pill>
+          <span>{fråga}</span>
+        </li>
+      ))}
+    </ul>
+  </Card>
+
+  <Card
+    title="Om modellen hade suttit i fullmäktige"
+    subtitle="Ståndpunkt på beredning och rimlighet — inte på om politiken är önskvärd"
+  >
+    <StatusBadge
+      status={RÖST_STATUS[analys.rekommendation.röst]}
+      label={RÖST_ETIKETT[analys.rekommendation.röst]}
+    />
+    <p class="daf-ai__motivering">{analys.rekommendation.motivering}</p>
+    <p class="daf-ai__andras">
+      <strong>Skulle ändras av:</strong> {analys.rekommendation.skulle_ändras_av}
+    </p>
+  </Card>
+
   {(analys.talar_för.length > 0 || analys.talar_emot.length > 0) && (
     <div class="daf-ai__vagskal">
       {analys.talar_för.length > 0 && (
-        <Card title="Talar för beslutet" class="daf-ai__sida daf-ai__sida--for">
+        <Card title="Talar för beslutet">
           <ul class="daf-ai__skal">
             {analys.talar_för.map((p) => (
               <li>{p.text} <span class="daf-ai__kalla">{p.källa}</span></li>
@@ -96,7 +163,7 @@ const webb = analys.källor.filter((k) => k.typ === 'webb')
         </Card>
       )}
       {analys.talar_emot.length > 0 && (
-        <Card title="Talar emot beslutet" class="daf-ai__sida daf-ai__sida--emot">
+        <Card title="Talar emot beslutet">
           <ul class="daf-ai__skal">
             {analys.talar_emot.map((p) => (
               <li>{p.text} <span class="daf-ai__kalla">{p.källa}</span></li>
@@ -144,12 +211,9 @@ const webb = analys.källor.filter((k) => k.typ === 'webb')
     display: flex;
     gap: 0.75rem;
     align-items: flex-start;
-    padding: 0.875rem 1rem;
     font-size: var(--font-size-small);
     line-height: 1.6;
     color: var(--color-text-muted);
-    background: var(--color-surface-sunken);
-    border-radius: var(--radius-sm);
   }
 
   .daf-ai__markning strong {
@@ -162,62 +226,38 @@ const webb = analys.källor.filter((k) => k.typ === 'webb')
     line-height: 1.6;
   }
 
-  .daf-ai__punkter {
+  .daf-ai__lista {
     display: grid;
-    gap: 0.5rem;
+    gap: 0.625rem;
     padding: 0;
     list-style: none;
   }
 
-  /* Färgen bär bara samma budskap som ikonen och etiketten ("Se upp med",
-     "Håller", "Att veta") — den som inte uppfattar färg tappar ingen
-     information. */
-  .daf-ai__punkt {
-    display: flex;
+  /* Grid i stället för flex: pillen står kvar i sin kolumn och den långa
+     meningen radbryts bredvid den, inte under. */
+  .daf-ai__lista li {
+    display: grid;
+    grid-template-columns: auto 1fr;
     gap: 0.625rem;
-    align-items: flex-start;
-    padding: 0.75rem 0.875rem;
+    align-items: baseline;
     line-height: 1.5;
-    background: var(--color-surface-sunken);
-    border-left: 3px solid var(--ton);
-    border-radius: var(--radius-sm);
   }
 
-  .daf-ai__punkt :global(svg) {
-    flex-shrink: 0;
-    color: var(--ton);
+  .daf-ai__motivering {
+    margin: 0.75rem 0 0.5rem;
+    line-height: 1.6;
   }
 
-  .daf-ai__punkt--varning {
-    --ton: var(--color-warning);
-  }
-
-  .daf-ai__punkt--styrka {
-    --ton: var(--color-positive);
-  }
-
-  .daf-ai__punkt--fakta {
-    --ton: var(--color-info);
+  .daf-ai__andras {
+    font-size: var(--font-size-small);
+    line-height: 1.6;
+    color: var(--color-text-muted);
   }
 
   .daf-ai__vagskal {
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
-  }
-
-  /* Kortet står kvar som på resten av sidan; färgen läggs som en kant ovanpå,
-     inte som en egen behållare. */
-  .daf-ai__sida {
-    border-top: 3px solid var(--ton);
-  }
-
-  .daf-ai__sida--for {
-    --ton: var(--color-positive);
-  }
-
-  .daf-ai__sida--emot {
-    --ton: var(--color-negative);
   }
 
   .daf-ai__skal {
