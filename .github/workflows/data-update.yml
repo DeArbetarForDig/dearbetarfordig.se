@@ -90,10 +90,15 @@ jobs:
       # Repository rule violations... Changes must be made through a pull
       # request"). Route through a branch + PR + auto-merge instead, so the
       # required lint/test checks still gate it like any other change.
+      #
+      # The PR must be opened with a PAT, not github.token: events from
+      # GITHUB_TOKEN don't trigger workflows, so CI/CD lands in
+      # "action_required", lint/test never report, and auto-merge blocks
+      # forever (PR #4, 2026-07-27).
       - name: Open PR and enable auto-merge
         if: steps.changes.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
