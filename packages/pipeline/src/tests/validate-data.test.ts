@@ -7,9 +7,9 @@
  * formaten på disk.
  */
 
-import { readFileSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { GrafFilSchema, RosterSchema } from '@daf/shared'
+import { AiAnalysSchema, GrafFilSchema, RosterSchema } from '@daf/shared'
 import { describe, expect, it } from 'vitest'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../data')
@@ -76,6 +76,32 @@ describe('data/graf/*.json', () => {
       if (!e.from.startsWith('politiker-')) {
         expect.fail(`röstade-edge med icke-politiker-källa: ${JSON.stringify(e)}`)
       }
+    }
+  })
+})
+
+describe('data/analys/ai/*.json', () => {
+  // AI-analyserna skrivs av en subagent, inte av en parser — desto viktigare
+  // att formen valideras innan de seedas till produktion.
+  const dir = join(DATA_DIR, 'analys/ai')
+  const filer = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')) : []
+
+  it.each(filer)('%s följer AiAnalysSchema', (fil) => {
+    const analys = JSON.parse(readFileSync(join(dir, fil), 'utf-8'))
+    const res = AiAnalysSchema.safeParse(analys)
+    if (!res.success) expect.fail(JSON.stringify(res.error.issues.slice(0, 5), null, 2))
+    expect(res.data?.ärendeNr).toBe(fil.replace(/\.json$/, ''))
+  })
+
+  it('varje analys hör ihop med ett känt ärende', () => {
+    if (!filer.length) return
+    const { ärenden } = JSON.parse(readFileSync(join(DATA_DIR, 'analys/beslut.json'), 'utf-8'))
+    const kända = new Map(
+      ärenden.map((ä: { ärendeNr: string; källa_hash: string }) => [ä.ärendeNr, ä.källa_hash]),
+    )
+    for (const fil of filer) {
+      const nr = fil.replace(/\.json$/, '')
+      expect(kända.has(nr), `${nr} finns inte i data/analys/beslut.json`).toBe(true)
     }
   })
 })

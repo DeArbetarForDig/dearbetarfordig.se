@@ -141,6 +141,17 @@ async function main() {
       graf_nod TEXT
     )`
 
+  await client`
+    CREATE TABLE IF NOT EXISTS goteborg.analys (
+      arende_nr TEXT PRIMARY KEY,
+      organ TEXT NOT NULL,
+      rubrik TEXT NOT NULL,
+      analyserbar BOOLEAN NOT NULL,
+      data JSONB NOT NULL,
+      -- null tills en subagent skrivit analysen; se seed-blocket nedan
+      ai JSONB
+    )`
+
   console.log('   ✓ Tables created (unused dropped)')
 
   // Create indexes
@@ -153,6 +164,7 @@ async function main() {
   await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_typ ON goteborg.graf_edges(typ)`
   await client`CREATE INDEX IF NOT EXISTS idx_politiker_fts ON goteborg.politiker USING GIN (to_tsvector('swedish', fornamn || ' ' || efternamn))`
   await client`CREATE INDEX IF NOT EXISTS idx_dokument_fts ON goteborg.dokument USING GIN (to_tsvector('swedish', titel || ' ' || innehall))`
+  await client`CREATE INDEX IF NOT EXISTS idx_analys_ai ON goteborg.analys(arende_nr) WHERE ai IS NOT NULL`
   // Fritextsökning (/v1/{kommun}/sök, routes/sok.ts). Politiker-uttrycket
   // måste vara identiskt med sökfrågans, annars kan planeraren inte använda
   // indexet — ändra på båda ställena samtidigt. Graf-indexen går mot den
@@ -516,6 +528,43 @@ async function main() {
         VALUES (${doc.id}, ${doc.titel}, ${doc.typ}, ${doc.nämnd}, ${doc.datum}, ${doc.källa}, ${innehall}, ${doc.graf_nod || null})`
     }
     console.log(`   ✓ ${docs.length} dokument (full-text)`)
+  }
+
+  // Seed analys — härledd process/ekonomi per ärende + AI-analyser.
+  //
+  // Egen tabell, medvetet utanför graf_nodes: grafen innehåller parsade fakta
+  // och /v1/{kommun}/graf/node/… får aldrig returnera en maskinbedömning som om
+  // den vore en kant i protokollet. Kolumnen ai är null tills en subagent
+  // skrivit data/analys/ai/<ärendeNr>.json (se .claude/agents/beslutsanalytiker.md).
+  const analysFil = join(DATA_DIR, 'analys/beslut.json')
+  if (existsSync(analysFil)) {
+    await client`DELETE FROM goteborg.analys`
+    const { ärenden } = JSON.parse(readFileSync(analysFil, 'utf-8'))
+    const aiDir = join(DATA_DIR, 'analys/ai')
+    const ai = new Map<string, any>()
+    if (existsSync(aiDir)) {
+      for (const f of readdirSync(aiDir).filter((f) => f.endsWith('.json'))) {
+        const a = JSON.parse(readFileSync(join(aiDir, f), 'utf-8'))
+        ai.set(a.ärendeNr, a)
+      }
+    }
+    for (const ä of ärenden) {
+      const analys = ai.get(ä.ärendeNr)
+      // Föråldrad AI-text hör inte ihop med sitt ärende längre: protokollet
+      // eller handlingen har ändrats sedan analysen skrevs. Seeda den inte.
+      const aktuell = analys && analys.källa_hash === ä.källa_hash ? analys : null
+      await client`
+        INSERT INTO goteborg.analys (arende_nr, organ, rubrik, analyserbar, data, ai)
+        VALUES (${ä.ärendeNr}, ${ä.organ}, ${ä.rubrik}, ${ä.analyserbar},
+                ${client.json(ä)}, ${aktuell ? client.json(aktuell) : null})
+        ON CONFLICT (arende_nr) DO UPDATE SET
+          organ = EXCLUDED.organ, rubrik = EXCLUDED.rubrik,
+          analyserbar = EXCLUDED.analyserbar, data = EXCLUDED.data, ai = EXCLUDED.ai`
+    }
+    const inaktuella = ai.size - [...ai.values()].filter((a) => a.källa_hash).length
+    console.log(
+      `   ✓ ${ärenden.length} ärendeanalyser (${ai.size} med AI-text${inaktuella ? `, ${inaktuella} utan källa_hash` : ''})`,
+    )
   }
 
   // Seed talade_i edges from yttrandeprotokoll (kf-*.json in debatter/)

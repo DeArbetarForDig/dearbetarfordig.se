@@ -167,3 +167,42 @@ export const GrafFilSchema = z
   })
   .passthrough()
 export type GrafFil = z.infer<typeof GrafFilSchema>
+
+/**
+ * En AI-analys skriven av beslutsanalytiker-subagenten till
+ * data/analys/ai/<ärendeNr>.json. Schemat är blockande i CI: en subagent som
+ * skriver trasig JSON ska stoppa bygget, inte seedas till produktion.
+ *
+ * `maskingenererad` är literal true och `granskad_*` finns alltid med — märkningen
+ * av att texten är maskinskriven och ogranskad får inte kunna falla bort på vägen
+ * till läsaren.
+ */
+export const AiAnalysSchema = z.object({
+  ärendeNr: z.string().regex(/^[A-ZÅÄÖ]{2,4}-\d{4}-\d{5}$/),
+  rubrik: z.string().min(1),
+  maskingenererad: z.literal(true),
+  modell: z.string().min(1),
+  genererad: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  granskad_av: z.string().nullable(),
+  granskad_datum: z.string().nullable(),
+  källa_hash: z.string().min(1),
+  riktning: z.enum(['positiv', 'negativ', 'blandad', 'oklar']),
+  confidence: z.enum(['low', 'medium', 'high']),
+  sammanfattning: z.string().min(1),
+  analys_md: z.string().min(200),
+  källor: z
+    .array(
+      z.object({
+        typ: z.enum(['internt', 'webb']),
+        ref: z.string().min(1),
+        vad: z.string().min(1),
+      }),
+    )
+    .min(1),
+})
+export type AiAnalys = z.infer<typeof AiAnalysSchema>
+
+// Regeln "motstående belägg ⇒ inte confidence: high" står i prompten och i
+// granskningschecklistan, inte här: den kräver att man läser beläggen och
+// bedömer om de bär. Ett regex mot rubriken hade fällt nästan varje analys,
+// eftersom subagenten ska skriva ut även när den letat och inte funnit något.
