@@ -9,15 +9,15 @@
  * under — den är källan till allt ovanför, inte det man måste ta sig igenom
  * först.
  *
- * Byggd på designsystemets komponenter: Card, Pill, StatusBadge, Accordion,
- * Icon. Ingen egen färgsättning — Pill och StatusBadge bär redan färg, glyf och
+ * Byggd på designsystemets komponenter: Card, Callout, StatusBadge, Accordion,
+ * Icon. Ingen egen färgsättning — Callout och StatusBadge bär färg, ikon och
  * text tillsammans, så färgen är aldrig enda signalen.
  */
 import { renderaMarkdown } from '@daf/shared'
 import Accordion from './Accordion.astro'
+import Callout from './Callout.astro'
 import Card from './Card.astro'
 import Icon from './Icon.astro'
-import Pill from './Pill.astro'
 import StatusBadge from './StatusBadge.astro'
 
 interface Props {
@@ -111,30 +111,25 @@ const webb = analys.källor.filter((k) => k.typ === 'webb')
 
   <Card title="Det viktigaste" subtitle={`${RIKTNING[analys.riktning]} · Säkerhet i bedömningen: ${SÄKERHET[analys.confidence]}`}>
     <p class="daf-ai__sammanfattning">{analys.sammanfattning}</p>
-    <ul class="daf-ai__lista">
+    <div class="daf-ai__lista">
       {analys.nyckelpunkter.map((p) => (
-        <li>
-          <Pill severity={TON[p.ton].severity}>{TON[p.ton].etikett}</Pill>
-          <span>{p.text}</span>
-        </li>
+        <Callout severity={TON[p.ton].severity} label={TON[p.ton].etikett}>{p.text}</Callout>
       ))}
-    </ul>
+    </div>
   </Card>
 
   <Card
     title="Hur väl är beslutet berett?"
     subtitle="Fem frågor som ställs likadant till varje ärende — svaren går att slå upp i handlingen"
   >
-    <ul class="daf-ai__lista">
+    <div class="daf-ai__lista">
       {KVALITET.map(([nyckel, fråga]) => (
-        <li>
-          <Pill severity={analys.beslutskvalitet[nyckel] ? 'success' : 'critical'}>
-            {analys.beslutskvalitet[nyckel] ? 'Ja' : 'Nej'}
-          </Pill>
-          <span>{fråga}</span>
-        </li>
+        <Callout
+          severity={analys.beslutskvalitet[nyckel] ? 'success' : 'critical'}
+          label={analys.beslutskvalitet[nyckel] ? 'Ja' : 'Nej'}
+        >{fråga}</Callout>
       ))}
-    </ul>
+    </div>
   </Card>
 
   <Card
@@ -228,19 +223,7 @@ const webb = analys.källor.filter((k) => k.typ === 'webb')
 
   .daf-ai__lista {
     display: grid;
-    gap: 0.625rem;
-    padding: 0;
-    list-style: none;
-  }
-
-  /* Grid i stället för flex: pillen står kvar i sin kolumn och den långa
-     meningen radbryts bredvid den, inte under. */
-  .daf-ai__lista li {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.625rem;
-    align-items: baseline;
-    line-height: 1.5;
+    gap: 0.5rem;
   }
 
   .daf-ai__motivering {
