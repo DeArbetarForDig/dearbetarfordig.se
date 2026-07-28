@@ -1456,11 +1456,12 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
           190,
+          70,
           20
         ],
         "finansiering_osäker": false,
@@ -3917,7 +3918,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -3984,7 +3985,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -5642,7 +5643,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -5714,7 +5715,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -7053,7 +7054,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -7239,7 +7240,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -7297,7 +7298,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -7804,7 +7805,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -9317,7 +9318,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": true,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -10391,7 +10392,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -10461,7 +10462,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -11959,7 +11960,7 @@
       "analyserbar": true,
       "prognos_kandidat": {
         "värd": true,
-        "skäl": "belopp 770 mnkr"
+        "skäl": "belopp 30000 mnkr"
       },
       "process": {
         "beslut": "bifall",
@@ -11986,6 +11987,7 @@
       },
       "ekonomi": {
         "belopp_mnkr": [
+          30000,
           770,
           23
         ],
@@ -12612,7 +12614,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -12679,7 +12681,7 @@
         "nämner_barnperspektiv": true,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -12928,7 +12930,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -13331,7 +13333,7 @@
         "nämner_barnperspektiv": true,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -15258,7 +15260,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -16228,7 +16230,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -16453,7 +16455,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -17239,7 +17241,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -19320,7 +19322,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -20259,7 +20261,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -20726,7 +20728,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -20790,7 +20792,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -22011,7 +22013,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -23264,7 +23266,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -23629,7 +23631,7 @@
         "nämner_barnperspektiv": true,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -24920,7 +24922,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -26036,7 +26038,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -26167,7 +26169,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -27764,7 +27766,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -28200,7 +28202,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -28258,7 +28260,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -30620,7 +30622,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -31296,7 +31298,7 @@
         "nämner_barnperspektiv": true,
         "nämner_jämställdhetsanalys": true,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -32240,7 +32242,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -32569,7 +32571,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -32642,7 +32644,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -33179,7 +33181,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -33437,7 +33439,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -34930,7 +34932,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -36445,7 +36447,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -39162,7 +39164,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -39247,7 +39249,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -40500,7 +40502,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -40582,7 +40584,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -40673,7 +40675,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -41808,7 +41810,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -42502,7 +42504,7 @@
         "nämner_barnperspektiv": true,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -43183,7 +43185,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -43246,7 +43248,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -46300,7 +46302,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -47800,7 +47802,7 @@
         "nämner_barnperspektiv": true,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -48990,7 +48992,7 @@
         "nämner_barnperspektiv": true,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -51458,7 +51460,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -52375,7 +52377,7 @@
       "analyserbar": true,
       "prognos_kandidat": {
         "värd": true,
-        "skäl": "belopp 1100 mnkr"
+        "skäl": "belopp 31000 mnkr"
       },
       "process": {
         "beslut": "tillstyrkan_kf",
@@ -52402,11 +52404,11 @@
       },
       "ekonomi": {
         "belopp_mnkr": [
-          1100,
-          571,
-          10,
-          8,
-          0.3
+          31000,
+          18000,
+          7500,
+          1700,
+          1300
         ],
         "finansiering_osäker": false,
         "finansiering_påstådd": false,
@@ -53676,7 +53678,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -53740,7 +53742,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -53804,7 +53806,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -54419,7 +54421,9 @@
         "nämner_remiss": true
       },
       "ekonomi": {
-        "belopp_mnkr": [],
+        "belopp_mnkr": [
+          10
+        ],
         "finansiering_osäker": true,
         "finansiering_påstådd": true,
         "citat": "…. När det gäller frågan om upprustning av arenorna delar vi motionärernas bild av att Gamla Ullevi inte fullt ut uppfyller kraven på en modern fotbollsarena och har flera funktioner som blivit förlegade relativt snabbt. Arenan kan,…"
@@ -56080,7 +56084,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -56931,7 +56935,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -63636,7 +63640,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -64052,7 +64056,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -67070,7 +67074,8 @@
       },
       "ekonomi": {
         "belopp_mnkr": [
-          9.5
+          9.5,
+          2.2
         ],
         "finansiering_osäker": false,
         "finansiering_påstådd": false,
@@ -70472,7 +70477,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": true,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -70788,7 +70793,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -70918,7 +70923,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -71976,7 +71981,7 @@
         "nämner_barnperspektiv": true,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": true,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [
@@ -74310,7 +74315,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -74420,7 +74425,7 @@
         "nämner_barnperspektiv": false,
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
-        "nämner_remiss": true
+        "nämner_remiss": false
       },
       "ekonomi": {
         "belopp_mnkr": [],

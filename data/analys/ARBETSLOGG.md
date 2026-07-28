@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-07-28. **3 av 333** prognosvärda ärenden analyserade, 330 återstår.
+Uppdaterad 2026-07-28. **4 av 333** prognosvärda ärenden analyserade, 329 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -18,6 +18,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | Ärende | Datum | Riktning | Säkerhet | Granskad | Rubrik |
 | --- | --- | --- | --- | --- | --- |
 | SLK-2025-00122 | 2026-07-28 | blandad | medium | — | Modell för Göteborgs Stads klimatbudget |
+| SLK-2026-00495 | 2026-07-28 | blandad | medium | — | Hemställan från Stiftelsen Göteborgs sjukhem, Stiftelsen Ålderdomshemm |
 | SLK-2026-00510 | 2026-07-28 | blandad | medium | — | Revidering av reglemente för Göteborgs Stads överförmyndarnämnd |
 | SLK-2026-00575 | 2026-07-28 | blandad | medium | — | Hemställan till regionfullmäktige om att genomföra biljettprisfrysning |
 
@@ -25,7 +26,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2026-00495 | belopp 190 mnkr | Hemställan från Stiftelsen Göteborgs sjukhem, Stiftelsen Ålderdomshemm |
 | SLK-2026-00402 | finansiering erkänt osäker | Antagande av detaljplan för verksamheter vid Gamla Sörredsvägen i stad |
 | SLK-2026-00397 | finansiering erkänt osäker | Donation från Göteborgs Spårvägar AB av spårvagnar modell M29 till Myk |
 | SLK-2025-01138 | belopp 274 mnkr | Motion av Kalle Bäck (KD) och Kristina Lallo (KD) om att riva upp besl |
@@ -35,3 +35,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2026-00107 | finansiering erkänt osäker | Funktionshinderombudsmannens årsrapport 2025 |
 | SLK-2026-00235 | belopp 22 mnkr | Hemställan från Business Region Göteborg AB om godkännande av avtal rö |
 | SLK-2026-00326 | finansiering erkänt osäker | Redovisning av uppdrag till Göteborg & Co AB att utreda möjligheterna  |
+| SLK-2025-01042 | belopp 22.5 mnkr | Motion av Jessica Blixt (D) och Martin Wannholt (D) om att revidera Gö |

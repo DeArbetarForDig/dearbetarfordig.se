@@ -1,0 +1,127 @@
+{
+  "ärendeNr": "SLK-2026-00495",
+  "rubrik": "Hemställan från Stiftelsen Göteborgs sjukhem, Stiftelsen Ålderdomshemmet i Göteborg och Stiftelsen Otium till kommunfullmäktige om godkännande av stadgeändringar",
+  "maskingenererad": true,
+  "modell": "claude-opus-5",
+  "genererad": "2026-07-28",
+  "granskad_av": null,
+  "granskad_datum": null,
+  "källa_hash": "2b313f641251b8a2",
+  "riktning": "blandad",
+  "confidence": "medium",
+  "sammanfattning": "Fullmäktige svarade att staden inte har något att erinra mot att tre donationsstiftelser med sammanlagt cirka 280 miljoner kronor byter ändamål från att driva äldreboenden till att dela ut bidrag. Beslutet är ett yttrande — Kammarkollegiet avgör. Stadens tjänsteutlåtande uppger att ärendet saknar ekonomiska aspekter.",
+  "nyckelpunkter": [
+    {
+      "ton": "fakta",
+      "text": "Fullmäktige godkänner inte stadgarna utan yttrar sig. Tillstånd att ändra dem prövas av Kammarkollegiet enligt stiftelselagen."
+    },
+    {
+      "ton": "varning",
+      "text": "Stadens rätt att besluta om stadgarna, godkänna fastighetsförsäljning och fastställa arvoden upphävs. Kvar blir att utse styrelse och revisor."
+    },
+    {
+      "ton": "varning",
+      "text": "Ingen återrapportering till staden bestäms, och stadgarna sätter inget tak för hur mycket av kapitalet som får delas ut per år."
+    },
+    {
+      "ton": "fakta",
+      "text": "Siffran 190 miljoner kronor är Stiftelsen Ålderdomshemmets kassa, inte en kostnad för staden. De tre stiftelserna har cirka 280 miljoner totalt."
+    }
+  ],
+  "talar_för": [
+    {
+      "text": "Underlaget redovisar öppet varför stiftelserna inte kan driva boendena vidare: upphandlingsplikt och tillståndskrav som de inte bedöms klara.",
+      "källa": "kf-2026-06-11-§234"
+    },
+    {
+      "text": "Ändamålet bevaras i sak. Pengarna ska fortsatt gå till äldres boende i Göteborg, nu som bidrag utöver lagens minimikrav i stället för som drift.",
+      "källa": "kf-2026-06-11-§234"
+    },
+    {
+      "text": "Varje ändrad och upphävd paragraf motiveras var för sig med angivet lagstöd i tre bilagor. Det är mer utförligt än vad fullmäktige brukar få.",
+      "källa": "kf-2026-06-11-§234"
+    },
+    {
+      "text": "Ändringen prövas självständigt av Kammarkollegiet, som ändrar stiftelseändamål bara i undantagsfall och nära det gamla ändamålet.",
+      "källa": "https://www.kammarkollegiet.se/vara-tjanster/stiftelser-testamenten-och-gavor/ansok-om-permutation-av-stiftelse/forutsattningar-for-permutation-av-stiftelser"
+    }
+  ],
+  "talar_emot": [
+    {
+      "text": "Tjänsteutlåtandet anger att ärendet saknar ekonomiska aspekter, trots att det gäller ändamålet för cirka 280 miljoner kronor i donationskapital.",
+      "källa": "kf-2026-06-11-§234"
+    },
+    {
+      "text": "Regeln att Stiftelsen Otiums tillgångar tillfaller staden vid upplösning upphävs. Sökandens egen handling beskriver stadens ja som det som stänger den vägen.",
+      "källa": "kf-2026-06-11-§234"
+    },
+    {
+      "text": "Ingen uppföljning bestäms, och stadgarnas krav på redovisning till staden upphävs, samtidigt som fullmäktige fortsatt utser styrelsen.",
+      "källa": "kf-2026-06-11-§234"
+    },
+    {
+      "text": "Det nya ändamålet, att öka de boendes välbefinnande utöver lagens minimikrav, saknar nivå, belopp och tidpunkt att mätas mot.",
+      "källa": "kf-2026-06-11-§234"
+    }
+  ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": true,
+    "finansiering_klar": false,
+    "konsekvenser_utredda": false,
+    "mål_mätbart": false,
+    "uppföljning_bestämd": false
+  },
+  "rekommendation": {
+    "röst": "avstår",
+    "motivering": "Ändringen är sakligt svår att undvika och juridiskt väl underbyggd, men stadens eget tjänsteutlåtande förklarar att ärendet saknar ekonomiska aspekter samtidigt som sökandens handling beskriver vad staden avstår från. Den bristen väger jämnt mot en i övrigt rimlig lösning.",
+    "skulle_ändras_av": "Ett tjänsteutlåtande som prövar vad upphävandet av Stiftelsen Otiums återgångsregel är värt för staden, och som anger hur den årliga utdelningen ur de cirka 280 miljonerna ska redovisas till fullmäktige, skulle räcka för bifall."
+  },
+  "analys_md": "## Vad som beslutades\n\nKommunfullmäktige beslutade 2026-06-11 (kf-2026-06-11-§234, SLK-2026-00495) att \"Göteborgs Stad har inget att erinra mot Stiftelsen Göteborgs sjukhem, Stiftelsen Ålderdomshemmet i Göteborg och Stiftelsen Otiums förslag till ändrade föreskrifter\". Kommunstyrelsen hade tillstyrkt 2026-05-20 (ks-2026-05-20-§364).\n\nVad som faktiskt ändras är stiftelsernas ändamål. Före: att driva vård och boende. Efter: att dela ut pengar till någon annan som driver boende.\n\n- Stiftelsen Göteborgs sjukhem, 2 §. Före: \"bereda sjukhemsvård åt inom Göteborgs kommun bosatta långvarigt kroppssjuka\". Efter: \"efter ansökan årligen utge bidrag till den som i Göteborgs kommun enligt Socialtjänstlagen (2025:400) bedriver boende för personer som har svårigheter i sin livsföring av fysiska skäl … allt under förutsättning att bidraget ska användas för de boendes välbefinnande utöver vad som följer av nämnda lag\".\n- Stiftelsen Ålderdomshemmet, 2 §. Före: \"bereda ålderdomshemsvård och, i fråga om långvarigt kroppssjuka, sjukhemsvård\". Efter: samma bidragsformulering.\n- Stiftelsen Otium, 2 §. Före: förvärva och förvalta fastigheter och uppföra byggnader för att ta emot vårdbehövande \"vilka är i stånd att betala en mot hemmets självkostnadspris svarande avgift\", med platser reserverade för dem som \"på grund av sina relativt goda inkomster i regel icke kunna beredas plats på stadens ålderdomshem\". Efter: samma bidragsformulering. Kravet på destinatärernas betalningsförmåga försvinner helt — förvaltaren motiverar det med att socialtjänstlagens biståndsbedömning inte får ta hänsyn till betalningsförmåga.\n\nVem som utser styrelsen ändras inte. Stiftelsen Göteborgs sjukhems styrelse — fem ledamöter och tre suppleanter — utses av kommunfullmäktige, och den paragrafen är märkt \"oförändrad lydelse\" i handlingen. Sjukhemmet är i sin tur förvaltare för Ålderdomshemmet och Otium (anknuten förvaltning), som alltså inte har egna styrelser. Även revisorn ska fortsatt utses av fullmäktige, nu en auktoriserad revisor med en suppleant i stället för stadens revisorsgrupp.\n\nDet som däremot upphävs är stadens samtliga övriga kontrollinstrument:\n\n- Sjukhemmet och Ålderdomshemmet 8 §: fastighet eller tomträtt får inte avyttras utan fullmäktiges medgivande — upphävs.\n- Sjukhemmet och Ålderdomshemmet 10 §: arvoden till styrelsen fastställs av kommunstyrelsen — upphävs.\n- Sjukhemmet och Ålderdomshemmet 13 §: ändring av stadgarna beslutas av fullmäktige — upphävs.\n- Sjukhemmet och Ålderdomshemmet 6 §: räkenskaper förs enligt kommunstyrelsens anvisningar, och mottagna donationshandlingar skickas till fullmäktige — upphävs.\n- Otium 4 § (stiftelsen står under stadens överinseende med rätt till inspektion), 14 § (avyttring kräver stadsfullmäktiges medgivande), 18 § (revisions- och verksamhetsberättelse tillställs stadsfullmäktige varje år), 19 § (stadgeändring kräver stadsfullmäktiges medgivande) och 20 § (stiftelsens tillgångar tillfaller Göteborgs stad om den upplöses) — samtliga upphävs.\n\nFullmäktige behåller alltså rätten att utse dem som förvaltar kapitalet, men lämnar ifrån sig varje rätt att få veta vad de gör med det.\n\n## Hur det gick till\n\nFullmäktiges roll här är varken godkännande eller beslut, trots att ärendets rubrik säger \"om godkännande av stadgeändringar\". Beslutet om ändringarna fattades av Sjukhemmets styrelse 2026-04-16. Tillstånd att verkställa dem prövas av Kammarkollegiet enligt 6 kap. stiftelselagen. Fullmäktiges akt är ett yttrande, och formuleringen \"har inget att erinra\" är just det.\n\nHur mycket det yttrandet väger skiljer sig mellan stiftelserna, och det är den viktigaste nyansen i ärendet. För Sjukhemmet och Ålderdomshemmet skriver stiftelsernas egna motivdokument att de gamla ändringsförbehållen aldrig var giltiga, eftersom förbehåll måste vara meddelade av stiftaren och båda stiftelserna grundades av enskilda givare, inte av staden. För Otium är staden stiftare, och där är fullmäktiges uppfattning inte en formalitet utan själva bevisfrågan: 6 kap. 1 § tredje stycket stiftelselagen kräver att stiftarens antagna vilja beaktas, och stiftaren är kommunen. Stadsledningskontoret säger samma sak i sitt tjänsteutlåtande — fullmäktige har att ta ställning \"i företrädesvis Stiftelsen Otiums föreskrifter\". Fullmäktige är alltså mäktigare än en remissinstans i ett av tre fall och svagare än rubriken antyder i de andra två. Hemställan säger det rakt ut: ett godkännande gör att \"tillståndsprövningen enligt 6 kap. stiftelselagen väsentligt att underlättas\".\n\nBehandlingen var kort. Ingen handläggningstid mellan första behandling och beslut i kommunstyrelsen, inga bordläggningar, inga alternativa yrkanden, inga reservationer och ingen votering i något av organen. I kommunstyrelsen deltog Martin Wannholt (D) inte i beslutet; i fullmäktige deltog inte ledamöterna från D. Skälet var uttalat att ärendet är ett följdbeslut till en kommunalisering man var emot, inte en invändning mot stadgarna: \"Jag vet att det är ett fullföljande av tidigare beslut, men eftersom vi var emot det från början så vill vi inte delta idag.\"\n\nStriden låg uppströms. Verksamhetsövergången beslutades i kf-2024-12-12-§533 (SLK-2024-01093) efter votering: återremiss avslogs med 60 mot 14 och sju avstående, och huvudvoteringen utföll 40 mot 25 med 16 avstående, med reservationer från fyra partier. När stadgarna nådde fullmäktige 2026 var sakfrågan redan avgjord, och det förklarar enigheten bättre än ärendets egna meriter gör.\n\nEn detalj värd att notera för den som läser yttrandeprotokollet: textflödet lägger en votering med utfallet 47 mot 34 och en reservation omedelbart intill det här ärendet. Den voteringen hör till kf-2026-06-11-§233 om utdelning ur Renströmska fonden, inte hit. Protokollet för § 234 innehåller ingen votering alls.\n\nI debatten talade Anders Sundberg (M), som själv uppgav att han varit ordförande och nu är vice ordförande i stiftelserna. Han är också den ene av två undertecknare av hemställan (signerad 2026-04-22). Han redogjorde öppet för rollen och avstod uttryckligen från att yrka. Jävsreglerna för fullmäktige (5 kap. kommunallagen) är snävare än de för nämnder och träffar inte ställföreträdarjäv, så något formellt fel är det inte — men den som undertecknade framställningen satt i den församling som besvarade den, och det bör läsaren veta.\n\n## Underlaget\n\nStadsledningskontorets tjänsteutlåtande av 2026-05-06 omfattar ungefär två sidor sakinnehåll. Tyngden i beslutsunderlaget ligger i bilagan — Tre Stiftelsers handlingar 2026-04-16, som innehåller hemställan och tre motivdokument där varje ändrad och upphävd paragraf motiveras var för sig med angivet lagrum. Det är ovanligt utförligt arbete, och det ska sägas rakt ut. Men det är sökandens egna jurister som har gjort det, inte staden.\n\nStadens egen prövning är tunn på tre punkter som går att slå upp:\n\nOrdet \"konsekvens\" förekommer inte någonstans i handlingen. Bedömningen ur ekonomisk dimension lyder i sin helhet: \"Ärendet är av administrativ karaktär. Det berör Tre Stiftelsers möjlighet att förändra sitt ändamål till att bli en utdelningsstiftelse. Stadsledningskontoret har inte funnit några särskilda aspekter på frågan i förhållande till Göteborgs Stads ansvar.\" Ordagrant samma formulering återkommer för ekologisk och social dimension.\n\nOrdet \"remiss\" förekommer inte heller i handlingen. Ingen nämnd har yttrat sig — inte heller äldre samt vård- och omsorgsnämnden, som driver de tre boendena sedan 2025-09-01 och som är en trolig sökande av de bidrag stiftelserna nu ska dela ut. Den deterministiska förhandsanalysen flaggar `nämner_remiss: true` för det här ärendet; det stämmer inte mot handlingens text.\n\nDet finns en liten men verklig skillnad i juridiken mellan staden och sökanden. Stadsledningskontoret skriver om Otiums 19 § att \"även om föreskriften inte är ett uttryckligt ändringsförbehåll så kan den ses som en kvalificeringsbestämmelse i föreskriften som stiftelsens förvaltare är bunden av\". Stiftelsernas motivdokument går längre och slår fast att vetorätten inte alls gäller efter stiftelselagens ikraftträdande, men medger en skyldighet att inhämta yttrande från den som tidigare hade veto. Ingen av dem påstår att fullmäktige beslutar.\n\n## Pengarna\n\nBeslutet innebär ingen utgift och ingen inkomst för staden. Inga stadsmedel berörs, och ingen finansiering behöver pekas ut.\n\nSiffran 190 mnkr, som satte ärendet i analyskön, är inte en felträff ur en bifogad tabell. Den står i förvaltarens motivdokument för Stiftelsen Ålderdomshemmet, punkt 8, och avser stiftelsens förmögenhet i kontanta medel. Den hör alltså direkt till beslutet: det är precis det kapital vars ändamål ändras. Men den är inte en kostnad, inte ett anslag och inte stadens pengar, och den som läser flaggan \"belopp 190 mnkr\" som ett tecken på ett stort utgiftsbeslut läser fel.\n\nDe två andra stiftelserna redovisar sina kassor på samma ställe i sina respektive motivdokument: Sjukhemmet cirka 20 mkr, Otium cirka 70 mkr. Sammanlagt rör ärendet alltså cirka 280 mnkr i donationskapital. Den automatiska beloppsutvinningen fångade 190 och 20 men missade 70, eftersom den summan är skriven \"cirka 70 miljoner kr\" i stället för \"mkr\" — flaggan underskattar därför vad ärendet gäller.\n\nEtt förhållande som fullmäktige inte fick belyst: inget av kapitalet är bundet. Alla tre motivdokumenten säger samma sak, att ändamålsföreskrifterna \"inte innefattar någon begränsning av det som årligen får användas i form av bidrag\" eftersom förmögenheten \"utgör fritt kapital i sin helhet\". Det som ska hindra att kapitalet delas ut är en avsikt, inte en föreskrift: \"Det är emellertid Förvaltarens bestämda avsikt att utdelningsförmågan … årligen ska begränsas till den löpande avkastningen.\" Den avsikten hade kunnat skrivas in i stadgarna nu, när de ändå ändras. Den skrevs inte in.\n\nDen post som staden faktiskt släpper är Otiums 20 §, som säger att stiftelsens tillgångar helt tillfaller Göteborgs stad om den upplöses. Sökandens eget motivdokument för Otium, punkt 9, förklarar varför fullmäktiges svar spelar roll just där: föreskriften \"skulle kunna tolkas som att kommunens hypotetiska vilja vid bildandet av Otium hade varit att stiftelsen inte längre skulle bestå\" om den inte kan driva verksamheten vidare — men om fullmäktige förklarar sig inte ha någon erinran, \"måste detta innebära att kommunen avstår från att göra gällande att Otium ska upphöra\", och då kan Kammarkollegiet enligt sökanden inte avslå med hänvisning till 6 kap. 1 § tredje stycket. Det är alltså sökanden själv som beskriver stadens ja som det som stänger vägen till att Otiums kapital återgår till staden. Stadens ekonomiska bedömning nämner inte den frågan med ett ord.\n\n## Vad vi kan vänta oss\n\nFöljande är min bedömning, inte materialets.\n\nKammarkollegiet ger sannolikt tillstånd. Kollegiets egen redovisning av förutsättningarna är restriktiv — ändamål ändras \"i undantagsfall\" och det nya ändamålet ska \"så nära som möjligt motsvara det ändamål stiftelsen har idag\" — men här talar omständigheterna för sökanden: verksamheten är faktiskt överförd och kan inte tas tillbaka utan upphandling enligt lagen om offentlig upphandling och tillstånd från Inspektionen för vård och omsorg, det nya ändamålet ligger nära det gamla (pengarna går fortfarande till äldres boende i Göteborg), och för Otium har stiftaren själv nu uttalat sig. Att staden yttrat sig utan invändning är det som sökandens jurister har byggt sin ansökan kring.\n\nStorleksordningen på den framtida utdelningen redovisas ingenstans i materialet. Räknar man på det kapital som handlingen anger och den avkastning en normal stiftelseförvaltning tar ut, hamnar en årlig utdelning i storleksordningen ett tiotal miljoner kronor — betydande för trivsel och det lilla extra på ett antal boenden, men marginellt i förhållande till äldreomsorgens totala kostnad i staden. Det är min räkning ur ett redovisat kapital, inte en siffra ur handlingen, och den håller bara om avsikten att dela ut enbart löpande avkastning håller.\n\nRiktningen i styrningen är entydig och följer av stadgetexten själv: stadens insyn i kapitalet upphör helt, samtidigt som fullmäktige behåller ansvaret för vilka som ska förvalta det. Efter ändringen finns ingen föreskrift som ålägger stiftelserna att redovisa något till staden. I debatten sades att ett insynskrav består, men det gäller enligt sammanhanget stiftelsernas insyn i den kommunala äldreomsorgen och följer i så fall av överenskommelser kring verksamhetsövergången — inte av de stadgar fullmäktige nu yttrat sig över.\n\nEtt jämförelsefall finns i stadens eget material: Stiftelsen Göteborgs Studentbostäders stadgeändring, kf-2024-10-10-§411 (SLK-2023-01087). Det delar formen — en stiftelse med koppling till staden begär fullmäktiges ställningstagande till ändrade stadgar, med Kammarkollegiet i bakgrunden. Det skiljer sig i sak: där gällde ändringen möjligheten att köpa och sälja fastigheter via bolag, inte ett byte av ändamål, och stiftelsen fortsatte driva sin verksamhet. Poängen med jämförelsen är hur fullmäktige använde tillfället. I studentbostadsärendet återremitterades frågan för att stiftelsen skulle visa hur den kunde säkerställa att ändringen inte innebar försäljning av studentbostäder — stadgeärendet användes för att ställa ett villkor. I det här ärendet ställdes inget villkor alls, trots att kapitalet är större och kopplingen till staden svagare efteråt.\n\n## Det som talar emot\n\nJag har letat efter det som talar mot slutsatsen att beredningen brister, och hittat fyra saker som bär.\n\nFör det första: värdet av det staden släpper kan mycket väl vara noll. Sökandens egna jurister skriver om Otiums 20 § att \"giltigheten av föreskriften i 20 § kan ifrågasättas redan när den meddelades 1958\". Är föreskriften ogiltig avstår staden från ingenting, och då är stadsledningskontorets tomma ekonomiska bedömning materiellt riktig även om den är omotiverad.\n\nFör det andra: fullmäktige har ingen vetorätt att använda. Ett \"vi har något att erinra\" hade inte stoppat permutationen, bara gjort tillståndsprövningen svårare. Att kalla beslutet ett maktavstående vore att överdriva fullmäktiges rådighet.\n\nFör det tredje: alternativet är sämre för donationernas ändamål. Utan ändring kan stiftelserna inte följa sina egna föreskrifter, eftersom de inte längre driver boenden — och konsekvensen av det är i förlängningen upplösning, inte återgång. Att bevara stiftelserna som avkastningsstiftelser som fortsatt går till äldres boende i Göteborg ligger närmare givarnas syfte än att avveckla dem. Ändamålet bevaras i sak: pengar till äldreomsorg i Göteborg, nu som bidrag utöver lagens minimikrav i stället för som drift.\n\nFör det fjärde: den juridiska genomlysningen är genuint gedigen. Att varje enskild paragraf motiveras med angivet lagstöd är mer än vad som normalt levereras till fullmäktige, och den som vill kontrollera vad som ändras kan göra det rad för rad.\n\nVad jag sökte och inte fann: revisionsrapport om Tre Stiftelser (sökning med `--typ=revisionsrapport` gav noll träffar), remissvar från någon nämnd (ordet förekommer inte i handlingen), och någon beräkning någonstans i stadens material av vad stiftelsekapitalet är värt för staden. Jag har heller inte funnit någon invändning i sak mot själva stadgeändringarna från något håll i fullmäktige — den enda avvikande hållningen gällde det tidigare kommunaliseringsbeslutet.\n\nDet som skulle få mig att bedöma annorlunda är om Kammarkollegiet avslår helt eller delvis, eller om det visar sig att en överenskommelse utanför stadgarna ändå ålägger stiftelserna att redovisa utdelningen till staden.\n\n## Så kan du kontrollera detta senare\n\n- Kammarkollegiets beslut i permutationsärendena för de tre stiftelserna. Kolla om tillstånd gavs, för vilka paragrafer, och om någon del avslogs — särskilt ändamålsändringen för Otium, där stadens yttrande åberopas som stöd.\n- Stiftelsernas årsredovisningar, som lämnas till tillsynsmyndigheten Länsstyrelsen i Västra Götalands län. Jämför utdelat belopp mot kapitalet över några år: höll avsikten att bara dela ut löpande avkastning, eller minskar kapitalet?\n- Vilka som får bidragen. Ändamålet är öppet för \"den som … bedriver boende\" och skiljer inte på kommunal och privat regi, vilket också sades uttryckligen i fullmäktigedebatten. Följ om äldre samt vård- och omsorgsnämnden söker och får, och hur mycket som går till andra utförare.\n- Fullmäktiges valärenden efter nästa allmänna val: utses styrelsens fem ledamöter och tre suppleanter och den auktoriserade revisorn fortfarande av fullmäktige, eller kommer en senare ansökan som tar bort även den kopplingen?\n- Om någon återrapportering till fullmäktige uppstår trots att inga stadgar längre kräver den. Uteblir den helt är det bekräftat att staden utser en styrelse den inte får någon information om.\n",
+  "källor": [
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§234",
+      "vad": "beslutstext, stadsledningskontorets tjänsteutlåtande 2026-05-06 och Tre Stiftelsers handlingar 2026-04-16 med gällande föreskrifter, ställningstaganden och motiv för alla tre stiftelserna"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2026-05-20-§364",
+      "vad": "kommunstyrelsens tillstyrkan och protokollsanteckning om att en ledamot inte deltar i beslutet"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2024-12-12-§533",
+      "vad": "det omstridda beslutet om verksamhetsövergång som det här ärendet följer av, med voteringssiffror och reservationer"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2025-11-27-§492",
+      "vad": "avslut av stadens mellanhavanden med stiftelserna, fastighet och tomträtt"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§233",
+      "vad": "utdelning ur Renströmska fonden, samma sammanträde — voteringen 47 mot 34 i yttrandeprotokollet hör hit och inte till § 234"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2024-10-10-§411",
+      "vad": "jämförelsefall, Stiftelsen Göteborgs Studentbostäders stadgeändring där fullmäktige återremitterade för att ställa villkor"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2026-06-11-331",
+      "vad": "ordagranna anföranden i fullmäktigedebatten om ärendet, inklusive redogörelsen för dubbel roll som stiftelsestyrelseledamot"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.kammarkollegiet.se/vara-tjanster/stiftelser-testamenten-och-gavor/ansok-om-permutation-av-stiftelse/forutsattningar-for-permutation-av-stiftelser",
+      "vad": "Kammarkollegiets förutsättningar för permutation av stiftelses ändamål — restriktiv praxis, nytt ändamål nära det gamla"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.kammarkollegiet.se/vara-tjanster/stiftelser-testamenten-och-gavor/ansok-om-permutation-av-stiftelse/vanliga-fragor-om-permutation-av-stiftelser",
+      "vad": "att det är stiftelsens styrelse eller förvaltare som ansöker och Kammarkollegiet som beslutar"
+    }
+  ]
+}

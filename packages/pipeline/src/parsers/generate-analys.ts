@@ -62,7 +62,11 @@ const UNDERLAG_MÖNSTER = {
   nämner_barnperspektiv: /barn(konsekvens|perspektiv|rätts|rättslig)/i,
   nämner_jämställdhetsanalys: /jämställdhets(analys|perspektiv|bedömning)/i,
   nämner_riskanalys: /risk(analys|bedömning|inventering)/i,
-  nämner_remiss: /\bremiss|remitterad|yttrande(t|n)? från/i,
+  // "yttrande från" ströks 2026-07-28: flaggan slog på "inhämta yttrande från
+  // den utomstående som hade vetorätt" i ett stiftelseärende där ordet remiss
+  // inte förekommer alls. En flagga som säger fel sak om underlaget är värre
+  // än ingen flagga (SLK-2026-00495).
+  nämner_remiss: /\bremiss|remitterad|remissinstans/i,
 } as const
 
 /**
@@ -77,14 +81,19 @@ const OSÄKER_FINANSIERING =
 const PÅSTÅDD_FINANSIERING =
   /(ryms inom (?:befintlig|befintliga|nuvarande)|inom befintlig ram|finansieras (?:inom|via|genom|av|med)|täcks av)/i
 
+// "miljoner kr" och "miljarder kr" saknades, vilket gjorde att 70 miljoner i ett
+// stiftelsekapital föll bort medan 190 mkr i samma handling fångades
+// (SLK-2026-00495) — enheten skrivs inte konsekvent ens inom ett dokument.
 const BELOPP =
-  /(\d[\d  ]*(?:,\d+)?)\s*(mnkr|mkr|tkr|miljarder kronor|miljoner kronor|kronor|kr)(?![a-zåäö])/gi
+  /(\d[\d  ]*(?:,\d+)?)\s*(mnkr|mkr|tkr|miljarder (?:kronor|kr)|miljoner (?:kronor|kr)|kronor|kr)(?![a-zåäö])/gi
 
 const TILL_MNKR: Record<string, number> = {
   mnkr: 1,
   mkr: 1,
   'miljoner kronor': 1,
+  'miljoner kr': 1,
   'miljarder kronor': 1000,
+  'miljarder kr': 1000,
   tkr: 0.001,
   kronor: 1e-6,
   kr: 1e-6,

@@ -21,6 +21,13 @@ describe('beloppMnkr', () => {
     expect(beloppMnkr('12,5 mnkr och 1 500 tkr samt 2 miljarder kronor')).toEqual([2000, 12.5, 1.5])
   })
 
+  it('tar både "miljoner kronor" och "miljoner kr" — enheten skrivs inkonsekvent', () => {
+    // Samma handling skrev "cirka 190 mkr" och "cirka 70 miljoner kr"; bara den
+    // första fångades innan (SLK-2026-00495).
+    expect(beloppMnkr('cirka 190 mkr och cirka 70 miljoner kr')).toEqual([190, 70])
+    expect(beloppMnkr('2 miljarder kr')).toEqual([2000])
+  })
+
   it('sållar bort taxor och avgifter under 0,1 mnkr', () => {
     expect(beloppMnkr('avgiften höjs till 350 kronor')).toEqual([])
   })
