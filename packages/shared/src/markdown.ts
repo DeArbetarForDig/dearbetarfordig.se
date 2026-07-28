@@ -58,3 +58,29 @@ export function renderaMarkdown(md: string): string {
   }
   return ut.join('\n')
 }
+
+/**
+ * Delar en källhänvisning i länkbara och icke-länkbara delar.
+ *
+ * Analysernas `källa`-fält är fritext med inbäddade id: "kf-2024-11-21-§462
+ * (SLK-2024-00378)", "kf-2023-10-12-§17 och kf-2025-06-18-§382",
+ * "utfall-nämnd-…-2022 t.o.m. -2025". Att länka hela strängen vore fel — bara
+ * paragraf-id:n har en egen sida. Resten lämnas som text hellre än att peka på
+ * en 404: en granskningsplattform vars källhänvisningar leder fel är värre än
+ * en som inte länkar alls.
+ */
+export function delaKorsreferens(
+  ref: string,
+  kommun = 'goteborg',
+): { text: string; href: string | null }[] {
+  const delar: { text: string; href: string | null }[] = []
+  const re = /k[fs]-\d{4}-\d{2}-\d{2}-§\d+/g
+  let sist = 0
+  for (const m of ref.matchAll(re)) {
+    if (m.index > sist) delar.push({ text: ref.slice(sist, m.index), href: null })
+    delar.push({ text: m[0], href: `/${kommun}/beslut/${encodeURIComponent(m[0])}` })
+    sist = m.index + m[0].length
+  }
+  if (sist < ref.length) delar.push({ text: ref.slice(sist), href: null })
+  return delar
+}

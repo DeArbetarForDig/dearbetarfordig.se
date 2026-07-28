@@ -263,4 +263,4 @@ export type AiAnalys = z.infer<typeof AiAnalysSchema>
 // bedömer om de bär. Ett regex mot rubriken hade fällt nästan varje analys,
 // eftersom subagenten ska skriva ut även när den letat och inte funnit något.
 
-export { renderaMarkdown } from './markdown.js'
+export { delaKorsreferens, renderaMarkdown } from './markdown.js'

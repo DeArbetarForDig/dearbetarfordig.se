@@ -13,7 +13,7 @@
  * Icon. Ingen egen färgsättning — Callout och StatusBadge bär färg, ikon och
  * text tillsammans, så färgen är aldrig enda signalen.
  */
-import { renderaMarkdown } from '@daf/shared'
+import { delaKorsreferens, renderaMarkdown } from '@daf/shared'
 import Accordion from './Accordion.astro'
 import Callout from './Callout.astro'
 import Card from './Card.astro'
@@ -152,7 +152,14 @@ const webb = analys.källor.filter((k) => k.typ === 'webb')
         <Card title="Talar för beslutet">
           <ul class="daf-ai__skal">
             {analys.talar_för.map((p) => (
-              <li>{p.text} <span class="daf-ai__kalla">{p.källa}</span></li>
+              <li>
+                {p.text}
+                <span class="daf-ai__kalla">
+                  {delaKorsreferens(p.källa).map((d) =>
+                    d.href ? <a href={d.href}>{d.text}</a> : d.text,
+                  )}
+                </span>
+              </li>
             ))}
           </ul>
         </Card>
@@ -161,7 +168,14 @@ const webb = analys.källor.filter((k) => k.typ === 'webb')
         <Card title="Talar emot beslutet">
           <ul class="daf-ai__skal">
             {analys.talar_emot.map((p) => (
-              <li>{p.text} <span class="daf-ai__kalla">{p.källa}</span></li>
+              <li>
+                {p.text}
+                <span class="daf-ai__kalla">
+                  {delaKorsreferens(p.källa).map((d) =>
+                    d.href ? <a href={d.href}>{d.text}</a> : d.text,
+                  )}
+                </span>
+              </li>
             ))}
           </ul>
         </Card>
@@ -181,7 +195,13 @@ const webb = analys.källor.filter((k) => k.typ === 'webb')
         <h4 class="daf-ai__kallrubrik">Stadens egna handlingar</h4>
         <ul class="daf-ai__kallor">
           {interna.map((k) => (
-            <li><code>{k.ref}</code> — {k.vad}</li>
+            <li>
+              <code>
+                {delaKorsreferens(k.ref).map((d) =>
+                  d.href ? <a href={d.href}>{d.text}</a> : d.text,
+                )}
+              </code> — {k.vad}
+            </li>
           ))}
         </ul>
       </>
@@ -260,6 +280,11 @@ const webb = analys.källor.filter((k) => k.typ === 'webb')
     font-size: 0.75rem;
     color: var(--color-text-subtle);
     overflow-wrap: anywhere;
+  }
+
+  .daf-ai__kalla a {
+    color: inherit;
+    text-decoration: underline;
   }
 
   /* Brödtexten kommer från renderaMarkdown() — styla via elementväljare, den
