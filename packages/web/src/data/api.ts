@@ -130,11 +130,38 @@ export async function getAllBeslut(): Promise<Beslut[]> {
   return items
 }
 
-export async function getBeslutDetail(id: string): Promise<{ beslut: BeslutDetail; kopplingar: any[] }> {
-  const data = await fetchApi<HalResource<BeslutDetail, { kopplingar: any[] }>>(`/v1/goteborg/beslut/${encodeURIComponent(id)}`)
+/** AI-analys av ett ärende (data/analys/ai/<nr>.json via API:t). */
+export interface AiAnalys {
+  ärendeNr: string
+  rubrik: string
+  maskingenererad: true
+  modell: string
+  genererad: string
+  granskad_av: string | null
+  granskad_datum: string | null
+  riktning: 'positiv' | 'negativ' | 'blandad' | 'oklar'
+  confidence: 'low' | 'medium' | 'high'
+  sammanfattning: string
+  analys_md: string
+  källor: { typ: 'internt' | 'webb'; ref: string; vad: string }[]
+}
+
+export interface BeslutAnalys {
+  ärendeNr: string
+  härledd: any
+  ai: AiAnalys | null
+}
+
+export async function getBeslutDetail(
+  id: string,
+): Promise<{ beslut: BeslutDetail; kopplingar: any[]; analys: BeslutAnalys | null }> {
+  const data = await fetchApi<
+    HalResource<BeslutDetail, { kopplingar: any[]; analys: BeslutAnalys | null }>
+  >(`/v1/goteborg/beslut/${encodeURIComponent(id)}`)
   return {
     beslut: data._embedded.item,
     kopplingar: data._embedded.related?.kopplingar || [],
+    analys: data._embedded.related?.analys ?? null,
   }
 }
 

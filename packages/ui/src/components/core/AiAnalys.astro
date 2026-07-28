@@ -1,0 +1,190 @@
+---
+/**
+ * AI-analys av ett beslut, med maskinmärkningen som första sak läsaren ser.
+ *
+ * Märkningen är inte en brasklapp utan förutsättningen för att texten ska gå
+ * att lita på: den som läser ska veta exakt vad hen läser och kunna gå till
+ * källan själv. Därför står avsändaren, modellen och granskningsstatusen före
+ * brödtexten — aldrig i en fotnot — och källförteckningen ligger sist, komplett.
+ */
+import { renderaMarkdown } from '@daf/shared'
+import Card from './Card.astro'
+
+interface Props {
+  analys: {
+    modell: string
+    genererad: string
+    granskad_av: string | null
+    granskad_datum: string | null
+    riktning: 'positiv' | 'negativ' | 'blandad' | 'oklar'
+    confidence: 'low' | 'medium' | 'high'
+    sammanfattning: string
+    analys_md: string
+    källor: { typ: 'internt' | 'webb'; ref: string; vad: string }[]
+  }
+}
+
+const { analys } = Astro.props
+
+const RIKTNING = {
+  positiv: 'Bedöms få positiv effekt',
+  negativ: 'Bedöms få negativ effekt',
+  blandad: 'Bedöms få blandad effekt',
+  oklar: 'Effekten går inte att bedöma',
+} as const
+
+const SÄKERHET = {
+  low: 'Låg säkerhet',
+  medium: 'Medelhög säkerhet',
+  high: 'Hög säkerhet',
+} as const
+
+const brödtext = renderaMarkdown(analys.analys_md)
+const interna = analys.källor.filter((k) => k.typ === 'internt')
+const webb = analys.källor.filter((k) => k.typ === 'webb')
+---
+
+<div class="daf-ai">
+  <p class="daf-ai__markning">
+    <strong>Den här texten är skriven av en AI-modell ({analys.modell}), inte av en människa.</strong>
+    Den bygger på stadens egna handlingar och öppna källor, och varje påstående ska ha en
+    källa du kan gå till själv — förteckningen står längst ned. Bedömningar om framtida
+    konsekvenser är just bedömningar.
+    {
+      analys.granskad_av ? (
+        <span> Granskad av {analys.granskad_av} den {analys.granskad_datum}.</span>
+      ) : (
+        <span> <strong>Ännu inte granskad av en människa.</strong></span>
+      )
+    }
+  </p>
+
+  <dl class="daf-ai__fakta">
+    <div><dt>Bedömning</dt><dd>{RIKTNING[analys.riktning]}</dd></div>
+    <div><dt>Säkerhet</dt><dd>{SÄKERHET[analys.confidence]}</dd></div>
+    <div><dt>Skriven</dt><dd><time datetime={analys.genererad}>{analys.genererad}</time></dd></div>
+  </dl>
+
+  <p class="daf-ai__sammanfattning">{analys.sammanfattning}</p>
+
+  <div class="daf-ai__brodtext" set:html={brödtext} />
+
+  <Card title={`Källor (${analys.källor.length})`}>
+    {interna.length > 0 && (
+      <>
+        <h4 class="daf-ai__kallrubrik">Stadens egna handlingar</h4>
+        <ul class="daf-ai__kallor">
+          {interna.map((k) => (
+            <li><code>{k.ref}</code> — {k.vad}</li>
+          ))}
+        </ul>
+      </>
+    )}
+    {webb.length > 0 && (
+      <>
+        <h4 class="daf-ai__kallrubrik">Externa källor</h4>
+        <ul class="daf-ai__kallor">
+          {webb.map((k) => (
+            <li>
+              <a href={k.ref} target="_blank" rel="noopener noreferrer">{k.ref}</a> — {k.vad}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </Card>
+</div>
+
+<style>
+  .daf-ai__markning {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: var(--font-size-small);
+    line-height: 1.6;
+    color: var(--color-text);
+    background: var(--color-surface-sunken);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+  }
+
+  .daf-ai__fakta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .daf-ai__fakta dt {
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+  }
+
+  .daf-ai__fakta dd {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .daf-ai__sammanfattning {
+    margin-bottom: 2rem;
+    font-size: var(--font-size-lead, 1.125rem);
+    line-height: 1.6;
+  }
+
+  /* Brödtexten kommer från renderaMarkdown() — styla via elementväljare, den
+     har inga klasser att haka på. */
+  .daf-ai__brodtext :global(h3) {
+    margin: 2rem 0 0.75rem;
+    font-size: var(--font-size-h3, 1.25rem);
+    font-weight: 700;
+  }
+
+  .daf-ai__brodtext :global(h4) {
+    margin: 1.5rem 0 0.5rem;
+    font-weight: 600;
+  }
+
+  .daf-ai__brodtext :global(p),
+  .daf-ai__brodtext :global(li) {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    max-width: 72ch;
+  }
+
+  .daf-ai__brodtext :global(ul) {
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+
+  .daf-ai__brodtext :global(code),
+  .daf-ai__kallor code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+  }
+
+  .daf-ai__brodtext :global(a),
+  .daf-ai__kallor a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    /* Modellgenererade URL:er kan vara långa — bryt hellre än att spränga
+       layouten på mobil. */
+    overflow-wrap: anywhere;
+  }
+
+  .daf-ai__kallrubrik {
+    margin: 1rem 0 0.5rem;
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .daf-ai__kallrubrik:first-child {
+    margin-top: 0;
+  }
+
+  .daf-ai__kallor {
+    padding-left: 1.25rem;
+    font-size: var(--font-size-small);
+    line-height: 1.6;
+    list-style: disc;
+  }
+</style>

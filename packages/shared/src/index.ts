@@ -206,3 +206,5 @@ export type AiAnalys = z.infer<typeof AiAnalysSchema>
 // granskningschecklistan, inte här: den kräver att man läser beläggen och
 // bedömer om de bär. Ett regex mot rubriken hade fällt nästan varje analys,
 // eftersom subagenten ska skriva ut även när den letat och inte funnit något.
+
+export { renderaMarkdown } from './markdown.js'

@@ -1,5 +1,6 @@
 ---
 import Timeline from '../../../../../ui/src/components/cards/Timeline.astro'
+import AiAnalys from '../../../../../ui/src/components/core/AiAnalys.astro'
 import Button from '../../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../../ui/src/components/core/Card.astro'
 import EmptyState from '../../../../../ui/src/components/core/EmptyState.astro'
@@ -126,6 +127,7 @@ const inlämnare = detail.kopplingar.filter(
 )
 const yrkanden = detail.beslut.yrkanden || []
 const harHandling = Boolean(detail.beslut.handlingText || detail.beslut.fulltext)
+const aiAnalys = detail.analys?.ai ?? null
 
 // pdftotext bryter rader efter PDF-sidans fysiska radbredd, inte efter
 // meningar/stycken — rått fulltext (använt internt av regex-parsers för
@@ -182,6 +184,10 @@ const beslutTabs = [
   },
   närvarande.length > 0 && { key: 'narvaro', label: `Närvaro (${närvarande.length})` },
   anförandenData.length > 0 && { key: 'debatt', label: `Debatt (${anförandenData.length})` },
+  // Sist i raden: analysen är en bedömning, protokollet är fakta, och fakta
+  // ska mötas först. Egen flik i stället för inbakad i handlingen — läsaren
+  // ska aldrig kunna läsa en maskintext i tron att den står i protokollet.
+  aiAnalys && { key: 'ai-analys', label: 'AI-analys' },
 ].filter(Boolean) as { key: string; label: string }[]
 
 const timeline = [
@@ -418,6 +424,12 @@ const timeline = [
             </Card>
           ))}
         </div>
+      </Fragment>
+    )}
+
+    {aiAnalys && (
+      <Fragment slot="panel-ai-analys">
+        <AiAnalys analys={aiAnalys} />
       </Fragment>
     )}
     </Tabs>
