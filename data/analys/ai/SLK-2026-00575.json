@@ -1,0 +1,127 @@
+{
+  "ärendeNr": "SLK-2026-00575",
+  "rubrik": "Hemställan till regionfullmäktige om att genomföra biljettprisfrysning enligt plan och värna den kommunala subventionen",
+  "maskingenererad": true,
+  "modell": "claude-opus-5",
+  "genererad": "2026-07-28",
+  "granskad_av": null,
+  "granskad_datum": null,
+  "källa_hash": "3123a0f830dec4d3",
+  "riktning": "blandad",
+  "confidence": "medium",
+  "sammanfattning": "Göteborgs Stad ber Västra Götalandsregionen frysa biljettpriserna. Beslutet är ett brev — det kostar staden ingenting och binder ingen. Men det avgjordes helt utan tjänsteutlåtande, och regionfullmäktige hade redan i februari 2026 fastställt en höjning på 3 procent.",
+  "nyckelpunkter": [
+    {
+      "ton": "fakta",
+      "text": "Beslutet är en hemställan — ett brev till regionen. Det binder ingen, kostar staden ingenting och ändrar inget pris i sig."
+    },
+    {
+      "ton": "varning",
+      "text": "Ärendet avgjordes utan tjänsteutlåtande, utan konsekvensanalys och utan någon siffra på vad staden eller resenärerna har att förlora."
+    },
+    {
+      "ton": "varning",
+      "text": "Regionfullmäktige fastställde höjningen på 3 procent redan 17 februari 2026 — nära fyra månader före Göteborgs beslut den 11 juni."
+    },
+    {
+      "ton": "fakta",
+      "text": "Statens halvering av månadskort är en annan åtgärd än stadens frysningsbegäran. Statens 6,5 miljarder är inte stadens pengar."
+    }
+  ],
+  "talar_för": [
+    {
+      "text": "Staden har en egen ekonomisk part i saken: den köper av Västtrafik en subvention på 140 kr per 30-dagarskort zon A för folkbokförda göteborgare.",
+      "källa": "kf-2025-02-27-§87"
+    },
+    {
+      "text": "Det som begärs går att kontrollera i efterhand: priserna skulle frysas på 2025 års nivå under 2026 enligt regionens egen budget.",
+      "källa": "kf-2026-06-11-§231"
+    },
+    {
+      "text": "Beslutet kostar staden ingenting och binder den inte till någon utgift — hemställan är ett normalt verktyg mot regionen.",
+      "källa": "kf-2026-06-11-§231"
+    },
+    {
+      "text": "Västtrafiks eget underlag visar att även tillköp höjs 3,0 procent, alltså att staden får betala mer för samma subvention.",
+      "källa": "https://www.vasttrafik.se/globalassets/media/dokument/styrelsehandlingar-och-protokoll/moten-2026/20-mars---extra-sammantrade/nr-05-prisjustering-2026.pdf"
+    }
+  ],
+  "talar_emot": [
+    {
+      "text": "Ingen handling i ärendet redovisar vad regionens prishöjning kostar staden eller dess resenärer i kronor.",
+      "källa": "kf-2026-06-11-§231"
+    },
+    {
+      "text": "Regionens inriktning om 3,0 procents höjning var fastställd 17 februari 2026 och prisbeslutet planerat till 22 maj — före Göteborgs votering.",
+      "källa": "https://www.vasttrafik.se/globalassets/media/dokument/styrelsehandlingar-och-protokoll/moten-2026/20-mars---extra-sammantrade/nr-05-prisjustering-2026.pdf"
+    },
+    {
+      "text": "Bordläggningen i kommunstyrelsen 20 maj sköt ärendet till efter den tidpunkt då regionens prisbeslut var planerat att tas.",
+      "källa": "ks-2026-05-20-§392"
+    },
+    {
+      "text": "Beslutstexten nämner inte statens halvering 1 juli–31 december 2026, trots att den styr priset under halva det år frysningen gäller.",
+      "källa": "kf-2026-06-11-§231"
+    }
+  ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": false,
+    "finansiering_klar": false,
+    "konsekvenser_utredda": false,
+    "mål_mätbart": true,
+    "uppföljning_bestämd": false
+  },
+  "rekommendation": {
+    "röst": "avstår",
+    "motivering": "Begäran är legitim, kostnadsfri och kontrollerbar, men ärendet avgjordes helt utan tjänsteutlåtande och utan en enda siffra på vad staden har att förlora, och nådde fullmäktige efter att regionens prisbeslut redan var fattat i inriktning.",
+    "skulle_ändras_av": "Bifall om en handling räknat fram vad regionens höjning kostar stadens tillköp och dess kortinnehavare, eller om regionens prisbeslut bevisligen var öppet den 11 juni. Avslag om hemställan visats binda staden till en utgift eller till ett tillköpsåtagande som inte var beslutat."
+  },
+  "analys_md": "## Vad som beslutades\n\nKommunfullmäktige beslutade 2026-06-11 (§ 231, SLK-2026-00575) att Göteborgs Stad hemställer till regionfullmäktige i Västra Götalandsregionen om att genomföra den planerade frysningen av biljettpriser i kollektivtrafiken i enlighet med regionfullmäktiges budget för år 2026. Beslutet är en framställan — ett brev. Det ändrar inget pris, binder ingen part och innehåller inget belopp.\n\nTre nivåer möts i det här ärendet och blandas lätt ihop. **Göteborgs Stad** beslutar om sin egen subvention: 2025-02-27 § 87 (SLK-2024-01131) fick stadsmiljönämnden i uppdrag att teckna avtal med Västtrafik om tillköp motsvarande 140 kr för 30-dagarskort zon A vuxen för folkbokförda göteborgare, infört under kvartal 1 2026. **Västra Götalandsregionen** beslutar om biljettpriserna — det är regionen som är kollektivtrafikhuvudman. **Staten** beslutar om sitt eget stöd: en tillfällig halvering av månadskortspriser 1 juli–31 december 2026, finansierad med 6,5 miljarder kronor. Det här ärendet handlar om den regionala prisnivån, inte om statens paket och inte om stadens egen subvention.\n\n## Hur det gick till\n\nYrkandet lades av S, V och MP den 12 maj 2026. I kommunstyrelsen 2026-05-20 § 392 bordlades ärendet på förslag av Axel Josefson (M) till sammanträdet den 3 juni. Kommunstyrelsen tillstyrkte därefter yrkandet utan omröstning. I fullmäktige ställdes tre yrkanden mot varandra: kommunstyrelsens förslag, ett motförslag från M, D, L och KD om att i stället hemställa om att genomföra statens halvering från 1 juli, och ett avslagsyrkande från C på båda. Huvudvoteringen slutade 40 ja mot 38 nej, 3 avstod. C reserverade sig.\n\nMarginalen på två röster och avsaknaden av gemensam beredning säger något: det här behandlades som en politisk markering, inte som ett förvaltningsärende. Det syns också i handlingen — ärendet har ingen tjänsteskrivelse, ingen remissomgång och ingen konsekvensbeskrivning. Ordföranden noterade i debattens slutskede att C invände mot propositionsordningen, eftersom partiet yrkat avslag på båda förslagen men fick sitt yrkande ställt som motförslag i stället för mot avslag.\n\nDebatten (anföranden 2026-06-11, ärende 8) rörde till stor del statens paket snarare än det som faktiskt beslutades. Hans Arby (C) invände i sak att kollektivtrafik är regionens ansvar efter skatteväxling och att en hemställan \"inte kommer påverka någonting\". Leif Blomqvist (S) anförde att priselasticiteten i kollektivtrafiken brukar räknas till 0,2–0,3, alltså att en real taxehöjning på 10 procent minskar resandet med 2–3 procent. Det är den enda kvantitativa uppgift om åtgärdens verkan som förekom i kammaren, och den är inte belagd med källa i protokollet.\n\n## Underlaget\n\nDet finns inget underlag i vanlig mening. Handling 2026 nr 138 består av kommunstyrelsens förslag och de två partiyrkandena. Ingen utredning, ingen konsekvensanalys, inget barn- eller jämställdhetsperspektiv, ingen remiss — det bekräftas både av handlingen själv och av den maskinella genomgången av ärendet.\n\nDe sakuppgifter som finns står i partiernas egna yrkandetexter och är alltså partsinlagor. S, V och MP uppger att Västtrafik i utskick meddelat att ett månadskort skulle sänkas från 860 till 720 kronor, och att regionfullmäktiges budget för 2026 innebar frysning på 2025 års nivå. Den uppgiften stämmer mot Västtrafiks egen prislista: 30 dagar vuxen en zon kostade 860 kr 2025. M, D, L och KD uppger att regeringen presenterat 6,5 miljarder kronor för att halvera priset på månadskort. Också det stämmer — men det är statens pengar till regionala kollektivtrafikmyndigheter, inte stadens.\n\nDet som saknas är just det som ett tjänsteutlåtande hade tillfört: vad regionens höjning innebär för stadens egna kostnader och för göteborgarnas plånböcker, i kronor.\n\n## Pengarna\n\nBeslutet i sig kostar staden ingenting. Det enda belopp som förekommer i ärendehandlingen är statens 6,5 miljarder kronor, och det citeras i det yrkande som *förlorade* voteringen. Den automatiska beloppsutvinningen ur korpus plockar upp 6 500 mnkr och flaggar ärendet som prognoskandidat — det är en felträff, och siffran får inte läsas som Göteborgs Stads utgift. Läsare och maskiner som möter det här ärendet bör notera det särskilt.\n\nStadens egna pengar i frågan ligger i det tidigare beslutet SLK-2024-01131. Kostnaden framgår inte av beslutstexten där heller. I fullmäktigedebatten 2025-02-27 angav Toni Orsulic (M) subventionen till cirka 130 miljoner kronor per år och frågade hur den skulle finansieras; Daniel Bernmar (V) bemötte inte siffran utan svarade att utrymmet var tryggat i budgeten för 2026. Beloppet är alltså en uppgift ur stadens egen kammare som ingen bestred, inte en förvaltningsberäkning — det bör läsas som en storleksordning.\n\nRegionens sida går att belägga i primärkälla. Enligt Västtrafiks styrelsehandling nr 5 den 20 mars 2026 fastställde regionfullmäktige den 17 februari 2026 en inriktning om en genomsnittlig prisjustering på 3,0 procent, med prisbeslut planerat till infrastruktur- och kollektivtrafiknämnden den 22 maj 2026 och ikraftträdande föreslaget till 1 september 2026. Helårseffekten beräknas till 82–92 mnkr i ökade intäkter för Västtrafik, varav periodbiljetter 30–33 mnkr och tillköp 9 mnkr. Ett 30-dagarskort zon A vuxen höjs från 860 till 890 kronor, en enkelbiljett från 37 till 38 kronor.\n\nTvå slutsatser av det, som är mina och inte materialets. För det första: en göteborgare med stadens subvention betalar 720 kr så länge grundpriset är 860, och 750 kr när det blir 890. Stadens 140 kronor krymper alltså inte — men nettopriset stiger med 30 kronor i månaden. Formuleringen i yrkandet om att subventionens värde \"urholkas\" är riktig i den meningen, men det är resenärens nettopris som stiger, inte stadens bidrag som minskar. För det andra: Västtrafiks underlag anger att tillköp följer den generella höjningen på 3,0 procent. Om stadens tillköp omfattas betalar staden mer för samma subvention. Hur mycket framgår inte — de 9 mnkr avser samtliga tillköp i hela regionen, och Göteborgs andel är inte redovisad någonstans i det material jag har haft tillgång till.\n\n## Vad vi kan vänta oss\n\nMin bedömning är att hemställan i sig får liten eller ingen effekt på den regionala prisnivån, och att det beror på tidpunkten snarare än på sakinnehållet. Regionens inriktningsbeslut var fattat 17 februari 2026 och det operativa prisbeslutet planerat till 22 maj. Göteborgs fullmäktige beslutade den 11 juni. Yrkandet skrevs den 12 maj, alltså innan det fönstret stängde, men bordläggningen i kommunstyrelsen den 20 maj sköt avgörandet förbi det. Hans Arbys invändning om att en hemställan inte påverkar något får därmed stöd av kalendern, oberoende av vad man tycker om prispolitiken.\n\nDäremot är frågan inte avförd genom statens paket, och det är den viktigaste punkten som varken vinnande eller förlorande yrkande gör. Enligt regeringens beslut om reglerna, publicerat 26 juni 2026, gäller halveringen 1 juli–31 december 2026 och innebär att priset sänks till 50 procent av det pris som var beslutat den 1 maj 2026; regionala kollektivtrafikmyndigheter söker ersättning hos Naturvårdsverket och deltagandet är frivilligt. Statens åtgärd är alltså tillfällig och upphör vid årsskiftet. Regionens höjning från 1 september är permanent, liksom stadens subvention. Från 1 januari 2027 är det den regionala grundnivån minus stadens 140 kronor som gäller. Frysningsfrågan avgör därmed prisnivån efter årsskiftet, medan halveringen avgör den under andra halvåret 2026. De två åtgärderna är olika saker som verkar i olika perioder, inte alternativ till varandra — och båda yrkandena i ärendet behandlar dem som om de vore alternativ.\n\nEn punkt som materialet inte besvarar: om statens halvering räknas på priset före eller efter kommunalt tillköp. För en göteborgare med stadens subvention avgör det vad kortet faktiskt kostar juli–december. Jag har inte hittat svaret i vare sig regeringens regler eller stadens handlingar, och lämnar det som obesvarat.\n\nOm effekten på resandet av lägre priser säger forskningen mindre entydigt än båda sidor gjorde gällande i kammaren. Utvärderingar av det tyska Deutschlandticket anger att ungefär 12–16 procent av resorna med kortet tidigare gjordes med bil, medan omkring 79 procent av resorna 2024 var kollektivresor som ändå hade gjorts. Det gör Petra Elfs (MP) uppgift om 12–20 procents överflyttning i rätt storleksordning, och Hans Arbys (C) \"ett par tre procent\" för låg. Samtidigt bekräftar den höga andelen redan befintligt resande hans huvudinvändning om träffsäkerhet: större delen av en generell prissänkning går till resor som skulle ha gjorts ändå. Båda har alltså delvis rätt, och ingendera invändningen avgör frågan.\n\n## Det som talar emot\n\nJag har letat efter belägg som talar mot min slutsats och hittat tre.\n\nDet första gäller motförslagets premiss, och det talar emot *förlorarsidan*. M, D, L och KD skrev att den rödgröna ledningen i regionen \"tvekar inför att fullt ut genomföra reformen\". Enligt Göteborgs-Posten var regionstyrelsen satt att besluta om att införa statens halvering den 2 juni 2026 och regionfullmäktige den 15 juni, och den rödgröna ledningen åtog sig att se till att besluten fanns på plats. Regionstyrelsens behandling låg alltså före Göteborgs fullmäktigebeslut den 11 juni. Premissen om tvekan höll inte när ärendet avgjordes. Samma måttstock gäller åt båda håll: det förlorande yrkandet vilade på en uppgift som var överspelad, det vinnande på en plan som redan var frångången.\n\nDet andra gäller min invändning om tidpunkten. Jag har inte kunnat bekräfta att infrastruktur- och kollektivtrafiknämnden faktiskt fattade prisbeslutet den 22 maj 2026 — Västtrafiks handling säger att beslutet *kan* tas då. Var beslutet ännu inte fattat den 11 juni faller en del av kritiken mot tidpunkten, och hemställan blir ett rimligt sent men inte meningslöst inspel. Det vet jag inte, och skriver därför inte att fönstret bevisligen var stängt, bara att inriktningen var fastställd i februari.\n\nDet tredje gäller kravet på underlag. Man kan invända att en hemställan utan kostnad inte rimligen ska behöva ett tjänsteutlåtande, och att det vore att kräva byråkrati av ett brev. Det är ett hållbart argument. Motargumentet är att ärendets hela sakinnehåll är ekonomiskt — det handlar om värdet av ett tillköp som staden betalar för — och att ingen ledamot vid voteringen hade en siffra på vad som stod på spel för staden. Det är en brist oavsett hur billig själva handlingen är.\n\nJag har sökt i korpus på subvention, biljettpriser, Västtrafik, månadskort, tillköp och följeforskning, och i utfalls- och budgetmaterialet, utan att hitta någon redovisning från staden av vad subventionen kostat eller gett. Det är väntat: subventionen infördes i slutet av april 2026 och den oberoende följeforskning som fullmäktige beställde 2025-02-27 har inte hunnit rapportera.\n\n## Så kan du kontrollera detta senare\n\nFyra saker går att slå upp, och de skiljer nivåerna åt.\n\n**Regionen:** kontrollera om priset på ett 30-dagarskort zon A vuxen står på 860 eller 890 kronor efter den 1 september 2026 i Västtrafiks prislista. Det avgör om hemställan hade någon verkan.\n\n**Staden:** leta i stadsmiljönämndens årsrapport för 2026 och i stadens årsredovisning efter vad tillköpet av periodbiljettsubventionen faktiskt kostade. Stäm siffran mot de cirka 130 mnkr per år som angavs i fullmäktige 2025-02-27, och mot om beloppet steg med regionens 3,0 procent på tillköp.\n\n**Effekten:** den oberoende följeforskningen enligt KF 2025-02-27 § 87 punkt 3 ska följa subventionens effekter. När den rapporterar går det att pröva om resandet ökade och hur mycket som var överflyttning från bil, i stället för de påståenden om priselasticitet som stod obelagda i kammaren.\n\n**Statens del:** kontrollera hos Naturvårdsverket om Västra Götaland faktiskt ansökte om och fick ersättning ur de 6,5 miljarderna, och vad ett månadskort kostade i Göteborg i januari 2027 när halveringen upphört. Det är då den fråga som det här ärendet gäller — den regionala grundnivån — blir synlig igen.",
+  "källor": [
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§231",
+      "vad": "beslutstexten, båda yrkandena i sin helhet, votering 40–38 och reservation"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2026-05-20-§392",
+      "vad": "bordläggning av ärendet till den 3 juni 2026"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2025-02-27-§87",
+      "vad": "stadens eget beslut om tillköp motsvarande 140 kr per 30-dagarskort (SLK-2024-01131) och uppdraget om oberoende följeforskning"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2026-06-11-237 till -307 (ärende 8)",
+      "vad": "fullmäktigedebatten, bl.a. Leif Blomqvists uppgift om priselasticitet 0,2–0,3 och Hans Arbys invändning om regionens ansvar"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2025-02-27, anföranden ärende 16",
+      "vad": "uppgiften om cirka 130 mnkr per år för stadens subvention, framförd av Toni Orsulic (M) och obestridd av Daniel Bernmar (V)"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.vasttrafik.se/globalassets/media/dokument/styrelsehandlingar-och-protokoll/moten-2026/20-mars---extra-sammantrade/nr-05-prisjustering-2026.pdf",
+      "vad": "Västtrafiks styrelsehandling nr 5 2026-03-20: regionfullmäktiges inriktning 2026-02-17 om 3,0 procent, prisbeslut planerat till IKN 2026-05-22, ikraftträdande 2026-09-01, prislista 860→890 kr och intäktseffekt 82–92 mnkr varav tillköp 9 mnkr"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.regeringen.se/pressmeddelanden/2026/06/halverade-priser-i-kollektivtrafiken--nu-har-regeringen-beslutat-om-reglerna/",
+      "vad": "statens stöd: 6,5 mdkr, 1 juli–31 december 2026, 50 procent av priset beslutat 1 maj 2026, frivilligt för RKM, utbetalas av Naturvårdsverket"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.gp.se/nyheter/vastsverige/vgr-ja-till-regeringens-halvering-av-priserna-i-kollektivtrafiken.9133ffdf-cbbe-447b-9712-c166a05d26e6",
+      "vad": "VGR:s hantering av statens halvering: regionstyrelsen 2026-06-02 och regionfullmäktige 2026-06-15"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://ariadneprojekt.de/publikation/report-faktencheck-deutschlandticket-eine-bestandsaufnahme-der-empirischen-evidenz/",
+      "vad": "sammanställning av empirin om Deutschlandticket: cirka 12–16 procent av resorna tidigare med bil, cirka 79 procent redan befintligt kollektivresande 2024"
+    }
+  ]
+}
