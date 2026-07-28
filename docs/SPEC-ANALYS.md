@@ -54,10 +54,10 @@ att motverka.
 4. **Jämförelsefallet måste vara jämförbart — inte bara ha en URL.** Varje fall
    ska ange vad det delar med ärendet och var det skiljer sig. Är det en annan
    typ av åtgärd är det bakgrund, inte ett jämförelsefall, och räknas inte mot
-   kravet i punkt 3. Beloppen i `storlek` måste komma från ärendets egen
-   handling — aldrig från jämförelsefallet.
-5. **Motstående belägg söks aktivt.** Är `dissenting_evidence` icke-tom kan
-   `confidence` inte vara högre än `medium`.
+   kravet i punkt 3. Belopp om ärendet måste komma från ärendets egen handling —
+   aldrig från jämförelsefallet.
+5. **Motstående belägg söks aktivt.** Är `talar_emot` icke-tom kan `confidence`
+   inte vara högre än `medium`.
 6. **Mänsklig granskning innan publicering** — `granskad_av` + `granskad_datum`
    i posten, publiceringsfiltret är att fälten är ifyllda. Gäller bara steg 3.
 7. **Ingen partitillhörighet in i prompten** — och inga partinamn eller
@@ -74,7 +74,8 @@ stadens beslut. Samma körning återgav en invändning som "högerns kritik" i
 stället för att säga vad invändningen gick ut på.
 
 Kalibreringsloggen behöver ingen egen tabell: den är en härledd vy över
-`prognos` + `utfall` grupperat på riktning. Ärendenumret är stabil nyckel.
+`rekommendation`/`riktning` + utfallslagret, grupperat på riktning.
+Ärendenumret är stabil nyckel.
 
 ## Vilka ärenden som går till modellen
 
@@ -124,6 +125,56 @@ datum, `granskad_av: null`, `källa_hash`, riktning, säkerhet, brödtext och en
 källförteckning. Formen valideras blockande i CI mot `AiAnalysSchema`
 (`packages/shared`): en subagent som skriver trasig JSON stoppar bygget i
 stället för att seedas till produktion.
+
+## Två lager för två läsare
+
+Brödtexten är för den som vill kontrollera analysen. Ovanpå den ligger ett kort
+lager för den som ska förstå ett beslut på tjugo sekunder:
+
+| Fält | Innehåll | Gräns |
+|---|---|---|
+| `sammanfattning` | Vad beslutet innebär | 400 tecken |
+| `nyckelpunkter` | 2–4 punkter: `varning`, `styrka` eller `fakta` | 160 tecken |
+| `talar_för` / `talar_emot` | 0–4 punkter var, med källa | 180 tecken |
+| `beslutskvalitet` | Fem ja/nej-frågor om beredningen | — |
+| `rekommendation` | Ståndpunkt + motivering + vad som skulle ändra den | 300 tecken |
+
+**Teckengränserna är hårda i schemat.** "Fatta dig kort" i en prompt ger inte
+korta punkter; en maxlängd gör det.
+
+`beslutskvalitet` är fem frågor som ställs likadant till varje ärende — vet vi
+vad det kostar, är pengarna utpekade, är konsekvenserna utredda, går resultatet
+att mäta, är uppföljning bestämd. `true` bara om man kan peka på var i handlingen
+det står. Ingen sammanvägning: ett tal ("6,4 av 10") går varken att kontrollera
+eller argumentera emot och döljer var osäkerheten sitter, medan fem kryss visar
+precis vad som saknas.
+
+`rekommendation` är modellens ståndpunkt med fullmäktiges egna alternativ —
+`bifall`, `avslag`, `avstår`. Att ta ställning är mer granskningsbart än en
+poäng: ett "avslag, därför att X" går att motbevisa i sak. `skulle_ändras_av`
+gör bedömningen falsifierbar — en bedömning som inte kan motbevisas är en åsikt,
+inte en analys.
+
+**Ståndpunkten tas på beredning och rimlighet, aldrig på om politiken är
+önskvärd.** Prompten kräver spegeltestet: kan samma motivering inte skrivas om
+ett likadant förslag från ett annat håll är den fel skriven. Utan den regeln blir
+plattformen en åsiktsmaskin i stället för ett granskningsverktyg.
+
+## I gränssnittet
+
+Egen flik sist på beslutssidan (`AI-analys`), efter protokoll och handling:
+fakta möts först, bedömningen sedan. Aldrig inbakad i handlingen — läsaren ska
+inte kunna läsa en maskintext i tron att den står i protokollet.
+
+Ordningen i fliken: märkningen (vem skrev, vilken modell, ogranskad), det
+viktigaste, beredningsfrågorna, ståndpunkten, för och emot, hela texten hopfälld,
+källorna. Renderas med designsystemets komponenter — `Card`, `Callout`,
+`StatusBadge`, `Accordion` — där färgen aldrig är enda signalen: varje Callout
+har ikon och etikett i klartext.
+
+Källhänvisningarnas paragraf-id länkar till besluten på sajten. Det som saknar
+egen sida länkas inte: en granskningsplattform vars källhänvisningar leder till
+404 är värre än en som inte länkar.
 
 Märkningen är inte en brasklapp utan förutsättningen. Läsaren ska veta exakt
 vad hen läser och kunna gå till källan, och varje påstående ska bära

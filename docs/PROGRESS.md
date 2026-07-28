@@ -1,4 +1,4 @@
-# Progress — senast uppdaterad 2026-06-21
+# Progress — senast uppdaterad 2026-07-28
 
 ## Siffror
 
@@ -8,6 +8,8 @@
 | **Graf — edges** | 76 096 |
 | **Protokoll parsade** | 41 (2023-01 → 2026-05) |
 | **Paragrafer (beslut)** | 1 731 |
+| **Ärenden med härledd analys** | 1 352 (917 analyserbara, 333 i AI-kön) |
+| **AI-analyser skrivna** | 1 (ogranskade) |
 | Politiker | 125 (100% med arvodesdata) |
 | Anföranden (talare-kopplade) | 16 476 (94% → paragraf) |
 | Organisationer (merged) | 168 |
