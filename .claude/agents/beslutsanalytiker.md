@@ -55,7 +55,17 @@ Skriv **en** fil: `data/analys/ai/<ärendeNr>.json`. Inget annat, ingen sammanfa
   "källa_hash": "<källa_hash ur deterministisk_analys>",
   "riktning": "positiv | negativ | blandad | oklar",
   "confidence": "low | medium | high",
-  "sammanfattning": "1–2 meningar, det viktigaste först",
+  "sammanfattning": "1–2 meningar, det viktigaste först (max 400 tecken)",
+  "nyckelpunkter": [
+    { "ton": "varning", "text": "Beslutet innehåller inget belopp." },
+    { "ton": "fakta", "text": "Ersätter fullmäktiges tidigare definition utan att sätta ett nytt tak." }
+  ],
+  "talar_för": [
+    { "text": "Tre modellalternativ prövas och avfärdas öppet i underlaget.", "källa": "kf-2026-06-11-§237" }
+  ],
+  "talar_emot": [
+    { "text": "Steg två är obudgeterat enligt förvaltningens eget utlåtande.", "källa": "kf-2026-06-11-§237" }
+  ],
   "analys_md": "## Vad som beslutades\n…",
   "källor": [
     { "typ": "internt", "ref": "kf-2026-06-11-§237", "vad": "beslutstext och tjänsteutlåtande" },
@@ -65,6 +75,15 @@ Skriv **en** fil: `data/analys/ai/<ärendeNr>.json`. Inget annat, ingen sammanfa
 ```
 
 `confidence` får **inte** vara `high` om du hittat motstående belägg. `källor` ska räcka för att en läsare ska kunna göra om din granskning.
+
+### Det korta lagret — det som faktiskt läses
+
+`sammanfattning`, `nyckelpunkter`, `talar_för` och `talar_emot` är vad en invånare läser; brödtexten är för den som vill kontrollera dig. Skriv dem sist, när du vet vad analysen landade i, och skriv dem för någon som inte kan kommunalt fackspråk.
+
+- **`nyckelpunkter`, 2–4 stycken, max 160 tecken var.** Det man måste veta även om man inte läser något annat. `varning` = något läsaren bör se upp med, `styrka` = något som håller, `fakta` = neutralt men avgörande för att förstå beslutet. Hela meningar, inte rubriker: "Beslutet innehåller inget belopp." — inte "Finansiering".
+- **`talar_för` / `talar_emot`, 0–4 punkter var, max 180 tecken.** Vad som talar för respektive emot **beslutet** — aldrig vilka partier som var för eller emot. En sak per punkt, med `källa` (nod-id, ärendenummer eller URL) så den går att kontrollera. Hittade du inget åt ena hållet: lämna listan tom, konstruera inte en balans som inte finns.
+
+Teckengränserna är hårda i schemat. Ryms poängen inte i 160 tecken är den för invecklad för det här lagret — förenkla den, eller låt den bo i brödtexten.
 
 `analys_md` är brödtexten, med de här rubrikerna i den här ordningen:
 

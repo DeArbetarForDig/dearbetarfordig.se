@@ -1,14 +1,20 @@
 ---
 /**
- * AI-analys av ett beslut, med maskinmärkningen som första sak läsaren ser.
+ * AI-analys av ett beslut, byggd för att skummas.
  *
- * Märkningen är inte en brasklapp utan förutsättningen för att texten ska gå
- * att lita på: den som läser ska veta exakt vad hen läser och kunna gå till
- * källan själv. Därför står avsändaren, modellen och granskningsstatusen före
- * brödtexten — aldrig i en fotnot — och källförteckningen ligger sist, komplett.
+ * Ordningen är avsiktlig: en invånare som lägger tjugo sekunder på fliken ska
+ * ändå gå därifrån med det väsentliga. Först vem som skrivit texten, sedan en
+ * mening om vad beslutet innebär, sedan nyckelpunkterna med färg, sedan för och
+ * emot sida vid sida. Hela analysen ligger hopfälld under — den är källan till
+ * allt ovanför, inte det man måste ta sig igenom först.
+ *
+ * Märkningen står överst och kan inte fällas ihop: den som läser ska veta exakt
+ * vad hen läser och kunna gå till källan själv.
  */
 import { renderaMarkdown } from '@daf/shared'
+import Accordion from './Accordion.astro'
 import Card from './Card.astro'
+import Icon from './Icon.astro'
 
 interface Props {
   analys: {
@@ -19,12 +25,21 @@ interface Props {
     riktning: 'positiv' | 'negativ' | 'blandad' | 'oklar'
     confidence: 'low' | 'medium' | 'high'
     sammanfattning: string
+    nyckelpunkter: { ton: 'varning' | 'styrka' | 'fakta'; text: string }[]
+    talar_för: { text: string; källa: string }[]
+    talar_emot: { text: string; källa: string }[]
     analys_md: string
     källor: { typ: 'internt' | 'webb'; ref: string; vad: string }[]
   }
 }
 
 const { analys } = Astro.props
+
+const TON = {
+  varning: { ikon: 'alert-triangle', etikett: 'Se upp med' },
+  styrka: { ikon: 'check-circle', etikett: 'Håller' },
+  fakta: { ikon: 'info', etikett: 'Att veta' },
+} as const
 
 const RIKTNING = {
   positiv: 'Bedöms få positiv effekt',
@@ -33,41 +48,70 @@ const RIKTNING = {
   oklar: 'Effekten går inte att bedöma',
 } as const
 
-const SÄKERHET = {
-  low: 'Låg säkerhet',
-  medium: 'Medelhög säkerhet',
-  high: 'Hög säkerhet',
-} as const
+const SÄKERHET = { low: 'Låg', medium: 'Medelhög', high: 'Hög' } as const
 
 const brödtext = renderaMarkdown(analys.analys_md)
 const interna = analys.källor.filter((k) => k.typ === 'internt')
 const webb = analys.källor.filter((k) => k.typ === 'webb')
 ---
 
-<div class="daf-ai">
+<div class="daf-ai space-y-4">
   <p class="daf-ai__markning">
-    <strong>Den här texten är skriven av en AI-modell ({analys.modell}), inte av en människa.</strong>
-    Den bygger på stadens egna handlingar och öppna källor, och varje påstående ska ha en
-    källa du kan gå till själv — förteckningen står längst ned. Bedömningar om framtida
-    konsekvenser är just bedömningar.
-    {
-      analys.granskad_av ? (
-        <span> Granskad av {analys.granskad_av} den {analys.granskad_datum}.</span>
-      ) : (
-        <span> <strong>Ännu inte granskad av en människa.</strong></span>
-      )
-    }
+    <Icon name="bot" size={16} />
+    <span>
+      <strong>Skriven av en AI-modell ({analys.modell}), inte av en människa.</strong>
+      Bygger på stadens egna handlingar och öppna källor — varje påstående har en källa
+      längst ned som du kan gå till själv.
+      {
+        analys.granskad_av ? (
+          <> Granskad av {analys.granskad_av} den {analys.granskad_datum}.</>
+        ) : (
+          <> <strong>Ännu inte granskad av en människa.</strong></>
+        )
+      }
+    </span>
   </p>
 
-  <dl class="daf-ai__fakta">
-    <div><dt>Bedömning</dt><dd>{RIKTNING[analys.riktning]}</dd></div>
-    <div><dt>Säkerhet</dt><dd>{SÄKERHET[analys.confidence]}</dd></div>
-    <div><dt>Skriven</dt><dd><time datetime={analys.genererad}>{analys.genererad}</time></dd></div>
-  </dl>
+  <Card title="Det viktigaste" subtitle={`${RIKTNING[analys.riktning]} · Säkerhet i bedömningen: ${SÄKERHET[analys.confidence]}`}>
+    <p class="daf-ai__sammanfattning">{analys.sammanfattning}</p>
+    <ul class="daf-ai__punkter">
+      {analys.nyckelpunkter.map((p) => (
+        <li class:list={['daf-ai__punkt', `daf-ai__punkt--${p.ton}`]}>
+          <Icon name={TON[p.ton].ikon} size={18} />
+          <span><b>{TON[p.ton].etikett}:</b> {p.text}</span>
+        </li>
+      ))}
+    </ul>
+  </Card>
 
-  <p class="daf-ai__sammanfattning">{analys.sammanfattning}</p>
+  {(analys.talar_för.length > 0 || analys.talar_emot.length > 0) && (
+    <div class="daf-ai__vagskal">
+      {analys.talar_för.length > 0 && (
+        <Card title="Talar för beslutet" class="daf-ai__sida daf-ai__sida--for">
+          <ul class="daf-ai__skal">
+            {analys.talar_för.map((p) => (
+              <li>{p.text} <span class="daf-ai__kalla">{p.källa}</span></li>
+            ))}
+          </ul>
+        </Card>
+      )}
+      {analys.talar_emot.length > 0 && (
+        <Card title="Talar emot beslutet" class="daf-ai__sida daf-ai__sida--emot">
+          <ul class="daf-ai__skal">
+            {analys.talar_emot.map((p) => (
+              <li>{p.text} <span class="daf-ai__kalla">{p.källa}</span></li>
+            ))}
+          </ul>
+        </Card>
+      )}
+    </div>
+  )}
 
-  <div class="daf-ai__brodtext" set:html={brödtext} />
+  <Card title="Hela analysen" subtitle={`Skriven ${analys.genererad} — underlaget till allt ovanför`}>
+    <Accordion summary="Läs hela analysen">
+      <div class="daf-ai__brodtext" set:html={brödtext} />
+    </Accordion>
+  </Card>
 
   <Card title={`Källor (${analys.källor.length})`}>
     {interna.length > 0 && (
@@ -97,45 +141,114 @@ const webb = analys.källor.filter((k) => k.typ === 'webb')
 
 <style>
   .daf-ai__markning {
-    padding: 1rem;
-    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 0.875rem 1rem;
     font-size: var(--font-size-small);
     line-height: 1.6;
-    color: var(--color-text);
+    color: var(--color-text-muted);
     background: var(--color-surface-sunken);
-    border-left: 3px solid var(--color-primary);
     border-radius: var(--radius-sm);
   }
 
-  .daf-ai__fakta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .daf-ai__fakta dt {
-    font-size: var(--font-size-small);
-    color: var(--color-text-muted);
-  }
-
-  .daf-ai__fakta dd {
-    margin: 0;
-    font-weight: 600;
+  .daf-ai__markning strong {
+    color: var(--color-text);
   }
 
   .daf-ai__sammanfattning {
-    margin-bottom: 2rem;
-    font-size: var(--font-size-lead, 1.125rem);
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
     line-height: 1.6;
+  }
+
+  .daf-ai__punkter {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Färgen bär bara samma budskap som ikonen och etiketten ("Se upp med",
+     "Håller", "Att veta") — den som inte uppfattar färg tappar ingen
+     information. */
+  .daf-ai__punkt {
+    display: flex;
+    gap: 0.625rem;
+    align-items: flex-start;
+    padding: 0.75rem 0.875rem;
+    line-height: 1.5;
+    background: var(--color-surface-sunken);
+    border-left: 3px solid var(--ton);
+    border-radius: var(--radius-sm);
+  }
+
+  .daf-ai__punkt :global(svg) {
+    flex-shrink: 0;
+    color: var(--ton);
+  }
+
+  .daf-ai__punkt--varning {
+    --ton: var(--color-warning);
+  }
+
+  .daf-ai__punkt--styrka {
+    --ton: var(--color-positive);
+  }
+
+  .daf-ai__punkt--fakta {
+    --ton: var(--color-info);
+  }
+
+  .daf-ai__vagskal {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  }
+
+  /* Kortet står kvar som på resten av sidan; färgen läggs som en kant ovanpå,
+     inte som en egen behållare. */
+  .daf-ai__sida {
+    border-top: 3px solid var(--ton);
+  }
+
+  .daf-ai__sida--for {
+    --ton: var(--color-positive);
+  }
+
+  .daf-ai__sida--emot {
+    --ton: var(--color-negative);
+  }
+
+  .daf-ai__skal {
+    margin: 0;
+    padding-left: 1.125rem;
+    list-style: disc;
+  }
+
+  .daf-ai__skal li {
+    margin-bottom: 0.625rem;
+    line-height: 1.5;
+  }
+
+  .daf-ai__kalla {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-subtle);
+    overflow-wrap: anywhere;
   }
 
   /* Brödtexten kommer från renderaMarkdown() — styla via elementväljare, den
      har inga klasser att haka på. */
   .daf-ai__brodtext :global(h3) {
-    margin: 2rem 0 0.75rem;
-    font-size: var(--font-size-h3, 1.25rem);
+    margin: 1.75rem 0 0.75rem;
+    font-size: 1.125rem;
     font-weight: 700;
+  }
+
+  .daf-ai__brodtext :global(h3):first-child {
+    margin-top: 0;
   }
 
   .daf-ai__brodtext :global(h4) {

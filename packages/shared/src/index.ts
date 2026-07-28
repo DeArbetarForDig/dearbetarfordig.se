@@ -188,7 +188,28 @@ export const AiAnalysSchema = z.object({
   källa_hash: z.string().min(1),
   riktning: z.enum(['positiv', 'negativ', 'blandad', 'oklar']),
   confidence: z.enum(['low', 'medium', 'high']),
-  sammanfattning: z.string().min(1),
+  sammanfattning: z.string().min(1).max(400),
+  /**
+   * Läsarens första lager: det man måste veta även om man inte läser brödtexten.
+   * Teckengränserna är hårda med flit — "fatta dig kort" i en prompt ger inte
+   * korta punkter, en maxlängd gör det. En invånare ska kunna skumma fliken på
+   * tjugo sekunder och ändå ha fått det väsentliga.
+   */
+  nyckelpunkter: z
+    .array(
+      z.object({
+        // varning = något läsaren bör se upp med, styrka = något som håller,
+        // fakta = neutralt men avgörande för att förstå beslutet.
+        ton: z.enum(['varning', 'styrka', 'fakta']),
+        text: z.string().min(1).max(160),
+      }),
+    )
+    .min(2)
+    .max(4),
+  talar_för: z.array(z.object({ text: z.string().min(1).max(180), källa: z.string().min(1) })).max(4),
+  talar_emot: z
+    .array(z.object({ text: z.string().min(1).max(180), källa: z.string().min(1) }))
+    .max(4),
   analys_md: z.string().min(200),
   källor: z
     .array(
