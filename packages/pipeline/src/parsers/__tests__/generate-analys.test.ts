@@ -185,7 +185,11 @@ describe('prognosKandidat', () => {
 
   it('släpper igenom pengar, oenighet och erkänd osäkerhet — men inte tomma ärenden', () => {
     const tomt = { handling: true, belopp: 0, omstritt: false, osäkerFinansiering: false }
-    expect(prognosKandidat('Ny simhall i Angered', { ...tomt, belopp: 45 }).värd).toBe(true)
+    expect(prognosKandidat('Ny simhall i Angered', { ...tomt, belopp: 45 })).toMatchObject({
+      värd: true,
+      // Skälet säger att en siffra NÄMNS, inte att beslutet kostar den.
+      skäl: 'belopp nämns: 45 mnkr',
+    })
     expect(prognosKandidat('Ny simhall i Angered', { ...tomt, omstritt: true }).värd).toBe(true)
     expect(
       prognosKandidat('Ny simhall i Angered', { ...tomt, osäkerFinansiering: true }).värd,

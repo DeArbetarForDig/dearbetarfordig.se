@@ -173,8 +173,12 @@ export function prognosKandidat(
 ): { värd: boolean; skäl: string } {
   if (RUTINÄRENDE.test(rubrik)) return { värd: false, skäl: 'rutinärende' }
   if (!sig.handling) return { värd: false, skäl: 'handling ej hämtad' }
-  if (sig.osäkerFinansiering) return { värd: true, skäl: 'finansiering erkänt osäker' }
-  if (sig.belopp >= 10) return { värd: true, skäl: `belopp ${sig.belopp} mnkr` }
+  if (sig.osäkerFinansiering) return { värd: true, skäl: 'gardering om pengar i texten' }
+  // "belopp nämns" och inte "belopp": av sju granskade ärenden var siffran sex
+  // gånger något annat än beslutets kostnad — ett avslaget budgetalternativ, ett
+  // bokslut från ett annat år, kostnaden för att INTE besluta. Kön är ett urval
+  // att titta på, och skälet ska inte låta som ett påstående om ärendet.
+  if (sig.belopp >= 10) return { värd: true, skäl: `belopp nämns: ${sig.belopp} mnkr` }
   if (sig.omstritt) return { värd: true, skäl: 'omstritt beslut' }
   return { värd: false, skäl: 'inget att prognostisera mot' }
 }
