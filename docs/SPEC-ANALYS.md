@@ -90,6 +90,30 @@ omstritt beslut. Av 917 analyserbara ärenden ger det 333 — och 455 av de
 bortsorterade faller bara på att handlingens text inte är nedladdad, vilket
 `fetch-handlingar-text.ts` åtgärdar.
 
+## Vad de regelbaserade flaggorna kan och inte kan
+
+Efter sex granskade ärenden är mönstret tydligt: flaggorna är bra på att peka
+ut var man ska titta och dåliga på att säga vad man ser.
+
+`generate-analys.ts --granska` visar vad varje mönster faktiskt träffar på i
+hela korpusen, i båda riktningarna — vilka former som fastnar, och vilka
+enheter som står efter ett tal utan att fångas. Kör den efter varje ändring i
+mönstren. Tre fel hittades så på en eftermiddag, mot två som hittades av en
+slump när AI-analyser råkade snubbla på dem till en kvart och 140k tokens
+styck.
+
+Men det finns en gräns regexen inte tar sig förbi. `finansiering_osäker`
+betyder *handlingen innehåller en gardering om pengar* — inte att pengarna
+saknas. I SLK-2026-00397 tände samma bisats både den och `finansiering_påstådd`:
+osäkerheten gällde hur stor del staten skulle medfinansiera, medan
+finansieringen var säkrad hela tiden. Att skilja "vi vet inte om vi har råd"
+från "vi vet inte hur stort bidraget blir" kräver läsning.
+
+Därför sparas alltid citatet bredvid flaggan, och därför är kön ett urval att
+titta på — inte ett påstående om ärendet. Det är också precis vad AI-lagret är
+till för: fem av sex granskade ärenden hade en köflagga som pekade på något
+annat än vad den påstod, och varje gång var det analysen som avslöjade det.
+
 ## Neutralitetskontroll
 
 Steg 1–2 är partiblinda av konstruktion — de räknar och citerar. Kontrollen är

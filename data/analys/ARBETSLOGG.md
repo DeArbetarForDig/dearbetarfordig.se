@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-07-29. **5 av 331** prognosvärda ärenden analyserade, 326 återstår.
+Uppdaterad 2026-07-29. **6 av 331** prognosvärda ärenden analyserade, 325 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -17,6 +17,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Datum | Riktning | Säkerhet | Granskad | Rubrik |
 | --- | --- | --- | --- | --- | --- |
+| SLK-2026-00397 | 2026-07-29 | blandad | medium | — | Donation från Göteborgs Spårvägar AB av spårvagnar modell M29 till Myk |
 | SLK-2026-00402 | 2026-07-29 | blandad | medium | — | Antagande av detaljplan för verksamheter vid Gamla Sörredsvägen i stad |
 | SLK-2025-00122 | 2026-07-28 | blandad | medium | — | Modell för Göteborgs Stads klimatbudget |
 | SLK-2026-00495 | 2026-07-28 | blandad | medium | — | Hemställan från Stiftelsen Göteborgs sjukhem, Stiftelsen Ålderdomshemm |
@@ -27,7 +28,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2026-00397 | finansiering erkänt osäker | Donation från Göteborgs Spårvägar AB av spårvagnar modell M29 till Myk |
 | SLK-2025-01138 | belopp 274 mnkr | Motion av Kalle Bäck (KD) och Kristina Lallo (KD) om att riva upp besl |
 | SLK-2026-00166 | omstritt beslut | Översyn av reglementen för Göteborgs Stads nämnder |
 | SLK-2026-00317 | finansiering erkänt osäker | Antagande av detaljplan för Tvärförbindelse i Torslanda inom stadsdela |
@@ -37,3 +37,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2026-00326 | finansiering erkänt osäker | Redovisning av uppdrag till Göteborg & Co AB att utreda möjligheterna  |
 | SLK-2025-01042 | belopp 22.5 mnkr | Motion av Jessica Blixt (D) och Martin Wannholt (D) om att revidera Gö |
 | SLK-2026-00123 | belopp 31000 mnkr | Kompletterande uppföljning per december 2025 |
+| SLK-2025-00983 | finansiering erkänt osäker | Nytt hälso- och sjukvårdsavtal med tillhörande överenskommelser |

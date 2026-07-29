@@ -83,6 +83,14 @@ const UNDERLAG_MÖNSTER = {
  *
  * "oklart hur" fick samma villkor av samma skäl: 64 av 68 förekomster gällde
  * geoteknik, planbestämmelser och lasthantering, inte pengar.
+ *
+ * VAD FLAGGAN BETYDER, exakt: handlingen innehåller en gardering om pengar.
+ * Inte att finansieringen saknas. I SLK-2026-00397 tände samma bisats både
+ * den här och PÅSTÅDD_FINANSIERING — "oklart om transportkostnaden … kommer
+ * att medfinansieras" — och där var pengarna säkrade hela tiden; det osäkra
+ * var hur stor del staten skulle stå för. Att skilja "vi vet inte om vi har
+ * råd" från "vi vet inte hur stort bidraget blir" kräver läsning, inte regex.
+ * Därför sparas `citat`: läsaren dömer meningen, flaggan pekar bara på den.
  */
 const OSÄKER_FINANSIERING =
   /(ännu oklart|är oklart om|oklart hur[^.]{0,80}(?:kostnad|finansier|medel|ersättn|bidrag|budget)|ryms (?:inte|ej|inte helt) inom|saknas finansiering|ej finansierad|ofinansierad|inte fullt ut\b[^.]{0,80}(?:ersättning|kostnad|finansier|medel|bidrag|kompens)|(?:ersättning|kompensation|bidrag)[^.]{0,80}inte fullt ut\b|utökade kostnader|ökade kostnader för (?:staden|kommunen|nämnden)|kräver (?:ytterligare|utökade) (?:medel|resurser)|återkomma (?:med|om) finansiering|finansiering saknas)/i
