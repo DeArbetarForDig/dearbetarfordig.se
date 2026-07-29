@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-07-29. **9 av 331** prognosvärda ärenden analyserade, 322 återstår.
+Uppdaterad 2026-07-29. **10 av 331** prognosvärda ärenden analyserade, 321 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -22,6 +22,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2026-00317 | 2026-07-29 | blandad | medium | — | Antagande av detaljplan för Tvärförbindelse i Torslanda inom stadsdela |
 | SLK-2026-00397 | 2026-07-29 | blandad | medium | — | Donation från Göteborgs Spårvägar AB av spårvagnar modell M29 till Myk |
 | SLK-2026-00402 | 2026-07-29 | blandad | medium | — | Antagande av detaljplan för verksamheter vid Gamla Sörredsvägen i stad |
+| SLK-2026-00459 | 2026-07-29 | blandad | medium | — | Yrkande från S, V och MP särskilt yttrande C om evenemang, aktiviteter |
 | SLK-2025-00122 | 2026-07-28 | blandad | medium | — | Modell för Göteborgs Stads klimatbudget |
 | SLK-2026-00495 | 2026-07-28 | blandad | medium | — | Hemställan från Stiftelsen Göteborgs sjukhem, Stiftelsen Ålderdomshemm |
 | SLK-2026-00510 | 2026-07-28 | blandad | medium | — | Revidering av reglemente för Göteborgs Stads överförmyndarnämnd |
@@ -31,7 +32,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2026-00459 | omstritt beslut | Yrkande från S, V och MP särskilt yttrande C om evenemang, aktiviteter |
 | SLK-2026-00107 | omstritt beslut | Funktionshinderombudsmannens årsrapport 2025 |
 | SLK-2026-00235 | belopp nämns: 22 mnkr | Hemställan från Business Region Göteborg AB om godkännande av avtal rö |
 | SLK-2026-00326 | gardering om pengar i texten | Redovisning av uppdrag till Göteborg & Co AB att utreda möjligheterna  |
@@ -41,3 +41,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2026-00203 | belopp nämns: 3005 mnkr | Redovisning av uppdrag att utreda och redovisa hur, ur en markägarroll |
 | SLK-2025-01290 | belopp nämns: 2400 mnkr | Inriktningsbeslut för fortsatt planering av Mjörn vattentäkt |
 | SLK-2025-01319 | omstritt beslut | Uppföljning av Göteborgs Stads systematiska miljöarbete 2025 |
+| SLK-2026-00176 | belopp nämns: 7500 mnkr | Återrapportering av uppdrag december 2025 |
