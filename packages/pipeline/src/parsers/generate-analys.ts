@@ -81,20 +81,40 @@ const OSÄKER_FINANSIERING =
 const PÅSTÅDD_FINANSIERING =
   /(ryms inom (?:befintlig|befintliga|nuvarande)|inom befintlig ram|finansieras (?:inom|via|genom|av|med)|täcks av)/i
 
-// "miljoner kr" och "miljarder kr" saknades, vilket gjorde att 70 miljoner i ett
-// stiftelsekapital föll bort medan 190 mkr i samma handling fångades
-// (SLK-2026-00495) — enheten skrivs inte konsekvent ens inom ett dokument.
+/**
+ * Enheterna kommer ur `--granska`, som räknar vad som faktiskt står efter ett
+ * tal i korpusen. "miljoner kr" saknades och fick 70 miljoner i ett
+ * stiftelsekapital att falla bort medan 190 mkr i samma handling fångades
+ * (SLK-2026-00495); mdkr (1197 förekomster), kkr och tusen kronor saknades
+ * också.
+ *
+ * Bara "miljoner"/"miljarder" utan valutaord är MEDVETET utelämnat, inte
+ * glömt: granskningen visar att det lika gärna är euro, ton, kvadratmeter,
+ * besök, människor eller USD. Ett påhittat belopp är värre än ett saknat —
+ * plattformen ska kunna citeras.
+ */
 const BELOPP =
-  /(\d[\d  ]*(?:,\d+)?)\s*(mnkr|mkr|tkr|miljarder (?:kronor|kr)|miljoner (?:kronor|kr)|kronor|kr)(?![a-zåäö])/gi
+  /(\d[\d  ]*(?:,\d+)?)\s*(mnkr|mdkr|mkr|tkr|kkr|miljard(?:er)? (?:kronor|kr|sek)|miljon(?:er)? (?:kronor|kr|sek)|tusen kronor|kronor|kr)(?![a-zåäö])/gi
 
 const TILL_MNKR: Record<string, number> = {
   mnkr: 1,
   mkr: 1,
+  mdkr: 1000,
+  'miljon kronor': 1,
+  'miljon kr': 1,
+  'miljon sek': 1,
   'miljoner kronor': 1,
   'miljoner kr': 1,
+  'miljoner sek': 1,
+  'miljard kronor': 1000,
+  'miljard kr': 1000,
+  'miljard sek': 1000,
   'miljarder kronor': 1000,
   'miljarder kr': 1000,
+  'miljarder sek': 1000,
   tkr: 0.001,
+  kkr: 0.001,
+  'tusen kronor': 0.001,
   kronor: 1e-6,
   kr: 1e-6,
 }
@@ -291,10 +311,69 @@ export function gruppera(grafDir: string): Map<string, Paragraf[]> {
   return ärenden
 }
 
+/**
+ * Flagg-granskning: vad har mönstren FAKTISKT träffat på, i hela korpusen?
+ *
+ * Två fel hittades av en slump när en AI-analys råkade snubbla på dem
+ * (SLK-2026-00495): beloppsregexen missade "miljoner kr" medan den tog "mkr" i
+ * samma handling, och nämner_remiss slog på "inhämta yttrande från". Båda hade
+ * synts direkt om någon sett vad mönstren träffade — en boolean döljer det,
+ * ett citat gör det inte. Därför den här vyn: kör den efter varje ändring i
+ * mönstren, och läs vad de fastnat på.
+ *
+ * Kör: npx tsx .../generate-analys.ts --granska
+ */
+function granska(ärenden: { text: string }[]) {
+  for (const [namn, re] of Object.entries(UNDERLAG_MÖNSTER)) {
+    const global = new RegExp(re.source, 'gi')
+    const träffar = new Map<string, number>()
+    for (const { text } of ärenden) {
+      for (const m of text.matchAll(global)) {
+        const nyckel = m[0].toLowerCase()
+        träffar.set(nyckel, (träffar.get(nyckel) ?? 0) + 1)
+      }
+    }
+    const sorterat = [...träffar].sort((a, b) => b[1] - a[1])
+    console.log(`\n${namn} — ${sorterat.length} distinkta träffar`)
+    for (const [ord, n] of sorterat.slice(0, 12)) console.log(`   ${String(n).padStart(5)}  ${ord}`)
+    if (sorterat.length > 12) console.log(`         … och ${sorterat.length - 12} former till`)
+  }
+
+  // Motsatt håll: vilka enheter står efter ett tal i korpusen, och vilka av dem
+  // fångar BELOPP? Det är så en missad stavning syns utan att någon snubblar.
+  const enheter = new Map<string, number>()
+  for (const { text } of ärenden) {
+    for (const m of text.matchAll(/\d[\d {2}]*(?:,\d+)?\s+([a-zåäö]+(?: (?:kronor|kr))?)/gi)) {
+      const e = m[1].toLowerCase()
+      // Bara pengaord: slutar på kr/kronor eller börjar på miljon/miljard/tusen.
+      // Utan den avgränsningen fastnar "planbeskrivning" och "kretslopp" på
+      // sitt inbakade "kr".
+      if (/(kr|kronor)$|^(miljon|miljard|tusen)/.test(e)) enheter.set(e, (enheter.get(e) ?? 0) + 1)
+    }
+  }
+  console.log('\nEnheter efter ett tal (fångas de av beloppMnkr?)')
+  for (const [e, n] of [...enheter].sort((a, b) => b[1] - a[1]).slice(0, 25)) {
+    // Prova enheten mot funktionen i stället för att plocka isär regexen.
+    // Provbeloppet måste vara stort nog att passera 0,1 mnkr-golvet även för
+    // den minsta enheten, annars ser "kr" ut att missas fast den fångas.
+    const fångas = beloppMnkr(`1000000 ${e}`).length > 0
+    console.log(`   ${fångas ? '✓' : '✗ MISSAS'}  ${String(n).padStart(5)}  ${e}`)
+  }
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
   const idag = new Date().toISOString().slice(0, 10)
   const ärenden = [...gruppera(join(DATA_DIR, 'graf')).values()].map((p) => analysera(p, idag))
   ärenden.sort((a, b) => b.paragrafer[0].datum.localeCompare(a.paragrafer[0].datum))
+
+  if (process.argv.includes('--granska')) {
+    granska(
+      [...gruppera(join(DATA_DIR, 'graf')).values()].map((kedja) => ({
+        text: kedja.map((p) => `${p.fulltext ?? ''}\n${p.handlingText ?? ''}`).join('\n'),
+      })),
+    )
+    process.exit(0)
+  }
 
   mkdirSync(join(DATA_DIR, 'analys'), { recursive: true })
   writeFileSync(

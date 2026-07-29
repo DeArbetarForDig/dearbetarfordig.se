@@ -26,6 +26,15 @@ describe('beloppMnkr', () => {
     // första fångades innan (SLK-2026-00495).
     expect(beloppMnkr('cirka 190 mkr och cirka 70 miljoner kr')).toEqual([190, 70])
     expect(beloppMnkr('2 miljarder kr')).toEqual([2000])
+    expect(beloppMnkr('546 mdkr, 500 kkr och 800 tusen kronor')).toEqual([546000, 0.8, 0.5])
+  })
+
+  it('tar inte "miljoner" utan valutaord — det är lika ofta euro, ton eller besök', () => {
+    // Ur --granska: 103 "miljoner Euro", 23 "miljoner kvadratmeter",
+    // 12 "miljarder människor". Ett påhittat belopp är värre än ett saknat.
+    expect(beloppMnkr('12 miljarder människor och 3 miljoner besök')).toEqual([])
+    expect(beloppMnkr('103 miljoner Euro')).toEqual([])
+    expect(beloppMnkr('3 miljoner kronor')).toEqual([3])
   })
 
   it('sållar bort taxor och avgifter under 0,1 mnkr', () => {
