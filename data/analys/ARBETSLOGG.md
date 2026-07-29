@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-07-29. **10 av 331** prognosvärda ärenden analyserade, 321 återstår.
+Uppdaterad 2026-07-29. **11 av 331** prognosvärda ärenden analyserade, 320 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -18,6 +18,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | Ärende | Datum | Riktning | Säkerhet | Granskad | Rubrik |
 | --- | --- | --- | --- | --- | --- |
 | SLK-2025-01138 | 2026-07-29 | blandad | medium | — | Motion av Kalle Bäck (KD) och Kristina Lallo (KD) om att riva upp besl |
+| SLK-2026-00107 | 2026-07-29 | blandad | medium | — | Funktionshinderombudsmannens årsrapport 2025 |
 | SLK-2026-00166 | 2026-07-29 | blandad | medium | — | Översyn av reglementen för Göteborgs Stads nämnder |
 | SLK-2026-00317 | 2026-07-29 | blandad | medium | — | Antagande av detaljplan för Tvärförbindelse i Torslanda inom stadsdela |
 | SLK-2026-00397 | 2026-07-29 | blandad | medium | — | Donation från Göteborgs Spårvägar AB av spårvagnar modell M29 till Myk |
@@ -32,7 +33,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2026-00107 | omstritt beslut | Funktionshinderombudsmannens årsrapport 2025 |
 | SLK-2026-00235 | belopp nämns: 22 mnkr | Hemställan från Business Region Göteborg AB om godkännande av avtal rö |
 | SLK-2026-00326 | gardering om pengar i texten | Redovisning av uppdrag till Göteborg & Co AB att utreda möjligheterna  |
 | SLK-2025-01042 | belopp nämns: 22.5 mnkr | Motion av Jessica Blixt (D) och Martin Wannholt (D) om att revidera Gö |
@@ -42,3 +42,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-01290 | belopp nämns: 2400 mnkr | Inriktningsbeslut för fortsatt planering av Mjörn vattentäkt |
 | SLK-2025-01319 | omstritt beslut | Uppföljning av Göteborgs Stads systematiska miljöarbete 2025 |
 | SLK-2026-00176 | belopp nämns: 7500 mnkr | Återrapportering av uppdrag december 2025 |
+| SLK-2025-01065 | belopp nämns: 1900 mnkr | Motion av Axel Darvik (L) om att bevara och utveckla kryssningsturisme |
