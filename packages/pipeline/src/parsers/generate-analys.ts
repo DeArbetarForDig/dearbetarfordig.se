@@ -73,9 +73,19 @@ const UNDERLAG_MÖNSTER = {
  * Formuleringar där handlingen SJÄLV medger att finansieringen är osäker.
  * Det är inte en bedömning från vår sida — det är ett citat, och citatet
  * sparas så att påståendet går att kontrollera mot källan.
+ *
+ * "inte fullt ut" krävde ett pengaord i närheten från 2026-07-29: av 156
+ * förekomster i korpusen rörde 19 pengar. Resten var IVO som "inte fullt ut
+ * fyllde denna funktion", processer som var "inte fullt utvecklade" (frasen
+ * matchade rentav mitt inne i ett annat ord) och utbildning som "inte fullt ut
+ * tillhandhölls". Flaggan satte SLK-2026-00402 i analyskön på en mening om en
+ * outnyttjad byggrätt — som dessutom var ett argument FÖR planen.
+ *
+ * "oklart hur" fick samma villkor av samma skäl: 64 av 68 förekomster gällde
+ * geoteknik, planbestämmelser och lasthantering, inte pengar.
  */
 const OSÄKER_FINANSIERING =
-  /(ännu oklart|är oklart om|oklart hur|ryms (?:inte|ej|inte helt) inom|saknas finansiering|ej finansierad|ofinansierad|inte fullt ut|utökade kostnader|ökade kostnader för (?:staden|kommunen|nämnden)|kräver (?:ytterligare|utökade) (?:medel|resurser)|återkomma (?:med|om) finansiering|finansiering saknas)/i
+  /(ännu oklart|är oklart om|oklart hur[^.]{0,80}(?:kostnad|finansier|medel|ersättn|bidrag|budget)|ryms (?:inte|ej|inte helt) inom|saknas finansiering|ej finansierad|ofinansierad|inte fullt ut\b[^.]{0,80}(?:ersättning|kostnad|finansier|medel|bidrag|kompens)|(?:ersättning|kompensation|bidrag)[^.]{0,80}inte fullt ut\b|utökade kostnader|ökade kostnader för (?:staden|kommunen|nämnden)|kräver (?:ytterligare|utökade) (?:medel|resurser)|återkomma (?:med|om) finansiering|finansiering saknas)/i
 
 /** Motsatsen: ett explicit finansieringspåstående som går att stämma av senare. */
 const PÅSTÅDD_FINANSIERING =
@@ -242,7 +252,20 @@ export function analysera(paragrafer: Paragraf[], idag: string): Analys {
   if (UTAN_BESLUTSKARAKTÄR.test(rubrik))
     return { ...bas, analyserbar: false, skäl: 'utan_beslutskaraktär' }
 
-  const avgörande = [...kedja].reverse().find((p) => p.beslut && p.beslut !== 'bordläggning')
+  // Ett ärende kan komma tillbaka under samma nummer långt efter att det
+  // avgjorts — "…- nu fråga om fullmakt" är en ny fråga, inte beslutet. Utan
+  // undantaget blev SLK-2025-00591:s beslutsdatum 2026-06-17, dagen staden gav
+  // fullmakt att försvara planen i domstol, i stället för antagandet.
+  //
+  // ponytail: bara datumet skyddas, inte hela kedjan. 600 av 3936 paragrafer
+  // saknar dessutom beslutsklassning från protokollparsern, så beslutsdatum kan
+  // fortfarande peka på KS tillstyrkan i stället för KF:s antagande. Rätt fix
+  // ligger i parse-protokoll, inte här.
+  const uppföljning = /[-–]\s*nu fråga om/i
+  const kandidater = kedja.filter((p) => !uppföljning.test(p.rubrik ?? ''))
+  const avgörande = [...(kandidater.length ? kandidater : kedja)]
+    .reverse()
+    .find((p) => p.beslut && p.beslut !== 'bordläggning')
   if (!avgörande) return { ...bas, analyserbar: false, skäl: 'ej_avgjord' }
 
   const votering = avgörande.votering ?? null
@@ -324,7 +347,15 @@ export function gruppera(grafDir: string): Map<string, Paragraf[]> {
  * Kör: npx tsx .../generate-analys.ts --granska
  */
 function granska(ärenden: { text: string }[]) {
-  for (const [namn, re] of Object.entries(UNDERLAG_MÖNSTER)) {
+  // Alla mönster som gör ett påstående om handlingen granskas likadant —
+  // finansieringsflaggorna styr dessutom kön och citeras i UI:t, så de är de
+  // som kostar mest när de har fel.
+  const MÖNSTER = {
+    ...UNDERLAG_MÖNSTER,
+    finansiering_osäker: OSÄKER_FINANSIERING,
+    finansiering_påstådd: PÅSTÅDD_FINANSIERING,
+  }
+  for (const [namn, re] of Object.entries(MÖNSTER)) {
     const global = new RegExp(re.source, 'gi')
     const träffar = new Map<string, number>()
     for (const { text } of ärenden) {

@@ -70,6 +70,24 @@ describe('analysera', () => {
     })
   })
 
+  it('tar inte en återkommande "nu fråga om"-punkt som ärendets beslut', () => {
+    // SLK-2025-00591: planen antogs 2025-09-11, men ärendenumret kom tillbaka
+    // 2026-06-17 för fullmakt att försvara beslutet i domstol.
+    const a = analysera(
+      [
+        p({ datum: '2025-08-27', rubrik: 'Antagande av detaljplan', beslut: 'bifall' }),
+        p({
+          id: 'ks-2026-06-17-§479',
+          datum: '2026-06-17',
+          rubrik: 'Antagande av detaljplan - nu fråga om fullmakt',
+          beslut: 'beslut',
+        }),
+      ],
+      '2026-07-29',
+    )
+    expect(a.process?.beslutsdatum).toBe('2025-08-27')
+  })
+
   it('markerar enighet när votering, reservation och motförslag saknas', () => {
     const a = analysera([p({ beslut: 'bifall' })], '2026-07-28')
     expect(a.process?.enighet).toBe('enig')
