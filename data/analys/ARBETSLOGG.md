@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-07-31. **21 av 331** prognosvärda ärenden analyserade, 310 återstår.
+Uppdaterad 2026-07-31. **22 av 331** prognosvärda ärenden analyserade, 309 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -20,6 +20,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-00983 | 2026-07-31 | positiv | medium | — | Nytt hälso- och sjukvårdsavtal med tillhörande överenskommelser |
 | SLK-2025-01042 | 2026-07-31 | blandad | medium | — | Motion av Jessica Blixt (D) och Martin Wannholt (D) om att revidera Gö |
 | SLK-2025-01065 | 2026-07-31 | blandad | medium | — | Motion av Axel Darvik (L) om att bevara och utveckla kryssningsturisme |
+| SLK-2025-01087 | 2026-07-31 | blandad | medium | — | Motion av Rasmus Ragnarsson (SD), Agneta Kjaerbeck (SD) och Jörgen Fog |
 | SLK-2025-01290 | 2026-07-31 | blandad | medium | — | Inriktningsbeslut för fortsatt planering av Mjörn vattentäkt |
 | SLK-2025-01319 | 2026-07-31 | blandad | medium | — | Uppföljning av Göteborgs Stads systematiska miljöarbete 2025 |
 | SLK-2026-00123 | 2026-07-31 | blandad | medium | — | Kompletterande uppföljning per december 2025 |
@@ -43,7 +44,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2025-01087 | omstritt beslut | Motion av Rasmus Ragnarsson (SD), Agneta Kjaerbeck (SD) och Jörgen Fog |
 | SLK-2025-01335 | belopp nämns: 52.6 mnkr | Bemyndigande till exploateringsnämnden att förvärva fastigheten Kvislj |
 | SLK-2025-01264 | omstritt beslut | Uppföljning av två planer - Göteborgs Stads handlingsplan för att inga |
 | SLK-2025-01073 | omstritt beslut | Göteborgs Stads plan för arbetet mot hedersrelaterat våld och förtryck |
@@ -53,3 +53,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-00658 | belopp nämns: 150000 mnkr | Motion av Lena Ferm (SD) och Jörgen Fogelklou (SD) om en övergripande  |
 | SLK-2025-00548 | omstritt beslut | Äldreombudsmannens rapport 2025 |
 | SLK-2025-01278 | gardering om pengar i texten | Redovisning av uppdrag om modell för lekvärdesfaktorer |
+| SLK-2025-01247 | belopp nämns: 24 mnkr | Antagande av detaljplan för äldreboende med mera vid Doktor Allards Ga |
