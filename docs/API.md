@@ -208,6 +208,56 @@ GET /v1/{kommun}/stats
 
 ---
 
+## Analys per ärende
+
+Beslutets detaljsvar bäddar in analysen under `_embedded.related.analys`. Nyckeln
+är **ärendenumret**, inte paragrafen: samma ärende kan behandlas i flera §§ innan
+det avgörs, så alla paragrafer i kedjan får samma analys.
+
+```bash
+curl "localhost:3000/v1/goteborg/beslut/kf-2026-06-11-%C2%A7237" \
+  | jq '._embedded.related.analys'
+```
+
+```json
+{
+  "ärendeNr": "SLK-2025-00122",
+  "härledd": {
+    "process": { "enighet": "delad", "bordlagd_antal": 2, "handläggningsdagar": 78, "votering": { "ja": 43, "nej": 29 } },
+    "underlag": { "har_handling": true, "nämner_konsekvensanalys": false },
+    "ekonomi": { "belopp_mnkr": [], "finansiering_osäker": true, "citat": "…ännu oklart om…" }
+  },
+  "ai": {
+    "maskingenererad": true,
+    "modell": "claude-opus-5",
+    "granskad_av": null,
+    "riktning": "blandad",
+    "confidence": "medium",
+    "sammanfattning": "…",
+    "nyckelpunkter": [{ "ton": "varning", "text": "Beslutet innehåller inget belopp…" }],
+    "talar_för": [{ "text": "…", "källa": "kf-2026-06-11-§237" }],
+    "talar_emot": [{ "text": "…", "källa": "kf-2026-06-11-§229" }],
+    "beslutskvalitet": { "kostnad_redovisad": false, "finansiering_klar": false, "konsekvenser_utredda": true, "mål_mätbart": false, "uppföljning_bestämd": true },
+    "rekommendation": { "röst": "avstår", "motivering": "…", "skulle_ändras_av": "…" },
+    "analys_md": "## Vad som beslutades\n…",
+    "källor": [{ "typ": "internt", "ref": "kf-2026-06-11-§237", "vad": "beslutstext och tjänsteutlåtande" }]
+  }
+}
+```
+
+**`härledd` och `ai` är avsiktligt skilda fält.** Det första är härlett ur
+protokoll och handling — fakta. Det andra är skrivet av en språkmodell. En klient
+som slår ihop dem gör det medvetet, inte för att schemat bjöd in till det.
+
+`ai` är `null` tills en analys finns (i skrivande stund 1 av 1352 ärenden), och
+seedas bara om dess `källa_hash` fortfarande matchar ärendet — har protokollet
+eller handlingen ändrats sedan analysen skrevs hör texten inte längre ihop med
+sitt underlag och visas inte.
+
+Fältens innebörd och kraven på dem: `docs/SPEC-ANALYS.md`.
+
+---
+
 ## Metrics (demokratiska nyckeltal)
 
 ```

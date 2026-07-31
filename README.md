@@ -36,6 +36,8 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 | Bolagsengagemang (90/125 politiker) | ✅ Klar |
 | Anföranden & speaker attribution (Yttrandeprotokoll PDF, 41 möten) | ✅ Klar |
 | Conflict detection (framework) | ✅ Klar (väntar leverantörsdata) |
+| Beslutsanalys — process/underlag/ekonomi (1352 ärenden) | ✅ Klar |
+| AI-analys per beslut (subagent + granskningsgräns) | ✅ Klar (1 av 333 i kön) |
 | Docker + docker-compose | ✅ Klar |
 | GitHub Actions CI/CD | ✅ Klar |
 | PostgreSQL + seed + merge | ✅ Klar |
@@ -45,7 +47,7 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 | PixelRAG (visual PDF parsing) | 🔜 Nästa |
 | Frontend (Astro) | ✅ Klar |
 | Söksida (/goteborg/sok) | ✅ Klar |
-| Design System (16 components) | ✅ Klar |
+| Design System (24 komponenter + 10 diagram) | ✅ Klar |
 | Politiker-profiler (125 st) | ✅ Klar |
 | Demokratisk hälsa (Rice, Gini, Consensus) | ✅ Klar |
 | Deploy (Hetzner) | 🔜 Nästa |
@@ -82,6 +84,17 @@ npx tsx packages/pipeline/src/parsers/parse-budget.ts [pdf|url] [år] [styre]
 # Lägg PDF i data/inbox/, kör:
 npx tsx packages/pipeline/src/parsers/parse-inbox.ts
 
+# === Analys ===
+# Härledd analys per ärende — process, underlag, ekonomi. Ingen modell.
+pnpm --filter @daf/pipeline generate:analys
+
+# Uppslagsverk över allt material (verktyg åt analytiker-subagenten)
+K=packages/pipeline/src/analys/korpus.ts
+npx tsx $K ko 1                            # nästa ärende i analyskön
+npx tsx $K sok "klimatbudget utsläpp"      # sök i 46 700 poster
+npx tsx $K arende SLK-2025-00122           # hela handläggningskedjan
+npx tsx $K logg                            # → data/analys/ARBETSLOGG.md
+
 # === API ===
 pnpm api                  # → localhost:3000
 
@@ -115,6 +128,9 @@ curl localhost:3000/v1/goteborg/möten
 
 # Statistik
 curl localhost:3000/v1/goteborg/stats
+
+# Analys av ett ärende — härledda fakta + AI-analys, tydligt åtskilda
+curl "localhost:3000/v1/goteborg/beslut/kf-2026-06-11-%C2%A7237" | jq '._embedded.related.analys'
 
 # Fritextsökning — typade träffar med utdrag, score och frontend-URL
 # Söker även i anförandenas ordagranna text (utdraget blir ett citat)
@@ -157,6 +173,53 @@ ljudnedladdning eller transkribering.
 | Vilken § | Yttrandeprotokoll (PDF) |
 | Vad de sa (text) | Yttrandeprotokoll (PDF) |
 | Video-länk | goteborg.webbtvkf.se (officiell webb-TV) |
+
+## Beslutsanalys
+
+Protokollen svarar på **vad** som hände. Analyslagret svarar på **hur beslutet
+kom till** och **vad det kostar** — utan att blanda ihop det med **om beslutet
+var bra**, som är en bedömning och märks som en.
+
+```
+data/graf/*.json ──generate-analys.ts──→ data/analys/beslut.json
+                                          (1352 ärenden, deterministiskt)
+                                                 │
+        subagent + korpus.ts + webbsökning ──────┴──→ data/analys/ai/<nr>.json
+                                                          │
+                                    commit → CI (validering + seed) → deploy
+```
+
+**Analysenheten är ärendet, inte paragrafen.** 786 av 1352 ärenden behandlas i
+flera §§ — samma motion kan ligga bordlagd 17 gånger innan den avgörs. Kedjan
+följs över organgränsen: ett ärende som passerar KS och avgörs i KF blir en post.
+
+**Lager 1–2 använder ingen modell.** Enighet, bordläggningar, handläggningstid,
+reservationer, jäv, belopp och stadens egna formuleringar om osäker finansiering
+härleds ur protokoll och handlingar. Underlagsflaggorna är trelägda —
+`true` / `false` / `null`, där `null` betyder att handlingen inte är hämtad. Utan
+den skillnaden blir en lucka i vår egen pipeline till påståendet "beslutet saknar
+konsekvensanalys".
+
+**Lager 3 är en subagent**, inte en pipeline-passage: den söker själv i hela
+materialet (46 700 poster) och på webben och avgör vad den behöver läsa — en
+fråga om en detaljplan leder till andra källor än en fråga om en klimatbudget.
+Rollen och kraven ligger i `.claude/agents/beslutsanalytiker.md`.
+
+Varje AI-analys är märkt `maskingenererad`, med modell, datum och
+`granskad_av: null` tills en människa läst den. Märkningen står först i UI:t och
+kan inte fällas ihop. Varje påstående bär ärendenummer, nod-id eller URL, och
+källhänvisningarna länkar till besluten på sajten — en slutsats ska kunna
+bestridas i sak, inte på formen.
+
+Inget sammanvägt betyg. I stället fem ja/nej-frågor som ställs likadant till
+varje ärende (kostnad redovisad, finansiering klar, konsekvenser utredda, mål
+mätbart, uppföljning bestämd) och en ståndpunkt med fullmäktiges egna alternativ
+— bifall, avslag eller avstår — med motivering och vad som skulle få modellen att
+byta ståndpunkt. Ståndpunkten tas på beredning och rimlighet, aldrig på om
+politiken är önskvärd, och samma måttstock gäller varje förslag oavsett
+avsändare.
+
+Metodik, regler och granskningsgräns: **[docs/SPEC-ANALYS.md](docs/SPEC-ANALYS.md)**.
 
 ## Knowledge Graph
 
@@ -202,7 +265,8 @@ dearbetarfordig.se/
 │   ├── pipeline/           # Scrapers + parsers
 │   │   └── src/
 │   │       ├── scrapers/   # politiker.ts, webbtv-kf.ts, handlingar.ts
-│   │       └── parsers/    # parse-protokoll.ts (PDF → knowledge graph), parse-yttrandeprotokoll.ts (anföranden)
+│   │       ├── parsers/    # parse-protokoll.ts (PDF → knowledge graph), parse-yttrandeprotokoll.ts (anföranden)
+│   │       └── analys/     # korpus.ts — uppslagsverk över allt material, verktyg åt analytiker-subagenten
 │   ├── shared/             # Zod schemas, types
 │   ├── ui/                 # Design system
 │   └── web/                # Astro frontend (SSG)
@@ -210,7 +274,8 @@ dearbetarfordig.se/
 │   ├── politiker/          # goteborg.json (125 politiker)
 │   ├── beslut/             # kf-handlingar-2025.json (664 docs)
 │   ├── debatter/           # anföranden per möte + webbtv-kf-goteborg.json
-│   └── graf/               # kf-2025-11-27.json (knowledge graph)
+│   ├── graf/               # kf-2025-11-27.json (knowledge graph)
+│   └── analys/             # beslut.json (härlett) + ai/<ärendeNr>.json + ARBETSLOGG.md
 ├── .github/workflows/      # CI/CD
 ├── Dockerfile
 ├── docker-compose.yml
@@ -273,6 +338,8 @@ Anna Svensson (C)
 | `parse-yttrandeprotokoll` | Vid nytt möte | Efter scrape:handlingar |
 | `allabolag` | Kvartalsvis | Cron (1 jan, apr, jul, okt) |
 | `parse-inbox` | Vid ny begäran | Manuell (lägg PDF i data/inbox/) |
+| `generate:analys` | Efter varje parse-körning | Deterministisk, ~2 s |
+| AI-analys (subagent) | Ett ärende i taget | Manuell — se `data/analys/ARBETSLOGG.md` |
 
 ### Trigger-baserad uppdatering
 - Om protokoll-parser hittar `jävsanmälan` → automatisk rescan av den politikern på allabolag.se

@@ -1,0 +1,172 @@
+{
+  "ärendeNr": "SLK-2025-00122",
+  "rubrik": "Modell för Göteborgs Stads klimatbudget",
+  "maskingenererad": true,
+  "modell": "claude-opus-5",
+  "genererad": "2026-07-28",
+  "granskad_av": null,
+  "granskad_datum": null,
+  "källa_hash": "479fb80bed3baf7b",
+  "riktning": "blandad",
+  "confidence": "medium",
+  "sammanfattning": "Kommunfullmäktige beslutade 2026-06-11 § 237 att klimatbudget ska bli en årlig process i stadens ordinarie budgetarbete. Beslutet innehåller inga pengar, inga åtgärder och inga utsläppskrav. Samtidigt tas stadens tidigare definition bort, där klimatbudget var ett tak för hur mycket växthusgaser staden får släppa ut.",
+  "nyckelpunkter": [
+    {
+      "ton": "varning",
+      "text": "Beslutet innehåller inget belopp, inga åtgärder och inga utsläppskrav på någon enskild nämnd."
+    },
+    {
+      "ton": "fakta",
+      "text": "Det tidigare taket för hur mycket staden får släppa ut tas bort och ersätts av en årlig analys av hur nära målet åtgärderna tar staden."
+    },
+    {
+      "ton": "styrka",
+      "text": "Underlaget skriver öppet ut vilka andra modeller som prövades, varför de valdes bort och vilka risker förvaltningen själv ser."
+    },
+    {
+      "ton": "fakta",
+      "text": "Modellen gäller först ett fåtal nämnder och bolag. De första klimatbudgetarna ska finnas i budgetarna för 2028."
+    }
+  ],
+  "talar_för": [
+    {
+      "text": "Tre alternativa modeller redovisas öppet i underlaget med skälen till att de valdes bort, vilket gör beslutet möjligt att granska i sak.",
+      "källa": "kf-2026-06-11-§237"
+    },
+    {
+      "text": "Förvaltningen skriver själv ut invändningarna: oro för resurskrav, och att utsläppseffekter är svåra att beräkna i tidiga skeden.",
+      "källa": "kf-2026-06-11-§237"
+    },
+    {
+      "text": "Arbetet läggs i den ordinarie budgetprocessen och i miljöledningen, inte i ett nytt system vid sidan av de befintliga.",
+      "källa": "kf-2026-06-11-§237"
+    },
+    {
+      "text": "Miljö- och klimatnämnden har lämnat överskott varje år 2022–2025, vilket gör det trovärdigt att första steget ryms i befintlig ram.",
+      "källa": "utfall-nämnd-miljo-och-klimatnamnden-2022 t.o.m. -2025"
+    }
+  ],
+  "talar_emot": [
+    {
+      "text": "Beslutet innehåller inget belopp, och kostnaden för de nämnder och bolag som ska utföra arbetet är inte beräknad någonstans i materialet.",
+      "källa": "kf-2026-06-11-§237"
+    },
+    {
+      "text": "Miljöförvaltningen skriver att nästa steg inte bedöms rymmas inom befintliga ramar, utan att någon summa anges.",
+      "källa": "kf-2026-06-11-§237"
+    },
+    {
+      "text": "Den gamla definitionen var ett tak som gick att överskrida. Den nya modellen har inget sådant tak att hålla någon ansvarig för.",
+      "källa": "kf-2024-11-21-§462 (SLK-2024-00378)"
+    },
+    {
+      "text": "Stadens budget 2026 kräver mindre administration, inklusive lednings- och styrningsarbete. Ett nytt årligt processled går åt motsatt håll.",
+      "källa": "kf-2026-06-11-§229"
+    }
+  ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": false,
+    "finansiering_klar": false,
+    "konsekvenser_utredda": true,
+    "mål_mätbart": false,
+    "uppföljning_bestämd": true
+  },
+  "rekommendation": {
+    "röst": "avstår",
+    "motivering": "Öppen beredning: alternativ, egna invändningar och konsekvenser i tre dimensioner redovisas, och uppföljningen är tidsatt. Men kostnaden hos de nämnder och bolag som ska utföra arbetet är inte beräknad, och det mätbara tak som upphävs ersätts inte av någon nivå att pröva modellen mot.",
+    "skulle_ändras_av": "Bifall om en beräknad kostnad för de sex utpekade organisationerna och för steg två redovisas, eller om en mätbar nivå att följa upp mot fastställs. Avslag om klimatbokslutet 2027 saknar utsläppseffekt per åtgärd och ansvarig nämnd."
+  },
+  "analys_md": "## Vad som beslutades\n\nKommunfullmäktige godkände 2026-06-11 § 237 (SLK-2025-00122) en modell för Göteborgs Stads klimatbudget och antecknade delrapporteringen av det uppdrag om implementering av klimatbudget som kommunstyrelsen och miljö- och klimatnämnden fick i stadens budget 2025.\n\nBeslutet innehåller inga anslag, inga åtgärder och inga utsläppskrav på någon enskild nämnd. Det fastställer en process: berörda nämnder och styrelser ska ta fram klimatbudgetar i form av effekt- och kostnadsberäknade klimatåtgärder som en del av sina ordinarie budgetar, och miljö- och klimatnämnden ska årligen ta fram ett centralt klimatbokslut som bifogas stadsledningskontorets förutsättningar för budget. Eftersom förutsättningarna lämnas i maj måste nämnden fatta beslut om sitt underlag senast i mars (stadsledningskontorets tjänsteutlåtande 2026-04-09, i kf-2026-06-11-§237).\n\nI ett första steg omfattas stadsfastighetsnämnden, stadsmiljönämnden, exploateringsnämnden, nämnden för kretslopp och vatten och Göteborg Energi AB. Stadsbyggnadsnämnden tas med från början men hur den ska inkluderas \"kommer utredas vidare\". Renova AB kräver en process med övriga ägarkommuner innan bolaget kan omfattas. Avgränsningen är växthusgasutsläpp inom Göteborgs geografiska område — undantaget raffinaderi- och bitumenverksamheterna — plus utsläpp från kommunorganisationens inköp. Tidplanen är att de första klimatbudgetarna finns i budgetarna för 2028 och att alla delar av modellen är på plats 2029 (samma tjänsteutlåtande).\n\nDen sakligt största förändringen står inte i beslutssatserna. Modellen upphäver kommunfullmäktiges tidigare definition från 2024-11-21 § 462 (SLK-2024-00378), att \"Göteborgs Stads klimatbudget är den kvarvarande utsläppsvolym av växthusgaser som staden har tillgång till fram till ett visst målår\". Det var en utsläppsbudget med tak. Den ersätts av C40:s processdefinition, där fokus enligt tjänsteutlåtandet i stället ligger på att \"årligen analysera hur staden kan nå en beslutad målnivå\". Miljö- och klimatnämnden upphävde definitionen 2026-03-25 § 51, med stöd av det mandat att justera metodik och definition som fullmäktige gav nämnden i punkt 4 i § 462. Formellt korrekt — men en läsare som bara läser beslutssatserna i § 237 ser inte att staden samtidigt slutar mäta sin kvarvarande utsläppsvolym.\n\n## Hur det gick till\n\nÄrendet bordlades i kommunstyrelsen 2026-05-06 § 325 på förslag av Axel Josefson (M) och tillstyrktes 2026-05-20 § 378 utan omröstning, med reservation från Jörgen Fogelklou (SD). Handläggningen från första behandling till fullmäktigebeslut tog 36 dagar.\n\nI fullmäktige gick beslutet till huvudvotering: 43 ja mot 29 nej, 9 avstod. Röstkopplingarna i kf-2026-06-11-§237 ger fördelningen ja S 22, V 13, MP 5, C 3; nej M 15, L 5, D 5, KD 4; avstår SD 9. Det är samma blockmönster som i de två närmast föregående klimatärendena: klimatomställningsanalysen 2025-12-11 § 543 (43–28, 9 avstår) och uppföljningen av miljö- och klimatprogrammet 2026-02-26 § 48 (43–29, 9 avstår). Frågan avgörs alltså inte av det enskilda ärendets sakinnehåll utan följer en fast linje.\n\nTre yrkanden låg på bordet. Majoritetslinjen var bifall till stadsledningskontorets förslag. Yrkandet från D, M, L och KD (2026-05-13) ville inte godkänna modellen men gav i punkt 2 kommunstyrelsen och miljö- och klimatnämnden i uppdrag att utveckla den så att \"övriga miljöfrågor, sociala frågor, ekonomi, civil beredskap och resiliens får lika stor tyngd\". Det är ett återremissliknande yrkande, inte ett avslag på klimatbudget som verktyg. Yrkandet från SD (2026-04-29) var ett faktiskt avslag: modellen \"innebär att ett nytt styrsystem etableras vid sidan av befintliga processer\", nyttan är inte visad, och modellen utgår från ett miljö- och klimatprogram som partiet inte står bakom.\n\nEtt skifte är värt att notera, eftersom det gäller samma fråga. När grunden lades 2024 var motståndet smalare: i kommunstyrelsen 2024-09-11 § 703 yrkade både Karin Pleijel (MP) och Axel Josefson (M) bifall, och i fullmäktige 2024-11-21 § 462 yrkade Patrik Höstmad (D) bifall till kommunstyrelsens förslag. Bara SD reserverade sig. Två år senare yrkar samma partier avslag på modellen. Deras eget angivna skäl är inte att klimatbudget är fel verktyg utan att modellen bygger på miljö- och klimatprogrammet i nuvarande form och att andra dimensioner väger för lätt.\n\nDebatten omfattade 39 anföranden (anforande-2026-06-11-352 till -390). Sakinnehållet i invändningarna: Patrik Höstmad (D) citerade tjänsteutlåtandets egen riskskrivning och argumenterade för att ensidigt kvantifierbara mått blir styrande på bekostnad av svårmätta kvaliteter — \"vi måste förstå konsekvenserna av dem innan vi stirrar oss blinda bara på CO2-utsläppen\". Han medgav samtidigt uttryckligen att förslaget innebär mer administration och att partiet inte motsätter sig det: \"däremot säger vi inte att vi är negativa till den ökade byråkratin\". Emma Altenhammar (SD) argumenterade att förvaltningarnas kärnuppdrag trängs undan. Axel Darvik (L) tillförde ett eget sakargument som inte fanns i yrkandetexten: att beredskap och resiliens ger mer nytta för medborgarna på kort och medellång sikt än utsläppsminskningar i en enskild kommun. Emmyly Bönfors (C) invände i sak att byråkratiargumentet inte håller eftersom arbetet läggs i det ordinarie budgetarbetet, och att modellen inte hindrar teknikutveckling. Helena Norin (MP) invände att en utvidgning till alla miljöfrågor är metodmässigt orimlig och exemplifierade med kemikalieområdets datamängder. En betydande del av debattens senare hälft handlade om skolmatens kvalitet och proteininnehåll — relevant för legitimitetsargumentet, men utan koppling till det som beslutades.\n\nBeredningen har en tydlig svaghet: ingen remiss. Den deterministiska analysen av ärendet noterar att handlingen inte nämner remiss, konsekvensanalys, riskanalys, barnperspektiv eller jämställdhetsanalys. Underlaget bygger i stället på dialog med de sex organisationer som pekas ut i steg ett. Det är rimligt för ett processbeslut, men det innebär att de nämnder som kommer att omfattas i senare steg inte har hörts.\n\n## Underlaget\n\nStadsledningskontorets tjänsteutlåtande 2026-04-09 vilar på miljöförvaltningens tjänsteutlåtande 2026-03-13 och miljö- och klimatnämndens beslut 2026-03-25 § 51 (samtliga i kf-2026-06-11-§237).\n\nDet som är starkt: beredningen redovisar öppet vilka alternativ som prövades och varför de valdes bort. Oslos modell — klimatbudgeten som en integrerad del av kommunfullmäktiges budgethandling — bedömdes \"inte vara möjlig inom ramen för stadens politiska budgetprocess\", och skulle dessutom riskera att begränsa klimatbudgeten till de åtgärder som explicit lyfts i budgeten. Alternativ två, centralt fastställda utsläppskrav per nämnd, \"stärker ansvarstagandet på nämndnivå, men riskerar otydlighet\". Alternativ tre, enbart inom miljöledningssystemet, \"riskerar en svagare koppling till den politiska budgetstyrningen\". Den föreslagna modellen är en kombination. Att avvägningarna skrivs ut gör beslutet granskningsbart på ett sätt som inte är självklart.\n\nDet som också är starkt: förvaltningen skriver ut invändningarna mot sitt eget förslag. Dialogerna visade \"en generellt positiv inställning\", men \"viss oro har uttryckts kring resurskrav och administrativ belastning\", risken \"bedöms generellt vara större i förvaltningar än i bolagen\", och effektberäkning \"bedöms vara särskilt svårt ... i tidiga skeden, särskilt inom stadsbyggnadsområdet där påverkan ofta är indirekt och åtgärderna i hög utsträckning har en möjliggörande karaktär\". Underlaget varnar alltså själv för att modellens kärnmekanism är svagast i den nämnd som togs med av principiella skäl.\n\nDet som saknas: vilka kommuner dialogen fördes med, och vad de rapporterade. Tjänsteutlåtandet skriver att \"dialog har förts med kommuner som redan har infört klimatbudget för att ta del av deras erfarenheter\", men varken kommunerna eller erfarenheterna redovisas. Eftersom hela modellvalet motiveras med andras erfarenheter är det den enskilt största luckan i beredningsredovisningen. En läsare kan inte kontrollera vad Göteborg lärde sig.\n\nEn detalj som säger något om noggrannheten: samma fullmäktigebeslut refereras i tjänsteutlåtandet både som \"2026-02-26 § 481\" och som \"2026-02-26 § 48\". Rätt är § 48 (kf-2026-02-26-§48). Trivialt i sak, men det är det dokument som ska bära hela styrkedjan och som beslutssats 1 hänvisar till i sin helhet.\n\n## Pengarna\n\nBeslutet innehåller inget belopp. Den deterministiska analysen av ärendet returnerar en tom lista över belopp och markerar finansieringen som osäker.\n\nStaden skriver ut osäkerheten själv, men de två tjänsteutlåtandena säger inte riktigt samma sak. Stadsledningskontoret skriver att införandet \"inledningsvis bedöms kunna hanteras inom befintliga ramar genom omprioriteringar, men ökade krav väntas när fler nämnder och styrelser inför klimatbudget\", och att stödet \"först i de senare stegen kommer att kräva ytterligare resurser\". Miljöförvaltningen är rakare: \"Då antalet nämnder och styrelser som inför klimatbudget ökar kommer miljöförvaltningens behov av resurser att öka, och bedöms inte rymmas inom befintliga ramar.\" Hur stort behovet blir \"kommer utredas i det fortsatta arbetet, och föreslås hanteras i förvaltningens behovsutredning\". Steg ett är alltså finansierat, steg två är obudgeterat och obeloppsatt — och det är steg två som gör modellen till en stadsövergripande styrning.\n\nStorleksordning ur stadens eget utfall: miljö- och klimatnämndens kommunbidrag var 105 mnkr 2022, 112 mnkr 2023, 129 mnkr 2024 och 143 mnkr 2025, med resultat +9, +3, +6 respektive +10 mnkr — i balans varje år (utfall-nämnd-miljo-och-klimatnamnden-2022 till -2025). Nämnden har alltså vuxit med ungefär en tredjedel på tre år och samtidigt lämnat överskott varje år. Det gör påståendet att steg ett ryms inom befintlig ram trovärdigt i storleksordning. Det säger däremot ingenting om kostnaden hos de sex utpekade nämnderna och bolagen, som inte är beräknad någonstans i materialet — och det är där arbetet med att ta fram och följa upp klimatbudgetarna faktiskt ska utföras.\n\nDet finns en motstående post i stadens egen ekonomiska styrning. Budget 2026 kräver \"en fortsatt minskning av administrativa arbetsuppgifter och kostnader\" och anger uttryckligen att \"besparingen ska även innefatta lednings- och styrningsarbete\" (kf-2026-06-11-§229, delårsrapport mars 2026, avsnitt 6.7). Samma rapport konstaterar att antalet handläggare ökar och att nämnderna motiverar det med utökade uppdrag inom bland annat miljöfrågor. Klimatbudgetmodellen antogs på samma sammanträde som den rapporten behandlades.\n\n## Vad vi kan vänta oss\n\nDet här avsnittet är min bedömning, inte materialets.\n\nDet rimliga att vänta sig av § 237 är bättre beslutsunderlag och tydligare synlighet för gapet mellan mål och åtgärder — inte utsläppsminskningar som går att tillskriva beslutet. Skälet är att beslutet inte innehåller några åtgärder, inga pengar och inga bindande utsläppskrav.\n\nJämförelsefallet är Oslo. Det delar det väsentliga med Göteborgs modell: samma metodfamilj (tjänsteutlåtandet skriver att C40:s metod \"i praktiken [kan] ses som samma arbetssätt\" som Oslos), integration i den finansiella budgetprocessen, årlig effektbedömning av enskilda åtgärder, och visualisering av gapet till målåret. Det skiljer sig på tre punkter som spelar roll: Oslo lägger klimabudsjettet i själva budgethandlingen — precis det alternativ Göteborg förkastade som omöjligt inom stadens politiska budgetprocess; Oslo har ett skarpare mål (−95 procent till 2030 mot 2009); och Oslos utsläppsprofil domineras av vägtrafik och avfallsförbränning, inte av industri av Göteborgs slag. Utfallet efter snart tio år med instrumentet: Oslos utsläpp låg 2024 omkring 32 procent under 2009 års nivå, och stadens egen klimabudsjettanalys anger att redan beslutade åtgärder räcker till omkring 63 procents minskning till 2030, medan samtliga identifierade möjliga åtgärder skulle ge upp mot 79 procent — mot målet 95 (klimaoslo.no). Min slutsats: en klimatbudget mäter och synliggör gapet, den stänger det inte. Den som väntar sig att § 237 böjer Göteborgs utsläppskurva kommer att bli besviken. Det som ska prövas är om beslutsunderlagen blir bättre.\n\nEffektsiffrornas kvalitet är den punkt där modellen avgörs, och båda städerna vet om det. Oslo kommunerevisjon bedömer i rapport 5/2025 att klimabudsjettet ger god styrinformation på flera områden, men att beräkningarna av åtgärdernas utsläppseffekt och av referensbanan har betydande osäkerhet och bör läsas som riktning och storleksordning snarare än som prognoser; för en del styrmedel är dataunderlaget för svagt eller effekten över huvud taget inte kvantifierbar. Göteborgs eget underlag säger samma sak i förväg om stadsbyggnadsområdet och tidiga skeden. Eftersom modellens kärna är just effekt- och kostnadsberäknade åtgärder är det här den lyckas eller misslyckas — inte i vilka nämnder som pekas ut.\n\nUppgiftens storleksordning i Göteborg, ur stadens egen uppföljning: de territoriella utsläppen minskade från 4,3 till 3,8 ton koldioxidekvivalenter per invånare mellan 2018 och 2022, mot ett målvärde på 1,2 ton 2030, och målet kräver minst 10,3 procents minskning per år territoriellt och 7,6 procent för de konsumtionsbaserade utsläppen (kf-2026-02-26-§48). Stadens egen bedömning av miljömålet är att det \"kräver systemomställning\". Ingen styrmodell producerar den takten av sig själv, och ingenting i tjänsteutlåtandet påstår det heller.\n\nUppsala är den närmaste svenska parallellen: en klimatbudget integrerad i kommunens Mål och budget, avseende 2026–2028 (uppsala.se). Men den redovisar ännu inga utfall. Den är därför bakgrund, inte ett jämförelsefall med resultat att luta sig mot.\n\nForskningsläget ger inte stöd för en stark effektförväntan. Brown och Hoti (2025, Public Finance and Management) jämför klimatbudgetering i C40-städer och drar slutsatsen att den fungerar bäst när den behandlas som en reform av den offentliga ekonomistyrningen snarare än som ett miljötillägg — men studien redovisar inte empiriska belägg för utsläppseffekt. Jag har sökt efter en utvärdering som visar att klimatbudget enligt C40:s modell i sig sänker utsläpp och inte hittat någon.\n\nOm administrationen är min bedömning att den ökar, men måttligt och koncentrerat: sex organisationer plus miljöförvaltningen och delvis stadsledningskontoret, inte hela staden. Att den ökar är inte omtvistat mellan blocken — stadsledningskontoret skriver att arbetet \"kommer att medföra behov av arbetsinsatser\", och Höstmad (D) sade det rakt ut i debatten. Tvisten gäller om ökningen är värd det.\n\n## Det som talar emot\n\nFem invändningar som håller, och en som inte gör det.\n\n**Risken för ensidighet är erkänd men inte hanterad.** Stadsledningskontoret skriver själv att \"det finns en risk att ett alltför ensidigt fokus på kvantifierbara klimateffekter och resursbehov leder till att åtgärder som inte kräver ekonomiska medel inte beaktas tillräckligt, eller till att andra miljönyttor inte värderas i beslutsunderlag\", och att systematiken med kostnadsbedömningar \"riskerar att leda till ett större fokus på kostsamma och tekniska lösningar som i sin tur riskerar att vara mindre inkluderande\". Det är precis vad avslagsyrkandet bygger på, och det citeras ordagrant i yrkandet. Risken är alltså erkänd i underlaget, men modellen innehåller ingen motvikt mot den — inget krav på att åtgärder utan kostnad ska redovisas jämsides, ingen social konsekvensbedömning i klimatbokslutet. Det är en verklig svaghet i det som beslutades, inte bara ett politiskt argument.\n\n**Invändningen om förskjuten beslutsmakt.** I ärendet om miljömålsuppföljningen formulerades den så här: att bygga in miljöåtgärder i styr- och budgetprocessen \"på ett sätt som gör dem mer bindande ... riskerar att flytta makt från politiska prioriteringar till tjänstemannastyrda processer och minska partiernas faktiska handlingsutrymme i budgetarbetet\" (tilläggsyrkande D, M och KD 2026-01-22, i kf-2026-02-26-§48). Modellen lägger ett tjänstemannaframtaget klimatbokslut som obligatoriskt underlag i budgetberedningen. Motargumentet i sak är att underlaget är rådgivande, att klimatbudgeten beslutas av nämnd eller styrelse som del av budget eller affärsplan, och att stadsledningskontoret uttryckligen skriver att underlaget \"inte ses som ett sätt att identifiera behov av nya resurser\". Invändningen är principiellt giltig men träffar inte modellen som den är beskriven — den ger inte tjänstemännen beslutsrätt.\n\n**Staden har en uttalad linje åt motsatt håll.** Kommunfullmäktige har två gånger reviderat riktlinjen för styrande dokument med motivet att minska styrtyngd, uppföljningstryck och administration (kf-2023-10-12-§17 och kf-2025-06-18-§382), och budget 2026 kräver minskad administration inklusive lednings- och styrningsarbete (kf-2026-06-11-§229). Ett nytt årligt processled i sex nämnder och bolag går i motsatt riktning. Modellen är visserligen konstruerad för att undvika ett sidospår — den läggs i befintliga budget- och miljöledningsprocesser, och det enda styrdokument som behöver ändras är anvisningen för systematisk miljöledning — men det är en avvägning som gjorts, inte en icke-fråga.\n\n**Premissen att styrningen inte fungerar har inte stöd i revisionen.** Stadsrevisionen bedömde i november 2025 att kommunstyrelsen leder och samordnar arbetet med planer och program på ett ändamålsenligt sätt, och att arbetssätten har utvecklats \"i syfte att minska antalet styrsignaler i organisationen\" (revision-styrning-genom-planer-och-program). Argumentet att en ny modell behövs för att den befintliga styrningen brister har alltså inte stöd i den senaste externa granskningen. Det som revisionen inte prövade är just kopplingen mellan miljömål och budget, vilket är det § 237 adresserar.\n\n**Beslutet river upp ett tak utan att ersätta det med ett annat.** Den definition som upphävs — kvarvarande utsläppsvolym fram till ett målår — var en storhet som går att överskrida och därmed att hålla någon ansvarig för. Den nya modellen har inget sådant tak; den analyserar årligen hur nära målnivån åtgärderna tar staden. Tjänsteutlåtandet motiverar bytet med att den gamla definitionen \"främst kan användas för uppföljning och kommunikation\" och att den nya i högre grad skapar förutsättningar för ökad takt. Det är ett rimligt argument, men effekten är att ett hårt mått byts mot ett mjukare. Att förvaltningen dessutom noterar att den inte hittat något exempel på en stad som både arbetar med klimatbudget enligt C40 och redovisar den återstående utsläppsbudgeten är en beskrivning av praxis, inte ett skäl att låta bli.\n\n**Invändningen som inte håller:** att modellen skulle vara \"ett nytt styrsystem vid sidan av befintliga processer\" (SD:s yrkande 2026-04-29). Modellen är uttryckligen konstruerad som det motsatta — inlagd i den ordinarie budgetprocessen och i det systematiska miljöledningsarbetet, med stegvis införande i ett fåtal organisationer. Yrkandet bemöter inte den konstruktionen.\n\n**Vad som skulle få mig att bedöma annorlunda.** Om klimatbokslutet 2027 levererar effektberäkningar som håller för de stadsutvecklande nämnderna — där både Göteborgs eget underlag och Oslos revision säger att det är svårast — vore det starkare belägg för modellen än något som finns i dagens handlingar. Omvänt: om klimatbudgetarna 2028 i praktiken blir listor över redan beslutade åtgärder utan att någon prioritering ändras, är beskrivningen att modellen huvudsakligen tillför administration den mer träffande.\n\n**Vad jag sökt på för att hitta motstående belägg.** I korpus: ärendena SLK-2025-00122 och SLK-2024-00378 i sin helhet, sökningar på \"klimatrådet\", \"klimatomställningsanalys\", \"administrativ belastning nämnder\", \"minska antalet styrande dokument\", samt revisionsrapporter på \"styrning\", \"miljö\" och \"budgetprocess\". På webben: utvärderingar av Oslos klimabudsjett, Oslo kommunerevisjons granskningar, forskning om climate budgeting i C40-städer, och svenska kommuners klimatbudgetar. Jag har inte hittat någon utvärdering som visar att en klimatbudget enligt C40:s modell i sig sänker utsläpp — och inte heller någon som visar att den kostar mer än marginellt. Osäkerheten går alltså åt båda hållen.\n\n## Så kan du kontrollera detta senare\n\n- **Mars 2027:** fattar miljö- och klimatnämnden beslut om ett centralt klimatbokslut i tid för att hinna in i stadsledningskontorets förutsättningar för budget, som lämnas i maj? Tidpunkterna står i tjänsteutlåtandet 2026-04-09. Missas de faller kedjan för det året.\n- **Klimatbokslutets innehåll:** finns en åtgärdslista med ansvarig nämnd och beräknad utsläppseffekt per åtgärd, plus en gapkurva mot målnivån 2030? Utan effekt per åtgärd är det inte en klimatbudget enligt den modell som beslutades — det är en utsläppsredovisning.\n- **Budget 2028** för stadsfastighetsnämnden, stadsmiljönämnden, exploateringsnämnden, nämnden för kretslopp och vatten och Göteborg Energi AB: innehåller de en klimatbudget med kostnadssatta åtgärder? Det är beslutets egen tidplan.\n- **Stadsbyggnadsnämnden:** redovisas hur nämnden ska inkluderas, eller står frågan kvar som \"utreds vidare\"? **Renova AB:** har processen med övriga ägarkommuner startat?\n- **Miljöförvaltningens behovsutredning:** vilket belopp begärs för klimatbudgetstödet när steg två närmar sig? Det är den siffra som saknas i dagens beslut, och den enda som gör det möjligt att pröva om \"inom befintliga ramar\" höll.\n- **Kommande uppföljningar av miljö- och klimatprogrammet:** territoriella utsläpp per invånare (3,8 ton 2022, mål 1,2 ton 2030) och konsumtionsbaserade (8,4 ton 2022). Tillskriv inte förändringen klimatbudgeten — det går inte att särskilja från konjunktur, elektrifiering och nationell politik. Men om takten inte närmar sig 10,3 procent per år har modellen inte löst det den motiverades med.\n- **Delårsrapporternas avsnitt om minskad administration** (kf-2026-06-11-§229 avsnitt 6.7 är mallen): rapporterar de sex utpekade nämnderna och bolagen klimatbudgetarbetet som en kostnadsökning, och i så fall hur stor?\n- **Stadsrevisionen:** en granskning av klimatbudgetens styrinformation, motsvarande Oslo kommunerevisjons rapport 5/2025, vore det direkta provet på om modellen ger det den lovar.\n",
+  "källor": [
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§237",
+      "vad": "beslutet, votering 43–29 med 9 avstående, stadsledningskontorets tjänsteutlåtande 2026-04-09, miljöförvaltningens tjänsteutlåtande 2026-03-13, miljö- och klimatnämnden 2026-03-25 § 51, yrkande D/M/L/KD 2026-05-13, yrkande SD 2026-04-29"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2026-05-06-§325",
+      "vad": "bordläggning på förslag av Axel Josefson (M)"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2026-05-20-§378",
+      "vad": "kommunstyrelsens tillstyrkan utan omröstning, reservation SD"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2026-06-11-352 t.o.m. -390",
+      "vad": "39 anföranden i fullmäktigedebatten; sakargumenten från D, SD, MP, C, V, S, L och KD"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2024-11-21-§462 (SLK-2024-00378)",
+      "vad": "den tidigare definitionen av klimatbudget som kvarvarande utsläppsvolym, samt mandatet till miljö- och klimatnämnden att justera metodik och definition"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2024-09-11-§703",
+      "vad": "kommunstyrelsens tillstyrkan 2024; MP och M yrkade då bifall till samma spår"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-02-26-§48",
+      "vad": "uppföljning av miljö- och klimatprogrammet: territoriella utsläpp 4,3→3,8 ton CO2e/invånare 2018–2022 mot mål 1,2 ton 2030, krav −10,3 %/år; invändningen om förskjuten beslutsmakt i tilläggsyrkandet från D, M och KD 2026-01-22"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2025-12-11-§543",
+      "vad": "klimatomställningsanalysen, antecknad efter votering 43–28 med 9 avstående — samma blockmönster"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§229",
+      "vad": "delårsrapport mars 2026 avsnitt 6.7: budget 2026 kräver minskad administration inklusive lednings- och styrningsarbete; handläggare ökar bl.a. på grund av utökade uppdrag inom miljöfrågor"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2023-10-12-§17 och kf-2025-06-18-§382",
+      "vad": "riktlinjen för styrande dokument, reviderad två gånger med motivet att minska styrtyngd och administration"
+    },
+    {
+      "typ": "internt",
+      "ref": "revision-styrning-genom-planer-och-program",
+      "vad": "stadsrevisionen 2025-11-18: kommunstyrelsen leder och samordnar planer och program på ett ändamålsenligt sätt, arbetssätten utvecklas för att minska antalet styrsignaler"
+    },
+    {
+      "typ": "internt",
+      "ref": "utfall-nämnd-miljo-och-klimatnamnden-2022 t.o.m. -2025",
+      "vad": "miljö- och klimatnämndens kommunbidrag 105/112/129/143 mnkr och resultat +9/+3/+6/+10 mnkr — i balans varje år"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.klimaoslo.no/rapport/klimabudsjett-2024-oslo/muligheter-for-maloppnaelse-mot-2030/",
+      "vad": "Oslo: beslutade åtgärder ger ca 63 % minskning till 2030, alla identifierade åtgärder upp mot 79 %, mot målet 95 %"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.klimaoslo.no/klimagassutslippene-i-oslo-ned-minst-30-prosent-siden-2009/",
+      "vad": "Oslos faktiska utsläpp 2024 ca 32 % under 2009 års nivå efter snart tio år med klimabudsjett"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.oslo.kommune.no/politikk/budsjett-regnskap-og-rapportering/rapporter-fra-kommunerevisjonen/rapport-5-2025-klimabudsjett-og-styringsinformasjon",
+      "vad": "Oslo kommunerevisjon rapport 5/2025: klimabudsjettet ger god styrinformation på flera områden, men effektberäkningarna har betydande osäkerhet och bör läsas som riktning och storleksordning"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.uppsala.se/kommun-och-politik/kommunens-mal-och-budget/mal-och-budget/klimatbudget/",
+      "vad": "Uppsalas klimatbudget 2026–2028, integrerad i Mål och budget — svensk parallell utan redovisade utfall ännu"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://journals.sagepub.com/doi/10.1177/15239721251367753",
+      "vad": "Brown & Hoti (2025), Public Finance and Management: jämförelse av klimatbudgetering i C40-städer; normativ, redovisar inga empiriska belägg för utsläppseffekt"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://klimatkommunerna.se/kunskapsbank/planer-och-strategier/klimatbudgetar/",
+      "vad": "Klimatkommunernas definitioner av koldioxidbudget och klimatbudget — den källa tjänsteutlåtandet hänvisar till för begreppsskillnaden"
+    }
+  ]
+}

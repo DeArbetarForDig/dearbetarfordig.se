@@ -167,3 +167,100 @@ export const GrafFilSchema = z
   })
   .passthrough()
 export type GrafFil = z.infer<typeof GrafFilSchema>
+
+/**
+ * En AI-analys skriven av beslutsanalytiker-subagenten till
+ * data/analys/ai/<ärendeNr>.json. Schemat är blockande i CI: en subagent som
+ * skriver trasig JSON ska stoppa bygget, inte seedas till produktion.
+ *
+ * `maskingenererad` är literal true och `granskad_*` finns alltid med — märkningen
+ * av att texten är maskinskriven och ogranskad får inte kunna falla bort på vägen
+ * till läsaren.
+ */
+export const AiAnalysSchema = z.object({
+  ärendeNr: z.string().regex(/^[A-ZÅÄÖ]{2,4}-\d{4}-\d{5}$/),
+  rubrik: z.string().min(1),
+  maskingenererad: z.literal(true),
+  modell: z.string().min(1),
+  genererad: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  granskad_av: z.string().nullable(),
+  granskad_datum: z.string().nullable(),
+  källa_hash: z.string().min(1),
+  riktning: z.enum(['positiv', 'negativ', 'blandad', 'oklar']),
+  confidence: z.enum(['low', 'medium', 'high']),
+  sammanfattning: z.string().min(1).max(400),
+  /**
+   * Läsarens första lager: det man måste veta även om man inte läser brödtexten.
+   * Teckengränserna är hårda med flit — "fatta dig kort" i en prompt ger inte
+   * korta punkter, en maxlängd gör det. En invånare ska kunna skumma fliken på
+   * tjugo sekunder och ändå ha fått det väsentliga.
+   */
+  nyckelpunkter: z
+    .array(
+      z.object({
+        // varning = något läsaren bör se upp med, styrka = något som håller,
+        // fakta = neutralt men avgörande för att förstå beslutet.
+        ton: z.enum(['varning', 'styrka', 'fakta']),
+        text: z.string().min(1).max(160),
+      }),
+    )
+    .min(2)
+    .max(4),
+  talar_för: z
+    .array(z.object({ text: z.string().min(1).max(180), källa: z.string().min(1) }))
+    .max(4),
+  talar_emot: z
+    .array(z.object({ text: z.string().min(1).max(180), källa: z.string().min(1) }))
+    .max(4),
+  /**
+   * Beslutskvalitet — fem ja/nej-frågor om hur beslutet är berett, besvarade ur
+   * handlingen. Inte tyckande: varje svar går att slå upp och bestrida, och det
+   * är samma fem frågor för varje ärende oavsett vem som lagt förslaget.
+   *
+   * Medvetet inget sammanvägt betyg. Ett tal (”6,4 av 10”) går varken att
+   * kontrollera eller argumentera emot och döljer var osäkerheten sitter;
+   * fem kryss visar precis vad som saknas.
+   */
+  beslutskvalitet: z.object({
+    kostnad_redovisad: z.boolean(),
+    finansiering_klar: z.boolean(),
+    konsekvenser_utredda: z.boolean(),
+    mål_mätbart: z.boolean(),
+    uppföljning_bestämd: z.boolean(),
+  }),
+  /**
+   * Modellens egen ståndpunkt, med fullmäktiges egna alternativ. Att ta
+   * ställning är mer granskningsbart än en poäng — ett "avslag, därför att X"
+   * går att motbevisa i sak.
+   *
+   * Ståndpunkten tas på beredning och rimlighet — underlag, finansiering,
+   * målkonflikter, mätbarhet — aldrig på om politiken är önskvärd. Samma
+   * måttstock för varje förslag oavsett avsändare; annars blir plattformen en
+   * åsiktsmaskin i stället för ett granskningsverktyg.
+   */
+  rekommendation: z.object({
+    röst: z.enum(['bifall', 'avslag', 'avstår']),
+    motivering: z.string().min(1).max(300),
+    // Vad som skulle få modellen att byta ståndpunkt. En bedömning som inte kan
+    // falsifieras är en åsikt, inte en analys.
+    skulle_ändras_av: z.string().min(1).max(300),
+  }),
+  analys_md: z.string().min(200),
+  källor: z
+    .array(
+      z.object({
+        typ: z.enum(['internt', 'webb']),
+        ref: z.string().min(1),
+        vad: z.string().min(1),
+      }),
+    )
+    .min(1),
+})
+export type AiAnalys = z.infer<typeof AiAnalysSchema>
+
+// Regeln "motstående belägg ⇒ inte confidence: high" står i prompten och i
+// granskningschecklistan, inte här: den kräver att man läser beläggen och
+// bedömer om de bär. Ett regex mot rubriken hade fällt nästan varje analys,
+// eftersom subagenten ska skriva ut även när den letat och inte funnit något.
+
+export { delaKorsreferens, renderaMarkdown } from './markdown.js'

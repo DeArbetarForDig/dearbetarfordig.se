@@ -112,6 +112,18 @@ const KopplingItem = z.object({
   nod: z.object({ id: z.any(), typ: z.any(), label: z.any() }).nullable(),
 })
 
+// Analysen ligger per ÄRENDE (SLK-nummer), inte per paragraf: samma ärende kan
+// behandlas i flera §§ innan det avgörs, och det är kedjan som analyseras.
+// Alla paragrafer i kedjan får därför samma analys embeddad.
+const AnalysItem = z.object({
+  ärendeNr: z.string(),
+  // Härledd ur protokoll och handling — process, underlag, ekonomi. Fakta.
+  härledd: z.any(),
+  // Skriven av en modell. null tills en analys finns, och alltid märkt
+  // maskingenererad + granskad_av så en klient aldrig kan visa den som fakta.
+  ai: z.any().nullable(),
+})
+
 const beslutDetailRoute = createRoute({
   method: 'get',
   path: '/v1/{kommun}/beslut/{id}',
@@ -126,7 +138,7 @@ const beslutDetailRoute = createRoute({
         'application/json': {
           schema: halResourceWithRelatedSchema(
             z.any(),
-            z.object({ kopplingar: z.array(KopplingItem) }),
+            z.object({ kopplingar: z.array(KopplingItem), analys: AnalysItem.nullable() }),
           ),
         },
       },
@@ -192,7 +204,15 @@ beslutRouter.openapi(beslutDetailRoute, async (c) => {
     }
   })
 
-  return c.json(halResource(item, beslutLinks(kommun, id, datum), { kopplingar }), 200)
+  const ärendeNr = (node.data as any).ärendeNr
+  const [analysRad] = ärendeNr
+    ? await sql`SELECT arende_nr, data, ai FROM ${sql(schema)}.analys WHERE arende_nr = ${String(ärendeNr)}`
+    : []
+  const analys = analysRad
+    ? { ärendeNr: analysRad.arende_nr, härledd: analysRad.data, ai: analysRad.ai }
+    : null
+
+  return c.json(halResource(item, beslutLinks(kommun, id, datum), { kopplingar, analys }), 200)
 })
 
 // --- Anföranden per beslut ---

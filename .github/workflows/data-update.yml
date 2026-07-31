@@ -73,6 +73,14 @@ jobs:
       - name: Regenerate röstade edges (voteringar)
         run: npx tsx packages/pipeline/src/parsers/parse-voteringar.ts
 
+      # Härledd analys per ärende — läser bara data/graf/ och skriver
+      # data/analys/beslut.json. Ingen modell, ~2 s. Måste ligga efter
+      # protokoll- och voteringsstegen, annars beskriver den förra veckans
+      # material. AI-analyserna i data/analys/ai/ rörs inte: de skrivs av en
+      # subagent på en människas begäran, aldrig av automationen.
+      - name: Generate härledd beslutsanalys
+        run: pnpm --filter @daf/pipeline generate:analys
+
       - name: Check for changes
         id: changes
         run: |

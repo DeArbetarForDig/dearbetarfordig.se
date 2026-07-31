@@ -1,0 +1,127 @@
+{
+  "ärendeNr": "SLK-2026-00510",
+  "rubrik": "Revidering av reglemente för Göteborgs Stads överförmyndarnämnd",
+  "maskingenererad": true,
+  "modell": "claude-opus-5",
+  "genererad": "2026-07-28",
+  "granskad_av": null,
+  "granskad_datum": null,
+  "källa_hash": "67229f5f271aee32",
+  "riktning": "blandad",
+  "confidence": "medium",
+  "sammanfattning": "Reglementet skrivs om för att följa en ny lag: från 1 juli 2026 beslutar överförmyndarnämnden själv om godmanskap i ärenden där ingen invänder, i stället för tingsrätten. Ändringen är nödvändig och korrekt återgiven — men fullmäktige fick ingen siffra på vad det utökade uppdraget kostar.",
+  "nyckelpunkter": [
+    {
+      "ton": "fakta",
+      "text": "Från 1 juli 2026 beslutar nämnden själv om godmanskap i ärenden där ingen invänder. Tidigare gick alla sådana ärenden till tingsrätten."
+    },
+    {
+      "ton": "varning",
+      "text": "Handlingen innehåller ingen siffra för vad det utökade uppdraget kostar. Resurserna för 2026 ska tas inom befintlig ram."
+    },
+    {
+      "ton": "varning",
+      "text": "Nämnden har redan en ärendeskuld: väntetiden från ansökan till beslut var 141 dagar första kvartalet 2026, mot 106 dagar 2024."
+    },
+    {
+      "ton": "styrka",
+      "text": "Skyddet ligger kvar i lagen: godmanskap kräver samtycke, invänder någon går ärendet till domstol, och beslutet kan överklagas dit."
+    }
+  ],
+  "talar_för": [
+    {
+      "text": "Den nya lydelsen speglar lagändringen och ger inte nämnden mer befogenhet än den riksdagen beslutade om den 22 april 2026.",
+      "källa": "kf-2026-06-11-§232"
+    },
+    {
+      "text": "Rättssäkerheten vilar kvar i lagen: godmanskap kräver den enskildes samtycke, och invänder den enskilde eller en anhörig ska ärendet lämnas till domstol.",
+      "källa": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/ett-stallforetradarskap-att-lita-pa_hd0392/html/"
+    },
+    {
+      "text": "Ett domstolsled faller bort i okontroversiella ärenden, vilket kan korta den väntetid som i dag mäts från ansökan till beslut.",
+      "källa": "kf-2026-06-11-§232"
+    },
+    {
+      "text": "Beslutet hann i tid: reglementet var ändrat den 11 juni 2026, nitton dagar innan lagen trädde i kraft den 1 juli.",
+      "källa": "kf-2026-06-11-§232"
+    }
+  ],
+  "talar_emot": [
+    {
+      "text": "Ingen handling i ärendet anger vad det utökade uppdraget kostar. Resursbehovet hänvisas till en hemställan i en annan nämnd, utan belopp.",
+      "källa": "kf-2026-06-11-§232"
+    },
+    {
+      "text": "Den bifogade delårsrapporten visar en ärendeskuld: 15 procent av årsräkningarna granskade per mars och stigande väntetider jämfört med 2024 och 2025.",
+      "källa": "kf-2026-06-11-§232"
+    },
+    {
+      "text": "Nämnden som får det nya uppdraget äger inte sin egen personal — förvaltningsorganisationen ligger sedan 2021 under en annan nämnd.",
+      "källa": "kf-2024-12-12-§552"
+    },
+    {
+      "text": "Kommunsektorns egen bedömning nationellt är ett behov av 30–40 procent mer resurser i överförmyndarverksamheten. Staden har inte räknat på sin andel.",
+      "källa": "https://skr.se/juridik/overformyndarjuridik/kommandelagandringarforoverformyndare.10060.html"
+    }
+  ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": false,
+    "finansiering_klar": false,
+    "konsekvenser_utredda": false,
+    "mål_mätbart": true,
+    "uppföljning_bestämd": false
+  },
+  "rekommendation": {
+    "röst": "bifall",
+    "motivering": "Reglementet måste stämma med den lag som gäller sedan 1 juli 2026, och den nya lydelsen går inte längre än lagen. Att avslå hade lämnat kvar ett styrande dokument som motsäger gällande rätt, utan att ge verksamheten en enda krona mer.",
+    "skulle_ändras_av": "Avslag om lydelsen gett nämnden befogenheter utöver lagen, eller flyttat beslut om enskildas ställföreträdarskap längre ned utan stöd i lag. Avstår om fullmäktige haft ett verkligt val i samma beslut och ändå avstått från att beräkna resursbehovet."
+  },
+  "analys_md": "## Vad som beslutades\n\nKommunfullmäktige beslutade 2026-06-11 (§ 232, SLK-2026-00510, handling 2026 nr 126) att ändra kapitel 2 § 2 i reglementet för Göteborgs Stads överförmyndarnämnd. Kommunstyrelsen tillstyrkte 2026-05-20 § 363 stadsledningskontorets tjänsteutlåtande av den 28 april 2026.\n\nDet är värt att läsa de två lydelserna bredvid varandra, eftersom hela beslutet ligger i skillnaden.\n\nTidigare: *”Nämndens huvudsakliga uppgifter är att utöva tillsyn över förmyndare, gode män och förvaltare, att förordna och entlediga gode män och förvaltare samt att ansöka om förordnande och upphörande av godmanskap och förvaltarskap hos tingsrätten.”*\n\nNu: *”Nämndens huvudsakliga uppgifter är att utöva tillsyn över förmyndare, gode män och förvaltare, att förordna och entlediga gode män och förvaltare, att besluta i ärenden om godmanskap i otvistiga ärenden samt i övriga ärenden ansöka hos tingsrätten om anordnande och upphörande av godmanskap och förvaltarskap.”*\n\nTre saker ändras. Nämnden får en ny uppgift — att själv besluta om godmanskap i otvistiga ärenden. Ansökan till tingsrätten begränsas till ”övriga ärenden”. Och ordet ”förordnande” byts mot ”anordnande”, vilket är den term föräldrabalken använder för att ett godmanskap inrättas, till skillnad från att en person förordnas till uppdraget. Den tredje ändringen motiveras inte någonstans i tjänsteutlåtandet; den ser ut som en språklig rättelse som följer med.\n\nDet beslutet i sig inte gör är att flytta någon befogenhet. Den flyttades av riksdagen den 22 april 2026 genom lagändringarna i propositionen *Ett ställföreträdarskap att lita på* (2025/26:92), som trädde i kraft 1 juli 2026. Reglementet beskriver nämndens uppdrag, det tilldelar det inte. Fullmäktiges beslut är alltså en följdändring — men en som fullmäktige måste fatta, eftersom stadens eget styrande dokument annars skulle ha beskrivit en uppgiftsfördelning som lagen upphävt. Den slutsatsen är min läsning av förhållandet mellan lag och reglemente, inte något handlingen skriver ut.\n\n## Hur det gick till\n\nÄrendet gick igenom utan strid. Överförmyndarnämnden hemställde till fullmäktige 2026-04-21 § 43 (OFV-2026-00011) i samband med sin delårsrapport per mars. Stadsledningskontoret skrev tjänsteutlåtande 2026-04-28, kommunstyrelsen tillstyrkte 2026-05-20 § 363 utan yrkanden, bordläggningar, reservationer eller jäv, och fullmäktige biföll 2026-06-11.\n\nI kammaren begärdes ordet av en enda ledamot. Jesper Berglund yrkade bifall och gjorde samtidigt en invändning som är sakligt relevant för granskningen: *”Det här kanske framstår som en teknisk reglementsändring, men bakom juridiken finns människor … Vi kan läsa i handlingarna att reformen innebär nya arbetsuppgifter, ökad utredningsskyldighet och ett ökat resursbehov. Det är lättare att vara generös med nya uppdrag när någon annan förväntas betala.”* (anförande 2026-06-11, ärende 9.) Ingen bemötte det, och ingen siffra lades fram.\n\nAtt ett ärende är enigt betyder här ungefär vad det ser ut att betyda: fullmäktige hade i praktiken inget val. Enigheten säger därför lite om beredningens kvalitet. Det som säger något är att ingen begärde ett underlag om vad det nya uppdraget kräver, trots att den enda ledamot som talade pekade på just det.\n\n## Underlaget\n\nTjänsteutlåtandet är kort och rakt. Det redogör för lagändringen, återger den gamla och den nya lydelsen, och konstaterar att ändringen bör genomföras skyndsamt så att reglementet motsvarar uppdraget när lagen träder i kraft. Som beskrivning av en följdändring är det tillräckligt.\n\nVad som saknas är en konsekvensbeskrivning värd namnet. Under ”Bedömning ur ekologisk och social dimension” står att överförmyndarnämnden *”inte funnit några särskilda aspekter på frågan utifrån dessa dimensioner”*. Det är en anmärkningsvärd formulering i just det här ärendet. När fullmäktige senast reviderade samma reglemente, 2024-12-12 § 552 (SLK-2023-01046), skrev stadsledningskontoret tvärtom en social bedömning: *”Överförmyndarnämndens handläggning och beslut påverkar en ofta utsatt grupp i samhället”*, med hänvisning till Riksrevisionens uppgift (RIR 2017:33) att omkring två procent av befolkningen har en ställföreträdare. Samma stadsledningskontor, samma nämnd, samma reglemente — och den gången ansågs frågan ha en social dimension. Nu, när nämnden får beslutanderätt över om en enskild ska få god man, anses den inte ha det.\n\nIngen remiss har gått ut och ingen risk- eller barnkonsekvensanalys finns, vilket också den maskinella genomgången av ärendet visar.\n\nDäremot finns ett omfattande underlag som *bilaga*: överförmyndarnämndens delårsrapport per mars 2026. Den är i praktiken det enda stället i ärendet där verkligheten bakom reglementet syns, och den är obehaglig läsning. Handläggningstiden från ansökan om god man till beslut var 141 dagar under första kvartalet 2026, med helårsprognos 170 dagar, mot 122 dagar 2025 och 106 dagar 2024. För förvaltarskap: 221 dagar, prognos 270, mot 186 dagar 2025 och 163 dagar 2024. Rapporten skriver att det framför allt är *”tiden från att ett ärende kommer in till dess att handläggningen påbörjas som har ökat markant, tiden är idag drygt fyra månader”*. Andelen granskade årsräkningar var 15 procent per mars. Orsaken uppges vara en ärendeskuld från 2025 efter byte av verksamhetssystem, och de långa handläggningstiderna har rapporterats som avvikelse till kommunledningen i årsrapporten för 2025.\n\nI samma rapport skriver förvaltningen, om det uppdrag reglementet nu beskriver: *”För att säkerställa rättssäkerhet och lagefterlevnad, samt förhindra ökade handläggningstider till följd av de utökade arbetsuppgifterna och de högre kraven på tillsyn, krävs en ramförstärkning.”* Den meningen står i en bilaga till ärendet. Den står inte i tjänsteutlåtandet.\n\n## Pengarna\n\nFörst måste en siffra röjas undan. Ärendet flaggades automatiskt som prognoskandidat på beloppet 35,7 mnkr. **Det är en felträff.** Talet står i en tabellrad i den bifogade delårsrapportens resultatredovisning och avser bokslutet för föregående år: kommunbidraget till budgetposten ”Överförmyndarnämnden arvoden” under 2025. Rapporten bekräftar det själv i klartext: *”Nämnden har under 2026 en sänkt budgetram (32,1 mnkr, jämfört med 35,7 mnkr 2025) för arvodeskostnaderna.”* Beloppet har ingenting med reglementeändringen att göra och får inte läsas som något som det här beslutet kostar. Detsamma gäller de övriga tal som utvinningen plockat upp: 32,1 mnkr är 2026 års ram, 0,5 mnkr är periodens underskott per mars, och 3 mnkr är en begäran om ramhöjning inför 2027 av helt andra skäl.\n\nDe 3 miljonerna är värda en egen rad, eftersom de lätt förväxlas med reformens kostnad. Enligt delårsrapportens avsnitt 4 drivs de av volym och avtal, inte av lagändringen: antalet ställföreträdarskap väntas öka omkring 2 procent årligen och ersättningen till Förvaltarenheten vid socialförvaltning Centrum stiger. Kalkylen visar en prognostiserad avvikelse på -3,0 mnkr 2027, -5,0 mnkr 2028 och -6,5 mnkr 2029 mot ett fruset kommunbidrag på 32,1 mnkr. Rapporten noterar också att förvaltningen *”redan föregående år”* aviserade att sänkningen av 2026 års ram skulle behöva återföras. Ramen sänktes ändå, och begärs nu tillbaka inom ett år. Det är en iakttagelse om stadens budgetering, inte om det här beslutet.\n\nVad kostar då det utökade uppdraget? Handlingen svarar inte. Den säger att resursbehovet *”beslutades 2026-04-22 § 30 i nämnden för demokrati och medborgarservices delårsrapport per mars där nämnden hemställer om en ramhöjning för budget 2027 och framåt”* och att hemställan *”hanteras i ordinarie budgetprocess”*, samt att 2026 hanteras *”inom ram”*. Inget belopp anges — inte i tjänsteutlåtandet, inte i bilagan, och inte heller i stadens egen delårsrapport per mars 2026 (kf-2026-06-11-§229, SLK-2026-00352), som behandlades vid samma sammanträde och beskriver omställningen i ord utan siffror. Jag har sökt i korpus på budget- och utfallsmaterial för överförmyndarnämnden och på nämnden för demokrati och medborgarservices ramförstärkning utan att hitta ett belopp.\n\nEn strukturell sak förklarar varför siffran är svår att ens leta efter. Överförmyndarnämnden äger uppdraget men inte resurserna. Sedan 2021 ansvarar nämnden för demokrati och medborgarservice för förvaltningsorganisationen, och enligt utredningen bakom 2024 års reglementen (kf-2024-12-12-§552) kan överförmyndarnämnden bara *”ställa vissa krav”* på den andra nämnden om resursfördelning, genom en överenskommelse mellan nämnderna. Nämndens egen budgetram på 32,1 mnkr avser arvoden till ställföreträdare och ersättning till Förvaltarenheten — inte handläggningen. Kostnaden för det nya uppdraget hamnar alltså i en budget som inte syns någonstans i det här ärendet, hos en nämnd som inte är part i det.\n\nDet finns en nationell storleksordning att hålla emot, och den ska läsas som just nationell. Utredningen bakom lagändringen beräknade kommunernas kostnadsökning till omkring 200 mnkr per år, motsvarande ungefär 20 procent, och Sveriges Kommuner och Regioner bedömer att *”överförmyndarverksamheterna skulle behöva ett årligt tillskott (en ökning) om 30-40 procent mot nuvarande resurser”*. Jag räknar medvetet inte om det till en siffra för Göteborg. Underlaget för en sådan omräkning finns inte — stadens antal ställföreträdarskap per invånare avviker från det nationella genomsnitt Riksrevisionen anger, och kostnaden för handläggningen redovisas inte separat i något material jag hittat.\n\n## Vad vi kan vänta oss\n\nMin bedömning är att den här förändringen sannolikt är bra för de människor den rör, och att risken ligger i tempot snarare än i konstruktionen.\n\nSkälet att tro att den är bra: ett helt led försvinner. I dag utreder överförmyndaren behovet och ansöker sedan hos tingsrätten, som beslutar. Efter 1 juli 2026 fattar nämnden själv beslutet när ingen invänder. Delårsrapportens eget mått visar att det led som ska bort ingår i en process som i dag tar 141 dagar i snitt och prognostiseras till 170. För någon som väntar på hjälp med sin ekonomi, sin bostad eller sina myndighetskontakter är det skillnaden som räknas. Att lagstiftaren tagit bort domstolsledet just i de ärenden där ingen är oense är rimligt konstruerat: domstolens prövning behövs när det finns en tvist, inte när det inte finns någon.\n\nSkälet till oro är inte juridiskt utan praktiskt. En förvaltning som per mars 2026 hade granskat 15 procent av årsräkningarna, som har drygt fyra månaders kötid innan handläggningen ens påbörjas, och vars egen prognos är *ökande* handläggningstider under året, tar från 1 juli över arbetsuppgifter från tingsrätten samtidigt som tillsynen utvidgas med en ny årsberättelse att granska. Resurserna för 2026 ska rymmas inom befintlig ram. Förstärkningen är begärd för 2027. Riktningen jag väntar mig är därför att handläggningstiderna på kort sikt pressas ytterligare snarare än kortas, och att den vinst reformen borde ge syns först när bemanningen hunnit ikapp. Det är min slutsats; handlingen gör ingen sådan prognos.\n\nDet är också värt att säga vad som *inte* flyttas. Tillsynen över gode män och förvaltare låg hos nämnden redan förut och ligger kvar. Det nya är att nämnden nu både beslutar om att ett godmanskap ska anordnas och utövar tillsyn över den ställföreträdare som utses. Två funktioner som tidigare låg hos två myndigheter samlas hos en. Lagstiftaren har vägt det och landat i att det är godtagbart när ingen invänder; jag noterar det som en förändring i ansvarets koncentration, inte som en påstådd brist.\n\n## Det som talar emot\n\nJag har letat efter belägg mot min kritik och hittat tre som bär.\n\nDet första och tyngsta gäller rättssäkerheten. Man kan läsa ”nämnden får besluta i stället för domstolen” som en försvagning av den enskildes skydd. Propositionens egen text talar emot den läsningen. För att ett godmanskap ska anordnas krävs att den enskilde samtycker, och *”om den enskilde, hans eller hennes förmyndare, make eller sambo eller närmaste släktingar eller en framtidsfullmaktshavare motsätter sig att ett godmanskap anordnas ska överförmyndaren överlämna ärendet till rätten för prövning”*. Dessutom prövar domstol överklaganden av överförmyndarens beslut enligt föräldrabalken. Domstolen är alltså kvar — som andra instans, och som första instans så snart någon invänder. Ordet ”otvistiga” i reglementet är inte nämndens egen bedömning av vad som är okontroversiellt, utan en lagreglerad tröskel som en enda invändning från fel person räcker för att passera. Det tar udden av den principiella oron och gör att kritiken i det här ärendet handlar om kapacitet, inte om rättighetsskydd.\n\nDet andra gäller kravet på kostnadsredovisning. Man kan invända att det är orimligt att begära en konsekvensanalys av en följdändring: kostnaden uppstår av riksdagens beslut, inte av fullmäktiges, och den inträffar oavsett hur reglementet formuleras. Ett avslag hade inte sparat en krona. Den invändningen håller, och den är skälet till att jag ändå landar i bifall. Motargumentet är smalare men inte oviktigt: reglementeändringen är det enda tillfälle då den här reformen passerar fullmäktige, och ett ärende som passerar utan en enda siffra ger de förtroendevalda ingen möjlighet att se vad de tagit emot. Att stadsledningskontoret hänvisar till ett daterat nämndbeslut (2026-04-22 § 30) är mer än ingenting — men en hänvisning utan belopp går inte att förhålla sig till.\n\nDet tredje gäller mitt påstående om otillräckliga resurser. Jag kan inte belägga det för Göteborg. Jag har inte hittat något belopp för vad nämnden för demokrati och medborgarservice begärt eller vad omställningen faktiskt kostar under 2026. De nationella bedömningarna på 20 respektive 30–40 procent avser sektorn, inte staden, och Göteborg har redan fått en ramförstärkning i budget 2026 som enligt delårsrapporten använts för att hantera handläggningstider för årsräkningar och tillsynens kvalitet. Det är möjligt att den förstärkningen räcker längre än jag antar. Jag skriver därför att kostnaden är oredovisad — vilket är belagt — och inte att den är otillräcklig, vilket den kan visa sig vara eller inte vara.\n\nJag har sökt i korpus efter revisionens synpunkter på verksamheten. Stadsrevisionen genomförde under 2025 en granskning av *Rekrytering av ställföreträdare* hos överförmyndarnämnden, vilket framgår av årsredogörelsen för 2025 (kf-2026-04-23-§124). Själva rapporten finns inte i materialet, och jag kan därför varken åberopa dess slutsatser eller påstå att den var kritisk. Jag har också sökt på länsstyrelsens tillsyn över överförmyndarverksamheten utan att hitta något utfall för Göteborg.\n\n## Så kan du kontrollera detta senare\n\nFyra saker går att slå upp, och de skiljer beslutet från reformen.\n\n**Väntetiden.** Överförmyndarnämndens delårsrapport per augusti 2026 och årsrapport för 2026 redovisar måtten *antal dagar i genomsnitt från ansökan till beslut* för godmanskap och förvaltarskap. Stäm av mot 141 dagar (utfall kvartal 1) och prognosen 170 för helåret. En varning: måttets innebörd ändras 1 juli, eftersom beslutet i otvistiga godmanskap efter det datumet fattas av nämnden själv och inte av tingsrätten. Läs definitionen innan du jämför årtal.\n\n**Beloppet.** Leta i kommunfullmäktiges budget för 2027 efter vad nämnden för demokrati och medborgarservice faktiskt tilldelades efter sin hemställan 2026-04-22 § 30, och efter om överförmyndarnämndens ram för arvoden höjdes med de begärda 3 mnkr. Först där blir reformens pris i Göteborg synligt — det finns inte i det här ärendet.\n\n**Tillsynen.** Kontrollera andelen granskade årsräkningar vid årets slut mot prognosen 100 procent för kompletta årsräkningar inlämnade i tid, och följ det nya måttet för granskade årsberättelser som lagen kräver från 1 juli. Om tillsynen tappar mark samtidigt som nämnden tagit på sig beslutanderätten är det den viktigaste signalen om att omställningen gjordes för billigt.\n\n**Överklagandena.** Om andelen av nämndens beslut om godmanskap som överklagas till domstol, eller andelen ärenden som lämnas över som tvistiga, blir hög säger det något om hur bedömningen av vad som är otvistigt faller ut i praktiken. Uppgiften redovisas inte i dag; att den saknas är i sig något att begära av nämnden.",
+  "källor": [
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§232",
+      "vad": "fullmäktiges beslut, stadsledningskontorets tjänsteutlåtande 2026-04-28, gammal och ny lydelse av kapitel 2 § 2, samt hela överförmyndarnämndens delårsrapport per mars 2026 som bilaga (handläggningstider, ärendeskuld, resultatredovisning där 35,7 mnkr står som bokslut föregående år, kalkyl inför budget 2027)"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2026-05-20-§363",
+      "vad": "kommunstyrelsens tillstyrkan utan yrkanden, reservationer eller jäv"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2026-06-11-319",
+      "vad": "det enda anförandet i ärendet: bifallsyrkande med invändning om att staten beslutar och kommunen får uppdraget"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2024-12-12-§552",
+      "vad": "föregående revidering av samma reglemente (SLK-2023-01046): stadsledningskontorets sociala bedömning med hänvisning till RIR 2017:33, och utredningen om att förvaltningsorganisationen ligger hos nämnden för demokrati och medborgarservice sedan 2021"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§229",
+      "vad": "Göteborgs Stads delårsrapport per mars 2026 (SLK-2026-00352): rapporteringen om överförmyndarverksamhetens omställning till den nya lagstiftningen, utan belopp"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-04-23-§124",
+      "vad": "stadsrevisionens årsredogörelse 2025: granskningen Rekrytering av ställföreträdare hos överförmyndarnämnden finns i granskningsförteckningen"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/ett-stallforetradarskap-att-lita-pa_hd0392/html/",
+      "vad": "proposition 2025/26:92 Ett ställföreträdarskap att lita på: krav på den enskildes samtycke, skyldighet att lämna över ärendet till rätten om den enskilde eller närstående motsätter sig, och att kommunen betalar arvode som inte tas ur den enskildes medel"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/betankande/ett-stallforetradarskap-att-lita-pa_hd01cu22/",
+      "vad": "betänkande 2025/26:CU22: riksdagens beslut 2026-04-22, ikraftträdande 1 juli 2026, nationellt ställföreträdarregister först 1 januari 2028"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://skr.se/juridik/overformyndarjuridik/kommandelagandringarforoverformyndare.10060.html",
+      "vad": "Sveriges Kommuner och Regioner om lagändringarna: nya uppgifter (beslutanderätt i icke tvistiga godmanskap, granskning av årsberättelse och slutberättelse), utredningens uppskattning om cirka 200 mnkr per år för kommunerna och bedömningen om 30–40 procent ökat resursbehov"
+    }
+  ]
+}

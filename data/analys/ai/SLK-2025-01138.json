@@ -1,0 +1,177 @@
+{
+  "ärendeNr": "SLK-2025-01138",
+  "rubrik": "Motion av Kalle Bäck (KD) och Kristina Lallo (KD) om att riva upp beslutet att erbjuda upp till 30 timmars vistelsetid på förskola för barn till föräldralediga",
+  "maskingenererad": true,
+  "modell": "claude-opus-5",
+  "genererad": "2026-07-29",
+  "granskad_av": null,
+  "granskad_datum": null,
+  "källa_hash": "6f293ffb25ab0607",
+  "riktning": "blandad",
+  "confidence": "medium",
+  "sammanfattning": "Kommunstyrelsen avstyrkte motionen 2026-05-06; fullmäktige har bordlagt den två gånger och avgör den tidigast 3 september 2026. Varken beslutet att införa 30 timmar eller motionen att riva upp det vilar på någon publicerad uppskattning av hur många barn som väntas använda tiden eller vad den kräver i personal.",
+  "nyckelpunkter": [
+    {
+      "ton": "fakta",
+      "text": "Siffran 274 mnkr i handlingen kommer ur ett avslaget budgetförslag för hela förskolenämnden. De utökade timmarna kostar 40 mnkr 2026."
+    },
+    {
+      "ton": "fakta",
+      "text": "Reformen gäller barn som redan har förskoleplats: den ökar antalet timmar de är där, inte antalet barn i grupperna."
+    },
+    {
+      "ton": "varning",
+      "text": "Ingen handling i ärendet uppskattar hur många barn som väntas använda de 30 timmarna eller vad det kräver i personal."
+    },
+    {
+      "ton": "varning",
+      "text": "Förvaltningen säger att samma medel både ska bära de utökade timmarna och bidra till mindre barngrupper, utan att förklara hur båda ryms."
+    }
+  ],
+  "talar_för": [
+    {
+      "text": "Reformen gäller barn som redan är placerade i förskolan och ökar därför inte antalet barn per grupp, som är det mått motionen bygger sin invändning på.",
+      "källa": "kf-2026-05-28-§219"
+    },
+    {
+      "text": "Stadens årsredovisning för 2025 anger att antalet barn per heltidsanställd i förskolan minskar och att andelen legitimerade förskollärare och barnskötare ökar.",
+      "källa": "kf-2026-04-23-§123"
+    },
+    {
+      "text": "Antalet barn i förskoleverksamhet sjönk från 29 193 år 2024 till 28 486 år 2025 enligt stadens egen årsredovisning.",
+      "källa": "kf-2026-04-23-§123"
+    },
+    {
+      "text": "Motionen kostnadsberäknar inte sitt eget förslag och visar inte att de 40 mnkr skulle stanna hos förskolenämnden om uppdraget rivs upp.",
+      "källa": "kf-2026-05-28-§219"
+    }
+  ],
+  "talar_emot": [
+    {
+      "text": "Ingen handling redovisar hur många barn som väntas nyttja 30 timmar eller hur många årsarbetare det kräver, så påståendet om full kostnadstäckning går inte att pröva.",
+      "källa": "kf-2026-05-28-§219"
+    },
+    {
+      "text": "Förvaltningen säger att samma medel både ska bära de utökade timmarna och användas till att minska barngrupperna.",
+      "källa": "kf-2026-05-28-§219"
+    },
+    {
+      "text": "Ärendet saknar barnkonsekvensanalys trots att hela sakfrågan gäller barns vistelsemiljö och personalens arbetsbelastning.",
+      "källa": "ks-2026-05-06-§330"
+    },
+    {
+      "text": "Det ursprungliga beslutet fattades inom budgetpaketet utan eget tjänsteutlåtande, och ingen tidpunkt för uppföljning av reformen är bestämd.",
+      "källa": "kf-2025-11-06-§481"
+    }
+  ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": true,
+    "finansiering_klar": true,
+    "konsekvenser_utredda": false,
+    "mål_mätbart": false,
+    "uppföljning_bestämd": false
+  },
+  "rekommendation": {
+    "röst": "avstår",
+    "motivering": "Ingen part har redovisat hur många barn som väntas använda de 30 timmarna eller vad det kräver i personal, och utan den uppgiften går varken påståendet om full kostnadstäckning eller motionens påstående om ökad belastning att pröva.",
+    "skulle_ändras_av": "En publicerad uppskattning av efterfrågan och personalbehov. Visar den att 40 respektive 80 mnkr täcker de utökade timmarna med faktiskt tillsatt personal blir det avslag; visar den att timmarna tas ur befintlig bemanning blir det bifall till motionens andra yrkande."
+  },
+  "analys_md": "## Vad som beslutades\n\nMotionen (KF handling 2025 nr 224, anmäld i fullmäktige 2025-11-05 enligt kf-2025-11-27-§534) innehåller två yrkanden: att fullmäktige river upp beslutet att erbjuda upp till 30 timmars vistelsetid på förskola för barn till föräldralediga, och att förskolenämnden får i uppdrag att ta fram förslag på hur resurserna i stället kan användas för att minska barngruppernas storlek och förbättra bemanningen.\n\nKommunstyrelsen avstyrkte motionen 2026-05-06 (ks-2026-05-06-§330). Fullmäktige har därefter bordlagt ärendet två gånger — 2026-05-28 (kf-2026-05-28-§219) och 2026-06-11 (kf-2026-06-11-§259) — och tar upp det tidigast vid sammanträdet den 3 september 2026. Ärendet är alltså inte slutligt avgjort när den här analysen skrivs.\n\nDet beslut motionen vill riva upp fattades inte som ett eget ärende. Det ingår i budgeten för 2026, fastställd av fullmäktige 2025-11-06 (kf-2025-11-06-§481). Skollagen 8 kap. 6 § ger barn vars vårdnadshavare är föräldraledig med ett yngre syskon rätt till förskola minst tre timmar per dag eller 15 timmar i veckan; kommunen får besluta om längre tid (Skolverket, Rätt till förskola). Göteborgs erbjudande om upp till 30 timmar ligger alltså på det dubbla mot lagens miniminivå. Reformen träder i kraft under hösten 2026: fullmäktige fastställde 2026-06-11 avgifterna för 30 timmars vistelsetid att gälla från den 1 september 2026 (kf-2026-06-11-§230, punkt 22).\n\n## Hur det gick till\n\nMotionen remitterades till förskolenämnden, som avstyrkte den 2026-03-25 § 36 (FSF-2025-02831, återgiven i handling 2026 nr 117). En ledamot lämnade protokollsanteckningen att hon hade tillstyrkt motionen om hon fått rösta. Stadsledningskontoret utfärdade tjänsteutlåtande 2026-04-10 och föreslog avslag.\n\nI kommunstyrelsen 2026-05-06 lades fyra yrkanden: att tillstyrka motionen, ett alternativt yrkande om att i stället utreda en riktad satsning på utökad vistelsetid från tre års ålder för barn med två utrikes födda vårdnadshavare och anse motionen besvarad, samt två yrkanden om att avstyrka. Ordföranden fann att motionen avstyrktes; ingen omröstning begärdes och ingen reservation lämnades. Två protokollsanteckningar fördes till protokollet (ks-2026-05-06-§330).\n\nAtt ingen reservation lämnades trots fyra motstående yrkanden är värt att notera: det innebär att ärendet passerar till fullmäktige utan att någon skiljaktig mening är formellt bunden till beslutet, samtidigt som två skriftliga yttranden i handlingen visar att oenigheten är reell. De två bordläggningarna i fullmäktige har inte motiverats i sak i protokollen.\n\nDet ursprungliga beslutet avgjordes med votering om hela budgeten: 40 ja mot 29 nej, 12 ledamöter avstod, med reservationer från tre håll (kf-2025-11-06-§481). Reformen prövades alltså aldrig som en egen fråga med eget beslutsunderlag, utan som en rad i ett paket. I budgetdebatten samma dag argumenterades det både för reformen — att barn inte ska förlora kontakten med förskolan, särskilt i områden där barn behöver möta svenska språket (anforande-2025-11-06-335) — och emot den, med hänvisning till barngruppernas storlek och att pengarna borde gå till bemanning (anforande-2025-11-06-333). En av motionärernas partikamrater uppgav i samma debatt att det egna budgetförslaget innehöll ett ekonomiskt utrymme för reformen men inte införde den (anforande-2025-11-06-337). Det är en nyans som saknas i motionens text.\n\nFrån väckt motion (2025-11-05) till kommunstyrelsens beslut (2026-05-06) tog handläggningen ett halvår, varav remisstiden till förskolenämnden löpte till den 31 mars 2026. Det är inte anmärkningsvärt långsamt för en motion, men det betyder att motionen skrevs innan reformens avgifter och startdatum var beslutade och att den prövas mot ett annat kunskapsläge än det som rådde när den skrevs.\n\n## Underlaget\n\nUnderlaget består av tre dokument: motionen, förskoleförvaltningens tjänsteutlåtande 2026-02-04 med nämndens beslut, och stadsledningskontorets tjänsteutlåtande 2026-04-10. Alla tre finns i handling 2026 nr 117 (kf-2026-05-28-§219).\n\n**Det som saknas i motionens underlag.** Motionens centrala sifferpåstående — att fyra av fem barngrupper i Göteborg är större än Skolverkets riktlinjer — anges utan källa. Skolverkets riktmärke är högst 12 barn i grupper med ett- till treåringar och högst 15 barn i äldre grupper. Sveriges Lärares sammanställning av Skolverkets statistik anger att 53,9 procent av alla åldersindelade barngrupper i landet översteg riktmärket 2025, en marginell minskning från 54,8 procent 2024. Att Göteborg ligger tydligt över den nationella nivån är väl belagt i den offentliga rapporteringen, men jag har inte kunnat verifiera den exakta andelen för Göteborg mot en primärkälla; Göteborgs-Postens referat av samma statistik anger cirka 75 procent och beskriver trenden som vänd nedåt, men artikeln ligger bakom betalvägg och siffran är därför återgiven i andra hand. Motionen kostnadsberäknar inte heller sitt eget förslag och redovisar inte hur många barn eller familjer det gäller.\n\n**Det allvarligaste i motionens argumentation** är att den blandar ihop två olika mått. Förskoleförvaltningen skriver uttryckligen att medlen ska täcka upp \"där förskolorna får barn som kommer vara längre tid i verksamheten\" och att det handlar om att \"möjliggöra för redan placerade barn till föräldralediga att utöka tiden på förskolan\". Reformen skriver alltså inte in fler barn i grupperna — den ökar den tid redan inskrivna barn är närvarande. Barngruppens storlek, så som Skolverket mäter den och så som motionen åberopar den, påverkas inte. Det som påverkas är närvarotätheten under dagen och därmed bemanningsbehovet. Motionen gör inte den skillnaden någonstans, och den siffersätter inte närvaroeffekten.\n\n**Det som saknas i stadens underlag.** Förskoleförvaltningen skriver att uppdraget \"får full kostnadstäckning\" och att 40 mnkr för 2026 och 80 mnkr för 2027 \"täcker de behov som krävs för att organisera för utökad vistelsetid\". Ingenstans i handlingen redovisas hur den bedömningen är gjord: det finns ingen uppskattning av hur många barn som väntas använda erbjudandet, ingen kostnad per barn och timme, och inget angivet personalbehov i årsarbetare. Påståendet om full kostnadstäckning är därmed inte prövbart för en läsare. Detsamma gäller det ursprungliga beslutet: det fattades inom budgetpaketet och något separat tjänsteutlåtande för reformen finns inte i materialet.\n\n**En intern spänning i stadens svar.** Stadsledningskontoret skriver att förvaltningen menar att de avsatta medlen \"kan användas till att i likhet med vad motionärerna föreslår förbättra bemanningen och möjliggöra för att barngruppernas storlek kan minska\". Samtidigt är samma medel motiverade med att de ska bära den ökade närvarotiden. Båda kan inte gälla fullt ut för samma krona. Handlingen förklarar inte hur mycket av de 40 mnkr som går till att hantera den utökade tiden och hur mycket som blir ett nettotillskott till bemanningen. Det är den enskilt svagaste punkten i beredningen, och den ligger på stadens sida.\n\nTjänsteutlåtandet innehåller de tre obligatoriska dimensionsbedömningarna (ekonomisk, ekologisk, social). Den ekologiska säger att inga aspekter funnits. Den sociala är tre meningar som i sak upprepar att uppdraget har kostnadstäckning. Någon barnkonsekvensanalys finns inte, trots att hela sakfrågan gäller barns vistelsemiljö och att båda sidor argumenterar utifrån barnets bästa. Ingen riskanalys och ingen jämställdhetsanalys redovisas heller. Facklig samverkan har skett 2026-03-18, men vad de fackliga organisationerna framförde återges inte.\n\nDet alternativa yrkandet i kommunstyrelsen — att utreda utökad vistelsetid riktad till barn med två utrikes födda vårdnadshavare — berör inte om ett sådant urvalskriterium är rättsligt möjligt att tillämpa i en skolpliktsnära kommunal verksamhet. Det är en beredningsbrist oavsett vad man tycker om förslaget. Som jämförelse använder den statliga utredningen om obligatorisk språkförskola (Dir. 2024:113, beslutad 2024-11-21) barnets faktiska exponering för svenska och konstaterade brister i språkutvecklingen som kriterium, uttryckligen inte vårdnadshavarnas födelseland, och utgår från 15 timmar i veckan från hösten det år barnet fyller tre år.\n\n## Pengarna\n\n**Vad 274 mnkr faktiskt avser.** Beloppet 274 mnkr förekommer i ärendet, men det är inte kostnaden för de 30 timmarna och inte stadens beräkning av något i det här ärendet. Det kommer ur ett yttrande från tre partier i kommunstyrelsen 2026-04-29, som är en protokollsanteckning i handling 2026 nr 117, och avser deras eget budgetförslag för 2026: en satsning på 274 mnkr extra till hela förskolenämnden, avsedd för mindre barngrupper, högre andel förskollärare och bättre arbetsmiljö. Det budgetförslaget föll i voteringen om budget 2026 (kf-2025-11-06-§481). Siffran är alltså ett avslaget alternativförslag för hela nämndens verksamhet som råkar ligga i en bilaga till det här ärendet. Den som möter 274 mnkr kopplat till SLK-2025-01138 möter en siffra som inte hör till beslutet.\n\n**Vad reformen kostar enligt stadens eget material.** Förskolenämndens budget för 2026 innehåller posten \"30h förskola för föräldralediga\" på −40 mnkr (namnd-förskolenämnden-budget-2026). För 2027 anger förskoleförvaltningens tjänsteutlåtande ytterligare 80 mnkr. Förskolenämndens kommunbidrag för 2026 är 5 368,3 mnkr, vilket gör 40 mnkr till knappt 0,75 procent av ramen och 80 mnkr till knappt 1,5 procent. Skillnaden mellan 40 och 80 mnkr är rimligen en halvårseffekt — reformens avgifter börjar gälla 1 september 2026 — men den kopplingen görs inte uttryckligen i handlingen och är min slutsats, inte materialets.\n\n**Nämndens ekonomiska läge.** Förskolenämnden redovisade överskott både 2024 (+173 mnkr) och 2025 (+50 mnkr) efter underskott 2022 (−61 mnkr) och 2023 (−48 mnkr); överskottet 2025 förklaras bland annat med färre barn än budgeterat (utfall-nämnd-förskolenämnden-2025). Per mars 2026 redovisar nämnden en negativ avvikelse om 8 mnkr mot periodens budget men en nollprognos för helåret, och delårsrapporten skriver uttryckligen att prognosen \"förutsätter att verksamheten anpassar sina kostnader till det minskade barnantalet samt att satsningen på införandet av 30 timmars vistelsetid för föräldralediga nyttjas\" (kf-2026-06-11-§229). Det är en upplysning som förtjänar att läsas noga: reformens medel är inräknade i den balanserade prognosen. Vad det innebär om efterfrågan blir högre eller lägre än antaget framgår inte, eftersom det antagandet aldrig skrivits ut.\n\n**Avgiftssidan.** Fullmäktige fastställde 2026-06-11 särskilda avgifter för 30 timmars vistelsetid från 1 september 2026 (kf-2026-06-11-§230, punkt 22). Avgiftsnivåerna finns i en bilaga till stadsledningskontorets tjänsteutlåtande som inte ingår i det material jag haft tillgång till, så jag kan inte säga hur stor intäktssidan är. Att det finns en intäktssida alls behandlas dock varken i motionen eller i tjänsteutlåtandet i det här ärendet.\n\n## Vad vi kan vänta oss\n\nDet här är min bedömning, inte materialets.\n\nReformen kommer med stor sannolikhet inte att öka antalet inskrivna barn per grupp, eftersom den gäller barn som redan har plats. Riktningen på trycket ligger i stället på bemanningen under de timmar då fler barn är närvarande samtidigt. Storleksordningen går inte att ange, eftersom ingen publicerat ett antagande om hur många som utnyttjar erbjudandet.\n\nTvå motverkande krafter är dokumenterade i stadens eget material. Antalet barn i förskoleverksamhet sjönk från 29 193 (2024) till 28 486 (2025), och har minskat varje år sedan 2021 (kf-2026-04-23-§123). Samtidigt rapporterar årsredovisningen att antalet barn per heltidsanställd i förskolan minskar och att både andelen legitimerade förskollärare och andelen barnskötare ökar, och att förskolenämnden gjort omfattande rekryteringar trots minskande barnantal. Ett fallande barnantal frigör i sig personalkapacitet per barn. Det gör det mindre sannolikt att en utökning av närvarotiden slår igenom som en försämring av personaltätheten på det sätt motionen förutsätter — men det är en riktningsbedömning, inte ett bevis, och den beror helt på hur stor närvaroökningen blir.\n\nForskningsläget stödjer inte någon av sidorna rakt av. Den studie IFAU lyft fram (Felfe och Lalive, 36 000 barn i Schleswig-Holstein 2006–2011) finner att tidig förskola tydligt gynnar barn till lågutbildade föräldrar och barn med utländsk bakgrund, medan effekten för barn till högutbildade föräldrar är försumbar — och att de positiva effekterna är villkorade av kvalitet, konkret små grupper om högst tio barn och äldre, utbildad, heltidsarbetande personal. Läst med samma stränghet åt båda håll säger det två saker samtidigt: mer förskoletid är en rimlig åtgärd för just den grupp som argumenten för reformen pekar ut, och nyttan uteblir om kvalitetsvillkoren inte är uppfyllda — vilket är precis motionens invändning. IFAU har också publicerat resultat i motsatt riktning, att mer egen tid med en förälder förbättrade skolresultat och delvis hälsa för pojkar, främst till mödrar med kortare utbildning. Ingen av dessa studier avser svensk vistelsetid för storasyskon under föräldraledighet, och ingen av dem kan avgöra det här ärendet.\n\nAndra kommuners regler är bakgrund, inte jämförelsefall: de delar frågeställningen men saknar publicerad utvärdering av effekterna, och skiljer sig i avgifter, barnantal och bemanning. Stockholm erbjuder upp till 30 timmar i veckan för barn till föräldralediga, Uppsala upp till 20 timmar och Malmö 30 timmar i två månader efter syskonets födelse och därefter 15 timmar. Göteborgs beslut placerar staden i linje med Stockholm och över lagens miniminivå. Att flera storstäder gör samma sak säger något om att åtgärden är praktiskt genomförbar, ingenting om vad den kostar eller ger i Göteborg.\n\n## Det som talar emot\n\nJag har letat aktivt efter belägg mot min egen slutsats i båda riktningarna, i korpusen på \"vistelsetid föräldralediga\", \"30 timmars vistelsetid\", \"barngrupper riktlinjer\" och \"barngruppernas storlek motion\", och på webben efter utvärderingar av utökad vistelsetid, Skolverkets statistik och forskning om förskolans effekter.\n\nMot slutsatsen att motionen är otillräckligt underbyggd talar att dess problembeskrivning i sak delas av flera håll i handlingen, inklusive av dem som avstyrker den: yttrandet från tre partier i kommunstyrelsen skriver uttryckligen att \"motionens problembeskrivning i stora delar är relevant\". Andelen förskollärare i Göteborgs kommunala förskolor uppges i press vara omkring 36 procent mot 43 procent nationellt och en rekommendation på 67 procent — en uppgift jag inte kunnat läsa i sin helhet bakom betalvägg och som därför ska behandlas som andrahandsuppgift, men som pekar åt samma håll som motionen. Att en reform genomförs medan en kvalitetsindikator ligger under riksgenomsnittet är ett reellt invändningsskäl.\n\nMot slutsatsen att stadens beredning är svag talar att beloppet kommer ur stadens egen fastställda budget, att remissinstansen är den nämnd som ska utföra uppdraget, och att förvaltningen är entydig i sin bedömning att den kan utföra uppdraget. En förvaltning som säger sig ha förutsättningar är inte inget.\n\nVad som skulle få mig att bedöma annorlunda: ett publicerat antagande om efterfrågan och personalbehov, eller en uppföljning som visar faktiskt uttag av de 30 timmarna. Antingen av dessa skulle flytta ärendet från påstående till prövbar uppgift.\n\n## Så kan du kontrollera detta senare\n\nReformen börjar gälla 1 september 2026. Det här är vad som konkret ska letas efter:\n\n1. **Fullmäktiges beslut den 3 september 2026 eller senare.** Motionen är bordlagd två gånger. Notera om den avgörs med votering och om någon reservation lämnas — i kommunstyrelsen lämnades ingen.\n2. **Förskolenämndens delårsrapport per augusti 2026 och årsrapport för 2026.** Sök efter ett antal: hur många barn som faktiskt valt utökad vistelsetid. Finns ingen sådan siffra har den brist som beskrivs här inte åtgärdats.\n3. **Utfallet mot de 40 mnkr.** Delårsrapporten per mars 2026 skriver att nollprognosen förutsätter att satsningen nyttjas. Kontrollera i årsrapporten om posten förbrukats, och i så fall om personalvolymen i förskolan ökat i motsvarande grad eller om timmarna tagits ur befintlig bemanning.\n4. **Skolverkets statistik för hösten 2026 (publiceras våren 2027).** Andelen barngrupper över riktmärket och antal barn per årsarbetare i Göteborg. Reformen bör enligt resonemanget ovan inte påverka gruppstorleken i antal inskrivna barn — om den ändå stiger kraftigt är premissen i den här analysen fel.\n5. **De 80 mnkr för 2027.** Beloppet ligger i en flerårsplan, som enligt kf-2025-11-06-§481 fastställs \"som underlag för den fortsatta planeringen\" och inte som bindande budget. Kontrollera i budgeten för 2027 om summan faktiskt avsätts.",
+  "källor": [
+    {
+      "typ": "internt",
+      "ref": "ks-2026-05-06-§330",
+      "vad": "kommunstyrelsens avstyrkan 2026-05-06, fyra yrkanden, inga reservationer"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-05-28-§219",
+      "vad": "handling 2026 nr 117 i sin helhet: motionen, förskolenämndens beslut och tjänsteutlåtande 2026-02-04, stadsledningskontorets tjänsteutlåtande 2026-04-10, yttranden"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§259",
+      "vad": "andra bordläggningen, ärendet uppskjutet till 2026-09-03"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2025-11-06-§481",
+      "vad": "budget 2026, det ursprungliga beslutet, votering 40 ja mot 29 nej med 12 som avstod"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§230",
+      "vad": "avgifter för 30 timmars vistelsetid fastställda att gälla från 2026-09-01"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§229",
+      "vad": "delårsrapport mars 2026: förskolenämndens nollprognos förutsätter att satsningen nyttjas"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-04-23-§123",
+      "vad": "årsredovisning 2025: barnantal 28 486, fallande barn per heltidsanställd, ökande andel förskollärare"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2025-11-27-§534",
+      "vad": "anmälan av motionen som handling 2025 nr 224, daterad 2025-11-05"
+    },
+    {
+      "typ": "internt",
+      "ref": "namnd-förskolenämnden-budget-2026",
+      "vad": "budgetposten 30h förskola för föräldralediga −40 mnkr, kommunbidrag 5 368,3 mnkr"
+    },
+    {
+      "typ": "internt",
+      "ref": "utfall-nämnd-förskolenämnden-2025",
+      "vad": "nämndens utfall 2025 +50 mnkr, förklarat bland annat med färre barn än budgeterat"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2025-11-06-333",
+      "vad": "argument mot reformen i budgetdebatten 2025-11-06"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2025-11-06-335",
+      "vad": "argument för reformen i budgetdebatten 2025-11-06"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2025-11-06-337",
+      "vad": "uppgift om att motionärernas eget budgetförslag rymde medel för reformen"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.skolverket.se/styrning-och-ansvar/regler-och-ansvar/ansvar-i-skolfragor/ratt-till-forskola",
+      "vad": "skollagens miniminivå 15 timmar i veckan vid föräldraledighet, kommunen får erbjuda mer"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.sverigeslarare.se/om-oss/opinion-debatt/undersokningar/barngrupperna-i-forskolan-2025/",
+      "vad": "Skolverkets riktmärke 12/15 barn och andelen grupper över riktmärket 2025 (53,9 procent nationellt)"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.ifau.se/sv/Press/Meddelanden/Stora-skillnader-i-forskolans-effekter-pa-sma-barns-utveckling/",
+      "vad": "Felfe och Lalive: förskolans effekter varierar med barnets bakgrund och med gruppstorlek och personalens utbildning"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/kommittedirektiv/en-likvardig-forskola-av-god-kvalitet-med_hcb1113/",
+      "vad": "Dir. 2024:113 om obligatorisk språkförskola: urvalskriteriet är barnets språkexponering, inte vårdnadshavares födelseland"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.svt.se/nyheter/lokalt/skane/malmo-enda-storstaden-med-max-15-timmar-i-forskolan-for-storasyskon",
+      "vad": "storstädernas regler för storasyskons vistelsetid under föräldraledighet"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.gp.se/nyheter/goteborg/barngrupperna-minskar-i-goteborg-men-fortfarande-langt-over-riktlinjen.20065304-31ac-4511-99c8-e2e2e3ea83b6",
+      "vad": "referat av Skolverkets statistik för Göteborg, bakom betalvägg, andrahandsuppgift om andel över riktmärket och andel förskollärare"
+    }
+  ]
+}

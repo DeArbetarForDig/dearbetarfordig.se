@@ -10,6 +10,8 @@
     "scrape:handlingar": "tsx src/scrapers/handlingar.ts",
     "scrape:kandidater": "tsx src/scrapers/kandidater.ts",
     "download:protokoll": "tsx src/scrapers/download-protokoll.ts",
+    "generate:analys": "tsx src/parsers/generate-analys.ts",
+    "analys:ai": "tsx src/analys/agent.ts",
     "scrape:all": "tsx src/scrapers/politiker.ts && tsx src/scrapers/webbtv-kf.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"

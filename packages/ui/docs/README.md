@@ -32,6 +32,17 @@ Props: `name` (Lucide icon kebab-case), `size` (px, default 20). Renders inline 
 ```
 Props: `parti` (S/M/SD/V/MP/C/L/KD/D), `full` (show name), `size` (sm/md)
 
+### Callout
+```astro
+<Callout severity="warning" label="Se upp med">
+  Beslutet innehåller inget belopp.
+</Callout>
+<Callout severity="success" label="Ja">Är pengarna utpekade?</Callout>
+```
+Props: `severity` (critical/warning/success/info/neutral), `label`, `icon` (Lucide-namn, ersätter standardikonen)
+
+Färgad minikortsnotis för ett enskilt påstående som ska sticka ut i löpande text — till skillnad från `Pill` (kapsel för en kort etikett) och `StatusBadge` (status på ett objekt) bär den hela meningen. Varje allvarlighetsgrad har egen ikon, så färgen är aldrig enda signalen.
+
 ### StatusBadge
 ```astro
 <StatusBadge status="bifall" />

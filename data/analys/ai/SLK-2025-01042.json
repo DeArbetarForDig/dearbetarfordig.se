@@ -1,0 +1,157 @@
+{
+  "ärendeNr": "SLK-2025-01042",
+  "rubrik": "Motion av Jessica Blixt (D) och Martin Wannholt (D) om att revidera Göteborgs Stads policy för skolmåltider",
+  "maskingenererad": true,
+  "modell": "claude-opus-5",
+  "genererad": "2026-07-31",
+  "granskad_av": null,
+  "granskad_datum": null,
+  "källa_hash": "9d6e6fc178ae7516",
+  "riktning": "blandad",
+  "confidence": "medium",
+  "sammanfattning": "Motionen vill att skolmaten varje dag ska ha ett animaliskt alternativ vid sidan av det vegetariska. Kommunstyrelsen avstyrkte den 6 maj 2026; fullmäktige har bordlagt ärendet två gånger och avgör det 3 september. Kostnadssiffran i handlingen återges på två sätt som inte går ihop.",
+  "nyckelpunkter": [
+    {
+      "ton": "fakta",
+      "text": "Fullmäktige har inte avgjort ärendet. Kommunstyrelsen avstyrkte motionen 6 maj 2026, sedan är den bordlagd två gånger, senast till 3 september."
+    },
+    {
+      "ton": "varning",
+      "text": "22,5 mnkr är övre änden av en grovt uppskattad årlig ökning av matkostnaden om motionen genomförs — inte vad beslutet kostar. Avslås den kostar den noll."
+    },
+    {
+      "ton": "varning",
+      "text": "Stadsledningskontoret återger samma siffra som en höjning från 17 till 22,5 mnkr. Nämndens egna livsmedelsinköp låg på 124–157 mnkr per år 2023–2025."
+    },
+    {
+      "ton": "varning",
+      "text": "Kostnaden räknades på att alla vegetariska rätter byts mot kött. Motionen vill lägga till ett animaliskt alternativ, inte ta bort det vegetariska."
+    }
+  ],
+  "talar_för": [
+    {
+      "text": "Motionen vill revidera ett dokument som inte finns. Staden har en måltidspolicy och en anvisning i grundskolan, ingen policy för skolmåltider.",
+      "källa": "kf-2026-06-11-§261"
+    },
+    {
+      "text": "Motionen ber att kostnaden utreds efter beslutet. Ingen kostnad för förslaget är alltså fastställd när fullmäktige ska ta ställning.",
+      "källa": "kf-2026-06-11-§261"
+    },
+    {
+      "text": "Forskningen motionen åberopar landar i blandade rätter med lite kött som höjer järnupptaget, inte i ett separat animaliskt alternativ varje dag.",
+      "källa": "https://www.gu.se/nyheter/klimatsmarta-skolmaltider-kan-bidra-till-jarnbrist"
+    },
+    {
+      "text": "Livsmedelsverkets riktlinjer från januari 2026 tog bort rådet om ett separat vegetariskt spår och förordar blandade rätter i stället.",
+      "källa": "https://www.hallbartmatsystem.se/nationella-riktlinjer-skolmat/"
+    }
+  ],
+  "talar_emot": [
+    {
+      "text": "Kostnadsspannet 17–22,5 mnkr kallas grovt uppskattat och redovisas utan portionsantal eller kostnad per portion. Det går inte att räkna efter.",
+      "källa": "kf-2026-06-11-§261"
+    },
+    {
+      "text": "Beräkningen simulerar att samtliga vegetariska huvudrätter byts mot animaliskt protein — mer än motionen föreslår, och det drar kostnaden uppåt.",
+      "källa": "kf-2026-06-11-§261"
+    },
+    {
+      "text": "Nämndens livsmedelsinköp var 153, 157 och 124 mnkr 2023–2025. Stadsledningskontorets bas på 17 mnkr stämmer inte med stadens egna utbetalningar.",
+      "källa": "leverantörsutfall-nämnd-grundskolenämnden-2024"
+    },
+    {
+      "text": "Motionens kärnpåstående om upptagbart järn besvaras inte. Remissvaret hänvisar till näringsberäkning, som mäter näringen i det som serveras.",
+      "källa": "kf-2026-06-11-§261"
+    }
+  ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": true,
+    "finansiering_klar": false,
+    "konsekvenser_utredda": true,
+    "mål_mätbart": false,
+    "uppföljning_bestämd": false
+  },
+  "rekommendation": {
+    "röst": "avstår",
+    "motivering": "Motionen vill ändra ett dokument som inte finns och skjuter kostnadsberäkningen till efter beslutet, men det avstyrkande underlaget prissätter ett annat förslag än det som lagts och återges felaktigt i stadsledningskontorets egen text. Inget av spåren bär en prövning.",
+    "skulle_ändras_av": "En kostnadsberäkning av det motionen faktiskt föreslår — ett animaliskt alternativ vid sidan av det vegetariska, inte i stället för det — med portionsantal och kostnad per portion redovisade, plus en siffra på hur portionens CO2e-värde skulle ändras mot gränsvärdet 0,59."
+  },
+  "analys_md": "## Vad som beslutades\n\nMotionen väcktes i kommunfullmäktige den 1 oktober 2025 (kf-2026-04-23-§134). Den har två yrkanden: att kommunstyrelsen tillsammans med grundskolenämnden ska revidera \"stadens policy för skolmåltider\" så att den utgår från barnens behov och barns rätt att äta sig mätta, att det varje dag finns ett fullgott animaliskt alternativ vid sidan av vegetariska rätter och att elevernas åsikter systematiskt tas tillvara — samt att kommunstyrelsen ska utreda eventuella kostnadsökningar och ta fram underlag till budgetberedningen (motionen, återgiven som bilaga 1 i kf-2026-06-11-§261, Handling 2025 nr 202).\n\nKommunstyrelsen avstyrkte motionen den 6 maj 2026 (ks-2026-05-06-§345). **Fullmäktige har ännu inte avgjort ärendet.** Det bordlades den 28 maj (kf-2026-05-28-§221) och den 11 juni 2026 (kf-2026-06-11-§261), senast till den 3 september 2026. Enligt kommunallagen (2017:725) 5 kap. 35 § bör en motion om möjligt beredas så att fullmäktige kan besluta inom ett år från att den väckts, här den 1 oktober 2026. Den planerade behandlingen ligger inom fristen, med knapp marginal.\n\nAllt som sägs nedan om kostnader gäller alltså ett förslag som ännu inte är avgjort. Avslås motionen medför den ingen utgift.\n\n## Hur det gick till\n\nÄrendet har varit omstritt i varje instans, men aldrig avgjorts med bred marginal.\n\nGrundskolenämnden avstyrkte den 24 mars 2026 (§ 38, GSF-2025-04444, återgiven i kf-2026-06-11-§261). Beslutet togs efter votering med 5 röster mot 4 — ledamöter från S, V och MP röstade för förvaltningens avstyrkande, ledamöter från M, L, D och SD emot. En av motionärerna, Jessica Blixt (D), är ledamot i grundskolenämnden och deltog i omröstningen om nämndens remissvar på sin egen motion. Protokollet noterar ingen jävsinvändning och den deterministiska analysen registrerar noll jävsanteckningar i ärendet; jag tar inte ställning till om deltagandet var reglementsenligt, men det är en uppgift läsaren bör ha.\n\nI kommunstyrelsen lades ett alternativt yrkande från D, M, L, KD och SD, först den 15 april och sedan reviderat den 29 april 2026. Revideringen är sakligt intressant: yrkandet flyttade uppdraget från \"stadens policy för skolmåltider\" till \"Anvisning för måltider i grundskoleförvaltningen\". Fem partier hade alltså tagit till sig förvaltningarnas invändning att det första dokumentet inte existerar, och rättat instrumentet innan omröstningen. Kommunstyrelsen avstyrkte ändå — och gjorde det **utan omröstning** (ks-2026-05-06-§345). Att fem partier står bakom ett alternativt yrkande men inte begär votering är värt att notera; det innebär att det inte finns någon dokumenterad rösträkning som visar var kommunstyrelsen faktiskt står.\n\nBeredningstiden i kommunstyrelsen var kort — bordläggning den 22 april och beslut den 6 maj, 14 dagar. Tiden har i stället gått åt före och efter: 203 dagar från att motionen väcktes till första behandling i kommunstyrelsen, och därefter tre månaders bordläggningar i fullmäktige, i båda protokollen angivna med tidsskäl.\n\n## Underlaget\n\nMotionen remitterades till **en** instans: grundskolenämnden (kf-2026-06-11-§261).\n\nDet är påfallande lite, och stadens egen praxis visar varför. I april 2025 behandlade fullmäktige en motion från annat håll som också ville revidera Göteborgs Stads policy för måltider — SLK-2024-00855, med Uddevallas måltidspolicy som förebild. Den motionen remitterades till åtta nämnder: förskolenämnden, grundskolenämnden, utbildningsnämnden, nämnden för funktionsstöd, två socialnämnder, äldre samt vård- och omsorgsnämnden och inköps- och upphandlingsnämnden (kf-2025-09-11-§418). Jämförelsen håller på den punkt som är avgörande: båda motionerna föreslår att samma kommungemensamma styrdokument ändras. Den skiljer sig i att den här motionen i sin brödtext handlar om grundskolan, vilket är ett argument för smalare remiss.\n\nMen stadsledningskontoret kan inte gärna ha det på båda sätten. I sitt tjänsteutlåtande den 30 mars 2026 anför kontoret som skäl mot motionen just att \"Göteborgs Stads policy för måltider ... gäller inte enbart grundskolenämnden utan alla nämnder som ansvarar för måltidsverksamhet. Policyn avser alltså inte en särskild åldersgrupp\" (kf-2026-06-11-§261). Argumentet att policyn är stadsövergripande används alltså mot förslaget, samtidigt som ingen av de övriga berörda nämnderna har fått yttra sig. Det är en beredningsbrist oavsett vilken sida man står på.\n\n**Motionens svaga punkter i underlaget.** Tre stycken, alla synliga i handlingen.\n\nFör det första riktar sig motionen mot ett dokument som inte finns. Både grundskoleförvaltningen och stadsledningskontoret konstaterar att det inte existerar någon \"Göteborgs Stads policy för skolmåltider\"; de styrande dokumenten är Göteborgs Stads policy för måltider, antagen av kommunfullmäktige den 9 december 2021, och grundskolenämndens anvisning för måltider, antagen den 22 november 2022 (kf-2026-06-11-§261). Formuleringen är inte en petitess: den avgör vem som ska revidera vad. Att det alternativa yrkandet rättade felet visar att det gick att rätta, men motionen som fullmäktige röstar om den 3 september är den ursprungliga.\n\nFör det andra är motionens empiriska kärna obelagd i handlingen. Påståendet är att elever inte äter sig mätta för att klimatmålen styr matsedeln. Motionen anför inget mätvärde för detta — inget tallrikssvinn, inga portionsantal, inget enkätresultat. Den hänvisar till att \"många elever vittnar\" och till motioner i ungdomsfullmäktige. Att frågan engagerar unga är belagt (förvaltningen bekräftar två motioner om skolmaten i ungdomsfullmäktige 2024, båda bifallna, och att många ledamöter tar upp skolmaten). Att engagemanget beror på just avsaknaden av kött varje dag är det inte.\n\nFör det tredje pekar den forskning motionen åberopar inte på motionens lösning. Motionen hänvisar till forskning från Göteborgs universitet om att barn, särskilt tonårsflickor, riskerar för lite järn när kosten domineras av växtbaserat. Den forskningen finns och den refereras korrekt: en avhandling i kostvetenskap 2025 visar att kroppen tar upp omkring 3 procent av järnet i sojabaserade rätter mot omkring 14 procent i nötköttsbaserade, och att ingen av 76 analyserade kommuners skolmatsedlar gav tillräckligt upptagbart järn för tonårsflickor med högt behov ([gu.se](https://www.gu.se/nyheter/klimatsmarta-skolmaltider-kan-bidra-till-jarnbrist)). Men forskarens egen slutsats är hybridrecept — växtbaserade ingredienser med en liten mängd kött och C-vitaminrika livsmedel, vilket i studien sänkte klimatpåverkan med 38 procent och samtidigt gav tillräcklig näring. Det är något annat än ett separat animaliskt alternativ varje dag. Motionen citerar problembeskrivningen och hoppar över åtgärden.\n\nSamma sak gäller riktningen i den nationella styrningen. Livsmedelsverkets nya nationella riktlinjer för skolmåltider från januari 2026 tog bort det tidigare rådet att alltid servera ett separat vegetariskt alternativ och förordar i stället blandade rätter, samtidigt som baljväxter ska finnas dagligen och rött kött begränsas till högst 125 gram per elev och vecka ([hallbartmatsystem.se](https://www.hallbartmatsystem.se/nationella-riktlinjer-skolmat/)). Motionen vill införa ett andra parallellt spår i samma stund som den nationella vägledningen går ifrån parallella spår.\n\n**Det avstyrkande underlagets svaga punkter.** Lika många, och de är inte mindre.\n\nGrundskoleförvaltningens svar på motionens näringsargument är att skolluncherna näringsberäknas i kostdatasystemet Matilda och ska ge cirka 30 procent av elevernas energi- och näringsbehov (kf-2026-06-11-§261). Det svarar inte på invändningen. Näringsberäkning mäter näringen i det som serveras; hela poängen i den forskning motionen åberopar är skillnaden mellan serverat och upptagbart järn. Ordet järn förekommer en enda gång i förvaltningens bedömning, i en bisats om att kött innehåller protein och järn. Frågan om Göteborgs egna matsedlar ger tonårsflickor tillräckligt upptagbart järn ställs inte och besvaras inte. Det är den enskilt största luckan i remissvaret.\n\nFörvaltningens köttargument träffar delvis vid sidan om. Bland skälen att avstyrka anförs Livsmedelsverkets gräns på 125 gram rött kött per vecka. Men motionen begär ett \"animaliskt alternativ\", inte rött kött. Kyckling och fisk berörs inte av den gränsen — och förvaltningen vet det, eftersom dess eget kostnadsexempel nämner kycklingfilé. Argumentet är giltigt mot en tolkning av motionen som motionen inte gör.\n\nMålkonflikten med klimatmålen är påstådd men inte kvantifierad. Förvaltningen har ett mätbart gränsvärde för 2026 — genomsnittlig klimatpåverkan per serverad lunch högst 0,59 kg CO2e, 63 procent ekologiskt, högst 32 gram matsvinn per portion. Den kan alltså räkna. Ingen siffra ges för hur mycket portionens CO2e skulle stiga med ett dagligt animaliskt alternativ. På stadsnivå går det inte ens att kontrollera: uppföljningen av miljö- och klimatprogrammets mål för 2025 slår fast att \"indikatorn om klimatpåverkan från inköpta livsmedel har inte kunnat följas upp, eftersom stadens nya uppföljningssystem ännu inte har kunnat leverera tillförlitliga data\" (kf-2026-02-26-§48). Att en åtgärd skulle försvåra måluppfyllelsen är rimligt i sak, men det finns just nu ingen mätserie att hålla den mot.\n\nSlutligen vilar avstyrkandet av motionens tredje del — systematiskt tillvaratagande av elevers åsikter — på ett tunt underlag. Förvaltningen bedömer att detta \"redan är omhändertaget\" och belägger det med en enkät som skickades ut 2024, där \"respektive skola avgjorde själva om det fanns tid att avsätta till enkäten\", samt med ett samtal med en enhetschef som ansvarar för åtta skolor, av vilka sju har måltidsråd. Enkätens svarsfrekvens redovisas inte och dess resultat återges inte alls. Nästa enkät \"förväntas skickas ut under 2026\". Att dra slutsatsen att elevinflytandet är systematiskt omhändertaget i hela grundskoleförvaltningen från åtta skolor och en enkät utan redovisat utfall är ett svagare belägg än frågan tål — särskilt eftersom förvaltningen i samma stycke bekräftar att många elever efterfrågar mer kött.\n\nEtt led som håller: den sociala dimensionen. Remissvaret redovisar att skolmåltiden ska utjämna skillnader i elevers hemförutsättningar, att måltidsmiljö och schemalagd tid (minst 25 minuter enligt Livsmedelsverket) påverkar om eleverna äter upp, och gör en bedömning av barnets bästa med hänvisning till barnkonventionens artikel 12. Det är en riktig konsekvensanalys, inte en rubrik.\n\n## Pengarna\n\nDet är siffran 22,5 mnkr som satte ärendet i kön. Den avser inte vad beslutet kostar.\n\nSiffran kommer ur grundskoleförvaltningens tjänsteutlåtande den 14 januari 2026 (GSF-2025-04444), återgivet som bilaga 2 i kf-2026-06-11-§261. Där står: ett dagligt animaliskt alternativ \"skulle grovt beräknat uppskattas leda till en kostnadsökning för livsmedel som uppgår till mellan 17 miljoner och 22,5 miljoner kronor per år\". 22,5 är alltså **övre änden av ett spann för en årlig kostnadsökning om motionen genomförs** — inte en total, inte en investering, och inte en utgift som följer av något beslut som är fattat. Kommunstyrelsen har avstyrkt; avslår fullmäktige motionen den 3 september blir utgiften noll.\n\nTill spannet kommer att fristående verksamheter ska kompenseras med 23 procent, vilket enligt samma utlåtande ger ytterligare 3,9–5,1 mnkr per år. Full årskostnad om motionen genomförs blir därmed cirka 21–28 mnkr. De fem belopp korpusen plockat upp ur ärendet — 22,5, 22,4, 20, 17 och 5,1 — är alltså: spannets övre ände (i två versioner), måltidsverksamhetens effektiviseringskrav, spannets nedre ände, och kompensationens övre ände. Inget av dem är en beslutad utgift.\n\nTre saker om den siffran förtjänar att stå kvar.\n\n**Den är återgiven på två oförenliga sätt i samma handling.** Grundskoleförvaltningen skriver att förändringen ger en ökning på 17–22,5 mnkr. Stadsledningskontoret skriver i sitt tjänsteutlåtande: \"Grundskolenämndens beräkning visar att förändringen skulle öka årskostnaden för livsmedel från dagens cirka 17 miljoner kronor skulle till cirka 22,5 miljoner kronor.\" Det är inte samma påstående. Kontorets version gör om ett spann för en *ökning* till en nivåförändring, och gör därmed ökningen till 5,5 mnkr i stället för 17–22,5 mnkr — en faktor tre till fyra fel. Den påstår dessutom att nämndens hela årliga livsmedelskostnad är cirka 17 mnkr.\n\nDen sista uppgiften går att kontrollera mot stadens egna utbetalningar. Grundskolenämndens leverantörsutfall visar för kontona Livsmedel och Ekologiska livsmedel tillsammans 153 mnkr 2023, 157 mnkr 2024 och 124 mnkr 2025 (leverantörsutfall-nämnd-grundskolenämnden-2023, -2024, -2025). Varför 2025 ligger lägre framgår inte av materialet och jag har inte utrett det. Men storleksordningen är entydig: en bas på 17 mnkr är fel med nästan en tiopotens. Fullmäktige har alltså i samma handling två läsningar av samma siffra, varav den ena är motbevisbar med stadens egen redovisning. Samma tjänsteutlåtande flyttar också effektiviseringskravet på cirka 20 mnkr från \"måltidsverksamheten\", som grundskoleförvaltningen skriver, till \"grundskolenämnden\", och daterar grundskolenämndens beslut till 2026-02-24 medan protokollsutdraget i samma handling är daterat 2026-03-24. Tre återgivningsfel i ett tjänsteutlåtande på några sidor.\n\n**Den är inte reproducerbar.** Förvaltningen kallar den själv \"grovt beräknat\" och beskriver metoden — en simulering på föregående års totala antal registrerade portioner, där grundmatsedeln kopierades och de vegetariska huvudrätterna ersattes med animaliskt protein. Men varken portionsantalet, kostnaden per portion eller antalet ändrade måltider redovisas, och det förklaras inte vad som skiljer den nedre änden från den övre. Spannet är 32 procent brett utan att läsaren får veta vilken förutsättning som ger vilket utfall. Ingen utomstående kan räkna efter. Notera också att beloppet anges som 22,5 mnkr i sammanfattningen och i det ekonomiska avsnittet men som 22,4 mnkr i förvaltningens punktlista för bedömningen — i ett och samma dokument.\n\n**Den prissätter ett annat förslag än det som lagts.** Simuleringen ersatte \"samtliga vegetariska huvudrätter\" med animaliskt protein. Motionen begär ett animaliskt alternativ *vid sidan av* vegetariska rätter och skriver uttryckligen att den inte vill ta bort de vegetariska alternativen. Enligt förvaltningens egen beskrivning serveras redan i dag två maträtter varje dag, varav en alltid är vegetarisk. Det scenario som räknats på är alltså mer långtgående än det som föreslagits, och felet går entydigt i riktning mot en för hög kostnad. Hur mycket för hög går inte att avgöra av handlingen, eftersom det inte framgår hur många måltider som byttes ut i simuleringen.\n\nFör perspektiv: grundskolenämndens budget för 2026 är 10 547 mnkr (namnd-grundskola-budget-2026). Ett påslag på 21–28 mnkr motsvarar 0,2–0,3 procent av nämndens budget och 17–22 procent av livsmedelsnotan för 2025. Det är alltså en liten post för nämnden och en stor post för måltidsverksamheten — vilket är precis varför det spelar roll att kravet på 20 mnkr i effektivisering ligger på måltidsverksamheten och inte på nämnden.\n\nFinansiering saknas i båda riktningar. Grundskolenämnden anger att ramen inte rymmer förändringen. Motionen löser inte det, utan hänskjuter finansieringsfrågan till en utredning och till budgetberedningen — det vill säga fullmäktige skulle fatta beslutet innan kostnaden är känd.\n\n## Vad vi kan vänta oss\n\nDet följande är min bedömning, inte materialets.\n\nOm motionen avslås den 3 september händer sannolikt ingenting mätbart. Grundskoleförvaltningen fortsätter enligt gällande anvisning, med två rätter per dag varav en vegetarisk och gränsvärdena 0,59 kg CO2e, 63 procent ekologiskt och 32 gram svinn per portion. De frågor motionen tar upp försvinner inte: förvaltningens eget underlag bekräftar att många elever efterfrågar mer kött, och den forskning som åberopas pekar på ett näringsproblem som Göteborg inte har undersökt på sina egna matsedlar.\n\nOm motionen bifalls i sin ursprungliga lydelse blir den svår att verkställa som skriven, eftersom det dokument den pekar ut inte existerar. Det troliga utfallet är då att uppdraget i praktiken landar i grundskolenämndens anvisning — vilket är precis vad det alternativa yrkandet redan formulerade. Kostnaden skulle med stor sannolikhet hamna under förvaltningens spann, eftersom spannet räknats på ett mer långtgående scenario, men jag kan inte säga hur mycket under. Riktningen är säkrare än storleken.\n\nOm något ändras är det mest sannolikt att den nationella styrningen driver frågan förbi båda alternativen. Livsmedelsverkets riktlinjer från januari 2026 och den åberopade avhandlingen pekar åt samma håll: blandade rätter med en liten mängd kött, i stället för två parallella spår. Ingen part i ärendet — varken motionärerna, grundskoleförvaltningen eller stadsledningskontoret — behandlar det alternativet, trots att det är det enda i materialet som adresserar både järnupptaget och klimatavtrycket. Det är min slutsats, inte något som står i handlingen.\n\nJag har letat efter belägg som skulle avgöra sakfrågan åt något håll och inte hittat något. Sökningar i korpus på \"skolmåltider policy\", \"livsmedel upphandling\", \"grundskolenämnden livsmedel\" och anföranden om skolmat ger inga tidigare göteborgsbeslut som mätt sambandet mellan matsedelns sammansättning och hur mycket eleverna äter. Webbsökning på svensk forskning om tallrikssvinn och mättnad i skolmatsalen ger studier som pekar på smak, måltidsmiljö, personalnärvaro och tid som avgörande faktorer — vilket stöder förvaltningens invändning — men ingen studie som visar att fler kötträtter i sig ökar intaget. Åt andra hållet finns avhandlingen från Göteborgs universitet, som är ett reellt belägg för att motionens näringsoro inte är påhittad.\n\n## Det som talar emot\n\nMot min bedömning att beredningen inte bär talar följande.\n\nDen tyngsta invändningen är att en motion inte behöver vara färdigberedd. Motionen är ett initiativ; dess andra yrkande är just att kostnaden ska utredas. Att kräva en färdig kostnadskalkyl innan fullmäktige får uppdra åt kommunstyrelsen att ta fram en är att kräva att svaret finns före frågan. Den invändningen har bäring, och den är skälet till att jag inte landar i avslag.\n\nVidare: grundskoleförvaltningens remissvar är i flera avseenden ett bra svar. Det redovisar gällande styrning korrekt, använder Livsmedelsverkets aktuella riktlinjer, gör en trestegs hållbarhetsbedömning, prövar barnets bästa och rättar motionens felaktiga premiss om vilket dokument som gäller. Att jag kritiserar kostnadsberäkningen och järnfrågan betyder inte att svaret som helhet är dåligt.\n\nOch: att ett kostnadsspann är grovt uppskattat är inte i sig ett fel. Ett beslutsunderlag för en icke genomförd åtgärd får vara ungefärligt. Felet ligger inte i osäkerheten utan i att osäkerheten inte redovisas — vilken förutsättning som ger vilken ände — och i att stadsledningskontoret sedan återger spannet som något det inte är.\n\nDet som skulle få mig att bedöma annorlunda: om det visar sig att simuleringen faktiskt bara bytte ut de dagar där båda rätterna är vegetariska, så prissätter den motionens förslag och min tredje invändning faller. Handlingen räcker inte för att avgöra det.\n\n## Så kan du kontrollera detta senare\n\nFyra saker går att slå upp.\n\n**Kommunfullmäktige den 3 september 2026.** Blir motionen avslagen, bifallen, återremitterad eller bordlagd igen? Om den bordläggs en fjärde gång passeras ettårsfristen i kommunallagen 5 kap. 35 § den 1 oktober 2026. Begärs votering går det också att se vad de fem partier som stod bakom det alternativa yrkandet i kommunstyrelsen faktiskt gör i fullmäktige — det gjorde de inte i kommunstyrelsen.\n\n**Elevenkäten.** Grundskoleförvaltningen skriver att en ny enkät \"förväntas skickas ut under 2026\". Leta i grundskolenämndens verksamhetsberättelse eller uppföljningsrapporter efter dess resultat och svarsfrekvens. Det är det enda instrument staden har som kan avgöra sakfrågan i motionen — om eleverna äter sig mätta — och dess resultat finns inte i den här handlingen. Om enkäten redovisas utan svarsfrekvens är underlaget fortfarande inte kontrollerbart.\n\n**Matsvinnet och klimatvärdet per portion.** Grundskolenämnden mäter matsvinn mot högst 32 gram per serverad lunch och klimatpåverkan mot högst 0,59 kg CO2e per portion 2026. Följ båda i nämndens uppföljning. Stiger svinnet samtidigt som klimatvärdet hålls, stöder det motionens problembeskrivning. Håller båda, försvagas den.\n\n**Livsmedelsnotan.** Kontrollera kontona Livsmedel och Ekologiska livsmedel i grundskolenämndens leverantörsutfall för 2026 och framåt. Utgångsläget är 153 mnkr (2023), 157 mnkr (2024) och 124 mnkr (2025). Nedgången 2024–2025 är oförklarad i materialet och värd en egen fråga oavsett hur motionen går. Genomförs motionen någon gång ska notan enligt förvaltningens beräkning stiga med 17–22,5 mnkr plus 3,9–5,1 mnkr i kompensation till fristående skolor — det är den prognos som då kan prövas mot utfallet.\n",
+  "källor": [
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§261",
+      "vad": "Bordläggning till 3 september 2026 samt hela KF Handling 2026 nr 123: stadsledningskontorets tjänsteutlåtande 2026-03-30, det reviderade yrkandet från D/M/L/KD/SD, motionen i original och grundskolenämndens protokollsutdrag med förvaltningens tjänsteutlåtande 2026-01-14"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2026-05-06-§345",
+      "vad": "Kommunstyrelsens avstyrkande utan omröstning, med yrkandena från D och S"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2026-04-22-§285",
+      "vad": "Första behandling i kommunstyrelsen, bordläggning på förslag av motionären"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-05-28-§221",
+      "vad": "Fullmäktiges första bordläggning av ärendet"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-04-23-§134",
+      "vad": "Redovisning av obesvarade motioner — visar att motionen väcktes 2025-10-01"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2025-09-11-§418",
+      "vad": "Jämförelsefallet SLK-2024-00855, motion om att revidera samma måltidspolicy: remiss till åtta nämnder, avslag efter votering 72–9"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-02-26-§48",
+      "vad": "Uppföljning av miljö- och klimatprogrammets mål 2025: indikatorn för klimatpåverkan från inköpta livsmedel kunde inte följas upp; andelen ekologiska livsmedel 47 procent 2023"
+    },
+    {
+      "typ": "internt",
+      "ref": "leverantörsutfall-nämnd-grundskolenämnden-2023",
+      "vad": "Livsmedel 77 245 tkr och Ekologiska livsmedel 75 298 tkr, tillsammans 153 mnkr"
+    },
+    {
+      "typ": "internt",
+      "ref": "leverantörsutfall-nämnd-grundskolenämnden-2024",
+      "vad": "Livsmedel 70 797 tkr och Ekologiska livsmedel 86 256 tkr, tillsammans 157 mnkr"
+    },
+    {
+      "typ": "internt",
+      "ref": "leverantörsutfall-nämnd-grundskolenämnden-2025",
+      "vad": "Livsmedel 51 928 tkr och Ekologiska livsmedel 71 765 tkr, tillsammans 124 mnkr"
+    },
+    {
+      "typ": "internt",
+      "ref": "namnd-grundskola-budget-2026",
+      "vad": "Grundskolenämndens budgetram 2026, 10 547 mnkr"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.gu.se/nyheter/klimatsmarta-skolmaltider-kan-bidra-till-jarnbrist",
+      "vad": "Avhandling i kostvetenskap 2025: järnupptag 3 procent ur sojabaserade mot 14 procent ur nötköttsbaserade rätter, ingen av 76 kommuners matsedlar gav nog upptagbart järn för tonårsflickor med högt behov, hybridrecept sänkte klimatpåverkan 38 procent"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.hallbartmatsystem.se/nationella-riktlinjer-skolmat/",
+      "vad": "Livsmedelsverkets nationella riktlinjer för skolmåltider januari 2026: rådet om separat vegetariskt alternativ borttaget till förmån för hybridrätter, baljväxter dagligen, högst 125 gram rött kött per elev och vecka"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/kommunallag-2017725_sfs-2017-725/",
+      "vad": "Kommunallagen 5 kap. 35 §: motion bör om möjligt beredas så att fullmäktige kan besluta inom ett år"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://umu.diva-portal.org/smash/get/diva2:1450328/FULLTEXT01.pdf",
+      "vad": "Studie om tallrikssvinn i skolmatsalen ur elevperspektiv — svinnet drivs av smak, sensoriska egenskaper och personalnärvaro; ingen koppling till kött kontra vegetariskt påvisas"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+---
+/**
+ * Callout — färgad minikortsnotis: ikon, etikett och en mening.
+ *
+ * För enskilda påståenden som ska sticka ut i en löpande sida: en varning, en
+ * styrka, ett faktum värt att veta. Skiljer sig från Pill (kapsel för en kort
+ * etikett) och StatusBadge (status på ett objekt) genom att bära hela meningen.
+ *
+ * Usage:
+ *   <Callout severity="warning" label="Se upp med">
+ *     Beslutet innehåller inget belopp.
+ *   </Callout>
+ *   <Callout severity="success" label="Ja">Är pengarna utpekade?</Callout>
+ *   <Callout severity="info" icon="scale">Utan etikett, egen ikon.</Callout>
+ *
+ * Props:
+ * - severity: critical | warning | success | info | neutral (styr färg + ikon)
+ * - label: fetstilt inledning före texten
+ * - icon: Lucide-namn som ersätter standardikonen för allvarlighetsgraden
+ *
+ * Tillgänglighet: färgen är aldrig enda signalen — varje allvarlighetsgrad har
+ * en egen ikon, och etiketten säger i klartext vad det är.
+ */
+import Icon from './Icon.astro'
+
+interface Props {
+  severity?: 'critical' | 'warning' | 'success' | 'info' | 'neutral'
+  label?: string
+  icon?: string
+  class?: string
+}
+
+const { severity = 'neutral', label, icon, class: className } = Astro.props
+
+const IKON = {
+  critical: 'circle-x',
+  warning: 'alert-triangle',
+  success: 'check-circle',
+  info: 'info',
+  neutral: 'circle',
+} as const
+---
+
+<div class:list={['callout', `callout--${severity}`, className]}>
+  <Icon name={icon ?? IKON[severity]} size={18} class="callout__icon" />
+  <p class="callout__text">
+    {label && <b class="callout__label">{label}:</b>}
+    <slot />
+  </p>
+</div>
+
+<style>
+  .callout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.625rem;
+    align-items: start;
+    padding: 0.75rem 0.875rem;
+    background: var(--color-surface-sunken);
+    border-left: 3px solid var(--callout-color);
+    border-radius: var(--radius-sm);
+  }
+
+  .callout__text {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .callout__label {
+    color: var(--callout-color);
+  }
+
+  .callout :global(.callout__icon) {
+    color: var(--callout-color);
+    /* Optiskt i linje med första textraden, inte med rutans överkant. */
+    margin-top: 0.1em;
+  }
+
+  .callout--critical {
+    --callout-color: var(--color-negative);
+  }
+
+  .callout--warning {
+    --callout-color: var(--color-warning);
+  }
+
+  .callout--success {
+    --callout-color: var(--color-positive);
+  }
+
+  .callout--info {
+    --callout-color: var(--color-info);
+  }
+
+  .callout--neutral {
+    --callout-color: var(--color-neutral);
+  }
+</style>

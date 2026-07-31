@@ -1,0 +1,117 @@
+{
+  "ärendeNr": "SLK-2026-00235",
+  "rubrik": "Hemställan från Business Region Göteborg AB om godkännande av avtal rörande bolagets utträde som delägare i Almi Företagspartner Väst AB",
+  "maskingenererad": true,
+  "modell": "claude-opus-5",
+  "genererad": "2026-07-30",
+  "granskad_av": null,
+  "granskad_datum": null,
+  "källa_hash": "4387322872d143eb",
+  "riktning": "blandad",
+  "confidence": "medium",
+  "sammanfattning": "Staden godkänner att Business Region Göteborg löser in sin andel på 12,25 procent i Almi Företagspartner Väst för 21 971 264 kronor. Priset vilar på en substansvärdering som KPMG granskat. Handlingen anger däremot inte vad driftsanslaget för 2025 och 2026 kostar, och ingen prövar självständigt vad utträdet betyder för företagen i regionen.",
+  "nyckelpunkter": [
+    {
+      "ton": "fakta",
+      "text": "Beslutet godkänner ett färdigförhandlat avtal. Regionfullmäktige i Västra Götaland hade redan sagt ja den 17 februari 2026."
+    },
+    {
+      "ton": "fakta",
+      "text": "Avtalet ger Business Region Göteborg 21 971 264 kronor för aktierna. I tjänsteutlåtandena beskrivs beloppet genomgående som cirka 20 miljoner."
+    },
+    {
+      "ton": "varning",
+      "text": "Vad bolaget samtidigt ska betala i driftsanslag för 2025 och 2026 står inte i handlingen, bara att det ska ligga på 2024 års nivå."
+    },
+    {
+      "ton": "varning",
+      "text": "Att utträdet inte skulle drabba företagens tillgång till lån är säljarens egen bedömning. Ingen annan instans i kedjan prövar den."
+    }
+  ],
+  "talar_för": [
+    {
+      "text": "Priset vilar på en substansvärdering av bolagets egna kapital, och en oberoende second opinion från KPMG bekräftar den.",
+      "källa": "kf-2026-05-28-§193"
+    },
+    {
+      "text": "Hela avtalstexten med det exakta beloppet 21 971 264 kronor låg med i fullmäktiges handling, inte bara en sammanfattning av den.",
+      "källa": "kf-2026-05-28-§193"
+    },
+    {
+      "text": "Ersättningen betalas av Almi Företagspartner Väst enligt avtalets punkt 4.1.7. Staden skjuter inte till några pengar för att komma ur ägandet.",
+      "källa": "kf-2026-05-28-§193"
+    },
+    {
+      "text": "Innehavet gav litet inflytande: det fanns inget aktieägaravtal, och samverkansavtalet mellan ägarna löpte ut i december 2025.",
+      "källa": "kf-2026-05-28-§193"
+    }
+  ],
+  "talar_emot": [
+    {
+      "text": "Inget belopp anges för driftsanslaget 2025 och 2026, som ska betalas oavsett när utträdet verkställs. Vad staden nettar går därför inte att räkna ut ur handlingen.",
+      "källa": "kf-2026-05-28-§193"
+    },
+    {
+      "text": "Ingen siffra redovisas för hur mycket Almi lånar ut eller ger rådgivning till företag i Göteborgsregionen. Påståendet att utträdet inte märks är alltså obelagt.",
+      "källa": "kf-2026-05-28-§193"
+    },
+    {
+      "text": "Ersättningen är låst till bokslutet per 31 december 2024 men betalas under 2026, utan ränta eller uppräkning för tiden däremellan.",
+      "källa": "kf-2026-05-28-§193"
+    },
+    {
+      "text": "Själva KPMG-yttrandet följde inte med till fullmäktige. Ledamöterna fick veta att värderingen granskats, men inte se granskningen.",
+      "källa": "kf-2026-05-28-§193"
+    }
+  ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": true,
+    "finansiering_klar": true,
+    "konsekvenser_utredda": false,
+    "mål_mätbart": false,
+    "uppföljning_bestämd": false
+  },
+  "rekommendation": {
+    "röst": "bifall",
+    "motivering": "Det som faktiskt godkänns — ett pris för en aktiepost — är beräknat efter en angiven metod, externt granskat och redovisat med exakt belopp i avtalstexten. Bristerna gäller information runt affären, inte affärens rimlighet, och något verkligt alternativ fanns inte kvar i maj 2026.",
+    "skulle_ändras_av": "Ett driftsanslag för 2024 i samma storleksordning som ersättningen, så att affären netto blir nära noll. Eller siffror som visar att Almis utlåning och rådgivning till företag i Göteborgsregionen hänger på just delägarskapet och anslaget från Business Region Göteborg."
+  },
+  "analys_md": "## Vad som beslutades\n\nKommunfullmäktige godkände den 28 maj 2026 ett avtal om att Business Region Göteborg AB:s (BRG) aktier i Almi Företagspartner Väst AB dras in, och att BRG därmed upphör att vara delägare (kf-2026-05-28-§193, ärende SLK-2026-00235). BRG äger 4 643 av bolagets 37 908 aktier, 12,25 procent. Övriga ägare är Västra Götalandsregionen (VGR) med 36,75 procent och det statliga moderbolaget Almi AB med 51 procent.\n\nEnligt avtalets punkt 4.1.2 får BRG 21 971 264 kronor för aktierna — det belopp som köade ärendet som \"22 mnkr\". Beloppet är den andel av bolagets justerade egna kapital som belöper på innehavet, vilket innebär att hela Almi Väst åsatts ett värde på knappt 180 mnkr (min uträkning ur avtalets egna tal: 21 971 264 × 37 908 / 4 643). Aktiekapitalet minskar med 464 300 kronor och återställs samtidigt genom en fondemission. Kommunstyrelsen tillstyrkte den 22 april 2026 (ks-2026-04-22-§274).\n\nÖverallt utom i avtalstexten sammanfattas ersättningen som \"cirka 20 mnkr\" — så skriver BRG, så skriver Göteborgs Stadshus AB och så skriver stadsledningskontoret. Avrundningen är nedåt med knappt två miljoner. Den ändrar ingenting i sak, men den beskrivning beslutsfattarna mötte i sammanfattningarna var alltså inte den siffra som står i avtalet.\n\n## Hur det gick till\n\nFullmäktige initierade ingenting här; fullmäktige kvitterade. Kedjan börjar hos motparten: Almi beslutade i slutet av 2023 om en nationell omstrukturering från 16 till 8 regionala dotterbolag, sade i juli 2024 upp samtliga samverkansavtal, och BRG:s styrelse fattade i augusti 2024 ett inriktningsbeslut om att verka för att avveckla delägarskapet och gav vd i uppdrag att förhandla. Förhandlingarna pågick under 2025, avtalsförslaget är daterat 17 december 2025, BRG:s styrelse godkände det 2026-02-09 § 9. VGR:s regionfullmäktige sade ja redan 2026-02-17 § 15 — tre månader före Göteborgs fullmäktige. Därefter Stadshus 2026-03-23 § 34, stadsledningskontorets tjänsteutlåtande 2026-03-30, kommunstyrelsen 2026-04-22 och fullmäktige 2026-05-28.\n\nAtt ärendet över huvud taget når fullmäktige följer av BRG:s ägardirektiv: avyttring av aktier i delägda bolag är av principiell beskaffenhet och kräver fullmäktiges ställningstagande. Rollen är alltså ett godkännande i efterhand av något som förhandlats färdigt på annat håll, inte ett vägval. Det är i sig inget fel — så fungerar ägarstyrningen av delägda bolag — men det betyder att det tillfälle då frågan verkligen avgjordes var BRG:s styrelsemöte i augusti 2024, och det beslutet passerade aldrig fullmäktige.\n\nBehandlingen speglar det. Kommunstyrelsen var enig, inga yrkanden, inga reservationer, inget jäv, ingen bordläggning, noll handläggningsdagar. I fullmäktige läste ordföranden upp ärendet och konstaterade \"Ingen har begärt ordet\" innan bifall (anforande-2026-05-28-414). Ett beslut om att sälja stadens andel i ett bolag som finansierar små och medelstora företag i regionen debatterades inte alls.\n\n## Underlaget\n\nTre tjänsteutlåtanden i kedjan säger nästan ordagrant samma sak. Stadshus \"ser sammanfattningsvis inga hinder\"; stadsledningskontoret \"gör ingen annan bedömning\". Den sakliga analysen i ärendet är alltså BRG:s egen, och de två instanser som ska granska den avstår uttryckligen från att göra en egen prövning. Handlingen innehåller ingen konsekvensanalys, ingen riskanalys och ingen remiss, och de ekologiska och sociala dimensionerna avfärdas med att inga särskilda aspekter funnits.\n\nDet KPMG-yttrande som bär hela prisargumentet är bilaga 2 till BRG:s beslutsunderlag men följde inte med i fullmäktiges handling. Ledamöterna fick påståendet att en oberoende part bekräftat värderingen, inte underlaget för det.\n\nAlternativet att följa med in i nya Almi Västsverige AB nämns men kvantifieras inte. Handlingen säger att BRG skulle fått \"en mycket begränsad ägarandel\" — men inte hur stor, inte vad den hade kostat i anslag, och inte vad den hade gett i inflytande. Någon jämförelse mellan att stanna och att gå finns inte.\n\nFrågan om vad staden slutar få behandlas i en enda mening: \"Almi är en viktig marknadskompletterande part, men är totalt sett en liten kreditgivare.\" Ingen siffra på utlåningsvolym, antal kundföretag i Göteborgsregionen eller rådgivningsinsatser lämnas. Underlaget behandlar därmed utträdet som en bolagsaffär, inte som en förändring i stadens näringslivsstöd. Att BRG:s ägaranvisning för Almi Väst ålägger bolaget särskilt fokus på tidiga skeden, kvinnor och personer med utländsk bakgrund samt samverkan med science parks (ägaranvisningen, goteborg.se) nämns inte alls när effekterna av utträdet bedöms.\n\n## Pengarna\n\nAffären har två halvor, och bara den ena är beloppsatt.\n\nIn: 21 971 264 kronor. Betalas enligt avtalets punkt 4.1.7 av bolaget självt, alltså ur Almi Västs eget kapital — inte av Almi AB eller VGR. En följd som handlingen inte skriver ut är att de kvarvarande ägarnas andelar stiger utan att de betalar något: efter indragningen av 4 643 aktier återstår 33 265, vilket ger VGR 41,9 procent och Almi AB 58,1 procent (min uträkning ur aktietalen i avtalets punkt 2.1). Samtidigt lämnar knappt 22 mnkr det regionala bolagets balansräkning — samma bolag vars förmåga att låna ut till företag handlingen försäkrar inte påverkas.\n\nUt: driftsanslag för hela kalenderåren 2025 och 2026, på 2024 års nivå, oavsett om tillträdet sker tidigare (avtalets punkt 5). Beloppet står ingenstans i handlingen. Den senaste offentliggjorda nivån jag hittat är ägarnas finansieringsöverenskommelse som ligger bilagd ägaranvisningen på goteborg.se: för 2021 lämnade BRG 7 151 213 kronor av totalt 58 377 250 kronor — exakt 12,25 procent, samma som ägarandelen. Är 2024 av samma storleksordning rör det sig om ungefär 14 mnkr över två år, varav i praktiken bara ett år är en merkostnad av affären; anslaget för 2025 hade betalats även som ägare. Detta är min uppskattning byggd på en sex år gammal siffra, inte stadens uppgift. Att fullmäktige inte fick 2024 års siffra är bristen — inte att den skulle vara alarmerande.\n\nDärtill: ersättningen är låst till justerat eget kapital per avstämningsdagen 31 december 2024, medan tillträdet kan ske ända fram till utgången av 2026. Avtalet innehåller ingen ränta eller uppräkning för mellantiden. Med de negativa rörelseresultat 2023 och 2024 som handlingen själv beskriver kan den låsningen ha fallit ut till stadens fördel likaväl som till dess nackdel — men ingen i beredningskedjan tar upp frågan, och underlaget tillåter inte läsaren att avgöra den.\n\nStadens årsredovisning för 2025 tar upp innehavet till 12,3 procent (kf-2026-04-23-§123). Något bokfört värde på posten framgår inte av ärendet, så hur stor den bokföringsmässiga vinsten blir går inte att läsa ut.\n\n## Vad vi kan vänta oss\n\nMin bedömning, inte materialets: för det enskilda företaget i Göteborg som söker lån ändras sannolikt lite på kort sikt. Almis verksamhet försvinner inte från regionen, den flyttar in i ett större bolag tillsammans med Halland, och BRG har aldrig fattat kreditbesluten. Här har handlingen rimligen rätt.\n\nDen verkliga förändringen ligger på finansierings- och styrsidan. Från 2027 upphör ett årligt anslag i storleksordningen sju miljoner kronor från stadens näringslivsbolag till marknadskompletterande lån och rådgivning, och staden förlorar ägaranvisningen som instrument för att rikta insatserna mot Göteborgsregionen. Samverkansavtalet löpte ut i december 2025 och det nya förbereds och tecknas, enligt BRG:s eget beslutsunderlag, enbart mellan VGR och Almi. Det som ska ersätta kanalen är formuleringen att BRG \"avser att se över\" samverkan i andra former — utan avtal, utan tidpunkt och utan pengar. Riktningen är alltså: en engångsintäkt och en löpande besparing för staden, en Göteborgsspecifik kanal mindre i det regionala företagsstödet. Storleksordningen är liten i förhållande till stadens budget, men den är inte noll, och handlingen redovisar den inte.\n\nBRG:s ägarportfölj har omformats på flera håll parallellt: Johanneberg Science Park är avvecklat, ägarandelen i Lindholmen Science Park har utökats sedan Chalmers lämnat, och nu lämnas Almi (kf-2026-04-23-§137, kf-2025-03-27-§149). De ärendena är inte jämförelsefall till det här — det ena gällde utökad ägarfinansiering, det andra en avveckling, inget av dem en prissatt aktieaffär — utan bakgrund som visar att beslutet ingår i en pågående koncentration av bolagets ägande. Vad den koncentrationen sammantaget innebär för stadens näringslivsstöd har jag inte funnit någon samlad redovisning av.\n\n## Det som talar emot\n\nDen kritiska läsningen ska inte överdrivas. Själva transaktionen är bättre gjord än i många bolagsärenden: prismetoden står i avtalet, en extern part har granskat värderingen, och fullmäktige fick hela avtalstexten med exakt belopp — inte bara en sammanfattning. Ägandet på 12,25 procent gav dessutom begränsat inflytande, eftersom det saknades aktieägaravtal och samverkansavtalet hade löpt ut.\n\nOch alternativet var i praktiken borta i maj 2026. Motparten hade fattat sitt beslut i februari, Almis nationella omstrukturering genomförs oavsett vad Göteborg tycker, och ett avslag hade lämnat BRG kvar som minoritetsägare i ett bolag som ändå ska gå upp i en ny struktur där bolaget inte ingår. Att kalla beslutet dåligt berett vore att förväxla ett svagt beslutsunderlag med en dålig affär.\n\nJag har sökt efter motstående belägg: i korpusen på \"Almi\" i alla posttyper, på revisionsrapporter om delägda bolag och ägarstyrning (inga träffar), på tidigare fullmäktigebehandling av BRG:s delägda bolag, och på webben efter uppgifter om värderingen och om Almi Västs ekonomi. Jag har inte hittat något som tyder på att priset skulle vara oskäligt, och inte heller någon uppgift som motsäger att omstruktureringen genomförs på samma sätt i resten av landet. Det jag inte har kunnat kontrollera är 2024 års anslagsnivå och Almi Västs egna kapital vid avstämningsdagen.\n\nVad som skulle få mig att bedöma annorlunda: ett driftsanslag för 2024 som är väsentligt högre än 2021 års nivå, eller siffror som visar att Almis utlåning i Göteborgsregionen faktiskt hänger på BRG:s anslag och delägarskap.\n\n## Så kan du kontrollera detta senare\n\n- **Årsredovisning och delårsrapport 2026:** leta efter inbetalningen om 21 971 264 kronor hos Business Region Göteborg och efter den realisationsvinst den ger. Kontrollera att Almi Företagspartner Väst försvunnit ur förteckningen över stadens innehav; i 2025 års redovisning stod posten kvar på 12,3 procent (kf-2026-04-23-§123).\n- **Utdelningen:** handlingen säger att ersättningen \"kan möjliggöra\" framtida utdelning till staden. Kontrollera om någon utdelning från Business Region Göteborg faktiskt beslutas, eller om formuleringen förblir en möjlighet.\n- **Budgeten från 2027:** stannar de cirka sju miljoner kronor per år som gått till Almi kvar i näringslivsfrämjande verksamhet, eller blir de en besparing? Frågan besvaras inte i det här ärendet.\n- **Kompletterande uppföljning och uppföljningsrapporter:** rapporteras någon ny form av samverkan med Almi Västsverige, med innehåll och pengar, eller står avsiktsförklaringen kvar oförändrad? Jämför med hur ägarförändringarna rapporterades i kf-2026-04-23-§137.\n- **Almis egen statistik:** följ utlåning och antal kundföretag i Västsverige och Göteborg 2026–2028 mot åren dessförinnan. Faller Göteborgsandelen mer än regionen i övrigt är handlingens försäkran motbevisad.",
+  "källor": [
+    {
+      "typ": "internt",
+      "ref": "kf-2026-05-28-§193",
+      "vad": "fullmäktiges beslut, stadsledningskontorets tjänsteutlåtande 2026-03-30, Göteborgs Stadshus AB:s yttrande 2026-03-23 § 34, BRG:s beslutsunderlag och styrelsebeslut 2026-02-09 § 9 samt hela avtalstexten om indragning av aktier"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2026-04-22-§274",
+      "vad": "kommunstyrelsens tillstyrkan, enig och utan yrkanden eller reservationer"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2026-05-28-414",
+      "vad": "ordförandens föredragning i fullmäktige: ingen begärde ordet i ärendet"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-04-23-§137",
+      "vad": "kompletterande uppföljning per december 2025, där BRG aviserar hemställan om utträdet och rapporterar övriga ägarförändringar i klustret"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-04-23-§123",
+      "vad": "Göteborgs Stads årsredovisning 2025, förteckning över innehav: Almi Företagspartner Väst AB 12,3 procent"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2025-03-27-§149",
+      "vad": "tidigare fullmäktigeärende om BRG:s delägda bolag och Lindholmen Science Park — bakgrund, inte ett jämförelsefall"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://goteborg.se/wps/PA_Pabolagshandlingar/file?id=29467",
+      "vad": "ägaranvisning för Almi Företagspartner Väst AB med ägarnas finansieringsöverenskommelse: BRG 7 151 213 kronor av totalt 58 377 250 kronor för 2021"
+    }
+  ]
+}

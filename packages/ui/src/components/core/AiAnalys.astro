@@ -1,0 +1,350 @@
+---
+/**
+ * AI-analys av ett beslut, byggd för att skummas.
+ *
+ * Ordningen är avsiktlig: en invånare som lägger tjugo sekunder på fliken ska
+ * ändå gå därifrån med det väsentliga. Först vem som skrivit texten, sedan vad
+ * beslutet innebär och nyckelpunkterna, sedan hur väl beslutet är berett, sedan
+ * modellens egen ståndpunkt, sedan för och emot. Hela analysen ligger hopfälld
+ * under — den är källan till allt ovanför, inte det man måste ta sig igenom
+ * först.
+ *
+ * Byggd på designsystemets komponenter: Card, Callout, StatusBadge, Accordion,
+ * Icon. Ingen egen färgsättning — Callout och StatusBadge bär färg, ikon och
+ * text tillsammans, så färgen är aldrig enda signalen.
+ */
+import { delaKorsreferens, renderaMarkdown } from '@daf/shared'
+import Accordion from './Accordion.astro'
+import Callout from './Callout.astro'
+import Card from './Card.astro'
+import Icon from './Icon.astro'
+import StatusBadge from './StatusBadge.astro'
+
+interface Props {
+  analys: {
+    modell: string
+    genererad: string
+    granskad_av: string | null
+    granskad_datum: string | null
+    riktning: 'positiv' | 'negativ' | 'blandad' | 'oklar'
+    confidence: 'low' | 'medium' | 'high'
+    sammanfattning: string
+    nyckelpunkter: { ton: 'varning' | 'styrka' | 'fakta'; text: string }[]
+    talar_för: { text: string; källa: string }[]
+    talar_emot: { text: string; källa: string }[]
+    beslutskvalitet: {
+      kostnad_redovisad: boolean
+      finansiering_klar: boolean
+      konsekvenser_utredda: boolean
+      mål_mätbart: boolean
+      uppföljning_bestämd: boolean
+    }
+    rekommendation: {
+      röst: 'bifall' | 'avslag' | 'avstår'
+      motivering: string
+      skulle_ändras_av: string
+    }
+    analys_md: string
+    källor: { typ: 'internt' | 'webb'; ref: string; vad: string }[]
+  }
+}
+
+const { analys } = Astro.props
+
+const TON = {
+  varning: { severity: 'warning', etikett: 'Se upp med' },
+  styrka: { severity: 'success', etikett: 'Håller' },
+  fakta: { severity: 'info', etikett: 'Att veta' },
+} as const
+
+const RIKTNING = {
+  positiv: 'Bedöms få positiv effekt',
+  negativ: 'Bedöms få negativ effekt',
+  blandad: 'Bedöms få blandad effekt',
+  oklar: 'Effekten går inte att bedöma',
+} as const
+
+const SÄKERHET = { low: 'Låg', medium: 'Medelhög', high: 'Hög' } as const
+
+// Frågorna ställs likadant till varje ärende. Formuleringarna är läsarens,
+// inte förvaltningens: "Vet vi vad det kostar?" i stället för "kostnadskalkyl".
+const KVALITET = [
+  ['kostnad_redovisad', 'Vet vi vad det kostar?'],
+  ['finansiering_klar', 'Är pengarna utpekade?'],
+  ['konsekvenser_utredda', 'Är konsekvenserna utredda?'],
+  ['mål_mätbart', 'Går resultatet att mäta?'],
+  ['uppföljning_bestämd', 'Är uppföljning bestämd?'],
+] as const
+
+// StatusBadge har redan fullmäktiges röstalternativ som statusar — samma
+// färg, glyf och etikett som i voteringsfliken.
+const RÖST_STATUS = { bifall: 'bifall', avslag: 'avslag', avstår: 'avstar' } as const
+const RÖST_ETIKETT = {
+  bifall: 'Skulle rösta bifall',
+  avslag: 'Skulle rösta avslag',
+  avstår: 'Skulle avstå',
+} as const
+
+const brödtext = renderaMarkdown(analys.analys_md)
+const interna = analys.källor.filter((k) => k.typ === 'internt')
+const webb = analys.källor.filter((k) => k.typ === 'webb')
+---
+
+<div class="daf-ai space-y-4">
+  <Card>
+    <p class="daf-ai__markning">
+      <Icon name="bot" size={16} />
+      <span>
+        <strong>Skriven av en AI-modell ({analys.modell}), inte av en människa.</strong>
+        Bygger på stadens egna handlingar och öppna källor — varje påstående har en källa
+        längst ned som du kan gå till själv.
+        {
+          analys.granskad_av ? (
+            <> Granskad av {analys.granskad_av} den {analys.granskad_datum}.</>
+          ) : (
+            <> <strong>Ännu inte granskad av en människa.</strong></>
+          )
+        }
+      </span>
+    </p>
+  </Card>
+
+  <Card title="Det viktigaste" subtitle={`${RIKTNING[analys.riktning]} · Säkerhet i bedömningen: ${SÄKERHET[analys.confidence]}`}>
+    <p class="daf-ai__sammanfattning">{analys.sammanfattning}</p>
+    <div class="daf-ai__lista">
+      {analys.nyckelpunkter.map((p) => (
+        <Callout severity={TON[p.ton].severity} label={TON[p.ton].etikett}>{p.text}</Callout>
+      ))}
+    </div>
+  </Card>
+
+  <Card
+    title="Hur väl är beslutet berett?"
+    subtitle="Fem frågor som ställs likadant till varje ärende — svaren går att slå upp i handlingen"
+  >
+    <div class="daf-ai__lista">
+      {KVALITET.map(([nyckel, fråga]) => (
+        <Callout
+          severity={analys.beslutskvalitet[nyckel] ? 'success' : 'critical'}
+          label={analys.beslutskvalitet[nyckel] ? 'Ja' : 'Nej'}
+        >{fråga}</Callout>
+      ))}
+    </div>
+  </Card>
+
+  <Card
+    title="Om modellen hade suttit i fullmäktige"
+    subtitle="Ståndpunkt på beredning och rimlighet — inte på om politiken är önskvärd"
+  >
+    <StatusBadge
+      status={RÖST_STATUS[analys.rekommendation.röst]}
+      label={RÖST_ETIKETT[analys.rekommendation.röst]}
+    />
+    <p class="daf-ai__motivering">{analys.rekommendation.motivering}</p>
+    <p class="daf-ai__andras">
+      <strong>Skulle ändras av:</strong> {analys.rekommendation.skulle_ändras_av}
+    </p>
+  </Card>
+
+  {(analys.talar_för.length > 0 || analys.talar_emot.length > 0) && (
+    <div class="daf-ai__vagskal">
+      {analys.talar_för.length > 0 && (
+        <Card title="Talar för beslutet">
+          <ul class="daf-ai__skal">
+            {analys.talar_för.map((p) => (
+              <li>
+                {p.text}
+                <span class="daf-ai__kalla">
+                  {delaKorsreferens(p.källa).map((d) =>
+                    d.href ? <a href={d.href}>{d.text}</a> : d.text,
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      )}
+      {analys.talar_emot.length > 0 && (
+        <Card title="Talar emot beslutet">
+          <ul class="daf-ai__skal">
+            {analys.talar_emot.map((p) => (
+              <li>
+                {p.text}
+                <span class="daf-ai__kalla">
+                  {delaKorsreferens(p.källa).map((d) =>
+                    d.href ? <a href={d.href}>{d.text}</a> : d.text,
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      )}
+    </div>
+  )}
+
+  <Card title="Hela analysen" subtitle={`Skriven ${analys.genererad} — underlaget till allt ovanför`}>
+    <Accordion summary="Läs hela analysen">
+      <div class="daf-ai__brodtext" set:html={brödtext} />
+    </Accordion>
+  </Card>
+
+  <Card title={`Källor (${analys.källor.length})`}>
+    {interna.length > 0 && (
+      <>
+        <h4 class="daf-ai__kallrubrik">Stadens egna handlingar</h4>
+        <ul class="daf-ai__kallor">
+          {interna.map((k) => (
+            <li>
+              <code>
+                {delaKorsreferens(k.ref).map((d) =>
+                  d.href ? <a href={d.href}>{d.text}</a> : d.text,
+                )}
+              </code> — {k.vad}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+    {webb.length > 0 && (
+      <>
+        <h4 class="daf-ai__kallrubrik">Externa källor</h4>
+        <ul class="daf-ai__kallor">
+          {webb.map((k) => (
+            <li>
+              <a href={k.ref} target="_blank" rel="noopener noreferrer">{k.ref}</a> — {k.vad}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </Card>
+</div>
+
+<style>
+  .daf-ai__markning {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    font-size: var(--font-size-small);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .daf-ai__markning strong {
+    color: var(--color-text);
+  }
+
+  .daf-ai__sammanfattning {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .daf-ai__lista {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .daf-ai__motivering {
+    margin: 0.75rem 0 0.5rem;
+    line-height: 1.6;
+  }
+
+  .daf-ai__andras {
+    font-size: var(--font-size-small);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .daf-ai__vagskal {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  }
+
+  .daf-ai__skal {
+    margin: 0;
+    padding-left: 1.125rem;
+    list-style: disc;
+  }
+
+  .daf-ai__skal li {
+    margin-bottom: 0.625rem;
+    line-height: 1.5;
+  }
+
+  .daf-ai__kalla {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-subtle);
+    overflow-wrap: anywhere;
+  }
+
+  .daf-ai__kalla a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  /* Brödtexten kommer från renderaMarkdown() — styla via elementväljare, den
+     har inga klasser att haka på. */
+  .daf-ai__brodtext :global(h3) {
+    margin: 1.75rem 0 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .daf-ai__brodtext :global(h3):first-child {
+    margin-top: 0;
+  }
+
+  .daf-ai__brodtext :global(h4) {
+    margin: 1.5rem 0 0.5rem;
+    font-weight: 600;
+  }
+
+  .daf-ai__brodtext :global(p),
+  .daf-ai__brodtext :global(li) {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .daf-ai__brodtext :global(ul) {
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+
+  .daf-ai__brodtext :global(code),
+  .daf-ai__kallor code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+  }
+
+  .daf-ai__brodtext :global(a),
+  .daf-ai__kallor a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    /* Modellgenererade URL:er kan vara långa — bryt hellre än att spränga
+       layouten på mobil. */
+    overflow-wrap: anywhere;
+  }
+
+  .daf-ai__kallrubrik {
+    margin: 1rem 0 0.5rem;
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .daf-ai__kallrubrik:first-child {
+    margin-top: 0;
+  }
+
+  .daf-ai__kallor {
+    padding-left: 1.25rem;
+    font-size: var(--font-size-small);
+    line-height: 1.6;
+    list-style: disc;
+  }
+</style>

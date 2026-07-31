@@ -7,9 +7,9 @@
  * formaten på disk.
  */
 
-import { readFileSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { GrafFilSchema, RosterSchema } from '@daf/shared'
+import { AiAnalysSchema, GrafFilSchema, RosterSchema } from '@daf/shared'
 import { describe, expect, it } from 'vitest'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../data')
@@ -76,6 +76,69 @@ describe('data/graf/*.json', () => {
       if (!e.from.startsWith('politiker-')) {
         expect.fail(`röstade-edge med icke-politiker-källa: ${JSON.stringify(e)}`)
       }
+    }
+  })
+})
+
+describe('data/analys/ai/*.json', () => {
+  // AI-analyserna skrivs av en subagent, inte av en parser — desto viktigare
+  // att formen valideras innan de seedas till produktion.
+  const dir = join(DATA_DIR, 'analys/ai')
+  const filer = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')) : []
+
+  it.each(filer)('%s följer AiAnalysSchema', (fil) => {
+    const analys = JSON.parse(readFileSync(join(dir, fil), 'utf-8'))
+    const res = AiAnalysSchema.safeParse(analys)
+    if (!res.success) expect.fail(JSON.stringify(res.error.issues.slice(0, 5), null, 2))
+    expect(res.data?.ärendeNr).toBe(fil.replace(/\.json$/, ''))
+  })
+
+  // Unicode-medveten gräns: \b bryter vid å/ä/ö och tror att V:et i
+  // "Västtrafik" är ett parti. Bindestreck undantas också — annars fälls
+  // "C-vitamin" och "D-vitamin", och regeln börjar styra sakinnehållet i
+  // stället för att skydda det (en analys skrev om ett näringsämne för att
+  // blidka testet). Ett verkligt "S-styret" fångas ändå av BLOCKETIKETT.
+  // Regeln som kontrolleras är den i docs/SPEC-ANALYS.md — ett argument
+  // återges på sitt sakinnehåll, aldrig med avsändaren som etikett.
+  const PARTIBOKSTAV = /(?<![\p{L}-])(?:S|V|MP|M|D|L|KD|SD|C|FI)(?![\p{L}-])/u
+  const BLOCKETIKETT = /högern|vänstern|det rödgröna|styret|oppositionen|majoriteten/i
+
+  it.each(filer)('%s håller det korta lagret partineutralt', (fil) => {
+    const a = JSON.parse(readFileSync(join(dir, fil), 'utf-8'))
+    const kort = [
+      ['sammanfattning', a.sammanfattning],
+      ...a.nyckelpunkter.map((p: { text: string }, i: number) => [`nyckelpunkt[${i}]`, p.text]),
+      ...a.talar_för.map((p: { text: string }, i: number) => [`talar_för[${i}]`, p.text]),
+      ...a.talar_emot.map((p: { text: string }, i: number) => [`talar_emot[${i}]`, p.text]),
+      ['motivering', a.rekommendation.motivering],
+      ['skulle_ändras_av', a.rekommendation.skulle_ändras_av],
+    ] as [string, string][]
+    for (const [fält, text] of kort) {
+      expect(PARTIBOKSTAV.test(text), `partibokstav i ${fält}: ${text}`).toBe(false)
+      expect(BLOCKETIKETT.test(text), `blocketikett i ${fält}: ${text}`).toBe(false)
+    }
+  })
+
+  it.each(filer)('%s har källor som går att slå upp i analysen', (fil) => {
+    const a = JSON.parse(readFileSync(join(dir, fil), 'utf-8'))
+    for (const p of [...a.talar_för, ...a.talar_emot]) {
+      const id = p.källa.split(' ')[0]
+      const känd =
+        a.källor.some((k: { ref: string }) => p.källa.includes(k.ref) || k.ref.includes(id)) ||
+        a.analys_md.includes(id)
+      expect(känd, `${p.källa} finns varken i källförteckningen eller i brödtexten`).toBe(true)
+    }
+  })
+
+  it('varje analys hör ihop med ett känt ärende', () => {
+    if (!filer.length) return
+    const { ärenden } = JSON.parse(readFileSync(join(DATA_DIR, 'analys/beslut.json'), 'utf-8'))
+    const kända = new Map(
+      ärenden.map((ä: { ärendeNr: string; källa_hash: string }) => [ä.ärendeNr, ä.källa_hash]),
+    )
+    for (const fil of filer) {
+      const nr = fil.replace(/\.json$/, '')
+      expect(kända.has(nr), `${nr} finns inte i data/analys/beslut.json`).toBe(true)
     }
   })
 })
