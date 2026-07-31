@@ -234,10 +234,15 @@ export interface Analys {
   källa_hash: string
   prognos: null
   utfall: null
-  genererad: string
 }
 
-export function analysera(paragrafer: Paragraf[], idag: string): Analys {
+/**
+ * `idag` används inte i posten längre — datumet står en gång i filhuvudet i
+ * stället för 1352 gånger i innehållet. Med det per post gav varje omkörning
+ * 2706 raders diff utan en enda verklig ändring, vilket gör veckans data-PR
+ * omöjlig att läsa. Parametern står kvar för att anropen ska vara stabila.
+ */
+export function analysera(paragrafer: Paragraf[], _idag?: string): Analys {
   const kedja = [...paragrafer].sort((a, b) => a.datum.localeCompare(b.datum))
   const sista = kedja[kedja.length - 1]
   const rubrik = kedja.find((p) => p.rubrik)?.rubrik ?? ''
@@ -257,7 +262,6 @@ export function analysera(paragrafer: Paragraf[], idag: string): Analys {
     källa_hash: createHash('sha1').update(text).digest('hex').slice(0, 16),
     prognos: null,
     utfall: null,
-    genererad: idag,
   }
 
   if (PROCEDURELL.test(rubrik)) return { ...bas, analyserbar: false, skäl: 'procedurell' }
