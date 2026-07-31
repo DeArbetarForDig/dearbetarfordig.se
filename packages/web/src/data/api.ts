@@ -37,6 +37,7 @@ export interface Beslut {
   beslut: 'bifall' | 'avslag' | 'bordläggning' | null
   votering?: { ja: number; nej: number; avstår: number }
   ärendeNr?: string
+  harAiAnalys?: boolean
 }
 
 export interface BeslutDetail {

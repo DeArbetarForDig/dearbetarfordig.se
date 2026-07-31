@@ -26,6 +26,7 @@ const BeslutSummary = z.object({
   votering: z.any(),
   namnupprop: z.boolean(),
   ärendeNr: z.any(),
+  harAiAnalys: z.boolean(),
 })
 
 const beslutRoute = createRoute({
@@ -91,6 +92,14 @@ beslutRouter.openapi(beslutRoute, async (c) => {
       : []
   const namnuppropSet = new Set(namnuppropIds.map((r) => r.to_id))
 
+  // AI-analys ligger per ärende (SLK-nummer), inte per paragraf — se AnalysItem.
+  const ärendeNrs = [...new Set(rows.map((r) => (r.data as any).ärendeNr).filter(Boolean))]
+  const aiRows =
+    ärendeNrs.length > 0
+      ? await sql`SELECT arende_nr FROM ${sql(schema)}.analys WHERE arende_nr = ANY(${ärendeNrs}) AND ai IS NOT NULL`
+      : []
+  const aiSet = new Set(aiRows.map((r) => r.arende_nr))
+
   const items = rows.map((r) => ({
     id: r.id,
     organ: (r.id as string).startsWith('ks-') ? 'KS' : 'KF',
@@ -101,6 +110,7 @@ beslutRouter.openapi(beslutRoute, async (c) => {
     votering: (r.data as any).votering,
     namnupprop: namnuppropSet.has(r.id),
     ärendeNr: (r.data as any).ärendeNr,
+    harAiAnalys: aiSet.has((r.data as any).ärendeNr),
     _links: beslutLinks(kommun, r.id, (r.data as any).datum),
   }))
   return c.json(halCollection(items, beslutListLinks(kommun), total), 200)

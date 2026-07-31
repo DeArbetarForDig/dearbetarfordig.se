@@ -36,6 +36,10 @@ const data = kfBeslut.map((b) => {
     ärendeNr: (b as any).ärendeNr || '',
     status,
     votering,
+    aiAnalys: b.harAiAnalys ? '1' : '0',
+    _aiAnalys_html: b.harAiAnalys
+      ? '<span class="daf-tooltip daf-tooltip--top-right" role="tooltip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="stroke-(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 4.9L5 9.8l4.1 3.2L7.8 18 12 15l4.2 3-1.3-4.9L19 9.8l-5.1-1.9Z"/></svg><span class="daf-tooltip__msg">AI-analys finns</span></span>'
+      : '—',
     _titel_html: `<a href="/goteborg/beslut/${encodeURIComponent(b.id)}" class="text-[var(--color-text)] hover:text-[var(--color-primary)]">${titel}</a>`,
     _paragraf_html: b.paragraf ? `§ ${Number.parseInt(b.paragraf.replace('§ ', ''))}` : '',
     _status_html: statusColor
@@ -54,6 +58,14 @@ const columns = [
   { key: 'titel', label: 'Ärende', sort: 'default' as const },
   { key: 'status', label: 'Status', sort: 'default' as const, nowrap: true, width: '90px' },
   { key: 'votering', label: 'Votering', sort: 'default' as const, nowrap: true, width: '140px' },
+  {
+    key: 'aiAnalys',
+    label: 'AI',
+    sort: 'default' as const,
+    align: 'center' as const,
+    nowrap: true,
+    width: '50px',
+  },
 ]
 ---
 
