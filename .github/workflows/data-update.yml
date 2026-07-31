@@ -117,4 +117,7 @@ jobs:
           gh pr create --base main --head "$branch" \
             --title "data: weekly update $(date +%Y-%m-%d)" \
             --body "Automated weekly data update — auto-merges once lint+test pass."
-          gh pr merge "$branch" --auto --squash
+          # --delete-branch: utan den blir varje veckas gren kvar efter
+          # squash-mergen. Repots delete_branch_on_merge räckte inte —
+          # data-update-2026-07-27 låg kvar tills den städades för hand.
+          gh pr merge "$branch" --auto --squash --delete-branch
