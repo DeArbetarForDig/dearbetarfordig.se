@@ -1,0 +1,103 @@
+{
+  "ärendeNr": "SLK-2026-00123",
+  "rubrik": "Kompletterande uppföljning per december 2025",
+  "maskingenererad": true,
+  "modell": "claude-sonnet-5",
+  "genererad": "2026-07-31",
+  "granskad_av": null,
+  "granskad_datum": null,
+  "källa_hash": "9fc53961f6425c6c",
+  "riktning": "blandad",
+  "confidence": "medium",
+  "sammanfattning": "Kommunfullmäktige godkände 2026-04-23 §137 (SLK-2026-00123) en lagstadgad uppsiktsrapport utan egna pengar eller åtgärder. Rapporten visar dock att en nämnd bröt mot ekonomiregelverket, att cybersäkerhetslagen ännu inte efterlevs och att löneskillnaden mellan könen ökade för första gången sedan 2013.",
+  "nyckelpunkter": [
+    {
+      "ton": "styrka",
+      "text": "Rapporten är självkritisk: stadsledningskontoret pekar själv ut nämnder som brutit mot ekonomireglerna eller haft dålig prognossäkerhet."
+    },
+    {
+      "ton": "varning",
+      "text": "Socialnämnden Hisingen bröt mot stadens ekonomiregler genom att inte ta fram åtgärdsförslag vid prognostiserat underskott."
+    },
+    {
+      "ton": "varning",
+      "text": "Staden uppfyller ännu inte cybersäkerhetslagen som gällt sedan januari 2026, enligt rapporten själv."
+    },
+    {
+      "ton": "fakta",
+      "text": "Beslutet gäller bara att notera och vidarebefordra rapporten - inga nya pengar eller åtgärder beslutas av fullmäktige här."
+    }
+  ],
+  "talar_för": [
+    {
+      "text": "Rapporten redovisar öppet vilka nämnder som brutit mot ekonomiregelverket och varför, i stället för att bara visa positiva resultat.",
+      "källa": "kf-2026-04-23-§137"
+    },
+    {
+      "text": "Uppföljningen bygger på ett regelverk med tydliga tidsfrister (20 och 30 kalenderdagar) för nämnder att hantera underskott.",
+      "källa": "kf-2026-04-23-§137"
+    },
+    {
+      "text": "Flera nämnder som tidigare varslat om underskott, till exempel Stadsfastighetsnämnden, vände till överskott under året.",
+      "källa": "kf-2026-04-23-§137"
+    }
+  ],
+  "talar_emot": [
+    {
+      "text": "Socialnämnden Hisingen tog inte fram åtgärdsförslag vid prognostiserat underskott, vilket stadsledningskontoret bedömer bryter mot regelverket.",
+      "källa": "kf-2026-04-23-§137"
+    },
+    {
+      "text": "Staden uppfyller ännu inte alla krav i cybersäkerhetslagen som trätt i kraft, enligt rapporten själv.",
+      "källa": "kf-2026-04-23-§137"
+    },
+    {
+      "text": "Löneskillnaden mellan kvinnor och män ökade marginellt 2025 - första gången sedan 2013 att trenden inte minskade.",
+      "källa": "kf-2026-04-23-§137"
+    },
+    {
+      "text": "Flera nämnders prognoser avvek kraftigt från utfallet, vilket staden själv säger sig ha svårt att förstå fullt ut.",
+      "källa": "kf-2026-04-23-§137"
+    }
+  ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": false,
+    "finansiering_klar": false,
+    "konsekvenser_utredda": true,
+    "mål_mätbart": false,
+    "uppföljning_bestämd": true
+  },
+  "rekommendation": {
+    "röst": "bifall",
+    "motivering": "Beredningen är ovanligt noggrann och självkritisk - stadsledningskontoret pekar själv ut var regelverket inte följts och var prognoserna brustit - och beslutet i sig innebär inget annat än att notera och vidarebefordra en rapport enligt en lagstadgad uppsiktsplikt.",
+    "skulle_ändras_av": "Om nästa års motsvarande uppföljning visar att Socialnämnden Hisingens brist på återrapportering upprepas eller att cybersäkerhetslagens krav fortfarande inte är uppfyllda, skulle det tala för att uppföljningsprocessen saknar verklig effekt trots att den är välskriven."
+  },
+  "analys_md": "## Vad som beslutades\n\nKommunstyrelsen tillstyrkte 2026-04-01 § 239 och kommunfullmäktige beslutade 2026-04-23 § 137 (SLK-2026-00123) att 1) godkänna \"Kompletterande uppföljning per december 2025\" och överlämna den till kommunfullmäktige \"som ett led i uppsikten\", och 2) godkänna Årsrapport 2025 för Keillers Park (ks-2026-04-01-§239, kf-2026-04-23-§137).\n\nDet är inte ett beslut om nya pengar, åtgärder eller mål. Det är en lagstadgad rapportering: kommunstyrelsen har enligt kommunallagen (6 kap. 1 §) en uppsiktsplikt över nämndernas verksamhet och ekonomi och ska rapportera till fullmäktige om utvecklingen (SKR, \"Uppsiktsplikt för kommunstyrelsen\", skr.se). Den här \"kompletterande uppföljningen\" är ett komplement till årsredovisningen 2025 som stadsledningskontoret tar fram enligt en fastställd årlig uppföljningsprocess (samma tjänsteutlåtande, daterat 2026-03-05, i kf-2026-04-23-§137). Bilaga 1 är en drygt 40-sidig sammanställning över nämndernas avvikelser, prognossäkerhet, löner, Lex Maria/Lex Sarah-anmälningar, ej verkställda SoL/LSS-beslut, cybersäkerhetslagen och kommuncentrala budgetposter.\n\n## Hur det gick till\n\nBeslutet fattades enigt: inga yrkanden, ingen omröstning, inga reservationer (ks-2026-04-01-§239, deterministisk_analys.process). Moderaterna, Demokraterna, Liberalerna och Kristdemokraterna lämnade ett gemensamt skriftligt yttrande daterat 2026-04-01, antecknat i kommunstyrelsens protokoll (ks-2026-04-01-§239, \"Handlingar\": \"Yttrande från M, D, L och KD den 1 april 2026\"; samma yttrande återges i sin helhet i kf-2026-04-23-§137). Partierna röstade alltså inte emot att notera och vidarebefordra rapporten - de riktade i stället kritik mot vad rapporten visar om stadens styrning, och kopplade det till att deras eget budgetförslag inte antagits.\n\nDet är värt att jämföra med förra årets motsvarande ärende: Kompletterande uppföljning per december 2024 (SLK-2025-00103) bordlades en gång i kommunstyrelsen (ks-2025-04-09-§291) och gick i kommunfullmäktige till votering med ett yrkande, 43 ja mot 38 nej (kf-2025-04-24-§207). Årets ärende gick däremot igenom utan bordläggning och utan omröstning, trots att det skriftliga yttrandet i år är minst lika kritiskt i sak. Det tyder på att oenigheten förra året gällde en annan fråga än själva innehållet i uppföljningsrapporten (troligen ett särskilt yrkande som inte återfinns i årets ärende), snarare än att styrningsfrågorna skulle vara mindre kontroversiella i år.\n\nDebatt förekom ändå i fullmäktige: minst tre ledamöter yttrade sig (Håkan Eriksson, V; Pär Gustafsson, L; Marie Brynolfsson, V; anforande-2026-04-23-431 till -444, kopplade till kf-2026-04-23-§137). Vad de sa i sak går dock inte att återge här - för möten från och med 2024 lagrar korpus bara metadata (talare, tidpunkt, taleslängd) för anföranden av den här typen, inte själva talets ordalydelse. Det är en begränsning i det tillgängliga materialet, inte en uppgift jag valt bort.\n\n## Underlaget\n\nUnderlaget är stadsledningskontorets tjänsteutlåtande 2026-03-05 med bilaga 1 (uppföljningsrapporten) och bilaga 2 (Keillers Park-rapporten). Den deterministiska analysen av ärendet markerar har_handling, nämner_utredning, nämner_konsekvensanalys, nämner_barnperspektiv och nämner_riskanalys som sanna, men nämner_jämställdhetsanalys som falsk - trots att rapporten faktiskt innehåller ett helt avsnitt (4.1-2.4) om löneskillnader mellan kvinnor och män. Det är sannolikt en brist i den automatiska sökordsklassificeringen, inte i själva underlaget.\n\nInnehållet är strukturerat i väsentliga avvikelser (kap. 2), uppsiktsfrågor om nämndernas underskott och prognossäkerhet (kap. 3), övrig uppföljning - löner, Lex Maria/Lex Sarah, ej verkställda SoL/LSS-beslut, cybersäkerhetslagen, Keillers Park, Göteborgsförslaget (kap. 4) - och kommuncentrala budgetposter (kap. 5).\n\nDet mest anmärkningsvärda i underlaget: stadsledningskontoret konstaterar själv att \"regelverket inte har efterlevts\" för Socialnämnden Hisingen, som vid en prognostiserad negativ avvikelse inte tog fram det åtgärdsförslag som krävs enligt 16-17 §§ i Göteborgs Stads regler för ekonomisk planering, budget och uppföljning, och i stället växlade fram och tillbaka mellan nollprognos och underskottsprognos utan tydlig motivering. Samma avsnitt konstaterar att varken Socialnämnden Hisingen eller Socialnämnden Sydväst återrapporterat sin hantering av respektive underskott i årsrapporten, trots krav på det (kf-2026-04-23-§137, avsnitt 3.1.1).\n\nStadsledningskontoret konstaterar också att nämndernas prognossäkerhet 2025 varierade kraftigt: det samlade resultatet blev 767 mnkr, cirka 50 mnkr lägre än oktoberprognosen, men för enskilda nämnder är avvikelserna stora och delvis oförklarade. Stadsmiljönämnden gick från en prognos på 87 mnkr i oktober till ett bokslutsresultat på 152 mnkr, och Kretslopp och vattennämnden redovisade ett resultat 90 mnkr över augustiprognosen - i båda fallen skriver stadsledningskontoret uttryckligen att man \"har svårt att fullt ut förstå den stora skillnaden\" (samma källa, avsnitt 3.1.3).\n\nVad som inte är utrett, och som heller inte behöver vara det i ett ärende av den här typen: tjänsteutlåtandets \"Bedömning ur ekonomisk, ekologisk och social dimension\" konstaterar att dimensionerna \"får ... ingen påverkan om inte rapporten föranleder nya beslut\" - en rimlig slutsats eftersom ärendet i sig inte fattar några nya beslut.\n\nEn datakvalitetsanmärkning som påverkar hur jag läst materialet: den lagrade fulltexten för paragraf kf-2026-04-23-§137 i korpus (cirka 1,85 miljoner tecken) innehåller hela dokumentet dubbelt (andra kopian börjar vid ungefär tecken 928 600) och tycks även innehålla text från ett efterföljande, orelaterat ärende om avvecklingen av Göteborg Energis Forskningsstiftelse. Jag har läst och citerat enbart den första, fullständiga kopian och har inte använt materialet om Forskningsstiftelsen, som inte hör till det här ärendet.\n\n## Pengarna\n\nBeslutet i sig innehåller inget belopp och ingen finansieringsfråga - det är en notering, inte en anslagsfråga. Den deterministiska analysens ekonomifält markerar finansiering_osäker som falsk, men det beror på att ingen finansieringsfråga över huvud taget ställs i beslutet, inte på att en sådan är klargjord.\n\nDen automatiska beloppsextraktionen för ärendet ([31000, 12000, 6100, 5000, 2600] mnkr) bör inte läsas som kostnader för det här beslutet. 31 000 mnkr är stadens totala årliga inköpsvolym över samtliga nämnder och bolag, ett tal som nämns i rapporten som bakgrund till ett förslag om att lägga in inköpsuppföljning i den ordinarie uppföljningen - inte en kostnad för detta ärende. De övriga fyra siffrorna (12000, 6100, 5000, 2600) går inte att återfinna som sammanhängande belopp vid sökning i dokumentet och är sannolikt en artefakt av att den automatiska extraktionen läst enskilda siffror ur olika tabeller i det mycket långa dokumentet. Jag rekommenderar att inte lita på dessa siffror för det här ärendet.\n\nRapporten redovisar däremot verkliga belopp för beslut som redan fattats under 2025 och som här bara redovisas i efterhand: kommunstyrelsen beslutade 2025-11-26 § 910 att låta Socialnämnden Hisingen använda upp till 15 mnkr eget kapital, och kommunfullmäktige beslutade 2025-03-27 § 135 att låta Socialnämnden Sydväst använda upp till 16 mnkr eget kapital för att täcka underskott (kf-2026-04-23-§137, avsnitt 3.1.1). Bland kommuncentrala poster nämns en allmän reserv om 246 mnkr varav 147,2 mnkr nyttjades under året, kapitalkostnader om 930 mnkr varav cirka 915 mnkr nyttjades, och ett överskott i koncernbanken på närmare 260 mnkr mot budget (samma källa, avsnitt 5.1). Det är utfallssiffror för staden som helhet under 2025, inte kostnader kopplade till det här beslutet.\n\n## Vad vi kan vänta oss\n\nDet här avsnittet är min bedömning, inte materialets. Eftersom beslutet bara noterar en rapport och inte i sig beslutar om åtgärder, pengar eller mål, finns det inget i själva beslutet som producerar effekter att vänta sig - effekterna, om några, kommer av vad nämnderna och kommunstyrelsen gör med informationen, inte av att fullmäktige tagit del av den.\n\nJämförelsefallet är förra årets motsvarande ärende, SLK-2025-00103 (kf-2025-04-24-§207). Det delar det väsentliga med det här ärendet - samma rapporttyp, samma lagstadgade uppsiktsplikt, samma stadsledningskontor som avsändare - och skiljer sig i att det gick till votering. Att en snarlik typ av avvikelse (svårförklarade skillnader mellan prognos och utfall hos enskilda nämnder) återkommer år efter år, enligt stadsledningskontorets egen formulering i årets rapport (\"Stadsledningskontoret har tidigare pekat på brister i nämndernas prognoser\", avsnitt 3.1.3), talar för att uppföljningsrapporten i sig - hur väl beredd den än är - inte automatiskt förbättrar nämndernas prognossäkerhet. Det är ett mönster som upprepningen själv belägger, inte en gissning från min sida.\n\nOm cybersäkerhetslagen: lagen trädde i kraft januari 2026 och rapporten konstaterar att staden ännu inte uppfyller alla krav (avsnitt 4.5). Att Intraservice under 2025 redan haft en verklig incident - systemen Adato och Stella otillgängliga sedan slutet av augusti efter att en leverantör utsatts för ett cyberangrepp, med negativ påverkan på arbetsskaderehabilitering (avsnitt 2, \"Väsentliga avvikelser\") - gör frågan mer än formell.\n\nOm löneskillnaden mellan kvinnor och män: rapporten jämför själv med Medlingsinstitutets nationella rapport \"Löneskillnaden mellan kvinnor och män 2024\" och konstaterar att den nationella trenden med avstannande minskning märks även i Göteborg (avsnitt 2.4). Det är alltså sannolikt inte en Göteborgsspecifik utveckling utan del av ett bredare mönster på svensk arbetsmarknad - jag har inte själv sökt upp Medlingsinstitutets rapport, utan återger vad stadens eget underlag citerar.\n\nJag har sökt i korpus efter oberoende revisionsgranskningar av nämndernas prognossäkerhet och ekonomistyrning (\"prognossäkerhet nämnder\", \"ekonomistyrning uppföljning nämnder\", \"intern kontroll\" och \"uppsikt\", samtliga med typ=revisionsrapport) utan att hitta någon granskning som direkt behandlar den fråga som den här uppföljningen lyfter. Jag kan därför inte bekräfta eller motsäga stadsledningskontorets egen bild med en oberoende revisionsgranskning av just detta.\n\n## Det som talar emot\n\nStörst vikt har att Socialnämnden Hisingen, enligt stadsledningskontorets egen bedömning, bröt mot ekonomiregelverket genom att inte lägga fram åtgärdsförslag vid en prognostiserad negativ avvikelse, och att varken Hisingen eller Sydväst återrapporterat sin hantering av underskotten i årsrapporten trots krav på det (kf-2026-04-23-§137, avsnitt 3.1.1). Det är en brist som rapporten själv identifierar, inte ett antagande från min sida.\n\nStaden konstaterar själv att den ännu inte fullt ut uppfyller kraven i cybersäkerhetslagen som gällt sedan januari 2026 (samma källa, avsnitt 4.5), utan att ange en tidsplan för när kraven ska vara uppfyllda i det underlag jag haft tillgång till.\n\nPrognossäkerheten hos flera nämnder är svag och i vissa fall obegriplig även för stadens egen ekonomistab - både för nämnder som gick med kraftigt större överskott än prognostiserat (Stadsmiljönämnden, Kretslopp och vattennämnden) och för nämnder med underskott.\n\nLöneskillnaden mellan kvinnor och män ökade marginellt 2025 - kvinnors medellön uppgick till 97,7 procent av männens, mot 97,8 procent föregående år, första gången sedan 2013 att trenden inte var minskande (avsnitt 2.4). Förändringen är dock liten, och både stadens egen rapport och den citerade Medlingsinstitutet-rapporten konstaterar att orsakerna är sammansatta och inte kopplade till ett enskilt beslut.\n\nEn invändning som förekommer i materialet men som jag inte kan bekräfta som sakuppgift: M/D/L/KD:s yttrande beskriver bristerna som en konsekvens av \"en budget och en politisk inriktning som inte ställer tillräckligt tydliga krav på uppföljning\", och kopplar det till att partiernas eget budgetförslag inte antogs. Det är en tolkning av vad bristerna beror på, inte en uppgift ur själva uppföljningsrapporten - rapporten knyter inte bristerna till ett specifikt budgetbeslut eller en enskild mandatperiod, utan beskriver återkommande problem över flera år (\"Stadsledningskontoret har tidigare pekat på brister i nämndernas prognoser\", avsnitt 3.1.3). Jag har inte kunnat verifiera eller motbevisa orsakssambandet och behandlar det därför som en obestyrkt politisk tolkning, inte ett faktapåstående.\n\nVad som skulle få mig att bedöma annorlunda: om nästa års kompletterande uppföljning visar att Socialnämnden Hisingens brist på återrapportering upprepas, eller att cybersäkerhetslagens krav fortfarande inte är uppfyllda ett år senare, skulle det tala för att uppföljningsprocessen - hur välskriven den än är - inte har någon verklig styreffekt.\n\n## Så kan du kontrollera detta senare\n\n- **Kompletterande uppföljning per december 2026** (väntas till kommunfullmäktige våren 2027, jämför mönstret SLK-2025-00103 → SLK-2026-00123): har Socialnämnden Hisingen återrapporterat sin hantering av 2025 års underskott, och har regelverket följts vid eventuella nya avvikelser?\n- **Samma rapport nästa år, avsnittet om cybersäkerhetslagen:** uppfyller staden då de krav som inte var uppfyllda i årets rapport?\n- **Årsredovisning 2026 och delårsrapporter 2026:** håller nämndernas prognoser bättre mot utfallet än 2025, särskilt Stadsmiljönämnden och Kretslopp och vattennämnden som i år hade stora, av stadsledningskontoret själv oförklarade avvikelser?\n- **Medlingsinstitutets fördjupade analys av löneskillnader 2014-2024** (aviserad till mars 2026 i rapporten) och nästa löneöversyn i Göteborgs Stad: fortsätter löneskillnaden mellan kvinnor och män att öka, eller vänder trenden ner igen?\n- **Nämnden för arbetsmarknad och vuxenutbildning:** vad kostar avbrottet i verksamhetssystemet Edlevo, som nämnden stoppade i februari 2026, och vilket nytt system ersätter det?\n",
+  "källor": [
+    {
+      "typ": "internt",
+      "ref": "kf-2026-04-23-§137",
+      "vad": "beslutstexten, stadsledningskontorets tjänsteutlåtande 2026-03-05, bilaga 1 (\"Kompletterade uppföljning 2025\", ca 40 sidor) och det gemensamma yttrandet från M, D, L och KD"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2026-04-01-§239",
+      "vad": "kommunstyrelsens enhälliga tillstyrkan, inga yrkanden eller reservationer, protokollsanteckning från M, L och KD"
+    },
+    {
+      "typ": "internt",
+      "ref": "SLK-2025-00103 (kf-2025-04-24-§207, ks-2025-04-09-§291)",
+      "vad": "föregående års motsvarande ärende: bordlagt en gång, votering 43 ja mot 38 nej i fullmäktige"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2026-04-23-431 t.o.m. -444",
+      "vad": "metadata för debatten i fullmäktige (talare, tidpunkt); själva anförandetexten är inte lagrad i korpus för möten från 2024 och framåt"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://skr.se/skr/demokratiledningstyrning/driftformervalfrihet/kommunalaforetagbolag/uppsiktspliktforkommunstyrelsen.53008.html",
+      "vad": "SKR: beskrivning av kommunstyrelsens lagstadgade uppsiktsplikt och rapporteringsskyldighet till fullmäktige"
+    }
+  ]
+}
