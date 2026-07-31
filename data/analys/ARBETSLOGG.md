@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-07-31. **22 av 331** prognosvärda ärenden analyserade, 309 återstår.
+Uppdaterad 2026-07-31. **23 av 331** prognosvärda ärenden analyserade, 308 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -23,6 +23,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-01087 | 2026-07-31 | blandad | medium | — | Motion av Rasmus Ragnarsson (SD), Agneta Kjaerbeck (SD) och Jörgen Fog |
 | SLK-2025-01290 | 2026-07-31 | blandad | medium | — | Inriktningsbeslut för fortsatt planering av Mjörn vattentäkt |
 | SLK-2025-01319 | 2026-07-31 | blandad | medium | — | Uppföljning av Göteborgs Stads systematiska miljöarbete 2025 |
+| SLK-2025-01335 | 2026-07-31 | positiv | medium | — | Bemyndigande till exploateringsnämnden att förvärva fastigheten Kvislj |
 | SLK-2026-00123 | 2026-07-31 | blandad | medium | — | Kompletterande uppföljning per december 2025 |
 | SLK-2026-00176 | 2026-07-31 | blandad | medium | — | Återrapportering av uppdrag december 2025 |
 | SLK-2026-00203 | 2026-07-31 | blandad | medium | — | Redovisning av uppdrag att utreda och redovisa hur, ur en markägarroll |
@@ -44,7 +45,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2025-01335 | belopp nämns: 52.6 mnkr | Bemyndigande till exploateringsnämnden att förvärva fastigheten Kvislj |
 | SLK-2025-01264 | omstritt beslut | Uppföljning av två planer - Göteborgs Stads handlingsplan för att inga |
 | SLK-2025-01073 | omstritt beslut | Göteborgs Stads plan för arbetet mot hedersrelaterat våld och förtryck |
 | SLK-2025-01302 | omstritt beslut | Reviderad bolagsordning och ägardirektiv för Störningsjouren i Götebor |
@@ -54,3 +54,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-00548 | omstritt beslut | Äldreombudsmannens rapport 2025 |
 | SLK-2025-01278 | gardering om pengar i texten | Redovisning av uppdrag om modell för lekvärdesfaktorer |
 | SLK-2025-01247 | belopp nämns: 24 mnkr | Antagande av detaljplan för äldreboende med mera vid Doktor Allards Ga |
+| SLK-2025-00306 | omstritt beslut | Redovisning av uppdrag att ta fram förslag på hur borgerliga vigselför |
