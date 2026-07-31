@@ -94,10 +94,13 @@ describe('data/analys/ai/*.json', () => {
   })
 
   // Unicode-medveten gräns: \b bryter vid å/ä/ö och tror att V:et i
-  // "Västtrafik" är ett parti. Regeln som kontrolleras är den i
-  // docs/SPEC-ANALYS.md — ett argument återges på sitt sakinnehåll, aldrig
-  // med avsändaren som etikett.
-  const PARTIBOKSTAV = /(?<![\p{L}])(?:S|V|MP|M|D|L|KD|SD|C|FI)(?![\p{L}])/u
+  // "Västtrafik" är ett parti. Bindestreck undantas också — annars fälls
+  // "C-vitamin" och "D-vitamin", och regeln börjar styra sakinnehållet i
+  // stället för att skydda det (en analys skrev om ett näringsämne för att
+  // blidka testet). Ett verkligt "S-styret" fångas ändå av BLOCKETIKETT.
+  // Regeln som kontrolleras är den i docs/SPEC-ANALYS.md — ett argument
+  // återges på sitt sakinnehåll, aldrig med avsändaren som etikett.
+  const PARTIBOKSTAV = /(?<![\p{L}-])(?:S|V|MP|M|D|L|KD|SD|C|FI)(?![\p{L}-])/u
   const BLOCKETIKETT = /högern|vänstern|det rödgröna|styret|oppositionen|majoriteten/i
 
   it.each(filer)('%s håller det korta lagret partineutralt', (fil) => {
