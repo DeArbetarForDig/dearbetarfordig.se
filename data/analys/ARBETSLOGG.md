@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-07-31. **18 av 331** prognosvärda ärenden analyserade, 313 återstår.
+Uppdaterad 2026-07-31. **19 av 331** prognosvärda ärenden analyserade, 312 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -20,6 +20,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-00983 | 2026-07-31 | positiv | medium | — | Nytt hälso- och sjukvårdsavtal med tillhörande överenskommelser |
 | SLK-2025-01042 | 2026-07-31 | blandad | medium | — | Motion av Jessica Blixt (D) och Martin Wannholt (D) om att revidera Gö |
 | SLK-2025-01290 | 2026-07-31 | blandad | medium | — | Inriktningsbeslut för fortsatt planering av Mjörn vattentäkt |
+| SLK-2025-01319 | 2026-07-31 | blandad | medium | — | Uppföljning av Göteborgs Stads systematiska miljöarbete 2025 |
 | SLK-2026-00123 | 2026-07-31 | blandad | medium | — | Kompletterande uppföljning per december 2025 |
 | SLK-2026-00203 | 2026-07-31 | blandad | medium | — | Redovisning av uppdrag att utreda och redovisa hur, ur en markägarroll |
 | SLK-2026-00326 | 2026-07-31 | blandad | medium | — | Redovisning av uppdrag till Göteborg & Co AB att utreda möjligheterna  |
@@ -40,7 +41,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2025-01319 | omstritt beslut | Uppföljning av Göteborgs Stads systematiska miljöarbete 2025 |
 | SLK-2026-00176 | belopp nämns: 7500 mnkr | Återrapportering av uppdrag december 2025 |
 | SLK-2025-01065 | belopp nämns: 1900 mnkr | Motion av Axel Darvik (L) om att bevara och utveckla kryssningsturisme |
 | SLK-2025-01087 | omstritt beslut | Motion av Rasmus Ragnarsson (SD), Agneta Kjaerbeck (SD) och Jörgen Fog |
@@ -50,3 +50,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-01302 | omstritt beslut | Reviderad bolagsordning och ägardirektiv för Störningsjouren i Götebor |
 | SLK-2025-01328 | belopp nämns: 25000 mnkr | Revidering av Göteborgs Stads miljö- och klimatprogram 2021-2030 |
 | SLK-2025-00484 | belopp nämns: 75 mnkr | Motion av Anders Svensson (M) och Cecilia Magnusson (M) om plan för et |
+| SLK-2025-00658 | belopp nämns: 150000 mnkr | Motion av Lena Ferm (SD) och Jörgen Fogelklou (SD) om en övergripande  |
