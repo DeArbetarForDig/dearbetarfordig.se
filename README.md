@@ -50,7 +50,7 @@ Sveriges 290 kommuner fattar tusentals beslut varje år som påverkar ditt liv �
 | Design System (24 komponenter + 10 diagram) | ✅ Klar |
 | Politiker-profiler (125 st) | ✅ Klar |
 | Demokratisk hälsa (Rice, Gini, Consensus) | ✅ Klar |
-| Deploy (Hetzner) | 🔜 Nästa |
+| Deploy (Hetzner) | ✅ Klar |
 
 ## Principer
 
