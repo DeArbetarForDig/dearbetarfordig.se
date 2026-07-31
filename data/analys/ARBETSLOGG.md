@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-07-31. **15 av 331** prognosvärda ärenden analyserade, 316 återstår.
+Uppdaterad 2026-07-31. **16 av 331** prognosvärda ärenden analyserade, 315 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -17,6 +17,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Datum | Riktning | Säkerhet | Granskad | Rubrik |
 | --- | --- | --- | --- | --- | --- |
+| SLK-2025-00983 | 2026-07-31 | positiv | medium | — | Nytt hälso- och sjukvårdsavtal med tillhörande överenskommelser |
 | SLK-2025-01042 | 2026-07-31 | blandad | medium | — | Motion av Jessica Blixt (D) och Martin Wannholt (D) om att revidera Gö |
 | SLK-2026-00123 | 2026-07-31 | blandad | medium | — | Kompletterande uppföljning per december 2025 |
 | SLK-2026-00326 | 2026-07-31 | blandad | medium | — | Redovisning av uppdrag till Göteborg & Co AB att utreda möjligheterna  |
@@ -37,7 +38,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2025-00983 | gardering om pengar i texten | Nytt hälso- och sjukvårdsavtal med tillhörande överenskommelser |
 | SLK-2026-00203 | belopp nämns: 3005 mnkr | Redovisning av uppdrag att utreda och redovisa hur, ur en markägarroll |
 | SLK-2025-01290 | belopp nämns: 2400 mnkr | Inriktningsbeslut för fortsatt planering av Mjörn vattentäkt |
 | SLK-2025-01319 | omstritt beslut | Uppföljning av Göteborgs Stads systematiska miljöarbete 2025 |
@@ -47,3 +47,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-01335 | belopp nämns: 52.6 mnkr | Bemyndigande till exploateringsnämnden att förvärva fastigheten Kvislj |
 | SLK-2025-01264 | omstritt beslut | Uppföljning av två planer - Göteborgs Stads handlingsplan för att inga |
 | SLK-2025-01073 | omstritt beslut | Göteborgs Stads plan för arbetet mot hedersrelaterat våld och förtryck |
+| SLK-2025-01302 | omstritt beslut | Reviderad bolagsordning och ägardirektiv för Störningsjouren i Götebor |
