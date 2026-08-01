@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-07-31. **24 av 331** prognosvärda ärenden analyserade, 307 återstår.
+Uppdaterad 2026-08-01. **25 av 331** prognosvärda ärenden analyserade, 306 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -17,6 +17,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Datum | Riktning | Säkerhet | Granskad | Rubrik |
 | --- | --- | --- | --- | --- | --- |
+| SLK-2025-01073 | 2026-08-01 | blandad | medium | — | Göteborgs Stads plan för arbetet mot hedersrelaterat våld och förtryck |
 | SLK-2025-00983 | 2026-07-31 | positiv | medium | — | Nytt hälso- och sjukvårdsavtal med tillhörande överenskommelser |
 | SLK-2025-01042 | 2026-07-31 | blandad | medium | — | Motion av Jessica Blixt (D) och Martin Wannholt (D) om att revidera Gö |
 | SLK-2025-01065 | 2026-07-31 | blandad | medium | — | Motion av Axel Darvik (L) om att bevara och utveckla kryssningsturisme |
@@ -46,7 +47,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2025-01073 | omstritt beslut | Göteborgs Stads plan för arbetet mot hedersrelaterat våld och förtryck |
 | SLK-2025-01302 | omstritt beslut | Reviderad bolagsordning och ägardirektiv för Störningsjouren i Götebor |
 | SLK-2025-01328 | belopp nämns: 25000 mnkr | Revidering av Göteborgs Stads miljö- och klimatprogram 2021-2030 |
 | SLK-2025-00484 | belopp nämns: 75 mnkr | Motion av Anders Svensson (M) och Cecilia Magnusson (M) om plan för et |
@@ -56,3 +56,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-01247 | belopp nämns: 24 mnkr | Antagande av detaljplan för äldreboende med mera vid Doktor Allards Ga |
 | SLK-2025-00306 | omstritt beslut | Redovisning av uppdrag att ta fram förslag på hur borgerliga vigselför |
 | SLK-2025-01039 | gardering om pengar i texten | Riksnorm ekonomiskt bistånd och riktmärken för boendekostnader 2026 |
+| SLK-2025-01130 | belopp nämns: 10 mnkr | Revidering av Göteborgs Stads riktlinje för informationssäkerhet samt  |
