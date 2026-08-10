@@ -24,10 +24,19 @@ Vetenskapligt grundade metrics för utvärdering av kommunfullmäktige.
 - **Källa:** Bächtiger, A. et al. (2005). *The Deliberative Dimensions of Legislatures.* Acta Politica, 40.
 - **Källa:** Steiner, J. et al. (2004). *Deliberative Politics in Action.* Cambridge University Press.
 
-### Debattdjup (Debate Depth)
+### Debattdjup (Debate Depth) — specificerad, ej implementerad
 - **Formel:** `totalt_antal_anföranden / antal_voteringsärenden`
 - **Tolkning:** Fler anföranden per ärende = djupare deliberation
 - **Källa:** Steenbergen, M.R. et al. (2003). *Measuring Political Deliberation.* Comparative European Politics, 1(1).
+- **Status:** finns bara i denna spec — `packages/api/src/routes/metrics.ts` beräknar den inte (ingen `debattdjup`-nyckel i svaret). Bygg eller ta bort avsnittet.
+
+### Jävsanmälningar (implementerad, ej i denna spec förrän nu)
+- **Fält:** `aktivitet.jävsanmälningar` i `/metrics`-svaret
+- **Källa:** `jävsanmälan`-kanter i grafen, deterministiskt räknade i `generate-analys.ts` (steg 1 av analyslagret, se `docs/SPEC-ANALYS.md`)
+
+### Röstöverensstämmelse (implementerad, ej i denna spec förrän nu)
+- **Vad:** parti × parti-matris över hur ofta partierna röstar lika
+- **Källa:** `packages/api/src/routes/metrics.ts`, beräknad från `röstade_*`-kanterna
 
 ### Närvaro (Attendance Rate)
 - **Formel:** `närvaroregistreringar / (möten × 81)`
@@ -48,11 +57,13 @@ Vetenskapligt grundade metrics för utvärdering av kommunfullmäktige.
 
 | Data | Källa | Metod |
 |------|-------|-------|
-| Voteringar (17 210 röster) | KF-protokoll (PDF) | pdftotext + regex |
-| Anföranden (16 476) | Yttrandeprotokoll (PDF) | pdftotext + regex (speaker attribution) |
-| Närvaro (3 243 reg.) | KF-protokoll upprop | pdftotext |
-| Beslut (1 731 ärenden) | KF-protokoll 2023–2026 | parse-protokoll.ts |
-| Budget | Budget-PDF 2026 | parse-budget.ts |
+| Voteringar (30 317 individuella röster: ja/nej/avstår/frånvarande) | KF- **och** KS-protokoll (PDF) | pdftotext + regex (`parse-voteringar.ts`, `parse-protokoll-ks.ts`) |
+| Anföranden (18 079) | Yttrandeprotokoll (PDF) | pdftotext + regex (speaker attribution) |
+| Närvaro (8 663 reg.) | KF/KS-protokoll upprop | pdftotext |
+| Beslut (3 936 paragrafer) | KF-protokoll (42) + KS-protokoll (51), 2023–2026 | `parse-protokoll.ts`, `parse-protokoll-ks.ts` |
+| Budget | Budget-PDF 2026 + delårsrapporter | `parse-budget.ts`, `parse-delarsrapport.ts` |
+
+Exakta, löpande uppdaterade tal: `docs/PROGRESS.md`.
 
 ## Begränsningar
 

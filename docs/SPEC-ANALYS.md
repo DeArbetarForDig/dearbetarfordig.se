@@ -10,7 +10,7 @@ inte är det.
 
 | Lager | Källa | Metod | Status |
 |-------|-------|-------|--------|
-| 1. Process | KF/KS-protokoll | deterministisk härledning | ✅ `generate-analys.ts` |
+| 1. Process | KF/KS-protokoll | deterministisk härledning | ✅ `generate-analys.ts` — inkluderar `process.antal_jäv` (jävsanmälningar), exponerad i `/v1/{kommun}/metrics` som `aktivitet.jävsanmälningar` |
 | 2. Underlag + ekonomi | handlingar (tjänsteutlåtanden) | regex + citat | ✅ samma steg, begränsad täckning |
 | 3. Prognos | subagent + webbsökning | LLM, ex ante | ✅ `.claude/agents/beslutsanalytiker.md` — ogranskade tills `granskad_av` fylls i |
 | 4. Utfall | delårsrapport / årsredovisning | matchning mot ärendenummer | 🔜 |
@@ -86,8 +86,10 @@ framtida konsekvenser har inget att ta spjärn mot.
 
 Ett ärende hamnar i kön om handlingen är hämtad och det finns något att
 prognostisera mot: erkänt osäker finansiering, belopp ≥ 10 mnkr eller ett
-omstritt beslut. Av 917 analyserbara ärenden ger det 333 — och 455 av de
-bortsorterade faller bara på att handlingens text inte är nedladdad, vilket
+omstritt beslut. Av 917 analyserbara ärenden ger det 331 (siffran räknas
+löpande av `korpus.ts logg` → `data/analys/ARBETSLOGG.md`, som är facit om
+den här texten och loggen någonsin går isär) — och 455 av de bortsorterade
+faller bara på att handlingens text inte är nedladdad, vilket
 `fetch-handlingar-text.ts` åtgärdar.
 
 ## Vad de regelbaserade flaggorna kan och inte kan

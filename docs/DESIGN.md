@@ -16,9 +16,10 @@
 
 ### Translate-friendly
 
-- Alla UI-strängar i en central fil (`packages/shared/src/i18n/sv.ts`)
-- Inga hårdkodade strängar i komponenter
-- Strukturen stödjer framtida i18n (fi, no, da) men vi bygger **enbart sv** nu
+- **Ej implementerat:** `packages/shared/src/i18n/sv.ts` finns inte — UI-strängar
+  ligger direkt i `.astro`-komponenterna, inte i en central i18n-fil. Om
+  fler språk blir aktuellt (se `docs/SAAS.md`) måste strängarna brytas ut då.
+- Strukturen stödjer framtida i18n (fi, no, da) i teorin men vi bygger **enbart sv** nu
 
 ## Principer
 
@@ -97,6 +98,10 @@
 
 ## Färger
 
+Källa till sanning: `packages/ui/src/tokens/css/{base,light,dark,global}.css`
+— tabellerna nedan är verifierade mot den mappen (bg/surface/text/border/
+primary/accent stämmer; se separat not för partifärgerna).
+
 ### Tema — Ljus & Mörk
 
 Aldrig ren vit (#FFF) eller ren svart (#000). Använd nyanser av grå.
@@ -125,18 +130,27 @@ Aldrig ren vit (#FFF) eller ren svart (#000). Använd nyanser av grå.
 
 Partifärger är **kategoriska** — de ska kunna särskiljas. Ordningen följer mandatstorlek.
 
+Källa: `packages/ui/src/tokens/css/global.css` (nedanstående värden är
+verifierade mot den filen, inte de tidigare planerade):
+
 ```css
 :root {
-  --parti-s:   #ED1B34;   /* Socialdemokraterna */
-  --parti-m:   #52BDEC;   /* Moderaterna */
-  --parti-sd:  #DDDD00;   /* Sverigedemokraterna */
-  --parti-c:   #009933;   /* Centerpartiet */
-  --parti-v:   #DA291C;   /* Vänsterpartiet */
-  --parti-kd:  #005DA6;   /* Kristdemokraterna */
-  --parti-mp:  #83CF39;   /* Miljöpartiet */
-  --parti-l:   #006AB3;   /* Liberalerna */
+  --parti-s:       #ed1b34;   /* Socialdemokraterna */
+  --parti-m:       #213a8f;   /* Moderaterna */
+  --parti-sd:      #fbc700;   /* Sverigedemokraterna */
+  --parti-v:       #da291c;   /* Vänsterpartiet */
+  --parti-c:       #114838;   /* Centerpartiet */
+  --parti-kd:      #231977;   /* Kristdemokraterna */
+  --parti-mp:      #4c983e;   /* Miljöpartiet */
+  --parti-l:       #0077c8;   /* Liberalerna */
+  --parti-d:       #1b1b1b;   /* Demokraterna */
+  --parti-ovriga:  #888888;   /* Övriga/okänt parti */
 }
 ```
+
+`--parti-d` och `--parti-ovriga` fanns inte i den ursprungliga planen —
+tillkom när Demokraterna (D) behövde en egen färg utöver de riksdagspartier
+listan ursprungligen täckte.
 
 ### Datavisualisering — regler
 
@@ -151,15 +165,24 @@ Partifärger är **kategoriska** — de ska kunna särskiljas. Ordningen följer
 
 Alla grafer renderas som **SVG** (ej Canvas) → fungerar utan JS, i curl, i print.
 
-| Typ | Användning | Lib |
+Ingen Observable Plot, D3-sankey eller D3-hierarchy i beroendeträdet — samtliga
+diagram är egenbyggda Astro/SVG-komponenter i `packages/ui/src/components/charts/`:
+
+| Typ | Användning | Komponent |
 |-----|-----------|-----|
-| KPI-kort | Nyckeltal (beslut, närvaro, kostnad) | Tailwind |
-| Donut | Budgetfördelning, partifördelning | Observable Plot |
-| Bar | Voteringar, budget per nämnd | Observable Plot |
-| Line | Trender över tid | Observable Plot |
-| Sankey | Penningflöden | D3-sankey |
-| Heatmap | Aktivitet per politiker/månad | D3 |
-| Hierarchy | Organisationsträd | D3-hierarchy |
+| KPI-kort | Nyckeltal (beslut, närvaro, kostnad) | Tailwind-baserat kort |
+| Donut | Budgetfördelning, partifördelning | `Donut.astro` |
+| Bar (horisontell/stack) | Voteringar, budget per nämnd | `HorizontalBar.astro`, `StackedBar.astro` |
+| Progress | Andel av mål/budget | `ProgressBar.astro` |
+| Area (stacked) | Trender över tid | `StackedAreaChart.astro` |
+| Sparkline | Kompakt trend i kort | `Sparkline.astro` |
+| Heatmap | Aktivitet per politiker/månad | `Heatmap.astro` |
+| Radar | Röstprofil per politiker | `RadarChart.astro` |
+| Sal (hemicycle) | Mandatfördelning, voteringsläge | `Chamber.astro` |
+| Gauge | Enskilt mätvärde mot mål | `Gauge.astro` |
+
+Organisationsträdet på dashboarden är inte D3-hierarchy — se `OrgBlock`-
+komponenten i `packages/ui` för den faktiska implementationen.
 
 ### Regler
 

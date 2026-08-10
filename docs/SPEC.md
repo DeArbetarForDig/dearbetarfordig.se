@@ -2,6 +2,13 @@
 
 > Specifikation för MVP: Göteborg kommun
 
+> **Status: MVP levererat och överskridet.** Det som beskrivs nedan som mål
+> (sal-vy, politiker/beslut-sidor, debatter, budget) är byggt och live på
+> GitHub Pages (`packages/web`, auto-deploy via `.github/workflows/ci.yml`).
+> Sidstrukturen nedan är uppdaterad till vad som faktiskt finns; se
+> `docs/PROGRESS.md` för datalagrets tillstånd och `docs/SPEC-ANALYS.md` för
+> AI-analyslagret, som inte fanns med i denna ursprungliga spec alls.
+
 ---
 
 ## Filosofi
@@ -14,18 +21,30 @@
 
 ---
 
-## Sidstruktur (MVP)
+## Sidstruktur (verklig, `packages/web/src/pages/goteborg/`)
 
 ```
-/goteborg/                    → Översikt (dashboard)
-/goteborg/politiker           → Alla 81 ledamöter
-/goteborg/politiker/[slug]    → Enskild politiker
+/goteborg/                    → Översikt (dashboard: sal + KPI + org-träd + budget-teaser + trender)
+/goteborg/politiker           → Alla ledamöter (grid-vy — sal-vy/list-vy-toggle från ursprungsplanen ej byggd)
+/goteborg/politiker/[id]      → Enskild politiker (uppdrag, arvode, anföranden, röstprofil, tidslinje)
 /goteborg/beslut              → Lista med beslut
-/goteborg/beslut/[id]         → Enskilt beslut + votering
-/goteborg/struktur            → Hur kommunen är organiserad
-/goteborg/debatter            → KF-möten med anföranden (Yttrandeprotokoll, v2)
-/goteborg/budget              → Budgetvisualisering (v2)
+/goteborg/beslut/[id]         → Enskilt beslut + votering + AI-analys-flik
+/goteborg/kf                  → KF-landningssida
+/goteborg/kf/beslut           → KF-beslut, tabellvy
+/goteborg/kf/moten            → KF-sammanträden, lista
+/goteborg/kf/moten/[datum]    → Enskilt sammanträde med anföranden
+/goteborg/ks                  → KS-beslut, tabellvy
+/goteborg/budget              → Budgetvisualisering (donut, drill-down, utfall)
+/goteborg/forvaltning         → Förvaltningar
+/goteborg/forvaltning/[id]    → Förvaltning: direktörslön, resultat
+/goteborg/kandidater          → 2026 års valkandidater
+/goteborg/trender             → Kolada-nyckeltal över tid
+/goteborg/sok                 → Fritextsökning (Postgres FTS, ej Pagefind)
 ```
+
+Ingen egen `/goteborg/struktur`-sida — org-trädet lever inbäddat på
+dashboarden i stället för på en dedikerad route. `/goteborg/debatter` blev
+`/goteborg/kf/moten/[datum]` (anföranden per möte, inte en egen samlingssida).
 
 ---
 
@@ -252,7 +271,7 @@ Exempel på förklaringar:
 ### Sal-komponenten (återanvändbar)
 
 ```typescript
-// packages/web/src/components/Chamber.astro
+// packages/ui/src/components/charts/Chamber.astro  (inte packages/web — flyttad till delade UI-komponenter)
 interface Props {
   politicians: Politiker[]
   mode: 'overview' | 'vote'
@@ -269,12 +288,13 @@ interface Props {
 
 | Data | Källa | Format |
 |------|-------|--------|
-| Ledamöter + uppdrag | goteborg.se scraper | JSON |
-| Voteringar | KF-protokoll (PDF → parser) | JSON |
-| Nämnder/struktur | goteborg.se organisation | JSON |
+| Ledamöter + uppdrag | goteborg.se scraper | JSON → graf |
+| Voteringar (KF+KS) | KF/KS-protokoll (PDF → parser) | JSON → graf |
+| Nämnder/struktur | goteborg.se organisation | JSON → graf |
 | Foton | goteborg.se / riksdagen | WebP |
-| Debatter | Yttrandeprotokoll (PDF → parser) | JSON (v2) |
-| Budget | Budget-PDF → tabula | JSON (v2) |
+| Debatter | Yttrandeprotokoll (PDF → parser) | JSON → graf — **klart, inte v2** |
+| Budget | Budget-PDF → regex/Docling | JSON → graf — **klart, inte v2** |
+| AI-analys per ärende | protokoll + handling + subagent | JSON, separat lager (`data/analys/`, se SPEC-ANALYS.md) |
 
 ---
 
@@ -292,26 +312,32 @@ interface Props {
 
 ---
 
-## Avgränsningar (MVP)
+## Avgränsningar (MVP) — status
 
-Ingår INTE i MVP:
-- [ ] Debatter (anföranden) — v2
-- [ ] Budget-visualisering — v2
-- [ ] Bevakningar/notifikationer — v3
-- [ ] Fler kommuner — efter Göteborg fungerar
-- [ ] Sök (Pagefind) — kommer med content
-- [ ] AI-sammanfattningar — v2
+- [x] Debatter (anföranden) — klart (`/goteborg/kf/moten/[datum]`), inte v2 som planerat
+- [x] Budget-visualisering — klart (`/goteborg/budget`), inte v2 som planerat
+- [x] Sök — klart, men Postgres FTS (`/goteborg/sok`) i stället för Pagefind
+- [x] AI-sammanfattningar — klart, men som ett helt eget analyslager per ärende
+      (`docs/SPEC-ANALYS.md`), mycket större i scope än "sammanfattningar"
+- [ ] Bevakningar/notifikationer — fortfarande inte byggt
+- [ ] Fler kommuner — fortfarande bara Göteborg, hårdkodat (`ALLOWED_KOMMUNER`
+      i API:t har ett värde); se `docs/SAAS.md` för multi-tenant-planen
+
+Utöver ursprunglig MVP-scope byggdes dessutom sidor som inte var planerade
+här: `/goteborg/forvaltning` (direktörslöner/resultat), `/goteborg/kandidater`
+(2026 års val), `/goteborg/trender` (Kolada), och KS som eget spår parallellt
+med KF.
 
 ---
 
-## Prioritetsordning (MVP)
+## Prioritetsordning (MVP) — historisk, alla punkter klara
 
-1. Scraper: hämta alla 81 ledamöter + foto + uppdrag
-2. Sal-komponent (SVG)
-3. `/goteborg/` — översikt med sal + KPI
-4. `/goteborg/politiker` — lista + sal-vy
-5. `/goteborg/politiker/[slug]` — profilsida
-6. `/goteborg/struktur` — organisationsträd
-7. Scraper: hämta voteringsdata från protokoll
-8. `/goteborg/beslut` — lista
-9. `/goteborg/beslut/[id]` — sal i voteringsläge
+1. ✅ Scraper: hämta alla ledamöter + foto + uppdrag
+2. ✅ Sal-komponent (SVG) — `packages/ui/src/components/charts/Chamber.astro`
+3. ✅ `/goteborg/` — översikt med sal + KPI
+4. ✅ `/goteborg/politiker` — lista (grid-vy; sal-vy-toggle för listan byggdes inte)
+5. ✅ `/goteborg/politiker/[id]` — profilsida
+6. ✅ Organisationsträd — byggt, men inbäddat i dashboarden i stället för egen `/struktur`-route
+7. ✅ Scraper: voteringsdata från protokoll (KF **och** KS, KS via egen spec)
+8. ✅ `/goteborg/beslut` — lista
+9. ✅ `/goteborg/beslut/[id]` — sal i voteringsläge + AI-analys-flik

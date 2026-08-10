@@ -14,6 +14,8 @@ git clone --depth 1 https://github.com/OAndell/Riksdagskollen.git docs/reference
 git clone --depth 1 https://github.com/openpolis/openparlamento.git docs/reference/openparlamento
 git clone --depth 1 https://github.com/Partiguiden/partiguiden.git docs/reference/partiguiden
 git clone --depth 1 https://github.com/everypolitician/everypolitician-data.git docs/reference/everypolitician
+git clone --depth 1 https://github.com/rotsee/protokollen.git docs/reference/protokollen
+git clone --depth 1 https://github.com/okfse/opengovse.git docs/reference/opengovse
 ```
 
 ---
@@ -204,6 +206,58 @@ git clone --depth 1 https://github.com/everypolitician/everypolitician-data.git 
 
 ---
 
+### 8. Protokollen / ProtoCollection (Journalism++ Stockholm) — 🇸🇪
+
+| | |
+|---|---|
+| **Папка** | `protokollen/` |
+| **Репо** | [rotsee/protokollen](https://github.com/rotsee/protokollen) |
+| **Стек** | Python 2, Selenium, Tesseract OCR, AbiWord/wv, Elasticsearch |
+| **Лицензия** | не указана |
+| **Размер** | ~8 MB |
+| **Статус** | ⚠️ Неактивен с 2015, сайт protokollen.net не работает |
+
+**Что это:** Ближайший прямой предшественник нашего проекта. Финансированный Vinnova харвестер, который собирал и распознавал протоколы **kommunstyrelse** (не KF, а стиокholm) всех 290 шведских kommuner и выкладывал их как открытые данные для поиска и анализа. Найден через каталог `_tools/protokollen.md` на opengov.se.
+
+**Что берём:**
+- Подтверждение подхода: полнотекстовое извлечение протоколов уже пытались делать на муниципальном уровне в Швеции — но остановились на харвестинге сырого текста, без структурирования по ärenden/beslut, и проект не пережил 2015 год
+- `harvest.py` — паттерн обхода сайтов kommun (Selenium, т.к. у многих kommuner нет стабильного API/URL-схемы для протоколов)
+- `extract.py` + `modules/extractors/` — пайплайн OCR/парсинга разных форматов (PDF, DOC, RTF) до текста и метаданных
+- `modules/tagger.py`, `modules/documents.py` — попытка разбить файл на under-документы (dagordning, protokoll, bilagor)
+- Компаньон-репо [jplusplus/protokollen-queries](https://github.com/jplusplus/protokollen-queries) — `municipalities.md`, список kommun-сайтов и их особенностей парсинга (полезно как сверка при добавлении новых kommuner)
+
+**Ключевые файлы:**
+- `harvest.py`, `harvest_args.py` — сбор файлов
+- `extract.py` — извлечение текста/метаданных
+- `modules/extractors/` — форматно-специфичные парсеры
+- `README.md` / `README-database-api.md` — архитектура и DB-схема
+
+---
+
+### 9. OpenGov.se (Open Knowledge Sverige) — 🇸🇪
+
+| | |
+|---|---|
+| **Папка** | `opengovse/` |
+| **Репо** | [okfse/opengovse](https://github.com/okfse/opengovse) |
+| **Стек** | Jekyll 4 (Ruby), статический сайт |
+| **Лицензия** | CC0-1.0 |
+| **Размер** | ~105 MB (в основном ассеты и зеркала PDF-отчётов) |
+
+**Что это:** Не платформа мониторинга, а каталог/агрегатор шведских transparency-инициатив, который ведёт Open Knowledge Sverige. Ценность не в коде сайта (Jekyll-шаблон), а в курируемых данных: списки открытых порталов, инструментов и кейсов Швеции/Nordics/EU.
+
+**Что берём:**
+- `_data/portals.yml` — курированный список открытых дата-порталов (dataportal.se, DIGG, Riksdagens öppna data, SCB, Nordics, data.europa.eu, DCAT-AP, OGP)
+- `_tools/*.md` — 23 карточки шведских/EU transparency-инструментов со статусом (active/archived) — источник, откуда найден `protokollen` (см. п.8) и `handlingar.se`/`allmanhandling.se` (уже используем как reference для FOI-флоу)
+- `_cases/*.md` — прецеденты (protokollen, handlingar, vardbetyg, postnummerupproret, eu-data-portal, danish-address-data)
+- Паттерн карточки: frontmatter `status: active|archived` + `archived_reason` — удобная модель для нашего собственного `docs/reference/README.md`, если список источников разрастётся
+
+**Ключевые файлы:**
+- `_data/portals.yml`, `_data/reports.yml`, `_data/archived-resources.yml`
+- `_tools/`, `_cases/`
+
+---
+
 ## Сравнительная матрица
 
 | Проект | Уровень | Стек | Multi-tenant | API | Дебаты | Голосования | Бюджет |
@@ -215,16 +269,17 @@ git clone --depth 1 https://github.com/everypolitician/everypolitician-data.git 
 | OpenParlamento | Национальный | PHP/Symfony | ❌ | ❌ | ✅ | ✅ | ❌ |
 | Partiguiden | Национальный | Next.js/TS | ❌ | ❌ | ❌ | ✅ | ❌ |
 | EveryPolitician | Глобальный | Data/Ruby | N/A | ✅ JSON | ❌ | ❌ | ❌ |
+| Protokollen (2015) | Муниципальный (kommunstyrelse) | Python/OCR-харвестер | ❌ | ❌ (сырой текст) | ❌ | ❌ | ❌ |
 | **dearbetarfordig.se** | **Муниципальный** | **TS/Astro/Hono** | **✅** | **✅ REST** | **✅** | **✅** | **✅** |
 
 ---
 
 ## Что уникально в dearbetarfordig.se
 
-1. **Фокус на kommun** — ни один из аналогов не работает на муниципальном уровне Швеции
+1. **Фокус на kommun** — из "живых" аналогов ни один не работает на муниципальном уровне Швеции; единственная попытка (Protokollen, Journalism++) остановилась на сыром харвестинге kommunstyrelse-протоколов и не пережила 2015 год
 2. **Полный стек на TypeScript** — единый язык для фронта, API, pipeline
 3. **Static-first + curl-friendly** — HTML как API (как TheyWorkForYou, но ещё чище)
-4. **Полнотекстовые анфёранден** — Yttrandeprotokoll (официальный PDF) для KF-möten (никто из аналогов не делает)
+4. **Структурированные полнотекстовые анфёранден** — Yttrandeprotokoll (официальный PDF) для KF-möten, разобранные по ärenden/beslut (Protokollen извлекал только плоский текст без такой структуры)
 5. **Бюджетная визуализация** — объединяем Decidim-подход с финансовой прозрачностью
 6. **EU-sovereign** — Hetzner, без US-cloud, GDPR by design
 
@@ -237,6 +292,8 @@ git clone --depth 1 https://github.com/everypolitician/everypolitician-data.git 
 | Kolada (RKA/SKR) | [kolada.se](https://www.kolada.se/) | Шведская муниципальная статистика — API для benchmarking |
 | Riksdagens öppna data | [data.riksdagen.se](https://data.riksdagen.se/) | Официальный API шведского парламента |
 | Open Knowledge Foundation | [okfn.org](https://okfn.org/) | Стандарты открытых данных |
+| OpenGov Inc. | [opengov.com](https://opengov.com) | Коммерческий (закрытый исходник) SaaS для US local government: бюджетирование, permitting, procurement, tax & revenue, CRM. Нет GitHub-репо — не для клонирования, но полезен как срез фич-набора govtech-платформы у которых, в отличие от нас, нет упора на прозрачность решений |
+| protokollen-queries (jplusplus) | [GitHub](https://github.com/jplusplus/protokollen-queries) | Компаньон-репо к Protokollen (п.8 выше) — `municipalities.md` со списком kommun-сайтов и особенностями их протокол-страниц |
 | Popolo standard | [popoloproject.com](http://www.popoloproject.com/) | Формат данных о политиках (используется EveryPolitician) |
 | mySociety philosophy | [mysociety.org/about](https://www.mysociety.org/about/) | Философия civic tech |
 | democracy-development | [GitHub](https://github.com/demokratie-live/democracy-development) | Актуальный монорепо DEMOCRACY (замена bundestag.io) |

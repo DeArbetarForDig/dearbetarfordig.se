@@ -8,14 +8,22 @@
 curl localhost:3000/
 ```
 
-```json
-{
-  "name": "De Arbetar För Dig — API",
-  "version": "0.2.0",
-  "licens": "AGPL-3.0",
-  "databas": "PostgreSQL"
-}
-```
+`GET /` renders an HTML landing page (links to `/openapi.json` and `/docs`),
+not JSON — check `/stats` for machine-readable service info instead. Full
+route list, request/response schemas: `GET /openapi.json` (OpenAPI 3.1) or
+`GET /docs` (Swagger UI).
+
+Every `GET` under `/v1/*` returns a **HAL envelope**: collections as
+`{ _embedded: { items: [...] }, _links, total }`, single resources as
+`{ _embedded: { item: {...}, related?: {...} }, _links }`. The examples below
+show the raw item/resource shape for readability — wrap it in `_embedded`
+per the pattern above. Exceptions that return flat JSON instead of HAL:
+`/graf`, `/graf/node/{id}`, `/stats`, `/metrics`.
+
+`POST`/`PUT`/`PATCH`/`DELETE` on `/v1/*` return `405` with an `Allow: GET,
+OPTIONS` header — the API is read-only by design. Responses are rate-limited
+and served with `ETag` + `Cache-Control: public, max-age=300` (data only
+changes on the weekly scraper run).
 
 ---
 
@@ -37,20 +45,23 @@ GET /v1/{kommun}/politiker
 curl localhost:3000/v1/goteborg/politiker?parti=M
 ```
 
-**Svar:**
+**Svar (HAL-collection):**
 ```json
 {
-  "kommun": "goteborg",
-  "antal": 23,
-  "politiker": [
-    {
-      "id": "1e79ebce-61ef-49f0-bbb1-e9de383224ba",
-      "namn": "Anders Sundberg",
-      "parti": "M",
-      "email": "anders.sundberg@politiker.goteborg.se",
-      "antalUppdrag": 7
-    }
-  ]
+  "_embedded": {
+    "items": [
+      {
+        "id": "1e79ebce-61ef-49f0-bbb1-e9de383224ba",
+        "namn": "Anders Sundberg",
+        "parti": "M",
+        "email": "anders.sundberg@politiker.goteborg.se",
+        "antalUppdrag": 7,
+        "_links": { "self": { "href": "/v1/goteborg/politiker/1e79ebce-..." } }
+      }
+    ]
+  },
+  "_links": { "self": { "href": "/v1/goteborg/politiker?parti=M" } },
+  "total": 23
 }
 ```
 
@@ -60,7 +71,15 @@ curl localhost:3000/v1/goteborg/politiker?parti=M
 GET /v1/{kommun}/politiker/{id}
 ```
 
-**Svar:** Full profil med alla uppdrag (organisation, roll, tidsperiod).
+**Svar:** Full profil med alla uppdrag (organisation, roll, tidsperiod), HAL-resource.
+
+### Övriga politiker-endpoints
+
+| Endpoint | Beskrivning |
+|---|---|
+| `GET /v1/{kommun}/politiker/{id}/arvode` | Fast + förrättningsarvode (PDF-verifierat) |
+| `GET /v1/{kommun}/politiker/{id}/profil` | Uppdrag + möten sammanslaget |
+| `GET /v1/{kommun}/politiker/{id}/anforanden` | Alla anföranden av politikern |
 
 ---
 
@@ -84,21 +103,37 @@ GET /v1/{kommun}/graf
 }
 ```
 
+`GET /v1/{kommun}/graf` är **en** endpoint med tre olika svarsformer beroende
+på query-param (dokumenterat i OpenAPI-schemat som `z.any()` av samma skäl —
+det finns ingen gemensam typ att ge dem):
+
 ### Graf per datum
 
 ```
 GET /v1/{kommun}/graf?datum=2025-11-27
 ```
 
-Returnerar alla noder och kanter relaterade till ett KF-sammanträde.
+→ `{ nodes: [...], edges: [...], total }`. Alla noder och kanter relaterade till ett sammanträde (matchar `data->>'datum'` eller mötesnoden).
 
 ### Graf per typ
 
 ```
-GET /v1/{kommun}/graf?typ=nämnd
+GET /v1/{kommun}/graf?typ=paragraf
 ```
 
-Returnerar alla noder av angiven typ.
+→ `{ antal, total, nodes: [...] }`. Alla noder av angiven typ (paginerad, `limit`/`offset`, default 500 max 5000).
+
+### Graf utan filter
+
+```
+GET /v1/{kommun}/graf
+```
+
+→ `{ nodes: [{ typ, antal }, ...], edges: <totalt antal> }`. Antal per nodtyp — se `docs/PROGRESS.md` för de 20 typerna och deras aktuella antal.
+
+Gemensamt: `?fulltext=true` tar med paragrafers/anförandens fulltext i svaret
+(annars ersätts fältet med `<fält>Tecken`, dess längd — ett fullt möte med
+fulltext kan bli >100 MB).
 
 ### Traversera graf — enskild nod
 
@@ -158,6 +193,28 @@ curl localhost:3000/v1/goteborg/graf?typ=nämnd
 # Specifik nämnd — visa alla kopplingar (budget + beslut)
 curl localhost:3000/v1/goteborg/graf/node/nämnd-grundskolenämnden
 ```
+
+---
+
+## Möten, förvaltningar, löner, dokument, kandidater, sök, trender
+
+Byggda efter att denna doc senast var komplett — inte tidigare listade här:
+
+| Endpoint | Beskrivning |
+|---|---|
+| `GET /v1/{kommun}/möten` | Alla sammanträden (KF+KS) |
+| `GET /v1/{kommun}/möten/{datum}` | Ett sammanträde med sina paragrafer |
+| `GET /v1/{kommun}/möten/{datum}/anföranden` | Anföranden vid mötet (Yttrandeprotokoll) |
+| `GET /v1/{kommun}/forvaltningar` | Alla förvaltningar |
+| `GET /v1/{kommun}/forvaltningar/{id}` | En förvaltning |
+| `GET /v1/{kommun}/lon/direktorer` | Förvaltningsdirektörers löner |
+| `GET /v1/{kommun}/lon/direktorer/{id}/resultat` | En direktörs förvaltnings resultat |
+| `GET /v1/{kommun}/dokument` | Begäran-dokument (se `docs/BEGARAN.md`) |
+| `GET /v1/{kommun}/dokument/sök` | Fritext i dokumenten |
+| `GET /v1/{kommun}/dokument/{id}` | Enskilt dokument |
+| `GET /v1/{kommun}/kandidater` | 2026 års valkandidater |
+| `GET /v1/{kommun}/sök` | Fritext över hela materialet (Postgres FTS, `swedish`-ordbok) |
+| `GET /v1/{kommun}/trender` | Kolada-nyckeltal per nämnd över tid |
 
 ---
 
@@ -249,7 +306,8 @@ curl "localhost:3000/v1/goteborg/beslut/kf-2026-06-11-%C2%A7237" \
 protokoll och handling — fakta. Det andra är skrivet av en språkmodell. En klient
 som slår ihop dem gör det medvetet, inte för att schemat bjöd in till det.
 
-`ai` är `null` tills en analys finns (i skrivande stund 1 av 1352 ärenden), och
+`ai` är `null` tills en analys finns (i skrivande stund 26 av 1352 ärenden — 331
+står i kö, se `data/analys/ARBETSLOGG.md`), och
 seedas bara om dess `källa_hash` fortfarande matchar ärendet — har protokollet
 eller handlingen ändrats sedan analysen skrevs hör texten inte längre ihop med
 sitt underlag och visas inte.

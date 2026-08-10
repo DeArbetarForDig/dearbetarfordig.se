@@ -1,5 +1,12 @@
 # SaaS-arkitektur
 
+> **Status: vision/pitch, 0% implementerat.** Inget av detta finns i koden —
+> ingen tenant-routing, inget `kommun_id`, ingen schema-per-tenant (bara
+> `goteborg`-schemat finns, se `docs/DATA_MODEL.md`), inga adapters, ingen
+> Cloudflare/PostGIS/Object Storage, ingen billing. `ALLOWED_KOMMUNER` i API:t
+> har ett enda värde. Läs det som riktning, inte som beskrivning av nuvarande
+> arkitektur — jämför med `docs/HOSTING.md` för vad som faktiskt kör.
+
 ## Multi-tenant
 
 ```

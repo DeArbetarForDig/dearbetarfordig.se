@@ -1,5 +1,7 @@
 # Begäran om allmän handling — instruktioner
 
+> Status för skickade begäran (svarat/väntar): `docs/PROGRESS.md` → "Begäran status".
+
 ## Generell kontakt (verifierad, fungerar för alla nämnder)
 
 ```
