@@ -1,14 +1,14 @@
 /**
- * PDF Protocol Parser — извлекает структурированные данные из KF-протоколов
+ * PDF Protocol Parser — extracts structured data from KF protocols
  *
- * Из каждого протокола извлекаем:
- * - Paragrafer (§) с ärendenummer, rubrik, beslut
- * - Ссылки на законы (kommunallagen, etc.)
- * - Ссылки на другие §§ (bordlagt, uppdrag)
- * - Ссылки на organisationer (nämnder, bolag)
- * - Voteringar (om det finns)
+ * From each protocol we extract:
+ * - Paragrafer (§) with ärendenummer, rubrik, beslut
+ * - References to laws (kommunallagen, etc.)
+ * - References to other §§ (bordlagt, uppdrag)
+ * - References to organisationer (nämnder, bolag)
+ * - Voteringar (if present)
  *
- * Результат — граф узлов и рёбер (nodes + edges)
+ * Result — a graph of nodes and edges
  */
 
 import { execSync } from 'node:child_process'

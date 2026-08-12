@@ -167,7 +167,9 @@ describe('Investigation: Jäv och konflikter', () => {
 
   // Skipped: pre-existing failure, unrelated to CI-gate introduction (46b6216 and
   // earlier). Node `nämnd-kommunledningen` isn't found — see docs/ANALYS-2026-07.md
-  // §6 "Известные проблемы". Fixing it is out of scope here; this keeps the new
+  // §6 "Known issues" (that file was purged from git history, see docs/HOSTING.md,
+  // for being written in Russian — this reference is stale regardless). Fixing it
+  // is out of scope here; this keeps the new
   // blocking CI test gate green on introduction instead of red for an unrelated,
   // already-known issue. Un-skip once the underlying node/lookup is fixed.
   it('Kan traversera graf — se vem som sitter var', async () => {
@@ -217,7 +219,7 @@ describe('Investigation: Bordläggning — varför fattas ej beslut?', () => {
   })
 })
 
-describe('Integration: полный путь по графу (politiker → beslut → organisation → politiker)', () => {
+describe('Integration: hela vägen genom grafen (politiker → beslut → organisation → politiker)', () => {
   it('Kan gå från politiker → votering → beslut → nämnd → annan politiker', async () => {
     // 1. Hämta en politiker (Jonas Attenius, S)
     const { data: polList } = await get('/v1/goteborg/politiker?parti=S')
@@ -777,7 +779,7 @@ describe('Sök: robusthet — degenererade och illvilliga frågor', () => {
   })
 
   it('Icke-latinsk skrift ger tomt resultat, inte fel', async () => {
-    const { status, data } = await sök({ q: 'бюджет' })
+    const { status, data } = await sök({ q: '预算' })
     expect(status).toBe(200)
     expect(data.total).toBe(0)
   })

@@ -96,7 +96,7 @@ Tidiga (juni–juli 2026):
 Senare (juli–augusti 2026), tidigare odokumenterat i denna fil:
 
 - ✅ **Frontend byggd och live** — `packages/web` (Astro), 18 sidor, auto-deploy till GitHub Pages på varje push till main (`.github/workflows/ci.yml` job `deploy-pages`); se `docs/SPEC.md`
-- ✅ **KS-röstextraktion** — `parse-protokoll-ks.ts` extraherar poimённые voteringar ur Omröstning-sektioner i 51 KS-protokoll (se `docs/SPEC-KS-VOTERINGAR.md`, nu klar)
+- ✅ **KS-röstextraktion** — `parse-protokoll-ks.ts` extraherar namngivna voteringar ur Omröstning-sektioner i 51 KS-protokoll (se `docs/SPEC-KS-VOTERINGAR.md`, nu klar)
 - ✅ **AI-analyslager** — `beslutsanalytiker`-subagent, 26 ärenden analyserade av 331 i kön (se `docs/SPEC-ANALYS.md`, `data/analys/ARBETSLOGG.md`)
 - ✅ **Nya datavyer** — förvaltningsdirektörers löner/resultat, 2026 års valkandidater, revisionsrapporter, Intraservice-avtal, budgetavvikelser (utfall) per nämnd
 - ✅ **Fritextsökning** — Postgres FTS (`swedish`-ordbok) via `/v1/{kommun}/sök`, Pagefind medvetet valbort

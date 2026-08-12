@@ -1,11 +1,11 @@
 /**
- * Budget PDF Parser — автоматически извлекает бюджет из PDF в knowledge graph
+ * Budget PDF Parser — automatically extracts the budget from PDF into the knowledge graph
  *
- * Парсит оригинальный PDF бюджета Göteborgs Stad:
- * 1. Скачивает PDF (из handlingar или по URL)
- * 2. Извлекает текст (pdftotext -layout)
- * 3. Находит таблицу kommunbidrag per nämnd (regex)
- * 4. Строит граф: budget → nämnder → poster
+ * Parses the original Göteborgs Stad budget PDF:
+ * 1. Downloads the PDF (from handlingar or a URL)
+ * 2. Extracts text (pdftotext -layout)
+ * 3. Finds the kommunbidrag per nämnd table (regex)
+ * 4. Builds the graph: budget → nämnder → poster
  */
 
 import { execSync } from 'node:child_process'

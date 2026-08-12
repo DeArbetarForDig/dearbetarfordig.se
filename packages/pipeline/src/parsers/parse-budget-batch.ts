@@ -1,15 +1,15 @@
 /**
- * Batch Budget Parser — скачивает и парсит бюджеты 2024-2026 через pixelshot + VLM
+ * Batch Budget Parser — downloads and parses the 2024-2026 budgets via pixelshot + VLM
  *
- * Рендерит PDF-страницы в изображения (pixelshot), затем отправляет на VLM
- * для структурированного извлечения таблиц kommunbidrag per nämnd.
+ * Renders PDF pages to images (pixelshot), then sends them to a VLM
+ * for structured extraction of the kommunbidrag per nämnd tables.
  *
- * Бюджеты 2022-2023 недоступны на goteborg.se (хранятся только 2023-2027).
- * Для них нужно вручную получить PDF:
+ * The 2022-2023 budgets aren't available on goteborg.se (only 2023-2027 are kept).
+ * For those, the PDF has to be obtained manually:
  *   - Begäran om allmän handling: registrator@goteborg.se
- *   - Или найти в Wayback Machine / партийных сайтов
+ *   - Or find it via the Wayback Machine / party websites
  *
- * Использование:
+ * Usage:
  *   npx tsx packages/pipeline/src/parsers/parse-budget-batch.ts
  *   npx tsx packages/pipeline/src/parsers/parse-budget-batch.ts --year 2024
  *   npx tsx packages/pipeline/src/parsers/parse-budget-batch.ts --local .tmp/budget-2023.pdf --year 2023

@@ -1,15 +1,15 @@
 /**
- * Inbox Parser — обрабатывает PDF-документы, полученные через begäran om allmän handling
+ * Inbox Parser — processes PDF documents received via begäran om allmän handling
  *
- * Использование:
- *   1. Положить PDF в data/inbox/
- *   2. Запустить: npx tsx src/parsers/parse-inbox.ts
- *   3. Каждый PDF → извлечение текста → NER (organisationer, belopp, avtal) → граф
+ * Usage:
+ *   1. Put the PDF in data/inbox/
+ *   2. Run: npx tsx src/parsers/parse-inbox.ts
+ *   3. Each PDF → text extraction → NER (organisationer, belopp, avtal) → graph
  *
- * Поддерживаемые типы:
- *   - Årsrapporter → извлекает финансовые данные, leverantörer
- *   - Ramavtal → извлекает avtalspartner, belopp, löptid
- *   - Leverantörslistor → извлекает alla leverantörer + belopp
+ * Supported types:
+ *   - Årsrapporter → extracts financial data, leverantörer
+ *   - Ramavtal → extracts avtalspartner, belopp, löptid
+ *   - Leverantörslistor → extracts alla leverantörer + belopp
  */
 
 import { execSync } from 'node:child_process'
