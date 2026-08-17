@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-08-12. **32 av 331** prognosvärda ärenden analyserade, 299 återstår.
+Uppdaterad 2026-08-17. **33 av 331** prognosvärda ärenden analyserade, 298 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -17,6 +17,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Datum | Riktning | Säkerhet | Granskad | Rubrik |
 | --- | --- | --- | --- | --- | --- |
+| SLK-2025-00306 | 2026-08-17 | blandad | medium | — | Redovisning av uppdrag att ta fram förslag på hur borgerliga vigselför |
 | SLK-2025-00484 | 2026-08-12 | blandad | medium | — | Motion av Anders Svensson (M) och Cecilia Magnusson (M) om plan för et |
 | SLK-2025-00548 | 2026-08-12 | blandad | medium | — | Äldreombudsmannens rapport 2025 |
 | SLK-2025-00658 | 2026-08-12 | blandad | medium | — | Motion av Lena Ferm (SD) och Jörgen Fogelklou (SD) om en övergripande  |
@@ -54,7 +55,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2025-00306 | omstritt beslut | Redovisning av uppdrag att ta fram förslag på hur borgerliga vigselför |
 | SLK-2025-01039 | gardering om pengar i texten | Riksnorm ekonomiskt bistånd och riktmärken för boendekostnader 2026 |
 | SLK-2025-01130 | belopp nämns: 10 mnkr | Revidering av Göteborgs Stads riktlinje för informationssäkerhet samt  |
 | SLK-2025-01000 | belopp nämns: 1000000 mnkr | Revidering av Göteborgs Stads elektrifieringsplan 2022-2030 |
@@ -64,3 +64,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-00600 | gardering om pengar i texten | Göteborgs Stads lokalförsörjningsplan 2026 |
 | SLK-2025-00889 | belopp nämns: 35 mnkr | Uppräkning av arvoden för förtroendevalda för år 2026 |
 | SLK-2025-00749 | belopp nämns: 1120 mnkr | Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou (SD) om att infö |
+| SLK-2025-00942 | omstritt beslut | Motion av Zagros Hama (M) om att inrätta en enhet specialiserad på att |
