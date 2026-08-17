@@ -1,0 +1,137 @@
+{
+  "ärendeNr": "SLK-2025-01130",
+  "rubrik": "Revidering av Göteborgs Stads riktlinje för informationssäkerhet samt komplettering av kommunstyrelsens reglemente utifrån nya cybersäkerhetslagen",
+  "maskingenererad": true,
+  "modell": "claude-sonnet-5",
+  "genererad": "2026-08-17",
+  "granskad_av": null,
+  "granskad_datum": null,
+  "källa_hash": "ec203be544127ca4",
+  "riktning": "blandad",
+  "confidence": "medium",
+  "sammanfattning": "Kommunfullmäktige beslutade enhälligt 2026-01-29 att revidera Göteborgs Stads riktlinje för informationssäkerhet och komplettera kommunstyrelsens reglemente inför den nya cybersäkerhetslagen (NIS2). Beslutet klargör roller och ansvar men saknar kostnadsuppgift, finansiering och mätbart mål - trots att Intraservice redan kände till ett kostnadsestimat på cirka 18 mnkr för 2026.",
+  "nyckelpunkter": [
+    {
+      "ton": "fakta",
+      "text": "Beslutet i sig kostar inget - det är en ansvarsreform. Men det s.k. \"10 mnkr\" i underlaget är lagens sanktionstak, inte en kostnad för det här beslutet."
+    },
+    {
+      "ton": "varning",
+      "text": "Den ekonomiska bedömningen kvantifierar ingenting, trots att Intraservice nämnd redan i sept 2025 fått ett kostnadsestimat på cirka 18 mnkr för 2026."
+    },
+    {
+      "ton": "styrka",
+      "text": "Beslutet klubbades enhälligt i både kommunstyrelse och fullmäktige, utan yrkanden, votering eller reservationer."
+    },
+    {
+      "ton": "varning",
+      "text": "Ingen remiss gick till nämnder och bolag som får nya, obligatoriska roller - motiverat av tidspress inför lagens ikraftträdande 15 januari 2026."
+    }
+  ],
+  "talar_för": [
+    {
+      "text": "Adresserar en dokumenterad brist: en stadsrevision fann otydlig roll- och ansvarsfördelning för informationssäkerhet i två av stadens nämnder.",
+      "källa": "revision-utbildningsnämndens-och-grundskolenämndens-informationssäkerhetsarbete-i-det-skoladministrativa-systemstödet-ist-administration"
+    },
+    {
+      "text": "Beslutet var enigt i både kommunstyrelse och fullmäktige, utan yrkanden, votering eller reservationer.",
+      "källa": "kf-2026-01-29-§14"
+    },
+    {
+      "text": "Görs mot bakgrund av en verklig incident: en dataläcka hos leverantören Miljödata exponerade uppgifter om cirka 165 000 anställda hösten 2025.",
+      "källa": "kf-2025-11-27-§490"
+    },
+    {
+      "text": "Ger kommunstyrelsen ett namngivet, lagstadgat ansvar som \"ledning\" gentemot nämnderna, vilket saknades tidigare.",
+      "källa": "kf-2026-01-29-§14"
+    }
+  ],
+  "talar_emot": [
+    {
+      "text": "Den ekonomiska bedömningen anger ingen kostnad, trots att Intraservice nämnd redan i september 2025 informerades om ett estimat på cirka 18 mnkr för 2026.",
+      "källa": "intraservice-delarsrapport-q1-2026"
+    },
+    {
+      "text": "Beslutet fattades utan remiss till de nämnder och bolag som åläggs nya, obligatoriska roller enligt förslaget.",
+      "källa": "kf-2026-01-29-§14"
+    },
+    {
+      "text": "Ingen mätbar målsättning eller bestämd återrapportering är knuten till just det här beslutet.",
+      "källa": "kf-2026-01-29-§14"
+    },
+    {
+      "text": "Stadens egen uppföljning i april 2026 konstaterar att kraven i cybersäkerhetslagen ännu inte är fullt uppfyllda.",
+      "källa": "kf-2026-04-23-§137"
+    }
+  ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": false,
+    "finansiering_klar": false,
+    "konsekvenser_utredda": false,
+    "mål_mätbart": false,
+    "uppföljning_bestämd": false
+  },
+  "rekommendation": {
+    "röst": "bifall",
+    "motivering": "Väl motiverad och skyndsam anpassning till en ny lag, enig i hela kedjan - men den ekonomiska bedömningen är tyst om ett kostnadsestimat som redan fanns i staden när tjänsteutlåtandet skrevs.",
+    "skulle_ändras_av": "Om det framkom att stadsledningskontoret kände till Intraservice kostnadsestimat och medvetet utelämnade det, eller att de nya obligatoriska rollerna i praktiken inte gick att bemanna i nämnderna - då vore beredningsbristen materiell och rösten avstår."
+  },
+  "analys_md": "## Vad som beslutades\n\nKommunfullmäktige beslutade 2026-01-29 (§14, SLK-2025-01130, KF Handling 2026 nr 4) att dels revidera Göteborgs Stads riktlinje för informationssäkerhet - som samtidigt byter namn till \"riktlinje för informations- och cybersäkerhet\" - dels lägga till en ny paragraf 21 i kapitel 2 av kommunstyrelsens reglemente, under rubriken \"Cybersäkerhet\" (kf-2026-01-29-§14). Tillägget slår fast att \"Kommunstyrelsen har det övergripande ansvaret för cybersäkerhet i förhållande till stadens nämnder i enlighet med cybersäkerhetslagen\" (kf-2026-01-29-§14). Riktlinjen får nya definitioner av roller: verksamhetsutövare (stadens nämnder tillsammans, samt varje bolag för sig), ledning (kommunstyrelsen respektive bolagens styrelse och vd), riskägare, informationssäkerhetssamordnare och incidenthanterare - de två sistnämnda ska varje nämnd och styrelse ha i sin organisation (kf-2026-01-29-§14). Bakgrunden är den nya cybersäkerhetslagen, som implementerar EU:s NIS2-direktiv (2022/2555) och trädde i kraft 15 januari 2026, två veckor efter kommunstyrelsens tillstyrkan (ks-2026-01-14-§8) och 14 dagar före fullmäktiges beslut. Kommunstyrelsen tillstyrkte stadsledningskontorets förslag oförändrat 2026-01-14 (§8, ks-2026-01-14-§8).\n\n## Hur det gick till\n\nBeredningen var snabb och konfliktfri. Regeringens färdiga lagförslag presenterades i mitten av oktober 2025, stadsledningskontorets tjänsteutlåtande är daterat 8 december 2025, kommunstyrelsen tillstyrkte 14 januari 2026 och fullmäktige klubbade 29 januari 2026 - samma dag lagen skulle träda i kraft var bara två veckor bort (kf-2026-01-29-§14). Beslutet var enigt genom hela kedjan: inga yrkanden, ingen votering, inga reservationer eller jäv i vare sig kommunstyrelsen eller fullmäktige (ks-2026-01-14-§8, kf-2026-01-29-§14). En sökning på anföranden kopplade till ärendet (sok --typ=anförande på \"cybersäkerhetslagen\" och \"reglemente cybersäkerhet\") gav inga substantiella debattinlägg om just detta ärende - protokollet visar en formell föredragning och klubbning utan diskussion, vilket är konsekvent med att ärendet var okontroversiellt (anforande-2026-01-29-77, anforande-2026-01-29-78). Facklig samverkan skedde i centrala samverkansgruppen 2025-11-27 och koncernfackliga rådet 2025-12-03 (kf-2026-01-29-§14). Däremot gick ärendet inte ut på remiss till stadens nämnder och bolag, trots att flera av dem åläggs nya, namngivna roller (informationssäkerhetssamordnare, incidenthanterare i varje nämnd/styrelse). Det är begripligt givet tidspressen - lagen skulle träda i kraft med kort varsel - men det är en avvikelse från normal beredning som staden själv inte problematiserar i tjänsteutlåtandet.\n\n## Underlaget\n\nTjänsteutlåtandet redogör utförligt för NIS2-direktivets och cybersäkerhetslagens innehåll, skillnaden mot det äldre NIS-direktivet, och vilka roller lagen kräver (kf-2026-01-29-§14). Det hänvisar till att Göteborgs Stad tidigare yttrat sig över lagförslagets utredning (SOU 2024:18) i kommunstyrelsen 2024-05-15 (§443, SLK-2024-00295, ks-2024-05-15-§443). Underlaget innehåller en kort bedömning i tre dimensioner (ekonomisk, ekologisk, social) enligt stadens standardmall, men innehållet skiljer sig i substans från exempelvis fastighetsärenden med samma mallstruktur: den ekologiska dimensionen avfärdas i en mening (\"inte funnit några särskilda aspekter\"), och den ekonomiska bedömningen stannar vid att styrdokumentet \"inte är kostnadsdrivande i sig självt\" utan att kvantifiera vad lagens krav faktiskt kostar att implementera (kf-2026-01-29-§14) - se \"Pengarna\" nedan för varför den avgränsningen är diskutabel. Det finns ingen extern remiss till nämnder eller bolag. Stadsledningskontoret skriver själv att man \"i detta skede prioriterat att identifiera de viktigaste åtgärderna\" och att ytterligare styrning \"sannolikt\" behövs framöver, bland annat kring leverantörskedjor och en gemensam risk- och incidenthanteringsprocess (kf-2026-01-29-§14) - underlaget är alltså medvetet ett första, avgränsat steg snarare än en fullständig lösning. En oberoende bekräftelse av att rollotydlighet varit ett reellt problem i staden finns i en stadsrevisionsgranskning av utbildningsnämndens och grundskolenämndens informationssäkerhetsarbete i skolsystemet IST Administration, som konstaterade att nämnderna inte säkerställt \"en ändamålsenlig organisation med en tydlig roll-, ansvars- och befogenhetsfördelning\" (revision-utbildningsnämndens-och-grundskolenämndens-informationssäkerhetsarbete-i-det-skoladministrativa-systemstödet-ist-administration). Den granskningen citeras inte i tjänsteutlåtandet, men styrker oberoende att den typ av otydlighet beslutet ska åtgärda har funnits i praktiken.\n\n## Pengarna\n\nBeslutet självt anger ingen kostnad och ingen finansiering - stadsledningskontoret bedömer att en \"justerad styrning på lokal nivå, där bland annat roller och ansvar tydliggörs, inte är kostnadsdrivande i sig självt\", och pekar i stället på att framtida kostnader hänger ihop med lagens krav på riskarbete, incidenthantering och dokumentation (kf-2026-01-29-§14). Den siffra som pipelinens förhandsanalys fångat upp (10 mnkr) är inte en kostnad för detta beslut: det är cybersäkerhetslagens sanktionsavgiftstak för offentlig förvaltning, \"som lägst 5 000 kr och som mest 10 000 000 kr\" (kf-2026-01-29-§14) - en risk vid bristande efterlevnad, inte ett anslag. Den formella avgränsningen (styrdokumentet i sig kostar inget) är tekniskt korrekt, men den blir missvisande om den läses som att lagen är kostnadsneutral för staden. Två månader innan tjänsteutlåtandet skrevs - i september 2025 - informerades nämnden för Intraservice om en första bedömning att implementeringen av cybersäkerhetslagen skulle kosta cirka 18 miljoner kronor för 2026 (intraservice-delarsrapport-q1-2026). Tjänsteutlåtandet för det här ärendet (daterat 8 december 2025) nämner inte den uppgiften. Jag kan inte visa att stadsledningskontoret kände till den specifika siffran när utlåtandet skrevs - det är min slutsats att den fanns tillgänglig i staden vid den tidpunkten, inte ett bevisat faktum om vad handläggningen av just detta ärende byggde på. I efterhand blev kostnaden större: Intraservice delårsrapport för mars 2026 redovisar tillkommande, obudgeterade kostnader för implementeringen om cirka 24 miljoner kronor för återstoden av 2026, delvis finansierade med 9 mnkr projektmedel (\"Satsningar inom IT-säkerhet\") och resten genom överskott inom andra tjänsteområden (intraservice-delarsrapport-q1-2026). Detta är Intraservices kostnader för att implementera lagen i sin roll som stadens gemensamma IT-leverantör - inte en kostnad för det beslut som analyseras här, som bara handlar om styrdokumentens text. Men det visar att bilden \"inte kostnadsdrivande\" i tjänsteutlåtandet döljer en väsentlig kostnad som redan var känd i staden, om än inte i det specifika underlag fullmäktige hade framför sig. Nationellt har regeringen i budgetpropositionen för 2026 aviserat 200 miljoner kronor årligen till landets kommuner (och 50 miljoner till regioner) från 2026 för att stärka motståndskraften mot cyberhot och genomföra NIS2 (techlaw.se, budgetproposition 2026) - det är ett riksomfattande anslag, inte en finansieringskälla för Göteborgs kostnader specifikt, och det förekommer inte i det här ärendets underlag.\n\n## Vad vi kan vänta oss\n\nDetta är min bedömning, inte materialets. Styrdokumentrevideringen i sig är administrativt riskfri - den ändrar inte verksamhetsansvar (det ligger kvar hos nämnderna enligt kommunallagen, vilket tjänsteutlåtandet själv påpekar) utan tydliggör vem som ska svara inför tillsynsmyndigheten. Det är rimligt att vänta sig att den minskar risken för att ansvarsfrågor blir otydliga vid en framtida incident, i linje med vad stadsrevisionens IST-granskning identifierade som ett återkommande problemmönster i staden. Samtidigt är det uppenbart, utifrån Intraservice egna siffror, att den faktiska lagefterlevnaden är en betydligt större apparat än det här beslutet - som bara är en text i två styrdokument. Jag förväntar mig att kommande delårsrapporter och årsredovisningar kommer visa fortsatta, växande kostnader för cybersäkerhetsarbetet spridda över flera nämnder och bolag (inte bara Intraservice), i takt med att MSB:s och PTS föreskrifter färdigställs och kraven konkretiseras - tjänsteutlåtandet skriver själv att \"ytterligare styrning\" sannolikt behövs (kf-2026-01-29-§14). Det är inte säkert att alla dessa kostnader kommer synas som en följd av just det här beslutet i redovisningen, snarare som en direkt följd av lagen - vilket gör att det här beslutets egen ekonomiska påverkan sannolikt förblir marginell, medan lagens totala kostnad för staden blir betydande.\n\n## Det som talar emot\n\nTre saker väger mot en okritisk positiv läsning. För det första: den ekonomiska bedömningen i tjänsteutlåtandet är tyst om ett kostnadsestimat (cirka 18 mnkr för 2026) som redan fanns i staden två månader tidigare, vilket gör bedömningen \"inte kostnadsdrivande i sig självt\" missvisande som helhetsbild även om den är teknisk korrekt för själva styrdokumentet (intraservice-delarsrapport-q1-2026). För det andra: ingen remiss gick till de nämnder och bolag som åläggs nya, obligatoriska roller - en brist som är begriplig givet tidspressen men som ändå innebär att de som ska bära det praktiska ansvaret inte fick tycka till formellt innan beslutet togs (kf-2026-01-29-§14). För det tredje: stadens egen kompletterande uppföljning per december 2025, behandlad i fullmäktige i april 2026, konstaterar att \"staden inte fullt ut kommer att uppfylla kraven i den nya Cybersäkerhetslagen\" och att \"det återstår ett arbete för att uppfylla alla krav\" (kf-2026-04-23-§137) - det här beslutet var alltså ett nödvändigt men inte tillräckligt steg, vilket är rimligt för en skyndsam första åtgärd men ändå värt att notera mot bakgrund av att beslutet självt inte sätter något mätbart mål eller någon tidpunkt för när full efterlevnad ska vara uppnådd. Jag har sökt efter tecken på att beslutet var politiskt omstritt (yrkanden, reservationer, kritiska anföranden) och inte hittat något - enigheten förefaller genuin snarare än forcerad.\n\n## Så kan du kontrollera detta senare\n\nFölj Intraservice kommande delårsrapporter och årsrapport 2026 för att se om de tillkommande kostnaderna för cybersäkerhetslagen (redovisade som cirka 24 mnkr för resten av 2026 i delårsrapporten för mars) håller sig inom prognosen eller växer ytterligare, och om den begärda kompletteringsbudgeten för 2026 beviljas. Kontrollera Göteborgs Stads kompletterande uppföljning per december 2026 och årsredovisningen för 2026 för att se om stadsledningskontoret då kan konstatera att cybersäkerhetslagens krav är uppfyllda, eller om samma reservation som i april 2026 (kf-2026-04-23-§137) upprepas. Håll utkik efter MSB:s och PTS aviserade föreskrifter och om de utlöser ytterligare beslut i kommunstyrelsen om exempelvis leverantörskrav eller gemensam incidenthantering, vilket tjänsteutlåtandet själv förutspår. Slutligen: se om något av stadens nämnder eller bolag rapporterar en informations- eller cybersäkerhetsincident efter januari 2026, och om ansvarsfördelningen då fungerar som den nya reglementsparagrafen och riktlinjen förutsätter - det är det egentliga testet av om den här ansvarsreformen gjorde skillnad.",
+  "källor": [
+    {
+      "typ": "internt",
+      "ref": "kf-2026-01-29-§14",
+      "vad": "Fullmäktiges beslutstext (SLK-2025-01130), KF Handling 2026 nr 4, med stadsledningskontorets tjänsteutlåtande 2025-12-08 i sin helhet inklusive bedömning, sanktionsbelopp och föreslagna ändringar i riktlinje och reglemente"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2026-01-14-§8",
+      "vad": "Kommunstyrelsens enhälliga tillstyrkan 2026-01-14"
+    },
+    {
+      "typ": "internt",
+      "ref": "ks-2024-05-15-§443",
+      "vad": "Göteborgs Stads tidigare remissyttrande över SOU 2024:18 (SLK-2024-00295), som cybersäkerhetslagen bygger på"
+    },
+    {
+      "typ": "internt",
+      "ref": "revision-utbildningsnämndens-och-grundskolenämndens-informationssäkerhetsarbete-i-det-skoladministrativa-systemstödet-ist-administration",
+      "vad": "Stadsrevisionens granskning som fann otydlig roll- och ansvarsfördelning för informationssäkerhet i två av stadens nämnder"
+    },
+    {
+      "typ": "internt",
+      "ref": "intraservice-delarsrapport-q1-2026",
+      "vad": "Intraservice delårsrapport januari-mars 2026: kostnadsestimat från september 2025 (~18 mnkr) och prognostiserade tillkommande kostnader (~24 mnkr) för implementering av cybersäkerhetslagen"
+    },
+    {
+      "typ": "internt",
+      "ref": "intraservice-arsrapport-2025",
+      "vad": "Intraservice årsrapport 2025: avsikt att begära medel i kompletteringsbudgeten för 2026"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-04-23-§137",
+      "vad": "Kompletterande uppföljning per december 2025 (SLK-2026-00123): konstaterar att staden ännu inte fullt ut uppfyller cybersäkerhetslagens krav"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2025-11-27-§490",
+      "vad": "Delårsrapport per augusti 2025 (SLK-2025-00862): redovisar dataläckan hos leverantören Miljödata, cirka 165 000 berörda"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-01-29-§6",
+      "vad": "Interpellation samma sammanträdesdag om Miljödata-dataläckan (SLK-2025-01289), belyser den säkerhetspolitiska bakgrunden till ärendet"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2026-01-29-77",
+      "vad": "Föredragning av ärendet i fullmäktige 2026-01-29, klubbat utan debatt"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://techlaw.se/sverige-regeringen-foreslar-en-nationell-satsning-pa-cybersakerhet/",
+      "vad": "Regeringens nationella satsning: 200 mnkr/år till landets kommuner och 50 mnkr/år till regioner från 2026 för cybersäkerhet/NIS2 (riksomfattande, ej specifikt för Göteborg)"
+    }
+  ]
+}

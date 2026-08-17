@@ -3,7 +3,7 @@
 <!-- Genererad av `korpus.ts logg`. Redigera inte för hand: statusen ÄR
      filerna i data/analys/ai/. Kör om kommandot efter varje analys. -->
 
-Uppdaterad 2026-08-17. **34 av 331** prognosvärda ärenden analyserade, 297 återstår.
+Uppdaterad 2026-08-17. **35 av 331** prognosvärda ärenden analyserade, 296 återstår.
 
 Ett ärende i taget — en avbruten körning ska kosta ett ärende, inte en batch:
 
@@ -19,6 +19,7 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | --- | --- | --- | --- | --- | --- |
 | SLK-2025-00306 | 2026-08-17 | blandad | medium | — | Redovisning av uppdrag att ta fram förslag på hur borgerliga vigselför |
 | SLK-2025-01039 | 2026-08-17 | positiv | medium | — | Riksnorm ekonomiskt bistånd och riktmärken för boendekostnader 2026 |
+| SLK-2025-01130 | 2026-08-17 | blandad | medium | — | Revidering av Göteborgs Stads riktlinje för informationssäkerhet samt  |
 | SLK-2025-00484 | 2026-08-12 | blandad | medium | — | Motion av Anders Svensson (M) och Cecilia Magnusson (M) om plan för et |
 | SLK-2025-00548 | 2026-08-12 | blandad | medium | — | Äldreombudsmannens rapport 2025 |
 | SLK-2025-00658 | 2026-08-12 | blandad | medium | — | Motion av Lena Ferm (SD) och Jörgen Fogelklou (SD) om en övergripande  |
@@ -56,7 +57,6 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 
 | Ärende | Skäl att analysera | Rubrik |
 | --- | --- | --- |
-| SLK-2025-01130 | belopp nämns: 10 mnkr | Revidering av Göteborgs Stads riktlinje för informationssäkerhet samt  |
 | SLK-2025-01000 | belopp nämns: 1000000 mnkr | Revidering av Göteborgs Stads elektrifieringsplan 2022-2030 |
 | SLK-2025-00989 | belopp nämns: 58 mnkr | Hemställan från exploateringsnämnden om bemyndigande att förvärva fast |
 | SLK-2025-01187 | belopp nämns: 140 mnkr | Revidering av bolagsordningar för Göteborgs Stads Kollektivtrafik AB r |
@@ -66,3 +66,4 @@ npx tsx packages/pipeline/src/analys/korpus.ts logg   # uppdatera den här filen
 | SLK-2025-00749 | belopp nämns: 1120 mnkr | Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou (SD) om att infö |
 | SLK-2025-00942 | omstritt beslut | Motion av Zagros Hama (M) om att inrätta en enhet specialiserad på att |
 | SLK-2025-01052 | omstritt beslut | Kommunövergripande insatser för suicidprevention |
+| SLK-2025-00871 | belopp nämns: 183000 mnkr | Revidering av Göteborgs Stads riktlinje för stöd till anhöriga som stö |
