@@ -1,0 +1,108 @@
+{
+  "ärendeNr": "SLK-2025-00306",
+  "rubrik": "Redovisning av uppdrag att ta fram förslag på hur borgerliga vigselförrättare kan erhålla ersättning från Göteborgs Stad",
+  "maskingenererad": true,
+  "modell": "claude-sonnet-5",
+  "genererad": "2026-08-17",
+  "granskad_av": null,
+  "granskad_datum": null,
+  "källa_hash": "f9541b92e8105836",
+  "riktning": "blandad",
+  "confidence": "medium",
+  "sammanfattning": "KF beslutade 2026-02-26 (§54) att införa ett kommunalt arvode för borgerliga vigselförrättare, om cirka 140 000 kr/år, i linje med praxis i jämförbara städer. Finansieringen var dock inte klar vid beslutet utan sköts till kompletteringsbudgeten, där den löstes i juni utan avgiftshöjning.",
+  "nyckelpunkter": [
+    {
+      "ton": "varning",
+      "text": "Finansieringen var inte klar när arvodet beslutades – frågan sköts till 'kommande kompletteringsbudgetberedning'."
+    },
+    {
+      "ton": "fakta",
+      "text": "Ett förslag att i stället höja vigselavgiften (till 550/850 kr) för att betala arvodet röstades ner, 42 mot 37."
+    },
+    {
+      "ton": "styrka",
+      "text": "Beslutet föregicks av ett års beredning med jämförelse mot fem andra städer, och tio ledamöter avstod korrekt pga jäv."
+    },
+    {
+      "ton": "fakta",
+      "text": "Kommunalråd som är vigselförrättare undantas arvodet, och ersättning för förlorad arbetsinkomst är uttryckligen förbjuden."
+    }
+  ],
+  "talar_för": [
+    {
+      "text": "Ersättningen speglar praxis i jämförbara städer (Stockholm, Uppsala, Örebro, Helsingborg, Linköping) som alla betalar mer än länsstyrelsens 110 kr.",
+      "källa": "kf-2026-02-26-§54"
+    },
+    {
+      "text": "Kostnaden är litet och tydligt beräknad: cirka 140 000 kr per år för arvodena, plus ett finansieringsbehov på uppskattningsvis 215 000 kr/år om avgiften inte höjs.",
+      "källa": "kf-2026-02-26-§54"
+    },
+    {
+      "text": "Kommunalråd som är vigselförrättare undantas arvodet, vilket begränsar risken för att gynna redan heltidsarvoderade politiker.",
+      "källa": "kf-2026-02-26-§54"
+    },
+    {
+      "text": "Finansieringsfrågan löstes fyra månader senare i kompletteringsbudgeten, inom kommunledningens befintliga kommunbidrag.",
+      "källa": "kf-2026-06-11-§230"
+    }
+  ],
+  "talar_emot": [
+    {
+      "text": "Kommunfullmäktige godkände en ny löpande kostnad utan att samtidigt bestämma varifrån pengarna skulle komma.",
+      "källa": "kf-2026-02-26-§54"
+    },
+    {
+      "text": "Det enda förslag som skulle ha finansierat arvodet genom höjd vigselavgift röstades ner, så notan går i stället via kommunbidraget (skattemedel) i stället för de som gifter sig.",
+      "källa": "kf-2026-02-26-§54"
+    },
+    {
+      "text": "Ingen mätbar målsättning finns för vad arvodet ska uppnå, t.ex. bibehållen bemanning eller rekrytering av vigselförrättare, så resultatet går inte att följa upp mot ett mål.",
+      "källa": "kf-2026-02-26-§54"
+    }
+  ],
+  "beslutskvalitet": {
+    "kostnad_redovisad": true,
+    "finansiering_klar": false,
+    "konsekvenser_utredda": true,
+    "mål_mätbart": false,
+    "uppföljning_bestämd": false
+  },
+  "rekommendation": {
+    "röst": "bifall",
+    "motivering": "Väl berett över ett år med tydlig kostnad och jämförelse mot andra städer; att finansieringen sköts till kompletteringsbudgeten är en svaghet men gällde en liten, öppet redovisad summa.",
+    "skulle_ändras_av": "Om finansieringen hade lämnats helt öppen utan plan, eller om beloppet varit stort nog att tränga undan annan verksamhet utan att det redovisades."
+  },
+  "analys_md": "## Vad som beslutades\n\nKommunfullmäktige beslutade 2026-02-26, § 54 (ärende SLK-2025-00306), att införa ett kommunalt förrättningsarvode för borgerliga vigselförrättare: halvdagsarvode (2025 års nivå 975 kr) för ett vigselpass i Rådhuset på lördag, och 30-minutersarvode (255 kr) för en privat vigsel. Heltidsarvoderade kommunalråd som också är vigselförrättare undantas arvodet, och ingen vigselförrättare får begära ersättning för förlorad arbetsinkomst. Frågan om finansiering via kommunbidrag sköts till \"kommande kompletteringsbudgetberedning\", och det ursprungliga uppdraget från kommunstyrelsen 2025-02-05, § 125 förklarades fullgjort (kf-2026-02-26-§54).\n\n## Hur det gick till\n\nBeslutet föregicks av drygt ett års beredning: kommunstyrelsen gav stadsledningskontoret uppdraget 2025-02-05 (§ 125), stadsledningskontoret levererade underlag i april 2025, arvodesberedningen behandlade frågan i september 2025 (§ 19, då man var överens om principen men efterfrågade konkreta nivåer) och i november 2025 (§ 29, då förslaget till belopp fastställdes men finansieringsfrågan lämnades vidare), och kommunstyrelsen beslutade i januari 2026 att tillstyrka arvodesberedningens förslag utan omröstning (kf-2026-02-26-§54, avsnitt \"Arvodesberedningen\"/\"Kommunstyrelsen\").\n\nI kommunfullmäktige fanns ett motstående yrkande från M, L, D, KD och SD: samma arvodesnivåer, men villkorat av att vigselavgiften samtidigt höjs till 550 kr (ordinarie) respektive 850 kr (privat), så att arvodet finansierar sig själv via avgiften i stället för kommunbidrag. Yrkandet röstades ner 42 mot 37 (kf-2026-02-26-§54). Tio ledamöter i kommunfullmäktige — samtliga aktiva vigselförrättare med partier spridda över hela blockskalan (S, M, V, SD, D, C) — anmälde jäv och deltog inte i handläggningen, liksom fem ledamöter i kommunstyrelsens beredning. Att jävssituationen är så brett hanterad, över partigränserna, är ett tecken på att processen sköttes korrekt snarare än att den var kontroversiell i sak (anforande-2026-02-26-345/346). Inga reservationer finns antecknade till själva beslutet.\n\n## Underlaget\n\nStadsledningskontorets skrivelse (bilaga till kf-2026-02-26-§54, \"Arvodesberedningen\"-avsnittet) innehåller en ovanligt konkret genomräkning: antal vigslar 2022–2024 (1 693, 1 612 respektive 1 746, varav i snitt 263 privata), antal vigseltillfällen i Rådhuset (71 per år), kostnad för att införa arvodet (69 225 kr för Rådhuset + 67 065 kr för privata vigslar + administration ≈ 140 000 kr/år totalt), samt en tabell som visar hur mycket olika avgiftsnivåer (500–800 kr) skulle ge i intäkt jämfört med den nuvarande administrationskostnaden (cirka 750 000 kr/år). Underlaget jämför också med fem andra städer som redan betalar extra arvode (Stockholm, Uppsala, Örebro, Helsingborg, Linköping) och fyra grannkommuner som inte gör det (Malmö, Mölndal, Kungsbacka, Kungälv, Partille). Den formella deterministiska genomgången av ärendet flaggar att orden \"konsekvensanalys\", \"riskanalys\" och \"remiss\" inte förekommer explicit i handlingen — det stämmer, det är en internutredning inom stadsledningskontoret och arvodesberedningen, inte en bred remissrunda. Den ekonomiska genomlysningen av olika avgifts- och kostnadsscenarier är dock substantiell, även om den är begränsad till de rent ekonomiska konsekvenserna av valet mellan avgiftshöjning och kommunbidrag.\n\n## Pengarna\n\nKostnaden för själva arvodet är litet och tydligt redovisad: cirka 140 000 kr per år (kf-2026-02-26-§54). Utan höjd vigselavgift beräknade stadsledningskontoret finansieringsbehovet från kommunbidraget till uppskattningsvis 215 000 kr/år (skillnaden mellan totalkostnad ~890 000 kr för administration + arvode, och avgiftsintäkter på ~673 600 kr vid oförändrad 500-kronorsavgift). Trots detta beslutade kommunfullmäktige att införa arvodet innan finansieringen var löst — \"frågan kring finansiering via kommunbidrag hänvisas till kommande kompletteringsbudgetberedning\" (kf-2026-02-26-§54). Ledamoten som yrkade bifall till kommunstyrelsens förslag var öppen med att frågan var uppskjuten och sa i debatten att det handlar om förhållandevis lite pengar och att kommunstyrelsen kommer att återkomma med finansieringshanteringen i kompletteringsbudgeten (anforande-2026-02-26-347).\n\nFyra månader senare, i kompletteringsbudgeten för maj 2026, löstes frågan: \"Finansieringen av borgerliga vigselförrättare enligt kommunfullmäktiges beslut 2026-02-26 § 54 hanteras inom kommunledningens kommunbidrag\" (kf-2026-06-11-§230, punkt 13). Ingen ny avgiftshöjning beslutades för att finansiera arvodet — kostnaden togs i stället inom kommunledningens befintliga budgetram, utan att ett separat belopp anges i beslutstexten.\n\n## Vad vi kan vänta oss\n\nBaserat på materialet bedömer jag att beslutet sannolikt får begränsad praktisk effekt utöver det avsedda: en marginell ökning av ersättningen till en liten grupp förtroendevalda (39 vigselförrättare, varav sju kommunalråd som ändå undantas), till en kostnad som är försumbar i förhållande till stadens totala budget. Att flera andra jämförbara städer redan har liknande ordningar (Stockholm, Uppsala, Örebro, Helsingborg, Linköping — samtliga nämnda i underlaget till kf-2026-02-26-§54) och att den statliga ersättningen varit oförändrad sedan 1987 är väl dokumenterat även utanför ärendet: Sveriges Radio har rapporterat om just denna variation och den låga, oförändrade statliga ersättningen (se källa nedan). Det stärker bilden av att Göteborgs beslut är en rimlig anpassning till en känd brist i det statliga systemet, inte en unik eller oprövad åtgärd. Detta är min bedömning av sannolik riktning och storleksordning, inte en siffra ur handlingen.\n\n## Det som talar emot\n\nDet tydligaste svaga ledet är att kommunfullmäktige beslutade om en ny kostnad utan att samtidigt besluta hur den ska finansieras, och att det enda förslag som skulle ha finansierat den (höjd vigselavgift) röstades ner i samma beslut. Det är ett mönster som är värt att bevaka: om kommunbidraget löpande får absorbera nya åtaganden som beslutas innan finansieringen är klar, urholkas poängen med att fatta finansieringsbeslut i samma steg som sakbeslut. Jag har sökt efter tecken på att detta ledde till undanträngning av annan verksamhet i kompletteringsbudgeten för maj 2026 (kf-2026-06-11-§230) men hittar inget sådant explicit uttalande i beslutstexten — posten nämns bara i förbigående som punkt 13 av 25, utan eget belopp. Jag har också sökt efter kritik eller motstånd mot själva sakfrågan (att införa arvode) i tidigare ärenden och hittar i stället en motion från SD 2023 (0881/22) med samma syfte, vilket snarare stärker bilden av bred, partiöverskridande vilja att lösa frågan än att den är kontroversiell i sak. Den reella oenigheten gällde finansieringsmetoden (avgift kontra kommunbidrag), inte om arvodet skulle införas.\n\n## Så kan du kontrollera detta senare\n\nI årsredovisningen för 2026 eller nämndens uppföljning går det att se om utfallet för vigseladministrationen (som får protokollsutdraget, se kf-2026-02-26-§54) håller sig i närheten av den beräknade kostnaden på ~140 000 kr/år för arvodena och ~215 000 kr/år i ökat finansieringsbehov. Eftersom finansieringen enligt kf-2026-06-11-§230 hanteras \"inom kommunledningens kommunbidrag\" utan eget öronmärkt belopp, går det också att kontrollera om kommunledningens kommunbidrag för 2026/2027 visar tecken på att andra poster inom samma ram fått mindre utrymme. Slutligen går det att följa upp om antalet borgerliga vigselförrättare eller antalet genomförda vigslar förändras efter reformen — även om inget mätbart mål för detta sattes i beslutet.",
+  "källor": [
+    {
+      "typ": "internt",
+      "ref": "kf-2026-02-26-§54",
+      "vad": "Beslutstext, yrkanden, omröstning, jäv samt tjänsteutlåtande/arvodesberedningens underlag i sin helhet"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2026-02-26-345",
+      "vad": "Debattinlägg om jäv i ärendet"
+    },
+    {
+      "typ": "internt",
+      "ref": "anforande-2026-02-26-347",
+      "vad": "Debattinlägg där mötesledamot (S) öppet redogör för att finansieringen skjuts till kompletteringsbudgeten"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2026-06-11-§230",
+      "vad": "Kompletterande budget maj 2026, punkt 13: finansieringen av vigselförrättararvodet löses inom kommunledningens kommunbidrag"
+    },
+    {
+      "typ": "internt",
+      "ref": "kf-2023-03-23-§39",
+      "vad": "Tidigare motion (SD, 0881/22) om att höja ersättningen för vigselförrättare, visar att frågan drivits partiöverskridande sedan 2022"
+    },
+    {
+      "typ": "webb",
+      "ref": "https://www.sverigesradio.se/artikel/2230593",
+      "vad": "Sveriges Radio: nationell rapportering om varierande kommunal ersättning till vigselförrättare och den oförändrade statliga ersättningen"
+    }
+  ]
+}
