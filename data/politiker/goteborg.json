@@ -1,12 +1,12 @@
 {
   "kommun": "goteborg",
   "källa": "https://politiker.goteborg.se/",
-  "hämtad": "2026-08-10T07:58:27.869Z",
+  "hämtad": "2026-09-14T12:29:52.340Z",
   "mandatperiod": {
     "från": "2022-10-15",
     "till": "2026-10-14"
   },
-  "antal": 969,
+  "antal": 973,
   "politiker": [
     {
       "id": "41da29fe-8f66-4579-a78d-608c757fb23f",
@@ -406,7 +406,7 @@
       "förnamn": "Bengt Arne",
       "efternamn": "Reinholdson",
       "parti": "S",
-      "email": "bengtarne.reinholdson@gmail.com",
+      "email": "bengt.arne.reinholdsson@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Borgerlig vigsel, Vigselförrättare",
@@ -1176,6 +1176,13 @@
           "till": "2027-03-31"
         },
         {
+          "organisation": "Göteborgs Stadshus AB",
+          "organisationId": "9d4396af-03e4-4ada-bb4a-95d701592184",
+          "roll": "Suppleant",
+          "från": "2026-09-03",
+          "till": "2027-03-31"
+        },
+        {
           "organisation": "Göteborgs Stads kulturnämnd",
           "organisationId": "a11a7435-0171-4800-ac07-02872bda76fd",
           "roll": "Ledamot och 1:e vice ordförande",
@@ -1250,13 +1257,6 @@
           "roll": "vigselförrättare",
           "från": "2023-01-26",
           "till": "2026-12-31"
-        },
-        {
-          "organisation": "Göteborgs Stadshus AB",
-          "organisationId": "9d4396af-03e4-4ada-bb4a-95d701592184",
-          "roll": "Ledamot",
-          "från": "2026-03-23",
-          "till": "2027-03-31"
         },
         {
           "organisation": "European Coalition of Cities against Racism (Eccar)",
@@ -1673,6 +1673,13 @@
           "till": "2026-12-31"
         },
         {
+          "organisation": "Göteborgs Stadshus AB",
+          "organisationId": "9d4396af-03e4-4ada-bb4a-95d701592184",
+          "roll": "Ledamot",
+          "från": "2026-09-03",
+          "till": "2027-03-31"
+        },
+        {
           "organisation": "Kommunfullmäktige, alfabetisk ordning",
           "organisationId": "8f8da821-ebcd-4d1a-8a91-b1427de24de5",
           "roll": "Ledamot",
@@ -1732,7 +1739,7 @@
       "förnamn": "Mikael",
       "efternamn": "Malm",
       "parti": "MP",
-      "email": "mikael.malm1950@gmail.com",
+      "email": "mikael.malm@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads valnämnd",
@@ -1930,7 +1937,7 @@
       "förnamn": "Emmyly",
       "efternamn": "Bönfors Jansson",
       "parti": "C",
-      "email": "emmyly.bonfors@stadshuset.goteborg.se",
+      "email": "emmyly.bonfors@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads stadsbyggnadsnämnd",
@@ -2758,6 +2765,13 @@
           "roll": "Ledamot",
           "från": "2025-03-27",
           "till": "2026-10-14"
+        },
+        {
+          "organisation": "Göteborgs Stads nämnd för demokrati och medborgarservice",
+          "organisationId": "498cf450-0b1d-47dd-8413-9027694617a4",
+          "roll": "Ersättare",
+          "från": "2026-09-03",
+          "till": "2026-12-31"
         }
       ],
       "mandatperioder": [
@@ -2776,6 +2790,13 @@
       "parti": "V",
       "email": "marie.brynolfsson@politiker.goteborg.se",
       "uppdrag": [
+        {
+          "organisation": "Göteborgs Stadshus AB",
+          "organisationId": "9d4396af-03e4-4ada-bb4a-95d701592184",
+          "roll": "Ledamot",
+          "från": "2026-09-03",
+          "till": "2027-03-31"
+        },
         {
           "organisation": "Styrgrupp för samverkan inom hälso- och sjukvårdsområdet mellan Västra Götalandsregionen och Göteborgs Stad, Härryda, Mölndal, Partille och Öckerö",
           "organisationId": "309add97-661c-47eb-89df-c2bec6e5b64c",
@@ -2831,13 +2852,6 @@
           "roll": "Ledamot och ordförande",
           "från": "2026-01-01",
           "till": "2026-12-31"
-        },
-        {
-          "organisation": "Göteborgs Stadshus AB",
-          "organisationId": "9d4396af-03e4-4ada-bb4a-95d701592184",
-          "roll": "Suppleant",
-          "från": "2026-03-23",
-          "till": "2027-03-31"
         },
         {
           "organisation": "Samordningsförbundet Göteborg",
@@ -4683,13 +4697,6 @@
           "till": "2026-10-14"
         },
         {
-          "organisation": "Göteborgs Stadshus AB",
-          "organisationId": "9d4396af-03e4-4ada-bb4a-95d701592184",
-          "roll": "Ledamot",
-          "från": "2026-03-23",
-          "till": "2027-03-31"
-        },
-        {
           "organisation": "Förbundsfullmäktige i Göteborgsregionens kommunalförbund (Göteborgsregionens kommunalförbund)",
           "organisationId": "557e5028-79ef-47d2-b9d1-d0c146c978df",
           "roll": "Ersättare",
@@ -4982,13 +4989,6 @@
           "roll": "Ledamot",
           "från": "2022-10-15",
           "till": "2026-10-14"
-        },
-        {
-          "organisation": "Göteborgs Stads nämnd för demokrati och medborgarservice",
-          "organisationId": "498cf450-0b1d-47dd-8413-9027694617a4",
-          "roll": "Ersättare",
-          "från": "2026-01-01",
-          "till": "2026-12-31"
         }
       ],
       "mandatperioder": [
@@ -6450,13 +6450,6 @@
           "roll": "Ersättare",
           "från": "2023-01-26",
           "till": "2026-10-14"
-        },
-        {
-          "organisation": "Göteborgs Stads förskolenämnd",
-          "organisationId": "326574c2-d7f5-4c2a-b252-3461faa1eda6",
-          "roll": "Ersättare",
-          "från": "2026-01-01",
-          "till": "2026-12-31"
         }
       ],
       "mandatperioder": [
@@ -10848,6 +10841,24 @@
       "närstående": null
     },
     {
+      "id": "1d5b2ffd-1970-4002-9940-e311e5c50455",
+      "förnamn": "Rebecca",
+      "efternamn": "Brännström",
+      "parti": "SD",
+      "email": "rebecca.brannstrom@politiker.goteborg.se",
+      "uppdrag": [
+        {
+          "organisation": "Göteborgs Stads förskolenämnd",
+          "organisationId": "326574c2-d7f5-4c2a-b252-3461faa1eda6",
+          "roll": "Ersättare",
+          "från": "2026-09-03",
+          "till": "2026-12-31"
+        }
+      ],
+      "mandatperioder": [],
+      "närstående": null
+    },
+    {
       "id": "01cb43c2-2e11-40ae-8bad-b29a9d137d12",
       "förnamn": "Jennifer",
       "efternamn": "Merelaid Hankins",
@@ -12085,8 +12096,8 @@
         {
           "organisation": "Göteborgs Stads socialnämnd Hisingen",
           "organisationId": "68aa8237-adf0-453b-9731-1b399f0a46f6",
-          "roll": "Ersättare",
-          "från": "2026-03-26",
+          "roll": "Ledamot",
+          "från": "2026-09-03",
           "till": "2026-12-31"
         }
       ],
@@ -13075,17 +13086,17 @@
       "närstående": null
     },
     {
-      "id": "dfa7a1ac-dd49-4fe1-874c-cb59368217f6",
-      "förnamn": "Walter",
-      "efternamn": "Hornfelt",
+      "id": "0a175b7b-ad93-4ff3-924f-62c138596deb",
+      "förnamn": "Helena",
+      "efternamn": "Nnoham",
       "parti": "V",
-      "email": "walter.hornfelt@politiker.goteborg.se",
+      "email": "helena.nnoham@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads nämnd för demokrati och medborgarservice",
           "organisationId": "498cf450-0b1d-47dd-8413-9027694617a4",
           "roll": "Ledamot",
-          "från": "2026-01-01",
+          "från": "2026-09-03",
           "till": "2026-12-31"
         }
       ],
@@ -13206,32 +13217,21 @@
       "närstående": null
     },
     {
-      "id": "d6f8979d-9656-40c1-ac4e-94bf6d043a6a",
-      "förnamn": "Stina",
-      "efternamn": "Sewén",
+      "id": "c3b55238-c540-461c-af6b-aed3f38076b9",
+      "förnamn": "Anne-Sophie",
+      "efternamn": "Lefèvre",
       "parti": "MP",
-      "email": "stina.sewen@politiker.goteborg.se",
+      "email": "anne-sophie.lefevre@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads nämnd för demokrati och medborgarservice",
           "organisationId": "498cf450-0b1d-47dd-8413-9027694617a4",
           "roll": "Ersättare",
-          "från": "2026-01-01",
+          "från": "2026-09-03",
           "till": "2026-12-31"
         }
       ],
-      "mandatperioder": [
-        {
-          "period": "2018-2022",
-          "roll": "förtroendevald",
-          "källa": "Wayback Machine"
-        },
-        {
-          "period": "2022-2026",
-          "roll": "förtroendevald",
-          "källa": "politiker.goteborg.se"
-        }
-      ],
+      "mandatperioder": [],
       "närstående": null
     },
     {
@@ -13300,17 +13300,17 @@
       "närstående": null
     },
     {
-      "id": "0a175b7b-ad93-4ff3-924f-62c138596deb",
-      "förnamn": "Helena",
-      "efternamn": "Nnoham",
+      "id": "e8e3de9a-6f9f-4ca7-9bbe-188700fd7626",
+      "förnamn": "Eóin",
+      "efternamn": "Shortt",
       "parti": "V",
-      "email": "helena.nnoham@politiker.goteborg.se",
+      "email": "eoin.shortt@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads nämnd för demokrati och medborgarservice",
           "organisationId": "498cf450-0b1d-47dd-8413-9027694617a4",
           "roll": "Ersättare",
-          "från": "2026-01-01",
+          "från": "2026-09-03",
           "till": "2026-12-31"
         }
       ],
@@ -14175,42 +14175,6 @@
       "närstående": null
     },
     {
-      "id": "5ec70e04-c065-4e04-82b5-aaf4b2cd8836",
-      "förnamn": "Mait",
-      "efternamn": "Hjertkvist",
-      "parti": "M",
-      "email": "mait.hjertkvist@politiker.goteborg.se",
-      "uppdrag": [
-        {
-          "organisation": "Stiftelsen J C E Nolleroths donationsfond",
-          "organisationId": "7b94195d-cd7a-498a-9db0-5477ac1e6569",
-          "roll": "Ledamot",
-          "från": "2026-01-01",
-          "till": "2026-12-31"
-        },
-        {
-          "organisation": "Göteborgs Stads socialnämnd Hisingen",
-          "organisationId": "68aa8237-adf0-453b-9731-1b399f0a46f6",
-          "roll": "Ledamot",
-          "från": "2026-01-01",
-          "till": "2026-12-31"
-        }
-      ],
-      "mandatperioder": [
-        {
-          "period": "2018-2022",
-          "roll": "förtroendevald",
-          "källa": "Wayback Machine"
-        },
-        {
-          "period": "2022-2026",
-          "roll": "förtroendevald",
-          "källa": "politiker.goteborg.se"
-        }
-      ],
-      "närstående": null
-    },
-    {
       "id": "aaf9777a-504d-4b0a-8f58-a4f419f08045",
       "förnamn": "Jonas",
       "efternamn": "Schönemann",
@@ -14221,7 +14185,7 @@
           "organisation": "Göteborgs Stads socialnämnd Hisingen",
           "organisationId": "68aa8237-adf0-453b-9731-1b399f0a46f6",
           "roll": "Ledamot",
-          "från": "2026-02-26",
+          "från": "2026-09-03",
           "till": "2026-12-31"
         }
       ],
@@ -14409,6 +14373,24 @@
           "källa": "politiker.goteborg.se"
         }
       ],
+      "närstående": null
+    },
+    {
+      "id": "541140a7-3c20-4211-a3bb-f96ea75efc72",
+      "förnamn": "Vincent",
+      "efternamn": "Mehmeti,",
+      "parti": "M",
+      "email": "vincent.mehmeti@politiker.goteborg.se",
+      "uppdrag": [
+        {
+          "organisation": "Göteborgs Stads socialnämnd Hisingen",
+          "organisationId": "68aa8237-adf0-453b-9731-1b399f0a46f6",
+          "roll": "Ersättare",
+          "från": "2026-09-03",
+          "till": "2026-12-31"
+        }
+      ],
+      "mandatperioder": [],
       "närstående": null
     },
     {
@@ -15392,7 +15374,7 @@
       "förnamn": "Marie",
       "efternamn": "Dose",
       "parti": "S",
-      "email": null,
+      "email": "marie.dose@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads stadsbyggnadsnämnd",
@@ -16533,7 +16515,7 @@
     {
       "id": "75dc3d62-dc5f-457d-8d93-b7dd62c72ea8",
       "förnamn": "Sofia",
-      "efternamn": "Dyfverman-Brinkhoff",
+      "efternamn": "Dyfverman Brinkhoff",
       "parti": "M",
       "email": "sofia.dyfverman.brinkhoff@politiker.goteborg.se",
       "uppdrag": [
@@ -18863,6 +18845,35 @@
         }
       ],
       "mandatperioder": [],
+      "närstående": null
+    },
+    {
+      "id": "5ec70e04-c065-4e04-82b5-aaf4b2cd8836",
+      "förnamn": "Mait",
+      "efternamn": "Hjertkvist",
+      "parti": "M",
+      "email": "mait.hjertkvist@politiker.goteborg.se",
+      "uppdrag": [
+        {
+          "organisation": "Stiftelsen J C E Nolleroths donationsfond",
+          "organisationId": "7b94195d-cd7a-498a-9db0-5477ac1e6569",
+          "roll": "Ledamot",
+          "från": "2026-01-01",
+          "till": "2026-12-31"
+        }
+      ],
+      "mandatperioder": [
+        {
+          "period": "2018-2022",
+          "roll": "förtroendevald",
+          "källa": "Wayback Machine"
+        },
+        {
+          "period": "2022-2026",
+          "roll": "förtroendevald",
+          "källa": "politiker.goteborg.se"
+        }
+      ],
       "närstående": null
     },
     {
@@ -23458,6 +23469,55 @@
       ],
       "mandatperioder": [],
       "närstående": null
+    },
+    {
+      "id": "dfa7a1ac-dd49-4fe1-874c-cb59368217f6",
+      "förnamn": "Walter",
+      "efternamn": "Hornfelt",
+      "parti": "V",
+      "email": "walter.hornfelt@politiker.goteborg.se",
+      "uppdrag": [
+        {
+          "organisation": "Göteborgs Stads nämnd för demokrati och medborgarservice",
+          "organisationId": "498cf450-0b1d-47dd-8413-9027694617a4",
+          "roll": "Ledamot",
+          "från": "2026-01-01",
+          "till": "2026-12-31"
+        }
+      ],
+      "mandatperioder": [],
+      "närstående": null,
+      "historisk": true
+    },
+    {
+      "id": "d6f8979d-9656-40c1-ac4e-94bf6d043a6a",
+      "förnamn": "Stina",
+      "efternamn": "Sewén",
+      "parti": "MP",
+      "email": "stina.sewen@politiker.goteborg.se",
+      "uppdrag": [
+        {
+          "organisation": "Göteborgs Stads nämnd för demokrati och medborgarservice",
+          "organisationId": "498cf450-0b1d-47dd-8413-9027694617a4",
+          "roll": "Ersättare",
+          "från": "2026-01-01",
+          "till": "2026-12-31"
+        }
+      ],
+      "mandatperioder": [
+        {
+          "period": "2018-2022",
+          "roll": "förtroendevald",
+          "källa": "Wayback Machine"
+        },
+        {
+          "period": "2022-2026",
+          "roll": "förtroendevald",
+          "källa": "politiker.goteborg.se"
+        }
+      ],
+      "närstående": null,
+      "historisk": true
     },
     {
       "id": "435eb70a-8110-4c12-ad42-0776b5791c65",
