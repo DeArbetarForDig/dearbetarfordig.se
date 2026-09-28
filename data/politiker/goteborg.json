@@ -1,7 +1,7 @@
 {
   "kommun": "goteborg",
   "källa": "https://politiker.goteborg.se/",
-  "hämtad": "2026-09-21T12:36:44.689Z",
+  "hämtad": "2026-09-28T13:35:59.364Z",
   "mandatperiod": {
     "från": "2022-10-15",
     "till": "2026-10-14"
@@ -289,7 +289,7 @@
       "förnamn": "Marianne",
       "efternamn": "Carlström",
       "parti": "S",
-      "email": "marianne.carlstrom@gmail.com",
+      "email": "marianne.carlstrom@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads valnämnd",
@@ -625,7 +625,7 @@
       "förnamn": "Björn",
       "efternamn": "Oxe",
       "parti": "M",
-      "email": "bjorn.oxe@politiker.goteborg.se",
+      "email": "mail@bjornoxe.se",
       "uppdrag": [
         {
           "organisation": "Borgerlig vigsel, Vigselförrättare",
@@ -1148,6 +1148,13 @@
           "till": "2026-12-31"
         },
         {
+          "organisation": "Kommunstyrelsen",
+          "organisationId": "75ac2ef7-a31f-4fbd-ac7e-127e688d9524",
+          "roll": "Ersättare",
+          "från": "2026-09-24",
+          "till": "2026-12-31"
+        },
+        {
           "organisation": "Förbundsfullmäktige i Göteborgsregionens kommunalförbund (Göteborgsregionens kommunalförbund)",
           "organisationId": "557e5028-79ef-47d2-b9d1-d0c146c978df",
           "roll": "Ledamot",
@@ -1187,6 +1194,13 @@
           "organisationId": "a11a7435-0171-4800-ac07-02872bda76fd",
           "roll": "Ledamot och 1:e vice ordförande",
           "från": "2026-01-01",
+          "till": "2026-12-31"
+        },
+        {
+          "organisation": "European Coalition of Cities against Racism (Eccar)",
+          "organisationId": "5cf7dc18-6621-4f86-99cd-0eec76d5e623",
+          "roll": "Representant",
+          "från": "2026-09-24",
           "till": "2026-12-31"
         }
       ],
@@ -1238,31 +1252,10 @@
           "till": "2026-12-31"
         },
         {
-          "organisation": "Kommunstyrelsens Arbetsutskott",
-          "organisationId": "5f959952-5495-41b7-b0ec-b717548fb4d6",
-          "roll": "Ledamot",
-          "från": "2023-01-11",
-          "till": "2026-12-31"
-        },
-        {
-          "organisation": "Kommunstyrelsen",
-          "organisationId": "75ac2ef7-a31f-4fbd-ac7e-127e688d9524",
-          "roll": "Ledamot och 1:e vice ordförande",
-          "från": "2023-01-01",
-          "till": "2026-12-31"
-        },
-        {
           "organisation": "Borgerlig vigsel, Vigselförrättare",
           "organisationId": "d343e3a6-4f31-437a-befa-ea32962abdfd",
           "roll": "vigselförrättare",
           "från": "2023-01-26",
-          "till": "2026-12-31"
-        },
-        {
-          "organisation": "European Coalition of Cities against Racism (Eccar)",
-          "organisationId": "5cf7dc18-6621-4f86-99cd-0eec76d5e623",
-          "roll": "Representant",
-          "från": "2023-02-22",
           "till": "2026-12-31"
         }
       ],
@@ -1937,7 +1930,7 @@
       "förnamn": "Emmyly",
       "efternamn": "Bönfors Jansson",
       "parti": "C",
-      "email": "emmyly.bonfors@politiker.goteborg.se",
+      "email": "emmyly.bonfors@stadshuset.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads stadsbyggnadsnämnd",
@@ -2812,6 +2805,13 @@
           "till": "2026-12-31"
         },
         {
+          "organisation": "Kommunstyrelsen",
+          "organisationId": "75ac2ef7-a31f-4fbd-ac7e-127e688d9524",
+          "roll": "Ledamot och 1:e vice ordförande",
+          "från": "2026-09-24",
+          "till": "2026-12-31"
+        },
+        {
           "organisation": "Samverkan Delregional nämnd Göteborg (Drng) och Göteborgs Stad/Kommunstyrelsen",
           "organisationId": "72df3c33-da52-4d0b-989d-a1d0c1a4a029",
           "roll": "Representant",
@@ -2826,10 +2826,10 @@
           "till": "2026-12-31"
         },
         {
-          "organisation": "Kommunstyrelsen",
-          "organisationId": "75ac2ef7-a31f-4fbd-ac7e-127e688d9524",
-          "roll": "Ersättare",
-          "från": "2023-01-01",
+          "organisation": "Kommunstyrelsens Arbetsutskott",
+          "organisationId": "5f959952-5495-41b7-b0ec-b717548fb4d6",
+          "roll": "Ledamot",
+          "från": "2026-09-24",
           "till": "2026-12-31"
         },
         {
