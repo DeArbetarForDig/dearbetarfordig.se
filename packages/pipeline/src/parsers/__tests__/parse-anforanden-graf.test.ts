@@ -12,6 +12,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
+import { getMandatperiod } from '../parse-anforanden-graf'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../../data')
 // parse-anforanden-graf.ts writes its graph to data/graf/anforanden.json (ANFORANDEN_OUT),
@@ -152,5 +153,16 @@ describe('parse-anforanden-graf', () => {
       const nodesForDate = generatedData.nodes.filter((n) => n.id.includes(`anforande-${datum}-`))
       expect(nodesForDate).toHaveLength(0)
     })
+  })
+})
+
+describe('getMandatperiod', () => {
+  it('byter period den 15 oktober valåret', () => {
+    expect(getMandatperiod('2022-10-14')).toBe('2018-2022')
+    expect(getMandatperiod('2022-10-15')).toBe('2022-2026')
+    expect(getMandatperiod('2026-10-14')).toBe('2022-2026')
+    expect(getMandatperiod('2026-10-15')).toBe('2026-2030')
+    expect(getMandatperiod('2027-03-01')).toBe('2026-2030')
+    expect(getMandatperiod('2017-05-01')).toBe('2014-2018')
   })
 })

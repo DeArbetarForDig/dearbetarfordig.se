@@ -22,6 +22,9 @@
  *
  *   # Parsea specifikt år
  *   npx tsx packages/pipeline/src/parsers/parse-yttrandeprotokoll.ts --year 2025
+ *
+ *   # Bara möten som saknar data/debatter/kf-{datum}.json (veckouppdateringen)
+ *   npx tsx packages/pipeline/src/parsers/parse-yttrandeprotokoll.ts --only-new
  */
 
 import { execSync } from 'node:child_process'
@@ -41,6 +44,7 @@ interface Anförande {
   ärendeTitel: string
   text: string
   ordning: number
+  politikerId?: string | null
 }
 
 interface Meeting {
@@ -599,7 +603,11 @@ function getYttrandeUrls(years?: string[]): { datum: string; url: string }[] {
   return result
 }
 
-async function parseMeeting(datum: string, url: string): Promise<Meeting | null> {
+async function parseMeeting(
+  datum: string,
+  url: string,
+  resolve: (talare: string, parti: string) => string | null,
+): Promise<Meeting | null> {
   const ROOT = join(import.meta.dirname, '../../../..')
   const TMP_DIR = join(ROOT, '.tmp', 'yttrande')
 
@@ -630,7 +638,13 @@ async function parseMeeting(datum: string, url: string): Promise<Meeting | null>
     return null
   }
 
-  const anföranden = parseYttrandeprotokoll(text, datum)
+  // politikerId länkar anförandet till rostern (talade_i-kanter i seed.ts,
+  // anförandenoder i parse-anforanden-graf.ts). ~89 % träffar; resten är
+  // talare utanför rostern (tjänstepersoner, avgångna utan historik).
+  const anföranden = parseYttrandeprotokoll(text, datum).map((a) => ({
+    ...a,
+    politikerId: resolve(a.talare, a.parti),
+  }))
   const parties = [...new Set(anföranden.map((a) => a.parti))]
 
   console.log(
@@ -660,6 +674,11 @@ async function main() {
   const yearFlag = args.find((a) => a.startsWith('--year=') || a === '--year')
   const yearArg = yearFlag ? args[args.indexOf('--year') + 1] || yearFlag.split('=')[1] : null
   const datumArg = args.find((a) => a.match(/^\d{4}-\d{2}-\d{2}$/))
+  const onlyNew = args.includes('--only-new')
+  const rosterPath = join(DATA_DIR, 'politiker/goteborg.json')
+  const resolve = createPolitikerResolver(
+    existsSync(rosterPath) ? JSON.parse(readFileSync(rosterPath, 'utf-8')).politiker : [],
+  )
 
   let meetings: { datum: string; url: string }[]
 
@@ -689,7 +708,8 @@ async function main() {
 
   for (const { datum, url } of meetings.sort((a, b) => a.datum.localeCompare(b.datum))) {
     const outPath = join(OUTPUT_DIR, `kf-${datum}.json`)
-    const result = await parseMeeting(datum, url)
+    if (onlyNew && existsSync(outPath)) continue
+    const result = await parseMeeting(datum, url, resolve)
     if (result) {
       writeFileSync(outPath, JSON.stringify(result, null, 2))
       ok++

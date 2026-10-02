@@ -10,7 +10,7 @@
  * fulltextsökning när rubrik är tom, och lösa tvetydiga §§ efter omröstningsantal.
  *
  * Skapar endast noder för anföranden med en politikerId (ej null/undefined).
- * Mandatperiod är "2022-2026" för datum >= 2022-10-15, annars "2018-2022".
+ * Mandatperiod härleds ur datum (perioderna börjar 15 oktober valåret).
  *
  * Bar 1: Varje emitterad nod måste matcha källan exakt — samma talare, samma text.
  *        Endast noder med non-null politikerId emitteras (~89% av rader).
@@ -235,9 +235,11 @@ function findParagraf(titel: string, paragrafer: Paragraf[]): FindParagrafResult
   return { id: candidates[0].id, ambiguous: false }
 }
 
-function getMandatperiod(datum: string): string {
-  // "2022-2026" for dates >= 2022-10-15, else "2018-2022"
-  return datum >= '2022-10-15' ? '2022-2026' : '2018-2022'
+// Mandatperioder börjar 15 oktober valåret (…, 2018, 2022, 2026, …).
+export function getMandatperiod(datum: string): string {
+  const år = Number(datum.slice(0, 4)) - (datum.slice(5) < '10-15' ? 1 : 0)
+  const start = år - ((((år - 2018) % 4) + 4) % 4)
+  return `${start}-${start + 4}`
 }
 
 /** Categorize why a title failed to match any paragraf */
@@ -683,8 +685,11 @@ async function main() {
   console.log(`Bar 3 (Promotion): ${ownerChanges.size} nodes change owner`)
 }
 
-// Run with error handling
-main().catch((err) => {
-  console.error('Error:', err)
-  process.exit(1)
-})
+// Vakt: main() skriver data/graf/anforanden.json — import från test får
+// inte trigga det (samma mönster som parse-yttrandeprotokoll.ts).
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((err) => {
+    console.error('Error:', err)
+    process.exit(1)
+  })
+}

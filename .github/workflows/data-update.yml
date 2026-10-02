@@ -76,6 +76,16 @@ jobs:
       - name: Parse new KS protokoll
         run: npx tsx packages/pipeline/src/parsers/batch-reparse-protokoll-ks.ts --only-new
 
+      # Yttrandeprotokoll (debates) are published weeks after the KF
+      # protokoll; nothing parsed them automatically, so data/debatter/
+      # stopped at 2026-06-11. --only-new parses each meeting once, then
+      # the anförande graph is rebuilt from all of data/debatter/.
+      - name: Parse new yttrandeprotokoll
+        run: npx tsx packages/pipeline/src/parsers/parse-yttrandeprotokoll.ts --only-new
+
+      - name: Regenerate anförande graph
+        run: npx tsx packages/pipeline/src/parsers/parse-anforanden-graf.ts
+
       # Regenerates ALL röstade_* edges from the voting bilagor (downloads
       # protocol PDFs it doesn't have; refuses to write if the parse yields
       # <90% of the existing edge count, so a bad run can't wipe the votes).
