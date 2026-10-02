@@ -14,37 +14,12 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { createPolitikerResolver } from '../parsers/parse-yttrandeprotokoll'
+import { partiKod } from './parti-kod'
 
 const CSV_URL = 'https://data.val.se/filer/val2026/parti/kandidaturer.csv'
 const GÖTEBORG_KOMMUNKOD = '1480'
 const OUTPUT_DIR = join(import.meta.dirname, '../../../../data/politiker')
 const ROSTER_PATH = join(OUTPUT_DIR, 'goteborg.json')
-
-// Valmyndighetens PARTIFÖRKORTNING matchar sajtens partikoder rakt av,
-// utom Demokraterna (Göteborgs lokala parti) som Valmyndigheten kodar "DEM".
-const PARTI_ALIAS: Record<string, string> = { DEM: 'D' }
-
-// Fallback för partier utan officiell förkortning (småpartier/skämtlistor):
-// initialer av flerordsnamn ("Svarta ballonger" → "SB"), annars tre bokstäver.
-function kortaPartinamn(beteckning: string): string {
-  const ord = beteckning
-    .trim()
-    .split(/\s+/)
-    .filter((w) => /[a-zA-ZåäöÅÄÖ]/.test(w))
-  if (ord.length > 1)
-    return ord
-      .map((w) => w[0])
-      .join('')
-      .toUpperCase()
-      .slice(0, 3)
-  return beteckning.trim().slice(0, 3).toUpperCase()
-}
-
-function partiKod(förkortning: string, beteckning: string): string {
-  const kod = förkortning.trim()
-  if (!kod) return kortaPartinamn(beteckning)
-  return PARTI_ALIAS[kod] || kod
-}
 
 // CSV:t levererar namn som "Förnamn Efternamn" för fastställda listor, men
 // "Efternamn, Förnamn" för ännu ej fastställda (ANMÄLDAKANDIDATER=N).

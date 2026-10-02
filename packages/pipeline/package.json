@@ -9,6 +9,7 @@
     "scrape:webbtv": "tsx src/scrapers/webbtv-kf.ts",
     "scrape:handlingar": "tsx src/scrapers/handlingar.ts",
     "scrape:kandidater": "tsx src/scrapers/kandidater.ts",
+    "scrape:mandat": "tsx src/scrapers/mandat.ts",
     "download:protokoll": "tsx src/scrapers/download-protokoll.ts",
     "generate:analys": "tsx src/parsers/generate-analys.ts",
     "analys:ai": "tsx src/analys/agent.ts",

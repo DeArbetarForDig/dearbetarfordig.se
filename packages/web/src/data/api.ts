@@ -26,6 +26,7 @@ export interface Politiker {
   email: string | null
   antalUppdrag: number
   aktivSedan: string | null
+  mandatperioder: Array<{ period: string; roll: string }>
   uppdrag: Array<{ organisation: string; roll: string; från?: string; till?: string }>
 }
 
@@ -88,10 +89,27 @@ export interface Kandidat {
   kön: string | null
   fastställd: boolean
   politikerId: string | null
+  vald: 'ledamot' | 'ersättare' | null
+  personvald: boolean
 }
 
 export async function getKandidater(): Promise<Kandidat[]> {
   const data = await fetchApi<HalCollection<Kandidat>>('/v1/goteborg/kandidater')
+  return data._embedded.items
+}
+
+export interface Mandat {
+  parti: string
+  partiNamn: string
+  antalMandat: number
+  antalMandatFöregåendeVal: number | null
+  räkningstillfälle: string
+  senasteUppdateringstid: string | null
+  valdeltagande: string | null
+}
+
+export async function getMandat(): Promise<Mandat[]> {
+  const data = await fetchApi<HalCollection<Mandat>>('/v1/goteborg/mandat')
   return data._embedded.items
 }
 

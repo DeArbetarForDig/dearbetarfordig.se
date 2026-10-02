@@ -16,6 +16,8 @@ const Kandidat = z
     kön: z.string().nullable(),
     fastställd: z.boolean(),
     politikerId: z.string().nullable(),
+    vald: z.enum(['ledamot', 'ersättare']).nullable(),
+    personvald: z.boolean(),
   })
   .openapi('Kandidat')
 const KandidatList = halCollectionSchema(Kandidat).openapi('KandidatList')
@@ -54,6 +56,8 @@ kandidaterRouter.openapi(kandidaterRoute, async (c) => {
     kön: k.kon,
     fastställd: k.faststalld,
     politikerId: k.politiker_id,
+    vald: k.vald,
+    personvald: k.personvald,
     _links: k.politiker_id
       ? { politiker: { href: `${baseUrl(kommun)}/politiker/${k.politiker_id}` } }
       : undefined,

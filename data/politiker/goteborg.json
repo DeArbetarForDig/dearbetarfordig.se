@@ -1,12 +1,12 @@
 {
   "kommun": "goteborg",
   "källa": "https://politiker.goteborg.se/",
-  "hämtad": "2026-09-28T13:35:59.364Z",
+  "hämtad": "2026-10-02T22:21:16.965Z",
   "mandatperiod": {
     "från": "2022-10-15",
     "till": "2026-10-14"
   },
-  "antal": 973,
+  "antal": 974,
   "politiker": [
     {
       "id": "41da29fe-8f66-4579-a78d-608c757fb23f",
@@ -406,7 +406,7 @@
       "förnamn": "Bengt Arne",
       "efternamn": "Reinholdson",
       "parti": "S",
-      "email": "bengt.arne.reinholdsson@politiker.goteborg.se",
+      "email": "bengtarne.reinholdson@gmail.com",
       "uppdrag": [
         {
           "organisation": "Borgerlig vigsel, Vigselförrättare",
@@ -625,7 +625,7 @@
       "förnamn": "Björn",
       "efternamn": "Oxe",
       "parti": "M",
-      "email": "mail@bjornoxe.se",
+      "email": "bjorn.oxe@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Borgerlig vigsel, Vigselförrättare",
@@ -1241,13 +1241,6 @@
           "organisation": "Förbundsfullmäktige i Göteborgsregionens kommunalförbund (Göteborgsregionens kommunalförbund)",
           "organisationId": "557e5028-79ef-47d2-b9d1-d0c146c978df",
           "roll": "Ledamot",
-          "från": "2023-01-01",
-          "till": "2026-12-31"
-        },
-        {
-          "organisation": "Kommunstyrelsens presidium",
-          "organisationId": "6f8929a1-3157-461b-af70-d932ff4532a0",
-          "roll": "Ledamot och 1:e vice ordförande",
           "från": "2023-01-01",
           "till": "2026-12-31"
         },
@@ -1930,7 +1923,7 @@
       "förnamn": "Emmyly",
       "efternamn": "Bönfors Jansson",
       "parti": "C",
-      "email": "emmyly.bonfors@stadshuset.goteborg.se",
+      "email": "emmyly.bonfors@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads stadsbyggnadsnämnd",
@@ -2851,6 +2844,13 @@
           "organisationId": "49c98561-7756-4d8a-b031-eb29e3a85949",
           "roll": "Ledamot och ordförande",
           "från": "2026-01-01",
+          "till": "2026-12-31"
+        },
+        {
+          "organisation": "Kommunstyrelsens presidium",
+          "organisationId": "6f8929a1-3157-461b-af70-d932ff4532a0",
+          "roll": "Ledamot och 1:e vice ordförande",
+          "från": "2026-09-24",
           "till": "2026-12-31"
         },
         {
@@ -12366,9 +12366,9 @@
     {
       "id": "65716cec-fadc-47e3-9a29-85e92a44a4fe",
       "förnamn": "Sofia",
-      "efternamn": "Blommenhag",
+      "efternamn": "Westby",
       "parti": "V",
-      "email": "sofia.blommenhag@politiker.goteborg.se",
+      "email": "sofia.westby@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads miljö- och klimatnämnd",
@@ -15188,32 +15188,21 @@
       "närstående": null
     },
     {
-      "id": "fde7e3eb-acb0-41e2-b9c9-2585ede050bb",
-      "förnamn": "Mattias",
-      "efternamn": "Hammenfors",
+      "id": "4a4ffd1c-0df4-4ab6-a94f-9a45e5c300e4",
+      "förnamn": "Sophia",
+      "efternamn": "Gharakhani",
       "parti": "MP",
-      "email": "mattias.hammenfors@politiker.goteborg.se",
+      "email": "sophia.gharakhani@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads socialnämnd Sydväst",
           "organisationId": "b3a64e16-9bcc-4d66-a905-4bcc23d8bcc1",
           "roll": "Ersättare",
-          "från": "2026-01-01",
+          "från": "2026-10-01",
           "till": "2026-12-31"
         }
       ],
-      "mandatperioder": [
-        {
-          "period": "2018-2022",
-          "roll": "förtroendevald",
-          "källa": "Wayback Machine"
-        },
-        {
-          "period": "2022-2026",
-          "roll": "förtroendevald",
-          "källa": "politiker.goteborg.se"
-        }
-      ],
+      "mandatperioder": [],
       "närstående": null
     },
     {
@@ -23469,6 +23458,36 @@
       ],
       "mandatperioder": [],
       "närstående": null
+    },
+    {
+      "id": "fde7e3eb-acb0-41e2-b9c9-2585ede050bb",
+      "förnamn": "Mattias",
+      "efternamn": "Hammenfors",
+      "parti": "MP",
+      "email": "mattias.hammenfors@politiker.goteborg.se",
+      "uppdrag": [
+        {
+          "organisation": "Göteborgs Stads socialnämnd Sydväst",
+          "organisationId": "b3a64e16-9bcc-4d66-a905-4bcc23d8bcc1",
+          "roll": "Ersättare",
+          "från": "2026-01-01",
+          "till": "2026-12-31"
+        }
+      ],
+      "mandatperioder": [
+        {
+          "period": "2018-2022",
+          "roll": "förtroendevald",
+          "källa": "Wayback Machine"
+        },
+        {
+          "period": "2022-2026",
+          "roll": "förtroendevald",
+          "källa": "politiker.goteborg.se"
+        }
+      ],
+      "närstående": null,
+      "historisk": true
     },
     {
       "id": "dfa7a1ac-dd49-4fe1-874c-cb59368217f6",

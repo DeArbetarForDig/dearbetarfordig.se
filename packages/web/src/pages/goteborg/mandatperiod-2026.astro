@@ -1,0 +1,208 @@
+---
+import DataTable from '../../../../ui/src/components/core/DataTable.astro'
+import EmptyState from '../../../../ui/src/components/core/EmptyState.astro'
+import { generatePartyTagHTML, partyName } from '../../../../ui/src/components/party-tag/index.ts'
+import {
+  type Kandidat,
+  type Mandat,
+  type Politiker,
+  fetchApi,
+  getKandidater,
+  getMandat,
+  getPolitiker,
+} from '../../data/api'
+import Kommun from '../../layouts/Kommun.astro'
+
+const [kandidater, mandat, politiker, polPerNämnd] = await Promise.all([
+  getKandidater(),
+  getMandat(),
+  getPolitiker(),
+  fetchApi<Record<string, { id: string }[]>>('/v1/goteborg/graf/politiker-per-nämnd'),
+])
+
+const nämndAntal = new Map<string, number>()
+for (const pols of Object.values(polPerNämnd || {})) {
+  for (const p of pols) nämndAntal.set(p.id, (nämndAntal.get(p.id) || 0) + 1)
+}
+
+function rollI(
+  uppdrag: Politiker['uppdrag'],
+  matchOrg: (org: string) => boolean,
+): 'Ledamot' | 'Ersättare' | null {
+  const träffar = (uppdrag || []).filter((u) => matchOrg(u.organisation || ''))
+  if (träffar.length === 0) return null
+  if (träffar.some((u) => /^Ledamot\b/i.test(u.roll))) return 'Ledamot'
+  if (träffar.some((u) => /^Ersättare\b/i.test(u.roll))) return 'Ersättare'
+  return null
+}
+
+const profiler = new Map(
+  politiker.map((p) => [
+    p.id,
+    {
+      aktivSedan: p.aktivSedan,
+      kf: rollI(p.uppdrag, (org) => /^Kommunfullmäktige,/i.test(org)),
+      antalNämnder: nämndAntal.get(p.id) || 0,
+      mandatperioder: p.mandatperioder || [],
+    },
+  ]),
+)
+
+// Slutligt resultat: Valmyndighetens egen lista över valda (personval
+// inräknat), se scrapers/mandat.ts. Preliminärt resultat saknar den — då
+// approximeras mandaten med listordning (platsnummer), vilket missar
+// kandidater som kryssats förbi listan.
+type Ledamot = Kandidat & {
+  aktivSedan: string | null
+  ärOmvald: boolean
+  mandatperioder: Array<{ period: string; roll: string }>
+}
+
+const mandatPerParti = new Map(mandat.map((m) => [m.parti, m]))
+const officiellaValda = kandidater.filter((k) => k.vald === 'ledamot')
+const valda =
+  officiellaValda.length > 0
+    ? officiellaValda
+    : [...mandatPerParti].flatMap(([parti, m]) =>
+        kandidater
+          .filter((k) => k.parti === parti && k.fastställd)
+          .sort((a, b) => (a.listplats ?? 9999) - (b.listplats ?? 9999))
+          .slice(0, m.antalMandat),
+      )
+const ledamöter: Ledamot[] = valda.map((k) => {
+  const profil = k.politikerId ? profiler.get(k.politikerId) : undefined
+  return {
+    ...k,
+    aktivSedan: profil?.aktivSedan ?? null,
+    ärOmvald: profil?.kf === 'Ledamot',
+    mandatperioder: profil?.mandatperioder ?? [],
+  }
+})
+const ärOfficiell = officiellaValda.length > 0
+const antalPersonvalda = ledamöter.filter((l) => l.personvald).length
+
+const partiNamn = (k: Ledamot) => partyName(k.parti, k.partiNamn ?? undefined)
+
+ledamöter.sort(
+  (a, b) =>
+    (mandatPerParti.get(b.parti)?.antalMandat ?? 0) -
+      (mandatPerParti.get(a.parti)?.antalMandat ?? 0) ||
+    a.parti.localeCompare(b.parti, 'sv') ||
+    (a.listplats ?? 9999) - (b.listplats ?? 9999),
+)
+
+const antalOmvalda = ledamöter.filter((l) => l.ärOmvald).length
+const räkning = mandat[0]?.räkningstillfälle ?? 'okänt'
+const uppdaterad = mandat[0]?.senasteUppdateringstid
+const valdeltagande = mandat[0]?.valdeltagande
+
+const dot = (färg: string) =>
+  `<span class="inline-block w-2.5 h-2.5 rounded-full shrink-0 bg-(--dot-color)" style="--dot-color:${färg}"></span>`
+
+// Historik från politiker.goteborg.se/Wayback Machine (aktivSedan-källan i
+// politiker.astro) — inte specifik för KF, utan alla registrerade uppdrag i
+// staden. Räcker för att visa både omval (löpande perioder) och återkomst
+// efter ett hopp (perioder med lucka innan 2022–2026).
+function periodText(l: Ledamot): string {
+  if (l.mandatperioder.length === 0) return l.politikerId ? '–' : 'Ny kandidat'
+  return l.mandatperioder.map((m) => m.period.replace('-', '–')).join(' · ')
+}
+
+const data = ledamöter.map((l) => {
+  const namn = partiNamn(l)
+  return {
+    parti: `[${l.parti}] ${namn}`,
+    listplats: l.listplats ?? 0,
+    namn: l.namn,
+    ålder: l.ålder ?? 0,
+    status: l.ärOmvald ? 'Omvald' : 'Ny ledamot',
+    mandatperioder: periodText(l),
+    _parti_html: generatePartyTagHTML({ parti: l.parti, namn, full: true, size: 'sm' }),
+    _listplats_html: l.listplats ? String(l.listplats) : '–',
+    _namn_html:
+      (l.politikerId
+        ? `<a href="/goteborg/politiker/${l.politikerId}" class="text-(--color-text) hover:text-(--color-primary)">${l.namn}</a>`
+        : l.namn) +
+      (l.personvald
+        ? ' <span class="text-xs text-(--color-text-muted)" title="Vald genom personröster (kryss)">personvald</span>'
+        : ''),
+    _ålder_html: l.ålder ? String(l.ålder) : '–',
+    _status_html: `<span class="inline-flex items-center gap-1.5">${dot(l.ärOmvald ? 'var(--color-positive)' : 'var(--color-neutral)')}${l.ärOmvald ? 'Omvald' : 'Ny ledamot'}</span>`,
+  }
+})
+
+const columns = [
+  { key: 'parti', label: 'Parti', sort: 'default' as const, nowrap: true, width: '220px' },
+  {
+    key: 'listplats',
+    label: '#',
+    sort: 'number' as const,
+    align: 'right' as const,
+    nowrap: true,
+    width: '60px',
+  },
+  { key: 'namn', label: 'Namn', sort: 'default' as const },
+  {
+    key: 'ålder',
+    label: 'Ålder',
+    sort: 'number' as const,
+    align: 'right' as const,
+    nowrap: true,
+    width: '80px',
+  },
+  { key: 'status', label: 'Status', sort: 'default' as const, nowrap: true, width: '150px' },
+  { key: 'mandatperioder', label: 'Tidigare mandat', sort: 'default' as const },
+]
+
+const partier = [...mandatPerParti.values()].sort((a, b) => b.antalMandat - a.antalMandat)
+---
+
+<Kommun title="Mandatperiod 2026–2030 — Göteborg" breadcrumbs={[{ label: 'Göteborg', href: '/goteborg' }, { label: 'Mandatperiod 2026–2030' }]}>
+  <h1 class="text-[2rem] font-bold mb-2">Kommunfullmäktige efter valet 2026</h1>
+  <p class="text-sm text-(--color-text-muted) mb-1">
+    Val 2026 (13 september) · {ledamöter.length} av {mandat.reduce((s, m) => s + m.antalMandat, 0)} mandat, {antalOmvalda} omvalda ·
+    Källa: <a href="https://www.val.se" class="underline hover:text-(--color-primary)">Valmyndigheten</a>
+    {uppdaterad && <> · uppdaterat {uppdaterad}</>}
+    {valdeltagande && <> · valdeltagande {valdeltagande}</>}
+  </p>
+  <p class="text-sm mb-4 px-3 py-2 rounded-(--radius-sm) bg-(--color-surface-alt) text-(--color-text-muted)">
+    <strong>{räkning === 'preliminär' ? 'Preliminärt resultat' : 'Slutligt resultat'}</strong>
+    {räkning === 'preliminär' && ' — länsstyrelsens slutliga rösträkning pågår, siffrorna kan ändras.'}
+    {ärOfficiell
+      ? ` — ledamöterna enligt Valmyndighetens fördelning, ${antalPersonvalda} av dem invalda genom personröster (kryss). Mandatperioden börjar 15 oktober 2026.`
+      : ' Vilka kandidater som får mandaten är beräknat efter listordning (platsnummer) tills det slutliga resultatet med personval publiceras.'}
+  </p>
+
+  {ledamöter.length === 0 ? (
+    <EmptyState icon="users" title="Ingen mandatfördelning hämtad ännu" description="Kör pnpm scrape:mandat och pnpm scrape:kandidater för att hämta rådata från Valmyndigheten." />
+  ) : (
+    <>
+      <div class="flex gap-1.5 flex-wrap mb-4">
+        {partier.map(p => (
+          <span class="chip" title={`${p.partiNamn} — ${p.antalMandat} mandat`}>
+            <span class="w-2.5 h-2.5 rounded-sm shrink-0 bg-(--parti-color)" style={`--parti-color:var(--parti-${p.parti.toLowerCase()}, var(--parti-ovriga))`} />
+            {p.parti} {p.antalMandat}
+          </span>
+        ))}
+      </div>
+
+      <DataTable id="ledamoter" columns={columns} data={data} pageSize={100} />
+    </>
+  )}
+
+  <style>
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--color-border-strong);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: var(--font-size-label);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+    }
+  </style>
+</Kommun>
