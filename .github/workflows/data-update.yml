@@ -67,6 +67,15 @@ jobs:
             npx tsx packages/pipeline/src/parsers/parse-protokoll.ts "$pdf" "$datum"
           done
 
+      # KS had its own scraper + parser since 2026-06-28 but was never wired
+      # in here, so data/graf/ks-*.json silently stopped at 2026-06-17
+      # (noticed 2026-10-02). --only-new keeps already-parsed meetings as-is.
+      - name: Scrape KS-handlingar
+        run: npx tsx packages/pipeline/src/scrapers/handlingar-ks.ts
+
+      - name: Parse new KS protokoll
+        run: npx tsx packages/pipeline/src/parsers/batch-reparse-protokoll-ks.ts --only-new
+
       # Regenerates ALL röstade_* edges from the voting bilagor (downloads
       # protocol PDFs it doesn't have; refuses to write if the parse yields
       # <90% of the existing edge count, so a bad run can't wipe the votes).
