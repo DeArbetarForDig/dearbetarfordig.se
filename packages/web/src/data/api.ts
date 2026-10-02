@@ -244,7 +244,15 @@ export async function getMöteAnföranden(datum: string, filters?: { talare?: st
   if (filters?.ärende) params.set('ärende', filters.ärende)
   if (filters?.q) params.set('q', filters.q)
   const query = params.toString() ? `?${params.toString()}` : ''
-  const data = await fetchApi<HalCollection<any>>(`/v1/goteborg/möten/${datum}/anföranden${query}`)
+  // 404 = no yttrandeprotokoll yet for this meeting (the protokoll often
+  // lands weeks before it); the page renders without anföranden then.
+  let data: HalCollection<any>
+  try {
+    data = await fetchApi<HalCollection<any>>(`/v1/goteborg/möten/${datum}/anföranden${query}`)
+  } catch (err) {
+    if (String(err).endsWith(': 404')) return null
+    throw err
+  }
   return {
     antal: data.total,
     anföranden: data._embedded.items,
