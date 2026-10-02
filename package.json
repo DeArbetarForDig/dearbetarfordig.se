@@ -18,6 +18,7 @@
     "scrape:webbtv": "pnpm --filter @daf/pipeline scrape:webbtv",
     "scrape:handlingar": "pnpm --filter @daf/pipeline scrape:handlingar",
     "scrape:kandidater": "pnpm --filter @daf/pipeline scrape:kandidater",
+    "scrape:mandat": "pnpm --filter @daf/pipeline scrape:mandat",
     "download:protokoll": "pnpm --filter @daf/pipeline download:protokoll",
     "pipeline": "pnpm scrape:alla-fortroendevalda && pnpm scrape:webbtv && pnpm scrape:handlingar",
     "lint": "biome check .",

@@ -3,8 +3,8 @@
   "kommun": "goteborg",
   "valtyp": "kommunfullmäktige",
   "källa": "https://data.val.se/filer/val2026/parti/kandidaturer.csv",
-  "hämtad": "2026-07-26T11:24:55.305Z",
-  "antal": 528,
+  "hämtad": "2026-10-02T22:06:13.418Z",
+  "antal": 537,
   "kandidater": [
     {
       "id": "899",
@@ -37,6 +37,17 @@
       "ålder": 52,
       "kön": "M",
       "fastställd": true,
+      "politikerId": null
+    },
+    {
+      "id": "57802",
+      "namn": "Filip Lundin",
+      "parti": "AP",
+      "partiNamn": "Anti-partiet Partiet",
+      "listplats": null,
+      "ålder": 26,
+      "kön": "M",
+      "fastställd": false,
       "politikerId": null
     },
     {
@@ -2325,7 +2336,7 @@
       "ålder": 31,
       "kön": "M",
       "fastställd": true,
-      "politikerId": null
+      "politikerId": "541140a7-3c20-4211-a3bb-f96ea75efc72"
     },
     {
       "id": "19391",
@@ -2766,6 +2777,28 @@
       "kön": "K",
       "fastställd": true,
       "politikerId": "113b455a-4341-48bc-aa54-50c3d44cfaa1"
+    },
+    {
+      "id": "57972",
+      "namn": "Robin Solsand",
+      "parti": "MD",
+      "partiNamn": "MoD - Mänskliga rättigheter och Demokrati",
+      "listplats": null,
+      "ålder": 36,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57221",
+      "namn": "Love Holkner",
+      "parti": "MD",
+      "partiNamn": "MoD - Mänskliga rättigheter och Demokrati",
+      "listplats": null,
+      "ålder": 35,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
     },
     {
       "id": "47560",
@@ -3478,17 +3511,6 @@
       "partiNamn": "Partiet Nyans",
       "listplats": 3,
       "ålder": 47,
-      "kön": "M",
-      "fastställd": false,
-      "politikerId": null
-    },
-    {
-      "id": "57558",
-      "namn": "Mikael Ucar",
-      "parti": "PNy",
-      "partiNamn": "Partiet Nyans",
-      "listplats": 3,
-      "ålder": 44,
       "kön": "M",
       "fastställd": false,
       "politikerId": null
@@ -4602,7 +4624,7 @@
       "ålder": 34,
       "kön": "K",
       "fastställd": true,
-      "politikerId": null
+      "politikerId": "1d5b2ffd-1970-4002-9940-e311e5c50455"
     },
     {
       "id": "23795",
@@ -5718,7 +5740,18 @@
     {
       "id": "44940",
       "namn": "Nexhat Murati",
-      "parti": "VIS",
+      "parti": "Vi",
+      "partiNamn": "Visionpartiet",
+      "listplats": 1,
+      "ålder": 46,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "44940",
+      "namn": "Nexhat Murati",
+      "parti": "Vi",
       "partiNamn": "Visionpartiet",
       "listplats": 1,
       "ålder": 46,
@@ -5729,7 +5762,18 @@
     {
       "id": "44635",
       "namn": "Hassan Khan",
-      "parti": "VIS",
+      "parti": "Vi",
+      "partiNamn": "Visionpartiet",
+      "listplats": 2,
+      "ålder": 41,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "44635",
+      "namn": "Hassan Khan",
+      "parti": "Vi",
       "partiNamn": "Visionpartiet",
       "listplats": 2,
       "ålder": 41,
@@ -5740,7 +5784,7 @@
     {
       "id": "45103",
       "namn": "Rami Raim",
-      "parti": "VIS",
+      "parti": "Vi",
       "partiNamn": "Visionpartiet",
       "listplats": 3,
       "ålder": 52,
@@ -5749,9 +5793,64 @@
       "politikerId": null
     },
     {
+      "id": "57867",
+      "namn": "Iram Hassan",
+      "parti": "Vi",
+      "partiNamn": "Visionpartiet",
+      "listplats": 3,
+      "ålder": 41,
+      "kön": "K",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "45103",
+      "namn": "Rami Raim",
+      "parti": "Vi",
+      "partiNamn": "Visionpartiet",
+      "listplats": 4,
+      "ålder": 52,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57923",
+      "namn": "Zainab Talat",
+      "parti": "Vi",
+      "partiNamn": "Visionpartiet",
+      "listplats": 5,
+      "ålder": 37,
+      "kön": "K",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57924",
+      "namn": "Iqra Aslam",
+      "parti": "Vi",
+      "partiNamn": "Visionpartiet",
+      "listplats": 6,
+      "ålder": 35,
+      "kön": "K",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
+      "id": "57917",
+      "namn": "Saad Fakher",
+      "parti": "Vi",
+      "partiNamn": "Visionpartiet",
+      "listplats": 7,
+      "ålder": 40,
+      "kön": "M",
+      "fastställd": false,
+      "politikerId": null
+    },
+    {
       "id": "57126",
       "namn": "Adel Sadat",
-      "parti": "VIS",
+      "parti": "Vi",
       "partiNamn": "Visionpartiet",
       "listplats": null,
       "ålder": 35,
@@ -5762,7 +5861,7 @@
     {
       "id": "45518",
       "namn": "Sead Busuladzic",
-      "parti": "VIS",
+      "parti": "Vi",
       "partiNamn": "Visionpartiet",
       "listplats": null,
       "ålder": 44,

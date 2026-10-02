@@ -1,0 +1,1220 @@
+{
+  "val": "2026",
+  "kommun": "goteborg",
+  "valtyp": "kommunfullmäktige",
+  "källa": "https://resultat.val.se/data/resultat/val2026/KF_14_1480_S.json",
+  "hämtad": "2026-10-02T22:06:11.609Z",
+  "rakningstillfälle": "slutlig",
+  "senasteUppdateringstid": "29 september 2026 15:35:18",
+  "antalValdistriktRäknade": 397,
+  "antalValdistriktSomSkaRäknas": 397,
+  "valdeltagande": "80,05 %",
+  "totaltAntalRöster": "392 386",
+  "totalMandat": 81,
+  "partiMandat": [
+    {
+      "parti": "S",
+      "partiNamn": "Arbetarepartiet-Socialdemokraterna",
+      "antalMandat": 23,
+      "antalMandatFöregåendeVal": 22
+    },
+    {
+      "parti": "C",
+      "partiNamn": "Centerpartiet",
+      "antalMandat": 4,
+      "antalMandatFöregåendeVal": 3
+    },
+    {
+      "parti": "D",
+      "partiNamn": "Demokraterna",
+      "antalMandat": 6,
+      "antalMandatFöregåendeVal": 5
+    },
+    {
+      "parti": "KD",
+      "partiNamn": "Kristdemokraterna",
+      "antalMandat": 3,
+      "antalMandatFöregåendeVal": 4
+    },
+    {
+      "parti": "L",
+      "partiNamn": "Liberalerna (tidigare Folkpartiet)",
+      "antalMandat": 3,
+      "antalMandatFöregåendeVal": 5
+    },
+    {
+      "parti": "MP",
+      "partiNamn": "Miljöpartiet de gröna",
+      "antalMandat": 7,
+      "antalMandatFöregåendeVal": 5
+    },
+    {
+      "parti": "M",
+      "partiNamn": "Moderaterna",
+      "antalMandat": 15,
+      "antalMandatFöregåendeVal": 15
+    },
+    {
+      "parti": "SD",
+      "partiNamn": "Sverigedemokraterna",
+      "antalMandat": 7,
+      "antalMandatFöregåendeVal": 9
+    },
+    {
+      "parti": "V",
+      "partiNamn": "Vänsterpartiet",
+      "antalMandat": 13,
+      "antalMandatFöregåendeVal": 13
+    }
+  ],
+  "ledamöter": [
+    {
+      "kandidatId": "9539",
+      "parti": "S",
+      "personvald": true,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9540",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9541",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9542",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9543",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9544",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9545",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9110",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9433",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9546",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9547",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9548",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9549",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9550",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9551",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9470",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9552",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9553",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9554",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9555",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9556",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9095",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "9108",
+      "parti": "S",
+      "personvald": false,
+      "ersättare": [
+        "9105",
+        "9557",
+        "9558",
+        "9559",
+        "9107",
+        "9560",
+        "9561",
+        "9562",
+        "9563",
+        "9564",
+        "9565",
+        "9566"
+      ]
+    },
+    {
+      "kandidatId": "2191",
+      "parti": "C",
+      "personvald": true,
+      "ersättare": [
+        "2065",
+        "2026"
+      ]
+    },
+    {
+      "kandidatId": "1946",
+      "parti": "C",
+      "personvald": false,
+      "ersättare": [
+        "2065",
+        "2026"
+      ]
+    },
+    {
+      "kandidatId": "4845",
+      "parti": "C",
+      "personvald": false,
+      "ersättare": [
+        "2065",
+        "2026"
+      ]
+    },
+    {
+      "kandidatId": "6894",
+      "parti": "C",
+      "personvald": false,
+      "ersättare": [
+        "2065",
+        "2026"
+      ]
+    },
+    {
+      "kandidatId": "54278",
+      "parti": "D",
+      "personvald": true,
+      "ersättare": [
+        "54303",
+        "54295",
+        "54304"
+      ]
+    },
+    {
+      "kandidatId": "54292",
+      "parti": "D",
+      "personvald": false,
+      "ersättare": [
+        "54303",
+        "54295",
+        "54304"
+      ]
+    },
+    {
+      "kandidatId": "54291",
+      "parti": "D",
+      "personvald": false,
+      "ersättare": [
+        "54303",
+        "54295",
+        "54304"
+      ]
+    },
+    {
+      "kandidatId": "54274",
+      "parti": "D",
+      "personvald": false,
+      "ersättare": [
+        "54303",
+        "54295",
+        "54304"
+      ]
+    },
+    {
+      "kandidatId": "54302",
+      "parti": "D",
+      "personvald": false,
+      "ersättare": [
+        "54303",
+        "54295",
+        "54304"
+      ]
+    },
+    {
+      "kandidatId": "54298",
+      "parti": "D",
+      "personvald": false,
+      "ersättare": [
+        "54303",
+        "54295",
+        "54304"
+      ]
+    },
+    {
+      "kandidatId": "34955",
+      "parti": "KD",
+      "personvald": true,
+      "ersättare": [
+        "9963",
+        "9960"
+      ]
+    },
+    {
+      "kandidatId": "9966",
+      "parti": "KD",
+      "personvald": false,
+      "ersättare": [
+        "9963",
+        "9960"
+      ]
+    },
+    {
+      "kandidatId": "9961",
+      "parti": "KD",
+      "personvald": false,
+      "ersättare": [
+        "9963",
+        "9960"
+      ]
+    },
+    {
+      "kandidatId": "1495",
+      "parti": "L",
+      "personvald": true,
+      "ersättare": [
+        "1498",
+        "1499"
+      ]
+    },
+    {
+      "kandidatId": "1496",
+      "parti": "L",
+      "personvald": false,
+      "ersättare": [
+        "1498",
+        "1499"
+      ]
+    },
+    {
+      "kandidatId": "1497",
+      "parti": "L",
+      "personvald": false,
+      "ersättare": [
+        "1498",
+        "1499"
+      ]
+    },
+    {
+      "kandidatId": "32406",
+      "parti": "MP",
+      "personvald": true,
+      "ersättare": [
+        "33557",
+        "33560",
+        "44944",
+        "32319"
+      ]
+    },
+    {
+      "kandidatId": "32404",
+      "parti": "MP",
+      "personvald": false,
+      "ersättare": [
+        "33557",
+        "33560",
+        "44944",
+        "32319"
+      ]
+    },
+    {
+      "kandidatId": "33559",
+      "parti": "MP",
+      "personvald": false,
+      "ersättare": [
+        "33557",
+        "33560",
+        "44944",
+        "32319"
+      ]
+    },
+    {
+      "kandidatId": "33558",
+      "parti": "MP",
+      "personvald": false,
+      "ersättare": [
+        "33557",
+        "33560",
+        "44944",
+        "32319"
+      ]
+    },
+    {
+      "kandidatId": "44943",
+      "parti": "MP",
+      "personvald": false,
+      "ersättare": [
+        "33557",
+        "33560",
+        "44944",
+        "32319"
+      ]
+    },
+    {
+      "kandidatId": "32387",
+      "parti": "MP",
+      "personvald": false,
+      "ersättare": [
+        "33557",
+        "33560",
+        "44944",
+        "32319"
+      ]
+    },
+    {
+      "kandidatId": "32323",
+      "parti": "MP",
+      "personvald": false,
+      "ersättare": [
+        "33557",
+        "33560",
+        "44944",
+        "32319"
+      ]
+    },
+    {
+      "kandidatId": "19363",
+      "parti": "M",
+      "personvald": true,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19362",
+      "parti": "M",
+      "personvald": true,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19364",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19365",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19366",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19367",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19368",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19369",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19370",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19371",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19372",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19373",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19374",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19375",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "19376",
+      "parti": "M",
+      "personvald": false,
+      "ersättare": [
+        "19377",
+        "19378",
+        "19379",
+        "19380",
+        "19381",
+        "19382",
+        "19383",
+        "19384"
+      ]
+    },
+    {
+      "kandidatId": "17027",
+      "parti": "SD",
+      "personvald": true,
+      "ersättare": [
+        "17025",
+        "17019",
+        "23780",
+        "23781"
+      ]
+    },
+    {
+      "kandidatId": "17022",
+      "parti": "SD",
+      "personvald": false,
+      "ersättare": [
+        "17025",
+        "17019",
+        "23780",
+        "23781"
+      ]
+    },
+    {
+      "kandidatId": "17026",
+      "parti": "SD",
+      "personvald": false,
+      "ersättare": [
+        "17025",
+        "17019",
+        "23780",
+        "23781"
+      ]
+    },
+    {
+      "kandidatId": "17023",
+      "parti": "SD",
+      "personvald": false,
+      "ersättare": [
+        "17025",
+        "17019",
+        "23780",
+        "23781"
+      ]
+    },
+    {
+      "kandidatId": "23777",
+      "parti": "SD",
+      "personvald": false,
+      "ersättare": [
+        "17025",
+        "17019",
+        "23780",
+        "23781"
+      ]
+    },
+    {
+      "kandidatId": "23778",
+      "parti": "SD",
+      "personvald": false,
+      "ersättare": [
+        "17025",
+        "17019",
+        "23780",
+        "23781"
+      ]
+    },
+    {
+      "kandidatId": "23779",
+      "parti": "SD",
+      "personvald": false,
+      "ersättare": [
+        "17025",
+        "17019",
+        "23780",
+        "23781"
+      ]
+    },
+    {
+      "kandidatId": "37043",
+      "parti": "V",
+      "personvald": true,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37044",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37045",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37046",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37047",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37048",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37049",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37050",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37051",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37052",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37053",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37054",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    },
+    {
+      "kandidatId": "37055",
+      "parti": "V",
+      "personvald": false,
+      "ersättare": [
+        "37056",
+        "37057",
+        "37058",
+        "37059",
+        "37060",
+        "37061",
+        "37062"
+      ]
+    }
+  ]
+}

@@ -37,7 +37,7 @@
 /goteborg/budget              → Budgetvisualisering (donut, drill-down, utfall)
 /goteborg/forvaltning         → Förvaltningar
 /goteborg/forvaltning/[id]    → Förvaltning: direktörslön, resultat
-/goteborg/kandidater          → 2026 års valkandidater
+/goteborg/mandatperiod-2026   → KF efter valet 2026, mandat per parti + ledamöter
 /goteborg/trender             → Kolada-nyckeltal över tid
 /goteborg/sok                 → Fritextsökning (Postgres FTS, ej Pagefind)
 ```
@@ -324,7 +324,7 @@ interface Props {
       i API:t har ett värde); se `docs/SAAS.md` för multi-tenant-planen
 
 Utöver ursprunglig MVP-scope byggdes dessutom sidor som inte var planerade
-här: `/goteborg/forvaltning` (direktörslöner/resultat), `/goteborg/kandidater`
+här: `/goteborg/forvaltning` (direktörslöner/resultat), `/goteborg/mandatperiod-2026`
 (2026 års val), `/goteborg/trender` (Kolada), och KS som eget spår parallellt
 med KF.
 

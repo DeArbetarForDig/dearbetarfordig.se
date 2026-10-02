@@ -98,6 +98,20 @@ async function main() {
   // Befintliga databaser saknar parti_namn (tillagd när småpartiernas
   // registrerade partibeteckning började visas i UI:t)
   await client`ALTER TABLE goteborg.kandidater ADD COLUMN IF NOT EXISTS parti_namn TEXT`
+  // Utfall enligt Valmyndighetens slutliga resultat: 'ledamot' | 'ersättare' | NULL
+  await client`ALTER TABLE goteborg.kandidater ADD COLUMN IF NOT EXISTS vald TEXT`
+  await client`ALTER TABLE goteborg.kandidater ADD COLUMN IF NOT EXISTS personvald BOOLEAN NOT NULL DEFAULT false`
+
+  await client`
+    CREATE TABLE IF NOT EXISTS goteborg.mandat (
+      parti TEXT PRIMARY KEY,
+      parti_namn TEXT NOT NULL,
+      antal_mandat INT NOT NULL,
+      antal_mandat_foregaende INT,
+      rakningstillfalle TEXT NOT NULL,
+      senaste_uppdateringstid TEXT,
+      valdeltagande TEXT
+    )`
 
   await client`
     CREATE TABLE IF NOT EXISTS goteborg.graf_nodes (
@@ -207,6 +221,33 @@ async function main() {
           politiker_id = EXCLUDED.politiker_id`
     }
     console.log(`   ✓ ${kandData.kandidater.length} kandidater (val 2026)`)
+  }
+
+  // Seed mandatfördelning 2026 (Valmyndighetens rådata, se scrapers/mandat.ts)
+  const mandatData = loadJSON('politiker/mandat-2026-goteborg.json')
+  if (mandatData) {
+    await client`DELETE FROM goteborg.mandat`
+    for (const m of mandatData.partiMandat) {
+      await client`
+        INSERT INTO goteborg.mandat (parti, parti_namn, antal_mandat, antal_mandat_foregaende, rakningstillfalle, senaste_uppdateringstid, valdeltagande)
+        VALUES (${m.parti}, ${m.partiNamn}, ${m.antalMandat}, ${m.antalMandatFöregåendeVal}, ${mandatData.rakningstillfälle}, ${mandatData.senasteUppdateringstid}, ${mandatData.valdeltagande})`
+    }
+    console.log(
+      `   ✓ ${mandatData.partiMandat.length} partiers mandat (val 2026, ${mandatData.rakningstillfälle})`,
+    )
+
+    // Kandidaterna seedas om från noll ovan, så vald/personvald börjar som
+    // NULL/false. Ersättare först: en ledamot kan stå som ersättare för en
+    // partikamrat, och ledamotsrollen ska vinna.
+    const ledamöter = mandatData.ledamöter || []
+    const ersättare = [...new Set(ledamöter.flatMap((l: any) => l.ersättare))] as string[]
+    if (ersättare.length)
+      await client`UPDATE goteborg.kandidater SET vald = 'ersättare' WHERE id IN ${client(ersättare)}`
+    for (const l of ledamöter) {
+      await client`UPDATE goteborg.kandidater SET vald = 'ledamot', personvald = ${l.personvald} WHERE id = ${l.kandidatId}`
+    }
+    if (ledamöter.length)
+      console.log(`   ✓ ${ledamöter.length} valda ledamöter, ${ersättare.length} ersättare`)
   }
 
   // Seed graph nodes + edges (with organisation merge)
