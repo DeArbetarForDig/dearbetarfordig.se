@@ -1,5 +1,8 @@
 /**
  * Batch parse all KS protocols.
+ *
+ * Usage: npx tsx batch-reparse-protokoll-ks.ts [--only-new]
+ *   --only-new  skip meetings that already have data/graf/ks-{datum}.json
  */
 import { execSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync } from 'node:fs'
@@ -19,7 +22,7 @@ function getProtokollUrls(): Array<{ datum: string; url: string }> {
     const data = JSON.parse(readFileSync(path, 'utf-8'))
     for (const s of data.sammanträden) {
       for (const h of s.handlingar) {
-        if (h.titel.match(/^Protokoll_\d+\.pdf$/)) {
+        if (h.titel.match(/^protokoll_\d+\.pdf$/i)) {
           urls.push({ datum: s.datum, url: h.url })
         }
       }
@@ -29,7 +32,10 @@ function getProtokollUrls(): Array<{ datum: string; url: string }> {
 }
 
 async function main() {
-  const protocols = getProtokollUrls()
+  const onlyNew = process.argv.includes('--only-new')
+  const protocols = getProtokollUrls().filter(
+    ({ datum }) => !onlyNew || !existsSync(join(DATA_DIR, `graf/ks-${datum}.json`)),
+  )
   console.log(`📄 Batch parse KS: ${protocols.length} protokoll\n`)
 
   let ok = 0
