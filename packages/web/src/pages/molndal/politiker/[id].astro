@@ -3,9 +3,10 @@ import PolitikerSida from '../../../components/PolitikerSida.astro'
 import { getPolitiker } from '../../../data/api'
 
 export async function getStaticPaths() {
-  const politiker = await getPolitiker()
+  const politiker = await getPolitiker('molndal')
   return politiker.map((p) => ({ params: { id: p.id } }))
 }
 ---
 
-<PolitikerSida kommun="goteborg" kommunNamn="Göteborg" id={Astro.params.id!} visaArvode />
+<!-- Arvodet räknas efter Göteborgs regler — visas inte för Mölndal -->
+<PolitikerSida kommun="molndal" kommunNamn="Mölndal" id={Astro.params.id!} visaArvode={false} />

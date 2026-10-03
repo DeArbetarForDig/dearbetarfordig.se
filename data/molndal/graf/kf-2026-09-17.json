@@ -7,6 +7,8 @@
       "data": {
         "datum": "2026-09-17",
         "organisation": "Kommunfullmäktige",
+        "tjänstgörande": 61,
+        "ordinarieNärvarande": 48,
         "källa": "webbdiarium.molndal.se"
       }
     },
@@ -645,6 +647,16 @@
     },
     {
       "from": "politiker-ab4bbe6e-0c5e-45fa-88e1-b8e6c03da236",
+      "to": "möte-kf-2026-09-17",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-2f2cee1b-a1b2-4dc4-ac80-d21d3c345ee4",
+      "to": "möte-kf-2026-09-17",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-833d912f-56d8-4acb-804e-61953874fae2",
       "to": "möte-kf-2026-09-17",
       "typ": "närvarade"
     },

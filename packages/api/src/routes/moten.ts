@@ -20,6 +20,8 @@ const MöteSummary = z.object({
   label: z.any(),
   antalBeslut: z.number(),
   närvarande: z.number(),
+  tjänstgörande: z.number().optional(),
+  ordinarieNärvarande: z.number().optional(),
   videoUrl: z.any().optional(),
 })
 
@@ -50,7 +52,7 @@ motenRouter.openapi(mötenRoute, async (c) => {
 
   // Single query — no N+1
   const meetings =
-    await sql`SELECT id, data->>'datum' as datum, data->>'videoUrl' as video_url, label FROM ${sql(schema)}.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
+    await sql`SELECT id, data->>'datum' as datum, data->>'videoUrl' as video_url, (data->>'tjänstgörande')::int as tjanstgorande, (data->>'ordinarieNärvarande')::int as ordinarie, label FROM ${sql(schema)}.graf_nodes WHERE typ = 'möte' ORDER BY data->>'datum' DESC`
   const counts =
     await sql`SELECT data->>'datum' as datum, COUNT(*)::int as antal FROM ${sql(schema)}.graf_nodes WHERE typ = 'paragraf' GROUP BY data->>'datum'`
   const countMap = Object.fromEntries(counts.map((c) => [c.datum, c.antal]))
@@ -82,6 +84,9 @@ motenRouter.openapi(mötenRoute, async (c) => {
     label: m.label,
     antalBeslut: countMap[m.datum] || 0,
     närvarande: (närvaroMap.get(m.id) || []).length,
+    // Antal tjänstgörande enligt protokollet (Mölndal), även okopplade personer
+    ...(m.tjanstgorande != null ? { tjänstgörande: m.tjanstgorande } : {}),
+    ...(m.ordinarie != null ? { ordinarieNärvarande: m.ordinarie } : {}),
     ...(m.video_url ? { videoUrl: m.video_url } : {}),
     _links: möteLinks(kommun, m.datum),
   }))

@@ -61,6 +61,11 @@ export interface Möte {
   datum: string
   label: string
   antalBeslut: number
+  närvarande?: number
+  /** Tjänstgörande enligt protokollet (Mölndal) */
+  tjänstgörande?: number
+  /** Ordinarie ledamöter på plats, utan ersättare (Mölndal) */
+  ordinarieNärvarande?: number
   url?: string
   videoUrl?: string
 }
@@ -296,8 +301,8 @@ export async function getMöteAnföranden(
   }
 }
 
-export async function getPolitikerDetail(id: string) {
-  const data = await fetchApi<HalResource<any, { möten?: any[] }>>(`/v1/goteborg/politiker/${id}`)
+export async function getPolitikerDetail(id: string, kommun = 'goteborg') {
+  const data = await fetchApi<HalResource<any, { möten?: any[] }>>(`/v1/${kommun}/politiker/${id}`)
   return {
     ...data._embedded.item,
     möten: data._embedded.related?.möten || [],
@@ -312,20 +317,20 @@ export interface PolitikerProfilAxis {
   populationSize: number
 }
 
-export async function getPolitikerProfil(id: string): Promise<PolitikerProfilAxis[]> {
+export async function getPolitikerProfil(id: string, kommun = 'goteborg'): Promise<PolitikerProfilAxis[]> {
   const data = await fetchApi<HalResource<{ axes: PolitikerProfilAxis[] }>>(
-    `/v1/goteborg/politiker/${id}/profil`,
+    `/v1/${kommun}/politiker/${id}/profil`,
   )
   return data._embedded.item.axes
 }
 
-export async function getPolitikerArvode(id: string) {
-  const data = await fetchApi<HalResource<any>>(`/v1/goteborg/politiker/${id}/arvode`)
+export async function getPolitikerArvode(id: string, kommun = 'goteborg') {
+  const data = await fetchApi<HalResource<any>>(`/v1/${kommun}/politiker/${id}/arvode`)
   return data._embedded.item
 }
 
-export async function getPolitikerGraf(id: string) {
-  return fetchApi<{ node: any; edges: any[]; related: any[] }>(`/v1/goteborg/graf/node/politiker-${id}`)
+export async function getPolitikerGraf(id: string, kommun = 'goteborg') {
+  return fetchApi<{ node: any; edges: any[]; related: any[] }>(`/v1/${kommun}/graf/node/politiker-${id}`)
 }
 
 export async function getFörvaltningar() {
@@ -350,10 +355,10 @@ export async function getAnföranden(beslutId: string, kommun = 'goteborg') {
   }
 }
 
-export async function getPolitikerAnföranden(politikerId: string, datum?: string) {
+export async function getPolitikerAnföranden(politikerId: string, datum?: string, kommun = 'goteborg') {
   const url = datum
-    ? `/v1/goteborg/politiker/${politikerId}/anforanden?datum=${datum}`
-    : `/v1/goteborg/politiker/${politikerId}/anforanden`
+    ? `/v1/${kommun}/politiker/${politikerId}/anforanden?datum=${datum}`
+    : `/v1/${kommun}/politiker/${politikerId}/anforanden`
   const data = await fetchApi<HalCollection<any>>(url)
   return {
     antal: data.total,

@@ -8,6 +8,7 @@ import ProgressBar from '../../../../ui/src/components/charts/ProgressBar.astro'
 import Button from '../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
 import DataTable from '../../../../ui/src/components/core/DataTable.astro'
+import Icon from '../../../../ui/src/components/core/Icon.astro'
 import { generatePartyTagHTML } from '../../../../ui/src/components/party-tag/index.ts'
 import {
   type Politiker,
@@ -65,6 +66,27 @@ const omstridda = allaBeslut
   )
   .slice(0, 4)
   .map(beslutKort)
+
+// Personlig närvaro: ordinarie ledamöter på plats per KF-möte (parse-protokoll-molndal.ts)
+const närvaroPunkter = kfMöten.map((m: any) => m.ordinarieNärvarande).filter((v: any) => v != null)
+const närvaroSnitt = närvaroPunkter.length
+  ? Math.round(
+      (närvaroPunkter.reduce((a: number, b: number) => a + b, 0) / närvaroPunkter.length) * 10,
+    ) / 10
+  : null
+const närvaroProcent = närvaroSnitt === null ? null : Math.round((närvaroSnitt / 61) * 100)
+
+// Motionsutfall: "Svar på motion …"-paragrafer i KF
+// Bordlagda räknas inte — de är inte avgjorda än (kommer tillbaka på senare möte)
+const motionsSvar = kfBeslut.filter(
+  (b: any) => /^(§ \d+ )?Svar på motion/i.test(b.rubrik) && b.beslut !== 'bordläggning',
+)
+const bifallnaMotioner = motionsSvar.filter((b: any) => b.beslut === 'bifall').length
+const motioner = {
+  totalt: motionsSvar.length,
+  bifall: bifallnaMotioner,
+  procent: motionsSvar.length ? Math.round((bifallnaMotioner / motionsSvar.length) * 100) : 0,
+}
 
 const riceEntries = Object.entries(metrics.riceIndex || {}).sort(
   ([, a]: any, [, b]: any) => b - a,
@@ -174,7 +196,7 @@ const mötesrader = sammanträden.map((m) => ({
 }))
 
 const person = (p: Politiker, roll?: string) =>
-  `${generatePartyTagHTML({ parti: p.parti, size: 'sm' })} <a href="${TROMAN}/person/${p.id}" class="hover:text-(--color-primary)">${p.namn}</a>${roll ? ` <span class="text-(--color-text-muted)">— ${roll}</span>` : ''}`
+  `${generatePartyTagHTML({ parti: p.parti, size: 'sm' })} <a href="/molndal/politiker/${p.id}" class="hover:text-(--color-primary)">${p.namn}</a>${roll ? ` <span class="text-(--color-text-muted)">— ${roll}</span>` : ''}`
 ---
 
 <Kommun title="Mölndal" kommun={KOMMUN} kommunNamn="Mölndal">
@@ -204,26 +226,37 @@ const person = (p: Politiker, roll?: string) =>
     </div>
   </section>
 
+  <!-- KPI-rad, som Göteborgs översikt -->
   <section class="mb-12">
-    <h2 class="text-2xl font-bold mb-2">Mandatperioden 2022–2026 i siffror</h2>
-    <p class="text-sm text-(--color-text-muted) mb-4">
-      Ur {kfMöten.length} KF- och {ksMöten.length} KS-protokoll sedan oktober 2022 —
-      <a href="/molndal/kf" class="underline hover:text-(--color-primary)">alla beslut och sammanträden</a>.
-    </p>
     <div class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
-      <Card title="Sammanträden" titleSize="sm">
-        <div class="font-mono text-[2.5rem] font-bold leading-none">{möten.length}</div>
-        <p class="text-xs text-(--color-text-muted) mt-1">{kfMöten.length} KF · {ksMöten.length} KS</p>
+      <Card title="Politiker" titleSize="sm">
+        <div class="font-mono text-[2.5rem] font-bold leading-none">{politiker.length}</div>
       </Card>
       <Card title="Beslut (paragrafer)" titleSize="sm">
         <div class="font-mono text-[2.5rem] font-bold leading-none">{allaBeslut.length}</div>
         <p class="text-xs text-(--color-text-muted) mt-1">{kfBeslut.length} i KF</p>
       </Card>
+      <Card title="Möten" titleSize="sm">
+        <div class="font-mono text-[2.5rem] font-bold leading-none">{möten.length}</div>
+        <p class="text-xs text-(--color-text-muted) mt-1">{kfMöten.length} KF · {ksMöten.length} KS</p>
+      </Card>
       <Card title="Voteringar" titleSize="sm">
         <div class="font-mono text-[2.5rem] font-bold leading-none">{metrics.konsensus.medVotering}</div>
-        <p class="text-xs text-(--color-text-muted) mt-1">med namnupprop i protokollet</p>
+        <p class="text-xs text-(--color-text-muted) mt-1">med namnupprop</p>
       </Card>
-      <Card title="Konsensus" subtitle="Ärenden utan votering" titleSize="sm" tooltip="Andel beslut som fattades utan formell omröstning. Över 85% kan tyda på att den verkliga debatten sker innan sammanträdet.">
+    </div>
+  </section>
+
+  <!-- Demokratisk hälsa -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold mb-2">Demokratisk hälsa</h2>
+    <p class="text-sm text-(--color-text-muted) mb-4">
+      Mandatperioden 2022–2026 ur {kfMöten.length} KF- och {ksMöten.length} KS-protokoll —
+      <a href="/molndal/kf" class="underline hover:text-(--color-primary)">alla beslut och sammanträden</a>.
+      Debattmåtten (talartid, Gini) saknas: Mölndal publicerar inga yttrandeprotokoll.
+    </p>
+    <div class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]">
+      <Card title="Konsensus" subtitle="Ärenden utan votering" tooltip="Andel beslut som fattades utan formell omröstning — alla var överens. Över 85% kan tyda på att den verkliga debatten sker innan sammanträdet.">
         <div class="flex justify-center">
           <Gauge
             value={metrics.konsensus.konsensusgradProcent}
@@ -234,7 +267,44 @@ const person = (p: Politiker, roll?: string) =>
             ]}
           />
         </div>
+        {metrics.konsensus.konsensusgradProcent > 85 && (
+          <div class="mt-2 text-xs font-semibold flex items-center gap-1 text-(--color-warning)">
+            <Icon name="triangle-alert" size={14} />
+            Hög — kan dölja brist på debatt
+          </div>
+        )}
       </Card>
+
+      {närvaroProcent !== null && (
+        <Card title="Personlig närvaro" subtitle={`Ordinarie KF-ledamöter på plats, snitt ${närvaroSnitt} av 61`} tooltip="Andel av de 61 valda ledamöterna som själva tjänstgjorde, i snitt per KF-sammanträde (enligt protokollens Beslutande-lista). Resten ersattes av ersättare.">
+          <div class="flex justify-center">
+            <Gauge
+              value={närvaroProcent}
+              unit="%"
+              zones={[
+                { from: 0, to: 80, color: 'var(--color-negative)' },
+                { from: 80, to: 90, color: 'var(--color-warning)' },
+                { from: 90, to: 100, color: 'var(--color-positive)' },
+              ]}
+            />
+          </div>
+        </Card>
+      )}
+
+      {motioner.totalt > 0 && (
+        <Card title="Motioner som bifölls" subtitle={`${motioner.bifall} av ${motioner.totalt} avgjorda motioner i KF`} tooltip="Motioner är enskilda ledamöters förslag. Andelen som KF helt eller delvis bifaller visar hur mycket utrymme initiativ utanför styret får. Besvarade och avslagna räknas som ej bifallna." tooltipPosition="top-right">
+          <div class="flex justify-center">
+            <Gauge
+              value={motioner.procent}
+              unit="%"
+              zones={[
+                { from: 0, to: 10, color: 'var(--color-warning)' },
+                { from: 10, to: 100, color: 'var(--color-positive)' },
+              ]}
+            />
+          </div>
+        </Card>
+      )}
     </div>
 
     <div class="mt-6 grid gap-4 md:grid-cols-2">
