@@ -22,7 +22,7 @@ const TrendKpi = z.object({
   enhet: z.string(),
   nämndId: z.string().optional(),
   nämndNamn: z.string().optional(),
-  göteborg: z.array(DataPunkt),
+  utfall: z.array(DataPunkt),
   utfallÄndring: Förändring,
   budget: z.array(DataPunkt).optional(),
   budgetÄndring: Förändring.optional(),
@@ -34,7 +34,7 @@ const trenderRoute = createRoute({
   operationId: 'getTrender',
   tags: ['Trender'],
   summary:
-    'Göteborgs trender över tid (Kolada) parat mot nämndbudget — skola, äldreomsorg, miljö m.fl.',
+    'Kommunens trender över tid (Kolada) parat mot nämndbudget — skola, äldreomsorg, miljö m.fl.',
   request: { params: z.object({ kommun: z.string() }) },
   responses: {
     ...standardFel,
@@ -49,7 +49,10 @@ const trenderRoute = createRoute({
   },
 })
 trenderRouter.openapi(trenderRoute, async (c) => {
-  const filePath = join(import.meta.dirname, '../../../../data/kolada/kpi-trender.json')
+  const { kommun } = c.req.valid('param')
+  // Göteborgs fil saknar suffix (den fanns först); övriga kommuner: -{kommun}
+  const fil = kommun === 'goteborg' ? 'kpi-trender.json' : `kpi-trender-${kommun}.json`
+  const filePath = join(import.meta.dirname, '../../../../data/kolada', fil)
   if (!existsSync(filePath)) return c.json({ kpis: [] }, 200)
   const data = JSON.parse(readFileSync(filePath, 'utf-8'))
   return c.json(data, 200)

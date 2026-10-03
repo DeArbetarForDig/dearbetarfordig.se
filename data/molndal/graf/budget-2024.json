@@ -1,0 +1,196 @@
+{
+  "nodes": [
+    {
+      "id": "budget-2024",
+      "typ": "budget",
+      "label": "Mölndals stad kommunbidrag 2024",
+      "data": {
+        "år": 2024,
+        "totalMnkr": 4622.4,
+        "källa": "https://www.molndal.se/download/18.7dca557719a7d85cdddce90/1763657725076/Budget%20plan%202024-2026.pdf"
+      }
+    },
+    {
+      "id": "nämnd-byggnadsnämnden-2024",
+      "typ": "organisation",
+      "label": "Byggnadsnämnden",
+      "data": {
+        "kommunbidragMnkr": 12.4,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-kommunfullmäktige-och-kommunstyrelsen-2024",
+      "typ": "organisation",
+      "label": "Kommunfullmäktige och kommunstyrelsen",
+      "data": {
+        "kommunbidragMnkr": 353.9,
+        "andelProcent": 7.7
+      }
+    },
+    {
+      "id": "nämnd-kultur-och-fritidsnämnden-2024",
+      "typ": "organisation",
+      "label": "Kultur- och fritidsnämnden",
+      "data": {
+        "kommunbidragMnkr": 214,
+        "andelProcent": 4.6
+      }
+    },
+    {
+      "id": "nämnd-miljönämnden-2024",
+      "typ": "organisation",
+      "label": "Miljönämnden",
+      "data": {
+        "kommunbidragMnkr": 13.8,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-servicenämnden-2024",
+      "typ": "organisation",
+      "label": "Servicenämnden",
+      "data": {
+        "kommunbidragMnkr": 3.3,
+        "andelProcent": 0.1
+      }
+    },
+    {
+      "id": "nämnd-skolnämnden-2024",
+      "typ": "organisation",
+      "label": "Skolnämnden",
+      "data": {
+        "kommunbidragMnkr": 1710.4,
+        "andelProcent": 37
+      }
+    },
+    {
+      "id": "nämnd-social-och-arbetsmarknadsnämnden-2024",
+      "typ": "organisation",
+      "label": "Social- och arbetsmarknadsnämnden",
+      "data": {
+        "kommunbidragMnkr": 353.3,
+        "andelProcent": 7.6
+      }
+    },
+    {
+      "id": "nämnd-tekniska-nämnden-2024",
+      "typ": "organisation",
+      "label": "Tekniska nämnden",
+      "data": {
+        "kommunbidragMnkr": 266.5,
+        "andelProcent": 5.8
+      }
+    },
+    {
+      "id": "nämnd-utbildningsnämnden-2024",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden",
+      "data": {
+        "kommunbidragMnkr": 423.3,
+        "andelProcent": 9.2
+      }
+    },
+    {
+      "id": "nämnd-vård-och-omsorgsnämnden-2024",
+      "typ": "organisation",
+      "label": "Vård- och omsorgsnämnden",
+      "data": {
+        "kommunbidragMnkr": 1271.5,
+        "andelProcent": 27.5
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "budget-2024",
+      "to": "nämnd-byggnadsnämnden-2024",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 12.4,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2024",
+      "to": "nämnd-kommunfullmäktige-och-kommunstyrelsen-2024",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 353.9,
+        "andel": 7.7
+      }
+    },
+    {
+      "from": "budget-2024",
+      "to": "nämnd-kultur-och-fritidsnämnden-2024",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 214,
+        "andel": 4.6
+      }
+    },
+    {
+      "from": "budget-2024",
+      "to": "nämnd-miljönämnden-2024",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 13.8,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2024",
+      "to": "nämnd-servicenämnden-2024",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 3.3,
+        "andel": 0.1
+      }
+    },
+    {
+      "from": "budget-2024",
+      "to": "nämnd-skolnämnden-2024",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1710.4,
+        "andel": 37
+      }
+    },
+    {
+      "from": "budget-2024",
+      "to": "nämnd-social-och-arbetsmarknadsnämnden-2024",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 353.3,
+        "andel": 7.6
+      }
+    },
+    {
+      "from": "budget-2024",
+      "to": "nämnd-tekniska-nämnden-2024",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 266.5,
+        "andel": 5.8
+      }
+    },
+    {
+      "from": "budget-2024",
+      "to": "nämnd-utbildningsnämnden-2024",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 423.3,
+        "andel": 9.2
+      }
+    },
+    {
+      "from": "budget-2024",
+      "to": "nämnd-vård-och-omsorgsnämnden-2024",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1271.5,
+        "andel": 27.5
+      }
+    }
+  ]
+}

@@ -5,65 +5,65 @@
       "namn": "Meritvärde åk 9 (genomsnitt, 17 ämnen)",
       "kategori": "Skola",
       "enhet": "poäng",
-      "nämndId": "nämnd-grundskolenämnden",
-      "nämndNamn": "Grundskolenämnden",
+      "nämndId": "nämnd-skolnämnden",
+      "nämndNamn": "Skolnämnden",
       "utfall": [
         {
           "år": 2020,
-          "värde": 231.6
+          "värde": 238.7
         },
         {
           "år": 2021,
-          "värde": 232.1
+          "värde": 239.7
         },
         {
           "år": 2022,
-          "värde": 230.6
+          "värde": 233.2
         },
         {
           "år": 2023,
-          "värde": 227.5
+          "värde": 238.6
         },
         {
           "år": 2024,
-          "värde": 228.8
+          "värde": 235.2
         },
         {
           "år": 2025,
-          "värde": 232.2
+          "värde": 239.2
         }
       ],
       "utfallÄndring": {
-        "från": 231.6,
-        "till": 232.2,
-        "procent": 0.3
+        "från": 238.7,
+        "till": 239.2,
+        "procent": 0.2
       },
       "budget": [
         {
           "år": 2022,
-          "värde": 8881
+          "värde": 1568.3
         },
         {
           "år": 2023,
-          "värde": 9344
+          "värde": 1602.9
         },
         {
           "år": 2024,
-          "värde": 9930
+          "värde": 1710.4
         },
         {
           "år": 2025,
-          "värde": 10209
+          "värde": 1833.3
         },
         {
           "år": 2026,
-          "värde": 10547
+          "värde": 1875.8
         }
       ],
       "budgetÄndring": {
-        "från": 8881,
-        "till": 10547,
-        "procent": 18.8
+        "från": 1568.3,
+        "till": 1875.8,
+        "procent": 19.6
       }
     },
     {
@@ -71,61 +71,61 @@
       "namn": "Medborgarundersökning: grundskolan fungerar bra",
       "kategori": "Skola",
       "enhet": "%",
-      "nämndId": "nämnd-grundskolenämnden",
-      "nämndNamn": "Grundskolenämnden",
+      "nämndId": "nämnd-skolnämnden",
+      "nämndNamn": "Skolnämnden",
       "utfall": [
         {
           "år": 2021,
-          "värde": 65.6
+          "värde": 78.2
         },
         {
           "år": 2022,
-          "värde": 63.3
+          "värde": null
         },
         {
           "år": 2023,
-          "värde": 61.8
+          "värde": 80.4
         },
         {
           "år": 2024,
-          "värde": 61.8
+          "värde": 81.3
         },
         {
           "år": 2025,
-          "värde": 67.8
+          "värde": 78.7
         }
       ],
       "utfallÄndring": {
-        "från": 65.6,
-        "till": 67.8,
-        "procent": 3.4
+        "från": 78.2,
+        "till": 78.7,
+        "procent": 0.6
       },
       "budget": [
         {
           "år": 2022,
-          "värde": 8881
+          "värde": 1568.3
         },
         {
           "år": 2023,
-          "värde": 9344
+          "värde": 1602.9
         },
         {
           "år": 2024,
-          "värde": 9930
+          "värde": 1710.4
         },
         {
           "år": 2025,
-          "värde": 10209
+          "värde": 1833.3
         },
         {
           "år": 2026,
-          "värde": 10547
+          "värde": 1875.8
         }
       ],
       "budgetÄndring": {
-        "från": 8881,
-        "till": 10547,
-        "procent": 18.8
+        "från": 1568.3,
+        "till": 1875.8,
+        "procent": 19.6
       }
     },
     {
@@ -133,57 +133,61 @@
       "namn": "Brukarbedömning särskilt boende: alltid bra bemötande",
       "kategori": "Äldreomsorg",
       "enhet": "%",
-      "nämndId": "nämnd-äldre-samt-vård-och-omsorgsnämnden",
-      "nämndNamn": "Äldre samt vård- och omsorgsnämnden",
+      "nämndId": "nämnd-vård-och-omsorgsnämnden",
+      "nämndNamn": "Vård- och omsorgsnämnden",
       "utfall": [
         {
           "år": 2020,
-          "värde": 54
+          "värde": 49
         },
         {
           "år": 2022,
-          "värde": 49
+          "värde": 48
         },
         {
           "år": 2023,
-          "värde": 49
+          "värde": 50
         },
         {
           "år": 2024,
-          "värde": 49.55070603
+          "värde": 46.62921348
         },
         {
           "år": 2025,
-          "värde": 50.59366755
+          "värde": 46.07329843
         }
       ],
       "utfallÄndring": {
-        "från": 54,
-        "till": 50.59366755,
-        "procent": -6.3
+        "från": 49,
+        "till": 46.07329843,
+        "procent": -6
       },
       "budget": [
         {
+          "år": 2022,
+          "värde": 1155.9
+        },
+        {
           "år": 2023,
-          "värde": 6209
+          "värde": 1192.2
         },
         {
           "år": 2024,
-          "värde": 6624
+          "värde": 1271.5
         },
         {
           "år": 2025,
-          "värde": 6836
+          "värde": 1321.9
         },
         {
           "år": 2026,
-          "värde": 7219
+          "värde": 1319.9
         }
       ],
       "budgetÄndring": {
-        "från": 6209,
-        "till": 7219,
-        "procent": 16.3
+        "från": 1155.9,
+        "till": 1319.9,
+        "procent": 14.2
       }
     },
     {
@@ -191,61 +195,32 @@
       "namn": "Utsläpp växthusgaser per invånare",
       "kategori": "Miljö",
       "enhet": "ton CO2-ekv/inv",
-      "nämndId": "nämnd-miljö-och-klimatnämnden",
-      "nämndNamn": "Miljö- och klimatnämnden",
       "utfall": [
         {
           "år": 2020,
-          "värde": 3.68268948
+          "värde": 2.12567782
         },
         {
           "år": 2021,
-          "värde": 3.86418995
+          "värde": 2.08803084
         },
         {
           "år": 2022,
-          "värde": 3.79419292
+          "värde": 1.89124666
         },
         {
           "år": 2023,
-          "värde": 3.47538045
+          "värde": 1.98448693
         },
         {
           "år": 2024,
-          "värde": 3.6990685
+          "värde": 2.22420526
         }
       ],
       "utfallÄndring": {
-        "från": 3.68268948,
-        "till": 3.6990685,
-        "procent": 0.4
-      },
-      "budget": [
-        {
-          "år": 2022,
-          "värde": 105
-        },
-        {
-          "år": 2023,
-          "värde": 105
-        },
-        {
-          "år": 2024,
-          "värde": 128
-        },
-        {
-          "år": 2025,
-          "värde": 143
-        },
-        {
-          "år": 2026,
-          "värde": 145
-        }
-      ],
-      "budgetÄndring": {
-        "från": 105,
-        "till": 145,
-        "procent": 38.1
+        "från": 2.12567782,
+        "till": 2.22420526,
+        "procent": 4.6
       }
     },
     {
@@ -253,65 +228,65 @@
       "namn": "Arbetslösa eller i åtgärd, 16–64 år",
       "kategori": "Arbetsmarknad",
       "enhet": "%",
-      "nämndId": "nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning",
-      "nämndNamn": "Nämnden för arbetsmarknad och vuxenutbildning",
+      "nämndId": "nämnd-social-och-arbetsmarknadsnämnden",
+      "nämndNamn": "Social- och arbetsmarknadsnämnden",
       "utfall": [
         {
           "år": 2020,
-          "värde": 17.26236
+          "värde": 11.536322
         },
         {
           "år": 2021,
-          "värde": 16.421856
+          "värde": 10.703786
         },
         {
           "år": 2022,
-          "värde": 13.67001
+          "värde": 8.660595
         },
         {
           "år": 2023,
-          "värde": 13.296271
+          "värde": 8.552544
         },
         {
           "år": 2024,
-          "värde": 14.324549
+          "värde": 9.331017
         },
         {
           "år": 2025,
-          "värde": 14.630871
+          "värde": 9.857255
         }
       ],
       "utfallÄndring": {
-        "från": 17.26236,
-        "till": 14.630871,
-        "procent": -15.2
+        "från": 11.536322,
+        "till": 9.857255,
+        "procent": -14.6
       },
       "budget": [
         {
           "år": 2022,
-          "värde": 740
+          "värde": 344.7
         },
         {
           "år": 2023,
-          "värde": 747
+          "värde": 343.1
         },
         {
           "år": 2024,
-          "värde": 808
+          "värde": 353.3
         },
         {
           "år": 2025,
-          "värde": 845
+          "värde": 366.3
         },
         {
           "år": 2026,
-          "värde": 847
+          "värde": 370.8
         }
       ],
       "budgetÄndring": {
-        "från": 740,
-        "till": 847,
-        "procent": 14.5
+        "från": 344.7,
+        "till": 370.8,
+        "procent": 7.6
       }
     },
     {
@@ -322,32 +297,32 @@
       "utfall": [
         {
           "år": 2020,
-          "värde": 21.12
+          "värde": 20.51
         },
         {
           "år": 2021,
-          "värde": 21.12
+          "värde": 20.51
         },
         {
           "år": 2022,
-          "värde": 21.12
+          "värde": 20.51
         },
         {
           "år": 2023,
-          "värde": 21.12
+          "värde": 20.51
         },
         {
           "år": 2024,
-          "värde": 21.12
+          "värde": 20.51
         },
         {
           "år": 2025,
-          "värde": 21.12
+          "värde": 20.51
         }
       ],
       "utfallÄndring": {
-        "från": 21.12,
-        "till": 21.12,
+        "från": 20.51,
+        "till": 20.51,
         "procent": 0
       }
     },
@@ -359,33 +334,33 @@
       "utfall": [
         {
           "år": 2020,
-          "värde": 9.6
+          "värde": 8.9
         },
         {
           "år": 2021,
-          "värde": 8.6
+          "värde": 8.1
         },
         {
           "år": 2022,
-          "värde": 8.8
+          "värde": 8.3
         },
         {
           "år": 2023,
-          "värde": 8.5
+          "värde": 7.6
         },
         {
           "år": 2024,
-          "värde": 8.4
+          "värde": 7.8
         },
         {
           "år": 2025,
-          "värde": 7.8
+          "värde": 7.3
         }
       ],
       "utfallÄndring": {
-        "från": 9.6,
-        "till": 7.8,
-        "procent": -18.7
+        "från": 8.9,
+        "till": 7.3,
+        "procent": -18
       }
     }
   ]

@@ -1,0 +1,167 @@
+{
+  "nodes": [
+    {
+      "id": "utfall-sammanfattning-2024",
+      "typ": "utfall",
+      "label": "Ekonomiskt utfall 2024 — alla nämnder",
+      "data": {
+        "år": 2024,
+        "källa": "Mölndals stads årsredovisning 2024",
+        "url": "https://www.molndal.se/download/18.7dca557719a7d85cdddadcb/1763623343854/%C3%85rsredovisning_2024.pdf",
+        "totalResultatMnkr": 28.2,
+        "antalNämnder": 10
+      }
+    },
+    {
+      "id": "utfall-nämnd-byggnadsnämnden-2024",
+      "typ": "utfall",
+      "label": "Byggnadsnämnden utfall 2024: -5.4 mnkr",
+      "data": {
+        "nämnd": "Byggnadsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 24.5,
+        "kostnaderMnkr": -54.8,
+        "kommunbidragMnkr": 24.9,
+        "resultatMnkr": -5.4,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kommunfullmäktige-och-kommunstyrelsen-2024",
+      "typ": "utfall",
+      "label": "Kommunfullmäktige och kommunstyrelsen utfall 2024: +10 mnkr",
+      "data": {
+        "nämnd": "Kommunfullmäktige och kommunstyrelsen",
+        "år": 2024,
+        "intäkterMnkr": 725,
+        "kostnaderMnkr": -1092.4,
+        "kommunbidragMnkr": 377.4,
+        "resultatMnkr": 10,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kultur-och-fritidsnämnden-2024",
+      "typ": "utfall",
+      "label": "Kultur- och fritidsnämnden utfall 2024: +4.8 mnkr",
+      "data": {
+        "nämnd": "Kultur- och fritidsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 64.9,
+        "kostnaderMnkr": -286.9,
+        "kommunbidragMnkr": 226.8,
+        "resultatMnkr": 4.8,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-miljönämnden-2024",
+      "typ": "utfall",
+      "label": "Miljönämnden utfall 2024: +0.1 mnkr",
+      "data": {
+        "nämnd": "Miljönämnden",
+        "år": 2024,
+        "intäkterMnkr": 0,
+        "kostnaderMnkr": -0.9,
+        "kommunbidragMnkr": 1,
+        "resultatMnkr": 0.1,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-servicenämnden-2024",
+      "typ": "utfall",
+      "label": "Servicenämnden utfall 2024: 0 mnkr",
+      "data": {
+        "nämnd": "Servicenämnden",
+        "år": 2024,
+        "intäkterMnkr": 287.1,
+        "kostnaderMnkr": -301.1,
+        "kommunbidragMnkr": 14,
+        "resultatMnkr": 0,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-skolnämnden-2024",
+      "typ": "utfall",
+      "label": "Skolnämnden utfall 2024: -4.2 mnkr",
+      "data": {
+        "nämnd": "Skolnämnden",
+        "år": 2024,
+        "intäkterMnkr": 243.3,
+        "kostnaderMnkr": -1992.4,
+        "kommunbidragMnkr": 1744.9,
+        "resultatMnkr": -4.2,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-social-och-arbetsmarknadsnämnden-2024",
+      "typ": "utfall",
+      "label": "Social- och arbetsmarknadsnämnden utfall 2024: +21.5 mnkr",
+      "data": {
+        "nämnd": "Social- och arbetsmarknadsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 71.2,
+        "kostnaderMnkr": -405,
+        "kommunbidragMnkr": 355.3,
+        "resultatMnkr": 21.5,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-tekniska-nämnden-2024",
+      "typ": "utfall",
+      "label": "Tekniska nämnden utfall 2024: +14.1 mnkr",
+      "data": {
+        "nämnd": "Tekniska nämnden",
+        "år": 2024,
+        "intäkterMnkr": 332.6,
+        "kostnaderMnkr": -561.3,
+        "kommunbidragMnkr": 242.8,
+        "resultatMnkr": 14.1,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-utbildningsnämnden-2024",
+      "typ": "utfall",
+      "label": "Utbildningsnämnden utfall 2024: +8.2 mnkr",
+      "data": {
+        "nämnd": "Utbildningsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 156.4,
+        "kostnaderMnkr": -573.5,
+        "kommunbidragMnkr": 425.3,
+        "resultatMnkr": 8.2,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-vård-och-omsorgsnämnden-2024",
+      "typ": "utfall",
+      "label": "Vård- och omsorgsnämnden utfall 2024: -20.9 mnkr",
+      "data": {
+        "nämnd": "Vård- och omsorgsnämnden",
+        "år": 2024,
+        "intäkterMnkr": 204.1,
+        "kostnaderMnkr": -1509.8,
+        "kommunbidragMnkr": 1284.8,
+        "resultatMnkr": -20.9,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    }
+  ],
+  "edges": []
+}

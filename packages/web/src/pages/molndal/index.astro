@@ -6,17 +6,22 @@ import Button from '../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
 import DataTable from '../../../../ui/src/components/core/DataTable.astro'
 import { generatePartyTagHTML } from '../../../../ui/src/components/party-tag/index.ts'
-import { type Politiker, getMandat, getPolitiker, getSammantraden } from '../../data/api'
+import { type Politiker, getBudget, getMandat, getPolitiker, getSammantraden } from '../../data/api'
 import Kommun from '../../layouts/Kommun.astro'
 
 const KOMMUN = 'molndal'
 const TROMAN = 'https://molndal.tromanpublik.se'
 
-const [politiker, mandat, sammanträden] = await Promise.all([
+const [politiker, mandat, sammanträden, budget] = await Promise.all([
   getPolitiker(KOMMUN),
   getMandat(KOMMUN),
   getSammantraden(KOMMUN),
+  getBudget(KOMMUN),
 ])
+const budgetBars = budget.nämnder
+  .filter((n: any) => n.kommunbidragMnkr)
+  .sort((a: any, b: any) => b.kommunbidragMnkr - a.kommunbidragMnkr)
+  .map((n: any) => ({ label: n.namn, value: n.kommunbidragMnkr, subtitle: `${n.andelProcent}%` }))
 
 // Partier med egen färgtoken; övriga (MÖ, partilösa) visas som "-" / --parti-ovriga
 const FÄRGADE = new Set(['S', 'M', 'SD', 'C', 'V', 'KD', 'MP', 'L', 'D'])
@@ -151,6 +156,16 @@ const person = (p: Politiker, roll?: string) =>
     </Card>
   </section>
 
+  <section class="mb-12">
+    <Card title={`Budget ${budget.år}`} subtitle={`Kommunbidrag per nämnd — totalt ${budget.totalMnkr.toLocaleString('sv-SE')} mnkr`}>
+      <HorizontalBar bars={budgetBars} unit="mnkr" labelWidth="16rem" />
+      <div class="mt-4 flex gap-3 flex-wrap">
+        <Button variant="secondary" href="/molndal/budget">Budget och utfall →</Button>
+        <Button variant="secondary" href="/molndal/trender">Trender (Kolada) →</Button>
+      </div>
+    </Card>
+  </section>
+
   <section class="mb-12 grid gap-4 grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
     <Card title="Senaste sammanträden" subtitle="Med publicerade handlingar">
       <ul class="flex flex-col gap-2 text-sm">
@@ -191,6 +206,8 @@ const person = (p: Politiker, roll?: string) =>
   <p class="text-xs text-(--color-text-muted)">
     Källor: <a href={`${TROMAN}/`} class="underline">Mölndals stads förtroendemannaregister</a> ·
     <a href="https://www.val.se" class="underline">Valmyndigheten</a> ·
+    <a href="https://www.molndal.se/kommun-och-politik/ekonomi-och-budget" class="underline">Mölndals stad, budget och årsredovisning</a> ·
+    <a href="https://www.kolada.se" class="underline">Kolada</a> ·
     <a href="https://www.molndal.se/kommun-och-politik/moten-protokoll-kallelser" class="underline">Mölndals stad, möten och protokoll</a>
   </p>
 

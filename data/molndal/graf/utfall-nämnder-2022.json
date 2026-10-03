@@ -1,0 +1,167 @@
+{
+  "nodes": [
+    {
+      "id": "utfall-sammanfattning-2022",
+      "typ": "utfall",
+      "label": "Ekonomiskt utfall 2022 — alla nämnder",
+      "data": {
+        "år": 2022,
+        "källa": "Mölndals stads årsredovisning 2022",
+        "url": "https://www.molndal.se/download/18.7dca557719a7d85cdddadc9/1763623343529/%C3%85rsredovisning_2022.pdf",
+        "totalResultatMnkr": 25.4,
+        "antalNämnder": 10
+      }
+    },
+    {
+      "id": "utfall-nämnd-byggnadsnämnden-2022",
+      "typ": "utfall",
+      "label": "Byggnadsnämnden utfall 2022: +1.4 mnkr",
+      "data": {
+        "nämnd": "Byggnadsnämnden",
+        "år": 2022,
+        "intäkterMnkr": 24.6,
+        "kostnaderMnkr": -40.2,
+        "kommunbidragMnkr": 17,
+        "resultatMnkr": 1.4,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kommunfullmäktige-och-kommunstyrelsen-2022",
+      "typ": "utfall",
+      "label": "Kommunfullmäktige och kommunstyrelsen utfall 2022: -44.2 mnkr",
+      "data": {
+        "nämnd": "Kommunfullmäktige och kommunstyrelsen",
+        "år": 2022,
+        "intäkterMnkr": 588.5,
+        "kostnaderMnkr": -894.7,
+        "kommunbidragMnkr": 262,
+        "resultatMnkr": -44.2,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kultur-och-fritidsnämnden-2022",
+      "typ": "utfall",
+      "label": "Kultur- och fritidsnämnden utfall 2022: +2 mnkr",
+      "data": {
+        "nämnd": "Kultur- och fritidsnämnden",
+        "år": 2022,
+        "intäkterMnkr": 34.2,
+        "kostnaderMnkr": -212.8,
+        "kommunbidragMnkr": 180.6,
+        "resultatMnkr": 2,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-miljönämnden-2022",
+      "typ": "utfall",
+      "label": "Miljönämnden utfall 2022: -0.9 mnkr",
+      "data": {
+        "nämnd": "Miljönämnden",
+        "år": 2022,
+        "intäkterMnkr": 6.1,
+        "kostnaderMnkr": -20.1,
+        "kommunbidragMnkr": 13.1,
+        "resultatMnkr": -0.9,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-servicenämnden-2022",
+      "typ": "utfall",
+      "label": "Servicenämnden utfall 2022: -4.5 mnkr",
+      "data": {
+        "nämnd": "Servicenämnden",
+        "år": 2022,
+        "intäkterMnkr": 264,
+        "kostnaderMnkr": -275.3,
+        "kommunbidragMnkr": 6.8,
+        "resultatMnkr": -4.5,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-skolnämnden-2022",
+      "typ": "utfall",
+      "label": "Skolnämnden utfall 2022: +19.7 mnkr",
+      "data": {
+        "nämnd": "Skolnämnden",
+        "år": 2022,
+        "intäkterMnkr": 228.9,
+        "kostnaderMnkr": -1779.1,
+        "kommunbidragMnkr": 1569.9,
+        "resultatMnkr": 19.7,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-social-och-arbetsmarknadsnämnden-2022",
+      "typ": "utfall",
+      "label": "Social- och arbetsmarknadsnämnden utfall 2022: +37.3 mnkr",
+      "data": {
+        "nämnd": "Social- och arbetsmarknadsnämnden",
+        "år": 2022,
+        "intäkterMnkr": 72.4,
+        "kostnaderMnkr": -373.8,
+        "kommunbidragMnkr": 338.7,
+        "resultatMnkr": 37.3,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-tekniska-nämnden-2022",
+      "typ": "utfall",
+      "label": "Tekniska nämnden utfall 2022: +10.3 mnkr",
+      "data": {
+        "nämnd": "Tekniska nämnden",
+        "år": 2022,
+        "intäkterMnkr": 307.4,
+        "kostnaderMnkr": -512.2,
+        "kommunbidragMnkr": 215.1,
+        "resultatMnkr": 10.3,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-utbildningsnämnden-2022",
+      "typ": "utfall",
+      "label": "Utbildningsnämnden utfall 2022: +10.9 mnkr",
+      "data": {
+        "nämnd": "Utbildningsnämnden",
+        "år": 2022,
+        "intäkterMnkr": 130.6,
+        "kostnaderMnkr": -491.2,
+        "kommunbidragMnkr": 371.5,
+        "resultatMnkr": 10.9,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-vård-och-omsorgsnämnden-2022",
+      "typ": "utfall",
+      "label": "Vård- och omsorgsnämnden utfall 2022: -6.6 mnkr",
+      "data": {
+        "nämnd": "Vård- och omsorgsnämnden",
+        "år": 2022,
+        "intäkterMnkr": 214.8,
+        "kostnaderMnkr": -1377.7,
+        "kommunbidragMnkr": 1156.3,
+        "resultatMnkr": -6.6,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    }
+  ],
+  "edges": []
+}

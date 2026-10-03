@@ -28,11 +28,18 @@ const {
 } = Astro.props
 
 const bas = `/${kommun}`
-// Kommuner utan tolkade protokoll/budget har bara de sidor som finns för dem
+// Kommuner utan tolkade protokoll har bara de sidor som finns för dem
 const NAV_LITEN = [
   { label: 'Översikt', href: bas },
   { label: 'Politiker', href: `${bas}/politiker` },
   { label: 'Mandatperiod 2026–2030', href: `${bas}/mandatperiod-2026` },
+  {
+    label: 'Ekonomi',
+    children: [
+      { label: 'Budget', href: `${bas}/budget` },
+      { label: 'Trender', href: `${bas}/trender` },
+    ],
+  },
 ]
 const nav =
   kommun !== 'goteborg'
