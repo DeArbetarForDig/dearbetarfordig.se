@@ -1,0 +1,10 @@
+---
+import PolitikerLista from '../../components/PolitikerLista.astro'
+---
+
+<!-- Inga egna profilsidor för Mölndal än: länka till stadens förtroendemannaregister -->
+<PolitikerLista
+  kommun="molndal"
+  kommunNamn="Mölndal"
+  politikerUrl={(id) => `https://molndal.tromanpublik.se/person/${id}`}
+/>

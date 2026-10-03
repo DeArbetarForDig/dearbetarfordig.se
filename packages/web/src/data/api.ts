@@ -65,8 +65,8 @@ export interface Möte {
   videoUrl?: string
 }
 
-export async function getPolitiker(): Promise<Politiker[]> {
-  const data = await fetchApi<HalCollection<Politiker>>('/v1/goteborg/politiker?limit=2000')
+export async function getPolitiker(kommun = 'goteborg'): Promise<Politiker[]> {
+  const data = await fetchApi<HalCollection<Politiker>>(`/v1/${kommun}/politiker?limit=2000`)
 
   // Guard: fail loudly if we didn't get all politicians.
   if (data._embedded.items.length !== data.total) {
@@ -93,8 +93,8 @@ export interface Kandidat {
   personvald: boolean
 }
 
-export async function getKandidater(): Promise<Kandidat[]> {
-  const data = await fetchApi<HalCollection<Kandidat>>('/v1/goteborg/kandidater')
+export async function getKandidater(kommun = 'goteborg'): Promise<Kandidat[]> {
+  const data = await fetchApi<HalCollection<Kandidat>>(`/v1/${kommun}/kandidater`)
   return data._embedded.items
 }
 
@@ -108,8 +108,20 @@ export interface Mandat {
   valdeltagande: string | null
 }
 
-export async function getMandat(): Promise<Mandat[]> {
-  const data = await fetchApi<HalCollection<Mandat>>('/v1/goteborg/mandat')
+export async function getMandat(kommun = 'goteborg'): Promise<Mandat[]> {
+  const data = await fetchApi<HalCollection<Mandat>>(`/v1/${kommun}/mandat`)
+  return data._embedded.items
+}
+
+export interface Sammantrade {
+  organ: string
+  datum: string
+  url: string
+}
+
+// Kommuner utan tolkade protokoll: möte + länk till kommunens diarium
+export async function getSammantraden(kommun: string): Promise<Sammantrade[]> {
+  const data = await fetchApi<HalCollection<Sammantrade>>(`/v1/${kommun}/sammantraden`)
   return data._embedded.items
 }
 

@@ -1,9 +1,10 @@
 /**
- * Downloader: Valmyndighetens mandatfördelning för val 2026 — KF Göteborg.
+ * Downloader: Valmyndighetens mandatfördelning för val 2026 — KF per kommun.
  *
- * Källa: https://resultat.val.se/data/resultat/val2026/KF_14_1480_{S|P}.json
- * (länskod 14 = Västra Götaland, kommunkod 1480 = Göteborg — samma kommunkod
- * som scrapers/kandidater.ts). Försöker "S" (slutligt, länsstyrelsens
+ * Användning: npx tsx packages/pipeline/src/scrapers/mandat.ts [kommun]
+ *
+ * Källa: https://resultat.val.se/data/resultat/val2026/KF_{län}_{kommun}_{S|P}.json
+ * (koderna i kommuner.ts, samma som scrapers/kandidater.ts). Försöker "S" (slutligt, länsstyrelsens
  * fastställda resultat) först, faller tillbaka till "P" (preliminärt,
  * valnattens rösträkning) tills det slutliga protokollet publicerats.
  *
@@ -15,11 +16,11 @@
 
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { kommunFrånArgv } from './kommuner'
 import { partiKod } from './parti-kod'
 
-const LÄNSKOD = '14'
-const KOMMUNKOD = '1480'
-const BASE_URL = `https://resultat.val.se/data/resultat/val2026/KF_${LÄNSKOD}_${KOMMUNKOD}`
+const KOMMUN = kommunFrånArgv()
+const BASE_URL = `https://resultat.val.se/data/resultat/val2026/KF_${KOMMUN.länskod}_${KOMMUN.kommunkod}`
 const OUTPUT_DIR = join(import.meta.dirname, '../../../../data/politiker')
 
 interface PartiMandat {
@@ -39,7 +40,7 @@ async function hämtaResultat(): Promise<{ url: string; data: any }> {
 }
 
 async function main() {
-  console.log('🔍 Hämtar mandatfördelning val 2026 (Valmyndigheten)...\n')
+  console.log(`🔍 Hämtar mandatfördelning val 2026, ${KOMMUN.namn} (Valmyndigheten)...\n`)
   const { url, data } = await hämtaResultat()
 
   const partiMandat: PartiMandat[] = (data.partiMandat || []).map((p: any) => ({
@@ -67,10 +68,10 @@ async function main() {
   )
 
   mkdirSync(OUTPUT_DIR, { recursive: true })
-  const outPath = join(OUTPUT_DIR, 'mandat-2026-goteborg.json')
+  const outPath = join(OUTPUT_DIR, `mandat-2026-${KOMMUN.slug}.json`)
   const output = {
     val: '2026',
-    kommun: 'goteborg',
+    kommun: KOMMUN.slug,
     valtyp: 'kommunfullmäktige',
     källa: url,
     hämtad: new Date().toISOString(),

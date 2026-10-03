@@ -23,7 +23,7 @@ export const sql = postgres(DATABASE_URL, {
 })
 
 // --- Multi-tenancy allowlist ---
-export const ALLOWED_KOMMUNER = ['goteborg'] // expand as we add more
+export const ALLOWED_KOMMUNER = ['goteborg', 'molndal'] // expand as we add more
 
 export function getSchema(kommun: string): string | null {
   if (!ALLOWED_KOMMUNER.includes(kommun)) return null

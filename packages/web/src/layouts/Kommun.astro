@@ -28,34 +28,43 @@ const {
 } = Astro.props
 
 const bas = `/${kommun}`
-const nav = [
+// Kommuner utan tolkade protokoll/budget har bara de sidor som finns för dem
+const NAV_LITEN = [
   { label: 'Översikt', href: bas },
-  { label: 'Sök', href: `${bas}/sok` },
   { label: 'Politiker', href: `${bas}/politiker` },
   { label: 'Mandatperiod 2026–2030', href: `${bas}/mandatperiod-2026` },
-  { label: 'Förvaltningar', href: `${bas}/forvaltning` },
-  {
-    label: 'Beslut & möten',
-    children: [
-      {
-        label: 'Kommunfullmäktige',
-        children: [
-          { label: 'Översikt', href: `${bas}/kf` },
-          { label: 'Beslut', href: `${bas}/kf/beslut` },
-          { label: 'Möten', href: `${bas}/kf/moten` },
-        ],
-      },
-      { label: 'Kommunstyrelsen', href: `${bas}/ks` },
-    ],
-  },
-  {
-    label: 'Ekonomi',
-    children: [
-      { label: 'Budget', href: `${bas}/budget` },
-      { label: 'Trender', href: `${bas}/trender` },
-    ],
-  },
 ]
+const nav =
+  kommun !== 'goteborg'
+    ? NAV_LITEN
+    : [
+        { label: 'Översikt', href: bas },
+        { label: 'Sök', href: `${bas}/sok` },
+        { label: 'Politiker', href: `${bas}/politiker` },
+        { label: 'Mandatperiod 2026–2030', href: `${bas}/mandatperiod-2026` },
+        { label: 'Förvaltningar', href: `${bas}/forvaltning` },
+        {
+          label: 'Beslut & möten',
+          children: [
+            {
+              label: 'Kommunfullmäktige',
+              children: [
+                { label: 'Översikt', href: `${bas}/kf` },
+                { label: 'Beslut', href: `${bas}/kf/beslut` },
+                { label: 'Möten', href: `${bas}/kf/moten` },
+              ],
+            },
+            { label: 'Kommunstyrelsen', href: `${bas}/ks` },
+          ],
+        },
+        {
+          label: 'Ekonomi',
+          children: [
+            { label: 'Budget', href: `${bas}/budget` },
+            { label: 'Trender', href: `${bas}/trender` },
+          ],
+        },
+      ]
 ---
 
 <Base title={title} description={description} breadcrumbs={breadcrumbs}>

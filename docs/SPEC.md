@@ -42,6 +42,16 @@
 /goteborg/sok                 → Fritextsökning (Postgres FTS, ej Pagefind)
 ```
 
+Mölndal (`packages/web/src/pages/molndal/`, API-schema `molndal`) har en
+mindre uppsättning — politiker (Troman-registret), val 2026 och
+mötesförteckning; protokollen ligger i stadens webbdiarium och tolkas inte:
+
+```
+/molndal/                     → Översikt (sal, val 2026, KS, nämnder, sammanträden)
+/molndal/politiker            → Alla förtroendevalda (länkar till stadens register)
+/molndal/mandatperiod-2026    → KF efter valet 2026 (samma komponent som Göteborg)
+```
+
 Ingen egen `/goteborg/struktur`-sida — org-trädet lever inbäddat på
 dashboarden i stället för på en dedikerad route. `/goteborg/debatter` blev
 `/goteborg/kf/moten/[datum]` (anföranden per möte, inte en egen samlingssida).

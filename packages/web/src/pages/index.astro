@@ -30,7 +30,10 @@ const jsonLd = {
   <div class="text-center py-20">
     <h1 class="text-4xl font-bold mb-4">De Arbetar För Dig</h1>
     <p class="text-xl text-[var(--color-text-muted)] mb-8">Dina politiker. Deras beslut. Dina pengar. Öppet för alla.</p>
-    <Button variant="primary" size="lg" href="/goteborg">Göteborg →</Button>
+    <div class="flex gap-3 justify-center flex-wrap">
+      <Button variant="primary" size="lg" href="/goteborg">Göteborg →</Button>
+      <Button variant="secondary" size="lg" href="/molndal">Mölndal →</Button>
+    </div>
   </div>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </Base>

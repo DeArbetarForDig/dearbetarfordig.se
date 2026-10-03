@@ -15,15 +15,20 @@
  * Denna scraper går igenom hela hierarkin och hämtar varje unik persons
  * fullständiga profil (samma detaljnivå som politiker.ts, men för alla).
  *
+ * Både politiker.goteborg.se och molndal.tromanpublik.se är Troman-publik
+ * (samma sidstruktur), så kommunen är bara bas-URL + utfil.
+ *
  * Användning:
- *   npx tsx packages/pipeline/src/scrapers/alla-fortroendevalda.ts
+ *   npx tsx packages/pipeline/src/scrapers/alla-fortroendevalda.ts [kommun]
+ *   (kommun: goteborg (default) | molndal)
  */
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import * as cheerio from 'cheerio'
+import { kommunFrånArgv } from './kommuner'
 
-const BASE_URL = 'https://politiker.goteborg.se'
+const { slug: KOMMUN, troman: BASE_URL } = kommunFrånArgv()
 const OUTPUT_DIR = join(import.meta.dirname, '../../../../data/politiker')
 const DELAY_MS = 300
 
@@ -134,7 +139,7 @@ async function scrapePersonDetail(personId: string): Promise<PersonDetail> {
 }
 
 async function main() {
-  console.log('🔍 Scraping HELA politiker.goteborg.se — alla organisationstyper...\n')
+  console.log(`🔍 Scraping HELA ${BASE_URL} — alla organisationstyper...\n`)
 
   const typer = await discoverOrganisationstyper()
   console.log(`   ${typer.length} organisationstyper: ${typer.map((t) => t.namn).join(', ')}\n`)
@@ -183,7 +188,7 @@ async function main() {
   }
 
   // Steg 4: mergea med befintlig fil (bevara manuellt tillagda mandatperioder/närstående)
-  const outPath = join(OUTPUT_DIR, 'goteborg.json')
+  const outPath = join(OUTPUT_DIR, `${KOMMUN}.json`)
   const existingById = new Map<string, any>()
   if (existsSync(outPath)) {
     try {
@@ -221,7 +226,7 @@ async function main() {
 
   mkdirSync(OUTPUT_DIR, { recursive: true })
   const output = {
-    kommun: 'goteborg',
+    kommun: KOMMUN,
     källa: `${BASE_URL}/`,
     hämtad: new Date().toISOString(),
     mandatperiod: { från: '2022-10-15', till: '2026-10-14' },

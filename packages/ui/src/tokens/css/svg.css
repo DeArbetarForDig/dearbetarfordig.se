@@ -80,7 +80,8 @@ text {
   &.parti-d {
     fill: var(--parti-d);
   }
-  &.parti-ovriga {
+  &.parti-ovriga,
+  &.parti-- {
     fill: var(--parti-ovriga);
   }
 }
