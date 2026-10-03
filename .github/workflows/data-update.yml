@@ -35,6 +35,14 @@ jobs:
       - name: Scrape politiker
         run: pnpm scrape:alla-fortroendevalda
 
+      # Mölndal: same Troman-based roster scraper, plus the meeting calendar
+      # (molndal.se links each meeting to webbdiariet; protocols not parsed).
+      - name: Scrape politiker (Mölndal)
+        run: npx tsx packages/pipeline/src/scrapers/alla-fortroendevalda.ts molndal
+
+      - name: Scrape sammanträden (Mölndal)
+        run: npx tsx packages/pipeline/src/scrapers/moten-molndal.ts
+
       # Historical enrichment only (2017/2020 archive snapshots) — unrelated
       # to this week's documents. archive.org's CDX API 503s often enough
       # that it must not block the actually time-sensitive steps below

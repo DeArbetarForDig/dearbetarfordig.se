@@ -1,0 +1,177 @@
+---
+import PoliticianCard from '../../../ui/src/components/cards/PoliticianCard.astro'
+import { type Politiker, getPolitiker } from '../data/api'
+import Kommun from '../layouts/Kommun.astro'
+
+/**
+ * Filtrerbar lista över en kommuns förtroendevalda (parti, aktiv sedan, uppdrag).
+ * nämndNamn: kommunens råa nämndnamn → visningsnamn (Göteborgs register skriver
+ * obestämd form); orgPrefix: strippas före uppslag ("Göteborgs Stads ").
+ */
+interface Props {
+  kommun: string
+  kommunNamn: string
+  politikerUrl: (id: string) => string
+  nämndNamn?: Record<string, string>
+  orgPrefix?: RegExp
+}
+const { kommun, kommunNamn, politikerUrl, nämndNamn = {}, orgPrefix } = Astro.props
+
+const politiker = await getPolitiker(kommun)
+const parties = [...new Set(politiker.map((p) => p.parti))].sort()
+
+// Uppdragskategorier: KF, KS, och varje enskild nämnd (en person kan tillhöra flera)
+function uppdragskategorier(uppdrag: Politiker['uppdrag']): string[] {
+  const kategorier = new Set<string>()
+  for (const u of uppdrag || []) {
+    const org = u.organisation || ''
+    if (/Kommunfullmäktige/i.test(org)) kategorier.add('KF')
+    else if (/Kommunstyrelsen/i.test(org)) kategorier.add('KS')
+    else if (/nämnd/i.test(org)) {
+      const rå = (orgPrefix ? org.replace(orgPrefix, '') : org).trim()
+      kategorier.add(nämndNamn[rå] || rå)
+    }
+  }
+  return [...kategorier]
+}
+
+const politikerMedUppdrag = politiker.map((p) => ({
+  ...p,
+  uppdragskategorier: uppdragskategorier(p.uppdrag),
+}))
+// Årschips genereras från förekommande "Aktiv sedan"-värden — exakt matchning
+const aktivSedanÅr = [...new Set(politiker.map((p) => p.aktivSedan).filter(Boolean))].sort()
+const nämnder = [
+  ...new Set(
+    politikerMedUppdrag.flatMap((p) =>
+      p.uppdragskategorier.filter((k) => k !== 'KF' && k !== 'KS'),
+    ),
+  ),
+].sort((a, b) => a.localeCompare(b, 'sv'))
+---
+
+<Kommun title={`Politiker — ${kommunNamn}`} kommun={kommun} kommunNamn={kommunNamn}>
+  <h1 class="text-[2rem] font-bold mb-6">Politiker</h1>
+
+  <div id="filter-bar" class="flex flex-col gap-3 mb-6">
+    <div class="flex flex-wrap gap-4 items-center">
+      <div class="flex items-center gap-2 bg-(--color-surface) border border-(--color-border) rounded-[--radius-sm] px-3 py-1.5 flex-1 min-w-[220px]">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-(--color-text-muted) shrink-0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="search-input" type="text" placeholder="Sök ledamot…" class="border-none outline-none bg-transparent text-(--color-text) font-sans text-base w-full" />
+      </div>
+      <div class="flex gap-1.5 flex-wrap">
+        <button data-parti="alla" class="chip active">Alla</button>
+        {parties.map(p => (
+          <button data-parti={p} class="chip">
+            <span class="w-2.5 h-2.5 rounded-sm shrink-0 bg-(--parti-color)" style={`--parti-color:var(--parti-${p.toLowerCase()})`} />
+            {p}
+          </button>
+        ))}
+      </div>
+    </div>
+    <div class="flex gap-1.5 flex-wrap">
+      <button data-period="alla" class="chip chip--period active">Alla perioder</button>
+      {aktivSedanÅr.map((år) => (
+        <button data-period={år} class="chip chip--period">sedan {år}</button>
+      ))}
+    </div>
+    <div class="flex gap-1.5 flex-wrap">
+      <button data-uppdrag="alla" class="chip chip--uppdrag active">Alla uppdrag</button>
+      <button data-uppdrag="KF" class="chip chip--uppdrag">KF</button>
+      <button data-uppdrag="KS" class="chip chip--uppdrag">KS</button>
+      {nämnder.map(n => (
+        <button data-uppdrag={n} class="chip chip--uppdrag">{n}</button>
+      ))}
+    </div>
+  </div>
+
+  <p id="count" class="text-sm text-(--color-text-muted) mb-4">{politiker.length} ledamöter</p>
+
+  <div id="grid" class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+    {politikerMedUppdrag.map(p => (
+      <div class="politician-item" data-parti={p.parti} data-namn={p.namn.toLowerCase()} data-sedan={p.aktivSedan || ''} data-uppdrag={p.uppdragskategorier.join('|')}>
+        <PoliticianCard namn={p.namn} parti={p.parti} roll={`${p.antalUppdrag} uppdrag`} aktivSedan={p.aktivSedan} url={politikerUrl(p.id)} />
+      </div>
+    ))}
+  </div>
+
+  <style>
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--color-border-strong);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: var(--font-size-label);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+    }
+    .chip.active {
+      background: var(--color-text);
+      color: var(--color-bg);
+      border-color: var(--color-text);
+    }
+  </style>
+
+  <script is:inline>
+    const input = document.getElementById('search-input')
+    const partiChips = document.querySelectorAll('.chip:not(.chip--period):not(.chip--uppdrag)')
+    const periodChips = document.querySelectorAll('.chip--period')
+    const uppdragChips = document.querySelectorAll('.chip--uppdrag')
+    const items = document.querySelectorAll('.politician-item')
+    const countEl = document.getElementById('count')
+    let activeParti = 'alla'
+    let activePeriod = 'alla'
+    let activeUppdrag = 'alla'
+
+    function filter() {
+      const q = input.value.toLowerCase()
+      let visible = 0
+      items.forEach(el => {
+        const parti = el.dataset.parti
+        const namn = el.dataset.namn
+        const sedan = el.dataset.sedan
+        const uppdrag = (el.dataset.uppdrag || '').split('|')
+        const matchParti = activeParti === 'alla' || parti === activeParti
+        // "sedan 2014" = "Aktiv sedan: 2014" — exakt år
+        const matchPeriod = activePeriod === 'alla' || sedan === activePeriod
+        const matchUppdrag = activeUppdrag === 'alla' || uppdrag.includes(activeUppdrag)
+        const show = matchParti && matchPeriod && matchUppdrag && namn.includes(q)
+        el.classList.toggle('hidden', !show)
+        if (show) visible++
+      })
+      countEl.textContent = visible + ' ledam\u00f6ter'
+    }
+
+    input.addEventListener('input', filter)
+    partiChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        partiChips.forEach(c => c.classList.remove('active'))
+        chip.classList.add('active')
+        activeParti = chip.dataset.parti
+        filter()
+      })
+    })
+    periodChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        periodChips.forEach(c => c.classList.remove('active'))
+        chip.classList.add('active')
+        activePeriod = chip.dataset.period
+        filter()
+      })
+    })
+    uppdragChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        uppdragChips.forEach(c => c.classList.remove('active'))
+        chip.classList.add('active')
+        activeUppdrag = chip.dataset.uppdrag
+        filter()
+      })
+    })
+  </script>
+</Kommun>

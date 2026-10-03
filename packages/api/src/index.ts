@@ -16,6 +16,7 @@ import { mandatRouter } from './routes/mandat.js'
 import { metricsRouter } from './routes/metrics.js'
 import { motenRouter } from './routes/moten.js'
 import { politikerRouter } from './routes/politiker.js'
+import { sammantradenRouter } from './routes/sammantraden.js'
 import { sokRouter } from './routes/sok.js'
 import { trenderRouter } from './routes/trender.js'
 
@@ -98,6 +99,7 @@ app.get('/healthz', async (c) => {
 app.route('/', politikerRouter)
 app.route('/', kandidaterRouter)
 app.route('/', mandatRouter)
+app.route('/', sammantradenRouter)
 app.route('/', motenRouter)
 app.route('/', beslutRouter)
 app.route('/', budgetRouter)
@@ -119,7 +121,7 @@ app.doc31('/openapi.json', {
   info: {
     title: 'De Arbetar För Dig — API',
     version: '0.4.0',
-    description: `Öppen demokrati-API — gör svensk kommunalpolitik tillgänglig, sökbar och begriplig. Sverige har 290 kommuner; API:t är strukturerat per kommun (\`/v1/{kommun}/...\`) för att kunna växa bortom den första, **Göteborg**, som just nu är den enda med data.
+    description: `Öppen demokrati-API — gör svensk kommunalpolitik tillgänglig, sökbar och begriplig. Sverige har 290 kommuner; API:t är strukturerat per kommun (\`/v1/{kommun}/...\`) för att kunna växa bortom den första. **Göteborg** har full data (protokoll, beslut, voteringar, budget); **Mölndal** (\`molndal\`) har politiker, val 2026 och mötesförteckning.
 
 **HAL Format (Hypertext Application Language):**
 
@@ -156,6 +158,7 @@ Alla svar följer HAL-standarden för hypermedia API:er.
 - \`/politiker/{id}/anforanden?datum=\` — Anföranden (tal) per möte
 - \`/kandidater\` — Kandidater till KF, val 2026 (Valmyndigheten), länkade till sittande politiker där matchning finns
 - \`/mandat\` — Mandatfördelning per parti, val 2026 (Valmyndigheten)
+- \`/sammantraden?organ=\` — Sammanträden med publicerade handlingar och länk till kommunens diarium (Mölndal)
 - \`/beslut\` — KF/KS-beslut med voteringar och ärendenummer
 - \`/möten/{datum}/anföranden\` — Alla anföranden från ett sammanträde (?talare=, ?ärende=, ?q=)
 - \`/budget?år=\` — Kommunbudget per nämnd (2022–2026)

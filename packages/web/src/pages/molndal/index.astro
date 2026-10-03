@@ -1,0 +1,210 @@
+---
+import Chamber from '../../../../ui/src/components/charts/Chamber.astro'
+import HorizontalBar from '../../../../ui/src/components/charts/HorizontalBar.astro'
+import ProgressBar from '../../../../ui/src/components/charts/ProgressBar.astro'
+import Button from '../../../../ui/src/components/core/Button.astro'
+import Card from '../../../../ui/src/components/core/Card.astro'
+import DataTable from '../../../../ui/src/components/core/DataTable.astro'
+import { generatePartyTagHTML } from '../../../../ui/src/components/party-tag/index.ts'
+import { type Politiker, getMandat, getPolitiker, getSammantraden } from '../../data/api'
+import Kommun from '../../layouts/Kommun.astro'
+
+const KOMMUN = 'molndal'
+const TROMAN = 'https://molndal.tromanpublik.se'
+
+const [politiker, mandat, sammanträden] = await Promise.all([
+  getPolitiker(KOMMUN),
+  getMandat(KOMMUN),
+  getSammantraden(KOMMUN),
+])
+
+// Partier med egen färgtoken; övriga (MÖ, partilösa) visas som "-" / --parti-ovriga
+const FÄRGADE = new Set(['S', 'M', 'SD', 'C', 'V', 'KD', 'MP', 'L', 'D'])
+const partikod = (parti: string) => (FÄRGADE.has(parti) ? parti : '-')
+const färg = (parti: string) =>
+  FÄRGADE.has(parti) ? `var(--parti-${parti.toLowerCase()})` : 'var(--parti-ovriga)'
+
+// Presidiet (ordförande/vice) är ledamöter men har den rollen i registret
+const ÄR_LEDAMOT = /^(Ledamot|Ordförande|(\d:e )?vice ordförande)\b/i
+const ledamöterI = (organ: string) =>
+  politiker.filter((p) =>
+    (p.uppdrag || []).some((u) => u.organisation === organ && ÄR_LEDAMOT.test(u.roll)),
+  )
+const rollI = (p: Politiker, organ: string) =>
+  (p.uppdrag || []).find((u) => u.organisation === organ)?.roll ?? ''
+
+// Partiordning: mandat i KF 2022–2026, störst först
+const kf = ledamöterI('Kommunfullmäktige')
+const kfPerParti = new Map<string, number>()
+for (const p of kf) kfPerParti.set(p.parti, (kfPerParti.get(p.parti) || 0) + 1)
+const partiRank = new Map(
+  [...kfPerParti].sort((a, b) => b[1] - a[1]).map(([parti], i) => [parti, i]),
+)
+const efterParti = (a: Politiker, b: Politiker) =>
+  (partiRank.get(a.parti) ?? 99) - (partiRank.get(b.parti) ?? 99) ||
+  a.namn.localeCompare(b.namn, 'sv')
+
+const seats = [...kf].sort(efterParti).map((p, i) => ({
+  nummer: i + 1,
+  politikerId: p.id,
+  namn: p.namn,
+  parti: partikod(p.parti) as any,
+}))
+
+const ks = ledamöterI('Kommunstyrelsen').sort(efterParti)
+const ksPresidium = ks.filter((p) => !/^Ledamot\b/i.test(rollI(p, 'Kommunstyrelsen')))
+
+// Mandatperiod 2022–2026 (kommunallagen 5 kap. 7 §: 15 oktober valåret)
+const mandatStart = new Date('2022-10-15')
+const mandatSlut = new Date('2026-10-15')
+const mandatProcent = Math.min(
+  100,
+  ((Date.now() - mandatStart.getTime()) / (mandatSlut.getTime() - mandatStart.getTime())) * 100,
+)
+
+// Val 2026 — Valmyndighetens slutliga resultat
+const räkning = mandat[0]?.räkningstillfälle
+const valdeltagande = mandat[0]?.valdeltagande
+const mandatBars = [...mandat]
+  .sort((a, b) => b.antalMandat - a.antalMandat)
+  .map((m) => {
+    const diff =
+      m.antalMandatFöregåendeVal == null ? null : m.antalMandat - m.antalMandatFöregåendeVal
+    return {
+      label: m.partiNamn,
+      value: m.antalMandat,
+      color: färg(m.parti),
+      subtitle: diff == null ? 'nytt' : diff === 0 ? '±0' : diff > 0 ? `+${diff}` : String(diff),
+    }
+  })
+const totalMandat = mandat.reduce((s, m) => s + m.antalMandat, 0)
+
+// Organ: antal förtroendevalda per nämnd/bolag/förbund (från uppdragen)
+const perOrgan = new Map<string, { id: string; antal: number }>()
+for (const p of politiker) {
+  for (const u of p.uppdrag || []) {
+    const o = perOrgan.get(u.organisation) || { id: (u as any).organisationId, antal: 0 }
+    o.antal++
+    perOrgan.set(u.organisation, o)
+  }
+}
+const nämnder = [...perOrgan]
+  .filter(([namn]) => /nämnd/i.test(namn) && !/utskott|^nämndemän/i.test(namn))
+  .sort((a, b) => a[0].localeCompare(b[0], 'sv'))
+
+// Sammanträden med publicerade handlingar (länk till Mölndals webbdiarium)
+const idag = new Date().toISOString().slice(0, 10)
+const senaste = (organ: string) => sammanträden.find((m) => m.organ === organ && m.datum <= idag)
+const senasteKF = senaste('Kommunfullmäktige')
+const senasteKS = senaste('Kommunstyrelsen')
+const mötesrader = sammanträden.map((m) => ({
+  datum: m.datum,
+  organ: m.organ,
+  handlingar: 'Kallelse/protokoll',
+  _handlingar_html: `<a href="${m.url}" class="underline hover:text-(--color-primary)" rel="noopener">Webbdiariet ↗</a>`,
+}))
+
+const person = (p: Politiker, roll?: string) =>
+  `${generatePartyTagHTML({ parti: p.parti, size: 'sm' })} <a href="${TROMAN}/person/${p.id}" class="hover:text-(--color-primary)">${p.namn}</a>${roll ? ` <span class="text-(--color-text-muted)">— ${roll}</span>` : ''}`
+---
+
+<Kommun title="Mölndal" kommun={KOMMUN} kommunNamn="Mölndal">
+  <section class="mb-12">
+    <h1 class="text-4xl font-bold mb-2">Mölndal</h1>
+    <p class="text-(--color-text-muted) mb-4">
+      Kommunfullmäktige — {kf.length} ledamöter som beslutar för dig. Från 15 oktober 2026 tar den nya
+      fullmäktigeförsamlingen över.
+    </p>
+    <ProgressBar
+      label="Mandatperiod 2022–2026"
+      value={mandatProcent}
+      valueLabel={`${Math.round(mandatProcent)}% avklarad`}
+      class="max-w-sm"
+    />
+  </section>
+
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold mb-4">Kommunfullmäktige 2022–2026</h2>
+    <div class="mx-auto p-6 rounded-xl bg-(--color-surface) border border-(--color-border)">
+      <Chamber seats={seats} mode="overview" />
+    </div>
+    <div class="flex gap-1.5 flex-wrap mt-4">
+      {[...kfPerParti].sort((a, b) => b[1] - a[1]).map(([parti, antal]) => (
+        <span class="chip" set:html={`${generatePartyTagHTML({ parti, size: 'sm' })} ${antal}`} />
+      ))}
+    </div>
+  </section>
+
+  <section class="mb-12 grid gap-4 grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
+    <Card title={`Valet 2026 — ${räkning === 'slutlig' ? 'slutligt resultat' : 'preliminärt resultat'}`} subtitle={`Valdeltagande ${valdeltagande ?? '–'} · ${totalMandat} mandat`}>
+      <HorizontalBar bars={mandatBars} labelWidth="14rem" />
+      <div class="mt-4">
+        <Button variant="secondary" href="/molndal/mandatperiod-2026">Nya fullmäktige 2026–2030 →</Button>
+      </div>
+    </Card>
+
+    <Card title="Kommunstyrelsen" subtitle={`${ks.length} ledamöter`}>
+      <ul class="flex flex-col gap-1.5 text-sm">
+        {ksPresidium.map((p) => <li set:html={person(p, rollI(p, 'Kommunstyrelsen'))} />)}
+        {ks.filter((p) => !ksPresidium.includes(p)).map((p) => <li set:html={person(p)} />)}
+      </ul>
+    </Card>
+  </section>
+
+  <section class="mb-12 grid gap-4 grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
+    <Card title="Senaste sammanträden" subtitle="Med publicerade handlingar">
+      <ul class="flex flex-col gap-2 text-sm">
+        {senasteKF && <li>Kommunfullmäktige — <a href={senasteKF.url} class="underline hover:text-(--color-primary)" rel="noopener">{senasteKF.datum} ↗</a></li>}
+        {senasteKS && <li>Kommunstyrelsen — <a href={senasteKS.url} class="underline hover:text-(--color-primary)" rel="noopener">{senasteKS.datum} ↗</a></li>}
+      </ul>
+      <p class="text-xs text-(--color-text-muted) mt-3">
+        Protokollen publiceras i Mölndals webbdiarium. De är inte tolkade till beslut och voteringar här än — det finns bara för Göteborg.
+      </p>
+    </Card>
+
+    <Card title="Nämnder" subtitle={`${nämnder.length} nämnder · ${politiker.length} förtroendevalda totalt`}>
+      <ul class="flex flex-col gap-1.5 text-sm">
+        {nämnder.map(([namn, o]) => (
+          <li class="flex justify-between gap-3">
+            <a href={`${TROMAN}/organisation/${o.id}`} class="hover:text-(--color-primary)" rel="noopener">{namn}</a>
+            <span class="text-(--color-text-muted) tabular-nums">{o.antal}</span>
+          </li>
+        ))}
+      </ul>
+    </Card>
+  </section>
+
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold mb-4">Sammanträden</h2>
+    <DataTable
+      id="sammantraden"
+      columns={[
+        { key: 'datum', label: 'Datum', sort: 'date', nowrap: true, width: '120px' },
+        { key: 'organ', label: 'Organ', sort: 'default' },
+        { key: 'handlingar', label: 'Handlingar', sort: false, nowrap: true, width: '160px' },
+      ]}
+      data={mötesrader}
+      pageSize={20}
+    />
+  </section>
+
+  <p class="text-xs text-(--color-text-muted)">
+    Källor: <a href={`${TROMAN}/`} class="underline">Mölndals stads förtroendemannaregister</a> ·
+    <a href="https://www.val.se" class="underline">Valmyndigheten</a> ·
+    <a href="https://www.molndal.se/kommun-och-politik/moten-protokoll-kallelser" class="underline">Mölndals stad, möten och protokoll</a>
+  </p>
+
+  <style>
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--color-border-strong);
+      background: var(--color-surface);
+      font-weight: 600;
+      font-size: var(--font-size-label);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+  </style>
+</Kommun>

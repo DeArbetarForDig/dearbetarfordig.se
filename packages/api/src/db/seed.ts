@@ -22,7 +22,7 @@ function loadJSON(path: string) {
 // API:t klarar sig med de officiella.
 function publiceradEmail(email: string | null): string | null {
   if (!email) return null
-  return /@(politiker\.)?goteborg\.se$/i.test(email.trim()) ? email : null
+  return /@(politiker\.)?(goteborg|molndal)\.se$/i.test(email.trim()) ? email : null
 }
 
 // Every node id inserted into graf_nodes this run — edges are validated
@@ -55,21 +55,12 @@ function reportDroppedEdges() {
   if (sorted.length > 25) console.warn(`      … och ${sorted.length - 25} grupper till`)
 }
 
-async function main() {
-  const client = postgres(connectionString, { max: 5 })
-
-  console.log('🌱 Seeding database...\n')
-
-  // Fresh schema every run — the DB is a pure derived artifact of data/,
-  // and prod re-seeds on every container start, so stale tables or column
-  // shapes must never survive a deploy.
-  await client`DROP SCHEMA IF EXISTS goteborg CASCADE`
-  await client`CREATE SCHEMA IF NOT EXISTS goteborg`
-  console.log('   ✓ Schema goteborg')
-
-  // Create tables
+// Politiker (Troman-registret), kandidater och mandat (Valmyndigheten) —
+// samma tabeller och filformat för varje kommun (data/politiker/{schema}*.json).
+async function seedPersonerOchVal(client: postgres.Sql, schema: string) {
+  const s = client(schema)
   await client`
-    CREATE TABLE IF NOT EXISTS goteborg.politiker (
+    CREATE TABLE IF NOT EXISTS ${s}.politiker (
       id UUID PRIMARY KEY,
       fornamn TEXT NOT NULL,
       efternamn TEXT NOT NULL,
@@ -82,7 +73,7 @@ async function main() {
     )`
 
   await client`
-    CREATE TABLE IF NOT EXISTS goteborg.kandidater (
+    CREATE TABLE IF NOT EXISTS ${s}.kandidater (
       id TEXT PRIMARY KEY,
       namn TEXT NOT NULL,
       parti TEXT NOT NULL,
@@ -91,19 +82,14 @@ async function main() {
       alder INT,
       kon TEXT,
       faststalld BOOLEAN NOT NULL DEFAULT false,
-      politiker_id UUID REFERENCES goteborg.politiker(id) ON DELETE SET NULL,
+      politiker_id UUID REFERENCES ${s}.politiker(id) ON DELETE SET NULL,
+      vald TEXT, -- 'ledamot' | 'ersättare' | NULL enligt Valmyndighetens slutliga resultat
+      personvald BOOLEAN NOT NULL DEFAULT false,
       created_at TIMESTAMPTZ DEFAULT now()
     )`
 
-  // Befintliga databaser saknar parti_namn (tillagd när småpartiernas
-  // registrerade partibeteckning började visas i UI:t)
-  await client`ALTER TABLE goteborg.kandidater ADD COLUMN IF NOT EXISTS parti_namn TEXT`
-  // Utfall enligt Valmyndighetens slutliga resultat: 'ledamot' | 'ersättare' | NULL
-  await client`ALTER TABLE goteborg.kandidater ADD COLUMN IF NOT EXISTS vald TEXT`
-  await client`ALTER TABLE goteborg.kandidater ADD COLUMN IF NOT EXISTS personvald BOOLEAN NOT NULL DEFAULT false`
-
   await client`
-    CREATE TABLE IF NOT EXISTS goteborg.mandat (
+    CREATE TABLE IF NOT EXISTS ${s}.mandat (
       parti TEXT PRIMARY KEY,
       parti_namn TEXT NOT NULL,
       antal_mandat INT NOT NULL,
@@ -113,6 +99,91 @@ async function main() {
       valdeltagande TEXT
     )`
 
+  await client`CREATE INDEX IF NOT EXISTS idx_politiker_parti ON ${s}.politiker(parti)`
+  await client`CREATE INDEX IF NOT EXISTS idx_kandidater_parti ON ${s}.kandidater(parti)`
+  await client`CREATE INDEX IF NOT EXISTS idx_politiker_fts ON ${s}.politiker USING GIN (to_tsvector('swedish', fornamn || ' ' || efternamn))`
+  // Fritextsökning (routes/sok.ts) — uttrycket måste matcha sökfrågans.
+  await client`CREATE INDEX IF NOT EXISTS idx_politiker_sok_fts ON ${s}.politiker USING GIN (to_tsvector('swedish', fornamn || ' ' || efternamn || ' ' || parti || ' ' || coalesce(uppdrag::text, '')))`
+
+  // Seed politiker
+  const polData = loadJSON(`politiker/${schema}.json`)
+  if (polData) {
+    await client`DELETE FROM ${s}.politiker`
+    for (const p of polData.politiker) {
+      await client`
+        INSERT INTO ${s}.politiker (id, fornamn, efternamn, parti, email, uppdrag, sociala)
+        VALUES (${p.id}, ${p.förnamn}, ${p.efternamn}, ${p.parti}, ${publiceradEmail(p.email)}, ${client.json(p.uppdrag)}, ${client.json({ mandatperioder: p.mandatperioder || [], närstående: null })})
+        ON CONFLICT (id) DO UPDATE SET
+          fornamn = EXCLUDED.fornamn, efternamn = EXCLUDED.efternamn,
+          parti = EXCLUDED.parti, email = EXCLUDED.email, uppdrag = EXCLUDED.uppdrag, sociala = EXCLUDED.sociala`
+    }
+    console.log(`   ✓ ${polData.politiker.length} politiker (${schema})`)
+  }
+
+  // Seed kandidater 2026 (Valmyndighetens rådata, se scrapers/kandidater.ts).
+  // politiker_id är redan matchad vid nedladdning — FK:t kräver bara att
+  // politiker seedas innan kandidater, vilket blocket ovan garanterar.
+  const kandData = loadJSON(`politiker/kandidater-2026-${schema}.json`)
+  if (kandData) {
+    await client`DELETE FROM ${s}.kandidater`
+    for (const k of kandData.kandidater) {
+      await client`
+        INSERT INTO ${s}.kandidater (id, namn, parti, parti_namn, listplats, alder, kon, faststalld, politiker_id)
+        VALUES (${k.id}, ${k.namn}, ${k.parti}, ${k.partiNamn ?? null}, ${k.listplats}, ${k.ålder}, ${k.kön}, ${k.fastställd}, ${k.politikerId})
+        ON CONFLICT (id) DO UPDATE SET
+          namn = EXCLUDED.namn, parti = EXCLUDED.parti, parti_namn = EXCLUDED.parti_namn,
+          listplats = EXCLUDED.listplats,
+          alder = EXCLUDED.alder, kon = EXCLUDED.kon, faststalld = EXCLUDED.faststalld,
+          politiker_id = EXCLUDED.politiker_id`
+    }
+    console.log(`   ✓ ${kandData.kandidater.length} kandidater (val 2026)`)
+  }
+
+  // Seed mandatfördelning 2026 (Valmyndighetens rådata, se scrapers/mandat.ts)
+  const mandatData = loadJSON(`politiker/mandat-2026-${schema}.json`)
+  if (mandatData) {
+    await client`DELETE FROM ${s}.mandat`
+    for (const m of mandatData.partiMandat) {
+      await client`
+        INSERT INTO ${s}.mandat (parti, parti_namn, antal_mandat, antal_mandat_foregaende, rakningstillfalle, senaste_uppdateringstid, valdeltagande)
+        VALUES (${m.parti}, ${m.partiNamn}, ${m.antalMandat}, ${m.antalMandatFöregåendeVal}, ${mandatData.rakningstillfälle}, ${mandatData.senasteUppdateringstid}, ${mandatData.valdeltagande})`
+    }
+    console.log(
+      `   ✓ ${mandatData.partiMandat.length} partiers mandat (val 2026, ${mandatData.rakningstillfälle})`,
+    )
+
+    // Kandidaterna seedas om från noll ovan, så vald/personvald börjar som
+    // NULL/false. Ersättare först: en ledamot kan stå som ersättare för en
+    // partikamrat, och ledamotsrollen ska vinna.
+    const ledamöter = mandatData.ledamöter || []
+    const ersättare = [...new Set(ledamöter.flatMap((l: any) => l.ersättare))] as string[]
+    if (ersättare.length)
+      await client`UPDATE ${s}.kandidater SET vald = 'ersättare' WHERE id IN ${client(ersättare)}`
+    for (const l of ledamöter) {
+      await client`UPDATE ${s}.kandidater SET vald = 'ledamot', personvald = ${l.personvald} WHERE id = ${l.kandidatId}`
+    }
+    if (ledamöter.length)
+      console.log(`   ✓ ${ledamöter.length} valda ledamöter, ${ersättare.length} ersättare`)
+  }
+}
+
+async function main() {
+  const client = postgres(connectionString, { max: 5 })
+
+  console.log('🌱 Seeding database...\n')
+
+  // Fresh schema every run — the DB is a pure derived artifact of data/,
+  // and prod re-seeds on every container start, so stale tables or column
+  // shapes must never survive a deploy.
+  await client`DROP SCHEMA IF EXISTS goteborg CASCADE`
+  await client`CREATE SCHEMA IF NOT EXISTS goteborg`
+  console.log('   ✓ Schema goteborg')
+
+  await seedPersonerOchVal(client, 'goteborg')
+  // Rostern behövs igen nedan (politiker-noder, nämnd- och bolagskanter i grafen)
+  const polData = loadJSON('politiker/goteborg.json')
+
+  // Create tables
   await client`
     CREATE TABLE IF NOT EXISTS goteborg.graf_nodes (
       id TEXT PRIMARY KEY,
@@ -169,14 +240,11 @@ async function main() {
   console.log('   ✓ Tables created (unused dropped)')
 
   // Create indexes
-  await client`CREATE INDEX IF NOT EXISTS idx_politiker_parti ON goteborg.politiker(parti)`
-  await client`CREATE INDEX IF NOT EXISTS idx_kandidater_parti ON goteborg.kandidater(parti)`
   await client`CREATE INDEX IF NOT EXISTS idx_graf_nodes_typ ON goteborg.graf_nodes(typ)`
   await client`CREATE INDEX IF NOT EXISTS idx_graf_nodes_datum ON goteborg.graf_nodes((data->>'datum')) WHERE typ = 'paragraf'`
   await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_from ON goteborg.graf_edges(from_id)`
   await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_to ON goteborg.graf_edges(to_id)`
   await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_typ ON goteborg.graf_edges(typ)`
-  await client`CREATE INDEX IF NOT EXISTS idx_politiker_fts ON goteborg.politiker USING GIN (to_tsvector('swedish', fornamn || ' ' || efternamn))`
   await client`CREATE INDEX IF NOT EXISTS idx_dokument_fts ON goteborg.dokument USING GIN (to_tsvector('swedish', titel || ' ' || innehall))`
   await client`CREATE INDEX IF NOT EXISTS idx_analys_ai ON goteborg.analys(arende_nr) WHERE ai IS NOT NULL`
   // Fritextsökning (/v1/{kommun}/sök, routes/sok.ts). Politiker-uttrycket
@@ -184,71 +252,9 @@ async function main() {
   // indexet — ändra på båda ställena samtidigt. Graf-indexen går mot den
   // lagrade fts-kolumnen och är partiella per nodtyp, eftersom sökningen
   // alltid filtrerar på typ (paragraf = beslut, anförande = talare/ärende).
-  await client`CREATE INDEX IF NOT EXISTS idx_politiker_sok_fts ON goteborg.politiker USING GIN (to_tsvector('swedish', fornamn || ' ' || efternamn || ' ' || parti || ' ' || coalesce(uppdrag::text, '')))`
   await client`CREATE INDEX IF NOT EXISTS idx_graf_paragraf_fts ON goteborg.graf_nodes USING GIN (fts) WHERE typ = 'paragraf'`
   await client`CREATE INDEX IF NOT EXISTS idx_graf_anforande_fts ON goteborg.graf_nodes USING GIN (fts) WHERE typ = 'anförande'`
   console.log('   ✓ Indexes created')
-
-  // Seed politiker
-  const polData = loadJSON('politiker/goteborg.json')
-  if (polData) {
-    await client`DELETE FROM goteborg.politiker`
-    for (const p of polData.politiker) {
-      await client`
-        INSERT INTO goteborg.politiker (id, fornamn, efternamn, parti, email, uppdrag, sociala)
-        VALUES (${p.id}, ${p.förnamn}, ${p.efternamn}, ${p.parti}, ${publiceradEmail(p.email)}, ${client.json(p.uppdrag)}, ${client.json({ mandatperioder: p.mandatperioder || [], närstående: null })})
-        ON CONFLICT (id) DO UPDATE SET
-          fornamn = EXCLUDED.fornamn, efternamn = EXCLUDED.efternamn,
-          parti = EXCLUDED.parti, email = EXCLUDED.email, uppdrag = EXCLUDED.uppdrag, sociala = EXCLUDED.sociala`
-    }
-    console.log(`   ✓ ${polData.politiker.length} politiker`)
-  }
-
-  // Seed kandidater 2026 (Valmyndighetens rådata, se scrapers/kandidater.ts).
-  // politiker_id är redan matchad vid nedladdning — FK:t kräver bara att
-  // politiker seedas innan kandidater, vilket blocket ovan garanterar.
-  const kandData = loadJSON('politiker/kandidater-2026-goteborg.json')
-  if (kandData) {
-    await client`DELETE FROM goteborg.kandidater`
-    for (const k of kandData.kandidater) {
-      await client`
-        INSERT INTO goteborg.kandidater (id, namn, parti, parti_namn, listplats, alder, kon, faststalld, politiker_id)
-        VALUES (${k.id}, ${k.namn}, ${k.parti}, ${k.partiNamn ?? null}, ${k.listplats}, ${k.ålder}, ${k.kön}, ${k.fastställd}, ${k.politikerId})
-        ON CONFLICT (id) DO UPDATE SET
-          namn = EXCLUDED.namn, parti = EXCLUDED.parti, parti_namn = EXCLUDED.parti_namn,
-          listplats = EXCLUDED.listplats,
-          alder = EXCLUDED.alder, kon = EXCLUDED.kon, faststalld = EXCLUDED.faststalld,
-          politiker_id = EXCLUDED.politiker_id`
-    }
-    console.log(`   ✓ ${kandData.kandidater.length} kandidater (val 2026)`)
-  }
-
-  // Seed mandatfördelning 2026 (Valmyndighetens rådata, se scrapers/mandat.ts)
-  const mandatData = loadJSON('politiker/mandat-2026-goteborg.json')
-  if (mandatData) {
-    await client`DELETE FROM goteborg.mandat`
-    for (const m of mandatData.partiMandat) {
-      await client`
-        INSERT INTO goteborg.mandat (parti, parti_namn, antal_mandat, antal_mandat_foregaende, rakningstillfalle, senaste_uppdateringstid, valdeltagande)
-        VALUES (${m.parti}, ${m.partiNamn}, ${m.antalMandat}, ${m.antalMandatFöregåendeVal}, ${mandatData.rakningstillfälle}, ${mandatData.senasteUppdateringstid}, ${mandatData.valdeltagande})`
-    }
-    console.log(
-      `   ✓ ${mandatData.partiMandat.length} partiers mandat (val 2026, ${mandatData.rakningstillfälle})`,
-    )
-
-    // Kandidaterna seedas om från noll ovan, så vald/personvald börjar som
-    // NULL/false. Ersättare först: en ledamot kan stå som ersättare för en
-    // partikamrat, och ledamotsrollen ska vinna.
-    const ledamöter = mandatData.ledamöter || []
-    const ersättare = [...new Set(ledamöter.flatMap((l: any) => l.ersättare))] as string[]
-    if (ersättare.length)
-      await client`UPDATE goteborg.kandidater SET vald = 'ersättare' WHERE id IN ${client(ersättare)}`
-    for (const l of ledamöter) {
-      await client`UPDATE goteborg.kandidater SET vald = 'ledamot', personvald = ${l.personvald} WHERE id = ${l.kandidatId}`
-    }
-    if (ledamöter.length)
-      console.log(`   ✓ ${ledamöter.length} valda ledamöter, ${ersättare.length} ersättare`)
-  }
 
   // Seed graph nodes + edges (with organisation merge)
   const grafDir = join(DATA_DIR, 'graf')
@@ -702,6 +708,28 @@ async function main() {
   // tabellen har FK mot dem.
   const { seedAnförandeText } = await import('./seed-anforande-text.js')
   await seedAnförandeText(client, DATA_DIR)
+
+  // Mölndal — politiker, val 2026 och mötesförteckning. Inga protokoll-
+  // grafer än: protokollen ligger i webbdiariet utan öppet API
+  // (scrapers/moten-molndal.ts), så bara mötet + länken dit.
+  await client`DROP SCHEMA IF EXISTS molndal CASCADE`
+  await client`CREATE SCHEMA molndal`
+  console.log('\n   ✓ Schema molndal')
+  await seedPersonerOchVal(client, 'molndal')
+  await client`
+    CREATE TABLE molndal.sammantraden (
+      organ TEXT NOT NULL,
+      datum TEXT NOT NULL,
+      url TEXT NOT NULL,
+      PRIMARY KEY (organ, datum)
+    )`
+  const mötenMolndal = loadJSON('beslut/molndal-moten.json')
+  if (mötenMolndal) {
+    for (const m of mötenMolndal.möten) {
+      await client`INSERT INTO molndal.sammantraden (organ, datum, url) VALUES (${m.organ}, ${m.datum}, ${m.url})`
+    }
+    console.log(`   ✓ ${mötenMolndal.möten.length} sammanträden med handlingar (molndal)`)
+  }
 
   reportDroppedEdges()
   console.log('\n✅ Database seeded')
