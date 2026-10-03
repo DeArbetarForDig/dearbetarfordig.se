@@ -1,0 +1,19 @@
+---
+import Kommun from '../../../layouts/Kommun.astro'
+---
+<Kommun title="KF — Mölndal" kommun="molndal" kommunNamn="Mölndal">
+  <h1 class="text-[2rem] font-bold mb-2">Kommunfullmäktige</h1>
+  <p class="text-sm text-[var(--color-text-muted)] mb-8">Mölndals stad — 61 ledamöter</p>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <a href="/molndal/kf/moten" class="p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl hover:border-[var(--color-primary)] transition-colors">
+      <div class="text-2xl mb-2">📅</div>
+      <h2 class="font-bold text-lg mb-1">Sammanträden</h2>
+      <p class="text-sm text-[var(--color-text-muted)]">Alla KF-möten med beslut, närvaro och voteringar</p>
+    </a>
+    <a href="/molndal/kf/beslut" class="p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl hover:border-[var(--color-primary)] transition-colors">
+      <div class="text-2xl mb-2">📋</div>
+      <h2 class="font-bold text-lg mb-1">Beslut</h2>
+      <p class="text-sm text-[var(--color-text-muted)]">Sökbar tabell med alla KF-beslut, voteringar och diarienummer</p>
+    </a>
+  </div>
+</Kommun>

@@ -51,13 +51,20 @@ metricsRouter.openapi(statsRoute, async (c) => {
     {
       kommun: c.req.valid('param').kommun,
       politiker: pol[0].total,
-      // Official 2022 election results — Göteborgs kommunfullmäktige (Valmyndigheten 2022-09-11)
-      partier: { S: 21, M: 14, V: 13, SD: 9, MP: 5, L: 5, D: 5, KD: 4, C: 5 },
+      partier: KF_MANDAT_2022[c.req.valid('param').kommun] ?? {},
       graf: { nodes: nodeCount[0].total, edges: edgeCount[0].total },
     },
     200,
   )
 })
+
+// KF-mandat efter valet 2022 (Valmyndigheten, slutligt resultat 2022-09-11).
+// Mölndal: samma siffror som antalMandatFöregåendeVal i
+// data/politiker/mandat-2026-molndal.json.
+const KF_MANDAT_2022: Record<string, Record<string, number>> = {
+  goteborg: { S: 21, M: 14, V: 13, SD: 9, MP: 5, L: 5, D: 5, KD: 4, C: 5 },
+  molndal: { S: 17, M: 14, SD: 9, L: 5, V: 5, C: 4, MP: 4, KD: 3 },
+}
 
 // --- Metrics ---
 const metricsRoute = createRoute({

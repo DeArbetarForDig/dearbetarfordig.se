@@ -1,23 +1,78 @@
 ---
+import DecisionCard from '../../../../ui/src/components/cards/DecisionCard.astro'
 import Chamber from '../../../../ui/src/components/charts/Chamber.astro'
+import Gauge from '../../../../ui/src/components/charts/Gauge.astro'
+import Heatmap from '../../../../ui/src/components/charts/Heatmap.astro'
 import HorizontalBar from '../../../../ui/src/components/charts/HorizontalBar.astro'
 import ProgressBar from '../../../../ui/src/components/charts/ProgressBar.astro'
 import Button from '../../../../ui/src/components/core/Button.astro'
 import Card from '../../../../ui/src/components/core/Card.astro'
 import DataTable from '../../../../ui/src/components/core/DataTable.astro'
 import { generatePartyTagHTML } from '../../../../ui/src/components/party-tag/index.ts'
-import { type Politiker, getBudget, getMandat, getPolitiker, getSammantraden } from '../../data/api'
+import {
+  type Politiker,
+  getAllBeslut,
+  getBudget,
+  getMandat,
+  getMetrics,
+  getMöten,
+  getPolitiker,
+  getSammantraden,
+} from '../../data/api'
 import Kommun from '../../layouts/Kommun.astro'
 
 const KOMMUN = 'molndal'
 const TROMAN = 'https://molndal.tromanpublik.se'
 
-const [politiker, mandat, sammanträden, budget] = await Promise.all([
+const [politiker, mandat, sammanträden, budget, metrics, möten, allaBeslut] = await Promise.all([
   getPolitiker(KOMMUN),
   getMandat(KOMMUN),
   getSammantraden(KOMMUN),
   getBudget(KOMMUN),
+  getMetrics(KOMMUN),
+  getMöten(KOMMUN),
+  getAllBeslut(KOMMUN),
 ])
+
+// --- Mandatperioden 2022–2026 ur protokollen (parse-protokoll-molndal.ts) ---
+const kfMöten = möten.filter((m: any) => m.label?.includes('KF'))
+const ksMöten = möten.filter((m: any) => m.label?.includes('KS'))
+const kfBeslut = allaBeslut.filter((b: any) => b.organ === 'KF')
+const status = (b: any) =>
+  b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut === 'beslut' ? 'antecknad' : b.beslut
+const beslutKort = (b: any) => ({
+  titel: b.rubrik.replace(/^§ \d+ /, ''),
+  datum: b.datum,
+  status: status(b),
+  paragraf: `${b.organ} ${b.paragraf}`,
+  ja: b.votering?.ja,
+  nej: b.votering?.nej,
+  avstar: b.votering?.avstår,
+  namnupprop: b.namnupprop,
+  url: `/molndal/beslut/${encodeURIComponent(b.id)}`,
+})
+const senasteBeslut = kfBeslut
+  .filter((b: any) => b.beslut !== 'beslut')
+  .sort((a: any, b: any) => b.datum.localeCompare(a.datum))
+  .slice(0, 6)
+  .map(beslutKort)
+// Jämnast voteringar = de mest omstridda besluten
+const omstridda = allaBeslut
+  .filter((b: any) => b.votering)
+  .sort(
+    (a: any, b: any) =>
+      Math.abs(a.votering.ja - a.votering.nej) - Math.abs(b.votering.ja - b.votering.nej),
+  )
+  .slice(0, 4)
+  .map(beslutKort)
+
+const riceEntries = Object.entries(metrics.riceIndex || {}).sort(
+  ([, a]: any, [, b]: any) => b - a,
+) as [string, number][]
+const { partier: överensPartier, matris: överensMatris } = metrics.röstÖverensstämmelse || {
+  partier: [],
+  matris: [],
+}
 const budgetBars = budget.nämnder
   .filter((n: any) => n.kommunbidragMnkr)
   .sort((a: any, b: any) => b.kommunbidragMnkr - a.kommunbidragMnkr)
@@ -45,6 +100,15 @@ for (const p of kf) kfPerParti.set(p.parti, (kfPerParti.get(p.parti) || 0) + 1)
 const partiRank = new Map(
   [...kfPerParti].sort((a, b) => b[1] - a[1]).map(([parti], i) => [parti, i]),
 )
+const överensOrdning = [...överensPartier].sort(
+  (a: string, b: string) => (partiRank.get(a) ?? 99) - (partiRank.get(b) ?? 99),
+)
+const överensIndex = new Map(överensPartier.map((p: string, i: number) => [p, i]))
+const överensMatrisSorterad = överensOrdning.map((a) =>
+  överensOrdning.map((b) => överensMatris[överensIndex.get(a)!][överensIndex.get(b)!]),
+)
+const partiFärger = Object.fromEntries(överensOrdning.map((p) => [p, färg(p)]))
+
 const efterParti = (a: Politiker, b: Politiker) =>
   (partiRank.get(a.parti) ?? 99) - (partiRank.get(b.parti) ?? 99) ||
   a.namn.localeCompare(b.namn, 'sv')
@@ -140,6 +204,74 @@ const person = (p: Politiker, roll?: string) =>
     </div>
   </section>
 
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold mb-2">Mandatperioden 2022–2026 i siffror</h2>
+    <p class="text-sm text-(--color-text-muted) mb-4">
+      Ur {kfMöten.length} KF- och {ksMöten.length} KS-protokoll sedan oktober 2022 —
+      <a href="/molndal/kf" class="underline hover:text-(--color-primary)">alla beslut och sammanträden</a>.
+    </p>
+    <div class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
+      <Card title="Sammanträden" titleSize="sm">
+        <div class="font-mono text-[2.5rem] font-bold leading-none">{möten.length}</div>
+        <p class="text-xs text-(--color-text-muted) mt-1">{kfMöten.length} KF · {ksMöten.length} KS</p>
+      </Card>
+      <Card title="Beslut (paragrafer)" titleSize="sm">
+        <div class="font-mono text-[2.5rem] font-bold leading-none">{allaBeslut.length}</div>
+        <p class="text-xs text-(--color-text-muted) mt-1">{kfBeslut.length} i KF</p>
+      </Card>
+      <Card title="Voteringar" titleSize="sm">
+        <div class="font-mono text-[2.5rem] font-bold leading-none">{metrics.konsensus.medVotering}</div>
+        <p class="text-xs text-(--color-text-muted) mt-1">med namnupprop i protokollet</p>
+      </Card>
+      <Card title="Konsensus" subtitle="Ärenden utan votering" titleSize="sm" tooltip="Andel beslut som fattades utan formell omröstning. Över 85% kan tyda på att den verkliga debatten sker innan sammanträdet.">
+        <div class="flex justify-center">
+          <Gauge
+            value={metrics.konsensus.konsensusgradProcent}
+            unit="%"
+            zones={[
+              { from: 0, to: 85, color: 'var(--color-positive)' },
+              { from: 85, to: 100, color: 'var(--color-warning)' },
+            ]}
+          />
+        </div>
+      </Card>
+    </div>
+
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <div class="bg-(--color-surface) border border-(--color-border) rounded-lg p-4">
+        <h3 class="font-bold mb-3">Parti-sammanhållning (Rice Index)</h3>
+        <p class="text-xs text-(--color-text-muted) mb-3">1.0 = alla röstar lika, 0.5 = splittrat. Källa: Rice (1924)</p>
+        <HorizontalBar bars={riceEntries.map(([parti, rice]) => ({ label: parti === '-' ? 'Partilösa' : parti, value: rice, color: färg(parti) }))} max={1} />
+      </div>
+      {överensOrdning.length > 1 && (
+        <div class="bg-(--color-surface) border border-(--color-border) rounded-lg p-4">
+          <h3 class="font-bold mb-3">Röstöverensstämmelse mellan partier</h3>
+          <p class="text-xs text-(--color-text-muted) mb-3">Andel voteringar där partiernas majoritet röstade lika — visar samarbetsmönster.</p>
+          <Heatmap labels={överensOrdning} matrix={överensMatrisSorterad} colors={partiFärger} unit="överensstämmelse" />
+        </div>
+      )}
+    </div>
+
+    {omstridda.length > 0 && (
+      <div class="mt-6">
+        <h3 class="font-bold mb-3">Jämnaste voteringarna</h3>
+        <div class="grid gap-4 md:grid-cols-2">
+          {omstridda.map((b) => <DecisionCard {...b} />)}
+        </div>
+      </div>
+    )}
+
+    <div class="mt-6">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="font-bold">Senaste KF-beslut</h3>
+        <Button variant="ghost" href="/molndal/kf/beslut">Alla beslut →</Button>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        {senasteBeslut.map((b) => <DecisionCard {...b} />)}
+      </div>
+    </div>
+  </section>
+
   <section class="mb-12 grid gap-4 grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
     <Card title={`Valet 2026 — ${räkning === 'slutlig' ? 'slutligt resultat' : 'preliminärt resultat'}`} subtitle={`Valdeltagande ${valdeltagande ?? '–'} · ${totalMandat} mandat`}>
       <HorizontalBar bars={mandatBars} labelWidth="14rem" />
@@ -173,7 +305,7 @@ const person = (p: Politiker, roll?: string) =>
         {senasteKS && <li>Kommunstyrelsen — <a href={senasteKS.url} class="underline hover:text-(--color-primary)" rel="noopener">{senasteKS.datum} ↗</a></li>}
       </ul>
       <p class="text-xs text-(--color-text-muted) mt-3">
-        Protokollen publiceras i Mölndals webbdiarium. De är inte tolkade till beslut och voteringar här än — det finns bara för Göteborg.
+        KF- och KS-protokollen är tolkade till beslut och voteringar (se ovan); nämndernas protokoll finns som länkar till webbdiariet.
       </p>
     </Card>
 
