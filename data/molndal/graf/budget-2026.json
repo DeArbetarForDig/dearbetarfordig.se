@@ -1,0 +1,196 @@
+{
+  "nodes": [
+    {
+      "id": "budget-2026",
+      "typ": "budget",
+      "label": "Mölndals stad kommunbidrag 2026",
+      "data": {
+        "år": 2026,
+        "totalMnkr": 5047.6,
+        "källa": "https://www.molndal.se/download/18.24ecca8419ae7c7212179/1764834186427/Budget%20plan%202026-2028.pdf"
+      }
+    },
+    {
+      "id": "nämnd-byggnadsnämnden-2026",
+      "typ": "organisation",
+      "label": "Byggnadsnämnden",
+      "data": {
+        "kommunbidragMnkr": 28.8,
+        "andelProcent": 0.6
+      }
+    },
+    {
+      "id": "nämnd-kommunfullmäktige-och-kommunstyrelsen-2026",
+      "typ": "organisation",
+      "label": "Kommunfullmäktige och kommunstyrelsen",
+      "data": {
+        "kommunbidragMnkr": 463.4,
+        "andelProcent": 9.2
+      }
+    },
+    {
+      "id": "nämnd-kultur-och-fritidsnämnden-2026",
+      "typ": "organisation",
+      "label": "Kultur- och fritidsnämnden",
+      "data": {
+        "kommunbidragMnkr": 242.9,
+        "andelProcent": 4.8
+      }
+    },
+    {
+      "id": "nämnd-miljönämnden-2026",
+      "typ": "organisation",
+      "label": "Miljönämnden",
+      "data": {
+        "kommunbidragMnkr": 1,
+        "andelProcent": 0
+      }
+    },
+    {
+      "id": "nämnd-servicenämnden-2026",
+      "typ": "organisation",
+      "label": "Servicenämnden",
+      "data": {
+        "kommunbidragMnkr": 15.9,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-skolnämnden-2026",
+      "typ": "organisation",
+      "label": "Skolnämnden",
+      "data": {
+        "kommunbidragMnkr": 1875.8,
+        "andelProcent": 37.2
+      }
+    },
+    {
+      "id": "nämnd-social-och-arbetsmarknadsnämnden-2026",
+      "typ": "organisation",
+      "label": "Social- och arbetsmarknadsnämnden",
+      "data": {
+        "kommunbidragMnkr": 370.8,
+        "andelProcent": 7.3
+      }
+    },
+    {
+      "id": "nämnd-tekniska-nämnden-2026",
+      "typ": "organisation",
+      "label": "Tekniska nämnden",
+      "data": {
+        "kommunbidragMnkr": 275.4,
+        "andelProcent": 5.5
+      }
+    },
+    {
+      "id": "nämnd-utbildningsnämnden-2026",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden",
+      "data": {
+        "kommunbidragMnkr": 453.7,
+        "andelProcent": 9
+      }
+    },
+    {
+      "id": "nämnd-vård-och-omsorgsnämnden-2026",
+      "typ": "organisation",
+      "label": "Vård- och omsorgsnämnden",
+      "data": {
+        "kommunbidragMnkr": 1319.9,
+        "andelProcent": 26.1
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "budget-2026",
+      "to": "nämnd-byggnadsnämnden-2026",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 28.8,
+        "andel": 0.6
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-kommunfullmäktige-och-kommunstyrelsen-2026",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 463.4,
+        "andel": 9.2
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-kultur-och-fritidsnämnden-2026",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 242.9,
+        "andel": 4.8
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-miljönämnden-2026",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1,
+        "andel": 0
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-servicenämnden-2026",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 15.9,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-skolnämnden-2026",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1875.8,
+        "andel": 37.2
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-social-och-arbetsmarknadsnämnden-2026",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 370.8,
+        "andel": 7.3
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-tekniska-nämnden-2026",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 275.4,
+        "andel": 5.5
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-utbildningsnämnden-2026",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 453.7,
+        "andel": 9
+      }
+    },
+    {
+      "from": "budget-2026",
+      "to": "nämnd-vård-och-omsorgsnämnden-2026",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1319.9,
+        "andel": 26.1
+      }
+    }
+  ]
+}

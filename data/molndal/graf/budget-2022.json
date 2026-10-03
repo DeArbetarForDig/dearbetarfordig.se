@@ -1,0 +1,196 @@
+{
+  "nodes": [
+    {
+      "id": "budget-2022",
+      "typ": "budget",
+      "label": "Mölndals stad kommunbidrag 2022",
+      "data": {
+        "år": 2022,
+        "totalMnkr": 4125.6,
+        "källa": "https://www.molndal.se/download/18.7dca557719a7d85cdddce8e/1763657724589/Budget%20plan%202022-2024.pdf"
+      }
+    },
+    {
+      "id": "nämnd-byggnadsnämnden-2022",
+      "typ": "organisation",
+      "label": "Byggnadsnämnden",
+      "data": {
+        "kommunbidragMnkr": 17.1,
+        "andelProcent": 0.4
+      }
+    },
+    {
+      "id": "nämnd-kommunfullmäktige-och-kommunstyrelsen-2022",
+      "typ": "organisation",
+      "label": "Kommunfullmäktige och kommunstyrelsen",
+      "data": {
+        "kommunbidragMnkr": 262.6,
+        "andelProcent": 6.4
+      }
+    },
+    {
+      "id": "nämnd-kultur-och-fritidsnämnden-2022",
+      "typ": "organisation",
+      "label": "Kultur- och fritidsnämnden",
+      "data": {
+        "kommunbidragMnkr": 179.3,
+        "andelProcent": 4.3
+      }
+    },
+    {
+      "id": "nämnd-miljönämnden-2022",
+      "typ": "organisation",
+      "label": "Miljönämnden",
+      "data": {
+        "kommunbidragMnkr": 13.2,
+        "andelProcent": 0.3
+      }
+    },
+    {
+      "id": "nämnd-servicenämnden-2022",
+      "typ": "organisation",
+      "label": "Servicenämnden",
+      "data": {
+        "kommunbidragMnkr": 6.8,
+        "andelProcent": 0.2
+      }
+    },
+    {
+      "id": "nämnd-skolnämnden-2022",
+      "typ": "organisation",
+      "label": "Skolnämnden",
+      "data": {
+        "kommunbidragMnkr": 1568.3,
+        "andelProcent": 38
+      }
+    },
+    {
+      "id": "nämnd-social-och-arbetsmarknadsnämnden-2022",
+      "typ": "organisation",
+      "label": "Social- och arbetsmarknadsnämnden",
+      "data": {
+        "kommunbidragMnkr": 344.7,
+        "andelProcent": 8.4
+      }
+    },
+    {
+      "id": "nämnd-tekniska-nämnden-2022",
+      "typ": "organisation",
+      "label": "Tekniska nämnden",
+      "data": {
+        "kommunbidragMnkr": 208.1,
+        "andelProcent": 5
+      }
+    },
+    {
+      "id": "nämnd-utbildningsnämnden-2022",
+      "typ": "organisation",
+      "label": "Utbildningsnämnden",
+      "data": {
+        "kommunbidragMnkr": 369.6,
+        "andelProcent": 9
+      }
+    },
+    {
+      "id": "nämnd-vård-och-omsorgsnämnden-2022",
+      "typ": "organisation",
+      "label": "Vård- och omsorgsnämnden",
+      "data": {
+        "kommunbidragMnkr": 1155.9,
+        "andelProcent": 28
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "budget-2022",
+      "to": "nämnd-byggnadsnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 17.1,
+        "andel": 0.4
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-kommunfullmäktige-och-kommunstyrelsen-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 262.6,
+        "andel": 6.4
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-kultur-och-fritidsnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 179.3,
+        "andel": 4.3
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-miljönämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 13.2,
+        "andel": 0.3
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-servicenämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 6.8,
+        "andel": 0.2
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-skolnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1568.3,
+        "andel": 38
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-social-och-arbetsmarknadsnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 344.7,
+        "andel": 8.4
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-tekniska-nämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 208.1,
+        "andel": 5
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-utbildningsnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 369.6,
+        "andel": 9
+      }
+    },
+    {
+      "from": "budget-2022",
+      "to": "nämnd-vård-och-omsorgsnämnden-2022",
+      "typ": "finansierar",
+      "data": {
+        "mnkr": 1155.9,
+        "andel": 28
+      }
+    }
+  ]
+}

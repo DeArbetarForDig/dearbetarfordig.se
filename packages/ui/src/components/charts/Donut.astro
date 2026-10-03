@@ -36,7 +36,8 @@ const {
   class: className,
 } = Astro.props
 
-const total = segments.reduce((s, x) => s + x.value, 0) || 1
+// Avrundat till en decimal: summan av decimalbelopp (mnkr) ger annars flyttalsbrus i mitten
+const total = Math.round(segments.reduce((s, x) => s + x.value, 0) * 10) / 10 || 1
 const r = size / 2 - thickness / 2 - 2
 const cx = size / 2
 const cy = size / 2

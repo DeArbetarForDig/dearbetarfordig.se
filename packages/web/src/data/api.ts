@@ -233,16 +233,16 @@ export interface BudgetYear {
 
 type BudgetItem = { år: number; totalMnkr: number; styre?: string; beslut: BudgetBeslut | null }
 
-export async function getBudget(): Promise<BudgetYear> {
-  const data = await fetchApi<HalResource<BudgetItem, { nämnder: BudgetNämnd[] }>>('/v1/goteborg/budget?%C3%A5r=2026')
+export async function getBudget(kommun = 'goteborg'): Promise<BudgetYear> {
+  const data = await fetchApi<HalResource<BudgetItem, { nämnder: BudgetNämnd[] }>>(`/v1/${kommun}/budget?%C3%A5r=2026`)
   return {
     ...data._embedded.item,
     nämnder: data._embedded.related?.nämnder || [],
   }
 }
 
-export async function getBudgetYear(år: number): Promise<BudgetYear> {
-  const data = await fetchApi<HalResource<BudgetItem, { nämnder: BudgetNämnd[] }>>(`/v1/goteborg/budget?%C3%A5r=${år}`)
+export async function getBudgetYear(år: number, kommun = 'goteborg'): Promise<BudgetYear> {
+  const data = await fetchApi<HalResource<BudgetItem, { nämnder: BudgetNämnd[] }>>(`/v1/${kommun}/budget?%C3%A5r=${år}`)
   return {
     ...data._embedded.item,
     nämnder: data._embedded.related?.nämnder || [],
@@ -263,8 +263,8 @@ export interface BudgetUtfallNämnd {
   kommentar?: string
 }
 
-export async function getBudgetUtfall(år: number): Promise<BudgetUtfallNämnd[]> {
-  const data = await fetchApi<HalCollection<BudgetUtfallNämnd>>(`/v1/goteborg/budget/utfall?%C3%A5r=${år}`)
+export async function getBudgetUtfall(år: number, kommun = 'goteborg'): Promise<BudgetUtfallNämnd[]> {
+  const data = await fetchApi<HalCollection<BudgetUtfallNämnd>>(`/v1/${kommun}/budget/utfall?%C3%A5r=${år}`)
   return data._embedded.items
 }
 
@@ -373,7 +373,7 @@ export interface TrendKpi {
   enhet: string
   nämndId?: string
   nämndNamn?: string
-  göteborg: TrendDataPunkt[]
+  utfall: TrendDataPunkt[]
   utfallÄndring: TrendÄndring | null
   budget?: TrendDataPunkt[]
   budgetÄndring?: TrendÄndring | null
@@ -448,8 +448,8 @@ export function divergensLabel(d: number): { text: string; tone: 'warning' | 'ne
   return { text: 'Proportionellt — resultat följer budget', tone: 'positive' }
 }
 
-export async function getTrender(): Promise<Trender> {
-  const trender = await fetchApi<Trender>('/v1/goteborg/trender')
+export async function getTrender(kommun = 'goteborg'): Promise<Trender> {
+  const trender = await fetchApi<Trender>(`/v1/${kommun}/trender`)
 
   let kpiIndex: Record<number, number> = {}
   try {

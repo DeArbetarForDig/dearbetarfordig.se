@@ -13,17 +13,28 @@
  * kommunbudgeten finns bara från 2022 i det här projektets data, så
  * budget-serien är kortare än utfalls-serien för samma nyckeltal.
  *
- * Användning: npx tsx packages/pipeline/src/scrapers/kolada.ts
+ * Per kommun: utfallsserien och — där en nämnd styr nyckeltalet — samma
+ * nämnds kommunbidrag ur kommunens budgetgraf (Göteborg: data/graf/,
+ * övriga: data/{kommun}/graf/). Utfil: data/kolada/kpi-trender.json för
+ * Göteborg, data/kolada/kpi-trender-{kommun}.json för övriga.
+ *
+ * Användning: npx tsx packages/pipeline/src/scrapers/kolada.ts [kommun]
  */
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { kommunFrånArgv } from './kommuner'
 
 const DATA_DIR = join(import.meta.dirname, '../../../../data')
-const OUTPUT_PATH = join(DATA_DIR, 'kolada/kpi-trender.json')
+const KOMMUN = kommunFrånArgv()
+const OUTPUT_PATH = join(
+  DATA_DIR,
+  KOMMUN.slug === 'goteborg' ? 'kolada/kpi-trender.json' : `kolada/kpi-trender-${KOMMUN.slug}.json`,
+)
+const BUDGET_DIR =
+  KOMMUN.slug === 'goteborg' ? join(DATA_DIR, 'graf') : join(DATA_DIR, KOMMUN.slug, 'graf')
 
 const API_BASE = 'https://api.kolada.se/v3'
-const GÖTEBORG = '1480'
 const ÅR_FRÅN = 2020
 const ÅR_TILL = 2025
 const BUDGET_ÅR = [2022, 2023, 2024, 2025, 2026]
@@ -47,40 +58,30 @@ const KPIER: KpiDef[] = [
     namn: 'Meritvärde åk 9 (genomsnitt, 17 ämnen)',
     kategori: 'Skola',
     enhet: 'poäng',
-    nämndId: 'nämnd-grundskolenämnden',
-    nämndNamn: 'Grundskolenämnden',
   },
   {
     id: 'N00531',
     namn: 'Medborgarundersökning: grundskolan fungerar bra',
     kategori: 'Skola',
     enhet: '%',
-    nämndId: 'nämnd-grundskolenämnden',
-    nämndNamn: 'Grundskolenämnden',
   },
   {
     id: 'U23463',
     namn: 'Brukarbedömning särskilt boende: alltid bra bemötande',
     kategori: 'Äldreomsorg',
     enhet: '%',
-    nämndId: 'nämnd-äldre-samt-vård-och-omsorgsnämnden',
-    nämndNamn: 'Äldre samt vård- och omsorgsnämnden',
   },
   {
     id: 'N00401',
     namn: 'Utsläpp växthusgaser per invånare',
     kategori: 'Miljö',
     enhet: 'ton CO2-ekv/inv',
-    nämndId: 'nämnd-miljö-och-klimatnämnden',
-    nämndNamn: 'Miljö- och klimatnämnden',
   },
   {
     id: 'N01720',
     namn: 'Arbetslösa eller i åtgärd, 16–64 år',
     kategori: 'Arbetsmarknad',
     enhet: '%',
-    nämndId: 'nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning',
-    nämndNamn: 'Nämnden för arbetsmarknad och vuxenutbildning',
   },
   // Ingen nämnd-koppling: skattesats sätts av KF för hela kommunen (inte en
   // enskild nämnds budget), sjukfrånvaro är en kommunövergripande
@@ -89,6 +90,35 @@ const KPIER: KpiDef[] = [
   { id: 'N00090', namn: 'Sjukfrånvaro bland anställda', kategori: 'Personal', enhet: '%' },
 ]
 
+// Vilken nämnds kommunbidrag ett nyckeltal paras mot, per kommun (id = nod i
+// kommunens budgetgraf utan årssuffix). Bara där nämnden styr nyckeltalet
+// direkt — Mölndals miljönämnd är en tillsynsnämnd på 1 mnkr och styr inte
+// utsläppen, så utsläppen paras inte mot någon nämnd där.
+const NÄMNDKOPPLING: Record<string, Record<string, { nämndId: string; nämndNamn: string }>> = {
+  goteborg: {
+    N15504: { nämndId: 'nämnd-grundskolenämnden', nämndNamn: 'Grundskolenämnden' },
+    N00531: { nämndId: 'nämnd-grundskolenämnden', nämndNamn: 'Grundskolenämnden' },
+    U23463: {
+      nämndId: 'nämnd-äldre-samt-vård-och-omsorgsnämnden',
+      nämndNamn: 'Äldre samt vård- och omsorgsnämnden',
+    },
+    N00401: { nämndId: 'nämnd-miljö-och-klimatnämnden', nämndNamn: 'Miljö- och klimatnämnden' },
+    N01720: {
+      nämndId: 'nämnd-nämnden-för-arbetsmarknad-och-vuxenutbildning',
+      nämndNamn: 'Nämnden för arbetsmarknad och vuxenutbildning',
+    },
+  },
+  molndal: {
+    N15504: { nämndId: 'nämnd-skolnämnden', nämndNamn: 'Skolnämnden' },
+    N00531: { nämndId: 'nämnd-skolnämnden', nämndNamn: 'Skolnämnden' },
+    U23463: { nämndId: 'nämnd-vård-och-omsorgsnämnden', nämndNamn: 'Vård- och omsorgsnämnden' },
+    N01720: {
+      nämndId: 'nämnd-social-och-arbetsmarknadsnämnden',
+      nämndNamn: 'Social- och arbetsmarknadsnämnden',
+    },
+  },
+}
+
 interface DataPoint {
   år: number
   värde: number | null
@@ -96,7 +126,7 @@ interface DataPoint {
 
 async function fetchKpiData(kpiId: string): Promise<DataPoint[]> {
   const years = Array.from({ length: ÅR_TILL - ÅR_FRÅN + 1 }, (_, i) => ÅR_FRÅN + i)
-  const url = `${API_BASE}/data/kpi/${kpiId}/municipality/${GÖTEBORG}/year/${years.join(',')}`
+  const url = `${API_BASE}/data/kpi/${kpiId}/municipality/${KOMMUN.kommunkod}/year/${years.join(',')}`
   const res = await fetch(url)
   if (!res.ok) {
     console.warn(`   ⚠️  ${kpiId}: HTTP ${res.status}`)
@@ -116,7 +146,7 @@ async function fetchKpiData(kpiId: string): Promise<DataPoint[]> {
 function loadKommunbidrag(nämndId: string): DataPoint[] {
   const points: DataPoint[] = []
   for (const år of BUDGET_ÅR) {
-    const path = join(DATA_DIR, `graf/budget-${år}.json`)
+    const path = join(BUDGET_DIR, `budget-${år}.json`)
     if (!existsSync(path)) continue
     const budget = JSON.parse(readFileSync(path, 'utf-8'))
     const node = budget.nodes.find((n: any) => n.id === `${nämndId}-${år}`)
@@ -141,13 +171,14 @@ function förändring(serie: DataPoint[]): { från: number; till: number; procen
 }
 
 async function main() {
-  console.log('📊 Kolada — Göteborgs trender, parat mot nämndbudget\n')
+  console.log(`📊 Kolada — ${KOMMUN.namn}s trender, parat mot nämndbudget\n`)
 
   const kpis = []
-  for (const kpi of KPIER) {
-    const göteborg = await fetchKpiData(kpi.id)
+  for (const def of KPIER) {
+    const kpi = { ...def, ...NÄMNDKOPPLING[KOMMUN.slug]?.[def.id] }
+    const utfall = await fetchKpiData(kpi.id)
     const budget = kpi.nämndId ? loadKommunbidrag(kpi.nämndId) : []
-    const utfallÄndring = förändring(göteborg)
+    const utfallÄndring = förändring(utfall)
     const budgetÄndring = förändring(budget)
     console.log(
       `   ✓ ${kpi.id} ${kpi.namn}${
@@ -162,7 +193,7 @@ async function main() {
     )
     kpis.push({
       ...kpi,
-      göteborg,
+      utfall,
       utfallÄndring,
       budget: kpi.nämndId ? budget : undefined,
       budgetÄndring: kpi.nämndId ? budgetÄndring : undefined,

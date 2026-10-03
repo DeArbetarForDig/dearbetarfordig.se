@@ -1,0 +1,135 @@
+---
+import Sparkline from '../../../ui/src/components/charts/Sparkline.astro'
+import Card from '../../../ui/src/components/core/Card.astro'
+import Icon from '../../../ui/src/components/core/Icon.astro'
+import { divergens, divergensLabel, getTrender } from '../data/api'
+import Kommun from '../layouts/Kommun.astro'
+
+/** Kolada-trender för en kommun, parade mot nämndens kommunbidrag. */
+interface Props {
+  kommun: string
+  kommunNamn: string
+}
+const { kommun, kommunNamn } = Astro.props
+
+const trender = await getTrender(kommun)
+const kategorier = [...new Set(trender.kpis.map((k) => k.kategori))]
+
+function poäng(serie: Array<{ år: number; värde: number | null }>) {
+  return serie.filter((p) => p.värde !== null).map((p) => p.värde as number)
+}
+
+// Kolada levererar ibland oavrundade kvoter (46.07329843)
+const fmt = (n: number) => Math.round(n * 10) / 10
+
+function tecken(procent: number) {
+  return procent >= 0 ? '+' : ''
+}
+---
+
+<Kommun title={`Trender — ${kommunNamn}`} kommun={kommun} kommunNamn={kommunNamn} breadcrumbs={[{ label: kommunNamn, href: `/${kommun}` }, { label: 'Trender' }]}>
+  <div class="max-w-4xl mx-auto">
+    <section class="mb-8">
+      <h1 class="text-3xl font-bold mb-2">{kommunNamn}s trender över tid</h1>
+      <p class="text-sm text-[var(--color-text-muted)]">
+        Källa: <a href="https://www.kolada.se" class="underline hover:no-underline">Kolada</a> (SKR/RKA:s
+        öppna kommunstatistik), parat mot motsvarande nämnds kommunbidrag. Frågan är inte "hur ligger
+        {kommunNamn} till mot andra kommuner" utan "rör sig resultat och budget åt samma håll, eller isär" —
+        t.ex. om skolans budget ökar samtidigt som resultaten står stilla.
+      </p>
+      <p class="text-xs text-[var(--color-text-muted)] mt-2 italic">
+        Ett samband här är inte ett bevis på orsak-verkan. En nämnds budget är sällan den enda faktorn
+        bakom ett utfall (arbetslöshet och utsläpp styrs t.ex. till stor del av sådant en enskild nämnd
+        inte rår över), och Kolada rapporterar årsvis — ingen månadsdata finns för dessa nyckeltal.
+      </p>
+    </section>
+
+    {kategorier.map((kategori) => (
+      <section class="mb-8">
+        <h2 class="text-lg font-bold mb-4">{kategori}</h2>
+        <div class="grid gap-4">
+          {trender.kpis
+            .filter((k) => k.kategori === kategori)
+            .sort((a, b) => {
+              const da = divergens(a)
+              const db = divergens(b)
+              if (da === null && db === null) return 0
+              if (da === null) return 1
+              if (db === null) return -1
+              return Math.abs(db) - Math.abs(da)
+            })
+            .map((kpi) => {
+              const utfallPoäng = poäng(kpi.utfall)
+              const budgetPoäng = kpi.budget ? poäng(kpi.budget) : []
+              const förstaÅr = kpi.utfall.find((p) => p.värde !== null)?.år
+              const sistaÅr = [...kpi.utfall].reverse().find((p) => p.värde !== null)?.år
+
+              return (
+                <Card title={kpi.namn} titleSize="md">
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <p class="text-xs text-[var(--color-text-muted)] mb-1">
+                        Utfall {förstaÅr}–{sistaÅr} ({kpi.enhet})
+                      </p>
+                      {utfallPoäng.length > 1 ? (
+                        <Sparkline points={utfallPoäng} width={200} height={40} />
+                      ) : (
+                        <p class="text-sm text-[var(--color-text-muted)]">Otillräcklig data</p>
+                      )}
+                      {kpi.utfallÄndring && (
+                        <p class="text-sm font-mono mt-1">
+                          {fmt(kpi.utfallÄndring.från)} → {fmt(kpi.utfallÄndring.till)} (
+                          {tecken(kpi.utfallÄndring.procent)}
+                          {kpi.utfallÄndring.procent}%)
+                        </p>
+                      )}
+                    </div>
+                    {kpi.nämndNamn && kpi.budget ? (
+                      <div>
+                        <p class="text-xs text-[var(--color-text-muted)] mb-1">
+                          Kommunbidrag {kpi.nämndNamn} (mnkr)
+                        </p>
+                        {budgetPoäng.length > 1 ? (
+                          <Sparkline points={budgetPoäng} width={200} height={40} color="var(--color-warning)" />
+                        ) : (
+                          <p class="text-sm text-[var(--color-text-muted)]">Otillräcklig data</p>
+                        )}
+                        {kpi.budgetÄndring && (
+                          <p class="text-sm font-mono mt-1">
+                            {fmt(kpi.budgetÄndring.från)} → {fmt(kpi.budgetÄndring.till)} (
+                            {tecken(kpi.budgetÄndring.procent)}
+                            {kpi.budgetÄndring.procent}%)
+                          </p>
+                        )}
+                        {kpi.budgetÄndring?.procentReellt !== undefined && (
+                          <p class="text-xs font-mono text-[var(--color-text-muted)]">
+                            Realt: {tecken(kpi.budgetÄndring.procentReellt)}
+                            {kpi.budgetÄndring.procentReellt}%
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <p class="text-xs text-[var(--color-text-muted)] self-center">
+                        Ingen tydlig enskild-nämnd-koppling för det här nyckeltalet.
+                      </p>
+                    )}
+                  </div>
+                  {kpi.budgetÄndring && kpi.utfallÄndring && (() => {
+                    const d = divergens(kpi)!
+                    const { text, tone } = divergensLabel(d)
+                    const iconName = tone === 'negative' ? 'shield-alert' : tone === 'warning' ? 'triangle-alert' : 'check'
+                    return (
+                      <div class:list={['mt-2 text-xs font-semibold flex items-center gap-1', `text-(--color-${tone})`]}>
+                        <Icon name={iconName} size={14} />
+                        {text}
+                      </div>
+                    )
+                  })()}
+                </Card>
+              )
+            })}
+        </div>
+      </section>
+    ))}
+  </div>
+</Kommun>

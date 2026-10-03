@@ -1,0 +1,167 @@
+{
+  "nodes": [
+    {
+      "id": "utfall-sammanfattning-2023",
+      "typ": "utfall",
+      "label": "Ekonomiskt utfall 2023 — alla nämnder",
+      "data": {
+        "år": 2023,
+        "källa": "Mölndals stads årsredovisning 2023",
+        "url": "https://www.molndal.se/download/18.7dca557719a7d85cdddadca/1763623343678/%C3%85rsredovisning_2023.pdf",
+        "totalResultatMnkr": 22.5,
+        "antalNämnder": 10
+      }
+    },
+    {
+      "id": "utfall-nämnd-byggnadsnämnden-2023",
+      "typ": "utfall",
+      "label": "Byggnadsnämnden utfall 2023: -5 mnkr",
+      "data": {
+        "nämnd": "Byggnadsnämnden",
+        "år": 2023,
+        "intäkterMnkr": 19.9,
+        "kostnaderMnkr": -36.8,
+        "kommunbidragMnkr": 11.9,
+        "resultatMnkr": -5,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kommunfullmäktige-och-kommunstyrelsen-2023",
+      "typ": "utfall",
+      "label": "Kommunfullmäktige och kommunstyrelsen utfall 2023: -5.6 mnkr",
+      "data": {
+        "nämnd": "Kommunfullmäktige och kommunstyrelsen",
+        "år": 2023,
+        "intäkterMnkr": 629.9,
+        "kostnaderMnkr": -941.5,
+        "kommunbidragMnkr": 306,
+        "resultatMnkr": -5.6,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kultur-och-fritidsnämnden-2023",
+      "typ": "utfall",
+      "label": "Kultur- och fritidsnämnden utfall 2023: +5.6 mnkr",
+      "data": {
+        "nämnd": "Kultur- och fritidsnämnden",
+        "år": 2023,
+        "intäkterMnkr": 49.4,
+        "kostnaderMnkr": -247.9,
+        "kommunbidragMnkr": 204.1,
+        "resultatMnkr": 5.6,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-miljönämnden-2023",
+      "typ": "utfall",
+      "label": "Miljönämnden utfall 2023: +1.3 mnkr",
+      "data": {
+        "nämnd": "Miljönämnden",
+        "år": 2023,
+        "intäkterMnkr": 6,
+        "kostnaderMnkr": -18.8,
+        "kommunbidragMnkr": 14.1,
+        "resultatMnkr": 1.3,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-servicenämnden-2023",
+      "typ": "utfall",
+      "label": "Servicenämnden utfall 2023: +5.8 mnkr",
+      "data": {
+        "nämnd": "Servicenämnden",
+        "år": 2023,
+        "intäkterMnkr": 290.8,
+        "kostnaderMnkr": -288.2,
+        "kommunbidragMnkr": 3.2,
+        "resultatMnkr": 5.8,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-skolnämnden-2023",
+      "typ": "utfall",
+      "label": "Skolnämnden utfall 2023: -9.4 mnkr",
+      "data": {
+        "nämnd": "Skolnämnden",
+        "år": 2023,
+        "intäkterMnkr": 234.3,
+        "kostnaderMnkr": -1902.1,
+        "kommunbidragMnkr": 1658.4,
+        "resultatMnkr": -9.4,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-social-och-arbetsmarknadsnämnden-2023",
+      "typ": "utfall",
+      "label": "Social- och arbetsmarknadsnämnden utfall 2023: +29.6 mnkr",
+      "data": {
+        "nämnd": "Social- och arbetsmarknadsnämnden",
+        "år": 2023,
+        "intäkterMnkr": 72.9,
+        "kostnaderMnkr": -390.9,
+        "kommunbidragMnkr": 347.6,
+        "resultatMnkr": 29.6,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-tekniska-nämnden-2023",
+      "typ": "utfall",
+      "label": "Tekniska nämnden utfall 2023: +18 mnkr",
+      "data": {
+        "nämnd": "Tekniska nämnden",
+        "år": 2023,
+        "intäkterMnkr": 342.3,
+        "kostnaderMnkr": -564.5,
+        "kommunbidragMnkr": 240.2,
+        "resultatMnkr": 18,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-utbildningsnämnden-2023",
+      "typ": "utfall",
+      "label": "Utbildningsnämnden utfall 2023: +7.1 mnkr",
+      "data": {
+        "nämnd": "Utbildningsnämnden",
+        "år": 2023,
+        "intäkterMnkr": 135,
+        "kostnaderMnkr": -528.7,
+        "kommunbidragMnkr": 400.8,
+        "resultatMnkr": 7.1,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-vård-och-omsorgsnämnden-2023",
+      "typ": "utfall",
+      "label": "Vård- och omsorgsnämnden utfall 2023: -24.9 mnkr",
+      "data": {
+        "nämnd": "Vård- och omsorgsnämnden",
+        "år": 2023,
+        "intäkterMnkr": 209.6,
+        "kostnaderMnkr": -1469.5,
+        "kommunbidragMnkr": 1235,
+        "resultatMnkr": -24.9,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    }
+  ],
+  "edges": []
+}

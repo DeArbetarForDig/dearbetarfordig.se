@@ -43,6 +43,17 @@ jobs:
       - name: Scrape sammanträden (Mölndal)
         run: npx tsx packages/pipeline/src/scrapers/moten-molndal.ts
 
+      # Annual sources (budget adopted in Nov/Dec, årsredovisning in April) —
+      # cheap to re-run weekly so a new year shows up without a manual step.
+      # Kolada pairs KPIs with each nämnd's kommunbidrag, so it runs after.
+      - name: Parse budget + utfall (Mölndal)
+        run: npx tsx packages/pipeline/src/parsers/parse-ekonomi-molndal.ts
+
+      - name: Kolada trender (Göteborg, Mölndal)
+        run: |
+          npx tsx packages/pipeline/src/scrapers/kolada.ts goteborg
+          npx tsx packages/pipeline/src/scrapers/kolada.ts molndal
+
       # Historical enrichment only (2017/2020 archive snapshots) — unrelated
       # to this week's documents. archive.org's CDX API 503s often enough
       # that it must not block the actually time-sensitive steps below

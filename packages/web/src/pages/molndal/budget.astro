@@ -1,0 +1,20 @@
+---
+import BudgetSida from '../../components/BudgetSida.astro'
+
+// Mölndals tio budgetposter (tabellen "Totalt kommunbidrag per nämnd")
+const KATEGORIER: Record<string, { label: string; match: RegExp; color: string }> = {
+  skola: {
+    label: 'Skola & utbildning',
+    match: /Skolnämnd|Utbildningsnämnd/,
+    color: 'var(--chart-1)',
+  },
+  omsorg: { label: 'Vård & omsorg', match: /omsorg/i, color: 'var(--chart-2)' },
+  social: { label: 'Social & arbetsmarknad', match: /Social/, color: 'var(--chart-3)' },
+  ks: { label: 'KF & kommunstyrelsen', match: /Kommunfullmäktige/, color: 'var(--chart-4)' },
+  teknik: { label: 'Teknik & bygg', match: /Tekniska|Byggnads/, color: 'var(--chart-8)' },
+  kultur: { label: 'Kultur & fritid', match: /Kultur/, color: 'var(--chart-6)' },
+  övrigt: { label: 'Övrigt', match: /.*/, color: 'var(--color-neutral)' },
+}
+---
+
+<BudgetSida kommun="molndal" kommunNamn="Mölndal" organisationsnamn="Mölndals stads" kategorier={KATEGORIER} öronmärktUnder={0} />

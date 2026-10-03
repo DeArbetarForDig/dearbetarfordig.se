@@ -167,6 +167,35 @@ async function seedPersonerOchVal(client: postgres.Sql, schema: string) {
   }
 }
 
+// Kunskapsgrafens tabeller — samma form i varje kommunschema
+async function skapaGrafTabeller(client: postgres.Sql, schema: string) {
+  const s = client(schema)
+  await client`
+    CREATE TABLE IF NOT EXISTS ${s}.graf_nodes (
+      id TEXT PRIMARY KEY,
+      typ TEXT NOT NULL,
+      label TEXT NOT NULL,
+      data JSONB NOT NULL DEFAULT '{}',
+      -- Materialiserad sökvektor för /v1/{kommun}/sök (routes/sok.ts).
+      -- Att räkna to_tsvector() per rad i frågan kostade ~700 ms för breda
+      -- prefixsökningar ('kommun:*' träffar tusentals paragrafer med långa
+      -- fulltexter); som lagrad kolumn läses den direkt i stället.
+      fts tsvector GENERATED ALWAYS AS (
+        to_tsvector('swedish', label || ' ' || coalesce(data->>'fulltext', ''))
+      ) STORED
+    )`
+
+  await client`
+    CREATE TABLE IF NOT EXISTS ${s}.graf_edges (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      from_id TEXT NOT NULL REFERENCES ${s}.graf_nodes(id) ON DELETE CASCADE,
+      to_id TEXT NOT NULL REFERENCES ${s}.graf_nodes(id) ON DELETE CASCADE,
+      typ TEXT NOT NULL,
+      label TEXT,
+      data JSONB
+    )`
+}
+
 async function main() {
   const client = postgres(connectionString, { max: 5 })
 
@@ -184,30 +213,7 @@ async function main() {
   const polData = loadJSON('politiker/goteborg.json')
 
   // Create tables
-  await client`
-    CREATE TABLE IF NOT EXISTS goteborg.graf_nodes (
-      id TEXT PRIMARY KEY,
-      typ TEXT NOT NULL,
-      label TEXT NOT NULL,
-      data JSONB NOT NULL DEFAULT '{}',
-      -- Materialiserad sökvektor för /v1/{kommun}/sök (routes/sok.ts).
-      -- Att räkna to_tsvector() per rad i frågan kostade ~700 ms för breda
-      -- prefixsökningar ('kommun:*' träffar tusentals paragrafer med långa
-      -- fulltexter); som lagrad kolumn läses den direkt i stället.
-      fts tsvector GENERATED ALWAYS AS (
-        to_tsvector('swedish', label || ' ' || coalesce(data->>'fulltext', ''))
-      ) STORED
-    )`
-
-  await client`
-    CREATE TABLE IF NOT EXISTS goteborg.graf_edges (
-      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-      from_id TEXT NOT NULL REFERENCES goteborg.graf_nodes(id) ON DELETE CASCADE,
-      to_id TEXT NOT NULL REFERENCES goteborg.graf_nodes(id) ON DELETE CASCADE,
-      typ TEXT NOT NULL,
-      label TEXT,
-      data JSONB
-    )`
+  await skapaGrafTabeller(client, 'goteborg')
 
   // Drop unused tables (data lives in graph)
   await client`DROP TABLE IF EXISTS goteborg.arenden CASCADE`
@@ -716,6 +722,26 @@ async function main() {
   await client`CREATE SCHEMA molndal`
   console.log('\n   ✓ Schema molndal')
   await seedPersonerOchVal(client, 'molndal')
+  // Budget och utfall (scrapers: parse-ekonomi-molndal.ts) — samma nod-/kantform
+  // som Göteborgs budgetgraf, så /budget och /budget/utfall fungerar oförändrade.
+  await skapaGrafTabeller(client, 'molndal')
+  const molndalGraf = join(DATA_DIR, 'molndal/graf')
+  if (existsSync(molndalGraf)) {
+    let antalNoder = 0
+    let antalKanter = 0
+    for (const fil of readdirSync(molndalGraf).filter((f) => f.endsWith('.json'))) {
+      const graf = JSON.parse(readFileSync(join(molndalGraf, fil), 'utf-8'))
+      for (const n of graf.nodes) {
+        await client`INSERT INTO molndal.graf_nodes (id, typ, label, data) VALUES (${n.id}, ${n.typ}, ${n.label}, ${client.json(n.data)})`
+        antalNoder++
+      }
+      for (const e of graf.edges) {
+        await client`INSERT INTO molndal.graf_edges (from_id, to_id, typ, label, data) VALUES (${e.from}, ${e.to}, ${e.typ}, ${e.label ?? null}, ${e.data ? client.json(e.data) : null})`
+        antalKanter++
+      }
+    }
+    console.log(`   ✓ ${antalNoder} graf nodes, ${antalKanter} edges (molndal: budget, utfall)`)
+  }
   await client`
     CREATE TABLE molndal.sammantraden (
       organ TEXT NOT NULL,

@@ -1,0 +1,167 @@
+{
+  "nodes": [
+    {
+      "id": "utfall-sammanfattning-2025",
+      "typ": "utfall",
+      "label": "Ekonomiskt utfall 2025 — alla nämnder",
+      "data": {
+        "år": 2025,
+        "källa": "Mölndals stads årsredovisning 2025",
+        "url": "https://www.molndal.se/download/18.7c5eaf3519d865cba1bd508/1777446512673/%C3%85rsredovisning_2025.pdf",
+        "totalResultatMnkr": 127.4,
+        "antalNämnder": 10
+      }
+    },
+    {
+      "id": "utfall-nämnd-byggnadsnämnden-2025",
+      "typ": "utfall",
+      "label": "Byggnadsnämnden utfall 2025: -1.1 mnkr",
+      "data": {
+        "nämnd": "Byggnadsnämnden",
+        "år": 2025,
+        "intäkterMnkr": 27.1,
+        "kostnaderMnkr": -53.9,
+        "kommunbidragMnkr": 25.7,
+        "resultatMnkr": -1.1,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kommunfullmäktige-och-kommunstyrelsen-2025",
+      "typ": "utfall",
+      "label": "Kommunfullmäktige och kommunstyrelsen utfall 2025: +69.5 mnkr",
+      "data": {
+        "nämnd": "Kommunfullmäktige och kommunstyrelsen",
+        "år": 2025,
+        "intäkterMnkr": 773.6,
+        "kostnaderMnkr": -1193.1,
+        "kommunbidragMnkr": 489,
+        "resultatMnkr": 69.5,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-kultur-och-fritidsnämnden-2025",
+      "typ": "utfall",
+      "label": "Kultur- och fritidsnämnden utfall 2025: +6.8 mnkr",
+      "data": {
+        "nämnd": "Kultur- och fritidsnämnden",
+        "år": 2025,
+        "intäkterMnkr": 66.5,
+        "kostnaderMnkr": -288.3,
+        "kommunbidragMnkr": 228.6,
+        "resultatMnkr": 6.8,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-miljönämnden-2025",
+      "typ": "utfall",
+      "label": "Miljönämnden utfall 2025: 0 mnkr",
+      "data": {
+        "nämnd": "Miljönämnden",
+        "år": 2025,
+        "intäkterMnkr": 0,
+        "kostnaderMnkr": -1,
+        "kommunbidragMnkr": 1,
+        "resultatMnkr": 0,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-servicenämnden-2025",
+      "typ": "utfall",
+      "label": "Servicenämnden utfall 2025: +4.9 mnkr",
+      "data": {
+        "nämnd": "Servicenämnden",
+        "år": 2025,
+        "intäkterMnkr": 302.8,
+        "kostnaderMnkr": -313.3,
+        "kommunbidragMnkr": 15.4,
+        "resultatMnkr": 4.9,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-skolnämnden-2025",
+      "typ": "utfall",
+      "label": "Skolnämnden utfall 2025: -0.9 mnkr",
+      "data": {
+        "nämnd": "Skolnämnden",
+        "år": 2025,
+        "intäkterMnkr": 260.7,
+        "kostnaderMnkr": -2037.3,
+        "kommunbidragMnkr": 1775.7,
+        "resultatMnkr": -0.9,
+        "budgetMnkr": 0,
+        "status": "underskott"
+      }
+    },
+    {
+      "id": "utfall-nämnd-social-och-arbetsmarknadsnämnden-2025",
+      "typ": "utfall",
+      "label": "Social- och arbetsmarknadsnämnden utfall 2025: +34.7 mnkr",
+      "data": {
+        "nämnd": "Social- och arbetsmarknadsnämnden",
+        "år": 2025,
+        "intäkterMnkr": 75.2,
+        "kostnaderMnkr": -401.1,
+        "kommunbidragMnkr": 360.6,
+        "resultatMnkr": 34.7,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-tekniska-nämnden-2025",
+      "typ": "utfall",
+      "label": "Tekniska nämnden utfall 2025: +3.1 mnkr",
+      "data": {
+        "nämnd": "Tekniska nämnden",
+        "år": 2025,
+        "intäkterMnkr": 363.6,
+        "kostnaderMnkr": -620.3,
+        "kommunbidragMnkr": 259.8,
+        "resultatMnkr": 3.1,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-utbildningsnämnden-2025",
+      "typ": "utfall",
+      "label": "Utbildningsnämnden utfall 2025: +10.3 mnkr",
+      "data": {
+        "nämnd": "Utbildningsnämnden",
+        "år": 2025,
+        "intäkterMnkr": 169.1,
+        "kostnaderMnkr": -596.2,
+        "kommunbidragMnkr": 437.4,
+        "resultatMnkr": 10.3,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    },
+    {
+      "id": "utfall-nämnd-vård-och-omsorgsnämnden-2025",
+      "typ": "utfall",
+      "label": "Vård- och omsorgsnämnden utfall 2025: +0.1 mnkr",
+      "data": {
+        "nämnd": "Vård- och omsorgsnämnden",
+        "år": 2025,
+        "intäkterMnkr": 227.1,
+        "kostnaderMnkr": -1513,
+        "kommunbidragMnkr": 1286,
+        "resultatMnkr": 0.1,
+        "budgetMnkr": 0,
+        "status": "i_balans"
+      }
+    }
+  ],
+  "edges": []
+}
