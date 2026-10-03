@@ -722,25 +722,54 @@ async function main() {
   await client`CREATE SCHEMA molndal`
   console.log('\n   ✓ Schema molndal')
   await seedPersonerOchVal(client, 'molndal')
-  // Budget och utfall (scrapers: parse-ekonomi-molndal.ts) — samma nod-/kantform
-  // som Göteborgs budgetgraf, så /budget och /budget/utfall fungerar oförändrade.
+  // Kunskapsgrafen: protokoll (parse-protokoll-molndal.ts), budget och utfall
+  // (parse-ekonomi-molndal.ts) — samma nod-/kantform som Göteborgs, så
+  // /beslut, /möten, /budget och /metrics fungerar oförändrade.
   await skapaGrafTabeller(client, 'molndal')
+  // Tomma tabeller som /beslut och /sök läser ur (ärendeanalyser och fulltext-
+  // dokument finns bara för Göteborg än) — samma kolumner som där
+  await client`CREATE TABLE molndal.analys (LIKE goteborg.analys INCLUDING ALL)`
+  await client`CREATE TABLE molndal.dokument (LIKE goteborg.dokument INCLUDING ALL)`
+  // Politiker-noder före kanterna: närvarade/röstade_* pekar på politiker-<id>
+  const molndalPol = loadJSON('politiker/molndal.json')
+  const molndalNoder = new Set<string>()
+  for (const p of molndalPol?.politiker ?? []) {
+    const id = `politiker-${p.id}`
+    await client`INSERT INTO molndal.graf_nodes (id, typ, label, data)
+      VALUES (${id}, 'politiker', ${`${p.förnamn} ${p.efternamn}`}, ${client.json({ parti: p.parti, email: publiceradEmail(p.email) })})`
+    molndalNoder.add(id)
+  }
   const molndalGraf = join(DATA_DIR, 'molndal/graf')
   if (existsSync(molndalGraf)) {
-    let antalNoder = 0
+    const filer = readdirSync(molndalGraf).filter((f) => f.endsWith('.json'))
+    const grafer = filer.map((f) => JSON.parse(readFileSync(join(molndalGraf, f), 'utf-8')))
     let antalKanter = 0
-    for (const fil of readdirSync(molndalGraf).filter((f) => f.endsWith('.json'))) {
-      const graf = JSON.parse(readFileSync(join(molndalGraf, fil), 'utf-8'))
+    let tappade = 0
+    for (const graf of grafer) {
       for (const n of graf.nodes) {
-        await client`INSERT INTO molndal.graf_nodes (id, typ, label, data) VALUES (${n.id}, ${n.typ}, ${n.label}, ${client.json(n.data)})`
-        antalNoder++
+        await client`INSERT INTO molndal.graf_nodes (id, typ, label, data) VALUES (${n.id}, ${n.typ}, ${n.label}, ${client.json(n.data)})
+          ON CONFLICT (id) DO UPDATE SET typ = EXCLUDED.typ, label = EXCLUDED.label, data = EXCLUDED.data`
+        molndalNoder.add(n.id)
       }
+    }
+    for (const graf of grafer) {
       for (const e of graf.edges) {
+        if (!molndalNoder.has(e.from) || !molndalNoder.has(e.to)) {
+          tappade++
+          continue
+        }
         await client`INSERT INTO molndal.graf_edges (from_id, to_id, typ, label, data) VALUES (${e.from}, ${e.to}, ${e.typ}, ${e.label ?? null}, ${e.data ? client.json(e.data) : null})`
         antalKanter++
       }
     }
-    console.log(`   ✓ ${antalNoder} graf nodes, ${antalKanter} edges (molndal: budget, utfall)`)
+    await client`CREATE INDEX IF NOT EXISTS idx_graf_nodes_typ ON molndal.graf_nodes(typ)`
+    await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_from ON molndal.graf_edges(from_id)`
+    await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_to ON molndal.graf_edges(to_id)`
+    await client`CREATE INDEX IF NOT EXISTS idx_graf_edges_typ ON molndal.graf_edges(typ)`
+    await client`CREATE INDEX IF NOT EXISTS idx_graf_paragraf_fts ON molndal.graf_nodes USING GIN (fts) WHERE typ = 'paragraf'`
+    console.log(
+      `   ✓ ${molndalNoder.size} graf nodes, ${antalKanter} edges (molndal: ${filer.length} filer${tappade ? `, ${tappade} kanter utan nod` : ''})`,
+    )
   }
   await client`
     CREATE TABLE molndal.sammantraden (

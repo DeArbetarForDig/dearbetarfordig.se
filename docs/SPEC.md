@@ -43,13 +43,17 @@
 ```
 
 Mölndal (`packages/web/src/pages/molndal/`, API-schema `molndal`) har en
-mindre uppsättning — politiker (Troman-registret), val 2026,
-mötesförteckning, budget/utfall (budget- och årsredovisnings-PDF:er,
-`parse-ekonomi-molndal.ts`) och Kolada-trender. Protokollen ligger i stadens
-webbdiarium och tolkas inte, så beslut, voteringar och röststatistik saknas:
+egen uppsättning — politiker (Troman-registret), val 2026, KF- och
+KS-protokoll från oktober 2022 tolkade till beslut, voteringar med
+namnröster och närvaro (`protokoll-molndal.ts` + `parse-protokoll-molndal.ts`;
+webbdiariets JSON-RPC-API och stadens filarkiv), budget/utfall
+(`parse-ekonomi-molndal.ts`) och Kolada-trender. Saknas jämfört med Göteborg:
+anföranden (inga yttrandeprotokoll), egna politikerprofiler, förvaltningar, sök:
 
 ```
-/molndal/                     → Översikt (sal, val 2026, KS, nämnder, sammanträden)
+/molndal/                     → Översikt (sal, mandatperioden i siffror, val 2026, KS, budget, nämnder)
+/molndal/kf, /kf/beslut, /kf/moten, /kf/moten/[datum], /ks, /beslut/[id]
+                              → samma komponenter som Göteborgs (BeslutLista, MotenLista, MoteSida, BeslutSida)
 /molndal/politiker            → Alla förtroendevalda (länkar till stadens register)
 /molndal/mandatperiod-2026    → KF efter valet 2026 (samma komponent som Göteborg)
 /molndal/budget               → Kommunbidrag per nämnd 2022–2026 + utfall (samma komponent)

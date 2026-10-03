@@ -1,0 +1,16 @@
+---
+import MoteSida from '../../../../components/MoteSida.astro'
+import { getMöten } from '../../../../data/api'
+
+export async function getStaticPaths() {
+  const möten = await getMöten('molndal')
+  return möten
+    .filter((m: any) => m.label?.includes('KF'))
+    .map((m) => ({ params: { datum: m.datum } }))
+}
+
+const { datum } = Astro.params
+---
+
+<!-- Inga egna profilsidor för Mölndal: länka till stadens förtroendemannaregister -->
+<MoteSida kommun="molndal" kommunNamn="Mölndal" datum={datum!} politikerUrl={(id) => `https://molndal.tromanpublik.se/person/${id}`} />

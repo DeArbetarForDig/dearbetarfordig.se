@@ -130,9 +130,9 @@ export async function getBeslut(limit = 200): Promise<Beslut[]> {
   return data._embedded.items
 }
 
-export async function getAllBeslut(): Promise<Beslut[]> {
+export async function getAllBeslut(kommun = 'goteborg'): Promise<Beslut[]> {
   // Fetch the total count for all decisions (no year filter)
-  const totalCheck = await fetchApi<HalCollection<Beslut>>(`/v1/goteborg/beslut?limit=1`)
+  const totalCheck = await fetchApi<HalCollection<Beslut>>(`/v1/${kommun}/beslut?limit=1`)
   const totalExpected = totalCheck.total
 
   // Fetch decisions per year to avoid truncation from API limit cap.
@@ -140,10 +140,12 @@ export async function getAllBeslut(): Promise<Beslut[]> {
   // ensures we collect every decision without hitting the limit.
   const items: Beslut[] = []
   const now = new Date().getFullYear()
-  const earliestYear = 2023 // Data starts 2023; adjust if historical data added
+  // Mandatperioden 2022–2026 börjar 2022-10-15 (Mölndals protokoll från då;
+  // Göteborgs från 2023) — ett tomt år kostar bara en fråga
+  const earliestYear = 2022
 
   for (let år = now; år >= earliestYear; år--) {
-    const data = await fetchApi<HalCollection<Beslut>>(`/v1/goteborg/beslut?år=${år}&limit=2000`)
+    const data = await fetchApi<HalCollection<Beslut>>(`/v1/${kommun}/beslut?år=${år}&limit=2000`)
     items.push(...data._embedded.items)
   }
 
@@ -185,10 +187,11 @@ export interface BeslutAnalys {
 
 export async function getBeslutDetail(
   id: string,
+  kommun = 'goteborg',
 ): Promise<{ beslut: BeslutDetail; kopplingar: any[]; analys: BeslutAnalys | null }> {
   const data = await fetchApi<
     HalResource<BeslutDetail, { kopplingar: any[]; analys: BeslutAnalys | null }>
-  >(`/v1/goteborg/beslut/${encodeURIComponent(id)}`)
+  >(`/v1/${kommun}/beslut/${encodeURIComponent(id)}`)
   return {
     beslut: data._embedded.item,
     kopplingar: data._embedded.related?.kopplingar || [],
@@ -196,17 +199,17 @@ export async function getBeslutDetail(
   }
 }
 
-export async function getStats(): Promise<Stats> {
-  return fetchApi<Stats>('/v1/goteborg/stats')
+export async function getStats(kommun = 'goteborg'): Promise<Stats> {
+  return fetchApi<Stats>(`/v1/${kommun}/stats`)
 }
 
-export async function getMöten(): Promise<Möte[]> {
-  const data = await fetchApi<HalCollection<Möte>>('/v1/goteborg/möten')
+export async function getMöten(kommun = 'goteborg'): Promise<Möte[]> {
+  const data = await fetchApi<HalCollection<Möte>>(`/v1/${kommun}/möten`)
   return data._embedded.items
 }
 
-export async function getMetrics() {
-  return fetchApi<any>('/v1/goteborg/metrics')
+export async function getMetrics(kommun = 'goteborg') {
+  return fetchApi<any>(`/v1/${kommun}/metrics`)
 }
 
 export interface BudgetNämnd {
@@ -268,7 +271,11 @@ export async function getBudgetUtfall(år: number, kommun = 'goteborg'): Promise
   return data._embedded.items
 }
 
-export async function getMöteAnföranden(datum: string, filters?: { talare?: string; ärende?: string; q?: string }) {
+export async function getMöteAnföranden(
+  datum: string,
+  filters?: { talare?: string; ärende?: string; q?: string },
+  kommun = 'goteborg',
+) {
   const params = new URLSearchParams()
   if (filters?.talare) params.set('talare', filters.talare)
   if (filters?.ärende) params.set('ärende', filters.ärende)
@@ -278,7 +285,7 @@ export async function getMöteAnföranden(datum: string, filters?: { talare?: st
   // lands weeks before it); the page renders without anföranden then.
   let data: HalCollection<any>
   try {
-    data = await fetchApi<HalCollection<any>>(`/v1/goteborg/möten/${datum}/anföranden${query}`)
+    data = await fetchApi<HalCollection<any>>(`/v1/${kommun}/möten/${datum}/anföranden${query}`)
   } catch (err) {
     if (String(err).endsWith(': 404')) return null
     throw err
@@ -334,8 +341,8 @@ export async function getFörvaltningDetail(id: string) {
   }
 }
 
-export async function getAnföranden(beslutId: string) {
-  const data = await fetchApi<HalCollection<any>>(`/v1/goteborg/beslut/${encodeURIComponent(beslutId)}/anforanden`)
+export async function getAnföranden(beslutId: string, kommun = 'goteborg') {
+  const data = await fetchApi<HalCollection<any>>(`/v1/${kommun}/beslut/${encodeURIComponent(beslutId)}/anforanden`)
   return {
     beslutId,
     antal: data.total,

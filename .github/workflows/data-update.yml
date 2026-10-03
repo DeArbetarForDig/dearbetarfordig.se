@@ -43,6 +43,13 @@ jobs:
       - name: Scrape sammanträden (Mölndal)
         run: npx tsx packages/pipeline/src/scrapers/moten-molndal.ts
 
+      # KF/KS protocols: inventory (webbdiariet API + stored archive list),
+      # then parse only meetings without a graph file yet.
+      - name: Protokoll (Mölndal)
+        run: |
+          npx tsx packages/pipeline/src/scrapers/protokoll-molndal.ts
+          npx tsx packages/pipeline/src/parsers/parse-protokoll-molndal.ts --only-new
+
       # Annual sources (budget adopted in Nov/Dec, årsredovisning in April) —
       # cheap to re-run weekly so a new year shows up without a manual step.
       # Kolada pairs KPIs with each nämnd's kommunbidrag, so it runs after.

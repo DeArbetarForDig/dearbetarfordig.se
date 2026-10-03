@@ -1,0 +1,517 @@
+---
+import Timeline from '../../../ui/src/components/cards/Timeline.astro'
+import AiAnalys from '../../../ui/src/components/core/AiAnalys.astro'
+import Button from '../../../ui/src/components/core/Button.astro'
+import Card from '../../../ui/src/components/core/Card.astro'
+import EmptyState from '../../../ui/src/components/core/EmptyState.astro'
+import Icon from '../../../ui/src/components/core/Icon.astro'
+import PartyTag from '../../../ui/src/components/core/PartyTag.astro'
+import StatusBadge from '../../../ui/src/components/core/StatusBadge.astro'
+import Tabs from '../../../ui/src/components/core/Tabs.astro'
+import Tooltip from '../../../ui/src/components/core/Tooltip.astro'
+import { fetchApi, getAnföranden, getBeslutDetail } from '../data/api'
+import Kommun from '../layouts/Kommun.astro'
+
+/**
+ * Ett beslut (paragraf): beslutstext, votering med namnröster, närvaro,
+ * anföranden och (Göteborg) AI-analys. politikerUrl: se MoteSida.
+ */
+interface Props {
+  kommun: string
+  kommunNamn: string
+  id: string
+  summary: any
+  politikerUrl: (id: string) => string
+}
+const { kommun, kommunNamn, id, summary, politikerUrl } = Astro.props
+const detail = await getBeslutDetail(id, kommun)
+let anförandenData: any[] = []
+try {
+  const res = await getAnföranden(id, kommun)
+  anförandenData = res.anföranden || []
+} catch {}
+
+// Collect names of politicians who submitted motion/yrkande
+const motionärer = new Set(
+  detail.kopplingar
+    .filter((k: any) => k.typ === 'inlämnade_motion' || k.typ === 'yrkat')
+    .map((k: any) => k.nod?.label?.replace(/\s*\([^)]+\)$/, ''))
+    .filter(Boolean),
+)
+
+const hasVotes = detail.beslut.röster && detail.beslut.röster.length > 0
+const jaCount =
+  detail.beslut.votering?.ja ??
+  (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'ja').length : 0)
+const nejCount =
+  detail.beslut.votering?.nej ??
+  (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'nej').length : 0)
+const avstarCount =
+  detail.beslut.votering?.avstår ??
+  (hasVotes ? detail.beslut.röster.filter((r: any) => r.röst === 'avstår').length : 0)
+
+const sortedRöster = hasVotes
+  ? (() => {
+      const partiCount: { [key: string]: number } = {}
+      detail.beslut.röster.forEach((r: any) => {
+        partiCount[r.parti] = (partiCount[r.parti] || 0) + 1
+      })
+      return [...detail.beslut.röster].sort(
+        (a: any, b: any) =>
+          partiCount[b.parti] - partiCount[a.parti] ||
+          a.parti.localeCompare(b.parti) ||
+          a.namn.localeCompare(b.namn, 'sv'),
+      )
+    })()
+  : []
+
+// Fallback: votering data without individual votes (handuppräckning)
+const voteringSummary = detail.beslut.votering as {
+  ja?: number
+  nej?: number
+  avstår?: number
+} | null
+const hasHandcount = !hasVotes && voteringSummary && (voteringSummary.ja || voteringSummary.nej)
+
+const status =
+  detail.beslut.beslut === 'bordläggning'
+    ? 'bordlagd'
+    : detail.beslut.beslut === 'beslut'
+      ? 'antecknad'
+      : detail.beslut.beslut || 'info'
+const rubrik = detail.beslut.rubrik.replace(/^§ \d+ /, '')
+// data.organ är opålitligt (KF-parsern sätter det aldrig på paragraf-nivå) —
+// id-prefixet är källan till sanning, samma mönster som listendpointen
+// (packages/api/src/index.ts, r.id.startsWith('ks-') ? 'KS' : 'KF').
+const organ = (detail.beslut.id as string).startsWith('ks-') ? 'KS' : 'KF'
+
+// Fetch närvarande from meeting detail API (merge time ranges)
+let närvarande: Array<{ namn: string; parti: string; tid: string }> = []
+try {
+  const möteData = await fetchApi<any>(`/v1/${kommun}/möten/${detail.beslut.datum}`)
+  const närvarandeRaw = möteData._embedded?.related?.närvarande || []
+  const närvarandeMap = new Map<string, any>()
+  for (const n of närvarandeRaw) {
+    const existing = närvarandeMap.get(n.namn)
+    if (!existing) {
+      närvarandeMap.set(n.namn, { ...n, tider: n.tid ? [n.tid] : [] })
+    } else if (n.tid && !existing.tider.includes(n.tid)) {
+      existing.tider.push(n.tid)
+    }
+  }
+  närvarande = [...närvarandeMap.values()].map((n) => ({
+    ...n,
+    tid: n.tider.sort().join(', ') || '',
+  }))
+} catch {}
+const närvarandeByParti = (() => {
+  const partiCount: Record<string, number> = {}
+  närvarande.forEach((n) => {
+    partiCount[n.parti] = (partiCount[n.parti] || 0) + 1
+  })
+  const sorted = [...närvarande].sort(
+    (a, b) =>
+      partiCount[b.parti] - partiCount[a.parti] ||
+      a.parti.localeCompare(b.parti) ||
+      a.namn.localeCompare(b.namn, 'sv'),
+  )
+  const groups: { parti: string; members: typeof närvarande }[] = []
+  let current: { parti: string; members: typeof närvarande } | null = null
+  for (const n of sorted) {
+    if (!current || current.parti !== n.parti) {
+      current = { parti: n.parti, members: [] }
+      groups.push(current)
+    }
+    current.members.push(n)
+  }
+  return groups
+})()
+
+const inlämnare = detail.kopplingar.filter(
+  (k: any) => k.typ === 'inlämnade_motion' || k.typ === 'yrkat',
+)
+const yrkanden = detail.beslut.yrkanden || []
+const harHandling = Boolean(detail.beslut.handlingText || detail.beslut.fulltext)
+const aiAnalys = detail.analys?.ai ?? null
+
+// pdftotext bryter rader efter PDF-sidans fysiska radbredd, inte efter
+// meningar/stycken — rått fulltext (använt internt av regex-parsers för
+// voteringar/yrkanden) har därför radbrytningar mitt i meningar. Slå ihop
+// sådana rader till stycken innan visning, men bevara tomrader (styckedelare)
+// och rader som inleder en ny strukturell del (rubriker, punktlistor).
+function joinWrappedLines(text: string): string {
+  const lines = text.split('\n')
+  const out: string[] = []
+  for (const rawLine of lines) {
+    const line = rawLine.trimEnd()
+    const prev = out[out.length - 1]
+    const isBlank = line.trim() === ''
+    const startsNewBlock =
+      isBlank ||
+      /^(§|Beslut|Handling|Yrkanden?|Propositionsordning|Huvudvotering|Omröstning|Protokollsutdrag|Reservation|Protokollsanteckning|Information)\b/.test(
+        line.trim(),
+      ) ||
+      /^\d+[.)]\s/.test(line.trim()) ||
+      /^[-•]\s/.test(line.trim())
+    const prevEndsSentence =
+      prev !== undefined && (/[.!?:”"]\s*$/.test(prev) || /^§\b/.test(prev.trim()))
+    if (
+      out.length > 0 &&
+      !isBlank &&
+      !startsNewBlock &&
+      prev !== undefined &&
+      prev.trim() !== '' &&
+      !prevEndsSentence
+    ) {
+      out[out.length - 1] = `${prev} ${line.trim()}`
+    } else {
+      out.push(line)
+    }
+  }
+  return out.join('\n')
+}
+const protokollText = detail.beslut.handlingText
+  ? detail.beslut.handlingText
+  : detail.beslut.fulltext
+    ? joinWrappedLines(detail.beslut.fulltext)
+    : ''
+
+const beslutTabs = [
+  (hasVotes || hasHandcount) && { key: 'votering', label: 'Votering' },
+  (inlämnare.length > 0 || yrkanden.length > 0) && {
+    key: 'yrkanden',
+    label: `Yrkanden (${inlämnare.length + yrkanden.length})`,
+  },
+  detail.kopplingar.length > 0 && { key: 'kopplingar', label: 'Kopplingar' },
+  harHandling && {
+    key: 'handling',
+    label: detail.beslut.handlingText ? 'Handling' : 'Protokollstext',
+  },
+  närvarande.length > 0 && { key: 'narvaro', label: `Närvaro (${närvarande.length})` },
+  anförandenData.length > 0 && { key: 'debatt', label: `Debatt (${anförandenData.length})` },
+  // Sist i raden: analysen är en bedömning, protokollet är fakta, och fakta
+  // ska mötas först. Egen flik i stället för inbakad i handlingen — läsaren
+  // ska aldrig kunna läsa en maskintext i tron att den står i protokollet.
+  aiAnalys && { key: 'ai-analys', label: 'AI-analys' },
+].filter(Boolean) as { key: string; label: string }[]
+
+const timeline = [
+  ...detail.kopplingar
+    .filter((k) => k.nod && k.typ !== 'beslut_av')
+    .map((k) => ({
+      datum: detail.beslut.datum,
+      titel: `${k.typ.replace(/_/g, ' ')} → ${k.nod?.label}`,
+      status: 'completed' as const,
+    }))
+    .slice(0, 5),
+  {
+    datum: detail.beslut.datum,
+    titel: `${organ} beslut — ${status === 'bifall' ? 'Bifall' : status === 'avslag' ? 'Avslag' : status === 'bordlagd' ? 'Bordlagd' : status === 'antecknad' ? 'Antecknad' : 'Behandling'}`,
+    status: 'active' as const,
+  },
+]
+---
+
+<Kommun
+  title={`${rubrik} — ${kommunNamn}`}
+  kommun={kommun}
+  kommunNamn={kommunNamn}
+  breadcrumbs={[
+    { label: kommunNamn, href: `/${kommun}` },
+    { label: 'Beslut', href: `/${kommun}/beslut` },
+    { label: rubrik },
+  ]}
+>
+  <div class="max-w-[880px] mx-auto">
+    <Button variant="ghost" size="sm" href={`/${kommun}/beslut`}>
+      ← Tillbaka
+    </Button>
+
+    <div class="flex items-center gap-4 mt-4 mb-2">
+      <StatusBadge status={status} />
+      <time class="font-mono text-sm text-(--color-text-muted)">{detail.beslut.datum}</time>
+      {summary.paragraf && <span class="font-mono text-sm text-(--color-text-subtle)">{organ} {summary.paragraf}</span>}
+    </div>
+
+    <h1 class="text-[2rem] font-bold mb-6 max-w-[30ch]">{rubrik}</h1>
+
+    <Tabs tabs={beslutTabs}>
+    {hasVotes && (
+      <Fragment slot="panel-votering">
+        <Card title="Votering (namnupprop)">
+          <div class="flex gap-6 mb-3">
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm bg-(--vote-ja)" />
+              Ja: <strong class="font-mono text-(--vote-ja)">{detail.beslut.votering?.ja ?? jaCount}</strong>
+            </span>
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm bg-(--vote-nej)" />
+              Nej: <strong class="font-mono text-(--vote-nej)">{detail.beslut.votering?.nej ?? nejCount}</strong>
+            </span>
+            {(detail.beslut.votering?.avstår || avstarCount > 0) && (
+              <span class="flex items-center gap-2 text-sm">
+                <span class="w-3 h-3 rounded-sm bg-(--vote-avstar)" />
+                Avstår: <strong class="font-mono text-(--vote-avstar)">{detail.beslut.votering?.avstår ?? avstarCount}</strong>
+              </span>
+            )}
+          </div>
+          <div class="flex h-3 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
+            <span class="w-(--w) bg-(--vote-ja)" style={`--w:${Math.round(((detail.beslut.votering?.ja ?? jaCount) / ((detail.beslut.votering?.ja ?? jaCount) + (detail.beslut.votering?.nej ?? nejCount) + (detail.beslut.votering?.avstår ?? avstarCount))) * 100)}%`}></span>
+            <span class="w-(--w) bg-(--vote-nej)" style={`--w:${Math.round(((detail.beslut.votering?.nej ?? nejCount) / ((detail.beslut.votering?.ja ?? jaCount) + (detail.beslut.votering?.nej ?? nejCount) + (detail.beslut.votering?.avstår ?? avstarCount))) * 100)}%`}></span>
+            <span class="flex-1 bg-(--vote-avstar)"></span>
+          </div>
+          <div class="text-sm mt-4">
+            {(() => {
+              const groups: { parti: string; members: any[] }[] = []
+              let current: { parti: string; members: any[] } | null = null
+              for (const r of sortedRöster) {
+                if (!current || current.parti !== r.parti) {
+                  current = { parti: r.parti, members: [] }
+                  groups.push(current)
+                }
+                current.members.push(r)
+              }
+              return groups.map((g, i) => (
+                <>
+                  {i > 0 && <div class="border-t border-[var(--color-border)] my-2"></div>}
+                  <div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-x-4 gap-y-1">
+                    {g.members.map((r: any) => (
+                      <div class="flex items-center gap-2 py-1">
+                        <span class="w-2.5 h-2.5 rounded-full shrink-0 bg-(--vote-color)" style={`--vote-color:var(--vote-${r.röst === 'avstår' ? 'avstår' : r.röst})`}></span>
+                        <PartyTag parti={r.parti} size="sm" />
+                        <a href={politikerUrl(r.politikerId || '')} class="truncate text-[var(--color-text)] hover:text-[var(--color-primary)]">{r.namn}</a>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              ))
+            })()}
+          </div>
+        </Card>
+      </Fragment>
+    )}
+
+    {hasHandcount && (
+      <Fragment slot="panel-votering">
+        <Card title="Votering (handuppräckning)">
+          <div class="flex gap-6 mb-3">
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm bg-(--vote-ja)" />
+              Ja: <strong class="font-mono text-(--vote-ja)">{voteringSummary!.ja}</strong>
+            </span>
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm bg-(--vote-nej)" />
+              Nej: <strong class="font-mono text-(--vote-nej)">{voteringSummary!.nej}</strong>
+            </span>
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm bg-(--vote-avstar)" />
+              Avstår: <strong class="font-mono text-(--vote-avstar)">{voteringSummary!.avstår || 0}</strong>
+            </span>
+            <span class="flex items-center gap-2 text-sm">
+              <span class="w-3 h-3 rounded-sm bg-(--vote-franvarande)" />
+              Frånvarande: <strong class="font-mono text-(--vote-franvarande)">{voteringSummary!.frånvarande || 0}</strong>
+            </span>
+          </div>
+          <div class="flex h-3 rounded-full overflow-hidden bg-[var(--color-surface-sunken)]">
+            <span class="w-(--w) bg-(--vote-ja)" style={`--w:${Math.round(((voteringSummary!.ja || 0) / ((voteringSummary!.ja || 0) + (voteringSummary!.nej || 0))) * 100)}%`}></span>
+            <span class="flex-1 bg-(--vote-nej)"></span>
+          </div>
+          <p class="m-0 mt-3 text-xs text-[var(--color-text-muted)]">Poängen avgjordes genom handuppräckning. Individuella röster protokollförs inte vid denna typ av omröstning.</p>
+          <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-[var(--color-warning)]">
+            <Icon name="alert-triangle" size={14} />
+            <span>Låg transparens — ingen namnupprop genomförd. Det går inte att se hur enskilda ledamöter röstade.</span>
+          </div>
+        </Card>
+      </Fragment>
+    )}
+
+    {(inlämnare.length > 0 || yrkanden.length > 0) && (
+      <Fragment slot="panel-yrkanden">
+        {inlämnare.length > 0 && (
+          <div class="mb-6">
+            <Card title="Inlämnare" titleSize="lg" tooltip="Politiker som lämnat in motionen eller yrkandet">
+              <div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-x-4 gap-y-1">
+                {detail.kopplingar.filter((k: any) => k.typ === 'inlämnade_motion').map((k: any) => (
+                  <div class="flex items-center gap-2 py-1">
+                    <Icon name="file-text" size={14} class="text-[var(--color-primary)] shrink-0" />
+                    <PartyTag parti={k.nod.label.match(/\((\w+)\)/)?.[1] || ''} size="sm" />
+                    <a href={politikerUrl(k.nod.id.replace('politiker-',''))} class="truncate text-[var(--color-text)] hover:text-[var(--color-primary)]">{k.nod.label.replace(/\s*\([^)]+\)$/, '')}</a>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+        )}
+
+        {yrkanden.length > 0 && (
+          <Card title="Yrkanden" titleSize="lg" tooltip="Förslag som framställts under debatten">
+            <div class="space-y-2">
+              {yrkanden.map((y: any) => (
+                <div class="flex items-center gap-2 text-sm">
+                  <PartyTag parti={y.parti} size="sm" />
+                  <span class="text-[var(--color-text)]">{y.namn}</span>
+                  <span class="text-[var(--color-text-muted)]">— yrkar {y.typ}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+        )}
+      </Fragment>
+    )}
+
+    {detail.kopplingar.length > 0 && (
+      <Fragment slot="panel-kopplingar">
+        <Card title="Kopplingar" titleSize="lg">
+          <Timeline events={timeline} />
+        </Card>
+      </Fragment>
+    )}
+
+    {harHandling && (
+      <Fragment slot="panel-handling">
+        <Card title={detail.beslut.handlingText ? 'Handling (fulltext)' : 'Protokollstext'}>
+          <div class="handling-text">
+            <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed whitespace-pre-line">{protokollText}</p>
+          </div>
+        </Card>
+      </Fragment>
+    )}
+
+    {närvarande.length > 0 && (
+      <Fragment slot="panel-narvaro">
+        <Card title="Närvaro" subtitle={`${närvarande.length} ledamöter/ersättare vid sammanträdet ${detail.beslut.datum}`}>
+          <div class="text-sm">
+            {närvarandeByParti.map((g, i) => (
+              <>
+                {i > 0 && <div class="border-t border-[var(--color-border)] my-2"></div>}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
+                  {g.members.map((n) => (
+                    <div class="flex items-center gap-2 py-1">
+                      <PartyTag parti={n.parti} size="sm" />
+                      <span class="truncate text-[var(--color-text)]">{n.namn}</span>
+                      <span class="text-xs text-[var(--color-text-subtle)] font-mono ml-auto shrink-0">{n.tid}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ))}
+          </div>
+        </Card>
+      </Fragment>
+    )}
+
+    {anförandenData.length > 0 && (
+      <Fragment slot="panel-debatt">
+        <div class="space-y-3">
+          {anförandenData.map((a: any) => (
+            <Card>
+              <div class="flex gap-3 items-start">
+                <div class="shrink-0 w-8 h-8 rounded-full bg-[var(--color-surface-sunken)] flex items-center justify-center">
+                  <Icon name="user" size={16} class="text-[var(--color-text-subtle)]" />
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-2 mb-1">
+                    {a.parti && <PartyTag parti={a.parti} size="sm" />}
+                    {a.politikerId ? (
+                      <a href={politikerUrl(a.politikerId)} class="font-semibold text-sm text-[var(--color-text)] hover:text-[var(--color-primary)]">{a.talare}</a>
+                    ) : (
+                      <span class="font-semibold text-sm">{a.talare}</span>
+                    )}
+                    {motionärer.has(a.talare) && <Tooltip text="Inlämnare av yrkande/motion" position="top"><Icon name="file-text" size={14} class="text-[var(--color-primary)]" /></Tooltip>}
+                  </div>
+                  {a.text ? (
+                    <div class="anforande-text">
+                      <p class="m-0 text-sm text-[var(--color-text-muted)] leading-relaxed whitespace-pre-wrap">{a.text}</p>
+                    </div>
+                  ) : (
+                    <EmptyState icon="file-x" title="Transkription saknas" size="sm" />
+                  )}
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </Fragment>
+    )}
+
+    {aiAnalys && (
+      <Fragment slot="panel-ai-analys">
+        <AiAnalys analys={aiAnalys} />
+      </Fragment>
+    )}
+    </Tabs>
+  </div>
+</Kommun>
+
+<style is:global>
+  .handling-text {
+    position: relative;
+    max-height: 20em;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .handling-text.expanded {
+    max-height: none;
+  }
+  .handling-text.short {
+    max-height: none;
+  }
+  .handling-text:not(.expanded):not(.short)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3em;
+    background: linear-gradient(transparent, var(--color-surface));
+  }
+  .anforande-text {
+    position: relative;
+    max-height: 6em;
+    overflow: hidden;
+  }
+  .anforande-text.expanded {
+    max-height: none;
+  }
+  .anforande-text.short {
+    max-height: none;
+  }
+  .anforande-text:not(.expanded):not(.short)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2em;
+    background: linear-gradient(transparent, var(--color-surface));
+  }
+  .anforande-more {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: var(--font-size-label);
+    font-weight: 600;
+    color: var(--color-primary);
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('.anforande-text, .handling-text').forEach(el => {
+    if (el.scrollHeight <= el.clientHeight + 2) {
+      el.classList.add('short');
+      return;
+    }
+    const btn = document.createElement('button');
+    btn.className = 'anforande-more';
+    btn.textContent = 'Visa mer';
+    btn.addEventListener('click', () => {
+      const expanded = el.classList.toggle('expanded');
+      btn.textContent = expanded ? 'Visa mindre' : 'Visa mer';
+    });
+    el.after(btn);
+  });
+</script>

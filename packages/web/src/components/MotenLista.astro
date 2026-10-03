@@ -1,0 +1,61 @@
+---
+import Icon from '../../../ui/src/components/core/Icon.astro'
+import Pagination from '../../../ui/src/components/core/Pagination.astro'
+import { getMöten } from '../data/api'
+import Kommun from '../layouts/Kommun.astro'
+
+/** Lista över KF-sammanträden, länkade till MoteSida. */
+interface Props {
+  kommun: string
+  kommunNamn: string
+}
+const { kommun, kommunNamn } = Astro.props
+
+const allMöten = await getMöten(kommun)
+const möten = allMöten
+  .filter((m: any) => m.label?.includes('KF'))
+  .sort((a: any, b: any) => b.datum.localeCompare(a.datum))
+
+const MOTEN_PAGE_SIZE = 20
+---
+
+<Kommun title={`KF Möten — ${kommunNamn}`} kommun={kommun} kommunNamn={kommunNamn}>
+  <h1 class="text-[2rem] font-bold mb-2">KF Sammanträden</h1>
+  <p class="text-sm text-[var(--color-text-muted)] mb-8">
+    Kommunfullmäktige — {möten.length} sammanträden med beslut och debatt
+  </p>
+
+  <div class="grid gap-2" id="moten-list">
+    {möten.map((m: any, i: number) => (
+      <a
+        href={`/${kommun}/kf/moten/${m.datum}`}
+        data-idx={i}
+        class="flex items-center justify-between p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:border-[var(--color-primary)] transition-colors"
+      >
+        <div class="flex items-center gap-4">
+          <span class="font-mono font-semibold">{m.datum}</span>
+          <span class="text-sm text-[var(--color-text-muted)]">{m.antalBeslut} beslut</span>
+          {m.videoUrl && (
+            <span class="inline-flex items-center gap-1.5 text-xs text-[var(--color-text-muted)]">
+              <Icon name="monitor-play" size={14} />
+              Webb-TV
+            </span>
+          )}
+        </div>
+        <span class="text-[var(--color-text-muted)]">→</span>
+      </a>
+    ))}
+  </div>
+
+  <Pagination id="moten-pagination" totalItems={möten.length} pageSize={MOTEN_PAGE_SIZE} class="mt-4" />
+</Kommun>
+
+<script is:inline>
+  const items = document.querySelectorAll('#moten-list [data-idx]')
+  window.dafPagination['moten-pagination'].onChange(({ start, end }) => {
+    items.forEach((el) => {
+      const i = Number(el.dataset.idx)
+      el.style.display = i >= start && i < end ? '' : 'none'
+    })
+  })
+</script>

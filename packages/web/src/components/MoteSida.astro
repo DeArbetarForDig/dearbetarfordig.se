@@ -1,0 +1,271 @@
+---
+import Card from '../../../ui/src/components/core/Card.astro'
+import Icon from '../../../ui/src/components/core/Icon.astro'
+import PartyTag from '../../../ui/src/components/core/PartyTag.astro'
+import StatusBadge from '../../../ui/src/components/core/StatusBadge.astro'
+import Tabs from '../../../ui/src/components/core/Tabs.astro'
+import { fetchApi, getMöteAnföranden, getStats } from '../data/api'
+import Kommun from '../layouts/Kommun.astro'
+
+/**
+ * Ett KF-sammanträde: beslut, närvaro och (där yttrandeprotokoll finns) anföranden.
+ * politikerUrl: Göteborg har egna profilsidor, övriga kommuner länkar till
+ * kommunens förtroendemannaregister.
+ */
+interface Props {
+  kommun: string
+  kommunNamn: string
+  datum: string
+  politikerUrl: (id: string) => string
+}
+const { kommun, kommunNamn, datum, politikerUrl } = Astro.props
+
+// Fetch meeting details from API
+const möteData = await fetchApi<any>(`/v1/${kommun}/möten/${datum}`)
+const möte = möteData._embedded?.item || {}
+const beslut = möteData._embedded?.related?.beslut || []
+
+// Merge närvarande by name (combine multiple time ranges)
+const närvarandeRaw = möteData._embedded?.related?.närvarande || []
+const närvarandeMap = new Map<string, any>()
+for (const n of närvarandeRaw) {
+  const existing = närvarandeMap.get(n.namn)
+  if (!existing) {
+    närvarandeMap.set(n.namn, { ...n, tider: n.tid ? [n.tid] : [] })
+  } else if (n.tid && !existing.tider.includes(n.tid)) {
+    existing.tider.push(n.tid)
+  }
+}
+
+// Get party order by KF seats
+const stats = await getStats(kommun)
+const partiOrder = Object.entries(stats.partier)
+  .sort((a, b) => (b[1] as number) - (a[1] as number))
+  .map(([parti]) => parti)
+
+// Sort närvarande by party order, then by name
+const närvarandeSorted = [...närvarandeMap.values()]
+  .map((n) => ({ ...n, tid: n.tider.sort().join(', ') || '' }))
+  .sort((a, b) => {
+    const partiA = partiOrder.indexOf(a.parti)
+    const partiB = partiOrder.indexOf(b.parti)
+    const orderA = partiA === -1 ? 999 : partiA
+    const orderB = partiB === -1 ? 999 : partiB
+    if (orderA !== orderB) return orderA - orderB
+    return a.namn.localeCompare(b.namn, 'sv')
+  })
+
+// Group by party
+const närvarandeByParti: { parti: string; members: typeof närvarandeSorted }[] = []
+let currentParti: { parti: string; members: typeof närvarandeSorted } | null = null
+for (const n of närvarandeSorted) {
+  if (!currentParti || currentParti.parti !== n.parti) {
+    currentParti = { parti: n.parti, members: [] }
+    närvarandeByParti.push(currentParti)
+  }
+  currentParti.members.push(n)
+}
+
+const närvarande = närvarandeSorted
+
+// Fetch anföranden
+const anförandenData = await getMöteAnföranden(datum, undefined, kommun)
+const anföranden = anförandenData?.anföranden || []
+
+// Group anföranden by ärende
+const byÄrende = new Map<number | null, typeof anföranden>()
+for (const a of anföranden) {
+  const key = a.ärende
+  if (!byÄrende.has(key)) byÄrende.set(key, [])
+  byÄrende.get(key)!.push(a)
+}
+
+// Party distribution for anföranden
+const partiCount: Record<string, number> = {}
+for (const a of anföranden) {
+  if (a.parti) partiCount[a.parti] = (partiCount[a.parti] || 0) + 1
+}
+const topPartier = Object.entries(partiCount).sort((a, b) => b[1] - a[1])
+---
+
+<Kommun
+  title={`KF ${datum} — ${kommunNamn}`}
+  kommun={kommun}
+  kommunNamn={kommunNamn}
+  breadcrumbs={[
+    { label: kommunNamn, href: `/${kommun}` },
+    { label: 'Kommunfullmäktige', href: `/${kommun}/kf/moten` },
+    { label: datum },
+  ]}
+>
+  <div class="mb-6">
+    <a href={`/${kommun}/kf/moten`} class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)]">
+      ← Alla sammanträden
+    </a>
+  </div>
+
+  <h1 class="text-[2rem] font-bold mb-1">Kommunfullmäktige</h1>
+  <p class="font-mono text-[var(--color-text-muted)] mb-6">{datum}</p>
+
+  <!-- Stats -->
+  <div class="flex flex-wrap gap-4 mb-8 text-sm">
+    <span class="px-3 py-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+      {beslut.length} beslut
+    </span>
+    <span class="px-3 py-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+      {närvarande.length} närvarande
+    </span>
+    <span class="px-3 py-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+      {anföranden.length} anföranden
+    </span>
+  </div>
+
+  <!-- Webb-TV -->
+  {möte.videoUrl && (
+    <a href={möte.videoUrl} target="_blank" rel="noopener noreferrer" class="group block max-w-md mb-8">
+      <Card class="hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)]">
+        <div class="flex items-center gap-4">
+          <span
+            class="flex items-center justify-center w-10 h-10 rounded-lg text-[var(--color-primary)] bg-(--color-primary-tint)"
+          >
+            <Icon name="monitor-play" size={22} />
+          </span>
+          <div class="min-w-0 flex-1">
+            <p class="font-semibold group-hover:text-[var(--color-primary)] transition-colors">Se sändningen</p>
+            <p class="text-xs text-[var(--color-text-subtle)]">Webb-TV — hela mötet, per ärende eller per talare</p>
+          </div>
+          <Icon name="external-link" size={16} class="text-[var(--color-text-muted)]" />
+        </div>
+      </Card>
+    </a>
+  )}
+
+  <Tabs
+    tabs={[
+      { key: 'beslut', label: `Beslut (${beslut.length})` },
+      { key: 'debatt', label: `Debatt (${anföranden.length})` },
+      { key: 'narvaro', label: `Närvaro (${närvarande.length})` },
+    ]}
+  >
+    <Fragment slot="panel-beslut">
+      <div class="flex flex-col gap-3">
+        {beslut.map((b: any) => (
+          <a href={`/${kommun}/beslut/${encodeURIComponent(b.id)}`}
+            class="block p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:border-[var(--color-primary)] transition-colors">
+            <div class="flex items-start justify-between gap-4">
+              <div class="min-w-0">
+                <span class="text-xs font-mono text-[var(--color-text-muted)]">§{b.paragraf}</span>
+                <p class="font-semibold mt-1">{b.rubrik}</p>
+              </div>
+              {b.beslut && (
+                <StatusBadge
+                  status={b.beslut === 'bordläggning' ? 'bordlagd' : b.beslut === 'beslut' ? 'antecknad' : b.beslut}
+                />
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    </Fragment>
+
+    <Fragment slot="panel-debatt">
+      <!-- Party distribution -->
+      {topPartier.length > 0 && (
+        <div class="mb-6">
+          <p class="text-xs text-[var(--color-text-muted)] mb-2">Anföranden per parti:</p>
+          <div class="flex flex-wrap gap-2">
+            {topPartier.map(([parti, count]) => (
+              <span class="inline-flex items-center gap-1 text-xs">
+                <PartyTag parti={parti} size="sm" />
+                <span class="text-[var(--color-text-muted)]">{count}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Search -->
+      <div class="mb-6">
+        <input
+          id="search"
+          type="text"
+          placeholder="Sök i anföranden…"
+          class="w-full max-w-md px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] font-sans"
+        />
+      </div>
+
+      <!-- Anföranden grouped by ärende -->
+      <div id="anforanden-list" class="flex flex-col gap-6">
+        {[...byÄrende.entries()].map(([ärendeNr, anfs]) => (
+          <section>
+            {ärendeNr !== null && (
+              <h2 class="text-sm font-bold text-[var(--color-text-muted)] mb-3 pb-1 border-b border-[var(--color-border)]">
+                §{ärendeNr}. {anfs[0].ärendeTitel}
+              </h2>
+            )}
+            <div class="flex flex-col gap-3">
+              {anfs.map((a: any) => (
+                <div class="anforande p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
+                  <div class="flex items-center gap-2 mb-2">
+                    <PartyTag parti={a.parti} size="sm" />
+                    {a.politikerId ? (
+                      <a href={politikerUrl(a.politikerId)} class="font-semibold text-sm hover:text-[var(--color-primary)]">
+                        {a.talare}
+                      </a>
+                    ) : (
+                      <span class="font-semibold text-sm">{a.talare}</span>
+                    )}
+                  </div>
+                  <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{a.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </Fragment>
+
+    <Fragment slot="panel-narvaro">
+      <div class="flex flex-col gap-4">
+        {närvarandeByParti.map((group) => (
+          <div>
+            <div class="flex items-center gap-2 mb-2 pb-1 border-b border-[var(--color-border)]">
+              <PartyTag parti={group.parti} size="sm" />
+              <span class="text-sm text-[var(--color-text-muted)]">{group.members.length} ledamöter</span>
+            </div>
+            <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+              {group.members.map((n: any) => {
+                const politikerId = n._links?.politiker?.href?.split('/').pop()
+                return (
+                  <div class="flex items-center gap-2 p-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded">
+                    {politikerId ? (
+                      <a href={politikerUrl(politikerId)} class="text-sm truncate hover:text-[var(--color-primary)]">
+                        {n.namn}
+                      </a>
+                    ) : (
+                      <span class="text-sm truncate">{n.namn}</span>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </Fragment>
+  </Tabs>
+</Kommun>
+
+<script is:inline>
+  // Search in anföranden
+  const input = document.getElementById('search')
+  const items = document.querySelectorAll('.anforande')
+
+  input?.addEventListener('input', () => {
+    const q = input.value.toLowerCase()
+    items.forEach((el) => {
+      const text = el.textContent?.toLowerCase() || ''
+      el.classList.toggle('hidden', q.length > 0 && !text.includes(q))
+    })
+  })
+</script>

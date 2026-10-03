@@ -1,0 +1,19 @@
+---
+import BeslutSida from '../../../components/BeslutSida.astro'
+import { getAllBeslut } from '../../../data/api'
+
+export async function getStaticPaths() {
+  const allBeslut = await getAllBeslut('molndal')
+  return allBeslut.map((b) => ({ params: { id: b.id }, props: { summary: b } }))
+}
+
+const { summary } = Astro.props
+---
+
+<BeslutSida
+  kommun="molndal"
+  kommunNamn="Mölndal"
+  id={Astro.params.id!}
+  summary={summary}
+  politikerUrl={(id) => `https://molndal.tromanpublik.se/person/${id}`}
+/>
