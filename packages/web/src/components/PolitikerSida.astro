@@ -1,0 +1,335 @@
+---
+import Timeline from '../../../ui/src/components/cards/Timeline.astro'
+import HorizontalBar from '../../../ui/src/components/charts/HorizontalBar.astro'
+import RadarChart from '../../../ui/src/components/charts/RadarChart.astro'
+import StackedBar from '../../../ui/src/components/charts/StackedBar.astro'
+import Accordion from '../../../ui/src/components/core/Accordion.astro'
+import Card from '../../../ui/src/components/core/Card.astro'
+import EmptyState from '../../../ui/src/components/core/EmptyState.astro'
+import Icon from '../../../ui/src/components/core/Icon.astro'
+import PartyTag from '../../../ui/src/components/core/PartyTag.astro'
+import StatusBadge from '../../../ui/src/components/core/StatusBadge.astro'
+import Table from '../../../ui/src/components/core/Table.astro'
+import Tabs from '../../../ui/src/components/core/Tabs.astro'
+import Tooltip from '../../../ui/src/components/core/Tooltip.astro'
+import {
+  getMöten,
+  getPolitikerAnföranden,
+  getPolitikerArvode,
+  getPolitikerDetail,
+  getPolitikerGraf,
+  getPolitikerProfil,
+} from '../data/api'
+/**
+ * Politikerprofil — röster, närvaro, uppdrag, anföranden och (Göteborg) arvode.
+ * visaArvode: arvodet räknas efter Göteborgs Stads regler och visas bara där.
+ */
+import Kommun from '../layouts/Kommun.astro'
+
+interface Props {
+  kommun: string
+  kommunNamn: string
+  id: string
+  visaArvode: boolean
+}
+const { kommun, kommunNamn, id, visaArvode } = Astro.props
+
+const detail = await getPolitikerDetail(id, kommun)
+const arvode = visaArvode ? await getPolitikerArvode(id, kommun) : null
+const anförandenData = await getPolitikerAnföranden(id, undefined, kommun)
+const profilAxlar = await getPolitikerProfil(id, kommun)
+const harProfilData = profilAxlar.some((a) => a.percentile !== null)
+const anföranden = anförandenData?.anföranden || []
+const uppdrag = detail.uppdrag || []
+const mandatperioder = (detail.sociala?.mandatperioder || []) as {
+  period: string
+  roll: string
+  ansvarsområde?: string
+}[]
+
+let graf: any = { edges: [], related: [] }
+try {
+  graf = await getPolitikerGraf(id, kommun)
+} catch {}
+
+// Aggregate voting data
+const edges = graf.edges || []
+const jaCount = edges.filter((e: any) => e.typ === 'röstade_ja').length
+const nejCount = edges.filter((e: any) => e.typ === 'röstade_nej').length
+const avstarCount = edges.filter((e: any) => e.typ === 'röstade_avstår').length
+const totalVotes = jaCount + nejCount + avstarCount
+const speechCount = edges.filter((e: any) => e.typ === 'talade_i').length
+const närvaroMöten = new Set<string>(
+  edges.filter((e: any) => e.typ === 'närvarade').map((e: any) => e.to_id),
+)
+const attendanceCount = närvaroMöten.size
+// Närvaro per organ som politikern sitter i (KF och/eller KS) — nämnaren är
+// det organets möten, inte alla möten (en KF-ledamot utan KS-uppdrag ska inte
+// räknas som frånvarande från KS)
+const allaMöten = await getMöten(kommun)
+const organNärvaro = (['KF', 'KS'] as const)
+  .map((organ) => {
+    const möten = allaMöten.filter((m: any) => m.label?.startsWith(`${organ} `))
+    const id = (m: any) => `möte-${organ.toLowerCase()}-${m.datum}`
+    const närvarat = möten.filter((m: any) => närvaroMöten.has(id(m))).length
+    const organNamn = organ === 'KF' ? 'Kommunfullmäktige' : 'Kommunstyrelsen'
+    const sitterI = (detail.uppdrag || []).some((u: any) =>
+      (u.organisation || '').startsWith(organNamn),
+    )
+    return { organ, närvarat, totalt: möten.length, sitterI }
+  })
+  .filter((o) => o.sitterI || o.närvarat > 0)
+const totalMöten = organNärvaro.reduce((s, o) => s + o.totalt, 0)
+const frånvarandeCount = totalMöten - organNärvaro.reduce((s, o) => s + o.närvarat, 0)
+const totalBar = jaCount + nejCount + avstarCount + frånvarandeCount
+
+// Build vote detail table from graf edges → related paragraf nodes
+const related = graf.related || []
+const relatedMap = new Map(related.map((r: any) => [r.id, r]))
+const voteColors: Record<string, string> = {
+  Ja: 'var(--vote-ja)',
+  Nej: 'var(--vote-nej)',
+  Avstår: 'var(--vote-avstår)',
+}
+const voteDetails = edges
+  .filter((e: any) => e.typ.startsWith('röstade_'))
+  .map((e: any) => {
+    const target = relatedMap.get(e.to_id) || ({} as any)
+    const rost = e.typ.replace('röstade_', '')
+    const rostLabel = rost === 'ja' ? 'Ja' : rost === 'nej' ? 'Nej' : 'Avstår'
+    return {
+      datum: target.data?.datum || '',
+      rubrik: (target.label || '').replace(/^§ \d+ /, '').slice(0, 80),
+      rubrikId: target.id || '',
+      rost: rostLabel,
+      rostColor: voteColors[rostLabel] || 'var(--color-neutral)',
+    }
+  })
+  .filter((v: any) => v.datum)
+  .sort((a: any, b: any) => b.datum.localeCompare(a.datum))
+
+// Earliest known activity
+const dates = related
+  .map((r: any) => r.data?.datum)
+  .filter(Boolean)
+  .sort()
+const earliestDate = dates[0] || null
+const latestDate = dates[dates.length - 1] || null
+
+// Earliest uppdrag start
+const earliestUppdrag =
+  mandatperioder.length > 0
+    ? mandatperioder[0].period.split('-')[0]
+    : uppdrag.length > 0
+      ? uppdrag
+          .map((u: any) => u.från)
+          .filter(Boolean)
+          .sort()[0]
+          ?.slice(0, 4)
+      : null
+
+const namn = detail.namn
+
+const profilTabs = [
+  { key: 'profil', label: 'Profil' },
+  { key: 'roster', label: `Röster (${totalVotes})` },
+  { key: 'uppdrag', label: `Uppdrag (${uppdrag.length})` },
+  mandatperioder.length > 0 && { key: 'mandatperioder', label: 'Mandatperioder' },
+  anföranden.length > 0 && { key: 'anforanden', label: `Anföranden (${anföranden.length})` },
+].filter(Boolean) as { key: string; label: string }[]
+---
+
+<Kommun
+  title={`${namn} (${detail.parti})`}
+  kommun={kommun}
+  kommunNamn={kommunNamn}
+  breadcrumbs={[
+    { label: kommunNamn, href: `/${kommun}` },
+    { label: 'Politiker', href: `/${kommun}/politiker` },
+    { label: namn },
+  ]}
+>
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Header -->
+    <section class="mb-8 flex items-start gap-6">
+      {detail.foto_url ? (
+        <img src={detail.foto_url} alt={namn} class="w-24 h-24 rounded-lg object-cover shrink-0" />
+      ) : (
+        <div class="w-24 h-24 rounded-lg bg-[var(--color-surface-sunken)] flex items-center justify-center shrink-0">
+          <Icon name="user" size={40} class="text-[var(--color-text-subtle)]" />
+        </div>
+      )}
+      <div>
+        <div class="flex items-center gap-3 mb-1">
+          <h1 class="text-3xl font-bold">{namn}</h1>
+          <PartyTag parti={detail.parti} full size="md" />
+        </div>
+        {detail.email && <p class="text-sm text-[var(--color-text-muted)]">{detail.email}</p>}
+        <p class="text-sm text-[var(--color-text-muted)] mt-1">
+          {uppdrag.length} uppdrag
+          {earliestUppdrag && <span> · Aktiv sedan {earliestUppdrag}</span>}
+          {earliestDate && <span> · Data från {earliestDate}</span>}
+        </p>
+      </div>
+    </section>
+
+    <!-- KPI row -->
+    <section class="mb-8 grid gap-4 grid-cols-[repeat(auto-fit,minmax(150px,1fr))]">
+      <Card title="Röster" titleSize="sm">
+        <Tooltip text="Antal namnupprop (voteringar) där politikern deltog" position="bottom-left">
+          <div class="font-mono text-2xl font-bold">{totalVotes}</div>
+        </Tooltip>
+      </Card>
+      {(visaArvode || speechCount > 0) && (
+        <Card title="Anföranden" titleSize="sm">
+          <Tooltip text="Antal registrerade anföranden i KF-debatter" position="bottom">
+            <div class="font-mono text-2xl font-bold">{speechCount.toLocaleString('sv-SE')}</div>
+          </Tooltip>
+        </Card>
+      )}
+      {organNärvaro.map((o) => (
+        <Card title={`Närvaro ${o.organ}`} titleSize="sm">
+          <Tooltip text={`Sammanträden i ${o.organ === 'KF' ? 'kommunfullmäktige' : 'kommunstyrelsen'} där politikern tjänstgjorde, av alla under mandatperioden`} position="bottom">
+            <div class="font-mono text-2xl font-bold">{o.närvarat}/{o.totalt} <span class="text-sm text-[var(--color-text-muted)]">möten</span></div>
+          </Tooltip>
+        </Card>
+      ))}
+      {arvode && (
+        <Card title="Arvode" titleSize="sm">
+          <Tooltip text="Beräknad total ersättning per månad (fast + förrättning)" position="bottom-right">
+            <div class="font-mono text-2xl font-bold">{arvode.total_ersättning_kr?.toLocaleString('sv-SE')} <span class="text-sm text-[var(--color-text-muted)]">kr/mån</span></div>
+          </Tooltip>
+        </Card>
+      )}
+    </section>
+
+    <!-- Arvode detail -->
+    {arvode && arvode.total_ersättning_kr > 0 && (
+      <section class="mb-8">
+        <Card title="Ersättning" titleSize="lg" tooltip="Baserat på Göteborgs Stads regler för arvoden (KS 2025-12-10 §946). Grundarvode 2026: 80 475 kr/mån.">
+          <div class="grid gap-3 text-sm">
+            {arvode.fast_arvode_kr > 0 && (
+            <div class="flex justify-between">
+              <span class="text-[var(--color-text-muted)]">Fast arvode (presidieuppdrag)</span>
+              <span class="font-mono font-semibold">{arvode.fast_arvode_kr?.toLocaleString('sv-SE')} kr/mån</span>
+            </div>
+            )}
+            <div class="flex justify-between">
+              <span class="text-[var(--color-text-muted)]">Förrättningsarvode ({arvode.antal_möten_deltog} möten × 1 640 kr)</span>
+              <span class="font-mono font-semibold">{arvode.förrättningsarvode_kr?.toLocaleString('sv-SE')} kr</span>
+            </div>
+            <div class="flex justify-between border-t border-[var(--color-border)] pt-2 font-semibold">
+              <span>Total ersättning</span>
+              <span class="font-mono">{arvode.total_ersättning_kr?.toLocaleString('sv-SE')} kr/mån</span>
+            </div>
+          </div>
+        </Card>
+      </section>
+    )}
+
+    <!-- Profil -->
+    <section class="mb-8">
+      <Tabs tabs={profilTabs}>
+        <Fragment slot="panel-profil">
+          <Card title="Percentilprofil" titleSize="lg" tooltip="Varje axel visar var politikern ligger jämfört med andra politiker med tillräckligt underlag — 100 = högst bland kommunens politiker, inte 100% av något. En axel utan tillräckligt underlag ritas mot centrum med streckad linje, inte som lägst.">
+            {harProfilData ? (
+              <div class="flex flex-col items-center">
+                <RadarChart axes={profilAxlar} />
+                <ul class="mt-2 grid grid-cols-2 gap-x-6 gap-y-1 text-xs text-[var(--color-text-muted)]">
+                  {profilAxlar.map((a) => (
+                    <li class="flex justify-between gap-3">
+                      <span>{a.label}</span>
+                      <span class="font-mono">{a.rawLabel}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <EmptyState
+                icon="radar"
+                title="Otillräckligt underlag för percentilprofil"
+                description="Kräver registrerad närvaro, röster eller anföranden i grafen för den här politikern."
+              />
+            )}
+          </Card>
+        </Fragment>
+
+        <Fragment slot="panel-roster">
+          <Card title="Röstningshistorik" titleSize="lg">
+            {totalVotes > 0 ? (
+              <>
+                <StackedBar segments={[
+                  { label: 'Ja', value: jaCount, color: 'var(--vote-ja)' },
+                  { label: 'Nej', value: nejCount, color: 'var(--vote-nej)' },
+                  { label: 'Avstår', value: avstarCount, color: 'var(--vote-avstår)' },
+                  { label: 'Frånvarande', value: frånvarandeCount, color: 'var(--color-neutral)' },
+                ]} />
+
+                {voteDetails.length > 0 && (
+                  <Accordion summary={`Visa alla ${voteDetails.length} voteringar`} class="mt-4">
+                    <Table
+                      headers={['Datum', 'Ärende', 'Röst']}
+                      rows={voteDetails.map(v => [v.datum, { text: v.rubrik, href: `/${kommun}/beslut/${encodeURIComponent(v.rubrikId)}` }, { text: v.rost, color: v.rostColor }])}
+                      variant="compact"
+                    />
+                  </Accordion>
+                )}
+              </>
+            ) : (
+              <EmptyState
+                icon="inbox"
+                title="Inga registrerade röster"
+                description="Ingen namnupprop där politikern deltagit finns i underlaget för aktuell mandatperiod."
+              />
+            )}
+          </Card>
+        </Fragment>
+
+        <Fragment slot="panel-uppdrag">
+          <Card title={`Uppdrag (${uppdrag.length})`} subtitle="Nuvarande mandatperiod 2022–2026" titleSize="lg">
+            <Table
+              headers={['Roll', 'Organisation', 'Period']}
+              rows={uppdrag.map((u: any) => [u.roll, u.organisation, u.från && u.till ? `${u.från.slice(0, 4)}–${u.till.slice(0, 4)}` : 'N/A'])}
+              variant="compact"
+              alignRight={[2]}
+            />
+          </Card>
+        </Fragment>
+
+        {mandatperioder.length > 0 && (
+          <Fragment slot="panel-mandatperioder">
+            <Card title="Mandatperioder" titleSize="lg">
+              <Timeline events={mandatperioder.map((m, i) => ({
+                datum: m.period,
+                titel: m.roll,
+                beskrivning: m.ansvarsområde || undefined,
+                status: i === mandatperioder.length - 1 ? 'active' as const : 'completed' as const,
+              }))} />
+            </Card>
+          </Fragment>
+        )}
+
+        {anföranden.length > 0 && (
+          <Fragment slot="panel-anforanden">
+            <div class="flex flex-col gap-3">
+              {anföranden.slice(0, 20).map((a) => (
+                <div class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
+                  <div class="flex items-center gap-2 mb-2 text-xs text-[var(--color-text-muted)]">
+                    <a href={`/${kommun}/kf/moten/${a.datum}`} class="font-mono hover:text-[var(--color-primary)]">{a.datum}</a>
+                    {a.ärende && <span>· Ärende {a.ärende}: {a.ärendeTitel?.slice(0, 50)}</span>}
+                  </div>
+                  <p class="text-sm text-[var(--color-text)] leading-relaxed">{a.text?.slice(0, 300)}{(a.text?.length || 0) > 300 ? '…' : ''}</p>
+                </div>
+              ))}
+              {anföranden.length > 20 && (
+                <p class="text-sm text-[var(--color-text-muted)] text-center">+{anföranden.length - 20} fler anföranden via <a href={`/${kommun}/kf/moten`} class="hover:text-[var(--color-primary)]">sammanträden</a></p>
+              )}
+            </div>
+          </Fragment>
+        )}
+      </Tabs>
+    </section>
+
+  </div>
+</Kommun>

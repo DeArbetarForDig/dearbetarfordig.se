@@ -12,5 +12,4 @@ export async function getStaticPaths() {
 const { datum } = Astro.params
 ---
 
-<!-- Inga egna profilsidor för Mölndal: länka till stadens förtroendemannaregister -->
-<MoteSida kommun="molndal" kommunNamn="Mölndal" datum={datum!} politikerUrl={(id) => `https://molndal.tromanpublik.se/person/${id}`} />
+<MoteSida kommun="molndal" kommunNamn="Mölndal" datum={datum!} politikerUrl={(id) => `/molndal/politiker/${id}`} />

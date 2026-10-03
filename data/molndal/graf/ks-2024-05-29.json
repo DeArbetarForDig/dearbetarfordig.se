@@ -7,6 +7,8 @@
       "data": {
         "datum": "2024-05-29",
         "organisation": "Kommunstyrelsen",
+        "tjänstgörande": 11,
+        "ordinarieNärvarande": 10,
         "källa": "webbdiarium.molndal.se"
       }
     },
@@ -642,46 +644,6 @@
     },
     {
       "from": "politiker-f31ad905-6f3e-4880-8de3-22381cb4b63b",
-      "to": "möte-ks-2024-05-29",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-5345a86a-d9cc-4da7-8087-8bbe81d2ca47",
-      "to": "möte-ks-2024-05-29",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-4ffb41bc-329c-4f28-898b-7c5451276339",
-      "to": "möte-ks-2024-05-29",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-f1147938-337d-47fd-a759-3233c8527ece",
-      "to": "möte-ks-2024-05-29",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-49a509f5-8da1-4788-ad62-4fc8de3e1a27",
-      "to": "möte-ks-2024-05-29",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-296659d0-acb9-42e0-b551-ac4f1fa0ec52",
-      "to": "möte-ks-2024-05-29",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-673d0dd9-f42b-4744-ab6d-f96d98171fe3",
-      "to": "möte-ks-2024-05-29",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-ed8b6e96-cdef-4212-8d91-7713b2086cd3",
-      "to": "möte-ks-2024-05-29",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-bd1ec518-0d97-49a3-a846-606fbec57109",
       "to": "möte-ks-2024-05-29",
       "typ": "närvarade"
     }

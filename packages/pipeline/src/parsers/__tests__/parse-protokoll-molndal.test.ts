@@ -14,7 +14,11 @@ Beslutande             Ledamöter
                        Per Malm (M), ordförande
                        Emil Forsberg (S) ersätter Elpida Georgitsi (S)
                        Shahla Alamshahi (S) ersätter Kåre Widenqvist (S) §§ 150-160
-Ersättare              Anna Andersson (S)
+Sida
+Kommunfullmäktige
+                                     Ersättare
+                                     Anna Andersson (S) §§ 58-84
+Ersättare i beredskap  Berith Linder (S)
 
  Innehållsförteckning
             § 81 Dnr 00123/20212.6.
@@ -110,7 +114,7 @@ describe('parseOmröstningslistor', () => {
 })
 
 describe('parseNärvaro', () => {
-  it('läser tjänstgörande ledamöter och vem ersättaren ersätter', () => {
+  it('läser tjänstgörande ledamöter över sidbrytning, inte närvarande ersättare', () => {
     expect(parseNärvaro(PROTOKOLL)).toEqual([
       { namn: 'Per Malm', parti: 'M', roll: 'ordförande', ersätter: undefined },
       { namn: 'Emil Forsberg', parti: 'S', roll: undefined, ersätter: 'Elpida Georgitsi' },
@@ -130,5 +134,12 @@ describe('hjälpfunktioner', () => {
     expect(klassificera('Frågan anses besvarad.', 'kf')).toBe('beslut')
     expect(klassificera('', 'ks')).toBe('beslut')
     expect(klassificera('Kommunfullmäktige antar planen.', 'kf')).toBe('bifall')
+    expect(klassificera('Motionen bifalls.', 'kf')).toBe('bifall')
+    for (const avslag of [
+      'Motionen avslås.',
+      'Kommunfullmäktige beslutar avslå motionen.',
+      'Motionen avstyrks.',
+    ])
+      expect(klassificera(avslag, 'kf')).toBe('avslag')
   })
 })

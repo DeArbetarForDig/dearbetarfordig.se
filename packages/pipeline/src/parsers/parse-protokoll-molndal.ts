@@ -94,7 +94,9 @@ export function klassificera(beslutstext: string, organ: 'kf' | 'ks'): string {
   if (organ === 'ks' && /förslag till kommunfullmäktige|föreslår kommunfullmäktige/.test(t))
     return 'tillstyrkan_kf'
   if (/ärendet utgår/.test(t)) return 'beslut'
-  if (/\bavslår\b|\bavslag\b/.test(t)) return 'avslag'
+  // avslår / avslås / beslutar avslå / avslag / avstyrks
+  // (inget \b: JS ordgränser räknar inte å som bokstav)
+  if (/avslå|avslag|avstyrk/.test(t)) return 'avslag'
   if (/antecknar|till handlingarna|tar del av|informationen/.test(t)) return 'beslut'
   if (/anses besvarad|besvarad/.test(t)) return 'beslut'
   return 'bifall'
@@ -204,9 +206,18 @@ export function parseNärvaro(text: string): Närvarande[] {
   const start = rader.findIndex((r) => /^Beslutande\b/.test(r))
   if (start < 0) return []
   const närvarande: Närvarande[] = []
-  for (const rad of rader.slice(start, start + 120)) {
-    // Blocket slutar vid nästa etikett i vänsterkolumnen
+  for (const rad of rader.slice(start, start + 200)) {
+    // Listan fortsätter över sidbrytningar — hoppa över sidhuvud/-fot
+    if (SIDBRUS.test(rad.trim())) continue
+    // Blocket slutar vid nästa etikett — i vänsterkolumnen, eller (2022–2024)
+    // indragen som underrubrik: "Ersättare" är de som var där utan att tjänstgöra
     if (rad !== rader[start] && /^[A-ZÅÄÖ]/.test(rad)) break
+    if (
+      /^(Ersättare|Ej tjänstgörande|Övriga|Utses att justera|Justering|Paragrafer|Underskrifter)\b/.test(
+        rad.trim(),
+      )
+    )
+      break
     const innehåll = rad
       .replace(/^Beslutande\s*/, '')
       .replace(/^\s*(Ledamöter|Tjänstgörande ersättare)\s*/, '')
@@ -324,7 +335,16 @@ async function main() {
         id: mötesId,
         typ: 'möte',
         label: `${kod.toUpperCase()} Sammanträde ${p.datum}`,
-        data: { datum: p.datum, organisation: p.organ, källa: p.url ?? 'webbdiarium.molndal.se' },
+        data: {
+          datum: p.datum,
+          organisation: p.organ,
+          // Alla tjänstgörande enligt "Beslutande" — även de som inte går att
+          // koppla till dagens register (avgångna), till skillnad från närvarade-kanterna
+          tjänstgörande: närvaro.length,
+          // Ordinarie ledamöter på plats (inte ersättare) — frånvaromåttet
+          ordinarieNärvarande: närvaro.filter((n) => !n.ersätter).length,
+          källa: p.url ?? 'webbdiarium.molndal.se',
+        },
       },
     ]
     const edges: any[] = []

@@ -7,6 +7,8 @@
       "data": {
         "datum": "2023-05-24",
         "organisation": "Kommunfullmäktige",
+        "tjänstgörande": 64,
+        "ordinarieNärvarande": 56,
         "källa": "https://www.molndal.se/download/18.707ac4a619b2bed27ae753f7/1768204931124/20230524_protokoll_kf.pdf"
       }
     },
@@ -900,6 +902,46 @@
     },
     {
       "from": "politiker-6cde8688-9ca3-4681-b8ff-4b958b658e64",
+      "to": "möte-kf-2023-05-24",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-ee0ee20c-021c-4c76-a57e-ba55e0d00e2d",
+      "to": "möte-kf-2023-05-24",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-33cfaf11-a8a3-482d-b26a-7c818c5e67c8",
+      "to": "möte-kf-2023-05-24",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-690d0f18-ebf1-4e48-8370-cbf145469b88",
+      "to": "möte-kf-2023-05-24",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-13feaaea-819d-40eb-9277-fed941540f70",
+      "to": "möte-kf-2023-05-24",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-ea5a901f-39f0-46c9-8381-87d65b9562f7",
+      "to": "möte-kf-2023-05-24",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-49a509f5-8da1-4788-ad62-4fc8de3e1a27",
+      "to": "möte-kf-2023-05-24",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-a3230eb6-55ad-427b-8b5a-765f61e86ee7",
+      "to": "möte-kf-2023-05-24",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-833d912f-56d8-4acb-804e-61953874fae2",
       "to": "möte-kf-2023-05-24",
       "typ": "närvarade"
     },

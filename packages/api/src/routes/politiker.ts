@@ -428,7 +428,10 @@ politikerRouter.openapi(profilRoute, async (c) => {
   }
 
   const axes = axelNycklar.map((key) => {
-    const raw = målRaw[key]
+    // Hela populationen på 0 = måttet saknar källdata i kommunen (t.ex. inga
+    // yttrandeprotokoll i Mölndal) — då är det inget underlag, inte median
+    const finnsData = populationer[key].some((v) => v !== 0)
+    const raw = finnsData ? målRaw[key] : null
     const percentile = raw !== null ? percentilAv(populationer[key], raw) : null
     return {
       key,

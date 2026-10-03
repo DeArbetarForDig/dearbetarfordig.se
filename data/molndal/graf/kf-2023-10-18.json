@@ -7,6 +7,8 @@
       "data": {
         "datum": "2023-10-18",
         "organisation": "Kommunfullmäktige",
+        "tjänstgörande": 63,
+        "ordinarieNärvarande": 54,
         "källa": "https://www.molndal.se/download/18.707ac4a619b2bed27ae753fa/1768204931807/20231018_protokoll_kf.pdf"
       }
     },
@@ -269,7 +271,7 @@
         "rubrik": "Svar på motion (MP) - Alla barn ska erbjudas fritidshemsplats",
         "datum": "2023-10-18",
         "organ": "Kommunfullmäktige",
-        "beslut": "bifall",
+        "beslut": "avslag",
         "beslutstext": "Motionen avslås med hänvisning till följande: 1. Det pågår en nationell utredning om att bereda alla elever plats i fritidshemsverksamhet. Det är lämpligt att invänta utredningsresultatet. 2. Redan idag kan elever, vid behov, beredas plats i fritidsverksamhet även om vårdnadshavare inte arbetar eller studerar.",
         "reservationer": [],
         "yrkanden": [],
@@ -704,6 +706,41 @@
     },
     {
       "from": "politiker-33cfaf11-a8a3-482d-b26a-7c818c5e67c8",
+      "to": "möte-kf-2023-10-18",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-690d0f18-ebf1-4e48-8370-cbf145469b88",
+      "to": "möte-kf-2023-10-18",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-13feaaea-819d-40eb-9277-fed941540f70",
+      "to": "möte-kf-2023-10-18",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-ea5a901f-39f0-46c9-8381-87d65b9562f7",
+      "to": "möte-kf-2023-10-18",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-d476cafc-0dd5-472f-9322-bbb5cee80132",
+      "to": "möte-kf-2023-10-18",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-49a509f5-8da1-4788-ad62-4fc8de3e1a27",
+      "to": "möte-kf-2023-10-18",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-a3230eb6-55ad-427b-8b5a-765f61e86ee7",
+      "to": "möte-kf-2023-10-18",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-833d912f-56d8-4acb-804e-61953874fae2",
       "to": "möte-kf-2023-10-18",
       "typ": "närvarade"
     },

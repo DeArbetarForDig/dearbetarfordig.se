@@ -7,6 +7,8 @@
       "data": {
         "datum": "2023-05-31",
         "organisation": "Kommunstyrelsen",
+        "tjänstgörande": 11,
+        "ordinarieNärvarande": 10,
         "källa": "https://www.molndal.se/download/18.707ac4a619b2bed27ae75408/1768204994534/20230531_protokoll_ks.pdf"
       }
     },
@@ -530,36 +532,6 @@
     },
     {
       "from": "politiker-f31ad905-6f3e-4880-8de3-22381cb4b63b",
-      "to": "möte-ks-2023-05-31",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-5345a86a-d9cc-4da7-8087-8bbe81d2ca47",
-      "to": "möte-ks-2023-05-31",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-f1147938-337d-47fd-a759-3233c8527ece",
-      "to": "möte-ks-2023-05-31",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-673d0dd9-f42b-4744-ab6d-f96d98171fe3",
-      "to": "möte-ks-2023-05-31",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-a3230eb6-55ad-427b-8b5a-765f61e86ee7",
-      "to": "möte-ks-2023-05-31",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-bd1ec518-0d97-49a3-a846-606fbec57109",
-      "to": "möte-ks-2023-05-31",
-      "typ": "närvarade"
-    },
-    {
-      "from": "politiker-cbc38327-9fee-4468-97c1-5a8b7014244b",
       "to": "möte-ks-2023-05-31",
       "typ": "närvarade"
     }

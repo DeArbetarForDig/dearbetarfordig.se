@@ -7,6 +7,8 @@
       "data": {
         "datum": "2023-06-21",
         "organisation": "Kommunfullmäktige",
+        "tjänstgörande": 61,
+        "ordinarieNärvarande": 52,
         "källa": "https://www.molndal.se/download/18.707ac4a619b2bed27ae753f8/1768204931456/20230621_protokoll_kf.pdf"
       }
     },
@@ -444,6 +446,31 @@
     },
     {
       "from": "politiker-690d0f18-ebf1-4e48-8370-cbf145469b88",
+      "to": "möte-kf-2023-06-21",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-d476cafc-0dd5-472f-9322-bbb5cee80132",
+      "to": "möte-kf-2023-06-21",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-ea5a901f-39f0-46c9-8381-87d65b9562f7",
+      "to": "möte-kf-2023-06-21",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-49a509f5-8da1-4788-ad62-4fc8de3e1a27",
+      "to": "möte-kf-2023-06-21",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-a3230eb6-55ad-427b-8b5a-765f61e86ee7",
+      "to": "möte-kf-2023-06-21",
+      "typ": "närvarade"
+    },
+    {
+      "from": "politiker-833d912f-56d8-4acb-804e-61953874fae2",
       "to": "möte-kf-2023-06-21",
       "typ": "närvarade"
     },
