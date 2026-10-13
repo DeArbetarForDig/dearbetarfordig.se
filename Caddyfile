@@ -5,3 +5,7 @@
 api.dearbetarfordig.se {
 	reverse_proxy api:3000
 }
+
+# Extra sites configured on the server itself (/etc/caddy/sites/*.caddy, mounted by a server-only
+# docker-compose.override.yml). No match is fine: Caddy skips an empty glob.
+import /etc/caddy/sites/*.caddy
