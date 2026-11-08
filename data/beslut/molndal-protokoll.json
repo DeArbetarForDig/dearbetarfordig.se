@@ -1,8 +1,8 @@
 {
   "kommun": "molndal",
   "från": "2022-10-15",
-  "hämtad": "2026-10-03T19:37:48.229Z",
-  "antal": 80,
+  "hämtad": "2026-11-08T12:06:48.424Z",
+  "antal": 82,
   "protokoll": [
     {
       "organ": "Kommunfullmäktige",
@@ -340,7 +340,7 @@
       "organ": "Kommunstyrelsen",
       "datum": "2025-04-30",
       "källa": "webbdiariet",
-      "dokumentId": "3722",
+      "dokumentId": "3704",
       "filnamnB64": "MjAyNTA0MzBfcHJvdG9rb2xsX2tzLnB1Yi5wZGY="
     },
     {
@@ -538,6 +538,20 @@
       "källa": "webbdiariet",
       "dokumentId": "5753",
       "filnamnB64": "MjAyNjA5MzBfcHJvdG9rb2xsX2tzLnB1Yi5wZGY="
+    },
+    {
+      "organ": "Kommunfullmäktige",
+      "datum": "2026-10-15",
+      "källa": "webbdiariet",
+      "dokumentId": "5824",
+      "filnamnB64": "MjAyNjEwMTVfcHJvdG9rb2xsX2tmLnB1Yi5wZGY="
+    },
+    {
+      "organ": "Kommunstyrelsen",
+      "datum": "2026-10-21",
+      "källa": "webbdiariet",
+      "dokumentId": "5855",
+      "filnamnB64": "MjAyNjEwMjFfcHJvdG9rb2xsX2tzLnB1Yi5wZGY="
     }
   ]
 }

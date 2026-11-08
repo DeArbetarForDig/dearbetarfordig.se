@@ -11,7 +11,7 @@
  * Output: data/beslut/molndal-moten.json
  */
 
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const KÄLLA = 'https://www.molndal.se/kommun-och-politik/moten-protokoll-kallelser'
@@ -41,11 +41,20 @@ export function parseMöten(html: string): Möte[] {
 async function main() {
   const res = await fetch(KÄLLA, { headers: { 'User-Agent': 'Mozilla/5.0' } })
   if (!res.ok) throw new Error(`HTTP ${res.status}: ${KÄLLA}`)
-  const möten = parseMöten(await res.text())
-  if (möten.length === 0) throw new Error('Inga möten hittade — har sidans struktur ändrats?')
+  const nya = parseMöten(await res.text())
+  if (nya.length === 0) throw new Error('Inga möten hittade — har sidans struktur ändrats?')
 
   mkdirSync(OUTPUT_DIR, { recursive: true })
   const outPath = join(OUTPUT_DIR, 'molndal-moten.json')
+  // Sidan visar bara ett rullande år (sedan okt 2026) — behåll äldre möten
+  const tidigare: Möte[] = existsSync(outPath)
+    ? JSON.parse(readFileSync(outPath, 'utf-8')).möten
+    : []
+  const perMöte = new Map(tidigare.map((m) => [`${m.organ}|${m.datum}`, m]))
+  for (const m of nya) perMöte.set(`${m.organ}|${m.datum}`, m)
+  const möten = [...perMöte.values()].sort(
+    (a, b) => b.datum.localeCompare(a.datum) || a.organ.localeCompare(b.organ, 'sv'),
+  )
   writeFileSync(
     outPath,
     JSON.stringify(

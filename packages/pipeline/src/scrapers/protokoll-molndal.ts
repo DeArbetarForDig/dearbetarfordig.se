@@ -85,12 +85,26 @@ export class Webbdiariet {
   async rpc(method: string, params: Record<string, unknown> = {}): Promise<any> {
     const body: Record<string, unknown> = { jsonrpc: '2.0', method, params }
     if (this.sessionId) body.session_id = this.sessionId
-    const res = await fetch(`${WEBBDIARIET}/json`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8', 'User-Agent': 'Mozilla/5.0' },
-      body: JSON.stringify(body),
-    })
-    if (!res.ok) throw new Error(`Webbdiariet ${method}: HTTP ${res.status}`)
+    // Servern ger sporadiskt 502 / ETIMEDOUT (CI 2026-10-05, 2026-10-19) — försök igen
+    let res: Response | undefined
+    for (let försök = 1; ; försök++) {
+      try {
+        res = await fetch(`${WEBBDIARIET}/json`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            'User-Agent': 'Mozilla/5.0',
+          },
+          body: JSON.stringify(body),
+          signal: AbortSignal.timeout(30_000),
+        })
+        if (res.ok || res.status < 500 || försök === 3) break
+      } catch (err) {
+        if (försök === 3) throw err
+      }
+      await new Promise((r) => setTimeout(r, 2000 * försök))
+    }
+    if (!res?.ok) throw new Error(`Webbdiariet ${method}: HTTP ${res?.status}`)
     const data = await res.json()
     if (data.session_id) this.sessionId = data.session_id
     if (data.error) throw new Error(`Webbdiariet ${method}: ${data.error.message}`)
@@ -114,47 +128,53 @@ async function frånWebbdiariet(): Promise<Protokoll[]> {
   const wd = new Webbdiariet()
   await wd.öppna()
   const idag = new Date().toISOString().slice(0, 10)
-  const protokoll: Protokoll[] = []
-  for (const organ of Object.keys(ORGAN) as Organ[]) {
-    const searchId = `daf-${ORGAN[organ]}`
-    // doctype måste vara ett tal här (i ReadObject:s param däremot en sträng)
-    await wd.rpc('CiceronsokServer:Search', {
-      search_id: searchId,
-      doctype: 1,
-      text: '',
-      param: JSON.stringify({
-        diary: 'KS',
-        board: organ,
-        from_date: FRÅN,
-        to_date: idag,
-        hasFiles: false,
-      }),
-    })
+  // Sedan okt 2026 hänger protokollen inte längre som dokument på mötet
+  // (ReadObjectDetails ger documents: []) — de söks som handlingar (doctype 4).
+  // board-filtret ignoreras för handlingar, så organet tas ur titeln.
+  const searchId = 'daf-protokoll'
+  await wd.rpc('CiceronsokServer:Search', {
+    search_id: searchId,
+    doctype: 4,
+    text: 'protokoll',
+    param: JSON.stringify({
+      diary: 'KS',
+      board: '',
+      from_date: FRÅN,
+      to_date: idag,
+      hasFiles: true,
+    }),
+  })
+  const träffar: any[] = []
+  for (let offset = 0; ; offset += 250) {
     const { results = [] } = await wd.rpc('CiceronsokServer:ReadItems', {
       search_id: searchId,
-      offset: 0,
+      offset,
       limit: 250,
     })
-    for (const möte of results) {
-      const datum = möte.title.match(/(\d{4}-\d{2}-\d{2})$/)?.[1]
-      if (!datum) continue
-      const detaljer = await wd.rpc('CiceronsokServer:ReadObjectDetails', {
-        search_id: searchId,
-        id: möte.id,
-      })
-      const dokument = JSON.parse(detaljer.value).documents ?? []
-      // "Protokoll kommunfullmäktige 2026-09-17" — inte protokollsutdrag och inte
-      // det separata "…, omedelbart justerat" (bara de paragraferna)
-      const p = dokument.find((d: any) => /^protokoll \S+ \d{4}-\d{2}-\d{2}$/i.test(d.name.trim()))
-      if (!p) continue
-      protokoll.push({
-        organ,
-        datum,
-        källa: 'webbdiariet',
-        dokumentId: p.id,
-        filnamnB64: p.filename_b64,
-      })
-    }
+    träffar.push(...results)
+    if (results.length < 250) break
+  }
+  const protokoll: Protokoll[] = []
+  for (const t of träffar) {
+    // "Protokoll kommunfullmäktige 2026-09-17" — inte utdrag, "omedelbart justerat" el. nämnder
+    const m = t.title
+      .trim()
+      .match(/^protokoll (kommunfullmäktige|kommunstyrelsen) (\d{4}-\d{2}-\d{2})$/i)
+    if (!m) continue
+    const organ = (m[1][0].toUpperCase() + m[1].slice(1).toLowerCase()) as Organ
+    const detaljer = await wd.rpc('CiceronsokServer:ReadObjectDetails', {
+      search_id: searchId,
+      id: t.id,
+    })
+    const fil = JSON.parse(detaljer.value).files?.[0]
+    if (!fil) continue
+    protokoll.push({
+      organ,
+      datum: m[2],
+      källa: 'webbdiariet',
+      dokumentId: fil.id,
+      filnamnB64: fil.filename_b64,
+    })
   }
   return protokoll
 }
@@ -213,11 +233,20 @@ function sparatArkiv(): Protokoll[] | null {
   return arkiv.length ? arkiv : null
 }
 
+/** Tidigare hittade webbdiariet-protokoll — dokument-id:n förblir giltiga, och
+ * sökningen har tappat träffar förr (okt 2026), så inventariet krymper aldrig. */
+function sparatWebbdiariet(): Protokoll[] {
+  if (process.argv.includes('--full') || !existsSync(OUTPUT)) return []
+  const tidigare = JSON.parse(readFileSync(OUTPUT, 'utf-8')).protokoll as Protokoll[]
+  return tidigare.filter((p) => p.källa === 'webbdiariet')
+}
+
 async function main() {
   const [webb, arkiv] = await Promise.all([frånWebbdiariet(), sparatArkiv() ?? frånArkivet()])
   // Samma möte i båda källorna → webbdiariet vinner (originalet)
   const perMöte = new Map<string, Protokoll>()
-  for (const p of [...arkiv, ...kända(), ...webb]) perMöte.set(`${p.organ}|${p.datum}`, p)
+  for (const p of [...arkiv, ...kända(), ...sparatWebbdiariet(), ...webb])
+    perMöte.set(`${p.organ}|${p.datum}`, p)
   const protokoll = [...perMöte.values()].sort(
     (a, b) => a.datum.localeCompare(b.datum) || a.organ.localeCompare(b.organ),
   )

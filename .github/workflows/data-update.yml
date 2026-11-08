@@ -7,7 +7,9 @@ on:
 
 jobs:
   update-data:
-    runs-on: ubuntu-latest
+    # ponytail: pinned — ubuntu-latest became 26.04 (2026-10-26) and
+    # Playwright 1.52 refuses to install there. Unpin after bumping Playwright.
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
       pull-requests: write
@@ -27,7 +29,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install system deps
-        run: sudo apt-get install -y poppler-utils
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
 
       - name: Install Playwright browsers
         run: pnpm --filter @daf/pipeline exec playwright install chromium --with-deps
@@ -45,7 +47,10 @@ jobs:
 
       # KF/KS protocols: inventory (webbdiariet API + stored archive list),
       # then parse only meetings without a graph file yet.
+      # webbdiarium.molndal.se times out from GitHub runners now and then
+      # (2026-10-05, 2026-10-19: ETIMEDOUT) — must not block Göteborg.
       - name: Protokoll (Mölndal)
+        continue-on-error: true
         run: |
           npx tsx packages/pipeline/src/scrapers/protokoll-molndal.ts
           npx tsx packages/pipeline/src/parsers/parse-protokoll-molndal.ts --only-new

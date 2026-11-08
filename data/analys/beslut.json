@@ -1,9 +1,1707 @@
 {
-  "genererad": "2026-10-02",
+  "genererad": "2026-11-08",
   "källa": "data/graf/{kf,ks}-*.json (KF- och KS-protokoll + handlingar)",
   "metod": "deterministisk härledning + regex, ingen modellbedömning",
-  "antal": 1419,
+  "antal": 1463,
   "ärenden": [
+    {
+      "ärendeNr": "SLK-2026-00622",
+      "rubrik": "Göteborgs Stads delårsrapport per augusti 2026",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§673",
+          "datum": "2026-10-28",
+          "nr": "673",
+          "beslut": "bifall"
+        }
+      ],
+      "källa_hash": "f3a4f27b009e509f",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "rutinärende"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "delad",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 1,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 1,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [
+          650
+        ],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00710",
+      "rubrik": "Kompletterande budget oktober 2026",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§674",
+          "datum": "2026-10-28",
+          "nr": "674",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "c6472de51bc6d97e",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2025-00123",
+      "rubrik": "Redovisning av uppdrag att i samverkan med samtliga nämnder och bolagsstyrelser utveckla det systematiska arbetsmiljöarbetet samt ta fram och sprida metoder för att förebygga sjukskrivningar",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§675",
+          "datum": "2026-10-28",
+          "nr": "675",
+          "beslut": "tillstyrkan_kf"
+        }
+      ],
+      "källa_hash": "73ba30d053b52080",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "tillstyrkan_kf",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00631",
+      "rubrik": "Uppdrag till exploateringsnämnden, socialnämnd Centrum samt Förvaltnings AB Framtiden med anledning av ny bosättningslag",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§676",
+          "datum": "2026-10-28",
+          "nr": "676",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "6ae34e177fcbe3c1",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2026-00919",
+      "rubrik": "Hemställan från nämnden för funktionsstöd om beslut om avvikelser från bestämmelser om elva timmars dygnsvila",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§678",
+          "datum": "2026-10-28",
+          "nr": "678",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "50903e38c2d1b2ee",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00854",
+      "rubrik": "Förfrågan från Fiskekommunerna om fortsatt deltagande och inriktning för kommande verksamhetsperiod",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§679",
+          "datum": "2026-10-28",
+          "nr": "679",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "1602fbb1d4b0ad2c",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00808",
+      "rubrik": "Struktur för tidplan och uppföljning 2027 samt anvisning för budgetbeslut i Göteborgs Stads nämnder och styrelser",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§680",
+          "datum": "2026-10-28",
+          "nr": "680",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "02df1514c7cde0b8",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2026-00514",
+      "rubrik": "Motion av Axel Josefson (M), Hampus Magnusson (M), Anneli Rhedin (M) och Sofie Gyllenwaldt (M) om att möjliggöra och införa strukturerade ordningsomdömen i Göteborgs kommunala grundskolor",
+      "organ": "ks",
+      "initiativ_parti": "M",
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§681",
+          "datum": "2026-10-28",
+          "nr": "681",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "25fcf24251d19e10",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "delad",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 1,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 1,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00501",
+      "rubrik": "Motion av Sanda Anton Henriksson (SD) och Agneta Kjaerbeck (SD) om utbildning i kost och näringslära för personal inom vård och omsorg samt funktionsstöd",
+      "organ": "ks",
+      "initiativ_parti": "SD",
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§682",
+          "datum": "2026-10-28",
+          "nr": "682",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "5e4f63f5b09a6ee4",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 3,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2025-01262",
+      "rubrik": "Motion av Martin Wannholt (D), Patrik Höstmad (D) och Jessica Blixt (D) om att inrätta Stiftelsen Göteborgs Ungdomsbostäder",
+      "organ": "ks",
+      "initiativ_parti": "D",
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§683",
+          "datum": "2026-10-28",
+          "nr": "683",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "1a99ec1f904ce447",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00423",
+      "rubrik": "Motion av Toni Orsulic (M) och Hampus Magnusson (M) om samordning för att bekämpa och förebygga råttor i Göteborg",
+      "organ": "ks",
+      "initiativ_parti": "M",
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§684",
+          "datum": "2026-10-28",
+          "nr": "684",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "024c1261beb13593",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "delad",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 1,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00515",
+      "rubrik": "Motion av Axel Josefson (M), Hakan Önal (M) och Sofie Gyllenwaldt (M) om stärkt uppföljning och ansvar för elever inom introduktionsprogram (IM)",
+      "organ": "ks",
+      "initiativ_parti": "M",
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§685",
+          "datum": "2026-10-28",
+          "nr": "685",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "6782a66acfe463b6",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 1,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00770",
+      "rubrik": "Remiss från Justitiedepartementet - Delbetänkandet Tillträdesförbud (SOU 2026:48)",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§686",
+          "datum": "2026-10-28",
+          "nr": "686",
+          "beslut": "bifall"
+        }
+      ],
+      "källa_hash": "ac8392c243b639e9",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "utan_beslutskaraktär"
+    },
+    {
+      "ärendeNr": "SLK-2026-00774",
+      "rubrik": "Remiss från Klimat- och näringslivsdepartementet Promemoria Förbättrat genomförande av industriutsläppsdirektivet (KN2026/01497-1)",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§687",
+          "datum": "2026-10-28",
+          "nr": "687",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "19d0a7fd60368d5f",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "utan_beslutskaraktär"
+    },
+    {
+      "ärendeNr": "SLK-2026-00750",
+      "rubrik": "Remiss från Klimat- och näringslivsdepartementet Promemorian Energiplanering i kommuner och regioner och en mer energieffektiv offentlig sektor",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§688",
+          "datum": "2026-10-28",
+          "nr": "688",
+          "beslut": "bifall"
+        }
+      ],
+      "källa_hash": "e03e1b4cf16610c8",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "utan_beslutskaraktär"
+    },
+    {
+      "ärendeNr": "SLK-2026-00745",
+      "rubrik": "Remiss från Klimat- och näringslivsdepartementet - Vägen mot utfasning (SOU 2026:33)",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§689",
+          "datum": "2026-10-28",
+          "nr": "689",
+          "beslut": "bifall"
+        }
+      ],
+      "källa_hash": "bb65f24b88164dd0",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "utan_beslutskaraktär"
+    },
+    {
+      "ärendeNr": "SLK-2026-00715",
+      "rubrik": "Remiss från Landsbygds- och infrastrukturdepartementet Regler om livscykel-GWP och gränsvärden för byggnaders klimatpåverkan",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§690",
+          "datum": "2026-10-28",
+          "nr": "690",
+          "beslut": "bifall"
+        }
+      ],
+      "källa_hash": "8820dd545126e849",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "utan_beslutskaraktär"
+    },
+    {
+      "ärendeNr": "SLK-2025-00589",
+      "rubrik": "Redovisning av uppdrag att genomföra en översyn av stadens bolagsstyrning",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§694",
+          "datum": "2026-10-28",
+          "nr": "694",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "04b49fada5b9baba",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2026-00013",
+      "rubrik": "Sammanträdestider 2027 för kommunstyrelsen",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§696",
+          "datum": "2026-10-28",
+          "nr": "696",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "048da52ad434cb8b",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "rutinärende"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00981",
+      "rubrik": "Yrkande från SD om förslag till andelstal för mottagande av ensamkommande barn 2027",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§697",
+          "datum": "2026-10-28",
+          "nr": "697",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "567b4b9ff07ecc8a",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "delad",
+        "votering": {
+          "ja": 12,
+          "nej": 1,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        },
+        "marginal": 11,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 1,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00982",
+      "rubrik": "Yrkande från SD om förslag till fördelningstal för anvisning av skyddsbehövande enligt massflyktsdirektivet 2027",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§698",
+          "datum": "2026-10-28",
+          "nr": "698",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "f9f76d3f6a10c908",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00291",
+      "rubrik": "Motion av Kristina Bergman Alme (L) om att utreda införande av preventiv parterapi",
+      "organ": "ks",
+      "initiativ_parti": "L",
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§699",
+          "datum": "2026-10-28",
+          "nr": "699",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "8fbc6b89cf900973",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00427",
+      "rubrik": "Motion av Mariette Höij (D), Jessica Blixt (D) och Martin Wannholt (D) om att införa provanställning inom förskola, skola, vård och omsorg",
+      "organ": "ks",
+      "initiativ_parti": "D",
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§700",
+          "datum": "2026-10-28",
+          "nr": "700",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "35d75f7bb4e9ed32",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-01049",
+      "rubrik": "Förslag till budget 2027 och flerårsplaner 2028-2029 – nu fråga om fastställande av skattesats",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§701",
+          "datum": "2026-10-28",
+          "nr": "701",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "512c6bf88a20eaa4",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-01013",
+      "rubrik": "Stadsrevisionen - Rapportsammandrag Arbetet med att organisera och förbereda Göteborgs Stads resursfunktioner",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-10-28-§709",
+          "datum": "2026-10-28",
+          "nr": "709",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "c7694e5c9c2a480c",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-10-28",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00023",
+      "rubrik": "Val av ledamot att kalla nyvalda kommunfullmäktige",
+      "organ": "kf",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "kf-2026-10-08-§320",
+          "datum": "2026-10-08",
+          "nr": "320",
+          "beslut": null
+        }
+      ],
+      "källa_hash": "aedc44a6eeb66b41",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "procedurell"
+    },
+    {
+      "ärendeNr": "SLK-2026-00916",
+      "rubrik": "Stadsrevisionens Rapportsammandrag - samverkan och samordning inom kommunal hälso- och sjukvård",
+      "organ": "kf",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§632",
+          "datum": "2026-09-30",
+          "nr": "632",
+          "beslut": "beslut"
+        },
+        {
+          "id": "kf-2026-10-08-§318",
+          "datum": "2026-10-08",
+          "nr": "318",
+          "beslut": null
+        }
+      ],
+      "källa_hash": "8de77f0d01c06ff0",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-30",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00518",
+      "rubrik": "Hemställan från Broströmska stiftelsen om ställningstagande till stiftelsens framtida verksamhet",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§583",
+          "datum": "2026-09-30",
+          "nr": "583",
+          "beslut": "tillstyrkan_kf"
+        }
+      ],
+      "källa_hash": "9a52a180e99a2a22",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "tillstyrkan_kf",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-30",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "delad",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 1,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00659",
+      "rubrik": "Redovisning av uppdrag om förslag för införande av kulturljudzon på Ringön",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§584",
+          "datum": "2026-09-30",
+          "nr": "584",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "9bff48b0771c45cc",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2026-00727",
+      "rubrik": "Redovisning av uppdrag om att utvärdera ersättningsmodellen för LOV daglig verksamhet och föreslå en ny modell för utbetalning av habiliteringsersättning",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§585",
+          "datum": "2026-09-30",
+          "nr": "585",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-10-28-§691",
+          "datum": "2026-10-28",
+          "nr": "691",
+          "beslut": "tillstyrkan_kf"
+        }
+      ],
+      "källa_hash": "daec6f9d9f3685e0",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "tillstyrkan_kf",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-09-30",
+        "handläggningsdagar": 28,
+        "bordlagd_antal": 1,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2025-00795",
+      "rubrik": "Information om kommunstyrelsens uppdrag att stärka stadens arbete för att motverka hat och hot mot hbtqi-personer",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§586",
+          "datum": "2026-09-30",
+          "nr": "586",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "222a6246e3ea16b4",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2026-00679",
+      "rubrik": "Information om organisatorisk placering utifrån ny lagstiftning och förordning om kommunal hyresgaranti till barnfamiljer",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§588",
+          "datum": "2026-09-30",
+          "nr": "588",
+          "beslut": "bifall"
+        }
+      ],
+      "källa_hash": "180eae7db45bb350",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-30",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "delad",
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till tilläggsyrkandet från SD.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        },
+        "marginal": 1,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 1,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00842",
+      "rubrik": "Information om 2027 års kommuntal för anvisning av nyanlända",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§589",
+          "datum": "2026-09-30",
+          "nr": "589",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "b11812691e463070",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2026-00191",
+      "rubrik": "Motion av Martin Wannholt (D), Jessica Blixt (D) och Mariette Höij (D) om att införa en hedersombudsman",
+      "organ": "ks",
+      "initiativ_parti": "D",
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§590",
+          "datum": "2026-09-30",
+          "nr": "590",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "aca9a0de3ff928bf",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-30",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00172",
+      "rubrik": "Motion av Pär Gustafsson (L), Eva Flyborg (L) och Kristina Bergman Alme (L) om att kartlägga ålderismen i Göteborgs Stad",
+      "organ": "ks",
+      "initiativ_parti": "L",
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§591",
+          "datum": "2026-09-30",
+          "nr": "591",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "acf2ce515643657b",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-30",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 3,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00289",
+      "rubrik": "Motion av Sanda Anton Henriksson (SD) och Agneta Kjaerbeck (SD) om trygghet och självbestämmande vid intima omsorgsinsatser inom äldreomsorg och funktionsstöd",
+      "organ": "ks",
+      "initiativ_parti": "SD",
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§592",
+          "datum": "2026-09-30",
+          "nr": "592",
+          "beslut": "avslag"
+        }
+      ],
+      "källa_hash": "1e3f575803933f0a",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-30",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "delad",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 1,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00425",
+      "rubrik": "Motion av Emmyly Bönfors (C) om upphandling av viltkött för att hantera vildsvinsproblematiken",
+      "organ": "ks",
+      "initiativ_parti": "C",
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§593",
+          "datum": "2026-09-30",
+          "nr": "593",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "d2117f7a807c64a1",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2026-00424",
+      "rubrik": "Motion av Rasmus Ragnarsson (SD) och Jörgen Fogelklou (SD) om att införa ett ö-kort för boende och verksamma i Göteborgs södra skärgård",
+      "organ": "ks",
+      "initiativ_parti": "SD",
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§594",
+          "datum": "2026-09-30",
+          "nr": "594",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "efb23188a2214d06",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2026-00689",
+      "rubrik": "Remiss från Kulturdepartementet - Slutbetänkande Ett investeringsprogram för kultur (SOU 2026:31)",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§595",
+          "datum": "2026-09-30",
+          "nr": "595",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "586c161c4f69fe27",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "utan_beslutskaraktär"
+    },
+    {
+      "ärendeNr": "SLK-2026-00805",
+      "rubrik": "Göteborgsförslag 13530 för beslut - Registrering av en symbolisk dag med namnet \"Cyrusfördragets dag\"",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§596",
+          "datum": "2026-09-30",
+          "nr": "596",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "07f9864b330e28a2",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2026-00918",
+      "rubrik": "Yrkande från L, M, D och KD om oberoende granskning av Göteborgs Stads hantering av Föreningen Framstegsskolan och närstående aktörer",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§623",
+          "datum": "2026-09-30",
+          "nr": "623",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "dfb5864994fbdb8b",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
+      "ärendeNr": "SLK-2026-00869",
+      "rubrik": "Förslag till andelstal för mottagande av ensamkommande barn 2027",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§628",
+          "datum": "2026-09-30",
+          "nr": "628",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "154d7e5bace8f914",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-30",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00870",
+      "rubrik": "Förslag till fördelningstal för anvisning av skyddsbehövande enligt massflyktsdirektivet 2027",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§629",
+          "datum": "2026-09-30",
+          "nr": "629",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "83af709eeaa411b5",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-30",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00917",
+      "rubrik": "Skrivelse till kommunstyrelsen från Sameföreningen i Göteborg",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-30-§631",
+          "datum": "2026-09-30",
+          "nr": "631",
+          "beslut": "beslut"
+        }
+      ],
+      "källa_hash": "448fa1625e6286ec",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-30",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
     {
       "ärendeNr": "SLK-2026-00150",
       "rubrik": "Delårsrapport augusti 2026 för kommunstyrelsen",
@@ -58,7 +1756,7 @@
     {
       "ärendeNr": "SLK-2026-00730",
       "rubrik": "Hemställan från exploateringsnämnden om bemyndigande att förvärva Södra Älvstranden Utveckling AB:s markinnehav inom stadsutvecklingsområdet Skeppsbron (Inom Vallgraven 51:2 med flera)",
-      "organ": "ks",
+      "organ": "kf",
       "initiativ_parti": null,
       "paragrafer": [
         {
@@ -66,9 +1764,72 @@
           "datum": "2026-09-16",
           "nr": "536",
           "beslut": "tillstyrkan_kf"
+        },
+        {
+          "id": "kf-2026-10-08-§321",
+          "datum": "2026-10-08",
+          "nr": "321",
+          "beslut": null
         }
       ],
-      "källa_hash": "41a5e132cf8bad8a",
+      "källa_hash": "bcc26034c66b97b6",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "tillstyrkan_kf",
+        "beslutsdatum": "2026-09-16",
+        "första_behandling": "2026-09-16",
+        "handläggningsdagar": 0,
+        "bordlagd_antal": 0,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00815",
+      "rubrik": "Reviderad förbundsordning för kommunalförbundet Tolkförmedling Väst",
+      "organ": "kf",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-09-16-§538",
+          "datum": "2026-09-16",
+          "nr": "538",
+          "beslut": "tillstyrkan_kf"
+        },
+        {
+          "id": "kf-2026-10-08-§323",
+          "datum": "2026-10-08",
+          "nr": "323",
+          "beslut": null
+        }
+      ],
+      "källa_hash": "9e05467da0a1bc38",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -117,28 +1878,15 @@
           "datum": "2026-09-16",
           "nr": "537",
           "beslut": "bordläggning"
-        }
-      ],
-      "källa_hash": "d3937c11abe99ddf",
-      "prognos": null,
-      "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
-    },
-    {
-      "ärendeNr": "SLK-2026-00815",
-      "rubrik": "Reviderad förbundsordning för kommunalförbundet Tolkförmedling Väst",
-      "organ": "ks",
-      "initiativ_parti": null,
-      "paragrafer": [
+        },
         {
-          "id": "ks-2026-09-16-§538",
-          "datum": "2026-09-16",
-          "nr": "538",
+          "id": "ks-2026-09-30-§601",
+          "datum": "2026-09-30",
+          "nr": "601",
           "beslut": "tillstyrkan_kf"
         }
       ],
-      "källa_hash": "1fdd0c39fd3a2756",
+      "källa_hash": "3d9d55f187b5d509",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -148,16 +1896,16 @@
       },
       "process": {
         "beslut": "tillstyrkan_kf",
-        "beslutsdatum": "2026-09-16",
+        "beslutsdatum": "2026-09-30",
         "första_behandling": "2026-09-16",
-        "handläggningsdagar": 0,
-        "bordlagd_antal": 0,
-        "enighet": "enig",
+        "handläggningsdagar": 14,
+        "bordlagd_antal": 1,
+        "enighet": "delad",
         "votering": null,
         "marginal": null,
-        "antal_yrkanden": 0,
-        "alternativt_yrkande": false,
-        "antal_reservationer": 0,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 1,
         "antal_jäv": 0
       },
       "underlag": {
@@ -187,13 +1935,51 @@
           "datum": "2026-09-16",
           "nr": "539",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§604",
+          "datum": "2026-09-30",
+          "nr": "604",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "f2332cc02f19e9c3",
+      "källa_hash": "72df55f1f4536433",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-16",
+        "handläggningsdagar": 14,
+        "bordlagd_antal": 1,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00394",
@@ -206,13 +1992,57 @@
           "datum": "2026-09-16",
           "nr": "540",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§605",
+          "datum": "2026-09-30",
+          "nr": "605",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-10-28-§695",
+          "datum": "2026-10-28",
+          "nr": "695",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "b14f38faefe80a9a",
+      "källa_hash": "47dc84ce6a0ea4f2",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-28",
+        "första_behandling": "2026-09-16",
+        "handläggningsdagar": 42,
+        "bordlagd_antal": 2,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 3,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00511",
@@ -225,9 +2055,15 @@
           "datum": "2026-09-16",
           "nr": "541",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§606",
+          "datum": "2026-09-30",
+          "nr": "606",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "f7045a936cedeab3",
+      "källa_hash": "d051cd91607c1855",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -244,9 +2080,15 @@
           "datum": "2026-09-16",
           "nr": "542",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§607",
+          "datum": "2026-09-30",
+          "nr": "607",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "f6ec65a635a5ddfa",
+      "källa_hash": "aeba5d620eb4582a",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -381,13 +2223,59 @@
           "datum": "2026-09-16",
           "nr": "545",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§610",
+          "datum": "2026-09-30",
+          "nr": "610",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "0fcbc14ea69ee597",
+      "källa_hash": "12d36e982aaef7ba",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-16",
+        "handläggningsdagar": 14,
+        "bordlagd_antal": 1,
+        "enighet": "delad",
+        "votering": {
+          "ja": 9,
+          "nej": 4,
+          "avstår": 0,
+          "proposition": "Ja för bifall till yrkandet från Jonas Attenius och Axel Darvik och Nej för bifall till yrkandet från Axel Josefson och Jörgen Fogelklou.",
+          "jaBetyder": "bifall: yrkandet från Jonas Attenius och Axel Darvik",
+          "nejBetyder": "bifall: yrkandet från Axel Josefson och Jörgen Fogelklou",
+          "verified": true
+        },
+        "marginal": 5,
+        "antal_yrkanden": 3,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 1,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00339",
@@ -400,13 +2288,51 @@
           "datum": "2026-09-16",
           "nr": "546",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§614",
+          "datum": "2026-09-30",
+          "nr": "614",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "14c476c0f4023419",
+      "källa_hash": "43ae32cf51096e5a",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-16",
+        "handläggningsdagar": 14,
+        "bordlagd_antal": 1,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 3,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00190",
@@ -419,9 +2345,15 @@
           "datum": "2026-09-16",
           "nr": "547",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§615",
+          "datum": "2026-09-30",
+          "nr": "615",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "f9a1fe318c3046e7",
+      "källa_hash": "782c93d06f100a43",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -438,13 +2370,51 @@
           "datum": "2026-09-16",
           "nr": "548",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§616",
+          "datum": "2026-09-30",
+          "nr": "616",
+          "beslut": "avslag"
         }
       ],
-      "källa_hash": "5a2a17a62102808e",
+      "källa_hash": "f0a788b033d502aa",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-16",
+        "handläggningsdagar": 14,
+        "bordlagd_antal": 1,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2025-01252",
@@ -457,13 +2427,51 @@
           "datum": "2026-09-16",
           "nr": "549",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§617",
+          "datum": "2026-09-30",
+          "nr": "617",
+          "beslut": "avslag"
         }
       ],
-      "källa_hash": "92950e313f2e0a48",
+      "källa_hash": "1b9e1b54b421a8e1",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-16",
+        "handläggningsdagar": 14,
+        "bordlagd_antal": 1,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00652",
@@ -476,9 +2484,15 @@
           "datum": "2026-09-16",
           "nr": "550",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§621",
+          "datum": "2026-09-30",
+          "nr": "621",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "cbab282e349b3e03",
+      "källa_hash": "ee5c5318979f6389",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -495,9 +2509,15 @@
           "datum": "2026-09-16",
           "nr": "551",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§622",
+          "datum": "2026-09-30",
+          "nr": "622",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "99a10248d9d8dc14",
+      "källa_hash": "2b2ff539a1a35e6f",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -514,13 +2534,59 @@
           "datum": "2026-09-16",
           "nr": "564",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§603",
+          "datum": "2026-09-30",
+          "nr": "603",
+          "beslut": "avslag"
         }
       ],
-      "källa_hash": "9e092455d68b4e55",
+      "källa_hash": "655a9aaa698b0e4d",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-09-16",
+        "handläggningsdagar": 14,
+        "bordlagd_antal": 1,
+        "enighet": "delad",
+        "votering": {
+          "ja": 7,
+          "nej": 6,
+          "avstår": 0,
+          "proposition": "Ja för avslag och Nej för bifall till yrkandet från KD, D, M och L.",
+          "jaBetyder": "avslag",
+          "nejBetyder": "bifall",
+          "verified": true
+        },
+        "marginal": 1,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00098",
@@ -707,53 +2773,9 @@
       }
     },
     {
-      "ärendeNr": "SLK-2026-00434",
-      "rubrik": "Göteborgs Stads barnbokslut 2025",
-      "organ": "ks",
-      "initiativ_parti": null,
-      "paragrafer": [
-        {
-          "id": "ks-2026-08-19-§499",
-          "datum": "2026-08-19",
-          "nr": "499",
-          "beslut": "bordläggning"
-        },
-        {
-          "id": "ks-2026-09-16-§552",
-          "datum": "2026-09-16",
-          "nr": "552",
-          "beslut": "bordläggning"
-        }
-      ],
-      "källa_hash": "78548ebaa40a3834",
-      "prognos": null,
-      "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
-    },
-    {
-      "ärendeNr": "SLK-2026-00570",
-      "rubrik": "Halvtidsuppföljning av Göteborgs Stads plan för arbetet mot våld i nära relationer 2024-2027",
-      "organ": "ks",
-      "initiativ_parti": null,
-      "paragrafer": [
-        {
-          "id": "ks-2026-08-19-§500",
-          "datum": "2026-08-19",
-          "nr": "500",
-          "beslut": "bordläggning"
-        }
-      ],
-      "källa_hash": "d04e94ada23593d4",
-      "prognos": null,
-      "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
-    },
-    {
       "ärendeNr": "SLK-2026-00645",
       "rubrik": "Hemställan från stadsfastighetsnämnden avseende fortsatt upplåtelse av lokaler till Communityskolan i Gårdsten",
-      "organ": "ks",
+      "organ": "kf",
       "initiativ_parti": null,
       "paragrafer": [
         {
@@ -767,9 +2789,15 @@
           "datum": "2026-09-16",
           "nr": "553",
           "beslut": "avslag"
+        },
+        {
+          "id": "kf-2026-10-08-§322",
+          "datum": "2026-10-08",
+          "nr": "322",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "d1f509cc56b1f6b8",
+      "källa_hash": "b8d22c24b8d61923",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -782,7 +2810,7 @@
         "beslutsdatum": "2026-09-16",
         "första_behandling": "2026-08-19",
         "handläggningsdagar": 28,
-        "bordlagd_antal": 1,
+        "bordlagd_antal": 2,
         "enighet": "okänd",
         "votering": null,
         "marginal": null,
@@ -808,6 +2836,94 @@
       }
     },
     {
+      "ärendeNr": "SLK-2026-00434",
+      "rubrik": "Göteborgs Stads barnbokslut 2025",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-08-19-§499",
+          "datum": "2026-08-19",
+          "nr": "499",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-16-§552",
+          "datum": "2026-09-16",
+          "nr": "552",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§602",
+          "datum": "2026-09-30",
+          "nr": "602",
+          "beslut": "tillstyrkan_kf"
+        }
+      ],
+      "källa_hash": "e6fab306d121412e",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "tillstyrkan_kf",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-08-19",
+        "handläggningsdagar": 42,
+        "bordlagd_antal": 2,
+        "enighet": "delad",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 1,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2026-00570",
+      "rubrik": "Halvtidsuppföljning av Göteborgs Stads plan för arbetet mot våld i nära relationer 2024-2027",
+      "organ": "ks",
+      "initiativ_parti": null,
+      "paragrafer": [
+        {
+          "id": "ks-2026-08-19-§500",
+          "datum": "2026-08-19",
+          "nr": "500",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§597",
+          "datum": "2026-09-30",
+          "nr": "597",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "6224f50cbfb63ea3",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
+    },
+    {
       "ärendeNr": "SLK-2026-00562",
       "rubrik": "Stadsbyggnadsnämndens plan- och bygglovtaxa 2027",
       "organ": "ks",
@@ -824,9 +2940,15 @@
           "datum": "2026-09-16",
           "nr": "556",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§608",
+          "datum": "2026-09-30",
+          "nr": "608",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "cdb0566cd24ddab4",
+      "källa_hash": "ee49d6a3f88b9fcf",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -843,13 +2965,51 @@
           "datum": "2026-08-19",
           "nr": "504",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§611",
+          "datum": "2026-09-30",
+          "nr": "611",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "add3027c28c29405",
+      "källa_hash": "55dc9e8cb9307949",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-08-19",
+        "handläggningsdagar": 42,
+        "bordlagd_antal": 1,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00607",
@@ -1515,9 +3675,15 @@
           "datum": "2026-09-03",
           "nr": "312",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§340",
+          "datum": "2026-10-08",
+          "nr": "340",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "b319320df442e71c",
+      "källa_hash": "bb45a11497c7ca38",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -1530,7 +3696,7 @@
         "beslutsdatum": "2026-06-17",
         "första_behandling": "2026-06-17",
         "handläggningsdagar": 0,
-        "bordlagd_antal": 1,
+        "bordlagd_antal": 2,
         "enighet": "okänd",
         "votering": null,
         "marginal": null,
@@ -1623,13 +3789,51 @@
           "datum": "2026-08-19",
           "nr": "509",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§598",
+          "datum": "2026-09-30",
+          "nr": "598",
+          "beslut": "avslag"
         }
       ],
-      "källa_hash": "5c8d8def4ce60422",
+      "källa_hash": "d1d9b082debe65d0",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-06-17",
+        "handläggningsdagar": 105,
+        "bordlagd_antal": 2,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00331",
@@ -1648,9 +3852,21 @@
           "datum": "2026-08-19",
           "nr": "511",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§599",
+          "datum": "2026-09-30",
+          "nr": "599",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-10-28-§692",
+          "datum": "2026-10-28",
+          "nr": "692",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "bea5888f7ba69abe",
+      "källa_hash": "905f16fe6209a49e",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -1903,13 +4119,59 @@
           "datum": "2026-09-16",
           "nr": "557",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§609",
+          "datum": "2026-09-30",
+          "nr": "609",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "f55513c46fe7fb4b",
+      "källa_hash": "feb705d77fe22a10",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-06-17",
+        "handläggningsdagar": 105,
+        "bordlagd_antal": 3,
+        "enighet": "delad",
+        "votering": {
+          "ja": 9,
+          "nej": 4,
+          "avstår": 0,
+          "proposition": "Ja för bifall till stadsledningskontorets förslag och Nej för bifall till yrkandet från Axel Josefson och Jörgen Fogelklou.",
+          "jaBetyder": "bifall: stadsledningskontorets förslag",
+          "nejBetyder": "bifall: yrkandet från Axel Josefson och Jörgen Fogelklou",
+          "verified": true
+        },
+        "marginal": 5,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00007",
@@ -1965,13 +4227,51 @@
           "datum": "2026-08-19",
           "nr": "520",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§612",
+          "datum": "2026-09-30",
+          "nr": "612",
+          "beslut": "avslag"
         }
       ],
-      "källa_hash": "80c450d4fde784a1",
+      "källa_hash": "f884e5059109b42b",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-06-17",
+        "handläggningsdagar": 105,
+        "bordlagd_antal": 2,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2025-01314",
@@ -1990,13 +4290,51 @@
           "datum": "2026-08-19",
           "nr": "521",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§613",
+          "datum": "2026-09-30",
+          "nr": "613",
+          "beslut": "avslag"
         }
       ],
-      "källa_hash": "42ef3866328cb62e",
+      "källa_hash": "d227723254e32973",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-06-17",
+        "handläggningsdagar": 105,
+        "bordlagd_antal": 2,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00351",
@@ -2040,13 +4378,51 @@
           "datum": "2026-09-16",
           "nr": "560",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§618",
+          "datum": "2026-09-30",
+          "nr": "618",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "a6eff03fdefb9d6f",
+      "källa_hash": "1287cf6237433071",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-06-17",
+        "handläggningsdagar": 105,
+        "bordlagd_antal": 3,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2025-01206",
@@ -2071,13 +4447,51 @@
           "datum": "2026-09-16",
           "nr": "561",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§619",
+          "datum": "2026-09-30",
+          "nr": "619",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "21060f0fe5c93cbe",
+      "källa_hash": "ef569039bc3650f1",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-06-17",
+        "handläggningsdagar": 105,
+        "bordlagd_antal": 3,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 3,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00672",
@@ -2484,9 +4898,15 @@
           "datum": "2026-09-16",
           "nr": "579",
           "beslut": null
+        },
+        {
+          "id": "ks-2026-09-30-§581",
+          "datum": "2026-09-30",
+          "nr": "581",
+          "beslut": null
         }
       ],
-      "källa_hash": "a2754ffec7f4a719",
+      "källa_hash": "8076e2dde628eae5",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -2509,9 +4929,15 @@
           "datum": "2026-09-03",
           "nr": "315",
           "beslut": null
+        },
+        {
+          "id": "kf-2026-10-08-§344",
+          "datum": "2026-10-08",
+          "nr": "344",
+          "beslut": null
         }
       ],
-      "källa_hash": "f2bf1410cef1b5cf",
+      "källa_hash": "626f90fd0da600a5",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -2964,9 +5390,15 @@
           "datum": "2026-09-03",
           "nr": "308",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§335",
+          "datum": "2026-10-08",
+          "nr": "335",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "fb211c6f82825cc7",
+      "källa_hash": "97613436d19a5833",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -2975,10 +5407,10 @@
         "skäl": "inget att prognostisera mot"
       },
       "process": {
-        "beslut": "avslag",
-        "beslutsdatum": "2026-05-20",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-05-20",
-        "handläggningsdagar": 0,
+        "handläggningsdagar": 141,
         "bordlagd_antal": 2,
         "enighet": "okänd",
         "votering": null,
@@ -3027,9 +5459,15 @@
           "datum": "2026-09-03",
           "nr": "313",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§341",
+          "datum": "2026-10-08",
+          "nr": "341",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "bf7b29a67edf24b0",
+      "källa_hash": "f1ea74afe9e45ee7",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -3042,7 +5480,7 @@
         "beslutsdatum": "2026-06-17",
         "första_behandling": "2026-05-20",
         "handläggningsdagar": 28,
-        "bordlagd_antal": 2,
+        "bordlagd_antal": 3,
         "enighet": "okänd",
         "votering": null,
         "marginal": null,
@@ -3716,9 +6154,15 @@
           "datum": "2026-09-16",
           "nr": "575",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-10-28-§708",
+          "datum": "2026-10-28",
+          "nr": "708",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "25fba3eda5ef7495",
+      "källa_hash": "b92b25ad6b81591c",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -3728,9 +6172,9 @@
       },
       "process": {
         "beslut": "beslut",
-        "beslutsdatum": "2026-09-16",
+        "beslutsdatum": "2026-10-28",
         "första_behandling": "2026-05-20",
-        "handläggningsdagar": 119,
+        "handläggningsdagar": 161,
         "bordlagd_antal": 0,
         "enighet": "enig",
         "votering": null,
@@ -4087,9 +6531,15 @@
           "datum": "2026-09-03",
           "nr": "305",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§332",
+          "datum": "2026-10-08",
+          "nr": "332",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "c0ab3765598a634a",
+      "källa_hash": "99c3fdfd6063c4ca",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -4098,15 +6548,18 @@
         "skäl": "belopp nämns: 274 mnkr"
       },
       "process": {
-        "beslut": "avslag",
-        "beslutsdatum": "2026-05-06",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-05-06",
-        "handläggningsdagar": 0,
+        "handläggningsdagar": 155,
         "bordlagd_antal": 3,
-        "enighet": "okänd",
-        "votering": null,
-        "marginal": null,
-        "antal_yrkanden": 4,
+        "enighet": "delad",
+        "votering": {
+          "ja": 65,
+          "nej": 9
+        },
+        "marginal": 56,
+        "antal_yrkanden": 3,
         "alternativt_yrkande": true,
         "antal_reservationer": 0,
         "antal_jäv": 0
@@ -4160,9 +6613,15 @@
           "datum": "2026-09-03",
           "nr": "306",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§333",
+          "datum": "2026-10-08",
+          "nr": "333",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "30201729154663ed",
+      "källa_hash": "40c960fb45854664",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -4171,10 +6630,10 @@
         "skäl": "inget att prognostisera mot"
       },
       "process": {
-        "beslut": "avslag",
-        "beslutsdatum": "2026-05-06",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-05-06",
-        "handläggningsdagar": 0,
+        "handläggningsdagar": 155,
         "bordlagd_antal": 3,
         "enighet": "okänd",
         "votering": null,
@@ -4369,27 +6828,36 @@
           "datum": "2026-09-03",
           "nr": "309",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§336",
+          "datum": "2026-10-08",
+          "nr": "336",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "3c54c862e409cf6f",
+      "källa_hash": "deb2bc597050f15a",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
       "prognos_kandidat": {
-        "värd": false,
-        "skäl": "inget att prognostisera mot"
+        "värd": true,
+        "skäl": "omstritt beslut"
       },
       "process": {
         "beslut": "bifall",
-        "beslutsdatum": "2026-05-20",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-05-06",
-        "handläggningsdagar": 14,
+        "handläggningsdagar": 155,
         "bordlagd_antal": 3,
-        "enighet": "enig",
-        "votering": null,
-        "marginal": null,
-        "antal_yrkanden": 1,
-        "alternativt_yrkande": false,
+        "enighet": "delad",
+        "votering": {
+          "ja": 42,
+          "nej": 38
+        },
+        "marginal": 4,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
         "antal_reservationer": 0,
         "antal_jäv": 0
       },
@@ -4441,9 +6909,15 @@
           "datum": "2026-09-03",
           "nr": "310",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§337",
+          "datum": "2026-10-08",
+          "nr": "337",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "5b7bde076da0f7c8",
+      "källa_hash": "864438311d42fcca",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -4452,15 +6926,15 @@
         "skäl": "inget att prognostisera mot"
       },
       "process": {
-        "beslut": "avslag",
-        "beslutsdatum": "2026-05-20",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-05-06",
-        "handläggningsdagar": 14,
+        "handläggningsdagar": 155,
         "bordlagd_antal": 3,
         "enighet": "okänd",
         "votering": null,
         "marginal": null,
-        "antal_yrkanden": 2,
+        "antal_yrkanden": 3,
         "alternativt_yrkande": true,
         "antal_reservationer": 0,
         "antal_jäv": 0
@@ -4473,6 +6947,87 @@
         "nämner_jämställdhetsanalys": false,
         "nämner_riskanalys": false,
         "nämner_remiss": true
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
+    },
+    {
+      "ärendeNr": "SLK-2025-00944",
+      "rubrik": "Motion av Hampus Magnusson (M), Anneli Rhedin (M) och Toni Orsulic (M) om överdäckning av E6:an för möjliggörande av grönområden med exploatering",
+      "organ": "kf",
+      "initiativ_parti": "M",
+      "paragrafer": [
+        {
+          "id": "ks-2026-05-06-§333",
+          "datum": "2026-05-06",
+          "nr": "333",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-05-20-§389",
+          "datum": "2026-05-20",
+          "nr": "389",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-06-17-§473",
+          "datum": "2026-06-17",
+          "nr": "473",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-08-19-§525",
+          "datum": "2026-08-19",
+          "nr": "525",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-16-§563",
+          "datum": "2026-09-16",
+          "nr": "563",
+          "beslut": "avslag"
+        },
+        {
+          "id": "kf-2026-10-08-§342",
+          "datum": "2026-10-08",
+          "nr": "342",
+          "beslut": "bordläggning"
+        }
+      ],
+      "källa_hash": "92c0a76cef440a15",
+      "prognos": null,
+      "utfall": null,
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "handling ej hämtad"
+      },
+      "process": {
+        "beslut": "avslag",
+        "beslutsdatum": "2026-09-16",
+        "första_behandling": "2026-05-06",
+        "handläggningsdagar": 133,
+        "bordlagd_antal": 5,
+        "enighet": "okänd",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": false,
+        "nämner_utredning": null,
+        "nämner_konsekvensanalys": null,
+        "nämner_barnperspektiv": null,
+        "nämner_jämställdhetsanalys": null,
+        "nämner_riskanalys": null,
+        "nämner_remiss": null
       },
       "ekonomi": {
         "belopp_mnkr": [],
@@ -4541,52 +7096,15 @@
           "datum": "2026-09-16",
           "nr": "562",
           "beslut": "bordläggning"
-        }
-      ],
-      "källa_hash": "a3d268af4f53a8b9",
-      "prognos": null,
-      "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
-    },
-    {
-      "ärendeNr": "SLK-2025-00944",
-      "rubrik": "Motion av Hampus Magnusson (M), Anneli Rhedin (M) och Toni Orsulic (M) om överdäckning av E6:an för möjliggörande av grönområden med exploatering",
-      "organ": "ks",
-      "initiativ_parti": "M",
-      "paragrafer": [
-        {
-          "id": "ks-2026-05-06-§333",
-          "datum": "2026-05-06",
-          "nr": "333",
-          "beslut": "bordläggning"
         },
         {
-          "id": "ks-2026-05-20-§389",
-          "datum": "2026-05-20",
-          "nr": "389",
-          "beslut": "bordläggning"
-        },
-        {
-          "id": "ks-2026-06-17-§473",
-          "datum": "2026-06-17",
-          "nr": "473",
-          "beslut": "bordläggning"
-        },
-        {
-          "id": "ks-2026-08-19-§525",
-          "datum": "2026-08-19",
-          "nr": "525",
-          "beslut": "bordläggning"
-        },
-        {
-          "id": "ks-2026-09-16-§563",
-          "datum": "2026-09-16",
-          "nr": "563",
+          "id": "ks-2026-09-30-§620",
+          "datum": "2026-09-30",
+          "nr": "620",
           "beslut": "avslag"
         }
       ],
-      "källa_hash": "3370c9a90e5a0ce3",
+      "källa_hash": "96bdb009d6ec53fe",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -4596,14 +7114,14 @@
       },
       "process": {
         "beslut": "avslag",
-        "beslutsdatum": "2026-09-16",
+        "beslutsdatum": "2026-09-30",
         "första_behandling": "2026-05-06",
-        "handläggningsdagar": 133,
-        "bordlagd_antal": 4,
+        "handläggningsdagar": 147,
+        "bordlagd_antal": 5,
         "enighet": "okänd",
         "votering": null,
         "marginal": null,
-        "antal_yrkanden": 2,
+        "antal_yrkanden": 3,
         "alternativt_yrkande": true,
         "antal_reservationer": 0,
         "antal_jäv": 0
@@ -4988,9 +7506,15 @@
           "datum": "2026-05-06",
           "nr": "356",
           "beslut": null
+        },
+        {
+          "id": "ks-2026-10-28-§710",
+          "datum": "2026-10-28",
+          "nr": "710",
+          "beslut": null
         }
       ],
-      "källa_hash": "a64f53e1ef3c88fe",
+      "källa_hash": "1fa2653266d755a7",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -5171,13 +7695,56 @@
           "datum": "2026-09-03",
           "nr": "297",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§324",
+          "datum": "2026-10-08",
+          "nr": "324",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "0f748328406e9cf8",
+      "källa_hash": "d407ca2e8141060c",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": true,
+        "skäl": "belopp nämns: 269 mnkr"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
+        "första_behandling": "2026-04-23",
+        "handläggningsdagar": 168,
+        "bordlagd_antal": 4,
+        "enighet": "delad",
+        "votering": {
+          "ja": 47,
+          "nej": 33
+        },
+        "marginal": 14,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": true,
+        "nämner_utredning": true,
+        "nämner_konsekvensanalys": false,
+        "nämner_barnperspektiv": false,
+        "nämner_jämställdhetsanalys": false,
+        "nämner_riskanalys": false,
+        "nämner_remiss": true
+      },
+      "ekonomi": {
+        "belopp_mnkr": [
+          269
+        ],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2026-00430",
@@ -5678,25 +8245,34 @@
           "datum": "2026-09-03",
           "nr": "302",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§329",
+          "datum": "2026-10-08",
+          "nr": "329",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "3d40eac6403aa944",
+      "källa_hash": "f0c3784f2791d598",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
       "prognos_kandidat": {
-        "värd": false,
-        "skäl": "inget att prognostisera mot"
+        "värd": true,
+        "skäl": "omstritt beslut"
       },
       "process": {
-        "beslut": "avslag",
-        "beslutsdatum": "2026-04-22",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-04-22",
-        "handläggningsdagar": 0,
+        "handläggningsdagar": 169,
         "bordlagd_antal": 3,
-        "enighet": "okänd",
-        "votering": null,
-        "marginal": null,
+        "enighet": "delad",
+        "votering": {
+          "ja": 42,
+          "nej": 38
+        },
+        "marginal": 4,
         "antal_yrkanden": 2,
         "alternativt_yrkande": true,
         "antal_reservationer": 0,
@@ -5747,9 +8323,15 @@
           "datum": "2026-09-03",
           "nr": "303",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§330",
+          "datum": "2026-10-08",
+          "nr": "330",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "ff123f1bfaa31a7e",
+      "källa_hash": "086cec21ed5fa3db",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -5758,14 +8340,17 @@
         "skäl": "handling ej hämtad"
       },
       "process": {
-        "beslut": "avslag",
-        "beslutsdatum": "2026-04-22",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-04-22",
-        "handläggningsdagar": 0,
+        "handläggningsdagar": 169,
         "bordlagd_antal": 3,
-        "enighet": "okänd",
-        "votering": null,
-        "marginal": null,
+        "enighet": "delad",
+        "votering": {
+          "ja": 40,
+          "nej": 40
+        },
+        "marginal": 0,
         "antal_yrkanden": 2,
         "alternativt_yrkande": true,
         "antal_reservationer": 0,
@@ -5822,9 +8407,15 @@
           "datum": "2026-09-03",
           "nr": "307",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§334",
+          "datum": "2026-10-08",
+          "nr": "334",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "9db7033d900acce6",
+      "källa_hash": "e3518545af44a219",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -5833,14 +8424,17 @@
         "skäl": "belopp nämns: 22.5 mnkr"
       },
       "process": {
-        "beslut": "avslag",
-        "beslutsdatum": "2026-05-06",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-04-22",
-        "handläggningsdagar": 14,
+        "handläggningsdagar": 169,
         "bordlagd_antal": 4,
-        "enighet": "okänd",
-        "votering": null,
-        "marginal": null,
+        "enighet": "delad",
+        "votering": {
+          "ja": 42,
+          "nej": 38
+        },
+        "marginal": 4,
         "antal_yrkanden": 2,
         "alternativt_yrkande": true,
         "antal_reservationer": 0,
@@ -5903,9 +8497,15 @@
           "datum": "2026-09-03",
           "nr": "311",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§338",
+          "datum": "2026-10-08",
+          "nr": "338",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "c5c3d63f4b955426",
+      "källa_hash": "e0ba9ff9d688c49d",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -5914,10 +8514,10 @@
         "skäl": "inget att prognostisera mot"
       },
       "process": {
-        "beslut": "avslag",
-        "beslutsdatum": "2026-05-20",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-04-22",
-        "handläggningsdagar": 28,
+        "handläggningsdagar": 169,
         "bordlagd_antal": 4,
         "enighet": "okänd",
         "votering": null,
@@ -6255,9 +8855,21 @@
           "datum": "2026-08-19",
           "nr": "531",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-09-30-§627",
+          "datum": "2026-09-30",
+          "nr": "627",
+          "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-10-28-§705",
+          "datum": "2026-10-28",
+          "nr": "705",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "318c6dcd643f1a4a",
+      "källa_hash": "a0317ed8aeb3cde8",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -6267,9 +8879,9 @@
       },
       "process": {
         "beslut": "beslut",
-        "beslutsdatum": "2026-08-19",
+        "beslutsdatum": "2026-10-28",
         "första_behandling": "2026-04-22",
-        "handläggningsdagar": 119,
+        "handläggningsdagar": 189,
         "bordlagd_antal": 0,
         "enighet": "enig",
         "votering": null,
@@ -6318,9 +8930,21 @@
           "datum": "2026-06-17",
           "nr": "486",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-09-30-§630",
+          "datum": "2026-09-30",
+          "nr": "630",
+          "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-10-28-§707",
+          "datum": "2026-10-28",
+          "nr": "707",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "cb5d785891f91e9b",
+      "källa_hash": "20608f38bbc7f076",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -6330,9 +8954,9 @@
       },
       "process": {
         "beslut": "beslut",
-        "beslutsdatum": "2026-06-17",
+        "beslutsdatum": "2026-10-28",
         "första_behandling": "2026-04-22",
-        "handläggningsdagar": 56,
+        "handläggningsdagar": 189,
         "bordlagd_antal": 0,
         "enighet": "enig",
         "votering": null,
@@ -6375,9 +8999,15 @@
           "datum": "2026-09-16",
           "nr": "573",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-10-28-§706",
+          "datum": "2026-10-28",
+          "nr": "706",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "bfded20aa423a9c8",
+      "källa_hash": "d7807b89d8650e36",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -6387,9 +9017,9 @@
       },
       "process": {
         "beslut": "beslut",
-        "beslutsdatum": "2026-09-16",
+        "beslutsdatum": "2026-10-28",
         "första_behandling": "2026-04-22",
-        "handläggningsdagar": 147,
+        "handläggningsdagar": 189,
         "bordlagd_antal": 0,
         "enighet": "enig",
         "votering": null,
@@ -6839,25 +9469,34 @@
           "datum": "2026-09-03",
           "nr": "299",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§326",
+          "datum": "2026-10-08",
+          "nr": "326",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "4d873d1b16f7c416",
+      "källa_hash": "16103adf5d5cdd26",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
       "prognos_kandidat": {
-        "värd": false,
-        "skäl": "inget att prognostisera mot"
+        "värd": true,
+        "skäl": "omstritt beslut"
       },
       "process": {
         "beslut": "bifall",
-        "beslutsdatum": "2026-04-01",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-04-01",
-        "handläggningsdagar": 0,
+        "handläggningsdagar": 190,
         "bordlagd_antal": 4,
-        "enighet": "okänd",
-        "votering": null,
-        "marginal": null,
+        "enighet": "delad",
+        "votering": {
+          "ja": 42,
+          "nej": 38
+        },
+        "marginal": 4,
         "antal_yrkanden": 3,
         "alternativt_yrkande": true,
         "antal_reservationer": 0,
@@ -6914,9 +9553,15 @@
           "datum": "2026-09-03",
           "nr": "300",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§327",
+          "datum": "2026-10-08",
+          "nr": "327",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "8440ef0ab210debf",
+      "källa_hash": "efca267fcc5f9d35",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -6925,10 +9570,10 @@
         "skäl": "inget att prognostisera mot"
       },
       "process": {
-        "beslut": "avslag",
-        "beslutsdatum": "2026-04-01",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-04-01",
-        "handläggningsdagar": 0,
+        "handläggningsdagar": 190,
         "bordlagd_antal": 4,
         "enighet": "okänd",
         "votering": null,
@@ -7196,9 +9841,15 @@
           "datum": "2026-09-03",
           "nr": "304",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§331",
+          "datum": "2026-10-08",
+          "nr": "331",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "975f1e0bc20180c5",
+      "källa_hash": "0349022245510f66",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -7207,14 +9858,17 @@
         "skäl": "belopp nämns: 1900 mnkr"
       },
       "process": {
-        "beslut": "avslag",
-        "beslutsdatum": "2026-04-22",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-04-01",
-        "handläggningsdagar": 21,
+        "handläggningsdagar": 190,
         "bordlagd_antal": 4,
-        "enighet": "okänd",
-        "votering": null,
-        "marginal": null,
+        "enighet": "delad",
+        "votering": {
+          "ja": 42,
+          "nej": 38
+        },
+        "marginal": 4,
         "antal_yrkanden": 2,
         "alternativt_yrkande": true,
         "antal_reservationer": 0,
@@ -8193,7 +10847,7 @@
     {
       "ärendeNr": "SLK-2026-00034",
       "rubrik": "Redovisning av motioner som väckts i kommunfullmäktige och som ännu ej besvarats",
-      "organ": "kf",
+      "organ": "ks",
       "initiativ_parti": null,
       "paragrafer": [
         {
@@ -8207,13 +10861,51 @@
           "datum": "2026-04-23",
           "nr": "134",
           "beslut": null
+        },
+        {
+          "id": "ks-2026-09-30-§587",
+          "datum": "2026-09-30",
+          "nr": "587",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "ce93537bec533ec4",
+      "källa_hash": "3afa5505f2b5475e",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": false,
+        "skäl": "inget att prognostisera mot"
+      },
+      "process": {
+        "beslut": "beslut",
+        "beslutsdatum": "2026-09-30",
+        "första_behandling": "2026-03-26",
+        "handläggningsdagar": 188,
+        "bordlagd_antal": 1,
+        "enighet": "enig",
+        "votering": null,
+        "marginal": null,
+        "antal_yrkanden": 0,
+        "alternativt_yrkande": false,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": true,
+        "nämner_utredning": true,
+        "nämner_konsekvensanalys": false,
+        "nämner_barnperspektiv": false,
+        "nämner_jämställdhetsanalys": false,
+        "nämner_riskanalys": false,
+        "nämner_remiss": false
+      },
+      "ekonomi": {
+        "belopp_mnkr": [],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": false,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2025-01087",
@@ -9384,13 +12076,56 @@
           "datum": "2026-09-03",
           "nr": "298",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§325",
+          "datum": "2026-10-08",
+          "nr": "325",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "7eae8dc932140710",
+      "källa_hash": "a754d7d65d2983d6",
       "prognos": null,
       "utfall": null,
-      "analyserbar": false,
-      "skäl": "ej_avgjord"
+      "analyserbar": true,
+      "prognos_kandidat": {
+        "värd": true,
+        "skäl": "omstritt beslut"
+      },
+      "process": {
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
+        "första_behandling": "2026-03-04",
+        "handläggningsdagar": 218,
+        "bordlagd_antal": 5,
+        "enighet": "delad",
+        "votering": {
+          "ja": 39,
+          "nej": 24
+        },
+        "marginal": 15,
+        "antal_yrkanden": 3,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 0,
+        "antal_jäv": 0
+      },
+      "underlag": {
+        "har_handling": true,
+        "nämner_utredning": true,
+        "nämner_konsekvensanalys": false,
+        "nämner_barnperspektiv": false,
+        "nämner_jämställdhetsanalys": false,
+        "nämner_riskanalys": false,
+        "nämner_remiss": true
+      },
+      "ekonomi": {
+        "belopp_mnkr": [
+          0.2
+        ],
+        "finansiering_osäker": false,
+        "finansiering_påstådd": true,
+        "citat": null
+      }
     },
     {
       "ärendeNr": "SLK-2025-00873",
@@ -9433,26 +12168,35 @@
           "datum": "2026-09-03",
           "nr": "301",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§328",
+          "datum": "2026-10-08",
+          "nr": "328",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "cca216b25ce8a55d",
+      "källa_hash": "7bc599b4c59aa33c",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
       "prognos_kandidat": {
-        "värd": false,
-        "skäl": "inget att prognostisera mot"
+        "värd": true,
+        "skäl": "omstritt beslut"
       },
       "process": {
-        "beslut": "tillstyrkan_kf",
-        "beslutsdatum": "2026-04-01",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-08",
         "första_behandling": "2026-03-04",
-        "handläggningsdagar": 28,
+        "handläggningsdagar": 218,
         "bordlagd_antal": 5,
-        "enighet": "okänd",
-        "votering": null,
-        "marginal": null,
-        "antal_yrkanden": 3,
+        "enighet": "delad",
+        "votering": {
+          "ja": 40,
+          "nej": 31
+        },
+        "marginal": 9,
+        "antal_yrkanden": 2,
         "alternativt_yrkande": true,
         "antal_reservationer": 0,
         "antal_jäv": 0
@@ -9878,9 +12622,21 @@
           "datum": "2026-09-16",
           "nr": "570",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-09-30-§625",
+          "datum": "2026-09-30",
+          "nr": "625",
+          "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-10-28-§703",
+          "datum": "2026-10-28",
+          "nr": "703",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "9de7f1faddde554c",
+      "källa_hash": "7004bd26eea8f172",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -9933,9 +12689,21 @@
           "datum": "2026-09-16",
           "nr": "571",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-09-30-§626",
+          "datum": "2026-09-30",
+          "nr": "626",
+          "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-10-28-§704",
+          "datum": "2026-10-28",
+          "nr": "704",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "5e776da3f7848f79",
+      "källa_hash": "414fb482c987c5a1",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -10280,9 +13048,15 @@
           "datum": "2026-09-03",
           "nr": "296",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "kf-2026-10-08-§339",
+          "datum": "2026-10-08",
+          "nr": "339",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "c8f5a67bac724884",
+      "källa_hash": "880ec2847c4e9cc5",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -10544,9 +13318,15 @@
           "datum": "2026-09-03",
           "nr": "268",
           "beslut": null
+        },
+        {
+          "id": "kf-2026-10-08-§316",
+          "datum": "2026-10-08",
+          "nr": "316",
+          "beslut": null
         }
       ],
-      "källa_hash": "7d92c0d115ac7994",
+      "källa_hash": "267530d6f08e26ff",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -10599,9 +13379,15 @@
           "datum": "2026-09-03",
           "nr": "269",
           "beslut": null
+        },
+        {
+          "id": "kf-2026-10-08-§317",
+          "datum": "2026-10-08",
+          "nr": "317",
+          "beslut": null
         }
       ],
-      "källa_hash": "76e8be8ccbfa3193",
+      "källa_hash": "5daeed65877887b5",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -10673,9 +13459,15 @@
           "datum": "2026-09-03",
           "nr": "270",
           "beslut": null
+        },
+        {
+          "id": "kf-2026-10-08-§319",
+          "datum": "2026-10-08",
+          "nr": "319",
+          "beslut": null
         }
       ],
-      "källa_hash": "884b9d3d08128eac",
+      "källa_hash": "9fa24dffd2b6eef9",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -10803,9 +13595,15 @@
           "datum": "2026-09-03",
           "nr": "314",
           "beslut": null
+        },
+        {
+          "id": "kf-2026-10-08-§343",
+          "datum": "2026-10-08",
+          "nr": "343",
+          "beslut": null
         }
       ],
-      "källa_hash": "4326eaa4c5c72f0f",
+      "källa_hash": "658e370a0310edc5",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -11270,9 +14068,21 @@
           "datum": "2026-09-16",
           "nr": "535",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-09-30-§582",
+          "datum": "2026-09-30",
+          "nr": "582",
+          "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-10-28-§672",
+          "datum": "2026-10-28",
+          "nr": "672",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "0731956a32906861",
+      "källa_hash": "9e2c1b7830ed0c0f",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -11537,9 +14347,15 @@
           "datum": "2026-01-14",
           "nr": "40",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-10-28-§677",
+          "datum": "2026-10-28",
+          "nr": "677",
+          "beslut": "bifall"
         }
       ],
-      "källa_hash": "4188a6257d682211",
+      "källa_hash": "9bdc758c8b7ff19d",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -11548,17 +14364,25 @@
         "skäl": "handling ej hämtad"
       },
       "process": {
-        "beslut": "beslut",
-        "beslutsdatum": "2026-01-14",
+        "beslut": "bifall",
+        "beslutsdatum": "2026-10-28",
         "första_behandling": "2026-01-14",
-        "handläggningsdagar": 0,
+        "handläggningsdagar": 287,
         "bordlagd_antal": 0,
-        "enighet": "enig",
-        "votering": null,
-        "marginal": null,
-        "antal_yrkanden": 0,
-        "alternativt_yrkande": false,
-        "antal_reservationer": 0,
+        "enighet": "delad",
+        "votering": {
+          "ja": 12,
+          "nej": 1,
+          "avstår": 0,
+          "proposition": "Ja för bifall till Marie Brynolfssons yrkande. Nej för bifall till Jörgen Fogelklous yrkande",
+          "jaBetyder": "bifall",
+          "nejBetyder": "bifall",
+          "verified": true
+        },
+        "marginal": 11,
+        "antal_yrkanden": 2,
+        "alternativt_yrkande": true,
+        "antal_reservationer": 1,
         "antal_jäv": 0
       },
       "underlag": {
@@ -11642,9 +14466,21 @@
           "datum": "2026-09-16",
           "nr": "569",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-09-30-§624",
+          "datum": "2026-09-30",
+          "nr": "624",
+          "beslut": null
+        },
+        {
+          "id": "ks-2026-10-28-§702",
+          "datum": "2026-10-28",
+          "nr": "702",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "623b3ddbcc75f9df",
+      "källa_hash": "ebdb920a7ee9a062",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -11654,9 +14490,9 @@
       },
       "process": {
         "beslut": "beslut",
-        "beslutsdatum": "2026-09-16",
+        "beslutsdatum": "2026-10-28",
         "första_behandling": "2026-01-14",
-        "handläggningsdagar": 245,
+        "handläggningsdagar": 287,
         "bordlagd_antal": 0,
         "enighet": "enig",
         "votering": null,
@@ -43624,9 +46460,21 @@
           "datum": "2026-08-19",
           "nr": "512",
           "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-09-30-§600",
+          "datum": "2026-09-30",
+          "nr": "600",
+          "beslut": "bordläggning"
+        },
+        {
+          "id": "ks-2026-10-28-§693",
+          "datum": "2026-10-28",
+          "nr": "693",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "9643096f1df477cd",
+      "källa_hash": "75f55fa6421ea725",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -43639,7 +46487,7 @@
         "beslutsdatum": "2024-10-23",
         "första_behandling": "2024-10-09",
         "handläggningsdagar": 14,
-        "bordlagd_antal": 3,
+        "bordlagd_antal": 5,
         "enighet": "delad",
         "votering": {
           "ja": 7,
