@@ -1,13 +1,88 @@
 {
   "kommun": "molndal",
   "källa": "https://www.molndal.se/kommun-och-politik/moten-protokoll-kallelser",
-  "hämtad": "2026-10-03T07:07:27.238Z",
-  "antal": 283,
+  "hämtad": "2026-11-08T12:06:59.328Z",
+  "antal": 300,
   "möten": [
+    {
+      "organ": "Kommunstyrelsens lokalstrategiska utskott",
+      "datum": "2026-11-12",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20lokalstrategiska%20utskott&d=2026-11-12%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Kommunstyrelsens plan- och exploateringsutskott",
+      "datum": "2026-11-10",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20plan-%20och%20exploateringsutskott&d=2026-11-10%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Servicenämnden",
+      "datum": "2026-10-29",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Servicen%C3%A4mnden&d=2026-10-29%2000:00:00&n=SEN"
+    },
+    {
+      "organ": "Kommunens revisorer",
+      "datum": "2026-10-27",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunens%20revisorer&d=2026-10-27%2000:00:00&n=REV"
+    },
+    {
+      "organ": "Utbildningsnämnden",
+      "datum": "2026-10-22",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Utbildningsn%C3%A4mnden&d=2026-10-22%2000:00:00&n=UTN"
+    },
+    {
+      "organ": "Valnämnden",
+      "datum": "2026-10-22",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Valn%C3%A4mnden&d=2026-10-22%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Vård- och omsorgsnämnden",
+      "datum": "2026-10-22",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=V%C3%A5rd-%20och%20omsorgsn%C3%A4mnden&d=2026-10-22%2000:00:00&n=VON"
+    },
+    {
+      "organ": "Kommunstyrelsen",
+      "datum": "2026-10-21",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsen&d=2026-10-21%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Skolnämnden",
+      "datum": "2026-10-21",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Skoln%C3%A4mnden&d=2026-10-21%2000:00:00&n=SKN"
+    },
+    {
+      "organ": "Kultur- och fritidsnämnden",
+      "datum": "2026-10-20",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kultur-%20och%20fritidsn%C3%A4mnden&d=2026-10-20%2000:00:00&n=KFN"
+    },
+    {
+      "organ": "Tekniska nämnden",
+      "datum": "2026-10-20",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Tekniska%20n%C3%A4mnden&d=2026-10-20%2000:00:00&n=TEN"
+    },
+    {
+      "organ": "Kommunfullmäktige",
+      "datum": "2026-10-15",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunfullm%C3%A4ktige&d=2026-10-15%2000:00:00&n=KS"
+    },
     {
       "organ": "Kommunstyrelsens lokalstrategiska utskott",
       "datum": "2026-10-08",
       "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20lokalstrategiska%20utskott&d=2026-10-08%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Kommunstyrelsens sociala hållbarhetsutskott",
+      "datum": "2026-10-08",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20sociala%20h%C3%A5llbarhetsutskott&d=2026-10-08%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Kommunstyrelsens arbetsutskott",
+      "datum": "2026-10-07",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20arbetsutskott&d=2026-10-07%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Kommunens revisorer",
+      "datum": "2026-10-06",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunens%20revisorer&d=2026-10-06%2000:00:00&n=REV"
     },
     {
       "organ": "Kommunstyrelsens arbetsgivar- och organisationsutskott",
@@ -30,6 +105,11 @@
       "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Servicen%C3%A4mnden&d=2026-09-30%2000:00:00&n=SEN"
     },
     {
+      "organ": "Kommunens revisorer",
+      "datum": "2026-09-29",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunens%20revisorer&d=2026-09-29%2000:00:00&n=REV"
+    },
+    {
       "organ": "Servicenämnden",
       "datum": "2026-09-25",
       "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Servicen%C3%A4mnden&d=2026-09-25%2000:00:00&n=SEN"
@@ -48,6 +128,11 @@
       "organ": "Skolnämnden",
       "datum": "2026-09-16",
       "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Skoln%C3%A4mnden&d=2026-09-16%2000:00:00&n=SKN"
+    },
+    {
+      "organ": "Social- och arbetsmarknadsnämnden",
+      "datum": "2026-09-16",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Social-%20och%20arbetsmarknadsn%C3%A4mnden&d=2026-09-16%2000:00:00&n=SAN"
     },
     {
       "organ": "Valnämnden",
