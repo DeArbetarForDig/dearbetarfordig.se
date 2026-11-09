@@ -30,6 +30,8 @@ const {
 
 const hasNav = Astro.slots.has('nav')
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
+// Markdown twin written by markdown-twins.mjs: /a/b/ → /a/b.md, / → /index.md
+const markdownUrl = `${Astro.url.pathname.replace(/\/$/, '') || '/index'}.md`
 ---
 
 <!doctype html>
@@ -60,6 +62,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
       href="https://api.dearbetarfordig.se/openapi.json"
       title="API (OpenAPI)"
     />
+    <link rel="alternate" type="text/markdown" href={markdownUrl} title="Markdown" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-instruktioner" />
     <script is:inline>
       // Theme: restore from localStorage or use system preference
