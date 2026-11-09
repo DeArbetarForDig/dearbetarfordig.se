@@ -1,7 +1,7 @@
 {
   "kommun": "goteborg",
   "källa": "https://politiker.goteborg.se/",
-  "hämtad": "2026-11-08T11:59:35.375Z",
+  "hämtad": "2026-11-09T15:54:47.907Z",
   "mandatperiod": {
     "från": "2022-10-15",
     "till": "2026-10-14"
@@ -275,7 +275,7 @@
       "förnamn": "Marianne",
       "efternamn": "Carlström",
       "parti": "S",
-      "email": "marianne.carlstrom@politiker.goteborg.se",
+      "email": "marianne.carlstrom@gmail.com",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads valnämnd",
@@ -363,8 +363,8 @@
         {
           "organisation": "Kommunfullmäktige, alfabetisk ordning",
           "organisationId": "8f8da821-ebcd-4d1a-8a91-b1427de24de5",
-          "roll": "Ledamot",
-          "från": "2026-10-15",
+          "roll": "Ledamot och ordförande",
+          "från": "2026-10-29",
           "till": "2030-10-14"
         }
       ],
@@ -392,7 +392,7 @@
       "förnamn": "Bengt Arne",
       "efternamn": "Reinholdson",
       "parti": "S",
-      "email": "bengtarne.reinholdson@gmail.com",
+      "email": "bengt.arne.reinholdsson@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Borgerlig vigsel, Vigselförrättare",
@@ -604,7 +604,7 @@
       "förnamn": "Björn",
       "efternamn": "Oxe",
       "parti": "M",
-      "email": "mail@bjornoxe.se",
+      "email": "bjorn.oxe@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Borgerlig vigsel, Vigselförrättare",
@@ -809,8 +809,8 @@
         {
           "organisation": "Kommunfullmäktige, alfabetisk ordning",
           "organisationId": "8f8da821-ebcd-4d1a-8a91-b1427de24de5",
-          "roll": "Ledamot",
-          "från": "2026-10-15",
+          "roll": "Ledamot och 2:e vice ordförande",
+          "från": "2026-10-29",
           "till": "2030-10-14"
         },
         {
@@ -1047,6 +1047,11 @@
         }
       ],
       "mandatperioder": [
+        {
+          "period": "2014-2018",
+          "roll": "förtroendevald",
+          "källa": "Wayback Machine"
+        },
         {
           "period": "2018-2022",
           "roll": "KF-ledamot/ersättare",
@@ -1697,7 +1702,7 @@
       "förnamn": "Mikael",
       "efternamn": "Malm",
       "parti": "MP",
-      "email": "mikael.malm@politiker.goteborg.se",
+      "email": "mikael.malm1950@gmail.com",
       "uppdrag": [
         {
           "organisation": "Göteborgs Stads valnämnd",
@@ -5129,8 +5134,8 @@
         {
           "organisation": "Kommunfullmäktige, alfabetisk ordning",
           "organisationId": "8f8da821-ebcd-4d1a-8a91-b1427de24de5",
-          "roll": "Ledamot",
-          "från": "2026-10-15",
+          "roll": "Ledamot och 1:e vice ordförande",
+          "från": "2026-10-29",
           "till": "2030-10-14"
         }
       ],
@@ -7115,7 +7120,7 @@
       "förnamn": "Musa",
       "efternamn": "Amairi",
       "parti": "SD",
-      "email": null,
+      "email": "musa.amairi@politiker.goteborg.se",
       "uppdrag": [
         {
           "organisation": "Kommunfullmäktige, alfabetisk ordning",
@@ -7648,7 +7653,18 @@
           "till": "2030-10-14"
         }
       ],
-      "mandatperioder": [],
+      "mandatperioder": [
+        {
+          "period": "2014-2018",
+          "roll": "förtroendevald",
+          "källa": "Wayback Machine"
+        },
+        {
+          "period": "2022-2026",
+          "roll": "förtroendevald",
+          "källa": "politiker.goteborg.se"
+        }
+      ],
       "närstående": null
     },
     {
@@ -7661,8 +7677,8 @@
         {
           "organisation": "Kommunfullmäktige, alfabetisk ordning",
           "organisationId": "8f8da821-ebcd-4d1a-8a91-b1427de24de5",
-          "roll": "Ledamot",
-          "från": "2026-10-15",
+          "roll": "Ledamot och 3:e vice ordförande",
+          "från": "2026-10-29",
           "till": "2030-10-14"
         },
         {
@@ -17194,6 +17210,11 @@
       ],
       "mandatperioder": [
         {
+          "period": "2014-2018",
+          "roll": "förtroendevald",
+          "källa": "Wayback Machine"
+        },
+        {
           "period": "2018-2022",
           "roll": "förtroendevald",
           "källa": "Wayback Machine"
@@ -25567,6 +25588,11 @@
         }
       ],
       "mandatperioder": [
+        {
+          "period": "2014-2018",
+          "roll": "förtroendevald",
+          "källa": "Wayback Machine"
+        },
         {
           "period": "2018-2022",
           "roll": "förtroendevald",
