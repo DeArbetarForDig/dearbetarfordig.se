@@ -1,5 +1,5 @@
 {
-  "genererad": "2026-11-08",
+  "genererad": "2026-11-09",
   "källa": "data/graf/{kf,ks}-*.json (KF- och KS-protokoll + handlingar)",
   "metod": "deterministisk härledning + regex, ingen modellbedömning",
   "antal": 1463,
@@ -910,45 +910,19 @@
           "datum": "2026-10-28",
           "nr": "701",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-11-04-§713",
+          "datum": "2026-11-04",
+          "nr": "713",
+          "beslut": "bordläggning"
         }
       ],
-      "källa_hash": "512c6bf88a20eaa4",
+      "källa_hash": "de759b7f6835952e",
       "prognos": null,
       "utfall": null,
-      "analyserbar": true,
-      "prognos_kandidat": {
-        "värd": false,
-        "skäl": "handling ej hämtad"
-      },
-      "process": {
-        "beslut": "beslut",
-        "beslutsdatum": "2026-10-28",
-        "första_behandling": "2026-10-28",
-        "handläggningsdagar": 0,
-        "bordlagd_antal": 0,
-        "enighet": "enig",
-        "votering": null,
-        "marginal": null,
-        "antal_yrkanden": 0,
-        "alternativt_yrkande": false,
-        "antal_reservationer": 0,
-        "antal_jäv": 0
-      },
-      "underlag": {
-        "har_handling": false,
-        "nämner_utredning": null,
-        "nämner_konsekvensanalys": null,
-        "nämner_barnperspektiv": null,
-        "nämner_jämställdhetsanalys": null,
-        "nämner_riskanalys": null,
-        "nämner_remiss": null
-      },
-      "ekonomi": {
-        "belopp_mnkr": [],
-        "finansiering_osäker": false,
-        "finansiering_påstådd": false,
-        "citat": null
-      }
+      "analyserbar": false,
+      "skäl": "ej_avgjord"
     },
     {
       "ärendeNr": "SLK-2026-01013",
@@ -13231,9 +13205,15 @@
           "datum": "2026-09-16",
           "nr": "568",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-11-04-§714",
+          "datum": "2026-11-04",
+          "nr": "714",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "a5af3b6e68d771e8",
+      "källa_hash": "ac4a72202badb5e7",
       "prognos": null,
       "utfall": null,
       "analyserbar": true,
@@ -13243,9 +13223,9 @@
       },
       "process": {
         "beslut": "beslut",
-        "beslutsdatum": "2026-09-16",
+        "beslutsdatum": "2026-11-04",
         "första_behandling": "2026-02-04",
-        "handläggningsdagar": 224,
+        "handläggningsdagar": 273,
         "bordlagd_antal": 0,
         "enighet": "enig",
         "votering": null,
@@ -14080,9 +14060,15 @@
           "datum": "2026-10-28",
           "nr": "672",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-11-04-§712",
+          "datum": "2026-11-04",
+          "nr": "712",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "9e2c1b7830ed0c0f",
+      "källa_hash": "e0488148cdf29098",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
@@ -14105,9 +14091,15 @@
           "datum": "2026-04-22",
           "nr": "269",
           "beslut": "beslut"
+        },
+        {
+          "id": "ks-2026-11-04-§711",
+          "datum": "2026-11-04",
+          "nr": "711",
+          "beslut": "beslut"
         }
       ],
-      "källa_hash": "23536a89fd7ae4ca",
+      "källa_hash": "746bb266bbbfa74c",
       "prognos": null,
       "utfall": null,
       "analyserbar": false,
