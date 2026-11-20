@@ -1,18 +1,73 @@
 {
   "kommun": "molndal",
   "källa": "https://www.molndal.se/kommun-och-politik/moten-protokoll-kallelser",
-  "hämtad": "2026-11-09T15:56:59.444Z",
-  "antal": 300,
+  "hämtad": "2026-11-20T09:52:13.257Z",
+  "antal": 312,
   "möten": [
+    {
+      "organ": "Kommunstyrelsen",
+      "datum": "2026-11-25",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsen&d=2026-11-25%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Kommunstyrelsens plan- och exploateringsutskott",
+      "datum": "2026-11-24",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20plan-%20och%20exploateringsutskott&d=2026-11-24%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Servicenämnden",
+      "datum": "2026-11-20",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Servicen%C3%A4mnden&d=2026-11-20%2000:00:00&n=SEN"
+    },
+    {
+      "organ": "Skolnämnden",
+      "datum": "2026-11-19",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Skoln%C3%A4mnden&d=2026-11-19%2000:00:00&n=SKN"
+    },
+    {
+      "organ": "Utbildningsnämnden",
+      "datum": "2026-11-19",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Utbildningsn%C3%A4mnden&d=2026-11-19%2000:00:00&n=UTN"
+    },
+    {
+      "organ": "Vård- och omsorgsnämnden",
+      "datum": "2026-11-19",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=V%C3%A5rd-%20och%20omsorgsn%C3%A4mnden&d=2026-11-19%2000:00:00&n=VON"
+    },
+    {
+      "organ": "Kommunfullmäktige",
+      "datum": "2026-11-18",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunfullm%C3%A4ktige&d=2026-11-18%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Tekniska nämnden",
+      "datum": "2026-11-17",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Tekniska%20n%C3%A4mnden&d=2026-11-17%2000:00:00&n=TEN"
+    },
     {
       "organ": "Kommunstyrelsens lokalstrategiska utskott",
       "datum": "2026-11-12",
       "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20lokalstrategiska%20utskott&d=2026-11-12%2000:00:00&n=KS"
     },
     {
+      "organ": "Kommunstyrelsens utskott för social hållbarhet, näringsliv och arbetsgivarfrågor",
+      "datum": "2026-11-12",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20utskott%20f%C3%B6r%20social%20h%C3%A5llbarhet,%20n%C3%A4ringsliv%20och%20arbetsgivarfr%C3%A5gor&d=2026-11-12%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Kommunstyrelsens arbetsutskott",
+      "datum": "2026-11-11",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20arbetsutskott&d=2026-11-11%2000:00:00&n=KS"
+    },
+    {
       "organ": "Kommunstyrelsens plan- och exploateringsutskott",
       "datum": "2026-11-10",
       "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20plan-%20och%20exploateringsutskott&d=2026-11-10%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Kommunstyrelsens arbetsutskott",
+      "datum": "2026-11-04",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20arbetsutskott&d=2026-11-04%2000:00:00&n=KS"
     },
     {
       "organ": "Servicenämnden",
@@ -183,6 +238,11 @@
       "organ": "Kommunstyrelsens arbetsutskott",
       "datum": "2026-09-02",
       "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Kommunstyrelsens%20arbetsutskott&d=2026-09-02%2000:00:00&n=KS"
+    },
+    {
+      "organ": "Social- och arbetsmarknadsnämnden",
+      "datum": "2026-08-27",
+      "url": "https://webbdiarium.molndal.se/#!/search/?t=1&i=Social-%20och%20arbetsmarknadsn%C3%A4mnden&d=2026-08-27%2000:00:00&n=SAN"
     },
     {
       "organ": "Vård- och omsorgsnämnden",
