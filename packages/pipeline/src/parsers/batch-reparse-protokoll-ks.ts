@@ -14,6 +14,11 @@ const PARSER = join(import.meta.dirname, 'parse-protokoll-ks.ts')
 
 mkdirSync(TMP_DIR, { recursive: true })
 
+// Kommunen namnger filerna olika: "Protokoll_20261104.pdf", "Protokoll_ 20260318.pdf",
+// "Protokoll_20261014.pub.pdf", "Protokoll Kommunstyrelsen 20260218_Bortredigerad.pdf".
+// Inte Snabbprotokoll, och inte _OJ (omedelbart justerade paragrafer, en delmängd).
+const ÄR_PROTOKOLL = /^protokoll[_ ]+(kommunstyrelsen )?\d+(\.pub|_bortredigerad)?\.pdf$/i
+
 function getProtokollUrls(): Array<{ datum: string; url: string }> {
   const urls: Array<{ datum: string; url: string }> = []
   for (const year of ['2024', '2025', '2026']) {
@@ -22,7 +27,7 @@ function getProtokollUrls(): Array<{ datum: string; url: string }> {
     const data = JSON.parse(readFileSync(path, 'utf-8'))
     for (const s of data.sammanträden) {
       for (const h of s.handlingar) {
-        if (h.titel.match(/^protokoll_\d+\.pdf$/i)) {
+        if (ÄR_PROTOKOLL.test(h.titel)) {
           urls.push({ datum: s.datum, url: h.url })
         }
       }
