@@ -112,7 +112,7 @@ async function seedPersonerOchVal(client: postgres.Sql, schema: string) {
     for (const p of polData.politiker) {
       await client`
         INSERT INTO ${s}.politiker (id, fornamn, efternamn, parti, email, uppdrag, sociala)
-        VALUES (${p.id}, ${p.förnamn}, ${p.efternamn}, ${p.parti}, ${publiceradEmail(p.email)}, ${client.json(p.uppdrag)}, ${client.json({ mandatperioder: p.mandatperioder || [], närstående: null })})
+        VALUES (${p.id}, ${p.förnamn}, ${p.efternamn}, ${p.parti}, ${publiceradEmail(p.email)}, ${client.json(p.uppdrag)}, ${client.json({ mandatperioder: p.mandatperioder || [], närstående: null, historisk: p.historisk === true })})
         ON CONFLICT (id) DO UPDATE SET
           fornamn = EXCLUDED.fornamn, efternamn = EXCLUDED.efternamn,
           parti = EXCLUDED.parti, email = EXCLUDED.email, uppdrag = EXCLUDED.uppdrag, sociala = EXCLUDED.sociala`

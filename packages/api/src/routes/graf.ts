@@ -44,6 +44,7 @@ grafRouter.get('/v1/:kommun/graf/politiker-per-nämnd', async (c) => {
       JOIN ${sql(schema)}.graf_nodes gp ON gp.id = e.from_id
       LEFT JOIN ${sql(schema)}.politiker p ON p.id = replace(gp.id, 'politiker-', '')::uuid
       WHERE e.typ = 'ledamot_i' AND gp.typ = 'politiker' AND e.data->>'roll' NOT LIKE 'Ersättare%'
+        AND COALESCE(p.sociala->>'historisk', 'false') <> 'true'
       ORDER BY n.label, gp.label`
 
   // Group by nämnd, then sort each nämnd's politicians by party size (desc)

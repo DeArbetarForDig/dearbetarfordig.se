@@ -25,6 +25,9 @@ const PolitikerSummary = z
     email: z.string().nullable(),
     antalUppdrag: z.number(),
     mandatperioder: z.array(z.object({ period: z.string(), roll: z.string() })),
+    historisk: z
+      .boolean()
+      .openapi({ description: 'Avgången — finns inte längre i kommunens förtroendemannaregister' }),
   })
   .openapi('PolitikerSummary')
 const PolitikerList = halCollectionSchema(PolitikerSummary).openapi('PolitikerList')
@@ -66,6 +69,7 @@ politikerRouter.openapi(politikerRoute, async (c) => {
     uppdrag: p.uppdrag,
     antalUppdrag: (p.uppdrag as any[]).length,
     mandatperioder: (p.sociala as any)?.mandatperioder || [],
+    historisk: (p.sociala as any)?.historisk === true,
     aktivSedan:
       (p.sociala as any)?.mandatperioder?.[0]?.period?.split('-')[0] ||
       ((p.uppdrag as any[]) || []).reduce((earliest: string | null, u: any) => {

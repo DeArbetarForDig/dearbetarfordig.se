@@ -20,12 +20,13 @@ import {
   getPolitiker,
   getSammantraden,
 } from '../../data/api'
+import { mandatperiod } from '../../data/mandatperiod'
 import Kommun from '../../layouts/Kommun.astro'
 
 const KOMMUN = 'molndal'
 const TROMAN = 'https://molndal.tromanpublik.se'
 
-const [politiker, mandat, sammanträden, budget, metrics, möten, allaBeslut] = await Promise.all([
+const [roster, mandat, sammanträden, budget, metrics, möten, allaBeslut] = await Promise.all([
   getPolitiker(KOMMUN),
   getMandat(KOMMUN),
   getSammantraden(KOMMUN),
@@ -35,7 +36,11 @@ const [politiker, mandat, sammanträden, budget, metrics, möten, allaBeslut] = 
   getAllBeslut(KOMMUN),
 ])
 
-// --- Mandatperioden 2022–2026 ur protokollen (parse-protokoll-molndal.ts) ---
+// Avgångna politiker ligger kvar i rostret (historisk) för sina voteringar,
+// men hör inte hemma i dagens sammansättning
+const politiker = roster.filter((p) => !p.historisk)
+
+// --- Sedan oktober 2022 ur protokollen (parse-protokoll-molndal.ts) ---
 const kfMöten = möten.filter((m: any) => m.label?.includes('KF'))
 const ksMöten = möten.filter((m: any) => m.label?.includes('KS'))
 const kfBeslut = allaBeslut.filter((b: any) => b.organ === 'KF')
@@ -115,7 +120,7 @@ const ledamöterI = (organ: string) =>
 const rollI = (p: Politiker, organ: string) =>
   (p.uppdrag || []).find((u) => u.organisation === organ)?.roll ?? ''
 
-// Partiordning: mandat i KF 2022–2026, störst först
+// Partiordning: ledamöter i KF, störst först
 const kf = ledamöterI('Kommunfullmäktige')
 const kfPerParti = new Map<string, number>()
 for (const p of kf) kfPerParti.set(p.parti, (kfPerParti.get(p.parti) || 0) + 1)
@@ -145,13 +150,7 @@ const seats = [...kf].sort(efterParti).map((p, i) => ({
 const ks = ledamöterI('Kommunstyrelsen').sort(efterParti)
 const ksPresidium = ks.filter((p) => !/^Ledamot\b/i.test(rollI(p, 'Kommunstyrelsen')))
 
-// Mandatperiod 2022–2026 (kommunallagen 5 kap. 7 §: 15 oktober valåret)
-const mandatStart = new Date('2022-10-15')
-const mandatSlut = new Date('2026-10-15')
-const mandatProcent = Math.min(
-  100,
-  ((Date.now() - mandatStart.getTime()) / (mandatSlut.getTime() - mandatStart.getTime())) * 100,
-)
+const period = mandatperiod()
 
 // Val 2026 — Valmyndighetens slutliga resultat
 const räkning = mandat[0]?.räkningstillfälle
@@ -203,19 +202,18 @@ const person = (p: Politiker, roll?: string) =>
   <section class="mb-12">
     <h1 class="text-4xl font-bold mb-2">Mölndal</h1>
     <p class="text-(--color-text-muted) mb-4">
-      Kommunfullmäktige — {kf.length} ledamöter som beslutar för dig. Från 15 oktober 2026 tar den nya
-      fullmäktigeförsamlingen över.
+      Kommunfullmäktige — {kf.length} ledamöter som beslutar för dig.
     </p>
     <ProgressBar
-      label="Mandatperiod 2022–2026"
-      value={mandatProcent}
-      valueLabel={`${Math.round(mandatProcent)}% avklarad`}
+      label={`Mandatperiod ${period.label}`}
+      value={period.procent}
+      valueLabel={`${Math.round(period.procent)}% avklarad`}
       class="max-w-sm"
     />
   </section>
 
   <section class="mb-12">
-    <h2 class="text-2xl font-bold mb-4">Kommunfullmäktige 2022–2026</h2>
+    <h2 class="text-2xl font-bold mb-4">Kommunfullmäktige {period.label}</h2>
     <div class="mx-auto p-6 rounded-xl bg-(--color-surface) border border-(--color-border)">
       <Chamber seats={seats} mode="overview" />
     </div>
@@ -251,7 +249,7 @@ const person = (p: Politiker, roll?: string) =>
   <section class="mb-12">
     <h2 class="text-2xl font-bold mb-2">Demokratisk hälsa</h2>
     <p class="text-sm text-(--color-text-muted) mb-4">
-      Mandatperioden 2022–2026 ur {kfMöten.length} KF- och {ksMöten.length} KS-protokoll —
+      Sedan oktober 2022, ur {kfMöten.length} KF- och {ksMöten.length} KS-protokoll —
       <a href="/molndal/kf" class="underline hover:text-(--color-primary)">alla beslut och sammanträden</a>.
       Debattmåtten (talartid, Gini) saknas: Mölndal publicerar inga yttrandeprotokoll.
     </p>

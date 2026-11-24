@@ -27,6 +27,8 @@ export interface Politiker {
   antalUppdrag: number
   aktivSedan: string | null
   mandatperioder: Array<{ period: string; roll: string }>
+  /** Avgången — uppdragen är de senast kända, inte aktuella */
+  historisk: boolean
   uppdrag: Array<{ organisation: string; roll: string; från?: string; till?: string }>
 }
 
@@ -35,6 +37,7 @@ export interface Beslut {
   paragraf: string | null
   rubrik: string
   datum: string
+  organ: string
   beslut: 'bifall' | 'avslag' | 'bordläggning' | null
   votering?: { ja: number; nej: number; avstår: number }
   ärendeNr?: string
