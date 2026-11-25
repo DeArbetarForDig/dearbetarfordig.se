@@ -164,7 +164,7 @@ jobs:
   # "fetch failed" once the dev stack was torn down. Needs the same
   # Postgres-service + seed + running-API setup as the `test` job, not just
   # `pnpm --filter @daf/web build` on its own.
-  deploy-pages:
+  build-pages:
     needs: [lint, test]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
@@ -186,11 +186,7 @@ jobs:
       DATABASE_URL: postgresql://daf:daf_local@localhost:5432/daf
     permissions:
       contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      pages: read
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -220,5 +216,20 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: packages/web/dist
+
+  # Separate job on purpose: in the same job deploy-pages listed artifacts
+  # ~0.4 s after the upload and sometimes didn't see "github-pages" yet
+  # (confirmed by real runs: 2026-11-23, 2026-11-25). Starting a new runner
+  # adds a delay, and a failed publish can be re-run without the 25 min build.
+  deploy-pages:
+    needs: build-pages
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
